@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Learn how to use the TritonRemoteModel class for interacting with remote Triton Inference Server models. Detailed guide with code examples and attributes." name="description"/>
+<meta content="Reference for utilities supporting telemetry, analytics, and event handling with lightweight background requests." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/reference/utils/triton/" rel="canonical"/>
-<link href="../tqdm/" rel="prev"/>
-<link href="../tuner/" rel="next"/>
+<link href="https://docs.ultralytics.com/reference/utils/events/" rel="canonical"/>
+<link href="../errors/" rel="prev"/>
+<link href="../export/" rel="next"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.18" name="generator"/>
-<title>Reference for ultralytics/utils/triton.py - Ultralytics YOLO Docs</title>
+<title>Reference for ultralytics/utils/events.py - Ultralytics YOLO Docs</title>
 <link href="../../../assets/stylesheets/main.7e37652d.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -21,13 +21,13 @@
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="triton" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, TritonRemoteModel, Triton Inference Server, model client, inference, remote model, machine learning, AI, Python" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/reference/utils/triton" property="og:url"/><meta content="triton" property="og:title"/><meta content="Learn how to use the TritonRemoteModel class for interacting with remote Triton Inference Server models. Detailed guide with code examples and attributes." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/reference/utils/triton" property="twitter:url"/><meta content="triton" property="twitter:title"/><meta content="Learn how to use the TritonRemoteModel class for interacting with remote Triton Inference Server models. Detailed guide with code examples and attributes." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "triton", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-09-11 18:30:13 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to use the TritonRemoteModel class for interacting with remote Triton Inference Server models. Detailed guide with code examples and attributes."}</script></head>
+<meta content="events" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO, utils, telemetry, analytics, events, anonymization, background, JSON, POST, Python" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/reference/utils/events" property="og:url"/><meta content="events" property="og:title"/><meta content="Reference for utilities supporting telemetry, analytics, and event handling with lightweight background requests." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/reference/utils/events" property="twitter:url"/><meta content="events" property="twitter:title"/><meta content="Reference for utilities supporting telemetry, analytics, and event handling with lightweight background requests." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "events", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2025-09-05 23:02:02 +0200", "dateModified": "2025-09-05 23:02:02 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Reference for utilities supporting telemetry, analytics, and event handling with lightweight background requests."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#reference-for-ultralyticsutilstritonpy">
+<a class="md-skip" href="#reference-for-ultralyticsutilseventspy">
           Skip to content
         </a>
 </div>
@@ -60,7 +60,7 @@
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
-              triton
+              events
           </span>
 </div>
 </div>
@@ -974,12 +974,52 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../events/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    events
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     events
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.events.Events">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-class"></code> Events
+    </span>
+</a>
+<nav aria-label=" Events" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.events.Events.__call__">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> __call__
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.events._post">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-function"></code> _post
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../export/">
@@ -1079,45 +1119,12 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    triton
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../triton/">
 <span class="md-ellipsis">
     triton
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics.utils.triton.TritonRemoteModel">
-<span class="md-ellipsis">
-<code class="doc-symbol doc-symbol-toc doc-symbol-class"></code> TritonRemoteModel
-    </span>
-</a>
-<nav aria-label=" TritonRemoteModel" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics.utils.triton.TritonRemoteModel.__call__">
-<span class="md-ellipsis">
-<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> __call__
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../tuner/">
@@ -1155,15 +1162,15 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics.utils.triton.TritonRemoteModel">
+<a class="md-nav__link" href="#ultralytics.utils.events.Events">
 <span class="md-ellipsis">
-<code class="doc-symbol doc-symbol-toc doc-symbol-class"></code> TritonRemoteModel
+<code class="doc-symbol doc-symbol-toc doc-symbol-class"></code> Events
     </span>
 </a>
-<nav aria-label=" TritonRemoteModel" class="md-nav">
+<nav aria-label=" Events" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics.utils.triton.TritonRemoteModel.__call__">
+<a class="md-nav__link" href="#ultralytics.utils.events.Events.__call__">
 <span class="md-ellipsis">
 <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> __call__
     </span>
@@ -1172,6 +1179,13 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.events._post">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-function"></code> _post
+    </span>
+</a>
+</li>
 </ul>
 </nav>
 </div>
@@ -1179,25 +1193,26 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/reference/utils/triton.md" rel="edit" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/reference/utils/events.md" rel="edit" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a><a class="md-content__button md-icon" href="javascript:void(0)" onclick="copyMarkdownForLLM(this); return false;" title="Copy page in Markdown format"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg></a>
-<h1 id="reference-for-ultralyticsutilstritonpy">Reference for <code>ultralytics/utils/triton.py</code></h1>
+<h1 id="reference-for-ultralyticsutilseventspy">Reference for <code>ultralytics/utils/events.py</code></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This file is available at <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/utils/triton.py">https://github.com/ultralytics/ultralytics/blob/main/ultralytics/utils/triton.py</a>. If you spot a problem please help fix it by <a href="https://docs.ultralytics.com/help/contributing/">contributing</a> a <a href="https://github.com/ultralytics/ultralytics/edit/main/ultralytics/utils/triton.py">Pull Request</a> 🛠️. Thank you 🙏!</p>
+<p>This file is available at <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/utils/events.py">https://github.com/ultralytics/ultralytics/blob/main/ultralytics/utils/events.py</a>. If you spot a problem please help fix it by <a href="https://docs.ultralytics.com/help/contributing/">contributing</a> a <a href="https://github.com/ultralytics/ultralytics/edit/main/ultralytics/utils/events.py">Pull Request</a> 🛠️. Thank you 🙏!</p>
 </div>
 <p><br/></p>
 <div class="doc doc-object doc-class">
-<h2 class="doc doc-heading" id="ultralytics.utils.triton.TritonRemoteModel">
-<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.utils.triton.TritonRemoteModel</span>
+<h2 class="doc doc-heading" id="ultralytics.utils.events.Events">
+<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.utils.events.Events</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">TritonRemoteModel</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">''</span><span class="p">,</span> <span class="n">scheme</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">''</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">Events</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Client for interacting with a remote Triton Inference Server model.</p>
-<p>This class provides a convenient interface for sending inference requests to a Triton Inference Server
-and processing the responses. Supports both HTTP and gRPC communication protocols.</p>
+<p>Collect and send anonymous usage analytics with rate-limiting.</p>
+<p>Event collection and transmission are enabled when sync is enabled in settings, the current process is rank -1 or 0,
+tests are not running, the environment is online, and the installation source is either pip or the official
+Ultralytics GitHub repository.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -1209,108 +1224,68 @@ and processing the responses. Supports both HTTP and gRPC communication protocol
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code><span title="ultralytics.utils.triton.TritonRemoteModel.endpoint">endpoint</span></code></td>
+<td><code><span title="ultralytics.utils.events.Events.url">url</span></code></td>
 <td>
 <code><span title="str">str</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>The name of the model on the Triton server.</p>
+<p>Measurement Protocol endpoint for receiving anonymous events.</p>
 </div>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code><span title="ultralytics.utils.triton.TritonRemoteModel.url">url</span></code></td>
+<td><code><span title="ultralytics.utils.events.Events.events">events</span></code></td>
 <td>
-<code><span title="str">str</span></code>
+<code><span title="list">list</span>[<span title="dict">dict</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>The URL of the Triton server.</p>
+<p>In-memory queue of event payloads awaiting transmission.</p>
 </div>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code><span title="ultralytics.utils.triton.TritonRemoteModel.triton_client">triton_client</span></code></td>
+<td><code><span title="ultralytics.utils.events.Events.rate_limit">rate_limit</span></code></td>
 <td>
+<code><span title="float">float</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>The Triton client (either HTTP or gRPC).</p>
+<p>Minimum time in seconds between POST requests.</p>
 </div>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code><span title="ultralytics.utils.triton.TritonRemoteModel.InferInput">InferInput</span></code></td>
+<td><code><span title="ultralytics.utils.events.Events.t">t</span></code></td>
 <td>
+<code><span title="float">float</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>The input class for the Triton client.</p>
+<p>Timestamp of the last transmission in seconds since the epoch.</p>
 </div>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code><span title="ultralytics.utils.triton.TritonRemoteModel.InferRequestedOutput">InferRequestedOutput</span></code></td>
+<td><code><span title="ultralytics.utils.events.Events.metadata">metadata</span></code></td>
 <td>
+<code><span title="dict">dict</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>The output request class for the Triton client.</p>
+<p>Static metadata describing runtime, installation source, and environment.</p>
 </div>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code><span title="ultralytics.utils.triton.TritonRemoteModel.input_formats">input_formats</span></code></td>
+<td><code><span title="ultralytics.utils.events.Events.enabled">enabled</span></code></td>
 <td>
-<code><span title="List">List</span>[<span title="str">str</span>]</code>
+<code><span title="bool">bool</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>The data types of the model inputs.</p>
-</div>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td><code><span title="ultralytics.utils.triton.TritonRemoteModel.np_input_formats">np_input_formats</span></code></td>
-<td>
-<code><span title="List">List</span>[<span title="type">type</span>]</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>The numpy data types of the model inputs.</p>
-</div>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td><code><span title="ultralytics.utils.triton.TritonRemoteModel.input_names">input_names</span></code></td>
-<td>
-<code><span title="List">List</span>[<span title="str">str</span>]</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>The names of the model inputs.</p>
-</div>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td><code><span title="ultralytics.utils.triton.TritonRemoteModel.output_names">output_names</span></code></td>
-<td>
-<code><span title="List">List</span>[<span title="str">str</span>]</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>The names of the model outputs.</p>
-</div>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td><code><span title="ultralytics.utils.triton.TritonRemoteModel.metadata">metadata</span></code></td>
-<td>
-</td>
-<td>
-<div class="doc-md-description">
-<p>The metadata associated with the model.</p>
+<p>Flag indicating whether analytics collection is active.</p>
 </div>
 </td>
 </tr>
@@ -1326,101 +1301,18 @@ and processing the responses. Supports both HTTP and gRPC communication protocol
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code><a class="autorefs autorefs-internal" href="#ultralytics.utils.triton.TritonRemoteModel.__call__" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;__call__&lt;/span&gt; (&lt;code&gt;ultralytics.utils.triton.TritonRemoteModel.__call__&lt;/code&gt;)'>__call__</a></code></td>
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.utils.events.Events.__call__" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;__call__&lt;/span&gt; (&lt;code&gt;ultralytics.utils.events.Events.__call__&lt;/code&gt;)'>__call__</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Call the model with the given inputs and return the outputs.</p>
+<p>Queue an event and trigger a non-blocking send when the rate limit elapses.</p>
 </div>
 </td>
 </tr>
 </tbody>
 </table>
-<p><span class="doc-section-title">Examples:</span></p>
-<p>Initialize a Triton client with HTTP</p>
-<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">TritonRemoteModel</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">"localhost:8000"</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="s2">"yolov8"</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s2">"http"</span><span class="p">)</span>
-</code></pre></div>
-<p>Make inference with numpy arrays</p>
-<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
-</code></pre></div>
-<p>Arguments may be provided individually or parsed from a collective 'url' argument of the form
-<scheme>://<netloc>/<endpoint>/<task_name></task_name></endpoint></netloc></scheme></p>
-<p><span class="doc-section-title">Parameters:</span></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr class="doc-section-item">
-<td>
-<code>url</code>
-</td>
-<td>
-<code><span title="str">str</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>The URL of the Triton server.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td>
-<code>endpoint</code>
-</td>
-<td>
-<code><span title="str">str</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>The name of the model on the Triton server.</p>
-</div>
-</td>
-<td>
-<code>''</code>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td>
-<code>scheme</code>
-</td>
-<td>
-<code><span title="str">str</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>The communication scheme ('http' or 'grpc').</p>
-</div>
-</td>
-<td>
-<code>''</code>
-</td>
-</tr>
-</tbody>
-</table>
-<p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">TritonRemoteModel</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">"localhost:8000"</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="s2">"yolov8"</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s2">"http"</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">TritonRemoteModel</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">"http://localhost:8000/yolov8"</span><span class="p">)</span>
-</code></pre></div>
 <details class="quote">
-<summary>Source code in <code>ultralytics/utils/triton.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>40</span>
-<span>41</span>
-<span>42</span>
-<span>43</span>
-<span>44</span>
-<span>45</span>
-<span>46</span>
-<span>47</span>
-<span>48</span>
-<span>49</span>
+<summary>Source code in <code>ultralytics/utils/events.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>49</span>
 <span>50</span>
 <span>51</span>
 <span>52</span>
@@ -1442,83 +1334,40 @@ and processing the responses. Supports both HTTP and gRPC communication protocol
 <span>68</span>
 <span>69</span>
 <span>70</span>
-<span>71</span>
-<span>72</span>
-<span>73</span>
-<span>74</span>
-<span>75</span>
-<span>76</span>
-<span>77</span>
-<span>78</span>
-<span>79</span>
-<span>80</span>
-<span>81</span>
-<span>82</span>
-<span>83</span>
-<span>84</span>
-<span>85</span>
-<span>86</span>
-<span>87</span>
-<span>88</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="n">scheme</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Initialize the TritonRemoteModel for interacting with a remote Triton Inference Server.</span>
-<span></span>
-<span></span><span class="sd">    Arguments may be provided individually or parsed from a collective 'url' argument of the form</span>
-<span></span><span class="sd">    &lt;scheme&gt;://&lt;netloc&gt;/&lt;endpoint&gt;/&lt;task_name&gt;</span>
-<span></span>
-<span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        url (str): The URL of the Triton server.</span>
-<span></span><span class="sd">        endpoint (str, optional): The name of the model on the Triton server.</span>
-<span></span><span class="sd">        scheme (str, optional): The communication scheme ('http' or 'grpc').</span>
-<span></span>
-<span></span><span class="sd">    Examples:</span>
-<span></span><span class="sd">        &gt;&gt;&gt; model = TritonRemoteModel(url="localhost:8000", endpoint="yolov8", scheme="http")</span>
-<span></span><span class="sd">        &gt;&gt;&gt; model = TritonRemoteModel(url="http://localhost:8000/yolov8")</span>
-<span></span><span class="sd">    """</span>
-<span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">endpoint</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">scheme</span><span class="p">:</span>  <span class="c1"># Parse all args from URL string</span>
-<span></span>        <span class="n">splits</span> <span class="o">=</span> <span class="n">urlsplit</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span></span>        <span class="n">endpoint</span> <span class="o">=</span> <span class="n">splits</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span></span>        <span class="n">scheme</span> <span class="o">=</span> <span class="n">splits</span><span class="o">.</span><span class="n">scheme</span>
-<span></span>        <span class="n">url</span> <span class="o">=</span> <span class="n">splits</span><span class="o">.</span><span class="n">netloc</span>
-<span></span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">endpoint</span> <span class="o">=</span> <span class="n">endpoint</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">url</span>
-<span></span>
-<span></span>    <span class="c1"># Choose the Triton client based on the communication scheme</span>
-<span></span>    <span class="k">if</span> <span class="n">scheme</span> <span class="o">==</span> <span class="s2">"http"</span><span class="p">:</span>
-<span></span>        <span class="kn">import</span><span class="w"> </span><span class="nn">tritonclient.http</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">client</span>  <span class="c1"># noqa</span>
-<span></span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">triton_client</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">InferenceServerClient</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ssl</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span></span>        <span class="n">config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">triton_client</span><span class="o">.</span><span class="n">get_model_config</span><span class="p">(</span><span class="n">endpoint</span><span class="p">)</span>
-<span></span>    <span class="k">else</span><span class="p">:</span>
-<span></span>        <span class="kn">import</span><span class="w"> </span><span class="nn">tritonclient.grpc</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">client</span>  <span class="c1"># noqa</span>
-<span></span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">triton_client</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">InferenceServerClient</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ssl</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span></span>        <span class="n">config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">triton_client</span><span class="o">.</span><span class="n">get_model_config</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">as_json</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s2">"config"</span><span class="p">]</span>
-<span></span>
-<span></span>    <span class="c1"># Sort output names alphabetically, i.e. 'output0', 'output1', etc.</span>
-<span></span>    <span class="n">config</span><span class="p">[</span><span class="s2">"output"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">"output"</span><span class="p">],</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"name"</span><span class="p">))</span>
-<span></span>
-<span></span>    <span class="c1"># Define model attributes</span>
-<span></span>    <span class="n">type_map</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"TYPE_FP32"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="s2">"TYPE_FP16"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float16</span><span class="p">,</span> <span class="s2">"TYPE_UINT8"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">}</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">InferRequestedOutput</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">InferRequestedOutput</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">InferInput</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">InferInput</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">input_formats</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">"data_type"</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s2">"input"</span><span class="p">]]</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">np_input_formats</span> <span class="o">=</span> <span class="p">[</span><span class="n">type_map</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_formats</span><span class="p">]</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">input_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s2">"input"</span><span class="p">]]</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">output_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s2">"output"</span><span class="p">]]</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"parameters"</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"metadata"</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"string_value"</span><span class="p">,</span> <span class="s2">"None"</span><span class="p">))</span>
+<span>71</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Initialize the Events instance with queue, rate limiter, and environment metadata."""</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">events</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># pending events</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">rate_limit</span> <span class="o">=</span> <span class="mf">30.0</span>  <span class="c1"># rate limit (seconds)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># last send timestamp (seconds)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span>
+<span></span>        <span class="s2">"cli"</span><span class="p">:</span> <span class="n">Path</span><span class="p">(</span><span class="n">ARGV</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">"yolo"</span><span class="p">,</span>
+<span></span>        <span class="s2">"install"</span><span class="p">:</span> <span class="s2">"git"</span> <span class="k">if</span> <span class="n">GIT</span><span class="o">.</span><span class="n">is_repo</span> <span class="k">else</span> <span class="s2">"pip"</span> <span class="k">if</span> <span class="n">IS_PIP_PACKAGE</span> <span class="k">else</span> <span class="s2">"other"</span><span class="p">,</span>
+<span></span>        <span class="s2">"python"</span><span class="p">:</span> <span class="n">PYTHON_VERSION</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">"."</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span>  <span class="c1"># i.e. 3.13</span>
+<span></span>        <span class="s2">"CPU"</span><span class="p">:</span> <span class="n">get_cpu_info</span><span class="p">(),</span>
+<span></span>        <span class="c1"># "GPU": get_gpu_info(index=0) if cuda else None,</span>
+<span></span>        <span class="s2">"version"</span><span class="p">:</span> <span class="n">__version__</span><span class="p">,</span>
+<span></span>        <span class="s2">"env"</span><span class="p">:</span> <span class="n">ENVIRONMENT</span><span class="p">,</span>
+<span></span>        <span class="s2">"session_id"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1e15</span><span class="p">),</span>
+<span></span>        <span class="s2">"engagement_time_msec"</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+<span></span>    <span class="p">}</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">enabled</span> <span class="o">=</span> <span class="p">(</span>
+<span></span>        <span class="n">SETTINGS</span><span class="p">[</span><span class="s2">"sync"</span><span class="p">]</span>
+<span></span>        <span class="ow">and</span> <span class="n">RANK</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}</span>
+<span></span>        <span class="ow">and</span> <span class="ow">not</span> <span class="n">TESTS_RUNNING</span>
+<span></span>        <span class="ow">and</span> <span class="n">ONLINE</span>
+<span></span>        <span class="ow">and</span> <span class="p">(</span><span class="n">IS_PIP_PACKAGE</span> <span class="ow">or</span> <span class="n">GIT</span><span class="o">.</span><span class="n">origin</span> <span class="o">==</span> <span class="s2">"https://github.com/ultralytics/ultralytics.git"</span><span class="p">)</span>
+<span></span>    <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
 <div class="doc doc-object doc-function">
-<h3 class="doc doc-heading" id="ultralytics.utils.triton.TritonRemoteModel.__call__">
+<h3 class="doc doc-heading" id="ultralytics.utils.events.Events.__call__">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">__call__</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">__call__</span><span class="p">(</span><span class="o">*</span><span class="n">inputs</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">__call__</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Call the model with the given inputs and return inference results.</p>
+<p>Queue an event and flush the queue asynchronously when the rate limit elapses.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1532,52 +1381,58 @@ and processing the responses. Supports both HTTP and gRPC communication protocol
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code>*inputs</code>
+<code>cfg</code>
 </td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span></code>
+<code><a class="autorefs autorefs-internal" href="../__init__/#ultralytics.utils.IterableSimpleNamespace" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.IterableSimpleNamespace&lt;/span&gt;'>IterableSimpleNamespace</a></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Input data to the model. Each array should match the expected shape and type
-for the corresponding model input.</p>
+<p>The configuration object containing mode and task information.</p>
 </div>
 </td>
 <td>
-<code>()</code>
+<em>required</em>
 </td>
 </tr>
-</tbody>
-</table>
-<p><span class="doc-section-title">Returns:</span></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
+<code>device</code>
+</td>
+<td>
+<code><span title="torch.device">device</span> | <span title="str">str</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Model outputs with the same dtype as the input. Each element in the list
-corresponds to one of the model's output tensors.</p>
+<p>The device type (e.g., 'cpu', 'cuda').</p>
 </div>
+</td>
+<td>
+<code>None</code>
 </td>
 </tr>
 </tbody>
 </table>
-<p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">TritonRemoteModel</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">"localhost:8000"</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="s2">"yolov8"</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s2">"http"</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
-</code></pre></div>
 <details class="quote">
-<summary>Source code in <code>ultralytics/utils/triton.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 90</span>
+<summary>Source code in <code>ultralytics/utils/events.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 73</span>
+<span> 74</span>
+<span> 75</span>
+<span> 76</span>
+<span> 77</span>
+<span> 78</span>
+<span> 79</span>
+<span> 80</span>
+<span> 81</span>
+<span> 82</span>
+<span> 83</span>
+<span> 84</span>
+<span> 85</span>
+<span> 86</span>
+<span> 87</span>
+<span> 88</span>
+<span> 89</span>
+<span> 90</span>
 <span> 91</span>
 <span> 92</span>
 <span> 93</span>
@@ -1599,73 +1454,101 @@ corresponds to one of the model's output tensors.</p>
 <span>109</span>
 <span>110</span>
 <span>111</span>
-<span>112</span>
-<span>113</span>
-<span>114</span>
-<span>115</span>
-<span>116</span>
-<span>117</span>
-<span>118</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">inputs</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span>112</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Call the model with the given inputs and return inference results.</span>
+<span></span><span class="sd">    Queue an event and flush the queue asynchronously when the rate limit elapses.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        *inputs (np.ndarray): Input data to the model. Each array should match the expected shape and type</span>
-<span></span><span class="sd">            for the corresponding model input.</span>
-<span></span>
-<span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[np.ndarray]): Model outputs with the same dtype as the input. Each element in the list</span>
-<span></span><span class="sd">            corresponds to one of the model's output tensors.</span>
-<span></span>
-<span></span><span class="sd">    Examples:</span>
-<span></span><span class="sd">        &gt;&gt;&gt; model = TritonRemoteModel(url="localhost:8000", endpoint="yolov8", scheme="http")</span>
-<span></span><span class="sd">        &gt;&gt;&gt; outputs = model(np.random.rand(1, 3, 640, 640).astype(np.float32))</span>
+<span></span><span class="sd">        cfg (IterableSimpleNamespace): The configuration object containing mode and task information.</span>
+<span></span><span class="sd">        device (torch.device | str, optional): The device type (e.g., 'cpu', 'cuda').</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="n">infer_inputs</span> <span class="o">=</span> <span class="p">[]</span>
-<span></span>    <span class="n">input_format</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span>
-<span></span>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
-<span></span>        <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">np_input_formats</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
-<span></span>            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">np_input_formats</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-<span></span>        <span class="n">infer_input</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">InferInput</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="p">[</span><span class="o">*</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_formats</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"TYPE_"</span><span class="p">,</span> <span class="s2">""</span><span class="p">))</span>
-<span></span>        <span class="n">infer_input</span><span class="o">.</span><span class="n">set_data_from_numpy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span></span>        <span class="n">infer_inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">infer_input</span><span class="p">)</span>
+<span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">enabled</span><span class="p">:</span>
+<span></span>        <span class="c1"># Events disabled, do nothing</span>
+<span></span>        <span class="k">return</span>
 <span></span>
-<span></span>    <span class="n">infer_outputs</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">InferRequestedOutput</span><span class="p">(</span><span class="n">output_name</span><span class="p">)</span> <span class="k">for</span> <span class="n">output_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_names</span><span class="p">]</span>
-<span></span>    <span class="n">outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">triton_client</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="n">infer_inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="n">infer_outputs</span><span class="p">)</span>
+<span></span>    <span class="c1"># Attempt to enqueue a new event</span>
+<span></span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">25</span><span class="p">:</span>  <span class="c1"># Queue limited to 25 events to bound memory and traffic</span>
+<span></span>        <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+<span></span>            <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">,</span>
+<span></span>            <span class="s2">"task"</span><span class="p">:</span> <span class="n">cfg</span><span class="o">.</span><span class="n">task</span><span class="p">,</span>
+<span></span>            <span class="s2">"model"</span><span class="p">:</span> <span class="n">cfg</span><span class="o">.</span><span class="n">model</span> <span class="k">if</span> <span class="n">cfg</span><span class="o">.</span><span class="n">model</span> <span class="ow">in</span> <span class="n">GITHUB_ASSETS_NAMES</span> <span class="k">else</span> <span class="s2">"custom"</span><span class="p">,</span>
+<span></span>            <span class="s2">"device"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">device</span><span class="p">),</span>
+<span></span>        <span class="p">}</span>
+<span></span>        <span class="k">if</span> <span class="n">cfg</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s2">"export"</span><span class="p">:</span>
+<span></span>            <span class="n">params</span><span class="p">[</span><span class="s2">"format"</span><span class="p">]</span> <span class="o">=</span> <span class="n">cfg</span><span class="o">.</span><span class="n">format</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"name"</span><span class="p">:</span> <span class="n">cfg</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span> <span class="s2">"params"</span><span class="p">:</span> <span class="n">params</span><span class="p">})</span>
 <span></span>
-<span></span>    <span class="k">return</span> <span class="p">[</span><span class="n">outputs</span><span class="o">.</span><span class="n">as_numpy</span><span class="p">(</span><span class="n">output_name</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">input_format</span><span class="p">)</span> <span class="k">for</span> <span class="n">output_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_names</span><span class="p">]</span>
+<span></span>    <span class="c1"># Check rate limit and return early if under limit</span>
+<span></span>    <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span></span>    <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate_limit</span><span class="p">:</span>
+<span></span>        <span class="k">return</span>
+<span></span>
+<span></span>    <span class="c1"># Overrate limit: send a snapshot of queued events in a background thread</span>
+<span></span>    <span class="n">payload_events</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">)</span>  <span class="c1"># snapshot to avoid race with queue reset</span>
+<span></span>    <span class="n">Thread</span><span class="p">(</span>
+<span></span>        <span class="n">target</span><span class="o">=</span><span class="n">_post</span><span class="p">,</span>
+<span></span>        <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="p">{</span><span class="s2">"client_id"</span><span class="p">:</span> <span class="n">SETTINGS</span><span class="p">[</span><span class="s2">"uuid"</span><span class="p">],</span> <span class="s2">"events"</span><span class="p">:</span> <span class="n">payload_events</span><span class="p">}),</span>  <span class="c1"># SHA-256 anonymized</span>
+<span></span>        <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span></span>
+<span></span>    <span class="c1"># Reset queue and rate limit timer</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">events</span> <span class="o">=</span> <span class="p">[]</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">t</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
 </div>
 </div>
 </div>
+</div><p><br/><br/><hr/><br/></p>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="ultralytics.utils.events._post">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.events._post</span>
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">_post</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+<div class="doc doc-contents first">
+<p>Send a one-shot JSON POST request.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/utils/events.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>16</span>
+<span>17</span>
+<span>18</span>
+<span>19</span>
+<span>20</span>
+<span>21</span>
+<span>22</span>
+<span>23</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_post</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Send a one-shot JSON POST request."""</span>
+<span></span>    <span class="k">try</span><span class="p">:</span>
+<span></span>        <span class="n">body</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">separators</span><span class="o">=</span><span class="p">(</span><span class="s2">","</span><span class="p">,</span> <span class="s2">":"</span><span class="p">))</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>  <span class="c1"># compact JSON</span>
+<span></span>        <span class="n">req</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">body</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">"Content-Type"</span><span class="p">:</span> <span class="s2">"application/json"</span><span class="p">})</span>
+<span></span>        <span class="n">urlopen</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span></span>    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+<span></span>        <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
 </div><p><br/><br/></p>
 <br/><br/>
 <div class="git-info">
 <div class="dates-container">
-<span class="date-item" title="This page was first created on November 12, 2023">
-<span class="hover-item">📅</span> Created 1 year ago
+<span class="date-item" title="This page was first created on September 05, 2025">
+<span class="hover-item">📅</span> Created 0 days ago
     </span>
-<span class="date-item" title="This page was last updated on September 11, 2024">
-<span class="hover-item">✏️</span> Updated 11 months ago
+<span class="date-item" title="This page was last updated on September 05, 2025">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
-<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (7 changes)">
+<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (1 change)">
 <img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
 </a>
-<a class="author-link" href="https://github.com/jk4e" title="jk4e (1 change)">
-<img alt="jk4e" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/116908874?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/Burhan-Q" title="Burhan-Q (1 change)">
-<img alt="Burhan-Q" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/62214284?v=4&amp;s=96"/>
-</a>
 </div></div><div class="share-buttons">
-<button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/reference/utils/triton', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
+<button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/reference/utils/events', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
 <i class="fa-brands fa-x-twitter"></i> Tweet
     </button>
-<button class="share-button hover-item linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/reference/utils/triton', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;">
+<button class="share-button hover-item linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/reference/utils/events', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;">
 <i class="fa-brands fa-linkedin-in"></i> Share
     </button>
 </div>
@@ -1682,7 +1565,7 @@ corresponds to one of the model's output tensors.</p>
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: tqdm" class="md-footer__link md-footer__link--prev" href="../tqdm/">
+<a aria-label="Previous: errors" class="md-footer__link md-footer__link--prev" href="../errors/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
 </div>
@@ -1691,17 +1574,17 @@ corresponds to one of the model's output tensors.</p>
                 Previous
               </span>
 <div class="md-ellipsis">
-                tqdm
+                errors
               </div>
 </div>
 </a>
-<a aria-label="Next: tuner" class="md-footer__link md-footer__link--next" href="../tuner/">
+<a aria-label="Next: export" class="md-footer__link md-footer__link--next" href="../export/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                tuner
+                export
               </div>
 </div>
 <div class="md-footer__button md-icon">
