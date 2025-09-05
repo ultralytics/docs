@@ -6972,7 +6972,7 @@ features.</p>
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">inference</span>
 </h3>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">inference</span><span class="p">(</span>
-<span></span>    <span class="n">img</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">|</span> <span class="n">ndarray</span><span class="p">,</span>
+<span></span>    <span class="n">im</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">|</span> <span class="n">ndarray</span><span class="p">,</span>
 <span></span>    <span class="n">bboxes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">masks</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">|</span> <span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">points</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -7000,7 +7000,7 @@ When update_memory is False, it will only run inference on the provided image wi
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code>img</code>
+<code>im</code>
 </td>
 <td>
 <code><span title="torch.Tensor">Tensor</span> | <span title="numpy.ndarray">ndarray</span></code>
@@ -7214,7 +7214,7 @@ When update_memory is False, it will only run inference on the provided image wi
 <span>1827</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">inference</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
-<span></span>    <span class="n">img</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+<span></span>    <span class="n">im</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
 <span></span>    <span class="n">bboxes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">masks</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">points</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -7230,7 +7230,7 @@ When update_memory is False, it will only run inference on the provided image wi
 <span></span><span class="sd">    When update_memory is False, it will only run inference on the provided image without updating the memory.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        img (torch.Tensor | np.ndarray): The input image tensor or numpy array.</span>
+<span></span><span class="sd">        im (torch.Tensor | np.ndarray): The input image tensor or numpy array.</span>
 <span></span><span class="sd">        bboxes (List[List[float]] | None): Optional list of bounding boxes to update the memory.</span>
 <span></span><span class="sd">        masks (List[torch.Tensor | np.ndarray] | None): Optional masks to update the memory.</span>
 <span></span><span class="sd">        points (List[List[float]] | None): Optional list of points to update the memory, each point is [x, y].</span>
@@ -7242,7 +7242,7 @@ When update_memory is False, it will only run inference on the provided image wi
 <span></span><span class="sd">        res_masks (torch.Tensor): The output masks in shape (C, H, W)</span>
 <span></span><span class="sd">        object_score_logits (torch.Tensor): Quality scores for each mask</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">get_im_features</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">get_im_features</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
 <span></span>    <span class="n">points</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">masks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_prompts</span><span class="p">(</span>
 <span></span>        <span class="n">dst_shape</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">,</span>
 <span></span>        <span class="n">src_shape</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">batch</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span>
