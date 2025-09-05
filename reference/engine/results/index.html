@@ -1973,7 +1973,7 @@ devices and converting between tensor types.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.engine.results.BaseTensor.orig_shape">orig_shape</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2067,7 +2067,7 @@ devices and converting between tensor types.</p>
 <code>orig_shape</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2110,7 +2110,7 @@ devices and converting between tensor types.</p>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        data (torch.Tensor | np.ndarray): Prediction data such as bounding boxes, masks, or keypoints.</span>
-<span></span><span class="sd">        orig_shape (Tuple[int, int]): Original shape of the image in (height, width) format.</span>
+<span></span><span class="sd">        orig_shape (tuple[int, int]): Original shape of the image in (height, width) format.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; import torch</span>
@@ -2146,7 +2146,7 @@ devices and converting between tensor types.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, ...]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, ...]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2188,7 +2188,7 @@ devices and converting between tensor types.</p>
 <code>idx</code>
 </td>
 <td>
-<code><span title="int">int</span> | <span title="List">List</span>[<span title="int">int</span>] | <span title="torch.Tensor">Tensor</span></code>
+<code><span title="int">int</span> | <span title="list">list</span>[<span title="int">int</span>] | <span title="torch.Tensor">Tensor</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2253,7 +2253,7 @@ devices and converting between tensor types.</p>
 <span></span><span class="sd">    Return a new BaseTensor instance containing the specified indexed elements of the data tensor.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        idx (int | List[int] | torch.Tensor): Index or indices to select from the data tensor.</span>
+<span></span><span class="sd">        idx (int | list[int] | torch.Tensor): Index or indices to select from the data tensor.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (BaseTensor): A new BaseTensor instance containing the indexed data.</span>
@@ -2737,7 +2737,7 @@ It supports visualization, data export, and various coordinate transformations.<
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.engine.results.Results.orig_shape">orig_shape</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3137,7 +3137,7 @@ It supports visualization, data export, and various coordinate transformations.<
 <code>speed</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span> | None</code>
+<code><span title="dict">dict</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3240,7 +3240,7 @@ It supports visualization, data export, and various coordinate transformations.<
 <span></span><span class="sd">        probs (torch.Tensor | None): A 1D tensor of probabilities of each class for classification task.</span>
 <span></span><span class="sd">        keypoints (torch.Tensor | None): A 2D tensor of keypoint coordinates for each detection.</span>
 <span></span><span class="sd">        obb (torch.Tensor | None): A 2D tensor of oriented bounding box coordinates for each detection.</span>
-<span></span><span class="sd">        speed (Dict | None): A dictionary containing preprocess, inference, and postprocess speeds (ms/image).</span>
+<span></span><span class="sd">        speed (dict | None): A dictionary containing preprocess, inference, and postprocess speeds (ms/image).</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; results = model("path/to/image.jpg")</span>
@@ -5052,7 +5052,7 @@ optionally mask segments and keypoints.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]]</code>
+<code><span title="list">list</span>[<span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5150,7 +5150,7 @@ or classification result. The structure of each dictionary varies based on the t
 <span></span><span class="sd">        decimals (int): Number of decimal places to round the output values to.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[Dict[str, Any]]): A list of dictionaries, each containing summarized information for a single detection</span>
+<span></span><span class="sd">        (list[dict[str, Any]]): A list of dictionaries, each containing summarized information for a single detection</span>
 <span></span><span class="sd">            or classification result. The structure of each dictionary varies based on the task type</span>
 <span></span><span class="sd">            (classification or detection) and available information (boxes, masks, keypoints).</span>
 <span></span>
@@ -5674,7 +5674,7 @@ methods for easy manipulation and conversion between different coordinate system
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.engine.results.Boxes.orig_shape">orig_shape</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5886,7 +5886,7 @@ for box coordinates, including both absolute and normalized forms.</p>
 <code>orig_shape</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5923,7 +5923,7 @@ for box coordinates, including both absolute and normalized forms.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.engine.results.Boxes.__init__.orig_shape">orig_shape</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5999,11 +5999,11 @@ for box coordinates, including both absolute and normalized forms.</p>
 <span></span><span class="sd">        boxes (torch.Tensor | np.ndarray): A tensor or numpy array with detection boxes of shape</span>
 <span></span><span class="sd">            (num_boxes, 6) or (num_boxes, 7). Columns should contain</span>
 <span></span><span class="sd">            [x1, y1, x2, y2, confidence, class, (optional) track_id].</span>
-<span></span><span class="sd">        orig_shape (Tuple[int, int]): The original image shape as (height, width). Used for normalization.</span>
+<span></span><span class="sd">        orig_shape (tuple[int, int]): The original image shape as (height, width). Used for normalization.</span>
 <span></span>
 <span></span><span class="sd">    Attributes:</span>
 <span></span><span class="sd">        data (torch.Tensor): The raw tensor containing detection boxes and their associated data.</span>
-<span></span><span class="sd">        orig_shape (Tuple[int, int]): The original image size, used for normalization.</span>
+<span></span><span class="sd">        orig_shape (tuple[int, int]): The original image size, used for normalization.</span>
 <span></span><span class="sd">        is_track (bool): Indicates whether tracking IDs are included in the box data.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
@@ -6387,7 +6387,7 @@ including methods for converting between pixel and normalized coordinates.</p>
       &lt;small class="doc doc-label doc-label-property"&gt;&lt;code&gt;property&lt;/code&gt;&lt;/small&gt;
   &lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Masks.xy&lt;/code&gt;)'>xy</a></code></td>
 <td>
-<code><span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
+<code><span title="list">list</span>[<span title="numpy.ndarray">ndarray</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6402,7 +6402,7 @@ including methods for converting between pixel and normalized coordinates.</p>
       &lt;small class="doc doc-label doc-label-property"&gt;&lt;code&gt;property&lt;/code&gt;&lt;/small&gt;
   &lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Masks.xyn&lt;/code&gt;)'>xyn</a></code></td>
 <td>
-<code><span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
+<code><span title="list">list</span>[<span title="numpy.ndarray">ndarray</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6579,7 +6579,7 @@ Masks object. The coordinates are scaled to match the original image dimensions.
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
+<code><span title="list">list</span>[<span title="numpy.ndarray">ndarray</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6625,7 +6625,7 @@ are normalized relative to the original image shape.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
+<code><span title="list">list</span>[<span title="numpy.ndarray">ndarray</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6685,7 +6685,7 @@ information.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.engine.results.Keypoints.orig_shape">orig_shape</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6840,7 +6840,7 @@ information.</p>
 <code>orig_shape</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6892,7 +6892,7 @@ information.</p>
 <span></span><span class="sd">        keypoints (torch.Tensor): A tensor containing keypoint data. Shape can be either:</span>
 <span></span><span class="sd">            - (num_objects, num_keypoints, 2) for x, y coordinates only</span>
 <span></span><span class="sd">            - (num_objects, num_keypoints, 3) for x, y coordinates and confidence scores</span>
-<span></span><span class="sd">        orig_shape (Tuple[int, int]): The original image dimensions (height, width).</span>
+<span></span><span class="sd">        orig_shape (tuple[int, int]): The original image dimensions (height, width).</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; kpts = torch.rand(1, 17, 3)  # 1 object, 17 keypoints (COCO format), x,y,conf</span>
@@ -7111,7 +7111,7 @@ classification probabilities, including top-1 and top-5 predictions.</p>
       &lt;small class="doc doc-label doc-label-property"&gt;&lt;code&gt;property&lt;/code&gt;&lt;/small&gt;
   &lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Probs.top5&lt;/code&gt;)'>top5</a></code></td>
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="list">list</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7289,7 +7289,7 @@ for consistency with other result classes.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.engine.results.Probs.__init__.top5">top5</span></code></td>
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="list">list</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7379,7 +7379,7 @@ for consistency with other result classes.</p>
 <span></span><span class="sd">    Attributes:</span>
 <span></span><span class="sd">        data (torch.Tensor | np.ndarray): The raw tensor or array containing classification probabilities.</span>
 <span></span><span class="sd">        top1 (int): Index of the top 1 class.</span>
-<span></span><span class="sd">        top5 (List[int]): Indices of the top 5 classes.</span>
+<span></span><span class="sd">        top5 (list[int]): Indices of the top 5 classes.</span>
 <span></span><span class="sd">        top1conf (torch.Tensor | np.ndarray): Confidence of the top 1 class.</span>
 <span></span><span class="sd">        top5conf (torch.Tensor | np.ndarray): Confidences of the top 5 classes.</span>
 <span></span>
@@ -7504,7 +7504,7 @@ from the classification results.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="list">list</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7814,7 +7814,7 @@ If present, the third last column contains track IDs, and the fifth column conta
 <code>orig_shape</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7851,7 +7851,7 @@ If present, the third last column contains track IDs, and the fifth column conta
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.engine.results.OBB.__init__.orig_shape">orig_shape</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7947,11 +7947,11 @@ If present, the third last column contains track IDs, and the fifth column conta
 <span></span><span class="sd">        boxes (torch.Tensor | np.ndarray): A tensor or numpy array containing the detection boxes,</span>
 <span></span><span class="sd">            with shape (num_boxes, 7) or (num_boxes, 8). The last two columns contain confidence and class values.</span>
 <span></span><span class="sd">            If present, the third last column contains track IDs, and the fifth column contains rotation.</span>
-<span></span><span class="sd">        orig_shape (Tuple[int, int]): Original image size, in the format (height, width).</span>
+<span></span><span class="sd">        orig_shape (tuple[int, int]): Original image size, in the format (height, width).</span>
 <span></span>
 <span></span><span class="sd">    Attributes:</span>
 <span></span><span class="sd">        data (torch.Tensor | np.ndarray): The raw OBB tensor.</span>
-<span></span><span class="sd">        orig_shape (Tuple[int, int]): The original image shape.</span>
+<span></span><span class="sd">        orig_shape (tuple[int, int]): The original image shape.</span>
 <span></span><span class="sd">        is_track (bool): Whether the boxes include tracking IDs.</span>
 <span></span>
 <span></span><span class="sd">    Raises:</span>

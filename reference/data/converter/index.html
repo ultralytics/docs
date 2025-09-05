@@ -1325,7 +1325,7 @@
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="list">list</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1443,7 +1443,7 @@ is the corresponding 91-index class ID.</p>
 <span></span><span class="sd">    Convert 91-index COCO class IDs to 80-index COCO class IDs.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[int]): A list of 91 class IDs where the index represents the 80-index class ID and the value</span>
+<span></span><span class="sd">        (list[int]): A list of 91 class IDs where the index represents the 80-index class ID and the value</span>
 <span></span><span class="sd">            is the corresponding 91-index class ID.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">return</span> <span class="p">[</span>
@@ -1562,7 +1562,7 @@ is the corresponding 91-index class ID.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="list">list</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1696,7 +1696,7 @@ is the corresponding 91-index class ID.</p>
 <span></span><span class="sd">    Convert 80-index (val2014) to 91-index (paper).</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[int]): A list of 80 class IDs where each value is the corresponding 91-index class ID.</span>
+<span></span><span class="sd">        (list[int]): A list of 80 class IDs where each value is the corresponding 91-index class ID.</span>
 <span></span>
 <span></span><span class="sd">    References:</span>
 <span></span><span class="sd">        https://tech.amikelive.com/node-718/what-object-categories-labels-are-in-coco-dataset/</span>
@@ -2809,7 +2809,7 @@ associated label from the original labels directory and writes new labels in YOL
 <code>segments</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="List">List</span>]</code>
+<code><span title="list">list</span>[<span title="list">list</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2834,7 +2834,7 @@ associated label from the original labels directory and writes new labels in YOL
 <tbody>
 <tr class="doc-section-item">
 <td><code>s</code></td> <td>
-<code><span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
+<code><span title="list">list</span>[<span title="numpy.ndarray">ndarray</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2901,11 +2901,11 @@ associated label from the original labels directory and writes new labels in YOL
 <span></span><span class="sd">    This function connects these coordinates with a thin line to merge all segments into one.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        segments (List[List]): Original segmentations in COCO's JSON file.</span>
+<span></span><span class="sd">        segments (list[list]): Original segmentations in COCO's JSON file.</span>
 <span></span><span class="sd">                               Each element is a list of coordinates, like [segmentation1, segmentation2,...].</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        s (List[np.ndarray]): A list of connected segments represented as NumPy arrays.</span>
+<span></span><span class="sd">        s (list[np.ndarray]): A list of connected segments represented as NumPy arrays.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">s</span> <span class="o">=</span> <span class="p">[]</span>
 <span></span>    <span class="n">segments</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">segments</span><span class="p">]</span>

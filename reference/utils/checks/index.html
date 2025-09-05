@@ -1608,7 +1608,7 @@
 <tbody>
 <tr class="doc-section-item">
 <td><code>requirements</code></td> <td>
-<code><span title="List">List</span>[<span title="types.SimpleNamespace">SimpleNamespace</span>]</code>
+<code><span title="list">list</span>[<span title="types.SimpleNamespace">SimpleNamespace</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1663,7 +1663,7 @@
 <span></span><span class="sd">        package (str, optional): Python package to use instead of requirements.txt file.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        requirements (List[SimpleNamespace]): List of parsed requirements as SimpleNamespace objects with `name` and</span>
+<span></span><span class="sd">        requirements (list[SimpleNamespace]): List of parsed requirements as SimpleNamespace objects with `name` and</span>
 <span></span><span class="sd">            `specifier` attributes.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
@@ -1896,7 +1896,7 @@ stride, update it to the nearest multiple of the stride that is greater than or 
 <code>imgsz</code>
 </td>
 <td>
-<code><span title="int">int</span> | <span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="int">int</span> | <span title="list">list</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1984,7 +1984,7 @@ stride, update it to the nearest multiple of the stride that is greater than or 
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>] | <span title="int">int</span></code>
+<code><span title="list">list</span>[<span title="int">int</span>] | <span title="int">int</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2053,14 +2053,14 @@ stride, update it to the nearest multiple of the stride that is greater than or 
 <span></span><span class="sd">    stride, update it to the nearest multiple of the stride that is greater than or equal to the given floor value.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        imgsz (int | List[int]): Image size.</span>
+<span></span><span class="sd">        imgsz (int | list[int]): Image size.</span>
 <span></span><span class="sd">        stride (int): Stride value.</span>
 <span></span><span class="sd">        min_dim (int): Minimum number of dimensions.</span>
 <span></span><span class="sd">        max_dim (int): Maximum number of dimensions.</span>
 <span></span><span class="sd">        floor (int): Minimum allowed value for image size.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[int] | int): Updated image size.</span>
+<span></span><span class="sd">        (list[int] | int): Updated image size.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="c1"># Convert stride to integer if it is a tensor</span>
 <span></span>    <span class="n">stride</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">stride</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">stride</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="k">else</span> <span class="n">stride</span><span class="p">)</span>
@@ -2928,7 +2928,7 @@ stride, update it to the nearest multiple of the stride that is greater than or 
 <code>requirements</code>
 </td>
 <td>
-<code><span title="pathlib.Path">Path</span> | <span title="str">str</span> | <span title="List">List</span>[<span title="str">str</span>]</code>
+<code><span title="pathlib.Path">Path</span> | <span title="str">str</span> | <span title="list">list</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3094,7 +3094,7 @@ string, or a list of package requirements as strings.</p>
 <span></span><span class="sd">    Check if installed dependencies meet Ultralytics YOLO models requirements and attempt to auto-update if needed.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        requirements (Path | str | List[str]): Path to a requirements.txt file, a single package requirement as a</span>
+<span></span><span class="sd">        requirements (Path | str | list[str]): Path to a requirements.txt file, a single package requirement as a</span>
 <span></span><span class="sd">            string, or a list of package requirements as strings.</span>
 <span></span><span class="sd">        exclude (tuple): Tuple of package names to exclude from checking.</span>
 <span></span><span class="sd">        install (bool): If True, attempt to auto-update packages that don't meet requirements.</span>
@@ -3280,7 +3280,7 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 <code>file</code>
 </td>
 <td>
-<code><span title="str">str</span> | <span title="List">List</span>[<span title="str">str</span>]</code>
+<code><span title="str">str</span> | <span title="list">list</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3346,7 +3346,7 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 <span></span><span class="sd">    Check file(s) for acceptable suffix.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        file (str | List[str]): File or list of files to check.</span>
+<span></span><span class="sd">        file (str | list[str]): File or list of files to check.</span>
 <span></span><span class="sd">        suffix (str | tuple): Acceptable suffix or tuple of suffixes.</span>
 <span></span><span class="sd">        msg (str): Additional message to display in case of error.</span>
 <span></span><span class="sd">    """</span>

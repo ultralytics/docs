@@ -1307,7 +1307,7 @@ DETR object detection model.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.utils.loss.DETRLoss.loss_gain">loss_gain</span></code></td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="float">float</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1450,7 +1450,7 @@ losses and various loss types.</p>
 <code>loss_gain</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="float">float</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1639,7 +1639,7 @@ losses and various loss types.</p>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        nc (int): Number of classes.</span>
-<span></span><span class="sd">        loss_gain (Dict[str, float], optional): Coefficients for different loss components.</span>
+<span></span><span class="sd">        loss_gain (dict[str, float], optional): Coefficients for different loss components.</span>
 <span></span><span class="sd">        aux_loss (bool): Whether to use auxiliary losses from each decoder layer.</span>
 <span></span><span class="sd">        use_fl (bool): Whether to use FocalLoss.</span>
 <span></span><span class="sd">        use_vfl (bool): Whether to use VarifocalLoss.</span>
@@ -1727,7 +1727,7 @@ losses and various loss types.</p>
 <code>batch</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1783,7 +1783,7 @@ losses and various loss types.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1854,12 +1854,12 @@ self.aux_loss is True.</p>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        pred_bboxes (torch.Tensor): Predicted bounding boxes, shape (L, B, N, 4).</span>
 <span></span><span class="sd">        pred_scores (torch.Tensor): Predicted class scores, shape (L, B, N, C).</span>
-<span></span><span class="sd">        batch (Dict[str, Any]): Batch information containing cls, bboxes, and gt_groups.</span>
+<span></span><span class="sd">        batch (dict[str, Any]): Batch information containing cls, bboxes, and gt_groups.</span>
 <span></span><span class="sd">        postfix (str, optional): Postfix for loss names.</span>
 <span></span><span class="sd">        **kwargs (Any): Additional arguments, may include 'match_indices'.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Dict[str, torch.Tensor]): Computed losses, including main and auxiliary (if enabled).</span>
+<span></span><span class="sd">        (dict[str, torch.Tensor]): Computed losses, including main and auxiliary (if enabled).</span>
 <span></span>
 <span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        Uses last elements of pred_bboxes and pred_scores for main loss, and the rest for auxiliary losses if</span>
@@ -1974,7 +1974,7 @@ an additional denoising training loss when provided with denoising metadata.</p>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        nc (int): Number of classes.</span>
-<span></span><span class="sd">        loss_gain (Dict[str, float], optional): Coefficients for different loss components.</span>
+<span></span><span class="sd">        loss_gain (dict[str, float], optional): Coefficients for different loss components.</span>
 <span></span><span class="sd">        aux_loss (bool): Whether to use auxiliary losses from each decoder layer.</span>
 <span></span><span class="sd">        use_fl (bool): Whether to use FocalLoss.</span>
 <span></span><span class="sd">        use_vfl (bool): Whether to use VarifocalLoss.</span>
@@ -2030,7 +2030,7 @@ an additional denoising training loss when provided with denoising metadata.</p>
 <code>preds</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="torch.Tensor">Tensor</span>, <span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="torch.Tensor">Tensor</span>, <span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2046,7 +2046,7 @@ an additional denoising training loss when provided with denoising metadata.</p>
 <code>batch</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2094,7 +2094,7 @@ an additional denoising training loss when provided with denoising metadata.</p>
 <code>dn_meta</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2118,7 +2118,7 @@ an additional denoising training loss when provided with denoising metadata.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2181,14 +2181,14 @@ an additional denoising training loss when provided with denoising metadata.</p>
 <span></span><span class="sd">    Forward pass to compute detection loss with optional denoising loss.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        preds (Tuple[torch.Tensor, torch.Tensor]): Tuple containing predicted bounding boxes and scores.</span>
-<span></span><span class="sd">        batch (Dict[str, Any]): Batch data containing ground truth information.</span>
+<span></span><span class="sd">        preds (tuple[torch.Tensor, torch.Tensor]): Tuple containing predicted bounding boxes and scores.</span>
+<span></span><span class="sd">        batch (dict[str, Any]): Batch data containing ground truth information.</span>
 <span></span><span class="sd">        dn_bboxes (torch.Tensor, optional): Denoising bounding boxes.</span>
 <span></span><span class="sd">        dn_scores (torch.Tensor, optional): Denoising scores.</span>
-<span></span><span class="sd">        dn_meta (Dict[str, Any], optional): Metadata for denoising.</span>
+<span></span><span class="sd">        dn_meta (dict[str, Any], optional): Metadata for denoising.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Dict[str, torch.Tensor]): Dictionary containing total loss and denoising loss if applicable.</span>
+<span></span><span class="sd">        (dict[str, torch.Tensor]): Dictionary containing total loss and denoising loss if applicable.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">pred_bboxes</span><span class="p">,</span> <span class="n">pred_scores</span> <span class="o">=</span> <span class="n">preds</span>
 <span></span>    <span class="n">total_loss</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">pred_bboxes</span><span class="p">,</span> <span class="n">pred_scores</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>
@@ -2242,7 +2242,7 @@ an additional denoising training loss when provided with denoising metadata.</p>
 <code>dn_pos_idx</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="list">list</span>[<span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2274,7 +2274,7 @@ an additional denoising training loss when provided with denoising metadata.</p>
 <code>gt_groups</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="list">list</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2298,7 +2298,7 @@ an additional denoising training loss when provided with denoising metadata.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="Tuple">Tuple</span>[<span title="torch.Tensor">Tensor</span>, <span title="torch.Tensor">Tensor</span>]]</code>
+<code><span title="list">list</span>[<span title="tuple">tuple</span>[<span title="torch.Tensor">Tensor</span>, <span title="torch.Tensor">Tensor</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2345,12 +2345,12 @@ an additional denoising training loss when provided with denoising metadata.</p>
 <span></span><span class="sd">    Get match indices for denoising.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        dn_pos_idx (List[torch.Tensor]): List of tensors containing positive indices for denoising.</span>
+<span></span><span class="sd">        dn_pos_idx (list[torch.Tensor]): List of tensors containing positive indices for denoising.</span>
 <span></span><span class="sd">        dn_num_group (int): Number of denoising groups.</span>
-<span></span><span class="sd">        gt_groups (List[int]): List of integers representing number of ground truths per image.</span>
+<span></span><span class="sd">        gt_groups (list[int]): List of integers representing number of ground truths per image.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[Tuple[torch.Tensor, torch.Tensor]]): List of tuples containing matched indices for denoising.</span>
+<span></span><span class="sd">        (list[tuple[torch.Tensor, torch.Tensor]]): List of tuples containing matched indices for denoising.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">dn_match_indices</span> <span class="o">=</span> <span class="p">[]</span>
 <span></span>    <span class="n">idx_groups</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">*</span><span class="n">gt_groups</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span><span class="o">.</span><span class="n">cumsum_</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>

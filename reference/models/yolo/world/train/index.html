@@ -1381,7 +1381,7 @@ accelerate training with multi-modal data.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.yolo.world.train.WorldTrainer.text_embeddings">text_embeddings</span></code></td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>] | None</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1404,7 +1404,7 @@ training.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.yolo.world.train.WorldTrainer.data">data</span></code></td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1499,7 +1499,7 @@ training.</p>
 <code>cfg</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1515,7 +1515,7 @@ training.</p>
 <code>overrides</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1531,7 +1531,7 @@ training.</p>
 <code>_callbacks</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="typing.Any">Any</span>]</code>
+<code><span title="list">list</span>[<span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1563,9 +1563,9 @@ training.</p>
 <span></span><span class="sd">    Initialize a WorldTrainer object with given arguments.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        cfg (Dict[str, Any]): Configuration for the trainer.</span>
-<span></span><span class="sd">        overrides (Dict[str, Any], optional): Configuration overrides.</span>
-<span></span><span class="sd">        _callbacks (List[Any], optional): List of callback functions.</span>
+<span></span><span class="sd">        cfg (dict[str, Any]): Configuration for the trainer.</span>
+<span></span><span class="sd">        overrides (dict[str, Any], optional): Configuration overrides.</span>
+<span></span><span class="sd">        _callbacks (list[Any], optional): List of callback functions.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="n">overrides</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 <span></span>        <span class="n">overrides</span> <span class="o">=</span> <span class="p">{}</span>
@@ -1733,7 +1733,7 @@ training.</p>
 <code>texts</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="str">str</span>]</code>
+<code><span title="list">list</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1789,7 +1789,7 @@ training.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1830,12 +1830,12 @@ training.</p>
 <span></span><span class="sd">    Generate text embeddings for a list of text samples.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        texts (List[str]): List of text samples to encode.</span>
+<span></span><span class="sd">        texts (list[str]): List of text samples to encode.</span>
 <span></span><span class="sd">        batch (int): Batch size for processing.</span>
 <span></span><span class="sd">        cache_dir (Path): Directory to save/load cached embeddings.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Dict[str, torch.Tensor]): Dictionary mapping text samples to their embeddings.</span>
+<span></span><span class="sd">        (dict[str, torch.Tensor]): Dictionary mapping text samples to their embeddings.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">model</span> <span class="o">=</span> <span class="s2">"clip:ViT-B/32"</span>
 <span></span>    <span class="n">cache_path</span> <span class="o">=</span> <span class="n">cache_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"text_embeddings_</span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">':'</span><span class="p">,</span><span class="w"> </span><span class="s1">'_'</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span><span class="w"> </span><span class="s1">'_'</span><span class="p">)</span><span class="si">}</span><span class="s2">.pt"</span>
@@ -1880,7 +1880,7 @@ training.</p>
 <code>cfg</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | <span title="str">str</span></code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | <span title="str">str</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1977,7 +1977,7 @@ training.</p>
 <span></span><span class="sd">    Return WorldModel initialized with specified config and weights.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        cfg (Dict[str, Any] | str, optional): Model configuration.</span>
+<span></span><span class="sd">        cfg (dict[str, Any] | str, optional): Model configuration.</span>
 <span></span><span class="sd">        weights (str, optional): Path to pretrained weights.</span>
 <span></span><span class="sd">        verbose (bool): Whether to display model info.</span>
 <span></span>
@@ -2060,7 +2060,7 @@ for these categories to improve training efficiency.</p>
 <code>datasets</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="typing.Any">Any</span>]</code>
+<code><span title="list">list</span>[<span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2128,7 +2128,7 @@ then uses the first dataset's image path to determine where to cache the generat
 <span></span><span class="sd">    for these categories to improve training efficiency.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        datasets (List[Any]): List of datasets from which to extract category names.</span>
+<span></span><span class="sd">        datasets (list[Any]): List of datasets from which to extract category names.</span>
 <span></span><span class="sd">        batch (int | None): Batch size used for processing.</span>
 <span></span>
 <span></span><span class="sd">    Notes:</span>

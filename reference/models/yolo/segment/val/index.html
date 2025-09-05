@@ -1764,7 +1764,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <code>batch</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1780,7 +1780,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <code>preds</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]]</code>
+<code><span title="list">list</span>[<span title="dict">dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1830,8 +1830,8 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <span></span><span class="sd">    Plot batch predictions with masks and bounding boxes.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        batch (Dict[str, Any]): Batch containing images and annotations.</span>
-<span></span><span class="sd">        preds (List[Dict[str, torch.Tensor]]): List of predictions from the model.</span>
+<span></span><span class="sd">        batch (dict[str, Any]): Batch containing images and annotations.</span>
+<span></span><span class="sd">        preds (list[dict[str, torch.Tensor]]): List of predictions from the model.</span>
 <span></span><span class="sd">        ni (int): Batch index.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">preds</span><span class="p">:</span>
@@ -1868,7 +1868,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <code>preds</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="list">list</span>[<span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1896,7 +1896,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>List[Dict[str, torch.Tensor]]: Processed detection predictions with masks.</p>
+<p>list[dict[str, torch.Tensor]]: Processed detection predictions with masks.</p>
 </div>
 </td>
 </tr>
@@ -1933,10 +1933,10 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <span></span><span class="sd">    Post-process YOLO predictions and return output detections with proto.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        preds (List[torch.Tensor]): Raw predictions from the model.</span>
+<span></span><span class="sd">        preds (list[torch.Tensor]): Raw predictions from the model.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        List[Dict[str, torch.Tensor]]: Processed detection predictions with masks.</span>
+<span></span><span class="sd">        list[dict[str, torch.Tensor]]: Processed detection predictions with masks.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">proto</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">preds</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">else</span> <span class="n">preds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># second output is len 3 if pt, but only 1 if exported</span>
 <span></span>    <span class="n">preds</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">postprocess</span><span class="p">(</span><span class="n">preds</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -1981,7 +1981,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <code>predn</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1997,7 +1997,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <code>pbatch</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2038,8 +2038,8 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <span></span><span class="sd">    Save one JSON result for COCO evaluation.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        predn (Dict[str, torch.Tensor]): Predictions containing bboxes, masks, confidence scores, and classes.</span>
-<span></span><span class="sd">        pbatch (Dict[str, Any]): Batch dictionary containing 'imgsz', 'ori_shape', 'ratio_pad', and 'im_file'.</span>
+<span></span><span class="sd">        predn (dict[str, torch.Tensor]): Predictions containing bboxes, masks, confidence scores, and classes.</span>
+<span></span><span class="sd">        pbatch (dict[str, Any]): Batch dictionary containing 'imgsz', 'ori_shape', 'ratio_pad', and 'im_file'.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="kn">from</span><span class="w"> </span><span class="nn">faster_coco_eval.core.mask</span><span class="w"> </span><span class="kn">import</span> <span class="n">encode</span>  <span class="c1"># noqa</span>
 <span></span>
@@ -2083,7 +2083,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <code>batch</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2107,7 +2107,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2136,10 +2136,10 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <span></span><span class="sd">    Preprocess batch of images for YOLO segmentation validation.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        batch (Dict[str, Any]): Batch containing images and annotations.</span>
+<span></span><span class="sd">        batch (dict[str, Any]): Batch containing images and annotations.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Dict[str, Any]): Preprocessed batch.</span>
+<span></span><span class="sd">        (dict[str, Any]): Preprocessed batch.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">batch</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
 <span></span>    <span class="n">batch</span><span class="p">[</span><span class="s2">"masks"</span><span class="p">]</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"masks"</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">non_blocking</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
@@ -2206,7 +2206,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <code>shape</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2262,7 +2262,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        predn (torch.Tensor): Predictions in the format (x1, y1, x2, y2, conf, class).</span>
 <span></span><span class="sd">        save_conf (bool): Whether to save confidence scores.</span>
-<span></span><span class="sd">        shape (Tuple[int, int]): Shape of the original image.</span>
+<span></span><span class="sd">        shape (tuple[int, int]): Shape of the original image.</span>
 <span></span><span class="sd">        file (Path): File path to save the detections.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.engine.results</span><span class="w"> </span><span class="kn">import</span> <span class="n">Results</span>

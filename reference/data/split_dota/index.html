@@ -1518,7 +1518,7 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]]</code>
+<code><span title="list">list</span>[<span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1583,7 +1583,7 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 <span></span><span class="sd">        split (str, optional): The split data set, could be 'train' or 'val'.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[Dict[str, Any]]): List of annotation dictionaries containing image information.</span>
+<span></span><span class="sd">        (list[dict[str, Any]]): List of annotation dictionaries containing image information.</span>
 <span></span>
 <span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        The directory structure assumed for the DOTA dataset:</span>
@@ -1642,7 +1642,7 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 <code>im_size</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1658,7 +1658,7 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 <code>crop_sizes</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, ...]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, ...]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1674,7 +1674,7 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 <code>gaps</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, ...]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, ...]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1803,9 +1803,9 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 <span></span><span class="sd">    Get the coordinates of sliding windows for image cropping.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        im_size (Tuple[int, int]): Original image size, (H, W).</span>
-<span></span><span class="sd">        crop_sizes (Tuple[int, ...], optional): Crop size of windows.</span>
-<span></span><span class="sd">        gaps (Tuple[int, ...], optional): Gap between crops.</span>
+<span></span><span class="sd">        im_size (tuple[int, int]): Original image size, (H, W).</span>
+<span></span><span class="sd">        crop_sizes (tuple[int, ...], optional): Crop size of windows.</span>
+<span></span><span class="sd">        gaps (tuple[int, ...], optional): Gap between crops.</span>
 <span></span><span class="sd">        im_rate_thr (float, optional): Threshold of windows areas divided by image areas.</span>
 <span></span><span class="sd">        eps (float, optional): Epsilon value for math operations.</span>
 <span></span>
@@ -1917,7 +1917,7 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 <code>anno</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1949,7 +1949,7 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 <code>window_objs</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
+<code><span title="list">list</span>[<span title="numpy.ndarray">ndarray</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2084,9 +2084,9 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 <span></span><span class="sd">    Crop images and save new labels for each window.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        anno (Dict[str, Any]): Annotation dict, including 'filepath', 'label', 'ori_size' as its keys.</span>
+<span></span><span class="sd">        anno (dict[str, Any]): Annotation dict, including 'filepath', 'label', 'ori_size' as its keys.</span>
 <span></span><span class="sd">        windows (np.ndarray): Array of windows coordinates with shape (N, 4).</span>
-<span></span><span class="sd">        window_objs (List[np.ndarray]): A list of labels inside each window.</span>
+<span></span><span class="sd">        window_objs (list[np.ndarray]): A list of labels inside each window.</span>
 <span></span><span class="sd">        im_dir (str): The output directory path of images.</span>
 <span></span><span class="sd">        lb_dir (str): The output directory path of labels.</span>
 <span></span><span class="sd">        allow_background_images (bool, optional): Whether to include background images without labels.</span>
@@ -2204,7 +2204,7 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 <code>crop_sizes</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, ...]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, ...]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2220,7 +2220,7 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 <code>gaps</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, ...]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, ...]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2304,8 +2304,8 @@ and the output directory structure is:
 <span></span><span class="sd">        data_root (str): Root directory of the dataset.</span>
 <span></span><span class="sd">        save_dir (str): Directory to save the split dataset.</span>
 <span></span><span class="sd">        split (str, optional): The split data set, could be 'train' or 'val'.</span>
-<span></span><span class="sd">        crop_sizes (Tuple[int, ...], optional): Tuple of crop sizes.</span>
-<span></span><span class="sd">        gaps (Tuple[int, ...], optional): Tuple of gaps between crops.</span>
+<span></span><span class="sd">        crop_sizes (tuple[int, ...], optional): Tuple of crop sizes.</span>
+<span></span><span class="sd">        gaps (tuple[int, ...], optional): Tuple of gaps between crops.</span>
 <span></span>
 <span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        The directory structure assumed for the DOTA dataset:</span>
@@ -2429,7 +2429,7 @@ and the output directory structure is:
 <code>rates</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="float">float</span>, ...]</code>
+<code><span title="tuple">tuple</span>[<span title="float">float</span>, ...]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2510,7 +2510,7 @@ and the output directory structure is:
 <span></span><span class="sd">        save_dir (str): Directory to save the split dataset.</span>
 <span></span><span class="sd">        crop_size (int, optional): Base crop size.</span>
 <span></span><span class="sd">        gap (int, optional): Base gap between crops.</span>
-<span></span><span class="sd">        rates (Tuple[float, ...], optional): Scaling rates for crop_size and gap.</span>
+<span></span><span class="sd">        rates (tuple[float, ...], optional): Scaling rates for crop_size and gap.</span>
 <span></span>
 <span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        The directory structure assumed for the DOTA dataset:</span>
@@ -2634,7 +2634,7 @@ and the output directory structure is:
 <code>rates</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="float">float</span>, ...]</code>
+<code><span title="tuple">tuple</span>[<span title="float">float</span>, ...]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2713,7 +2713,7 @@ and the output directory structure is:
 <span></span><span class="sd">        save_dir (str): Directory to save the split dataset.</span>
 <span></span><span class="sd">        crop_size (int, optional): Base crop size.</span>
 <span></span><span class="sd">        gap (int, optional): Base gap between crops.</span>
-<span></span><span class="sd">        rates (Tuple[float, ...], optional): Scaling rates for crop_size and gap.</span>
+<span></span><span class="sd">        rates (tuple[float, ...], optional): Scaling rates for crop_size and gap.</span>
 <span></span>
 <span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        The directory structure assumed for the DOTA dataset:</span>

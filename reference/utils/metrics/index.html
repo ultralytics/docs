@@ -2392,7 +2392,7 @@
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.ConfusionMatrix.names">names</span></code></td>
 <td>
-<code><span title="List">List</span>[<span title="str">str</span>]</code>
+<code><span title="list">list</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2429,7 +2429,7 @@
 <code>names</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
+<code><span title="dict">dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2494,7 +2494,7 @@
 <span></span><span class="sd">    Initialize a ConfusionMatrix instance.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        names (Dict[int, str], optional): Names of classes, used as labels on the plot.</span>
+<span></span><span class="sd">        names (dict[int, str], optional): Names of classes, used as labels on the plot.</span>
 <span></span><span class="sd">        task (str, optional): Type of task, either 'detect' or 'classify'.</span>
 <span></span><span class="sd">        save_matches (bool, optional): Save the indices of GTs, TPs, FPs, FNs for visualization.</span>
 <span></span><span class="sd">    """</span>
@@ -2943,7 +2943,7 @@
 <code>detections</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2961,7 +2961,7 @@
 <code>batch</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3098,10 +3098,10 @@
 <span></span><span class="sd">    Update confusion matrix for object detection task.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        detections (Dict[str, torch.Tensor]): Dictionary containing detected bounding boxes and their associated information.</span>
+<span></span><span class="sd">        detections (dict[str, torch.Tensor]): Dictionary containing detected bounding boxes and their associated information.</span>
 <span></span><span class="sd">                                   Should contain 'cls', 'conf', and 'bboxes' keys, where 'bboxes' can be</span>
 <span></span><span class="sd">                                   Array[N, 4] for regular boxes or Array[N, 5] for OBB with angle.</span>
-<span></span><span class="sd">        batch (Dict[str, Any]): Batch dictionary containing ground truth data with 'bboxes' (Array[M, 4]| Array[M, 5]) and</span>
+<span></span><span class="sd">        batch (dict[str, Any]): Batch dictionary containing ground truth data with 'bboxes' (Array[M, 4]| Array[M, 5]) and</span>
 <span></span><span class="sd">            'cls' (Array[M]) keys, where M is the number of ground truth objects.</span>
 <span></span><span class="sd">        conf (float, optional): Confidence threshold for detections.</span>
 <span></span><span class="sd">        iou_thres (float, optional): IoU threshold for matching detections to ground truth.</span>
@@ -3194,7 +3194,7 @@
 <code>preds</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="N">N</span>, <span title="min">min</span>(<span title="ultralytics.utils.metrics.ConfusionMatrix.nc">nc</span>, 5)]</code>
+<code><span title="list">list</span>[<span title="N">N</span>, <span title="min">min</span>(<span title="ultralytics.utils.metrics.ConfusionMatrix.nc">nc</span>, 5)]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3210,7 +3210,7 @@
 <code>targets</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="N">N</span>, 1]</code>
+<code><span title="list">list</span>[<span title="N">N</span>, 1]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3240,8 +3240,8 @@
 <span></span><span class="sd">    Update confusion matrix for classification task.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        preds (List[N, min(nc,5)]): Predicted class labels.</span>
-<span></span><span class="sd">        targets (List[N, 1]): Ground truth class labels.</span>
+<span></span><span class="sd">        preds (list[N, min(nc,5)]): Predicted class labels.</span>
+<span></span><span class="sd">        targets (list[N, 1]): Ground truth class labels.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">preds</span><span class="p">,</span> <span class="n">targets</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">preds</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">targets</span><span class="p">)</span>
 <span></span>    <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">preds</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">targets</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()):</span>
@@ -3315,7 +3315,7 @@ normalization. This is useful for exporting the matrix to various formats such a
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="Dict">Dict</span>[<span title="str">str</span>, <span title="float">float</span>]]</code>
+<code><span title="list">list</span>[<span title="dict">dict</span>[<span title="str">str</span>, <span title="float">float</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3376,7 +3376,7 @@ normalization. This is useful for exporting the matrix to various formats such a
 <span></span><span class="sd">        decimals (int): Number of decimal places to round the output values to.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[Dict[str, float]]): A list of dictionaries, each representing one predicted class with corresponding values for all actual classes.</span>
+<span></span><span class="sd">        (list[dict[str, float]]): A list of dictionaries, each representing one predicted class with corresponding values for all actual classes.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; results = model.val(data="coco8.yaml", plots=True)</span>
@@ -4209,7 +4209,7 @@ normalization. This is useful for exporting the matrix to various formats such a
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.DetMetrics.names">names</span></code></td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
+<code><span title="dict">dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4231,7 +4231,7 @@ normalization. This is useful for exporting the matrix to various formats such a
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.DetMetrics.speed">speed</span></code></td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="float">float</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4253,7 +4253,7 @@ normalization. This is useful for exporting the matrix to various formats such a
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.DetMetrics.stats">stats</span></code></td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="List">List</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="list">list</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4435,7 +4435,7 @@ normalization. This is useful for exporting the matrix to various formats such a
 <code>names</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
+<code><span title="dict">dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4468,7 +4468,7 @@ normalization. This is useful for exporting the matrix to various formats such a
 <span></span><span class="sd">    Initialize a DetMetrics instance with a save directory, plot flag, and class names.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        names (Dict[int, str], optional): Dictionary of class names.</span>
+<span></span><span class="sd">        names (dict[int, str], optional): Dictionary of class names.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">names</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="n">Metric</span><span class="p">()</span>
@@ -4712,7 +4712,7 @@ normalization. This is useful for exporting the matrix to various formats such a
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="numpy.ndarray">ndarray</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="numpy.ndarray">ndarray</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4764,7 +4764,7 @@ normalization. This is useful for exporting the matrix to various formats such a
 <span></span><span class="sd">        on_plot (callable, optional): Function to call after plots are generated. Defaults to None.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Dict[str, np.ndarray]): Dictionary containing concatenated statistics arrays.</span>
+<span></span><span class="sd">        (dict[str, np.ndarray]): Dictionary containing concatenated statistics arrays.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">stats</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>  <span class="c1"># to numpy</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">stats</span><span class="p">:</span>
@@ -4854,7 +4854,7 @@ scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-score for
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]]</code>
+<code><span title="list">list</span>[<span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4913,7 +4913,7 @@ scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-score for
 <span></span><span class="sd">       decimals (int): Number of decimal places to round the metrics values to.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">       (List[Dict[str, Any]]): A list of dictionaries, each representing one class with corresponding metric values.</span>
+<span></span><span class="sd">       (list[dict[str, Any]]): A list of dictionaries, each representing one class with corresponding metric values.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">       &gt;&gt;&gt; results = model.val(data="coco8.yaml")</span>
@@ -4964,7 +4964,7 @@ scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-score for
 <code>stat</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="any">any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="any">any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4994,7 +4994,7 @@ scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-score for
 <span></span><span class="sd">    Update statistics by appending new values to existing stat collections.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        stat (Dict[str, any]): Dictionary containing new statistical values to append.</span>
+<span></span><span class="sd">        stat (dict[str, any]): Dictionary containing new statistical values to append.</span>
 <span></span><span class="sd">                     Keys should match existing keys in self.stats.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
@@ -5029,7 +5029,7 @@ scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-score for
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.SegmentMetrics.names">names</span></code></td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
+<code><span title="dict">dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5062,7 +5062,7 @@ scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-score for
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.SegmentMetrics.speed">speed</span></code></td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="float">float</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5084,7 +5084,7 @@ scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-score for
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.SegmentMetrics.stats">stats</span></code></td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="List">List</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="list">list</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5228,7 +5228,7 @@ scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-score for
 <code>names</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
+<code><span title="dict">dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5258,7 +5258,7 @@ scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-score for
 <span></span><span class="sd">    Initialize a SegmentMetrics instance with a save directory, plot flag, and class names.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        names (Dict[int, str], optional): Dictionary of class names.</span>
+<span></span><span class="sd">        names (dict[int, str], optional): Dictionary of class names.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">DetMetrics</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">seg</span> <span class="o">=</span> <span class="n">Metric</span><span class="p">()</span>
@@ -5452,7 +5452,7 @@ scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-score for
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="numpy.ndarray">ndarray</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="numpy.ndarray">ndarray</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5500,7 +5500,7 @@ scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-score for
 <span></span><span class="sd">        on_plot (callable, optional): Function to call after plots are generated. Defaults to None.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Dict[str, np.ndarray]): Dictionary containing concatenated statistics arrays.</span>
+<span></span><span class="sd">        (dict[str, np.ndarray]): Dictionary containing concatenated statistics arrays.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">stats</span> <span class="o">=</span> <span class="n">DetMetrics</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">,</span> <span class="n">plot</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="n">on_plot</span><span class="p">)</span>  <span class="c1"># process box stats</span>
 <span></span>    <span class="n">results_mask</span> <span class="o">=</span> <span class="n">ap_per_class</span><span class="p">(</span>
@@ -5586,7 +5586,7 @@ box and mask scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]]</code>
+<code><span title="list">list</span>[<span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5638,7 +5638,7 @@ box and mask scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and
 <span></span><span class="sd">        decimals (int): Number of decimal places to round the metrics values to.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[Dict[str, Any]]): A list of dictionaries, each representing one class with corresponding metric values.</span>
+<span></span><span class="sd">        (list[dict[str, Any]]): A list of dictionaries, each representing one class with corresponding metric values.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; results = model.val(data="coco8-seg.yaml")</span>
@@ -5684,7 +5684,7 @@ box and mask scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.PoseMetrics.names">names</span></code></td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
+<code><span title="dict">dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5717,7 +5717,7 @@ box and mask scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.PoseMetrics.speed">speed</span></code></td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="float">float</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5739,7 +5739,7 @@ box and mask scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.PoseMetrics.stats">stats</span></code></td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="List">List</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="list">list</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5883,7 +5883,7 @@ box and mask scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and
 <code>names</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
+<code><span title="dict">dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5913,7 +5913,7 @@ box and mask scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and
 <span></span><span class="sd">    Initialize the PoseMetrics class with directory path, class names, and plotting options.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        names (Dict[int, str], optional): Dictionary of class names.</span>
+<span></span><span class="sd">        names (dict[int, str], optional): Dictionary of class names.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">pose</span> <span class="o">=</span> <span class="n">Metric</span><span class="p">()</span>
@@ -6107,7 +6107,7 @@ box and mask scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="numpy.ndarray">ndarray</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="numpy.ndarray">ndarray</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6155,7 +6155,7 @@ box and mask scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and
 <span></span><span class="sd">        on_plot (callable, optional): Function to call after plots are generated.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Dict[str, np.ndarray]): Dictionary containing concatenated statistics arrays.</span>
+<span></span><span class="sd">        (dict[str, np.ndarray]): Dictionary containing concatenated statistics arrays.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">stats</span> <span class="o">=</span> <span class="n">DetMetrics</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">,</span> <span class="n">plot</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="n">on_plot</span><span class="p">)</span>  <span class="c1"># process box stats</span>
 <span></span>    <span class="n">results_pose</span> <span class="o">=</span> <span class="n">ap_per_class</span><span class="p">(</span>
@@ -6241,7 +6241,7 @@ pose scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-scor
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]]</code>
+<code><span title="list">list</span>[<span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6293,7 +6293,7 @@ pose scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-scor
 <span></span><span class="sd">        decimals (int): Number of decimal places to round the metrics values to.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[Dict[str, Any]]): A list of dictionaries, each representing one class with corresponding metric values.</span>
+<span></span><span class="sd">        (list[dict[str, Any]]): A list of dictionaries, each representing one class with corresponding metric values.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; results = model.val(data="coco8-pose.yaml")</span>
@@ -6691,7 +6691,7 @@ pose scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-scor
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="Dict">Dict</span>[<span title="str">str</span>, <span title="float">float</span>]]</code>
+<code><span title="list">list</span>[<span title="dict">dict</span>[<span title="str">str</span>, <span title="float">float</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6733,7 +6733,7 @@ pose scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-scor
 <span></span><span class="sd">        decimals (int): Number of decimal places to round the metrics values to.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[Dict[str, float]]): A list with one dictionary containing Top-1 and Top-5 classification accuracy.</span>
+<span></span><span class="sd">        (list[dict[str, float]]): A list with one dictionary containing Top-1 and Top-5 classification accuracy.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; results = model.val(data="imagenet10")</span>
@@ -6771,7 +6771,7 @@ pose scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-scor
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.OBBMetrics.names">names</span></code></td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
+<code><span title="dict">dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6793,7 +6793,7 @@ pose scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-scor
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.OBBMetrics.speed">speed</span></code></td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="float">float</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6815,7 +6815,7 @@ pose scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-scor
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.OBBMetrics.stats">stats</span></code></td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="List">List</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="list">list</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6865,7 +6865,7 @@ pose scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-scor
 <code>names</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
+<code><span title="dict">dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6894,7 +6894,7 @@ pose scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-scor
 <span></span><span class="sd">    Initialize an OBBMetrics instance with directory, plotting, and class names.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        names (Dict[int, str], optional): Dictionary of class names.</span>
+<span></span><span class="sd">        names (dict[int, str], optional): Dictionary of class names.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">DetMetrics</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">)</span>
 <span></span>    <span class="c1"># TODO: probably remove task as well</span>
@@ -8547,7 +8547,7 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 <code>names</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
+<code><span title="dict">dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -8636,7 +8636,7 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 <span></span><span class="sd">        py (np.ndarray): Y values for the PR curve.</span>
 <span></span><span class="sd">        ap (np.ndarray): Average precision values.</span>
 <span></span><span class="sd">        save_dir (Path, optional): Path to save the plot.</span>
-<span></span><span class="sd">        names (Dict[int, str], optional): Dictionary mapping class indices to class names.</span>
+<span></span><span class="sd">        names (dict[int, str], optional): Dictionary mapping class indices to class names.</span>
 <span></span><span class="sd">        on_plot (callable, optional): Function to call after plot is saved.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>  <span class="c1"># scope for faster 'import ultralytics'</span>
@@ -8745,7 +8745,7 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 <code>names</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
+<code><span title="dict">dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -8868,7 +8868,7 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 <span></span><span class="sd">        px (np.ndarray): X values for the metric-confidence curve.</span>
 <span></span><span class="sd">        py (np.ndarray): Y values for the metric-confidence curve.</span>
 <span></span><span class="sd">        save_dir (Path, optional): Path to save the plot.</span>
-<span></span><span class="sd">        names (Dict[int, str], optional): Dictionary mapping class indices to class names.</span>
+<span></span><span class="sd">        names (dict[int, str], optional): Dictionary mapping class indices to class names.</span>
 <span></span><span class="sd">        xlabel (str, optional): X-axis label.</span>
 <span></span><span class="sd">        ylabel (str, optional): Y-axis label.</span>
 <span></span><span class="sd">        on_plot (callable, optional): Function to call after plot is saved.</span>
@@ -9209,7 +9209,7 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 <code>names</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
+<code><span title="dict">dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -9504,7 +9504,7 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 <span></span><span class="sd">        plot (bool, optional): Whether to plot PR curves or not.</span>
 <span></span><span class="sd">        on_plot (callable, optional): A callback to pass plots path and data when they are rendered.</span>
 <span></span><span class="sd">        save_dir (Path, optional): Directory to save the PR curves.</span>
-<span></span><span class="sd">        names (Dict[int, str], optional): Dictionary of class names to plot PR curves.</span>
+<span></span><span class="sd">        names (dict[int, str], optional): Dictionary of class names to plot PR curves.</span>
 <span></span><span class="sd">        eps (float, optional): A small value to avoid division by zero.</span>
 <span></span><span class="sd">        prefix (str, optional): A prefix string for saving the plot files.</span>
 <span></span>

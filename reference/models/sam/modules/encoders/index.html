@@ -1870,7 +1870,7 @@ encoded representation through a neck module.</p>
 <code>global_attn_indexes</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, ...]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, ...]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2022,7 +2022,7 @@ encoded representation through a neck module.</p>
 <span></span><span class="sd">        use_rel_pos (bool): If True, adds relative positional embeddings to attention maps.</span>
 <span></span><span class="sd">        rel_pos_zero_init (bool): If True, initializes relative positional parameters to zero.</span>
 <span></span><span class="sd">        window_size (int): Size of attention window for windowed attention blocks.</span>
-<span></span><span class="sd">        global_attn_indexes (Tuple[int, ...]): Indices of blocks that use global attention.</span>
+<span></span><span class="sd">        global_attn_indexes (tuple[int, ...]): Indices of blocks that use global attention.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; encoder = ImageEncoderViT(img_size=224, patch_size=16, embed_dim=768, depth=12, num_heads=12)</span>
@@ -2163,7 +2163,7 @@ encoded representation through a neck module.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.PromptEncoder.input_image_size">input_image_size</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2174,7 +2174,7 @@ encoded representation through a neck module.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.PromptEncoder.image_embedding_size">image_embedding_size</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2229,7 +2229,7 @@ encoded representation through a neck module.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.PromptEncoder.mask_input_size">mask_input_size</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2329,7 +2329,7 @@ encoded representation through a neck module.</p>
 <code>image_embedding_size</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2345,7 +2345,7 @@ encoded representation through a neck module.</p>
 <code>input_image_size</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2462,8 +2462,8 @@ encoded representation through a neck module.</p>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        embed_dim (int): The dimension of the embeddings.</span>
-<span></span><span class="sd">        image_embedding_size (Tuple[int, int]): The spatial size of the image embedding as (H, W).</span>
-<span></span><span class="sd">        input_image_size (Tuple[int, int]): The padded size of the input image as (H, W).</span>
+<span></span><span class="sd">        image_embedding_size (tuple[int, int]): The spatial size of the image embedding as (H, W).</span>
+<span></span><span class="sd">        input_image_size (tuple[int, int]): The padded size of the input image as (H, W).</span>
 <span></span><span class="sd">        mask_in_chans (int): The number of hidden channels used for encoding input masks.</span>
 <span></span><span class="sd">        activation (Type[nn.Module]): The activation function to use when encoding input masks.</span>
 <span></span>
@@ -2529,7 +2529,7 @@ encoded representation through a neck module.</p>
 <code>points</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="torch.Tensor">Tensor</span>, <span title="torch.Tensor">Tensor</span>] | None</code>
+<code><span title="tuple">tuple</span>[<span title="torch.Tensor">Tensor</span>, <span title="torch.Tensor">Tensor</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2678,7 +2678,7 @@ shape (B, N).</p>
 <span></span><span class="sd">    Embed different types of prompts, returning both sparse and dense embeddings.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        points (Tuple[torch.Tensor, torch.Tensor] | None): Point coordinates and labels to embed. The first</span>
+<span></span><span class="sd">        points (tuple[torch.Tensor, torch.Tensor] | None): Point coordinates and labels to embed. The first</span>
 <span></span><span class="sd">            tensor contains coordinates with shape (B, N, 2), and the second tensor contains labels with</span>
 <span></span><span class="sd">            shape (B, N).</span>
 <span></span><span class="sd">        boxes (torch.Tensor | None): Boxes to embed with shape (B, M, 2, 2), where M is the number of boxes.</span>
@@ -3424,7 +3424,7 @@ similar to ViT positional embedding interpolation.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.FpnNeck.backbone_channel_list">backbone_channel_list</span></code></td>
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="list">list</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3457,7 +3457,7 @@ similar to ViT positional embedding interpolation.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.FpnNeck.fpn_top_down_levels">fpn_top_down_levels</span></code></td>
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="list">list</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3528,7 +3528,7 @@ similar to ViT positional embedding interpolation.</p>
 <code>backbone_channel_list</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="list">list</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3624,7 +3624,7 @@ similar to ViT positional embedding interpolation.</p>
 <code>fpn_top_down_levels</code>
 </td>
 <td>
-<code><span title="Optional">Optional</span>[<span title="List">List</span>[<span title="int">int</span>]]</code>
+<code><span title="Optional">Optional</span>[<span title="list">list</span>[<span title="int">int</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3724,13 +3724,13 @@ similar to ViT positional embedding interpolation.</p>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        d_model (int): Dimension of the model.</span>
-<span></span><span class="sd">        backbone_channel_list (List[int]): List of channel dimensions from the backbone.</span>
+<span></span><span class="sd">        backbone_channel_list (list[int]): List of channel dimensions from the backbone.</span>
 <span></span><span class="sd">        kernel_size (int): Kernel size for the convolutional layers.</span>
 <span></span><span class="sd">        stride (int): Stride for the convolutional layers.</span>
 <span></span><span class="sd">        padding (int): Padding for the convolutional layers.</span>
 <span></span><span class="sd">        fpn_interp_model (str): Interpolation mode for FPN feature resizing.</span>
 <span></span><span class="sd">        fuse_type (str): Type of feature fusion, either 'sum' or 'avg'.</span>
-<span></span><span class="sd">        fpn_top_down_levels (Optional[List[int]]): Levels to have top-down features in outputs.</span>
+<span></span><span class="sd">        fpn_top_down_levels (Optional[list[int]]): Levels to have top-down features in outputs.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; backbone_channels = [64, 128, 256, 512]</span>
@@ -3796,7 +3796,7 @@ and top-down feature fusion. It generates output feature maps and corresponding 
 <code>xs</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="list">list</span>[<span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3820,7 +3820,7 @@ and top-down feature fusion. It generates output feature maps and corresponding 
 <tbody>
 <tr class="doc-section-item">
 <td><code>out</code></td> <td>
-<code><span title="List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="list">list</span>[<span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3831,7 +3831,7 @@ and top-down feature fusion. It generates output feature maps and corresponding 
 </tr>
 <tr class="doc-section-item">
 <td><code>pos</code></td> <td>
-<code><span title="List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="list">list</span>[<span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3908,12 +3908,12 @@ and top-down feature fusion. It generates output feature maps and corresponding 
 <span></span><span class="sd">    and top-down feature fusion. It generates output feature maps and corresponding positional encodings.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        xs (List[torch.Tensor]): List of input tensors from the backbone, each with shape (B, C, H, W).</span>
+<span></span><span class="sd">        xs (list[torch.Tensor]): List of input tensors from the backbone, each with shape (B, C, H, W).</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        out (List[torch.Tensor]): List of output feature maps after FPN processing, each with shape</span>
+<span></span><span class="sd">        out (list[torch.Tensor]): List of output feature maps after FPN processing, each with shape</span>
 <span></span><span class="sd">            (B, d_model, H, W).</span>
-<span></span><span class="sd">        pos (List[torch.Tensor]): List of positional encodings corresponding to each output feature map.</span>
+<span></span><span class="sd">        pos (list[torch.Tensor]): List of positional encodings corresponding to each output feature map.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; fpn_neck = FpnNeck(d_model=256, backbone_channel_list=[64, 128, 256, 512])</span>
@@ -3997,7 +3997,7 @@ with optional pooling and global attention mechanisms.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.Hiera.window_spec">window_spec</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, ...]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, ...]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4008,7 +4008,7 @@ with optional pooling and global attention mechanisms.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.Hiera.q_stride">q_stride</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4019,7 +4019,7 @@ with optional pooling and global attention mechanisms.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.Hiera.stage_ends">stage_ends</span></code></td>
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="list">list</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4030,7 +4030,7 @@ with optional pooling and global attention mechanisms.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.Hiera.q_pool_blocks">q_pool_blocks</span></code></td>
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="list">list</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4063,7 +4063,7 @@ with optional pooling and global attention mechanisms.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.Hiera.global_att_blocks">global_att_blocks</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, ...]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, ...]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4074,7 +4074,7 @@ with optional pooling and global attention mechanisms.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.Hiera.window_pos_embed_bkg_spatial_size">window_pos_embed_bkg_spatial_size</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4118,7 +4118,7 @@ with optional pooling and global attention mechanisms.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.Hiera.channel_list">channel_list</span></code></td>
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="list">list</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4245,7 +4245,7 @@ pooling and global attention mechanisms.</p>
 <code>q_stride</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4261,7 +4261,7 @@ pooling and global attention mechanisms.</p>
 <code>stages</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, ...]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, ...]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4309,7 +4309,7 @@ pooling and global attention mechanisms.</p>
 <code>window_pos_embed_bkg_spatial_size</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4325,7 +4325,7 @@ pooling and global attention mechanisms.</p>
 <code>window_spec</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, ...]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, ...]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4341,7 +4341,7 @@ pooling and global attention mechanisms.</p>
 <code>global_att_blocks</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, ...]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, ...]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4532,13 +4532,13 @@ pooling and global attention mechanisms.</p>
 <span></span><span class="sd">        num_heads (int): Initial number of attention heads.</span>
 <span></span><span class="sd">        drop_path_rate (float): Stochastic depth rate.</span>
 <span></span><span class="sd">        q_pool (int): Number of query pooling stages.</span>
-<span></span><span class="sd">        q_stride (Tuple[int, int]): Downsampling stride between stages.</span>
-<span></span><span class="sd">        stages (Tuple[int, ...]): Number of blocks per stage.</span>
+<span></span><span class="sd">        q_stride (tuple[int, int]): Downsampling stride between stages.</span>
+<span></span><span class="sd">        stages (tuple[int, ...]): Number of blocks per stage.</span>
 <span></span><span class="sd">        dim_mul (float): Dimension multiplier factor at stage transitions.</span>
 <span></span><span class="sd">        head_mul (float): Head multiplier factor at stage transitions.</span>
-<span></span><span class="sd">        window_pos_embed_bkg_spatial_size (Tuple[int, int]): Spatial size for window positional embedding background.</span>
-<span></span><span class="sd">        window_spec (Tuple[int, ...]): Window sizes for each stage when not using global attention.</span>
-<span></span><span class="sd">        global_att_blocks (Tuple[int, ...]): Indices of blocks that use global attention.</span>
+<span></span><span class="sd">        window_pos_embed_bkg_spatial_size (tuple[int, int]): Spatial size for window positional embedding background.</span>
+<span></span><span class="sd">        window_spec (tuple[int, ...]): Window sizes for each stage when not using global attention.</span>
+<span></span><span class="sd">        global_att_blocks (tuple[int, ...]): Indices of blocks that use global attention.</span>
 <span></span><span class="sd">        return_interm_layers (bool): Whether to return intermediate layer outputs.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
@@ -4661,7 +4661,7 @@ pooling and global attention mechanisms.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="list">list</span>[<span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4724,7 +4724,7 @@ is True, otherwise contains only the final output.</p>
 <span></span><span class="sd">        x (torch.Tensor): Input tensor with shape (B, C, H, W) representing a batch of images.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[torch.Tensor]): List of feature maps at different scales, each with shape (B, C_i, H_i, W_i), where</span>
+<span></span><span class="sd">        (list[torch.Tensor]): List of feature maps at different scales, each with shape (B, C_i, H_i, W_i), where</span>
 <span></span><span class="sd">            C_i is the channel dimension and H_i, W_i are the spatial dimensions at scale i. The list is ordered</span>
 <span></span><span class="sd">            from highest resolution (fine features) to lowest resolution (coarse features) if return_interm_layers</span>
 <span></span><span class="sd">            is True, otherwise contains only the final output.</span>

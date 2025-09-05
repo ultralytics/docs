@@ -2603,7 +2603,7 @@ transformations. In its base form, it does not perform any operations.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.data.augment.Compose.transforms">transforms</span></code></td>
 <td>
-<code><span title="List">List</span>[<span title="Callable">Callable</span>]</code>
+<code><span title="list">list</span>[<span title="Callable">Callable</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2695,7 +2695,7 @@ transformations. In its base form, it does not perform any operations.</p>
 <code>transforms</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="Callable">Callable</span>]</code>
+<code><span title="list">list</span>[<span title="Callable">Callable</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2732,7 +2732,7 @@ transformations. In its base form, it does not perform any operations.</p>
 <span></span><span class="sd">    Initialize the Compose object with a list of transforms.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        transforms (List[Callable]): A list of callable transform objects to be applied sequentially.</span>
+<span></span><span class="sd">        transforms (list[Callable]): A list of callable transform objects to be applied sequentially.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; from ultralytics.data.augment import Compose, RandomHSV, RandomFlip</span>
@@ -2879,7 +2879,7 @@ transformations in the list.</p>
 <code>index</code>
 </td>
 <td>
-<code><span title="int">int</span> | <span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="int">int</span> | <span title="list">list</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2967,7 +2967,7 @@ transformations in the list.</p>
 <span></span><span class="sd">    Retrieve a specific transform or a set of transforms using indexing.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        index (int | List[int]): Index or list of indices of the transforms to retrieve.</span>
+<span></span><span class="sd">        index (int | list[int]): Index or list of indices of the transforms to retrieve.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (Compose): A new Compose object containing the selected transform(s).</span>
@@ -3088,7 +3088,7 @@ transformations in the list.</p>
 <code>index</code>
 </td>
 <td>
-<code><span title="int">int</span> | <span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="int">int</span> | <span title="list">list</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3104,7 +3104,7 @@ transformations in the list.</p>
 <code>value</code>
 </td>
 <td>
-<code><span title="typing.Any">Any</span> | <span title="List">List</span>[<span title="typing.Any">Any</span>]</code>
+<code><span title="typing.Any">Any</span> | <span title="list">list</span>[<span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3175,8 +3175,8 @@ transformations in the list.</p>
 <span></span><span class="sd">    Set one or more transforms in the composition using indexing.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        index (int | List[int]): Index or list of indices to set transforms at.</span>
-<span></span><span class="sd">        value (Any | List[Any]): Transform or list of transforms to set at the specified index(es).</span>
+<span></span><span class="sd">        index (int | list[int]): Index or list of indices to set transforms at.</span>
+<span></span><span class="sd">        value (Any | list[Any]): Transform or list of transforms to set at the specified index(es).</span>
 <span></span>
 <span></span><span class="sd">    Raises:</span>
 <span></span><span class="sd">        AssertionError: If index type is invalid, value type doesn't match index type, or index is out of range.</span>
@@ -3683,7 +3683,7 @@ selects additional images, applies pre-transforms if specified, and then perform
 <code>labels</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3707,7 +3707,7 @@ selects additional images, applies pre-transforms if specified, and then perform
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3769,10 +3769,10 @@ selects additional images, applies pre-transforms if specified, and then perform
 <span></span><span class="sd">    selects additional images, applies pre-transforms if specified, and then performs the mix transform.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        labels (Dict[str, Any]): A dictionary containing label data for an image.</span>
+<span></span><span class="sd">        labels (dict[str, Any]): A dictionary containing label data for an image.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Dict[str, Any]): The transformed labels dictionary, which may include mixed data from other images.</span>
+<span></span><span class="sd">        (dict[str, Any]): The transformed labels dictionary, which may include mixed data from other images.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; transform = BaseMixTransform(dataset, pre_transform=None, p=0.5)</span>
@@ -3823,7 +3823,7 @@ selects additional images, applies pre-transforms if specified, and then perform
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="list">list</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3857,7 +3857,7 @@ selects additional images, applies pre-transforms if specified, and then perform
 <span></span><span class="sd">    Get a list of shuffled indexes for mosaic augmentation.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[int]): A list of shuffled indexes from the dataset.</span>
+<span></span><span class="sd">        (list[int]): A list of shuffled indexes from the dataset.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; transform = BaseMixTransform(dataset)</span>
@@ -3940,7 +3940,7 @@ The augmentation is applied to a dataset with a given probability.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.data.augment.Mosaic.border">border</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4182,7 +4182,7 @@ the 'buffer' parameter. It is used to choose images for creating mosaic augmenta
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="list">list</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4227,7 +4227,7 @@ of images used in the mosaic (either 3 or 8, depending on whether n is 4 or 9).<
 <span></span><span class="sd">    the 'buffer' parameter. It is used to choose images for creating mosaic augmentations.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[int]): A list of random image indexes. The length of the list is n-1, where n is the number</span>
+<span></span><span class="sd">        (list[int]): A list of random image indexes. The length of the list is n-1, where n is the number</span>
 <span></span><span class="sd">            of images used in the mosaic (either 3 or 8, depending on whether n is 4 or 9).</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
@@ -4772,7 +4772,7 @@ augmentation pipeline for object detection and instance segmentation tasks.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.data.augment.RandomPerspective.border">border</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4961,7 +4961,7 @@ segments, and keypoints. Transformations include rotation, translation, scaling,
 <code>border</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5055,7 +5055,7 @@ transformation.</p>
 <span></span><span class="sd">        scale (float): Scaling factor interval, e.g., a scale factor of 0.5 allows a resize between 50%-150%.</span>
 <span></span><span class="sd">        shear (float): Shear intensity (angle in degrees).</span>
 <span></span><span class="sd">        perspective (float): Perspective distortion factor.</span>
-<span></span><span class="sd">        border (Tuple[int, int]): Tuple specifying mosaic border (top/bottom, left/right).</span>
+<span></span><span class="sd">        border (tuple[int, int]): Tuple specifying mosaic border (top/bottom, left/right).</span>
 <span></span><span class="sd">        pre_transform (Callable | None): Function/transform to apply to the image before starting the random</span>
 <span></span><span class="sd">            transformation.</span>
 <span></span>
@@ -5100,7 +5100,7 @@ and keypoints accordingly.</p>
 <code>labels</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5110,7 +5110,7 @@ Must include:
     'cls' (np.ndarray): Class labels.
     'instances' (Instances): Object instances with bounding boxes, segments, and keypoints.
 May include:
-    'mosaic_border' (Tuple[int, int]): Border size for mosaic augmentation.</p>
+    'mosaic_border' (tuple[int, int]): Border size for mosaic augmentation.</p>
 </div>
 </td>
 <td>
@@ -5130,7 +5130,7 @@ May include:
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5138,7 +5138,7 @@ May include:
 - 'img' (np.ndarray): The transformed image.
 - 'cls' (np.ndarray): Updated class labels.
 - 'instances' (Instances): Updated object instances.
-- 'resized_shape' (Tuple[int, int]): New image shape after transformation.</p>
+- 'resized_shape' (tuple[int, int]): New image shape after transformation.</p>
 </div>
 </td>
 </tr>
@@ -5242,20 +5242,20 @@ May include:
 <span></span><span class="sd">    and keypoints accordingly.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        labels (Dict[str, Any]): A dictionary containing image data and annotations.</span>
+<span></span><span class="sd">        labels (dict[str, Any]): A dictionary containing image data and annotations.</span>
 <span></span><span class="sd">            Must include:</span>
 <span></span><span class="sd">                'img' (np.ndarray): The input image.</span>
 <span></span><span class="sd">                'cls' (np.ndarray): Class labels.</span>
 <span></span><span class="sd">                'instances' (Instances): Object instances with bounding boxes, segments, and keypoints.</span>
 <span></span><span class="sd">            May include:</span>
-<span></span><span class="sd">                'mosaic_border' (Tuple[int, int]): Border size for mosaic augmentation.</span>
+<span></span><span class="sd">                'mosaic_border' (tuple[int, int]): Border size for mosaic augmentation.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Dict[str, Any]): Transformed labels dictionary containing:</span>
+<span></span><span class="sd">        (dict[str, Any]): Transformed labels dictionary containing:</span>
 <span></span><span class="sd">            - 'img' (np.ndarray): The transformed image.</span>
 <span></span><span class="sd">            - 'cls' (np.ndarray): Updated class labels.</span>
 <span></span><span class="sd">            - 'instances' (Instances): Updated object instances.</span>
-<span></span><span class="sd">            - 'resized_shape' (Tuple[int, int]): New image shape after transformation.</span>
+<span></span><span class="sd">            - 'resized_shape' (tuple[int, int]): New image shape after transformation.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; transform = RandomPerspective()</span>
@@ -5359,7 +5359,7 @@ applied in a specific order to maintain consistency.</p>
 <code>border</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5493,7 +5493,7 @@ applied in a specific order to maintain consistency.</p>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        img (np.ndarray): Input image to be transformed.</span>
-<span></span><span class="sd">        border (Tuple[int, int]): Border dimensions for the transformed image.</span>
+<span></span><span class="sd">        border (tuple[int, int]): Border dimensions for the transformed image.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        img (np.ndarray): Transformed image.</span>
@@ -6502,7 +6502,7 @@ The adjustments are made within the limits set by hgain, sgain, and vgain during
 <code>labels</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6527,7 +6527,7 @@ the image as a numpy array.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6590,11 +6590,11 @@ the image as a numpy array.</p>
 <span></span><span class="sd">    The adjustments are made within the limits set by hgain, sgain, and vgain during initialization.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        labels (Dict[str, Any]): A dictionary containing image data and metadata. Must include an 'img' key with</span>
+<span></span><span class="sd">        labels (dict[str, Any]): A dictionary containing image data and metadata. Must include an 'img' key with</span>
 <span></span><span class="sd">            the image as a numpy array.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Dict[str, Any]): A dictionary containing the mixed image and adjusted labels.</span>
+<span></span><span class="sd">        (dict[str, Any]): A dictionary containing the mixed image and adjusted labels.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; hsv_augmenter = RandomHSV(hgain=0.5, sgain=0.5, vgain=0.5)</span>
@@ -6759,7 +6759,7 @@ It also updates any instances (bounding boxes, keypoints, etc.) accordingly.</p>
 <code>flip_idx</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>] | None</code>
+<code><span title="list">list</span>[<span title="int">int</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6833,7 +6833,7 @@ It also updates any instances (bounding boxes, keypoints, etc.) accordingly.</p>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        p (float): The probability of applying the flip. Must be between 0 and 1.</span>
 <span></span><span class="sd">        direction (str): The direction to apply the flip. Must be 'horizontal' or 'vertical'.</span>
-<span></span><span class="sd">        flip_idx (List[int] | None): Index mapping for flipping keypoints, if any.</span>
+<span></span><span class="sd">        flip_idx (list[int] | None): Index mapping for flipping keypoints, if any.</span>
 <span></span>
 <span></span><span class="sd">    Raises:</span>
 <span></span><span class="sd">        AssertionError: If direction is not 'horizontal' or 'vertical', or if p is not between 0 and 1.</span>
@@ -6878,7 +6878,7 @@ match the flipped image.</p>
 <code>labels</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6905,7 +6905,7 @@ match the flipped image.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6977,13 +6977,13 @@ match the flipped image.</p>
 <span></span><span class="sd">    match the flipped image.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        labels (Dict[str, Any]): A dictionary containing the following keys:</span>
+<span></span><span class="sd">        labels (dict[str, Any]): A dictionary containing the following keys:</span>
 <span></span><span class="sd">            'img' (np.ndarray): The image to be flipped.</span>
 <span></span><span class="sd">            'instances' (ultralytics.utils.instance.Instances): An object containing bounding boxes and</span>
 <span></span><span class="sd">                optionally keypoints.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Dict[str, Any]): The same dictionary with the flipped image and updated instances:</span>
+<span></span><span class="sd">        (dict[str, Any]): The same dictionary with the flipped image and updated instances:</span>
 <span></span><span class="sd">            'img' (np.ndarray): The flipped image.</span>
 <span></span><span class="sd">            'instances' (ultralytics.utils.instance.Instances): Updated instances matching the flipped image.</span>
 <span></span>
@@ -7160,7 +7160,7 @@ tasks. It supports various resizing modes including auto-sizing, scale-fill, and
 <code>new_shape</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7298,7 +7298,7 @@ tasks. It supports various resizing modes including auto-sizing, scale-fill, and
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.data.augment.LetterBox.__init__.new_shape">new_shape</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7445,7 +7445,7 @@ tasks. It supports various resizing modes including auto-sizing, scale-fill, and
 <span></span><span class="sd">    tasks. It supports various resizing modes including auto-sizing, scale-fill, and letterboxing.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        new_shape (Tuple[int, int]): Target size (height, width) for the resized image.</span>
+<span></span><span class="sd">        new_shape (tuple[int, int]): Target size (height, width) for the resized image.</span>
 <span></span><span class="sd">        auto (bool): If True, use minimum rectangle to resize. If False, use new_shape directly.</span>
 <span></span><span class="sd">        scale_fill (bool): If True, stretch the image to new_shape without padding.</span>
 <span></span><span class="sd">        scaleup (bool): If True, allow scaling up. If False, only scale down.</span>
@@ -7455,7 +7455,7 @@ tasks. It supports various resizing modes including auto-sizing, scale-fill, and
 <span></span><span class="sd">        interpolation (int): Interpolation method for resizing. Default is cv2.INTER_LINEAR.</span>
 <span></span>
 <span></span><span class="sd">    Attributes:</span>
-<span></span><span class="sd">        new_shape (Tuple[int, int]): Target size for the resized image.</span>
+<span></span><span class="sd">        new_shape (tuple[int, int]): Target size for the resized image.</span>
 <span></span><span class="sd">        auto (bool): Flag for using minimum rectangle resizing.</span>
 <span></span><span class="sd">        scale_fill (bool): Flag for stretching image without padding.</span>
 <span></span><span class="sd">        scaleup (bool): Flag for allowing upscaling.</span>
@@ -7506,7 +7506,7 @@ aspect ratio and adding padding to fit the new shape. It also updates any associ
 <code>labels</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7546,7 +7546,7 @@ aspect ratio and adding padding to fit the new shape. It also updates any associ
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | <span title="nd.ndarray">ndarray</span></code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | <span title="nd.ndarray">ndarray</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7650,11 +7650,11 @@ and padded image.</p>
 <span></span><span class="sd">    aspect ratio and adding padding to fit the new shape. It also updates any associated labels accordingly.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        labels (Dict[str, Any] | None): A dictionary containing image data and associated labels, or empty dict if None.</span>
+<span></span><span class="sd">        labels (dict[str, Any] | None): A dictionary containing image data and associated labels, or empty dict if None.</span>
 <span></span><span class="sd">        image (np.ndarray | None): The input image as a numpy array. If None, the image is taken from 'labels'.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Dict[str, Any] | nd.ndarray): If 'labels' is provided, returns an updated dictionary with the resized and padded image,</span>
+<span></span><span class="sd">        (dict[str, Any] | nd.ndarray): If 'labels' is provided, returns an updated dictionary with the resized and padded image,</span>
 <span></span><span class="sd">            updated labels, and additional metadata. If 'labels' is empty, returns the resized</span>
 <span></span><span class="sd">            and padded image.</span>
 <span></span>
@@ -8364,7 +8364,7 @@ spatial and non-spatial transformations on the input image and its corresponding
 <code>labels</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -8391,7 +8391,7 @@ spatial and non-spatial transformations on the input image and its corresponding
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -8483,13 +8483,13 @@ spatial and non-spatial transformations on the input image and its corresponding
 <span></span><span class="sd">    spatial and non-spatial transformations on the input image and its corresponding labels.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        labels (Dict[str, Any]): A dictionary containing image data and annotations. Expected keys are:</span>
+<span></span><span class="sd">        labels (dict[str, Any]): A dictionary containing image data and annotations. Expected keys are:</span>
 <span></span><span class="sd">            - 'img': np.ndarray representing the image</span>
 <span></span><span class="sd">            - 'cls': np.ndarray of class labels</span>
 <span></span><span class="sd">            - 'instances': object containing bounding boxes and other instance information</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Dict[str, Any]): The input dictionary with augmented image and updated annotations.</span>
+<span></span><span class="sd">        (dict[str, Any]): The input dictionary with augmented image and updated annotations.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; transform = Albumentations(p=0.5)</span>
@@ -9123,7 +9123,7 @@ applying normalization if required.</p>
 <code>labels</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -9150,7 +9150,7 @@ applying normalization if required.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -9250,13 +9250,13 @@ applying normalization if required.</p>
 <span></span><span class="sd">    applying normalization if required.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        labels (Dict[str, Any]): A dictionary containing image and annotation data with the following keys:</span>
+<span></span><span class="sd">        labels (dict[str, Any]): A dictionary containing image and annotation data with the following keys:</span>
 <span></span><span class="sd">            - 'img': The input image as a numpy array.</span>
 <span></span><span class="sd">            - 'cls': Class labels for instances.</span>
 <span></span><span class="sd">            - 'instances': An Instances object containing bounding boxes, segments, and keypoints.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Dict[str, Any]): A dictionary with formatted data, including:</span>
+<span></span><span class="sd">        (dict[str, Any]): A dictionary with formatted data, including:</span>
 <span></span><span class="sd">            - 'img': Formatted image tensor.</span>
 <span></span><span class="sd">            - 'cls': Class label's tensor.</span>
 <span></span><span class="sd">            - 'bboxes': Bounding boxes tensor in the specified format.</span>
@@ -9397,7 +9397,7 @@ applying normalization if required.</p>
 <code>labels</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -9421,7 +9421,7 @@ applying normalization if required.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -9457,10 +9457,10 @@ applying normalization if required.</p>
 <span></span><span class="sd">    Process labels to create visual prompts.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        labels (Dict[str, Any]): Dictionary containing image data and annotations.</span>
+<span></span><span class="sd">        labels (dict[str, Any]): Dictionary containing image data and annotations.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Dict[str, Any]): Updated labels with visual prompts added.</span>
+<span></span><span class="sd">        (dict[str, Any]): Updated labels with visual prompts added.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">imgsz</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
 <span></span>    <span class="n">bboxes</span><span class="p">,</span> <span class="n">masks</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
@@ -9521,7 +9521,7 @@ applying normalization if required.</p>
 <code>shape</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -9667,7 +9667,7 @@ applying normalization if required.</p>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        category (int | np.ndarray | torch.Tensor): The category labels for the objects.</span>
-<span></span><span class="sd">        shape (Tuple[int, int]): The shape of the image (height, width).</span>
+<span></span><span class="sd">        shape (tuple[int, int]): The shape of the image (height, width).</span>
 <span></span><span class="sd">        bboxes (np.ndarray | torch.Tensor, optional): Bounding boxes for the objects, xyxy format.</span>
 <span></span><span class="sd">        masks (np.ndarray | torch.Tensor, optional): Masks for the objects.</span>
 <span></span>
@@ -9878,7 +9878,7 @@ to reflect the sampled texts and can optionally pad the text list to a fixed len
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.data.augment.RandomLoadText.neg_samples">neg_samples</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -9982,7 +9982,7 @@ contain a single pair of curly braces {} where the text will be inserted.</p>
 <code>neg_samples</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -10070,7 +10070,7 @@ be equal to max_samples.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.data.augment.RandomLoadText.__init__.neg_samples">neg_samples</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -10186,7 +10186,7 @@ be equal to max_samples.</p>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        prompt_format (str): Format string for the prompt. The format string should</span>
 <span></span><span class="sd">            contain a single pair of curly braces {} where the text will be inserted.</span>
-<span></span><span class="sd">        neg_samples (Tuple[int, int]): A range to randomly sample negative texts. The first integer</span>
+<span></span><span class="sd">        neg_samples (tuple[int, int]): A range to randomly sample negative texts. The first integer</span>
 <span></span><span class="sd">            specifies the minimum number of negative samples, and the second integer specifies the</span>
 <span></span><span class="sd">            maximum.</span>
 <span></span><span class="sd">        max_samples (int): The maximum number of different text samples in one image.</span>
@@ -10196,7 +10196,7 @@ be equal to max_samples.</p>
 <span></span>
 <span></span><span class="sd">    Attributes:</span>
 <span></span><span class="sd">        prompt_format (str): The format string for the prompt.</span>
-<span></span><span class="sd">        neg_samples (Tuple[int, int]): The range for sampling negative texts.</span>
+<span></span><span class="sd">        neg_samples (tuple[int, int]): The range for sampling negative texts.</span>
 <span></span><span class="sd">        max_samples (int): The maximum number of text samples.</span>
 <span></span><span class="sd">        padding (bool): Whether padding is enabled.</span>
 <span></span><span class="sd">        padding_value (str): The value used for padding.</span>
@@ -10245,7 +10245,7 @@ new sampled text order.</p>
 <code>labels</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -10269,7 +10269,7 @@ new sampled text order.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -10358,10 +10358,10 @@ new sampled text order.</p>
 <span></span><span class="sd">    new sampled text order.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        labels (Dict[str, Any]): A dictionary containing image labels and metadata. Must include 'texts' and 'cls' keys.</span>
+<span></span><span class="sd">        labels (dict[str, Any]): A dictionary containing image labels and metadata. Must include 'texts' and 'cls' keys.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Dict[str, Any]): Updated labels dictionary with new 'cls' and 'texts' entries.</span>
+<span></span><span class="sd">        (dict[str, Any]): Updated labels dictionary with new 'cls' and 'texts' entries.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; loader = RandomLoadText(prompt_format="A photo of {}", neg_samples=(5, 10), max_samples=20)</span>
@@ -10534,7 +10534,7 @@ pads images to a specified size while maintaining the original aspect ratio.</p>
 <code>size</code>
 </td>
 <td>
-<code><span title="int">int</span> | <span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="int">int</span> | <span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -10682,7 +10682,7 @@ pads images to a specified size while maintaining the original aspect ratio.</p>
 <span></span><span class="sd">    pads images to a specified size while maintaining the original aspect ratio.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        size (int | Tuple[int, int]): Target size for the letterboxed image. If an int, a square image of</span>
+<span></span><span class="sd">        size (int | tuple[int, int]): Target size for the letterboxed image. If an int, a square image of</span>
 <span></span><span class="sd">            (size, size) is created. If a tuple, it should be (height, width).</span>
 <span></span><span class="sd">        auto (bool): If True, automatically calculates the short side based on stride.</span>
 <span></span><span class="sd">        stride (int): The stride value, used when 'auto' is True.</span>
@@ -10937,7 +10937,7 @@ It performs a center crop on input images to a specified size.</p>
 <code>size</code>
 </td>
 <td>
-<code><span title="int">int</span> | <span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="int">int</span> | <span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -11011,7 +11011,7 @@ It performs a center crop on input images to a specified size.</p>
 <span></span><span class="sd">    It performs a center crop on input images to a specified size.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        size (int | Tuple[int, int]): The desired output size of the crop. If size is an int, a square crop</span>
+<span></span><span class="sd">        size (int | tuple[int, int]): The desired output size of the crop. If size is an int, a square crop</span>
 <span></span><span class="sd">            (size, size) is made. If size is a sequence like (h, w), it is used as the output size.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
@@ -11738,7 +11738,7 @@ tuple, it defines (height, width).</p>
 <code>mean</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -11754,7 +11754,7 @@ tuple, it defines (height, width).</p>
 <code>std</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -11891,8 +11891,8 @@ tuple, it defines (height, width).</p>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        size (int | tuple): The target size for the transformed image. If an int, it defines the shortest edge. If a</span>
 <span></span><span class="sd">            tuple, it defines (height, width).</span>
-<span></span><span class="sd">        mean (Tuple[float, float, float]): Mean values for each RGB channel used in normalization.</span>
-<span></span><span class="sd">        std (Tuple[float, float, float]): Standard deviation values for each RGB channel used in normalization.</span>
+<span></span><span class="sd">        mean (tuple[float, float, float]): Mean values for each RGB channel used in normalization.</span>
+<span></span><span class="sd">        std (tuple[float, float, float]): Standard deviation values for each RGB channel used in normalization.</span>
 <span></span><span class="sd">        interpolation (str): Interpolation method of either 'NEAREST', 'BILINEAR' or 'BICUBIC'.</span>
 <span></span><span class="sd">        crop_fraction (float): Deprecated, will be removed in a future version.</span>
 <span></span>
@@ -11983,7 +11983,7 @@ options for resizing, flipping, color jittering, auto augmentation, and random e
 <code>mean</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -11999,7 +11999,7 @@ options for resizing, flipping, color jittering, auto augmentation, and random e
 <code>std</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -12015,7 +12015,7 @@ options for resizing, flipping, color jittering, auto augmentation, and random e
 <code>scale</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="float">float</span>, <span title="float">float</span>] | None</code>
+<code><span title="tuple">tuple</span>[<span title="float">float</span>, <span title="float">float</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -12031,7 +12031,7 @@ options for resizing, flipping, color jittering, auto augmentation, and random e
 <code>ratio</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="float">float</span>, <span title="float">float</span>] | None</code>
+<code><span title="tuple">tuple</span>[<span title="float">float</span>, <span title="float">float</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -12339,10 +12339,10 @@ options for resizing, flipping, color jittering, auto augmentation, and random e
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        size (int): Target size for the image after transformations.</span>
-<span></span><span class="sd">        mean (Tuple[float, float, float]): Mean values for each RGB channel used in normalization.</span>
-<span></span><span class="sd">        std (Tuple[float, float, float]): Standard deviation values for each RGB channel used in normalization.</span>
-<span></span><span class="sd">        scale (Tuple[float, float] | None): Range of size of the origin size cropped.</span>
-<span></span><span class="sd">        ratio (Tuple[float, float] | None): Range of aspect ratio of the origin aspect ratio cropped.</span>
+<span></span><span class="sd">        mean (tuple[float, float, float]): Mean values for each RGB channel used in normalization.</span>
+<span></span><span class="sd">        std (tuple[float, float, float]): Standard deviation values for each RGB channel used in normalization.</span>
+<span></span><span class="sd">        scale (tuple[float, float] | None): Range of size of the origin size cropped.</span>
+<span></span><span class="sd">        ratio (tuple[float, float] | None): Range of aspect ratio of the origin aspect ratio cropped.</span>
 <span></span><span class="sd">        hflip (float): Probability of horizontal flip.</span>
 <span></span><span class="sd">        vflip (float): Probability of vertical flip.</span>
 <span></span><span class="sd">        auto_augment (str | None): Auto augmentation policy. Can be 'randaugment', 'augmix', 'autoaugment' or None.</span>

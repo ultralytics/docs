@@ -1651,7 +1651,7 @@ It extends the DetectionValidator class and configures it specifically for the O
 <code>stats</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1675,7 +1675,7 @@ It extends the DetectionValidator class and configures it specifically for the O
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1756,10 +1756,10 @@ It extends the DetectionValidator class and configures it specifically for the O
 <span></span><span class="sd">    Evaluate YOLO output in JSON format and save predictions in DOTA format.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        stats (Dict[str, Any]): Performance statistics dictionary.</span>
+<span></span><span class="sd">        stats (dict[str, Any]): Performance statistics dictionary.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Dict[str, Any]): Updated performance statistics.</span>
+<span></span><span class="sd">        (dict[str, Any]): Updated performance statistics.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">save_json</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_dota</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">jdict</span><span class="p">):</span>
 <span></span>        <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
@@ -1908,7 +1908,7 @@ It extends the DetectionValidator class and configures it specifically for the O
 <code>batch</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1924,7 +1924,7 @@ It extends the DetectionValidator class and configures it specifically for the O
 <code>preds</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="list">list</span>[<span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1984,8 +1984,8 @@ It extends the DetectionValidator class and configures it specifically for the O
 <span></span><span class="sd">    Plot predicted bounding boxes on input images and save the result.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        batch (Dict[str, Any]): Batch data containing images, file paths, and other metadata.</span>
-<span></span><span class="sd">        preds (List[torch.Tensor]): List of prediction tensors for each image in the batch.</span>
+<span></span><span class="sd">        batch (dict[str, Any]): Batch data containing images, file paths, and other metadata.</span>
+<span></span><span class="sd">        preds (list[torch.Tensor]): List of prediction tensors for each image in the batch.</span>
 <span></span><span class="sd">        ni (int): Batch index used for naming the output file.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
@@ -2049,7 +2049,7 @@ It extends the DetectionValidator class and configures it specifically for the O
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]]</code>
+<code><span title="list">list</span>[<span title="dict">dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2078,7 +2078,7 @@ It extends the DetectionValidator class and configures it specifically for the O
 <span></span><span class="sd">        preds (torch.Tensor): Raw predictions from the model.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[Dict[str, torch.Tensor]]): Processed predictions with angle information concatenated to bboxes.</span>
+<span></span><span class="sd">        (list[dict[str, torch.Tensor]]): Processed predictions with angle information concatenated to bboxes.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">preds</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">postprocess</span><span class="p">(</span><span class="n">preds</span><span class="p">)</span>
 <span></span>    <span class="k">for</span> <span class="n">pred</span> <span class="ow">in</span> <span class="n">preds</span><span class="p">:</span>
@@ -2112,7 +2112,7 @@ It extends the DetectionValidator class and configures it specifically for the O
 <code>predn</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2129,7 +2129,7 @@ with bounding box coordinates, confidence scores, and class predictions.</p>
 <code>pbatch</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2184,9 +2184,9 @@ to the JSON dictionary.</p>
 <span></span><span class="sd">    Convert YOLO predictions to COCO JSON format with rotated bounding box information.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        predn (Dict[str, torch.Tensor]): Prediction dictionary containing 'bboxes', 'conf', and 'cls' keys</span>
+<span></span><span class="sd">        predn (dict[str, torch.Tensor]): Prediction dictionary containing 'bboxes', 'conf', and 'cls' keys</span>
 <span></span><span class="sd">            with bounding box coordinates, confidence scores, and class predictions.</span>
-<span></span><span class="sd">        pbatch (Dict[str, Any]): Batch dictionary containing 'imgsz', 'ori_shape', 'ratio_pad', and 'im_file'.</span>
+<span></span><span class="sd">        pbatch (dict[str, Any]): Batch dictionary containing 'imgsz', 'ori_shape', 'ratio_pad', and 'im_file'.</span>
 <span></span>
 <span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        This method processes rotated bounding box predictions and converts them to both rbox format</span>
@@ -2275,7 +2275,7 @@ class predictions, and angles in format (x, y, w, h, conf, cls, angle).</p>
 <code>shape</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2344,7 +2344,7 @@ class predictions, and angles in format (x, y, w, h, conf, cls, angle).</p>
 <span></span><span class="sd">        predn (torch.Tensor): Predicted detections with shape (N, 7) containing bounding boxes, confidence scores,</span>
 <span></span><span class="sd">            class predictions, and angles in format (x, y, w, h, conf, cls, angle).</span>
 <span></span><span class="sd">        save_conf (bool): Whether to save confidence scores in the text file.</span>
-<span></span><span class="sd">        shape (Tuple[int, int]): Original image shape in format (height, width).</span>
+<span></span><span class="sd">        shape (tuple[int, int]): Original image shape in format (height, width).</span>
 <span></span><span class="sd">        file (Path): Output file path to save detections.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>

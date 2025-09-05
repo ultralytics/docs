@@ -1561,7 +1561,7 @@ prediction processing, and visualization of results.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.yolo.detect.val.DetectionValidator.class_map">class_map</span></code></td>
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="list">list</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1605,7 +1605,7 @@ prediction processing, and visualization of results.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.yolo.detect.val.DetectionValidator.lb">lb</span></code></td>
 <td>
-<code><span title="List">List</span>[<span title="typing.Any">Any</span>]</code>
+<code><span title="list">list</span>[<span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1616,7 +1616,7 @@ prediction processing, and visualization of results.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.yolo.detect.val.DetectionValidator.jdict">jdict</span></code></td>
 <td>
-<code><span title="List">List</span>[<span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]]</code>
+<code><span title="list">list</span>[<span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1627,7 +1627,7 @@ prediction processing, and visualization of results.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.yolo.detect.val.DetectionValidator.stats">stats</span></code></td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="List">List</span>[<span title="torch.Tensor">Tensor</span>]]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="list">list</span>[<span title="torch.Tensor">Tensor</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1691,7 +1691,7 @@ prediction processing, and visualization of results.</p>
 <code>args</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1707,7 +1707,7 @@ prediction processing, and visualization of results.</p>
 <code>_callbacks</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="typing.Any">Any</span>]</code>
+<code><span title="list">list</span>[<span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1746,8 +1746,8 @@ prediction processing, and visualization of results.</p>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        dataloader (torch.utils.data.DataLoader, optional): Dataloader to use for validation.</span>
 <span></span><span class="sd">        save_dir (Path, optional): Directory to save results.</span>
-<span></span><span class="sd">        args (Dict[str, Any], optional): Arguments for the validator.</span>
-<span></span><span class="sd">        _callbacks (List[Any], optional): List of callback functions.</span>
+<span></span><span class="sd">        args (dict[str, Any], optional): Arguments for the validator.</span>
+<span></span><span class="sd">        _callbacks (list[Any], optional): List of callback functions.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">is_coco</span> <span class="o">=</span> <span class="kc">False</span>
@@ -1916,7 +1916,7 @@ including mAP50, mAP50-95, and LVIS-specific metrics if applicable.</p>
 <code>stats</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1964,7 +1964,7 @@ including mAP50, mAP50-95, and LVIS-specific metrics if applicable.</p>
 <code>iou_types</code>
 </td>
 <td>
-<code>str | List[str]]</code>
+<code>str | list[str]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1981,7 +1981,7 @@ Common values include "bbox", "segm", "keypoints". Defaults to "bbox".</p>
 <code>suffix</code>
 </td>
 <td>
-<code>str | List[str]]</code>
+<code>str | list[str]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2006,7 +2006,7 @@ to iou_types if multiple types provided. Defaults to "Box".</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2095,16 +2095,16 @@ to iou_types if multiple types provided. Defaults to "Box".</p>
 <span></span><span class="sd">    including mAP50, mAP50-95, and LVIS-specific metrics if applicable.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        stats (Dict[str, Any]): Dictionary to store computed metrics and statistics.</span>
+<span></span><span class="sd">        stats (dict[str, Any]): Dictionary to store computed metrics and statistics.</span>
 <span></span><span class="sd">        pred_json (str | Path]): Path to JSON file containing predictions in COCO format.</span>
 <span></span><span class="sd">        anno_json (str | Path]): Path to JSON file containing ground truth annotations in COCO format.</span>
-<span></span><span class="sd">        iou_types (str | List[str]]): IoU type(s) for evaluation. Can be single string or list of strings.</span>
+<span></span><span class="sd">        iou_types (str | list[str]]): IoU type(s) for evaluation. Can be single string or list of strings.</span>
 <span></span><span class="sd">            Common values include "bbox", "segm", "keypoints". Defaults to "bbox".</span>
-<span></span><span class="sd">        suffix (str | List[str]]): Suffix to append to metric names in stats dictionary. Should correspond</span>
+<span></span><span class="sd">        suffix (str | list[str]]): Suffix to append to metric names in stats dictionary. Should correspond</span>
 <span></span><span class="sd">            to iou_types if multiple types provided. Defaults to "Box".</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Dict[str, Any]): Updated stats dictionary containing the computed COCO/LVIS evaluation metrics.</span>
+<span></span><span class="sd">        (dict[str, Any]): Updated stats dictionary containing the computed COCO/LVIS evaluation metrics.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">save_json</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">is_coco</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_lvis</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">jdict</span><span class="p">):</span>
 <span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Evaluating faster-coco-eval mAP using </span><span class="si">{</span><span class="n">pred_json</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">anno_json</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
@@ -2169,7 +2169,7 @@ to iou_types if multiple types provided. Defaults to "Box".</p>
 <code>stats</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2193,7 +2193,7 @@ to iou_types if multiple types provided. Defaults to "Box".</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2226,10 +2226,10 @@ to iou_types if multiple types provided. Defaults to "Box".</p>
 <span></span><span class="sd">    Evaluate YOLO output in JSON format and return performance statistics.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        stats (Dict[str, Any]): Current statistics dictionary.</span>
+<span></span><span class="sd">        stats (dict[str, Any]): Current statistics dictionary.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Dict[str, Any]): Updated statistics dictionary with COCO/LVIS evaluation results.</span>
+<span></span><span class="sd">        (dict[str, Any]): Updated statistics dictionary with COCO/LVIS evaluation results.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">pred_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="s2">"predictions.json"</span>  <span class="c1"># predictions</span>
 <span></span>    <span class="n">anno_json</span> <span class="o">=</span> <span class="p">(</span>
@@ -2416,7 +2416,7 @@ to iou_types if multiple types provided. Defaults to "Box".</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2442,7 +2442,7 @@ to iou_types if multiple types provided. Defaults to "Box".</p>
 <span></span><span class="sd">    Calculate and return metrics statistics.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Dict[str, Any]): Dictionary containing metrics results.</span>
+<span></span><span class="sd">        (dict[str, Any]): Dictionary containing metrics results.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">plots</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">clear_stats</span><span class="p">()</span>
@@ -2568,7 +2568,7 @@ to iou_types if multiple types provided. Defaults to "Box".</p>
 <code>batch</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2584,7 +2584,7 @@ to iou_types if multiple types provided. Defaults to "Box".</p>
 <code>preds</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]]</code>
+<code><span title="list">list</span>[<span title="dict">dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2665,8 +2665,8 @@ to iou_types if multiple types provided. Defaults to "Box".</p>
 <span></span><span class="sd">    Plot predicted bounding boxes on input images and save the result.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        batch (Dict[str, Any]): Batch containing images and annotations.</span>
-<span></span><span class="sd">        preds (List[Dict[str, torch.Tensor]]): List of predictions from the model.</span>
+<span></span><span class="sd">        batch (dict[str, Any]): Batch containing images and annotations.</span>
+<span></span><span class="sd">        preds (list[dict[str, torch.Tensor]]): List of predictions from the model.</span>
 <span></span><span class="sd">        ni (int): Batch index.</span>
 <span></span><span class="sd">        max_det (Optional[int]): Maximum number of detections to plot.</span>
 <span></span><span class="sd">    """</span>
@@ -2714,7 +2714,7 @@ to iou_types if multiple types provided. Defaults to "Box".</p>
 <code>batch</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2764,7 +2764,7 @@ to iou_types if multiple types provided. Defaults to "Box".</p>
 <span></span><span class="sd">    Plot validation image samples.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        batch (Dict[str, Any]): Batch containing images and annotations.</span>
+<span></span><span class="sd">        batch (dict[str, Any]): Batch containing images and annotations.</span>
 <span></span><span class="sd">        ni (int): Batch index.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">plot_images</span><span class="p">(</span>
@@ -2826,7 +2826,7 @@ to iou_types if multiple types provided. Defaults to "Box".</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]]</code>
+<code><span title="list">list</span>[<span title="dict">dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2869,7 +2869,7 @@ to iou_types if multiple types provided. Defaults to "Box".</p>
 <span></span><span class="sd">        preds (torch.Tensor): Raw predictions from the model.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[Dict[str, torch.Tensor]]): Processed predictions after NMS, where each dict contains</span>
+<span></span><span class="sd">        (list[dict[str, torch.Tensor]]): Processed predictions after NMS, where each dict contains</span>
 <span></span><span class="sd">            'bboxes', 'conf', 'cls', and 'extra' tensors.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">outputs</span> <span class="o">=</span> <span class="n">nms</span><span class="o">.</span><span class="n">non_max_suppression</span><span class="p">(</span>
@@ -2912,7 +2912,7 @@ to iou_types if multiple types provided. Defaults to "Box".</p>
 <code>predn</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2929,7 +2929,7 @@ with bounding box coordinates, confidence scores, and class predictions.</p>
 <code>pbatch</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2990,9 +2990,9 @@ with bounding box coordinates, confidence scores, and class predictions.</p>
 <span></span><span class="sd">    Serialize YOLO predictions to COCO json format.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        predn (Dict[str, torch.Tensor]): Predictions dictionary containing 'bboxes', 'conf', and 'cls' keys</span>
+<span></span><span class="sd">        predn (dict[str, torch.Tensor]): Predictions dictionary containing 'bboxes', 'conf', and 'cls' keys</span>
 <span></span><span class="sd">            with bounding box coordinates, confidence scores, and class predictions.</span>
-<span></span><span class="sd">        pbatch (Dict[str, Any]): Batch dictionary containing 'imgsz', 'ori_shape', 'ratio_pad', and 'im_file'.</span>
+<span></span><span class="sd">        pbatch (dict[str, Any]): Batch dictionary containing 'imgsz', 'ori_shape', 'ratio_pad', and 'im_file'.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">         &gt;&gt;&gt; result = {</span>
@@ -3046,7 +3046,7 @@ with bounding box coordinates, confidence scores, and class predictions.</p>
 <code>batch</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3070,7 +3070,7 @@ with bounding box coordinates, confidence scores, and class predictions.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3102,10 +3102,10 @@ with bounding box coordinates, confidence scores, and class predictions.</p>
 <span></span><span class="sd">    Preprocess batch of images for YOLO validation.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        batch (Dict[str, Any]): Batch containing images and annotations.</span>
+<span></span><span class="sd">        batch (dict[str, Any]): Batch containing images and annotations.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Dict[str, Any]): Preprocessed batch.</span>
+<span></span><span class="sd">        (dict[str, Any]): Preprocessed batch.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">non_blocking</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span></span>    <span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span><span class="o">.</span><span class="n">half</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">half</span> <span class="k">else</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span><span class="o">.</span><span class="n">float</span><span class="p">())</span> <span class="o">/</span> <span class="mi">255</span>
@@ -3197,7 +3197,7 @@ with bounding box coordinates, confidence scores, and class predictions.</p>
 <code>predn</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3229,7 +3229,7 @@ with bounding box coordinates, confidence scores, and class predictions.</p>
 <code>shape</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3282,9 +3282,9 @@ with bounding box coordinates, confidence scores, and class predictions.</p>
 <span></span><span class="sd">    Save YOLO detections to a txt file in normalized coordinates in a specific format.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        predn (Dict[str, torch.Tensor]): Dictionary containing predictions with keys 'bboxes', 'conf', and 'cls'.</span>
+<span></span><span class="sd">        predn (dict[str, torch.Tensor]): Dictionary containing predictions with keys 'bboxes', 'conf', and 'cls'.</span>
 <span></span><span class="sd">        save_conf (bool): Whether to save confidence scores.</span>
-<span></span><span class="sd">        shape (Tuple[int, int]): Shape of the original image (height, width).</span>
+<span></span><span class="sd">        shape (tuple[int, int]): Shape of the original image (height, width).</span>
 <span></span><span class="sd">        file (Path): File path to save the detections.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.engine.results</span><span class="w"> </span><span class="kn">import</span> <span class="n">Results</span>
@@ -3360,7 +3360,7 @@ with bounding box coordinates, confidence scores, and class predictions.</p>
 <code>preds</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]]</code>
+<code><span title="list">list</span>[<span title="dict">dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3376,7 +3376,7 @@ with bounding box coordinates, confidence scores, and class predictions.</p>
 <code>batch</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3440,8 +3440,8 @@ with bounding box coordinates, confidence scores, and class predictions.</p>
 <span></span><span class="sd">    Update metrics with new predictions and ground truth.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        preds (List[Dict[str, torch.Tensor]]): List of predictions from the model.</span>
-<span></span><span class="sd">        batch (Dict[str, Any]): Batch data containing ground truth.</span>
+<span></span><span class="sd">        preds (list[dict[str, torch.Tensor]]): List of predictions from the model.</span>
+<span></span><span class="sd">        batch (dict[str, Any]): Batch data containing ground truth.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">for</span> <span class="n">si</span><span class="p">,</span> <span class="n">pred</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">preds</span><span class="p">):</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">seen</span> <span class="o">+=</span> <span class="mi">1</span>

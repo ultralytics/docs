@@ -1420,7 +1420,7 @@ or numpy array.</p>
 <code>bboxes</code>
 </td>
 <td>
-<code><span title="List">List</span></code>
+<code><span title="list">list</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1436,7 +1436,7 @@ or numpy array.</p>
 <code>points</code>
 </td>
 <td>
-<code><span title="List">List</span></code>
+<code><span title="list">list</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1452,7 +1452,7 @@ or numpy array.</p>
 <code>labels</code>
 </td>
 <td>
-<code><span title="List">List</span></code>
+<code><span title="list">list</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1468,7 +1468,7 @@ or numpy array.</p>
 <code>texts</code>
 </td>
 <td>
-<code><span title="List">List</span></code>
+<code><span title="list">list</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1508,7 +1508,7 @@ or numpy array.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span></code>
+<code><span title="list">list</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1570,14 +1570,14 @@ or numpy array.</p>
 <span></span><span class="sd">        source (str | PIL.Image | np.ndarray): Input source for prediction, can be a file path, URL, PIL image,</span>
 <span></span><span class="sd">            or numpy array.</span>
 <span></span><span class="sd">        stream (bool): Whether to enable real-time streaming mode for video inputs.</span>
-<span></span><span class="sd">        bboxes (List, optional): Bounding box coordinates for prompted segmentation in format [[x1, y1, x2, y2]].</span>
-<span></span><span class="sd">        points (List, optional): Point coordinates for prompted segmentation in format [[x, y]].</span>
-<span></span><span class="sd">        labels (List, optional): Class labels for prompted segmentation.</span>
-<span></span><span class="sd">        texts (List, optional): Text prompts for segmentation guidance.</span>
+<span></span><span class="sd">        bboxes (list, optional): Bounding box coordinates for prompted segmentation in format [[x1, y1, x2, y2]].</span>
+<span></span><span class="sd">        points (list, optional): Point coordinates for prompted segmentation in format [[x, y]].</span>
+<span></span><span class="sd">        labels (list, optional): Class labels for prompted segmentation.</span>
+<span></span><span class="sd">        texts (list, optional): Text prompts for segmentation guidance.</span>
 <span></span><span class="sd">        **kwargs (Any): Additional keyword arguments passed to the predictor.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List): List of Results objects containing the prediction results.</span>
+<span></span><span class="sd">        (list): List of Results objects containing the prediction results.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">prompts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">bboxes</span><span class="o">=</span><span class="n">bboxes</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="n">points</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">texts</span><span class="o">=</span><span class="n">texts</span><span class="p">)</span>
 <span></span>    <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="p">,</span> <span class="n">prompts</span><span class="o">=</span><span class="n">prompts</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>

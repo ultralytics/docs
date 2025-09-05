@@ -1527,7 +1527,7 @@ RGB values and accessing predefined color schemes for object detection and pose 
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.plotting.Colors.palette">palette</span></code></td>
 <td>
-<code><span title="List">List</span>[<span title="tuple">tuple</span>]</code>
+<code><span title="list">list</span>[<span title="tuple">tuple</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2146,7 +2146,7 @@ Please use the official Ultralytics colors for all marketing materials.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.plotting.Annotator.skeleton">skeleton</span></code></td>
 <td>
-<code><span title="List">List</span>[<span title="List">List</span>[<span title="int">int</span>]]</code>
+<code><span title="list">list</span>[<span title="list">list</span>[<span title="int">int</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2157,7 +2157,7 @@ Please use the official Ultralytics colors for all marketing materials.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.plotting.Annotator.limb_color">limb_color</span></code></td>
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="list">list</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2168,7 +2168,7 @@ Please use the official Ultralytics colors for all marketing materials.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.plotting.Annotator.kpt_color">kpt_color</span></code></td>
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="list">list</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3216,7 +3216,7 @@ Please use the official Ultralytics colors for all marketing materials.</p>
 <code>colors</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="List">List</span>[<span title="int">int</span>]]</code>
+<code><span title="list">list</span>[<span title="list">list</span>[<span title="int">int</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3327,7 +3327,7 @@ Please use the official Ultralytics colors for all marketing materials.</p>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        masks (torch.Tensor | np.ndarray): Predicted masks with shape: [n, h, w]</span>
-<span></span><span class="sd">        colors (List[List[int]]): Colors for predicted masks, [[r, g, b] * n]</span>
+<span></span><span class="sd">        colors (list[list[int]]): Colors for predicted masks, [[r, g, b] * n]</span>
 <span></span><span class="sd">        im_gpu (torch.Tensor | None): Image is in cuda, shape: [3, h, w], range: [0, 1]</span>
 <span></span><span class="sd">        alpha (float, optional): Mask transparency: 0.0 fully transparent, 1.0 opaque.</span>
 <span></span><span class="sd">        retina_masks (bool, optional): Whether to use high resolution masks or not.</span>
@@ -3488,7 +3488,7 @@ Please use the official Ultralytics colors for all marketing materials.</p>
 <code>xy</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="list">list</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3601,7 +3601,7 @@ Please use the official Ultralytics colors for all marketing materials.</p>
 <span></span><span class="sd">    Add text to an image using PIL or cv2.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        xy (List[int]): Top-left coordinates for text placement.</span>
+<span></span><span class="sd">        xy (list[int]): Top-left coordinates for text placement.</span>
 <span></span><span class="sd">        text (str): Text to be drawn.</span>
 <span></span><span class="sd">        txt_color (tuple, optional): Text color (R, G, B).</span>
 <span></span><span class="sd">        anchor (str, optional): Text anchor position ('top' or 'bottom').</span>
@@ -4197,7 +4197,7 @@ adjustments to the bounding box.</p>
 <code>labels</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4229,7 +4229,7 @@ adjustments to the bounding box.</p>
 <code>paths</code>
 </td>
 <td>
-<code><span title="Optional">Optional</span>[<span title="List">List</span>[<span title="str">str</span>]]</code>
+<code><span title="Optional">Optional</span>[<span title="list">list</span>[<span title="str">str</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4261,7 +4261,7 @@ adjustments to the bounding box.</p>
 <code>names</code>
 </td>
 <td>
-<code><span title="Optional">Optional</span>[<span title="Dict">Dict</span>[<span title="int">int</span>, <span title="str">str</span>]]</code>
+<code><span title="Optional">Optional</span>[<span title="dict">dict</span>[<span title="int">int</span>, <span title="str">str</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4564,11 +4564,11 @@ convert tensor inputs to numpy arrays for processing.</p>
 <span></span><span class="sd">    Plot image grid with labels, bounding boxes, masks, and keypoints.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        labels (Dict[str, Any]): Dictionary containing detection data with keys like 'cls', 'bboxes', 'conf', 'masks', 'keypoints', 'batch_idx', 'img'.</span>
+<span></span><span class="sd">        labels (dict[str, Any]): Dictionary containing detection data with keys like 'cls', 'bboxes', 'conf', 'masks', 'keypoints', 'batch_idx', 'img'.</span>
 <span></span><span class="sd">        images (torch.Tensor | np.ndarray]): Batch of images to plot. Shape: (batch_size, channels, height, width).</span>
-<span></span><span class="sd">        paths (Optional[List[str]]): List of file paths for each image in the batch.</span>
+<span></span><span class="sd">        paths (Optional[list[str]]): List of file paths for each image in the batch.</span>
 <span></span><span class="sd">        fname (str): Output filename for the plotted image grid.</span>
-<span></span><span class="sd">        names (Optional[Dict[int, str]]): Dictionary mapping class indices to class names.</span>
+<span></span><span class="sd">        names (Optional[dict[int, str]]): Dictionary mapping class indices to class names.</span>
 <span></span><span class="sd">        on_plot (Optional[Callable]): Optional callback function to be called after saving the plot.</span>
 <span></span><span class="sd">        max_size (int): Maximum size of the output image grid.</span>
 <span></span><span class="sd">        max_subplots (int): Maximum number of subplots in the image grid.</span>

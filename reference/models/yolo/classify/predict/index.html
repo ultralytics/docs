@@ -1544,7 +1544,7 @@ tasks. It ensures the task is set to 'classify' regardless of input configuratio
 <code>orig_imgs</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="np.ndarray">ndarray</span>] | <span title="torch.Tensor">Tensor</span></code>
+<code><span title="list">list</span>[<span title="np.ndarray">ndarray</span>] | <span title="torch.Tensor">Tensor</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1568,7 +1568,7 @@ tasks. It ensures the task is set to 'classify' regardless of input configuratio
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<a class="autorefs autorefs-internal" href="../../../../engine/results/#ultralytics.engine.results.Results" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.Results&lt;/span&gt;'>Results</a>]</code>
+<code><span title="list">list</span>[<a class="autorefs autorefs-internal" href="../../../../engine/results/#ultralytics.engine.results.Results" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.Results&lt;/span&gt;'>Results</a>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1606,10 +1606,10 @@ tasks. It ensures the task is set to 'classify' regardless of input configuratio
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        preds (torch.Tensor): Raw predictions from the model.</span>
 <span></span><span class="sd">        img (torch.Tensor): Input images after preprocessing.</span>
-<span></span><span class="sd">        orig_imgs (List[np.ndarray] | torch.Tensor): Original images before preprocessing.</span>
+<span></span><span class="sd">        orig_imgs (list[np.ndarray] | torch.Tensor): Original images before preprocessing.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[Results]): List of Results objects containing classification results for each image.</span>
+<span></span><span class="sd">        (list[Results]): List of Results objects containing classification results for each image.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">orig_imgs</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>  <span class="c1"># Input images are a torch.Tensor, not a list</span>
 <span></span>        <span class="n">orig_imgs</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">convert_torch2numpy_batch</span><span class="p">(</span><span class="n">orig_imgs</span><span class="p">)</span>

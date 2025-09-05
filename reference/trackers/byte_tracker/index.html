@@ -1804,7 +1804,7 @@ and predictions based on Kalman filter.</p>
 <code>xywh</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="float">float</span>]</code>
+<code><span title="list">list</span>[<span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1891,7 +1891,7 @@ and predictions based on Kalman filter.</p>
 <span></span><span class="sd">    Initialize a new STrack instance.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        xywh (List[float]): Bounding box coordinates and dimensions in the format (x, y, w, h, [a], idx), where</span>
+<span></span><span class="sd">        xywh (list[float]): Bounding box coordinates and dimensions in the format (x, y, w, h, [a], idx), where</span>
 <span></span><span class="sd">            (x, y) is the center, (w, h) are width and height, [a] is optional aspect ratio, and idx is the id.</span>
 <span></span><span class="sd">        score (float): Confidence score of the detection.</span>
 <span></span><span class="sd">        cls (Any): Class label for the detected object.</span>
@@ -2399,7 +2399,7 @@ predicting the new object locations, and performs data association.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.trackers.byte_tracker.BYTETracker.tracked_stracks">tracked_stracks</span></code></td>
 <td>
-<code><span title="List">List</span>[<a class="autorefs autorefs-internal" href="#ultralytics.trackers.byte_tracker.STrack" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.trackers.byte_tracker.STrack&lt;/span&gt;'>STrack</a>]</code>
+<code><span title="list">list</span>[<a class="autorefs autorefs-internal" href="#ultralytics.trackers.byte_tracker.STrack" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.trackers.byte_tracker.STrack&lt;/span&gt;'>STrack</a>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2410,7 +2410,7 @@ predicting the new object locations, and performs data association.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.trackers.byte_tracker.BYTETracker.lost_stracks">lost_stracks</span></code></td>
 <td>
-<code><span title="List">List</span>[<a class="autorefs autorefs-internal" href="#ultralytics.trackers.byte_tracker.STrack" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.trackers.byte_tracker.STrack&lt;/span&gt;'>STrack</a>]</code>
+<code><span title="list">list</span>[<a class="autorefs autorefs-internal" href="#ultralytics.trackers.byte_tracker.STrack" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.trackers.byte_tracker.STrack&lt;/span&gt;'>STrack</a>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2421,7 +2421,7 @@ predicting the new object locations, and performs data association.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.trackers.byte_tracker.BYTETracker.removed_stracks">removed_stracks</span></code></td>
 <td>
-<code><span title="List">List</span>[<a class="autorefs autorefs-internal" href="#ultralytics.trackers.byte_tracker.STrack" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.trackers.byte_tracker.STrack&lt;/span&gt;'>STrack</a>]</code>
+<code><span title="list">list</span>[<a class="autorefs autorefs-internal" href="#ultralytics.trackers.byte_tracker.STrack" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.trackers.byte_tracker.STrack&lt;/span&gt;'>STrack</a>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2670,9 +2670,9 @@ predicting the new object locations, and performs data association.</p>
 <span></span><span class="sd">        &gt;&gt;&gt; args = Namespace(track_buffer=30)</span>
 <span></span><span class="sd">        &gt;&gt;&gt; tracker = BYTETracker(args, frame_rate=30)</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">tracked_stracks</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: List[STrack]</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">lost_stracks</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: List[STrack]</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">removed_stracks</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: List[STrack]</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">tracked_stracks</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: list[STrack]</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">lost_stracks</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: list[STrack]</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">removed_stracks</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: list[STrack]</span>
 <span></span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="mi">0</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="n">args</span>
@@ -2885,9 +2885,9 @@ predicting the new object locations, and performs data association.</p>
 <span>446</span>
 <span>447</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Reset the tracker by clearing all tracked, lost, and removed tracks and reinitializing the Kalman filter."""</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">tracked_stracks</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: List[STrack]</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">lost_stracks</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: List[STrack]</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">removed_stracks</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: List[STrack]</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">tracked_stracks</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: list[STrack]</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">lost_stracks</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: list[STrack]</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">removed_stracks</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: list[STrack]</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="mi">0</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">kalman_filter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_kalmanfilter</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">reset_id</span><span class="p">()</span>
@@ -3092,7 +3092,7 @@ predicting the new object locations, and performs data association.</p>
 <span></span>    <span class="n">detections</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_track</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">feats_keep</span><span class="p">)</span>
 <span></span>    <span class="c1"># Add newly detected tracklets to tracked_stracks</span>
 <span></span>    <span class="n">unconfirmed</span> <span class="o">=</span> <span class="p">[]</span>
-<span></span>    <span class="n">tracked_stracks</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: List[STrack]</span>
+<span></span>    <span class="n">tracked_stracks</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: list[STrack]</span>
 <span></span>    <span class="k">for</span> <span class="n">track</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tracked_stracks</span><span class="p">:</span>
 <span></span>        <span class="k">if</span> <span class="ow">not</span> <span class="n">track</span><span class="o">.</span><span class="n">is_activated</span><span class="p">:</span>
 <span></span>            <span class="n">unconfirmed</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">track</span><span class="p">)</span>

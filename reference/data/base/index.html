@@ -1498,7 +1498,7 @@ in object detection tasks.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.data.base.BaseDataset.im_files">im_files</span></code></td>
 <td>
-<code><span title="List">List</span>[<span title="str">str</span>]</code>
+<code><span title="list">list</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1509,7 +1509,7 @@ in object detection tasks.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.data.base.BaseDataset.labels">labels</span></code></td>
 <td>
-<code><span title="List">List</span>[<span title="Dict">Dict</span>]</code>
+<code><span title="list">list</span>[<span title="dict">dict</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1630,7 +1630,7 @@ in object detection tasks.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.data.base.BaseDataset.npy_files">npy_files</span></code></td>
 <td>
-<code><span title="List">List</span>[<span title="pathlib.Path">Path</span>]</code>
+<code><span title="list">list</span>[<span title="pathlib.Path">Path</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1807,7 +1807,7 @@ in object detection tasks.</p>
 <code>img_path</code>
 </td>
 <td>
-<code><span title="str">str</span> | <span title="List">List</span>[<span title="str">str</span>]</code>
+<code><span title="str">str</span> | <span title="list">list</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1871,7 +1871,7 @@ in object detection tasks.</p>
 <code>hyp</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1983,7 +1983,7 @@ in object detection tasks.</p>
 <code>classes</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="list">list</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2127,18 +2127,18 @@ in object detection tasks.</p>
 <span></span><span class="sd">    Initialize BaseDataset with given configuration and options.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        img_path (str | List[str]): Path to the folder containing images or list of image paths.</span>
+<span></span><span class="sd">        img_path (str | list[str]): Path to the folder containing images or list of image paths.</span>
 <span></span><span class="sd">        imgsz (int): Image size for resizing.</span>
 <span></span><span class="sd">        cache (bool | str): Cache images to RAM or disk during training.</span>
 <span></span><span class="sd">        augment (bool): If True, data augmentation is applied.</span>
-<span></span><span class="sd">        hyp (Dict[str, Any]): Hyperparameters to apply data augmentation.</span>
+<span></span><span class="sd">        hyp (dict[str, Any]): Hyperparameters to apply data augmentation.</span>
 <span></span><span class="sd">        prefix (str): Prefix to print in log messages.</span>
 <span></span><span class="sd">        rect (bool): If True, rectangular training is used.</span>
 <span></span><span class="sd">        batch_size (int): Size of batches.</span>
 <span></span><span class="sd">        stride (int): Stride used in the model.</span>
 <span></span><span class="sd">        pad (float): Padding value.</span>
 <span></span><span class="sd">        single_cls (bool): If True, single class training is used.</span>
-<span></span><span class="sd">        classes (List[int], optional): List of included classes.</span>
+<span></span><span class="sd">        classes (list[int], optional): List of included classes.</span>
 <span></span><span class="sd">        fraction (float): Fraction of dataset to utilize.</span>
 <span></span><span class="sd">        channels (int): Number of channels in the images (1 for grayscale, 3 for RGB).</span>
 <span></span><span class="sd">    """</span>
@@ -2639,7 +2639,7 @@ in object detection tasks.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2678,7 +2678,7 @@ in object detection tasks.</p>
 <span></span><span class="sd">        index (int): Index of the image to retrieve.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Dict[str, Any]): Label dictionary with image and metadata.</span>
+<span></span><span class="sd">        (dict[str, Any]): Label dictionary with image and metadata.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">label</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>  <span class="c1"># requires deepcopy() https://github.com/ultralytics/ultralytics/pull/1948</span>
 <span></span>    <span class="n">label</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"shape"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># shape is for rect, remove it</span>
@@ -2718,7 +2718,7 @@ in object detection tasks.</p>
 <code>img_path</code>
 </td>
 <td>
-<code><span title="str">str</span> | <span title="List">List</span>[<span title="str">str</span>]</code>
+<code><span title="str">str</span> | <span title="list">list</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2742,7 +2742,7 @@ in object detection tasks.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="str">str</span>]</code>
+<code><span title="list">list</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2816,10 +2816,10 @@ in object detection tasks.</p>
 <span></span><span class="sd">    Read image files from the specified path.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        img_path (str | List[str]): Path or list of paths to image directories or files.</span>
+<span></span><span class="sd">        img_path (str | list[str]): Path or list of paths to image directories or files.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[str]): List of image file paths.</span>
+<span></span><span class="sd">        (list[str]): List of image file paths.</span>
 <span></span>
 <span></span><span class="sd">    Raises:</span>
 <span></span><span class="sd">        FileNotFoundError: If no images are found or the path doesn't exist.</span>
@@ -2990,7 +2990,7 @@ in object detection tasks.</p>
 </tr>
 <tr class="doc-section-item">
 <td><code>hw_original</code></td> <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3000,7 +3000,7 @@ in object detection tasks.</p>
 </tr>
 <tr class="doc-section-item">
 <td><code>hw_resized</code></td> <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3095,8 +3095,8 @@ in object detection tasks.</p>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        im (np.ndarray): Loaded image as a NumPy array.</span>
-<span></span><span class="sd">        hw_original (Tuple[int, int]): Original image dimensions in (height, width) format.</span>
-<span></span><span class="sd">        hw_resized (Tuple[int, int]): Resized image dimensions in (height, width) format.</span>
+<span></span><span class="sd">        hw_original (tuple[int, int]): Original image dimensions in (height, width) format.</span>
+<span></span><span class="sd">        hw_resized (tuple[int, int]): Resized image dimensions in (height, width) format.</span>
 <span></span>
 <span></span><span class="sd">    Raises:</span>
 <span></span><span class="sd">        FileNotFoundError: If the image file is not found.</span>
@@ -3227,7 +3227,7 @@ in object detection tasks.</p>
 <code>include_class</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="list">list</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3269,7 +3269,7 @@ in object detection tasks.</p>
 <span></span><span class="sd">    Update labels to include only specified classes.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        include_class (List[int], optional): List of classes to include. If None, all classes are included.</span>
+<span></span><span class="sd">        include_class (list[int], optional): List of classes to include. If None, all classes are included.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">include_class_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">include_class</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span></span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">)):</span>

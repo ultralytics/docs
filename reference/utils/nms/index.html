@@ -2075,7 +2075,7 @@ containing boxes, classes, and optional masks.</p>
 <code>classes</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="list">list</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2123,7 +2123,7 @@ containing boxes, classes, and optional masks.</p>
 <code>labels</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="List">List</span>[<span title="Union">Union</span>[<span title="int">int</span>, <span title="float">float</span>, <span title="torch.Tensor">Tensor</span>]]]</code>
+<code><span title="list">list</span>[<span title="list">list</span>[<span title="Union">Union</span>[<span title="int">int</span>, <span title="float">float</span>, <span title="torch.Tensor">Tensor</span>]]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2275,7 +2275,7 @@ containing boxes, classes, and optional masks.</p>
 <tbody>
 <tr class="doc-section-item">
 <td><code>output</code></td> <td>
-<code><span title="List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="list">list</span>[<span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2286,7 +2286,7 @@ containing (x1, y1, x2, y2, confidence, class, mask1, mask2, ...).</p>
 </tr>
 <tr class="doc-section-item">
 <td><code>keepi</code></td> <td>
-<code><span title="List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="list">list</span>[<span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2480,10 +2480,10 @@ containing (x1, y1, x2, y2, confidence, class, mask1, mask2, ...).</p>
 <span></span><span class="sd">            containing boxes, classes, and optional masks.</span>
 <span></span><span class="sd">        conf_thres (float): Confidence threshold for filtering detections. Valid values are between 0.0 and 1.0.</span>
 <span></span><span class="sd">        iou_thres (float): IoU threshold for NMS filtering. Valid values are between 0.0 and 1.0.</span>
-<span></span><span class="sd">        classes (List[int], optional): List of class indices to consider. If None, all classes are considered.</span>
+<span></span><span class="sd">        classes (list[int], optional): List of class indices to consider. If None, all classes are considered.</span>
 <span></span><span class="sd">        agnostic (bool): Whether to perform class-agnostic NMS.</span>
 <span></span><span class="sd">        multi_label (bool): Whether each box can have multiple labels.</span>
-<span></span><span class="sd">        labels (List[List[Union[int, float, torch.Tensor]]]): A priori labels for each image.</span>
+<span></span><span class="sd">        labels (list[list[Union[int, float, torch.Tensor]]]): A priori labels for each image.</span>
 <span></span><span class="sd">        max_det (int): Maximum number of detections to keep per image.</span>
 <span></span><span class="sd">        nc (int): Number of classes. Indices after this are considered masks.</span>
 <span></span><span class="sd">        max_time_img (float): Maximum time in seconds for processing one image.</span>
@@ -2494,9 +2494,9 @@ containing (x1, y1, x2, y2, confidence, class, mask1, mask2, ...).</p>
 <span></span><span class="sd">        return_idxs (bool): Whether to return the indices of kept detections.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        output (List[torch.Tensor]): List of detections per image with shape (num_boxes, 6 + num_masks)</span>
+<span></span><span class="sd">        output (list[torch.Tensor]): List of detections per image with shape (num_boxes, 6 + num_masks)</span>
 <span></span><span class="sd">            containing (x1, y1, x2, y2, confidence, class, mask1, mask2, ...).</span>
-<span></span><span class="sd">        keepi (List[torch.Tensor]): Indices of kept detections if return_idxs=True.</span>
+<span></span><span class="sd">        keepi (list[torch.Tensor]): Indices of kept detections if return_idxs=True.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="c1"># Checks</span>
 <span></span>    <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">conf_thres</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Invalid Confidence threshold </span><span class="si">{</span><span class="n">conf_thres</span><span class="si">}</span><span class="s2">, valid values are between 0.0 and 1.0"</span>

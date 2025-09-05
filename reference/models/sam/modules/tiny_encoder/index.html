@@ -1994,7 +1994,7 @@ effectively downsampling the spatial dimensions while increasing the channel dim
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.tiny_encoder.PatchEmbed.patches_resolution">patches_resolution</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2570,7 +2570,7 @@ resolution while potentially increasing channel dimensions.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.tiny_encoder.PatchMerging.input_resolution">input_resolution</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2670,7 +2670,7 @@ resolution while potentially increasing channel dimensions.</p>
 <code>input_resolution</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2757,7 +2757,7 @@ resolution while potentially increasing channel dimensions.</p>
 <span></span><span class="sd">    Initialize the PatchMerging module for merging and projecting neighboring patches in feature maps.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        input_resolution (Tuple[int, int]): The input resolution (height, width) of the feature map.</span>
+<span></span><span class="sd">        input_resolution (tuple[int, int]): The input resolution (height, width) of the feature map.</span>
 <span></span><span class="sd">        dim (int): The input dimension of the feature map.</span>
 <span></span><span class="sd">        out_dim (int): The output dimension after merging and projection.</span>
 <span></span><span class="sd">        activation (nn.Module): The activation function used between convolutions.</span>
@@ -2867,7 +2867,7 @@ for memory efficiency during training.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.tiny_encoder.ConvLayer.input_resolution">input_resolution</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2962,7 +2962,7 @@ optionally applies downsampling to the output.</p>
 <code>input_resolution</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3010,7 +3010,7 @@ optionally applies downsampling to the output.</p>
 <code>drop_path</code>
 </td>
 <td>
-<code><span title="float">float</span> | <span title="List">List</span>[<span title="float">float</span>]</code>
+<code><span title="float">float</span> | <span title="list">list</span>[<span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3163,10 +3163,10 @@ optionally applies downsampling to the output.</p>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        dim (int): The dimensionality of the input and output.</span>
-<span></span><span class="sd">        input_resolution (Tuple[int, int]): The resolution of the input image.</span>
+<span></span><span class="sd">        input_resolution (tuple[int, int]): The resolution of the input image.</span>
 <span></span><span class="sd">        depth (int): The number of MBConv layers in the block.</span>
 <span></span><span class="sd">        activation (nn.Module): Activation function applied after each convolution.</span>
-<span></span><span class="sd">        drop_path (float | List[float], optional): Drop path rate. Single float or a list of floats for each MBConv.</span>
+<span></span><span class="sd">        drop_path (float | list[float], optional): Drop path rate. Single float or a list of floats for each MBConv.</span>
 <span></span><span class="sd">        downsample (Optional[nn.Module], optional): Function for downsampling the output. None to skip downsampling.</span>
 <span></span><span class="sd">        use_checkpoint (bool, optional): Whether to use gradient checkpointing to save memory.</span>
 <span></span><span class="sd">        out_dim (Optional[int], optional): The dimensionality of the output. None means it will be the same as `dim`.</span>
@@ -3766,7 +3766,7 @@ offset between spatial positions in the resolution grid.</p>
 <code>resolution</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3850,7 +3850,7 @@ offset between spatial positions in the resolution grid.</p>
 <span></span><span class="sd">        key_dim (int): The dimensionality of the keys and queries.</span>
 <span></span><span class="sd">        num_heads (int, optional): Number of attention heads.</span>
 <span></span><span class="sd">        attn_ratio (float, optional): Attention ratio, affecting the dimensions of the value vectors.</span>
-<span></span><span class="sd">        resolution (Tuple[int, int], optional): Spatial resolution of the input feature map.</span>
+<span></span><span class="sd">        resolution (tuple[int, int], optional): Spatial resolution of the input feature map.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span></span>
@@ -4019,7 +4019,7 @@ computational efficiency and includes residual connections.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.tiny_encoder.TinyViTBlock.input_resolution">input_resolution</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4147,7 +4147,7 @@ local convolutions to process input features efficiently.</p>
 <code>input_resolution</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4346,7 +4346,7 @@ local convolutions to process input features efficiently.</p>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        dim (int): Dimensionality of the input and output features.</span>
-<span></span><span class="sd">        input_resolution (Tuple[int, int]): Spatial resolution of the input feature map (height, width).</span>
+<span></span><span class="sd">        input_resolution (tuple[int, int]): Spatial resolution of the input feature map (height, width).</span>
 <span></span><span class="sd">        num_heads (int): Number of attention heads.</span>
 <span></span><span class="sd">        window_size (int, optional): Size of the attention window. Must be greater than 0.</span>
 <span></span><span class="sd">        mlp_ratio (float, optional): Ratio of MLP hidden dimension to embedding dimension.</span>
@@ -4610,7 +4610,7 @@ dimensionality within the overall architecture.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.tiny_encoder.BasicLayer.input_resolution">input_resolution</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4705,7 +4705,7 @@ process feature maps at a specific resolution and dimensionality within the Tiny
 <code>input_resolution</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4801,7 +4801,7 @@ process feature maps at a specific resolution and dimensionality within the Tiny
 <code>drop_path</code>
 </td>
 <td>
-<code><span title="float">float</span> | <span title="List">List</span>[<span title="float">float</span>]</code>
+<code><span title="float">float</span> | <span title="list">list</span>[<span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4986,13 +4986,13 @@ process feature maps at a specific resolution and dimensionality within the Tiny
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        dim (int): Dimensionality of the input and output features.</span>
-<span></span><span class="sd">        input_resolution (Tuple[int, int]): Spatial resolution of the input feature map (height, width).</span>
+<span></span><span class="sd">        input_resolution (tuple[int, int]): Spatial resolution of the input feature map (height, width).</span>
 <span></span><span class="sd">        depth (int): Number of TinyViT blocks in this layer.</span>
 <span></span><span class="sd">        num_heads (int): Number of attention heads in each TinyViT block.</span>
 <span></span><span class="sd">        window_size (int): Size of the local window for attention computation.</span>
 <span></span><span class="sd">        mlp_ratio (float, optional): Ratio of MLP hidden dimension to embedding dimension.</span>
 <span></span><span class="sd">        drop (float, optional): Dropout rate.</span>
-<span></span><span class="sd">        drop_path (float | List[float], optional): Stochastic depth rate. Can be a float or a list of floats for each block.</span>
+<span></span><span class="sd">        drop_path (float | list[float], optional): Stochastic depth rate. Can be a float or a list of floats for each block.</span>
 <span></span><span class="sd">        downsample (nn.Module | None, optional): Downsampling layer at the end of the layer. None to skip downsampling.</span>
 <span></span><span class="sd">        use_checkpoint (bool, optional): Whether to use gradient checkpointing to save memory.</span>
 <span></span><span class="sd">        local_conv_size (int, optional): Kernel size for the local convolution in each TinyViT block.</span>
@@ -5140,7 +5140,7 @@ with patch embedding, multiple stages of attention and convolution blocks, and a
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.tiny_encoder.TinyViT.depths">depths</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5184,7 +5184,7 @@ with patch embedding, multiple stages of attention and convolution blocks, and a
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.tiny_encoder.TinyViT.patches_resolution">patches_resolution</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5311,7 +5311,7 @@ attention and convolution blocks, and a classification head.</p>
 <code>embed_dims</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5327,7 +5327,7 @@ attention and convolution blocks, and a classification head.</p>
 <code>depths</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5343,7 +5343,7 @@ attention and convolution blocks, and a classification head.</p>
 <code>num_heads</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5359,7 +5359,7 @@ attention and convolution blocks, and a classification head.</p>
 <code>window_sizes</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5625,10 +5625,10 @@ attention and convolution blocks, and a classification head.</p>
 <span></span><span class="sd">        img_size (int, optional): Size of the input image.</span>
 <span></span><span class="sd">        in_chans (int, optional): Number of input channels.</span>
 <span></span><span class="sd">        num_classes (int, optional): Number of classes for classification.</span>
-<span></span><span class="sd">        embed_dims (Tuple[int, int, int, int], optional): Embedding dimensions for each stage.</span>
-<span></span><span class="sd">        depths (Tuple[int, int, int, int], optional): Number of blocks in each stage.</span>
-<span></span><span class="sd">        num_heads (Tuple[int, int, int, int], optional): Number of attention heads in each stage.</span>
-<span></span><span class="sd">        window_sizes (Tuple[int, int, int, int], optional): Window sizes for each stage.</span>
+<span></span><span class="sd">        embed_dims (tuple[int, int, int, int], optional): Embedding dimensions for each stage.</span>
+<span></span><span class="sd">        depths (tuple[int, int, int, int], optional): Number of blocks in each stage.</span>
+<span></span><span class="sd">        num_heads (tuple[int, int, int, int], optional): Number of attention heads in each stage.</span>
+<span></span><span class="sd">        window_sizes (tuple[int, int, int, int], optional): Window sizes for each stage.</span>
 <span></span><span class="sd">        mlp_ratio (float, optional): Ratio of MLP hidden dim to embedding dim.</span>
 <span></span><span class="sd">        drop_rate (float, optional): Dropout rate.</span>
 <span></span><span class="sd">        drop_path_rate (float, optional): Stochastic depth rate.</span>

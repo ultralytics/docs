@@ -1587,7 +1587,7 @@ model setup, prompt handling, and preprocessing transformations.</p>
 <code>source</code>
 </td>
 <td>
-<code><span title="str">str</span> | <span title="Path">Path</span> | <span title="int">int</span> | <span title="PIL.Image">Image</span> | <span title="numpy.ndarray">ndarray</span> | <span title="torch.Tensor">Tensor</span> | <span title="List">List</span> | <span title="Tuple">Tuple</span></code>
+<code><span title="str">str</span> | <span title="Path">Path</span> | <span title="int">int</span> | <span title="PIL.Image">Image</span> | <span title="numpy.ndarray">ndarray</span> | <span title="torch.Tensor">Tensor</span> | <span title="list">list</span> | <span title="tuple">tuple</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1646,7 +1646,7 @@ images, numpy arrays, and torch tensors.</p>
 <span></span><span class="sd">    Process the source to get the visual prompt embeddings (VPE).</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        source (str | Path | int | PIL.Image | np.ndarray | torch.Tensor | List | Tuple): The source</span>
+<span></span><span class="sd">        source (str | Path | int | PIL.Image | np.ndarray | torch.Tensor | list | tuple): The source</span>
 <span></span><span class="sd">            of the image to make predictions on. Accepts various types including file paths, URLs, PIL</span>
 <span></span><span class="sd">            images, numpy arrays, and torch tensors.</span>
 <span></span>
@@ -1934,12 +1934,12 @@ images, numpy arrays, and torch tensors.</p>
 <span></span>    <span class="k">else</span><span class="p">:</span>
 <span></span>        <span class="c1"># NOTE: only supports bboxes as prompts for now</span>
 <span></span>        <span class="k">assert</span> <span class="n">bboxes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Expected bboxes, but got </span><span class="si">{</span><span class="n">bboxes</span><span class="si">}</span><span class="s2">!"</span>
-<span></span>        <span class="c1"># NOTE: needs List[np.ndarray]</span>
+<span></span>        <span class="c1"># NOTE: needs list[np.ndarray]</span>
 <span></span>        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">bboxes</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">bboxes</span><span class="p">),</span> <span class="p">(</span>
-<span></span>            <span class="sa">f</span><span class="s2">"Expected List[np.ndarray], but got </span><span class="si">{</span><span class="n">bboxes</span><span class="si">}</span><span class="s2">!"</span>
+<span></span>            <span class="sa">f</span><span class="s2">"Expected list[np.ndarray], but got </span><span class="si">{</span><span class="n">bboxes</span><span class="si">}</span><span class="s2">!"</span>
 <span></span>        <span class="p">)</span>
 <span></span>        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">category</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">category</span><span class="p">),</span> <span class="p">(</span>
-<span></span>            <span class="sa">f</span><span class="s2">"Expected List[np.ndarray], but got </span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2">!"</span>
+<span></span>            <span class="sa">f</span><span class="s2">"Expected list[np.ndarray], but got </span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2">!"</span>
 <span></span>        <span class="p">)</span>
 <span></span>        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">im</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">category</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">bboxes</span><span class="p">),</span> <span class="p">(</span>
 <span></span>            <span class="sa">f</span><span class="s2">"Expected same length for all inputs, but got </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">im</span><span class="p">)</span><span class="si">}</span><span class="s2">vs</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">category</span><span class="p">)</span><span class="si">}</span><span class="s2">vs</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">bboxes</span><span class="p">)</span><span class="si">}</span><span class="s2">!"</span>

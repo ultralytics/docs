@@ -2089,7 +2089,7 @@ This function rescales the bounding box labels to the original image shape.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="float">float</span>]</code>
+<code><span title="list">list</span>[<span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2147,7 +2147,7 @@ This function rescales the bounding box labels to the original image shape.</p>
 <span></span><span class="sd">        ratio_pad (tuple): Ratio and padding information for scaling.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[float]): Scaled bounding box coordinates in xywh format with top-left corner adjustment.</span>
+<span></span><span class="sd">        (list[float]): Scaled bounding box coordinates in xywh format with top-left corner adjustment.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">resized_image_height</span><span class="p">,</span> <span class="n">resized_image_width</span> <span class="o">=</span> <span class="n">resized_image_shape</span>
 <span></span>
@@ -2688,7 +2688,7 @@ visualization or evaluation.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="List">List</span>[<span title="typing.Any">Any</span>]] | None</code>
+<code><span title="list">list</span>[<span title="list">list</span>[<span title="typing.Any">Any</span>]] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2727,7 +2727,7 @@ visualization or evaluation.</p>
 <span></span><span class="sd">        decode (Callable): Function to decode the compressed segmentation data.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[List[Any]] | None): List of polygon points or None if extraction fails.</span>
+<span></span><span class="sd">        (list[list[Any]] | None): List of polygon points or None if extraction fails.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">try</span><span class="p">:</span>
 <span></span>        <span class="n">mask</span> <span class="o">=</span> <span class="n">decode</span><span class="p">(</span><span class="n">segmentation_raw</span><span class="p">)</span>
@@ -2876,7 +2876,7 @@ visualization or evaluation.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span> | None</code>
+<code><span title="list">list</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2926,7 +2926,7 @@ visualization or evaluation.</p>
 <span></span><span class="sd">        class_map (dict): Additional class mapping for label conversion.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List | None): List of annotation dictionaries or None if no annotations exist.</span>
+<span></span><span class="sd">        (list | None): List of annotation dictionaries or None if no annotations exist.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">ground_truth_annotations</span> <span class="o">=</span> <span class="n">_format_ground_truth_annotations_for_detection</span><span class="p">(</span>
 <span></span>        <span class="n">img_idx</span><span class="p">,</span> <span class="n">image_path</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">class_label_map</span>
@@ -3043,7 +3043,7 @@ such as bounding boxes or segmentation masks.</p>
 <code>image_paths</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="pathlib.Path">Path</span>]</code>
+<code><span title="list">list</span>[<span title="pathlib.Path">Path</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3075,7 +3075,7 @@ such as bounding boxes or segmentation masks.</p>
 <code>annotations</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="List">List</span>[<span title="dict">dict</span>]]</code>
+<code><span title="list">list</span>[<span title="list">list</span>[<span title="dict">dict</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3120,9 +3120,9 @@ annotation contains visualization data like bounding boxes, labels, and confiden
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        experiment (comet_ml.CometExperiment): The Comet ML experiment to log images to.</span>
-<span></span><span class="sd">        image_paths (List[Path]): List of paths to images that will be logged.</span>
+<span></span><span class="sd">        image_paths (list[Path]): List of paths to images that will be logged.</span>
 <span></span><span class="sd">        curr_step (int): Current training step/iteration for tracking in the experiment timeline.</span>
-<span></span><span class="sd">        annotations (List[List[dict]], optional): Nested list of annotation dictionaries for each image. Each</span>
+<span></span><span class="sd">        annotations (list[list[dict]], optional): Nested list of annotation dictionaries for each image. Each</span>
 <span></span><span class="sd">            annotation contains visualization data like bounding boxes, labels, and confidence scores.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="n">annotations</span><span class="p">:</span>

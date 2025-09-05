@@ -1786,7 +1786,7 @@ fine-grained control over segmentation results.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.predict.Predictor.prompts">prompts</span></code></td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2191,7 +2191,7 @@ and real-time performance capabilities. It can optionally work on image crops fo
 <code>point_grids</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>] | None</code>
+<code><span title="list">list</span>[<span title="numpy.ndarray">ndarray</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2483,7 +2483,7 @@ and real-time performance capabilities. It can optionally work on image crops fo
 <span></span><span class="sd">        crop_n_layers (int): Number of layers for additional mask predictions on image crops.</span>
 <span></span><span class="sd">        crop_overlap_ratio (float): Overlap between crops, scaled down in subsequent layers.</span>
 <span></span><span class="sd">        crop_downscale_factor (int): Scaling factor for sampled points-per-side in each layer.</span>
-<span></span><span class="sd">        point_grids (List[np.ndarray] | None): Custom grids for point sampling normalized to [0,1].</span>
+<span></span><span class="sd">        point_grids (list[np.ndarray] | None): Custom grids for point sampling normalized to [0,1].</span>
 <span></span><span class="sd">        points_stride (int): Number of points to sample along each side of the image.</span>
 <span></span><span class="sd">        points_batch_size (int): Batch size for the number of points processed simultaneously.</span>
 <span></span><span class="sd">        conf_thres (float): Confidence threshold [0,1] for filtering based on mask quality prediction.</span>
@@ -2674,7 +2674,7 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 <code>bboxes</code>
 </td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | <span title="List">List</span> | None</code>
+<code><span title="numpy.ndarray">ndarray</span> | <span title="list">list</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2690,7 +2690,7 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 <code>points</code>
 </td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | <span title="List">List</span> | None</code>
+<code><span title="numpy.ndarray">ndarray</span> | <span title="list">list</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2706,7 +2706,7 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 <code>labels</code>
 </td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | <span title="List">List</span> | None</code>
+<code><span title="numpy.ndarray">ndarray</span> | <span title="list">list</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2867,9 +2867,9 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        im (torch.Tensor): The preprocessed input image in tensor format, with shape (N, C, H, W).</span>
-<span></span><span class="sd">        bboxes (np.ndarray | List | None): Bounding boxes with shape (N, 4), in XYXY format.</span>
-<span></span><span class="sd">        points (np.ndarray | List | None): Points indicating object locations with shape (N, 2), in pixels.</span>
-<span></span><span class="sd">        labels (np.ndarray | List | None): Labels for point prompts, shape (N,). 1 = foreground, 0 = background.</span>
+<span></span><span class="sd">        bboxes (np.ndarray | list | None): Bounding boxes with shape (N, 4), in XYXY format.</span>
+<span></span><span class="sd">        points (np.ndarray | list | None): Points indicating object locations with shape (N, 2), in pixels.</span>
+<span></span><span class="sd">        labels (np.ndarray | list | None): Labels for point prompts, shape (N,). 1 = foreground, 0 = background.</span>
 <span></span><span class="sd">        masks (np.ndarray | None): Low-resolution masks from previous predictions, shape (N, H, W). For SAM H=W=256.</span>
 <span></span><span class="sd">        multimask_output (bool): Flag to return multiple masks. Helpful for ambiguous prompts.</span>
 <span></span><span class="sd">        *args (Any): Additional positional arguments.</span>
@@ -2932,7 +2932,7 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 <code>features</code>
 </td>
 <td>
-<code><span title="torch.Tensor">Tensor</span> | <span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="torch.Tensor">Tensor</span> | <span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2948,7 +2948,7 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 <code>src_shape</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2964,7 +2964,7 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 <code>dst_shape</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>] | None</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2980,7 +2980,7 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 <code>bboxes</code>
 </td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | <span title="List">List</span>[<span title="List">List</span>[<span title="float">float</span>]] | None</code>
+<code><span title="numpy.ndarray">ndarray</span> | <span title="list">list</span>[<span title="list">list</span>[<span title="float">float</span>]] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2996,7 +2996,7 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 <code>points</code>
 </td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | <span title="List">List</span>[<span title="List">List</span>[<span title="float">float</span>]] | None</code>
+<code><span title="numpy.ndarray">ndarray</span> | <span title="list">list</span>[<span title="list">list</span>[<span title="float">float</span>]] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3012,7 +3012,7 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 <code>labels</code>
 </td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | <span title="List">List</span>[<span title="int">int</span>] | None</code>
+<code><span title="numpy.ndarray">ndarray</span> | <span title="list">list</span>[<span title="int">int</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3028,7 +3028,7 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 <code>masks</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>] | <span title="numpy.ndarray">ndarray</span> | None</code>
+<code><span title="list">list</span>[<span title="numpy.ndarray">ndarray</span>] | <span title="numpy.ndarray">ndarray</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3092,7 +3092,7 @@ Each box is in xyxy format with additional columns for score and class.</p>
 <details class="notes" open="">
 <summary>Notes</summary>
 <ul>
-<li>The input features is a torch.Tensor of shape (B, C, H, W) if performing on SAM, or a Dict[str, Any] if performing on SAM2.</li>
+<li>The input features is a torch.Tensor of shape (B, C, H, W) if performing on SAM, or a dict[str, Any] if performing on SAM2.</li>
 </ul>
 </details>
 <details class="quote">
@@ -3158,13 +3158,13 @@ Each box is in xyxy format with additional columns for score and class.</p>
 <span></span><span class="sd">    Perform prompts preprocessing and inference on provided image features using the SAM model.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        features (torch.Tensor | Dict[str, Any]): Extracted image features from the SAM/SAM2 model image encoder.</span>
-<span></span><span class="sd">        src_shape (Tuple[int, int]): The source shape (height, width) of the input image.</span>
-<span></span><span class="sd">        dst_shape (Tuple[int, int] | None): The target shape (height, width) for the prompts. If None, defaults to (imgsz, imgsz).</span>
-<span></span><span class="sd">        bboxes (np.ndarray | List[List[float]] | None): Bounding boxes in xyxy format with shape (N, 4).</span>
-<span></span><span class="sd">        points (np.ndarray | List[List[float]] | None): Points indicating object locations with shape (N, 2), in pixels.</span>
-<span></span><span class="sd">        labels (np.ndarray | List[int] | None): Point prompt labels with shape (N, ).</span>
-<span></span><span class="sd">        masks (List[np.ndarray] | np.ndarray | None): Masks for the objects, where each mask is a 2D array.</span>
+<span></span><span class="sd">        features (torch.Tensor | dict[str, Any]): Extracted image features from the SAM/SAM2 model image encoder.</span>
+<span></span><span class="sd">        src_shape (tuple[int, int]): The source shape (height, width) of the input image.</span>
+<span></span><span class="sd">        dst_shape (tuple[int, int] | None): The target shape (height, width) for the prompts. If None, defaults to (imgsz, imgsz).</span>
+<span></span><span class="sd">        bboxes (np.ndarray | list[list[float]] | None): Bounding boxes in xyxy format with shape (N, 4).</span>
+<span></span><span class="sd">        points (np.ndarray | list[list[float]] | None): Points indicating object locations with shape (N, 2), in pixels.</span>
+<span></span><span class="sd">        labels (np.ndarray | list[int] | None): Point prompt labels with shape (N, ).</span>
+<span></span><span class="sd">        masks (list[np.ndarray] | np.ndarray | None): Masks for the objects, where each mask is a 2D array.</span>
 <span></span><span class="sd">        multimask_output (bool): Flag to return multiple masks for ambiguous prompts.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
@@ -3173,7 +3173,7 @@ Each box is in xyxy format with additional columns for score and class.</p>
 <span></span><span class="sd">            Each box is in xyxy format with additional columns for score and class.</span>
 <span></span>
 <span></span><span class="sd">    Notes:</span>
-<span></span><span class="sd">        - The input features is a torch.Tensor of shape (B, C, H, W) if performing on SAM, or a Dict[str, Any] if performing on SAM2.</span>
+<span></span><span class="sd">        - The input features is a torch.Tensor of shape (B, C, H, W) if performing on SAM, or a dict[str, Any] if performing on SAM2.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">dst_shape</span> <span class="o">=</span> <span class="n">dst_shape</span> <span class="ow">or</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">imgsz</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">imgsz</span><span class="p">)</span>
 <span></span>    <span class="n">prompts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_prompts</span><span class="p">(</span><span class="n">dst_shape</span><span class="p">,</span> <span class="n">src_shape</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">points</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">masks</span><span class="p">)</span>
@@ -3253,7 +3253,7 @@ predictions. It leverages SAM's advanced architecture for real-time, promptable 
 <code>orig_imgs</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>] | <span title="torch.Tensor">Tensor</span></code>
+<code><span title="list">list</span>[<span title="numpy.ndarray">ndarray</span>] | <span title="torch.Tensor">Tensor</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3277,7 +3277,7 @@ predictions. It leverages SAM's advanced architecture for real-time, promptable 
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<a class="autorefs autorefs-internal" href="../../../engine/results/#ultralytics.engine.results.Results" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.Results&lt;/span&gt;'>Results</a>]</code>
+<code><span title="list">list</span>[<a class="autorefs autorefs-internal" href="../../../engine/results/#ultralytics.engine.results.Results" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.Results&lt;/span&gt;'>Results</a>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3359,10 +3359,10 @@ metadata for each processed image.</p>
 <span></span><span class="sd">            - pred_scores (torch.Tensor): Confidence scores for each mask with shape (N, 1).</span>
 <span></span><span class="sd">            - pred_bboxes (torch.Tensor, optional): Predicted bounding boxes if segment_all is True.</span>
 <span></span><span class="sd">        img (torch.Tensor): The processed input image tensor with shape (C, H, W).</span>
-<span></span><span class="sd">        orig_imgs (List[np.ndarray] | torch.Tensor): The original, unprocessed images.</span>
+<span></span><span class="sd">        orig_imgs (list[np.ndarray] | torch.Tensor): The original, unprocessed images.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[Results]): List of Results objects containing detection masks, bounding boxes, and other</span>
+<span></span><span class="sd">        (list[Results]): List of Results objects containing detection masks, bounding boxes, and other</span>
 <span></span><span class="sd">            metadata for each processed image.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
@@ -3428,7 +3428,7 @@ Currently, batched inference is not supported; hence the list length should be 1
 <code>im</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
+<code><span title="list">list</span>[<span title="numpy.ndarray">ndarray</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3452,7 +3452,7 @@ Currently, batched inference is not supported; hence the list length should be 1
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
+<code><span title="list">list</span>[<span title="numpy.ndarray">ndarray</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3525,10 +3525,10 @@ Currently, batched inference is not supported; hence the list length should be 1
 <span></span><span class="sd">    Currently, batched inference is not supported; hence the list length should be 1.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        im (List[np.ndarray]): List containing a single image in HWC numpy array format.</span>
+<span></span><span class="sd">        im (list[np.ndarray]): List containing a single image in HWC numpy array format.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[np.ndarray]): List containing the transformed image.</span>
+<span></span><span class="sd">        (list[np.ndarray]): List containing the transformed image.</span>
 <span></span>
 <span></span><span class="sd">    Raises:</span>
 <span></span><span class="sd">        AssertionError: If the input list contains more than one image.</span>
@@ -3573,7 +3573,7 @@ torch.Tensor and list of np.ndarray as input formats.</p>
 <code>im</code>
 </td>
 <td>
-<code><span title="torch.Tensor">Tensor</span> | <span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
+<code><span title="torch.Tensor">Tensor</span> | <span title="list">list</span>[<span title="numpy.ndarray">ndarray</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3653,7 +3653,7 @@ torch.Tensor and list of np.ndarray as input formats.</p>
 <span></span><span class="sd">    torch.Tensor and list of np.ndarray as input formats.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        im (torch.Tensor | List[np.ndarray]): Input image(s) in BCHW tensor format or list of HWC numpy arrays.</span>
+<span></span><span class="sd">        im (torch.Tensor | list[np.ndarray]): Input image(s) in BCHW tensor format or list of HWC numpy arrays.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (torch.Tensor): The preprocessed image tensor, normalized and converted to the appropriate dtype.</span>
@@ -3730,7 +3730,7 @@ It processes various input prompts such as bounding boxes, points, and masks to 
 <code>bboxes</code>
 </td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | <span title="List">List</span> | None</code>
+<code><span title="numpy.ndarray">ndarray</span> | <span title="list">list</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3746,7 +3746,7 @@ It processes various input prompts such as bounding boxes, points, and masks to 
 <code>points</code>
 </td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | <span title="List">List</span> | None</code>
+<code><span title="numpy.ndarray">ndarray</span> | <span title="list">list</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3762,7 +3762,7 @@ It processes various input prompts such as bounding boxes, points, and masks to 
 <code>labels</code>
 </td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | <span title="List">List</span> | None</code>
+<code><span title="numpy.ndarray">ndarray</span> | <span title="list">list</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3883,9 +3883,9 @@ It processes various input prompts such as bounding boxes, points, and masks to 
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        im (torch.Tensor): Preprocessed input image tensor with shape (N, C, H, W).</span>
-<span></span><span class="sd">        bboxes (np.ndarray | List | None): Bounding boxes in XYXY format with shape (N, 4).</span>
-<span></span><span class="sd">        points (np.ndarray | List | None): Points indicating object locations with shape (N, 2) or (N, num_points, 2), in pixels.</span>
-<span></span><span class="sd">        labels (np.ndarray | List | None): Point prompt labels with shape (N) or (N, num_points). 1 for foreground, 0 for background.</span>
+<span></span><span class="sd">        bboxes (np.ndarray | list | None): Bounding boxes in XYXY format with shape (N, 4).</span>
+<span></span><span class="sd">        points (np.ndarray | list | None): Points indicating object locations with shape (N, 2) or (N, num_points, 2), in pixels.</span>
+<span></span><span class="sd">        labels (np.ndarray | list | None): Point prompt labels with shape (N) or (N, num_points). 1 for foreground, 0 for background.</span>
 <span></span><span class="sd">        masks (np.ndarray | None): Low-res masks from previous predictions with shape (N, H, W). For SAM, H=W=256.</span>
 <span></span><span class="sd">        multimask_output (bool): Flag to return multiple masks for ambiguous prompts.</span>
 <span></span>
@@ -4005,7 +4005,7 @@ this will be removed.</p>
 </tr>
 <tr class="doc-section-item">
 <td><code>keep</code></td> <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="list">list</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4091,7 +4091,7 @@ this will be removed.</p>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        new_masks (torch.Tensor): Processed masks with small regions removed, shape (N, H, W).</span>
-<span></span><span class="sd">        keep (List[int]): Indices of remaining masks after NMS, for filtering corresponding boxes.</span>
+<span></span><span class="sd">        keep (list[int]): Indices of remaining masks after NMS, for filtering corresponding boxes.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; masks = torch.rand(5, 640, 640) &gt; 0.5  # 5 random binary masks</span>
@@ -4575,7 +4575,7 @@ prompt-based inference.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.predict.SAM2Predictor._bb_feat_sizes">_bb_feat_sizes</span></code></td>
 <td>
-<code><span title="List">List</span>[<span title="tuple">tuple</span>]</code>
+<code><span title="list">list</span>[<span title="tuple">tuple</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4630,7 +4630,7 @@ prompt-based inference.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.predict.SAM2Predictor.prompts">prompts</span></code></td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5696,7 +5696,7 @@ based on the provided prompts and the existing state.</p>
 </tr>
 <tr class="doc-section-item">
 <td><code>feat_sizes</code></td> <td>
-<code><span title="List">List</span>[<span title="tuple">tuple</span>]</code>
+<code><span title="list">list</span>[<span title="tuple">tuple</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5752,7 +5752,7 @@ based on the provided prompts and the existing state.</p>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        vis_feats (torch.Tensor): The visual features extracted from the image.</span>
 <span></span><span class="sd">        vis_pos_embed (torch.Tensor): The positional embeddings for the visual features.</span>
-<span></span><span class="sd">        feat_sizes (List[tuple]): A list containing the sizes of the extracted features.</span>
+<span></span><span class="sd">        feat_sizes (list[tuple]): A list containing the sizes of the extracted features.</span>
 <span></span>
 <span></span><span class="sd">    Note:</span>
 <span></span><span class="sd">        - If `batch` is greater than 1, the features are expanded to fit the batch size.</span>
@@ -5851,7 +5851,7 @@ mask decoder for real-time and promptable segmentation tasks.</p>
 <code>bboxes</code>
 </td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | <span title="List">List</span></code>
+<code><span title="numpy.ndarray">ndarray</span> | <span title="list">list</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5867,7 +5867,7 @@ mask decoder for real-time and promptable segmentation tasks.</p>
 <code>points</code>
 </td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | <span title="List">List</span></code>
+<code><span title="numpy.ndarray">ndarray</span> | <span title="list">list</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5883,7 +5883,7 @@ mask decoder for real-time and promptable segmentation tasks.</p>
 <code>labels</code>
 </td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | <span title="List">List</span></code>
+<code><span title="numpy.ndarray">ndarray</span> | <span title="list">list</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6024,9 +6024,9 @@ mask decoder for real-time and promptable segmentation tasks.</p>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        im (torch.Tensor): The preprocessed input image in tensor format, with shape (N, C, H, W).</span>
-<span></span><span class="sd">        bboxes (np.ndarray | List, optional): Bounding boxes with shape (N, 4), in XYXY format.</span>
-<span></span><span class="sd">        points (np.ndarray | List, optional): Points indicating object locations with shape (N, 2), in pixels.</span>
-<span></span><span class="sd">        labels (np.ndarray | List, optional): Labels for point prompts, shape (N, ). 1 = foreground, 0 = background.</span>
+<span></span><span class="sd">        bboxes (np.ndarray | list, optional): Bounding boxes with shape (N, 4), in XYXY format.</span>
+<span></span><span class="sd">        points (np.ndarray | list, optional): Points indicating object locations with shape (N, 2), in pixels.</span>
+<span></span><span class="sd">        labels (np.ndarray | list, optional): Labels for point prompts, shape (N, ). 1 = foreground, 0 = background.</span>
 <span></span><span class="sd">        masks (np.ndarray, optional): Low-resolution masks from previous predictions shape (N,H,W). For SAM H=W=256.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
@@ -6261,7 +6261,7 @@ the masks do not overlap, which can be useful for certain applications.</p>
 <code>preds</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="torch.Tensor">Tensor</span>, <span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="torch.Tensor">Tensor</span>, <span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6293,7 +6293,7 @@ the masks do not overlap, which can be useful for certain applications.</p>
 <code>orig_imgs</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
+<code><span title="list">list</span>[<span title="numpy.ndarray">ndarray</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6367,9 +6367,9 @@ the masks do not overlap, which can be useful for certain applications.</p>
 <span></span><span class="sd">    the masks do not overlap, which can be useful for certain applications.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        preds (Tuple[torch.Tensor, torch.Tensor]): The predicted masks and scores from the model.</span>
+<span></span><span class="sd">        preds (tuple[torch.Tensor, torch.Tensor]): The predicted masks and scores from the model.</span>
 <span></span><span class="sd">        img (torch.Tensor): The processed image tensor.</span>
-<span></span><span class="sd">        orig_imgs (List[np.ndarray]): The original images before processing.</span>
+<span></span><span class="sd">        orig_imgs (list[np.ndarray]): The original images before processing.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (list): The post-processed predictions.</span>
@@ -6704,7 +6704,7 @@ specified overrides</p>
 <code>cfg</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6720,7 +6720,7 @@ specified overrides</p>
 <code>overrides</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6752,7 +6752,7 @@ specified overrides</p>
 <code>_callbacks</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6828,10 +6828,10 @@ specified overrides</p>
 <span></span><span class="sd">    specified overrides</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        cfg (Dict[str, Any]): Configuration dictionary containing default settings.</span>
-<span></span><span class="sd">        overrides (Dict[str, Any] | None): Dictionary of values to override default configuration.</span>
+<span></span><span class="sd">        cfg (dict[str, Any]): Configuration dictionary containing default settings.</span>
+<span></span><span class="sd">        overrides (dict[str, Any] | None): Dictionary of values to override default configuration.</span>
 <span></span><span class="sd">        max_obj_num (int): Maximum number of objects to track. Default is 3. this is set to keep fix feature size for the model.</span>
-<span></span><span class="sd">        _callbacks (Dict[str, Any] | None): Dictionary of callback functions to customize behavior.</span>
+<span></span><span class="sd">        _callbacks (dict[str, Any] | None): Dictionary of callback functions to customize behavior.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; predictor = SAM2DynamicInteractivePredictor(cfg=DEFAULT_CFG)</span>
@@ -7026,7 +7026,7 @@ When update_memory is False, it will only run inference on the provided image wi
 <code>bboxes</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="List">List</span>[<span title="float">float</span>]] | None</code>
+<code><span title="list">list</span>[<span title="list">list</span>[<span title="float">float</span>]] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7042,7 +7042,7 @@ When update_memory is False, it will only run inference on the provided image wi
 <code>masks</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="torch.Tensor">Tensor</span> | <span title="numpy.ndarray">ndarray</span>] | None</code>
+<code><span title="list">list</span>[<span title="torch.Tensor">Tensor</span> | <span title="numpy.ndarray">ndarray</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7058,7 +7058,7 @@ When update_memory is False, it will only run inference on the provided image wi
 <code>points</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="List">List</span>[<span title="float">float</span>]] | None</code>
+<code><span title="list">list</span>[<span title="list">list</span>[<span title="float">float</span>]] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7074,7 +7074,7 @@ When update_memory is False, it will only run inference on the provided image wi
 <code>labels</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>] | None</code>
+<code><span title="list">list</span>[<span title="int">int</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7090,7 +7090,7 @@ When update_memory is False, it will only run inference on the provided image wi
 <code>obj_ids</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>] | None</code>
+<code><span title="list">list</span>[<span title="int">int</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7238,11 +7238,11 @@ When update_memory is False, it will only run inference on the provided image wi
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        im (torch.Tensor | np.ndarray): The input image tensor or numpy array.</span>
-<span></span><span class="sd">        bboxes (List[List[float]] | None): Optional list of bounding boxes to update the memory.</span>
-<span></span><span class="sd">        masks (List[torch.Tensor | np.ndarray] | None): Optional masks to update the memory.</span>
-<span></span><span class="sd">        points (List[List[float]] | None): Optional list of points to update the memory, each point is [x, y].</span>
-<span></span><span class="sd">        labels (List[int] | None): Optional list of object IDs corresponding to the points (&gt;0 for positive, 0 for negative).</span>
-<span></span><span class="sd">        obj_ids (List[int] | None): Optional list of object IDs corresponding to the prompts.</span>
+<span></span><span class="sd">        bboxes (list[list[float]] | None): Optional list of bounding boxes to update the memory.</span>
+<span></span><span class="sd">        masks (list[torch.Tensor | np.ndarray] | None): Optional masks to update the memory.</span>
+<span></span><span class="sd">        points (list[list[float]] | None): Optional list of points to update the memory, each point is [x, y].</span>
+<span></span><span class="sd">        labels (list[int] | None): Optional list of object IDs corresponding to the points (&gt;0 for positive, 0 for negative).</span>
+<span></span><span class="sd">        obj_ids (list[int] | None): Optional list of object IDs corresponding to the prompts.</span>
 <span></span><span class="sd">        update_memory (bool): Flag to indicate whether to update the memory with new objects.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
@@ -7394,7 +7394,7 @@ SAM processing with memory-conditioned features.</p>
 <tbody>
 <tr class="doc-section-item">
 <td><code>current_out</code></td> <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7477,7 +7477,7 @@ Keys include 'point_inputs', 'mask_inputs', 'pred_masks', 'pred_masks_high_res',
 <span></span><span class="sd">        mask (torch.Tensor | None): The mask input for the object with shape (H, W).</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        current_out (Dict[str, Any]): A dictionary containing the current output with mask predictions and object pointers.</span>
+<span></span><span class="sd">        current_out (dict[str, Any]): A dictionary containing the current output with mask predictions and object pointers.</span>
 <span></span><span class="sd">            Keys include 'point_inputs', 'mask_inputs', 'pred_masks', 'pred_masks_high_res', 'obj_ptr', 'object_score_logits'.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="n">mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">use_mask_input_as_output_without_sam</span><span class="p">:</span>
@@ -7537,7 +7537,7 @@ Keys include 'point_inputs', 'mask_inputs', 'pred_masks', 'pred_masks_high_res',
 <code>obj_ids</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="list">list</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7692,7 +7692,7 @@ Keys include 'point_inputs', 'mask_inputs', 'pred_masks', 'pred_masks_high_res',
 <span></span><span class="sd">    Append the imgState to the memory_bank and update the memory for the model.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        obj_ids (List[int]): List of object IDs corresponding to the prompts.</span>
+<span></span><span class="sd">        obj_ids (list[int]): List of object IDs corresponding to the prompts.</span>
 <span></span><span class="sd">        points (torch.Tensor | None): Tensor of shape (B, N, 2) representing the input points for N objects.</span>
 <span></span><span class="sd">        labels (torch.Tensor | None): Tensor of shape (B, N) representing the labels for the input points.</span>
 <span></span><span class="sd">        masks (torch.Tensor | None): Optional tensor of shape (N, H, W) representing the input masks for N objects.</span>

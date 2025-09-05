@@ -1479,7 +1479,7 @@ optimized for single-class segmentation.</p>
 <code>preds</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="list">list</span>[<span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1511,7 +1511,7 @@ optimized for single-class segmentation.</p>
 <code>orig_imgs</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="np.ndarray">ndarray</span>]</code>
+<code><span title="list">list</span>[<span title="np.ndarray">ndarray</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1535,7 +1535,7 @@ optimized for single-class segmentation.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="Results">Results</span>]</code>
+<code><span title="list">list</span>[<span title="Results">Results</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1578,12 +1578,12 @@ optimized for single-class segmentation.</p>
 <span></span><span class="sd">    Apply postprocessing to FastSAM predictions and handle prompts.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        preds (List[torch.Tensor]): Raw predictions from the model.</span>
+<span></span><span class="sd">        preds (list[torch.Tensor]): Raw predictions from the model.</span>
 <span></span><span class="sd">        img (torch.Tensor): Input image tensor that was fed to the model.</span>
-<span></span><span class="sd">        orig_imgs (List[np.ndarray]): Original images before preprocessing.</span>
+<span></span><span class="sd">        orig_imgs (list[np.ndarray]): Original images before preprocessing.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[Results]): Processed results with prompts applied.</span>
+<span></span><span class="sd">        (list[Results]): Processed results with prompts applied.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">bboxes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prompts</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"bboxes"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 <span></span>    <span class="n">points</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prompts</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"points"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
@@ -1628,7 +1628,7 @@ optimized for single-class segmentation.</p>
 <code>results</code>
 </td>
 <td>
-<code><span title="Results">Results</span> | <span title="List">List</span>[<span title="Results">Results</span>]</code>
+<code><span title="Results">Results</span> | <span title="list">list</span>[<span title="Results">Results</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1644,7 +1644,7 @@ optimized for single-class segmentation.</p>
 <code>bboxes</code>
 </td>
 <td>
-<code><span title="np.ndarray">ndarray</span> | <span title="List">List</span></code>
+<code><span title="np.ndarray">ndarray</span> | <span title="list">list</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1660,7 +1660,7 @@ optimized for single-class segmentation.</p>
 <code>points</code>
 </td>
 <td>
-<code><span title="np.ndarray">ndarray</span> | <span title="List">List</span></code>
+<code><span title="np.ndarray">ndarray</span> | <span title="list">list</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1676,7 +1676,7 @@ optimized for single-class segmentation.</p>
 <code>labels</code>
 </td>
 <td>
-<code><span title="np.ndarray">ndarray</span> | <span title="List">List</span></code>
+<code><span title="np.ndarray">ndarray</span> | <span title="list">list</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1692,7 +1692,7 @@ optimized for single-class segmentation.</p>
 <code>texts</code>
 </td>
 <td>
-<code><span title="str">str</span> | <span title="List">List</span>[<span title="str">str</span>]</code>
+<code><span title="str">str</span> | <span title="list">list</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1716,7 +1716,7 @@ optimized for single-class segmentation.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="Results">Results</span>]</code>
+<code><span title="list">list</span>[<span title="Results">Results</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1805,14 +1805,14 @@ optimized for single-class segmentation.</p>
 <span></span><span class="sd">    Perform image segmentation inference based on cues like bounding boxes, points, and text prompts.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        results (Results | List[Results]): Original inference results from FastSAM models without any prompts.</span>
-<span></span><span class="sd">        bboxes (np.ndarray | List, optional): Bounding boxes with shape (N, 4), in XYXY format.</span>
-<span></span><span class="sd">        points (np.ndarray | List, optional): Points indicating object locations with shape (N, 2), in pixels.</span>
-<span></span><span class="sd">        labels (np.ndarray | List, optional): Labels for point prompts, shape (N, ). 1 = foreground, 0 = background.</span>
-<span></span><span class="sd">        texts (str | List[str], optional): Textual prompts, a list containing string objects.</span>
+<span></span><span class="sd">        results (Results | list[Results]): Original inference results from FastSAM models without any prompts.</span>
+<span></span><span class="sd">        bboxes (np.ndarray | list, optional): Bounding boxes with shape (N, 4), in XYXY format.</span>
+<span></span><span class="sd">        points (np.ndarray | list, optional): Points indicating object locations with shape (N, 2), in pixels.</span>
+<span></span><span class="sd">        labels (np.ndarray | list, optional): Labels for point prompts, shape (N, ). 1 = foreground, 0 = background.</span>
+<span></span><span class="sd">        texts (str | list[str], optional): Textual prompts, a list containing string objects.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[Results]): Output results filtered and determined by the provided prompts.</span>
+<span></span><span class="sd">        (list[Results]): Output results filtered and determined by the provided prompts.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="n">bboxes</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">points</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">texts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 <span></span>        <span class="k">return</span> <span class="n">results</span>

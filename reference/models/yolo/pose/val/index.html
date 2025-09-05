@@ -1424,7 +1424,7 @@ specialized metrics for pose evaluation.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.yolo.pose.val.PoseValidator.kpt_shape">kpt_shape</span></code></td>
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="list">list</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1911,7 +1911,7 @@ bounding boxes, confidence scores, class predictions, and keypoint data.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Dict">Dict</span>[<span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="dict">dict</span>[<span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1975,7 +1975,7 @@ is skipped and continues to the next one. The keypoints are extracted from the
 <span></span><span class="sd">            bounding boxes, confidence scores, class predictions, and keypoint data.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Dict[torch.Tensor]): Dict of processed prediction dictionaries, each containing:</span>
+<span></span><span class="sd">        (dict[torch.Tensor]): Dict of processed prediction dictionaries, each containing:</span>
 <span></span><span class="sd">            - 'bboxes': Bounding box coordinates</span>
 <span></span><span class="sd">            - 'conf': Confidence scores</span>
 <span></span><span class="sd">            - 'cls': Class predictions</span>
@@ -2020,7 +2020,7 @@ to COCO format, and appends the results to the internal JSON dictionary (self.jd
 <code>predn</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2037,7 +2037,7 @@ and 'keypoints' tensors.</p>
 <code>pbatch</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2086,9 +2086,9 @@ before saving to the JSON dictionary.</p>
 <span></span><span class="sd">    to COCO format, and appends the results to the internal JSON dictionary (self.jdict).</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        predn (Dict[str, torch.Tensor]): Prediction dictionary containing 'bboxes', 'conf', 'cls',</span>
+<span></span><span class="sd">        predn (dict[str, torch.Tensor]): Prediction dictionary containing 'bboxes', 'conf', 'cls',</span>
 <span></span><span class="sd">            and 'keypoints' tensors.</span>
-<span></span><span class="sd">        pbatch (Dict[str, Any]): Batch dictionary containing 'imgsz', 'ori_shape', 'ratio_pad', and 'im_file'.</span>
+<span></span><span class="sd">        pbatch (dict[str, Any]): Batch dictionary containing 'imgsz', 'ori_shape', 'ratio_pad', and 'im_file'.</span>
 <span></span>
 <span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        The method extracts the image ID from the filename stem (either as an integer if numeric, or as a string),</span>
@@ -2155,7 +2155,7 @@ before saving to the JSON dictionary.</p>
 <code>predn</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2187,7 +2187,7 @@ before saving to the JSON dictionary.</p>
 <code>shape</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2250,9 +2250,9 @@ normalized (x, y, visibility) values for each point.</p>
 <span></span><span class="sd">    Save YOLO pose detections to a text file in normalized coordinates.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        predn (Dict[str, torch.Tensor]): Dictionary containing predictions with keys 'bboxes', 'conf', 'cls' and 'keypoints.</span>
+<span></span><span class="sd">        predn (dict[str, torch.Tensor]): Dictionary containing predictions with keys 'bboxes', 'conf', 'cls' and 'keypoints.</span>
 <span></span><span class="sd">        save_conf (bool): Whether to save confidence scores.</span>
-<span></span><span class="sd">        shape (Tuple[int, int]): Shape of the original image (height, width).</span>
+<span></span><span class="sd">        shape (tuple[int, int]): Shape of the original image (height, width).</span>
 <span></span><span class="sd">        file (Path): Output file path to save detections.</span>
 <span></span>
 <span></span><span class="sd">    Notes:</span>

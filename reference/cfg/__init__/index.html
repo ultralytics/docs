@@ -1372,7 +1372,7 @@
 <code>cfg</code>
 </td>
 <td>
-<code><span title="str">str</span> | <span title="pathlib.Path">Path</span> | <span title="Dict">Dict</span> | <span title="types.SimpleNamespace">SimpleNamespace</span></code>
+<code><span title="str">str</span> | <span title="pathlib.Path">Path</span> | <span title="dict">dict</span> | <span title="types.SimpleNamespace">SimpleNamespace</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1466,7 +1466,7 @@ a string, a dictionary, or a SimpleNamespace object.</p>
 <span></span><span class="sd">    Convert a configuration object to a dictionary.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        cfg (str | Path | Dict | SimpleNamespace): Configuration object to be converted. Can be a file path,</span>
+<span></span><span class="sd">        cfg (str | Path | dict | SimpleNamespace): Configuration object to be converted. Can be a file path,</span>
 <span></span><span class="sd">            a string, a dictionary, or a SimpleNamespace object.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
@@ -1525,7 +1525,7 @@ a string, a dictionary, or a SimpleNamespace object.</p>
 <code>cfg</code>
 </td>
 <td>
-<code><span title="str">str</span> | <span title="pathlib.Path">Path</span> | <span title="Dict">Dict</span> | <span title="types.SimpleNamespace">SimpleNamespace</span></code>
+<code><span title="str">str</span> | <span title="pathlib.Path">Path</span> | <span title="dict">dict</span> | <span title="types.SimpleNamespace">SimpleNamespace</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1542,7 +1542,7 @@ SimpleNamespace object.</p>
 <code>overrides</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span> | None</code>
+<code><span title="dict">dict</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1642,9 +1642,9 @@ SimpleNamespace object.</p>
 <span></span><span class="sd">    Load and merge configuration data from a file or dictionary, with optional overrides.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        cfg (str | Path | Dict | SimpleNamespace): Configuration data source. Can be a file path, dictionary, or</span>
+<span></span><span class="sd">        cfg (str | Path | dict | SimpleNamespace): Configuration data source. Can be a file path, dictionary, or</span>
 <span></span><span class="sd">            SimpleNamespace object.</span>
-<span></span><span class="sd">        overrides (Dict | None): Dictionary containing key-value pairs to override the base configuration.</span>
+<span></span><span class="sd">        overrides (dict | None): Dictionary containing key-value pairs to override the base configuration.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (SimpleNamespace): Namespace containing the merged configuration arguments.</span>
@@ -2415,7 +2415,7 @@ messages for mismatched keys.</p>
 <code>args</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="str">str</span>]</code>
+<code><span title="list">list</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2439,7 +2439,7 @@ messages for mismatched keys.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="str">str</span>]</code>
+<code><span title="list">list</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2523,10 +2523,10 @@ messages for mismatched keys.</p>
 <span></span><span class="sd">        4. Joins fragments with brackets, e.g., ['imgsz=[3,', '640,', '640]'] becomes ['imgsz=[3,640,640]']</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        args (List[str]): A list of strings where each element represents an argument or fragment.</span>
+<span></span><span class="sd">        args (list[str]): A list of strings where each element represents an argument or fragment.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[str]): A list of strings where the arguments around isolated '=' are merged and fragments with brackets are joined.</span>
+<span></span><span class="sd">        (list[str]): A list of strings where the arguments around isolated '=' are merged and fragments with brackets are joined.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; args = ["arg1", "=", "value", "arg2=", "value2", "arg3", "=value3", "imgsz=[3,", "640,", "640]"]</span>
@@ -2599,7 +2599,7 @@ script with arguments related to HUB authentication.</p>
 <code>args</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="str">str</span>]</code>
+<code><span title="list">list</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2660,7 +2660,7 @@ or 'logout'. For 'login', an optional second argument can be the API key.</p>
 <span></span><span class="sd">    script with arguments related to HUB authentication.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        args (List[str]): A list of command line arguments. The first argument should be either 'login'</span>
+<span></span><span class="sd">        args (list[str]): A list of command line arguments. The first argument should be either 'login'</span>
 <span></span><span class="sd">            or 'logout'. For 'login', an optional second argument can be the API key.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
@@ -2710,7 +2710,7 @@ called when executing a script with arguments related to YOLO settings managemen
 <code>args</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="str">str</span>]</code>
+<code><span title="list">list</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2789,7 +2789,7 @@ called when executing a script with arguments related to YOLO settings managemen
 <span></span><span class="sd">    called when executing a script with arguments related to YOLO settings management.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        args (List[str]): A list of command line arguments for YOLO settings management.</span>
+<span></span><span class="sd">        args (list[str]): A list of command line arguments for YOLO settings management.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; handle_yolo_settings(["reset"])  # Reset YOLO settings</span>
@@ -2850,7 +2850,7 @@ called when executing a script with arguments related to YOLO settings managemen
 <code>args</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="str">str</span>]</code>
+<code><span title="list">list</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3006,7 +3006,7 @@ and other configuration parameters.</p>
 <span></span><span class="sd">    Process YOLO solutions arguments and run the specified computer vision solutions pipeline.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        args (List[str]): Command-line arguments for configuring and running the Ultralytics YOLO</span>
+<span></span><span class="sd">        args (list[str]): Command-line arguments for configuring and running the Ultralytics YOLO</span>
 <span></span><span class="sd">            solutions: https://docs.ultralytics.com/solutions/, It can include solution name, source,</span>
 <span></span><span class="sd">            and other configuration parameters.</span>
 <span></span>

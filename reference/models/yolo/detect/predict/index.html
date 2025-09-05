@@ -1692,7 +1692,7 @@ with bounding boxes and class predictions.</p>
 <code>preds</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="list">list</span>[<span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1724,7 +1724,7 @@ with bounding boxes and class predictions.</p>
 <code>orig_imgs</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="np.ndarray">ndarray</span>]</code>
+<code><span title="list">list</span>[<span title="np.ndarray">ndarray</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1748,7 +1748,7 @@ with bounding boxes and class predictions.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<a class="autorefs autorefs-internal" href="../../../../engine/results/#ultralytics.engine.results.Results" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.Results&lt;/span&gt;'>Results</a>]</code>
+<code><span title="list">list</span>[<a class="autorefs autorefs-internal" href="../../../../engine/results/#ultralytics.engine.results.Results" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.Results&lt;/span&gt;'>Results</a>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1780,12 +1780,12 @@ with bounding boxes and class predictions.</p>
 <span></span><span class="sd">    Construct a list of Results objects from model predictions.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        preds (List[torch.Tensor]): List of predicted bounding boxes and scores for each image.</span>
+<span></span><span class="sd">        preds (list[torch.Tensor]): List of predicted bounding boxes and scores for each image.</span>
 <span></span><span class="sd">        img (torch.Tensor): Batch of preprocessed images used for inference.</span>
-<span></span><span class="sd">        orig_imgs (List[np.ndarray]): List of original images before preprocessing.</span>
+<span></span><span class="sd">        orig_imgs (list[np.ndarray]): List of original images before preprocessing.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[Results]): List of Results objects containing detection information for each image.</span>
+<span></span><span class="sd">        (list[Results]): List of Results objects containing detection information for each image.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">return</span> <span class="p">[</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">construct_result</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_img</span><span class="p">,</span> <span class="n">img_path</span><span class="p">)</span>

@@ -1482,7 +1482,7 @@ and torchvision models with comprehensive dataset handling and validation.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.yolo.classify.train.ClassificationTrainer.data">data</span></code></td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1493,7 +1493,7 @@ and torchvision models with comprehensive dataset handling and validation.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.yolo.classify.train.ClassificationTrainer.loss_names">loss_names</span></code></td>
 <td>
-<code><span title="List">List</span>[<span title="str">str</span>]</code>
+<code><span title="list">list</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1646,7 +1646,7 @@ image size if not specified.</p>
 <code>cfg</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1662,7 +1662,7 @@ image size if not specified.</p>
 <code>overrides</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1678,7 +1678,7 @@ image size if not specified.</p>
 <code>_callbacks</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="typing.Any">Any</span>]</code>
+<code><span title="list">list</span>[<span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1732,9 +1732,9 @@ image size if not specified.</p>
 <span></span><span class="sd">    image size if not specified.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        cfg (Dict[str, Any], optional): Default configuration dictionary containing training parameters.</span>
-<span></span><span class="sd">        overrides (Dict[str, Any], optional): Dictionary of parameter overrides for the default configuration.</span>
-<span></span><span class="sd">        _callbacks (List[Any], optional): List of callback functions to be executed during training.</span>
+<span></span><span class="sd">        cfg (dict[str, Any], optional): Default configuration dictionary containing training parameters.</span>
+<span></span><span class="sd">        overrides (dict[str, Any], optional): Dictionary of parameter overrides for the default configuration.</span>
+<span></span><span class="sd">        _callbacks (list[Any], optional): List of callback functions to be executed during training.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        Create a trainer with custom configuration</span>
@@ -2303,7 +2303,7 @@ image size if not specified.</p>
 <tbody>
 <tr class="doc-section-item">
 <td><code>keys</code></td> <td>
-<code><span title="List">List</span>[<span title="str">str</span>]</code>
+<code><span title="list">list</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2313,7 +2313,7 @@ image size if not specified.</p>
 </tr>
 <tr class="doc-section-item">
 <td><code>loss_dict</code></td> <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="float">float</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2350,8 +2350,8 @@ image size if not specified.</p>
 <span></span><span class="sd">        prefix (str, optional): Prefix to prepend to loss names.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        keys (List[str]): List of loss keys if loss_items is None.</span>
-<span></span><span class="sd">        loss_dict (Dict[str, float]): Dictionary of loss items if loss_items is provided.</span>
+<span></span><span class="sd">        keys (list[str]): List of loss keys if loss_items is None.</span>
+<span></span><span class="sd">        loss_dict (dict[str, float]): Dictionary of loss items if loss_items is provided.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_names</span><span class="p">]</span>
 <span></span>    <span class="k">if</span> <span class="n">loss_items</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -2405,7 +2405,7 @@ image size if not specified.</p>
 <code>batch</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2454,7 +2454,7 @@ image size if not specified.</p>
 <span></span><span class="sd">    Plot training samples with their annotations.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        batch (Dict[str, torch.Tensor]): Batch containing images and class labels.</span>
+<span></span><span class="sd">        batch (dict[str, torch.Tensor]): Batch containing images and class labels.</span>
 <span></span><span class="sd">        ni (int): Number of iterations.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">batch</span><span class="p">[</span><span class="s2">"batch_idx"</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]))</span>  <span class="c1"># add batch index for plotting</span>

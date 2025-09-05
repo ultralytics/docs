@@ -1908,7 +1908,7 @@ COCO class names.</p>
 <code>classes</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="str">str</span>]</code>
+<code><span title="list">list</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1944,7 +1944,7 @@ COCO class names.</p>
 <span></span><span class="sd">    Set the model's class names for detection.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        classes (List[str]): A list of categories i.e. ["person"].</span>
+<span></span><span class="sd">        classes (list[str]): A list of categories i.e. ["person"].</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">set_classes</span><span class="p">(</span><span class="n">classes</span><span class="p">)</span>
 <span></span>    <span class="c1"># Remove background if it's given</span>
@@ -2446,7 +2446,7 @@ generator as they are computed.</p>
 <code>visual_prompts</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="List">List</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="list">list</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2520,7 +2520,7 @@ loaded based on the task.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span> | <span title="generator">generator</span></code>
+<code><span title="list">list</span> | <span title="generator">generator</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2635,7 +2635,7 @@ loaded based on the task.</p>
 <span></span><span class="sd">            directory paths, URL/YouTube streams, PIL images, numpy arrays, or webcam indices.</span>
 <span></span><span class="sd">        stream (bool): Whether to stream the prediction results. If True, results are yielded as a</span>
 <span></span><span class="sd">            generator as they are computed.</span>
-<span></span><span class="sd">        visual_prompts (Dict[str, List]): Dictionary containing visual prompts for the model. Must include</span>
+<span></span><span class="sd">        visual_prompts (dict[str, list]): Dictionary containing visual prompts for the model. Must include</span>
 <span></span><span class="sd">            'bboxes' and 'cls' keys when non-empty.</span>
 <span></span><span class="sd">        refer_image (str | PIL.Image | np.ndarray, optional): Reference image for visual prompts.</span>
 <span></span><span class="sd">        predictor (callable, optional): Custom predictor function. If None, a predictor is automatically</span>
@@ -2643,7 +2643,7 @@ loaded based on the task.</p>
 <span></span><span class="sd">        **kwargs (Any): Additional keyword arguments passed to the predictor.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List | generator): List of Results objects or generator of Results objects if stream=True.</span>
+<span></span><span class="sd">        (list | generator): List of Results objects or generator of Results objects if stream=True.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; model = YOLOE("yoloe-11s-seg.pt")</span>
@@ -2726,7 +2726,7 @@ loaded based on the task.</p>
 <code>classes</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="str">str</span>]</code>
+<code><span title="list">list</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2780,7 +2780,7 @@ loaded based on the task.</p>
 <span></span><span class="sd">    Set the model's class names and embeddings for detection.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        classes (List[str]): A list of categories i.e. ["person"].</span>
+<span></span><span class="sd">        classes (list[str]): A list of categories i.e. ["person"].</span>
 <span></span><span class="sd">        embeddings (torch.Tensor): Embeddings corresponding to the classes.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">YOLOEModel</span><span class="p">)</span>
@@ -2824,7 +2824,7 @@ classification tasks. The model must be an instance of YOLOEModel.</p>
 <code>vocab</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="str">str</span>]</code>
+<code><span title="list">list</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2840,7 +2840,7 @@ classification tasks. The model must be an instance of YOLOEModel.</p>
 <code>names</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="str">str</span>]</code>
+<code><span title="list">list</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2907,8 +2907,8 @@ classification tasks. The model must be an instance of YOLOEModel.</p>
 <span></span><span class="sd">    classification tasks. The model must be an instance of YOLOEModel.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        vocab (List[str]): Vocabulary list containing tokens or words used by the model for text processing.</span>
-<span></span><span class="sd">        names (List[str]): List of class names that the model can detect or classify.</span>
+<span></span><span class="sd">        vocab (list[str]): Vocabulary list containing tokens or words used by the model for text processing.</span>
+<span></span><span class="sd">        names (list[str]): List of class names that the model can detect or classify.</span>
 <span></span>
 <span></span><span class="sd">    Raises:</span>
 <span></span><span class="sd">        AssertionError: If the model is not an instance of YOLOEModel.</span>

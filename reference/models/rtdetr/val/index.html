@@ -1874,8 +1874,8 @@ post-processing, and updates evaluation metrics accordingly.</p>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        dataloader (torch.utils.data.DataLoader, optional): Dataloader to use for validation.</span>
 <span></span><span class="sd">        save_dir (Path, optional): Directory to save results.</span>
-<span></span><span class="sd">        args (Dict[str, Any], optional): Arguments for the validator.</span>
-<span></span><span class="sd">        _callbacks (List[Any], optional): List of callback functions.</span>
+<span></span><span class="sd">        args (dict[str, Any], optional): Arguments for the validator.</span>
+<span></span><span class="sd">        _callbacks (list[Any], optional): List of callback functions.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">is_coco</span> <span class="o">=</span> <span class="kc">False</span>
@@ -2058,7 +2058,7 @@ each mode.</p>
 <code>preds</code>
 </td>
 <td>
-<code><span title="torch.Tensor">Tensor</span> | <span title="List">List</span> | <span title="Tuple">Tuple</span></code>
+<code><span title="torch.Tensor">Tensor</span> | <span title="list">list</span> | <span title="tuple">tuple</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2083,7 +2083,7 @@ each mode.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]]</code>
+<code><span title="list">list</span>[<span title="dict">dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2136,11 +2136,11 @@ each mode.</p>
 <span></span><span class="sd">    Apply Non-maximum suppression to prediction outputs.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        preds (torch.Tensor | List | Tuple): Raw predictions from the model. If tensor, should have shape</span>
+<span></span><span class="sd">        preds (torch.Tensor | list | tuple): Raw predictions from the model. If tensor, should have shape</span>
 <span></span><span class="sd">            (batch_size, num_predictions, num_classes + 4) where last dimension contains bbox coords and class scores.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[Dict[str, torch.Tensor]]): List of dictionaries for each image, each containing:</span>
+<span></span><span class="sd">        (list[dict[str, torch.Tensor]]): List of dictionaries for each image, each containing:</span>
 <span></span><span class="sd">            - 'bboxes': Tensor of shape (N, 4) with bounding box coordinates</span>
 <span></span><span class="sd">            - 'conf': Tensor of shape (N,) with confidence scores</span>
 <span></span><span class="sd">            - 'cls': Tensor of shape (N,) with class indices</span>
@@ -2189,7 +2189,7 @@ each mode.</p>
 <code>predn</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2206,7 +2206,7 @@ with bounding box coordinates, confidence scores, and class predictions.</p>
 <code>pbatch</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2252,9 +2252,9 @@ with bounding box coordinates, confidence scores, and class predictions.</p>
 <span></span><span class="sd">    Serialize YOLO predictions to COCO json format.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        predn (Dict[str, torch.Tensor]): Predictions dictionary containing 'bboxes', 'conf', and 'cls' keys</span>
+<span></span><span class="sd">        predn (dict[str, torch.Tensor]): Predictions dictionary containing 'bboxes', 'conf', and 'cls' keys</span>
 <span></span><span class="sd">            with bounding box coordinates, confidence scores, and class predictions.</span>
-<span></span><span class="sd">        pbatch (Dict[str, Any]): Batch dictionary containing 'imgsz', 'ori_shape', 'ratio_pad', and 'im_file'.</span>
+<span></span><span class="sd">        pbatch (dict[str, Any]): Batch dictionary containing 'imgsz', 'ori_shape', 'ratio_pad', and 'im_file'.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">pbatch</span><span class="p">[</span><span class="s2">"im_file"</span><span class="p">])</span>
 <span></span>    <span class="n">stem</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">stem</span>
