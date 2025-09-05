@@ -2713,7 +2713,9 @@ that was applied during preprocessing.</p>
 <span>248</span>
 <span>249</span>
 <span>250</span>
-<span>251</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_image</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">im0_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>251</span>
+<span>252</span>
+<span>253</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_image</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">im0_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Rescale masks to original image size.</span>
 <span></span>
@@ -2749,7 +2751,9 @@ that was applied during preprocessing.</p>
 <span></span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">masks</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
 <span></span>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">'"len of masks shape" should be 2 or 3, but got </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">masks</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 <span></span>    <span class="n">masks</span> <span class="o">=</span> <span class="n">masks</span><span class="p">[</span><span class="n">top</span><span class="p">:</span><span class="n">bottom</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span><span class="n">right</span><span class="p">]</span>
-<span></span>    <span class="n">masks</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="p">(</span><span class="n">im0_w</span><span class="p">,</span> <span class="n">im0_h</span><span class="p">))</span>
+<span></span>    <span class="c1"># handle the cv2.resize 512 channels limitation: https://github.com/ultralytics/ultralytics/pull/21947</span>
+<span></span>    <span class="n">masks</span> <span class="o">=</span> <span class="p">[</span><span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="p">(</span><span class="n">im0_w</span><span class="p">,</span> <span class="n">im0_h</span><span class="p">))</span> <span class="k">for</span> <span class="n">array</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">array_split</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">masks</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">//</span> <span class="mi">512</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)]</span>
+<span></span>    <span class="n">masks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">masks</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">masks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span></span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">masks</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
 <span></span>        <span class="n">masks</span> <span class="o">=</span> <span class="n">masks</span><span class="p">[:,</span> <span class="p">:,</span> <span class="kc">None</span><span class="p">]</span>
 <span></span>
@@ -2819,9 +2823,7 @@ top-left corner and (x2, y2) is the bottom-right corner.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>254</span>
-<span>255</span>
-<span>256</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>256</span>
 <span>257</span>
 <span>258</span>
 <span>259</span>
@@ -2837,7 +2839,9 @@ top-left corner and (x2, y2) is the bottom-right corner.</p>
 <span>269</span>
 <span>270</span>
 <span>271</span>
-<span>272</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xyxy2xywh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span>272</span>
+<span>273</span>
+<span>274</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xyxy2xywh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert bounding box coordinates from (x1, y1, x2, y2) format to (x, y, width, height) format where (x1, y1) is the</span>
 <span></span><span class="sd">    top-left corner and (x2, y2) is the bottom-right corner.</span>
@@ -2921,9 +2925,7 @@ top-left corner and (x2, y2) is the bottom-right corner. Note: ops per 2 channel
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>275</span>
-<span>276</span>
-<span>277</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>277</span>
 <span>278</span>
 <span>279</span>
 <span>280</span>
@@ -2938,7 +2940,9 @@ top-left corner and (x2, y2) is the bottom-right corner. Note: ops per 2 channel
 <span>289</span>
 <span>290</span>
 <span>291</span>
-<span>292</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xywh2xyxy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span>292</span>
+<span>293</span>
+<span>294</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xywh2xyxy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert bounding box coordinates from (x, y, width, height) format to (x1, y1, x2, y2) format where (x1, y1) is the</span>
 <span></span><span class="sd">    top-left corner and (x2, y2) is the bottom-right corner. Note: ops per 2 channels faster than per channel.</span>
@@ -3085,9 +3089,7 @@ x1,y1 is the top-left corner, x2,y2 is the bottom-right corner of the bounding b
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>295</span>
-<span>296</span>
-<span>297</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>297</span>
 <span>298</span>
 <span>299</span>
 <span>300</span>
@@ -3108,7 +3110,9 @@ x1,y1 is the top-left corner, x2,y2 is the bottom-right corner of the bounding b
 <span>315</span>
 <span>316</span>
 <span>317</span>
-<span>318</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xywhn2xyxy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">640</span><span class="p">,</span> <span class="n">h</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">640</span><span class="p">,</span> <span class="n">padw</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">padh</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+<span>318</span>
+<span>319</span>
+<span>320</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xywhn2xyxy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">640</span><span class="p">,</span> <span class="n">h</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">640</span><span class="p">,</span> <span class="n">padw</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">padh</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert normalized bounding box coordinates to pixel coordinates.</span>
 <span></span>
@@ -3261,9 +3265,7 @@ width and height are normalized to image dimensions.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>321</span>
-<span>322</span>
-<span>323</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>323</span>
 <span>324</span>
 <span>325</span>
 <span>326</span>
@@ -3285,7 +3287,9 @@ width and height are normalized to image dimensions.</p>
 <span>342</span>
 <span>343</span>
 <span>344</span>
-<span>345</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xyxy2xywhn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">640</span><span class="p">,</span> <span class="n">h</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">640</span><span class="p">,</span> <span class="n">clip</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">):</span>
+<span>345</span>
+<span>346</span>
+<span>347</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xyxy2xywhn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">640</span><span class="p">,</span> <span class="n">h</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">640</span><span class="p">,</span> <span class="n">clip</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert bounding box coordinates from (x1, y1, x2, y2) format to (x, y, width, height, normalized) format. x, y,</span>
 <span></span><span class="sd">    width and height are normalized to image dimensions.</span>
@@ -3374,9 +3378,7 @@ width and height are normalized to image dimensions.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>348</span>
-<span>349</span>
-<span>350</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>350</span>
 <span>351</span>
 <span>352</span>
 <span>353</span>
@@ -3387,7 +3389,9 @@ width and height are normalized to image dimensions.</p>
 <span>358</span>
 <span>359</span>
 <span>360</span>
-<span>361</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xywh2ltwh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span>361</span>
+<span>362</span>
+<span>363</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xywh2ltwh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert bounding box format from [x, y, w, h] to [x1, y1, w, h] where x1, y1 are top-left coordinates.</span>
 <span></span>
@@ -3465,9 +3469,7 @@ width and height are normalized to image dimensions.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>364</span>
-<span>365</span>
-<span>366</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>366</span>
 <span>367</span>
 <span>368</span>
 <span>369</span>
@@ -3478,7 +3480,9 @@ width and height are normalized to image dimensions.</p>
 <span>374</span>
 <span>375</span>
 <span>376</span>
-<span>377</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xyxy2ltwh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span>377</span>
+<span>378</span>
+<span>379</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xyxy2ltwh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert bounding boxes from [x1, y1, x2, y2] to [x1, y1, w, h] format.</span>
 <span></span>
@@ -3556,9 +3560,7 @@ width and height are normalized to image dimensions.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>380</span>
-<span>381</span>
-<span>382</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>382</span>
 <span>383</span>
 <span>384</span>
 <span>385</span>
@@ -3569,7 +3571,9 @@ width and height are normalized to image dimensions.</p>
 <span>390</span>
 <span>391</span>
 <span>392</span>
-<span>393</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ltwh2xywh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span>393</span>
+<span>394</span>
+<span>395</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ltwh2xywh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert bounding boxes from [x1, y1, w, h] to [x, y, w, h] where xy1=top-left, xy=center.</span>
 <span></span>
@@ -3648,9 +3652,7 @@ Rotation values are in radians from 0 to pi/2.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>396</span>
-<span>397</span>
-<span>398</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>398</span>
 <span>399</span>
 <span>400</span>
 <span>401</span>
@@ -3668,7 +3670,9 @@ Rotation values are in radians from 0 to pi/2.</p>
 <span>413</span>
 <span>414</span>
 <span>415</span>
-<span>416</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xyxyxyxy2xywhr</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span>416</span>
+<span>417</span>
+<span>418</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xyxyxyxy2xywhr</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert batched Oriented Bounding Boxes (OBB) from [xy1, xy2, xy3, xy4] to [xywh, rotation] format.</span>
 <span></span>
@@ -3754,9 +3758,7 @@ Rotation values should be in radians from 0 to pi/2.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>419</span>
-<span>420</span>
-<span>421</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>421</span>
 <span>422</span>
 <span>423</span>
 <span>424</span>
@@ -3782,7 +3784,9 @@ Rotation values should be in radians from 0 to pi/2.</p>
 <span>444</span>
 <span>445</span>
 <span>446</span>
-<span>447</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xywhr2xyxyxyxy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span>447</span>
+<span>448</span>
+<span>449</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xywhr2xyxyxyxy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert batched Oriented Bounding Boxes (OBB) from [xywh, rotation] to [xy1, xy2, xy3, xy4] format.</span>
 <span></span>
@@ -3875,9 +3879,7 @@ Rotation values should be in radians from 0 to pi/2.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>450</span>
-<span>451</span>
-<span>452</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>452</span>
 <span>453</span>
 <span>454</span>
 <span>455</span>
@@ -3888,7 +3890,9 @@ Rotation values should be in radians from 0 to pi/2.</p>
 <span>460</span>
 <span>461</span>
 <span>462</span>
-<span>463</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ltwh2xyxy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span>463</span>
+<span>464</span>
+<span>465</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ltwh2xyxy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert bounding box from [x1, y1, w, h] to [x1, y1, x2, y2] where xy1=top-left, xy2=bottom-right.</span>
 <span></span>
@@ -3966,9 +3970,7 @@ Rotation values should be in radians from 0 to pi/2.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>466</span>
-<span>467</span>
-<span>468</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>468</span>
 <span>469</span>
 <span>470</span>
 <span>471</span>
@@ -3980,7 +3982,9 @@ Rotation values should be in radians from 0 to pi/2.</p>
 <span>477</span>
 <span>478</span>
 <span>479</span>
-<span>480</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">segments2boxes</span><span class="p">(</span><span class="n">segments</span><span class="p">):</span>
+<span>480</span>
+<span>481</span>
+<span>482</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">segments2boxes</span><span class="p">(</span><span class="n">segments</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert segment labels to box labels, i.e. (cls, xy1, xy2, ...) to (cls, xywh).</span>
 <span></span>
@@ -4075,9 +4079,7 @@ Rotation values should be in radians from 0 to pi/2.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>483</span>
-<span>484</span>
-<span>485</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>485</span>
 <span>486</span>
 <span>487</span>
 <span>488</span>
@@ -4096,7 +4098,9 @@ Rotation values should be in radians from 0 to pi/2.</p>
 <span>501</span>
 <span>502</span>
 <span>503</span>
-<span>504</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">resample_segments</span><span class="p">(</span><span class="n">segments</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">):</span>
+<span>504</span>
+<span>505</span>
+<span>506</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">resample_segments</span><span class="p">(</span><span class="n">segments</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Resample segments to n points each using linear interpolation.</span>
 <span></span>
@@ -4198,9 +4202,7 @@ Rotation values should be in radians from 0 to pi/2.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>507</span>
-<span>508</span>
-<span>509</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>509</span>
 <span>510</span>
 <span>511</span>
 <span>512</span>
@@ -4214,7 +4216,9 @@ Rotation values should be in radians from 0 to pi/2.</p>
 <span>520</span>
 <span>521</span>
 <span>522</span>
-<span>523</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">crop_mask</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">boxes</span><span class="p">):</span>
+<span>523</span>
+<span>524</span>
+<span>525</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">crop_mask</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">boxes</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Crop masks to bounding box regions.</span>
 <span></span>
@@ -4360,9 +4364,7 @@ are the height and width of the input image. The mask is applied to the bounding
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>526</span>
-<span>527</span>
-<span>528</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>528</span>
 <span>529</span>
 <span>530</span>
 <span>531</span>
@@ -4390,7 +4392,9 @@ are the height and width of the input image. The mask is applied to the bounding
 <span>553</span>
 <span>554</span>
 <span>555</span>
-<span>556</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_mask</span><span class="p">(</span><span class="n">protos</span><span class="p">,</span> <span class="n">masks_in</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">upsample</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span>556</span>
+<span>557</span>
+<span>558</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_mask</span><span class="p">(</span><span class="n">protos</span><span class="p">,</span> <span class="n">masks_in</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">upsample</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Apply masks to bounding boxes using mask head output.</span>
 <span></span>
@@ -4533,9 +4537,7 @@ are the height and width of the input image. The mask is applied to the bounding
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>559</span>
-<span>560</span>
-<span>561</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>561</span>
 <span>562</span>
 <span>563</span>
 <span>564</span>
@@ -4550,7 +4552,9 @@ are the height and width of the input image. The mask is applied to the bounding
 <span>573</span>
 <span>574</span>
 <span>575</span>
-<span>576</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_mask_native</span><span class="p">(</span><span class="n">protos</span><span class="p">,</span> <span class="n">masks_in</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
+<span>576</span>
+<span>577</span>
+<span>578</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_mask_native</span><span class="p">(</span><span class="n">protos</span><span class="p">,</span> <span class="n">masks_in</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Apply masks to bounding boxes using mask head output with native upsampling.</span>
 <span></span>
@@ -4664,9 +4668,7 @@ are the height and width of the input image. The mask is applied to the bounding
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>579</span>
-<span>580</span>
-<span>581</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>581</span>
 <span>582</span>
 <span>583</span>
 <span>584</span>
@@ -4686,7 +4688,9 @@ are the height and width of the input image. The mask is applied to the bounding
 <span>598</span>
 <span>599</span>
 <span>600</span>
-<span>601</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_masks</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">padding</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span>601</span>
+<span>602</span>
+<span>603</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_masks</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">padding</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Rescale segment masks to target shape.</span>
 <span></span>
@@ -4860,9 +4864,7 @@ are the height and width of the input image. The mask is applied to the bounding
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>604</span>
-<span>605</span>
-<span>606</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>606</span>
 <span>607</span>
 <span>608</span>
 <span>609</span>
@@ -4893,7 +4895,9 @@ are the height and width of the input image. The mask is applied to the bounding
 <span>634</span>
 <span>635</span>
 <span>636</span>
-<span>637</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_coords</span><span class="p">(</span><span class="n">img1_shape</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">img0_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">padding</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span>637</span>
+<span>638</span>
+<span>639</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_coords</span><span class="p">(</span><span class="n">img1_shape</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">img0_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">padding</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Rescale segment coordinates from img1_shape to img0_shape.</span>
 <span></span>
@@ -4991,9 +4995,7 @@ are the height and width of the input image. The mask is applied to the bounding
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>640</span>
-<span>641</span>
-<span>642</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>642</span>
 <span>643</span>
 <span>644</span>
 <span>645</span>
@@ -5007,7 +5009,9 @@ are the height and width of the input image. The mask is applied to the bounding
 <span>653</span>
 <span>654</span>
 <span>655</span>
-<span>656</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">regularize_rboxes</span><span class="p">(</span><span class="n">rboxes</span><span class="p">):</span>
+<span>656</span>
+<span>657</span>
+<span>658</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">regularize_rboxes</span><span class="p">(</span><span class="n">rboxes</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Regularize rotated bounding boxes to range [0, pi/2].</span>
 <span></span>
@@ -5104,9 +5108,7 @@ are the height and width of the input image. The mask is applied to the bounding
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>659</span>
-<span>660</span>
-<span>661</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>661</span>
 <span>662</span>
 <span>663</span>
 <span>664</span>
@@ -5132,7 +5134,9 @@ are the height and width of the input image. The mask is applied to the bounding
 <span>684</span>
 <span>685</span>
 <span>686</span>
-<span>687</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">masks2segments</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">strategy</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"all"</span><span class="p">):</span>
+<span>687</span>
+<span>688</span>
+<span>689</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">masks2segments</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">strategy</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"all"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert masks to segments using contour detection.</span>
 <span></span>
@@ -5225,9 +5229,7 @@ are the height and width of the input image. The mask is applied to the bounding
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>690</span>
-<span>691</span>
-<span>692</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>692</span>
 <span>693</span>
 <span>694</span>
 <span>695</span>
@@ -5235,7 +5237,9 @@ are the height and width of the input image. The mask is applied to the bounding
 <span>697</span>
 <span>698</span>
 <span>699</span>
-<span>700</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_torch2numpy_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span>700</span>
+<span>701</span>
+<span>702</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_torch2numpy_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert a batch of FP32 torch tensors to NumPy uint8 arrays, changing from BCHW to BHWC layout.</span>
 <span></span>
@@ -5310,9 +5314,7 @@ are the height and width of the input image. The mask is applied to the bounding
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>703</span>
-<span>704</span>
-<span>705</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>705</span>
 <span>706</span>
 <span>707</span>
 <span>708</span>
@@ -5320,7 +5322,9 @@ are the height and width of the input image. The mask is applied to the bounding
 <span>710</span>
 <span>711</span>
 <span>712</span>
-<span>713</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clean_str</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<span>713</span>
+<span>714</span>
+<span>715</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clean_str</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Clean a string by replacing special characters with '_' character.</span>
 <span></span>
@@ -5345,11 +5349,11 @@ are the height and width of the input image. The mask is applied to the bounding
 <p>Create empty torch.Tensor or np.ndarray with same shape as input and float32 dtype.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>716</span>
-<span>717</span>
-<span>718</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>718</span>
 <span>719</span>
-<span>720</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span>720</span>
+<span>721</span>
+<span>722</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Create empty torch.Tensor or np.ndarray with same shape as input and float32 dtype."""</span>
 <span></span>    <span class="k">return</span> <span class="p">(</span>
 <span></span>        <span class="n">torch</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
