@@ -2216,7 +2216,7 @@ Supports both xyxy and xywh box formats.</p>
 <span></span>            <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">-=</span> <span class="n">pad_x</span>  <span class="c1"># x padding</span>
 <span></span>            <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">-=</span> <span class="n">pad_y</span>  <span class="c1"># y padding</span>
 <span></span>    <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">/=</span> <span class="n">gain</span>
-<span></span>    <span class="k">return</span> <span class="n">clip_boxes</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">img0_shape</span><span class="p">)</span>
+<span></span>    <span class="k">return</span> <span class="n">boxes</span> <span class="k">if</span> <span class="n">xywh</span> <span class="k">else</span> <span class="n">clip_boxes</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">img0_shape</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
