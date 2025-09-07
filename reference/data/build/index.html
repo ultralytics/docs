@@ -1455,12 +1455,16 @@ for training loops that need to iterate through the dataset multiple times witho
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>58</span>
-<span>59</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>59</span>
 <span>60</span>
 <span>61</span>
-<span>62</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+<span>62</span>
+<span>63</span>
+<span>64</span>
+<span>65</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the InfiniteDataLoader with the same arguments as DataLoader."""</span>
+<span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">TORCH_2_0</span><span class="p">:</span>
+<span></span>        <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"prefetch_factor"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># not supported by earlier versions</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <span></span>    <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"batch_sampler"</span><span class="p">,</span> <span class="n">_RepeatSampler</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_sampler</span><span class="p">))</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">iterator</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__iter__</span><span class="p">()</span>
@@ -1477,17 +1481,17 @@ for training loops that need to iterate through the dataset multiple times witho
 <p>Ensure that workers are properly terminated when the dataloader is deleted.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>73</span>
-<span>74</span>
-<span>75</span>
-<span>76</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>76</span>
 <span>77</span>
 <span>78</span>
 <span>79</span>
 <span>80</span>
 <span>81</span>
 <span>82</span>
-<span>83</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>83</span>
+<span>84</span>
+<span>85</span>
+<span>86</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Ensure that workers are properly terminated when the dataloader is deleted."""</span>
 <span></span>    <span class="k">try</span><span class="p">:</span>
 <span></span>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iterator</span><span class="p">,</span> <span class="s2">"_workers"</span><span class="p">):</span>
@@ -1512,10 +1516,10 @@ for training loops that need to iterate through the dataset multiple times witho
 <p>Create an iterator that yields indefinitely from the underlying iterator.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>68</span>
-<span>69</span>
-<span>70</span>
-<span>71</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>71</span>
+<span>72</span>
+<span>73</span>
+<span>74</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Create an iterator that yields indefinitely from the underlying iterator."""</span>
 <span></span>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)):</span>
 <span></span>        <span class="k">yield</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iterator</span><span class="p">)</span>
@@ -1533,9 +1537,9 @@ for training loops that need to iterate through the dataset multiple times witho
 <p>Return the length of the batch sampler's sampler.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>64</span>
-<span>65</span>
-<span>66</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>67</span>
+<span>68</span>
+<span>69</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the length of the batch sampler's sampler."""</span>
 <span></span>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_sampler</span><span class="o">.</span><span class="n">sampler</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -1552,9 +1556,9 @@ for training loops that need to iterate through the dataset multiple times witho
 <p>Reset the iterator to allow modifications to the dataset during training.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>85</span>
-<span>86</span>
-<span>87</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>88</span>
+<span>89</span>
+<span>90</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Reset the iterator to allow modifications to the dataset during training."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">iterator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_iterator</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -1599,9 +1603,9 @@ over a dataset without recreating the sampler.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>101</span>
-<span>102</span>
-<span>103</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sampler</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>104</span>
+<span>105</span>
+<span>106</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sampler</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the _RepeatSampler with a sampler to repeat indefinitely."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">sampler</span> <span class="o">=</span> <span class="n">sampler</span>
 </code></pre></div></td></tr></table></div>
@@ -1617,10 +1621,10 @@ over a dataset without recreating the sampler.</p>
 <p>Iterate over the sampler indefinitely, yielding its contents.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>105</span>
-<span>106</span>
-<span>107</span>
-<span>108</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>108</span>
+<span>109</span>
+<span>110</span>
+<span>111</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Iterate over the sampler indefinitely, yielding its contents."""</span>
 <span></span>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
 <span></span>        <span class="k">yield from</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sampler</span><span class="p">)</span>
@@ -1641,11 +1645,11 @@ over a dataset without recreating the sampler.</p>
 <p>Set dataloader worker seed for reproducibility across worker processes.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>111</span>
-<span>112</span>
-<span>113</span>
-<span>114</span>
-<span>115</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">seed_worker</span><span class="p">(</span><span class="n">worker_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>  <span class="c1"># noqa</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>114</span>
+<span>115</span>
+<span>116</span>
+<span>117</span>
+<span>118</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">seed_worker</span><span class="p">(</span><span class="n">worker_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>  <span class="c1"># noqa</span>
 <span></span><span class="w">    </span><span class="sd">"""Set dataloader worker seed for reproducibility across worker processes."""</span>
 <span></span>    <span class="n">worker_seed</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">initial_seed</span><span class="p">()</span> <span class="o">%</span> <span class="mi">2</span><span class="o">**</span><span class="mi">32</span>
 <span></span>    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">worker_seed</span><span class="p">)</span>
@@ -1673,10 +1677,7 @@ over a dataset without recreating the sampler.</p>
 <p>Build and return a YOLO dataset based on configuration parameters.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>118</span>
-<span>119</span>
-<span>120</span>
-<span>121</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>121</span>
 <span>122</span>
 <span>123</span>
 <span>124</span>
@@ -1701,7 +1702,10 @@ over a dataset without recreating the sampler.</p>
 <span>143</span>
 <span>144</span>
 <span>145</span>
-<span>146</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_yolo_dataset</span><span class="p">(</span>
+<span>146</span>
+<span>147</span>
+<span>148</span>
+<span>149</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_yolo_dataset</span><span class="p">(</span>
 <span></span>    <span class="n">cfg</span><span class="p">:</span> <span class="n">IterableSimpleNamespace</span><span class="p">,</span>
 <span></span>    <span class="n">img_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span></span>    <span class="n">batch</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -1753,10 +1757,7 @@ over a dataset without recreating the sampler.</p>
 <p>Build and return a GroundingDataset based on configuration parameters.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>149</span>
-<span>150</span>
-<span>151</span>
-<span>152</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>152</span>
 <span>153</span>
 <span>154</span>
 <span>155</span>
@@ -1781,7 +1782,10 @@ over a dataset without recreating the sampler.</p>
 <span>174</span>
 <span>175</span>
 <span>176</span>
-<span>177</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_grounding</span><span class="p">(</span>
+<span>177</span>
+<span>178</span>
+<span>179</span>
+<span>180</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_grounding</span><span class="p">(</span>
 <span></span>    <span class="n">cfg</span><span class="p">:</span> <span class="n">IterableSimpleNamespace</span><span class="p">,</span>
 <span></span>    <span class="n">img_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span></span>    <span class="n">json_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -1966,10 +1970,7 @@ over a dataset without recreating the sampler.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>180</span>
-<span>181</span>
-<span>182</span>
-<span>183</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>183</span>
 <span>184</span>
 <span>185</span>
 <span>186</span>
@@ -2003,7 +2004,11 @@ over a dataset without recreating the sampler.</p>
 <span>214</span>
 <span>215</span>
 <span>216</span>
-<span>217</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataloader</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">workers</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">shuffle</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">rank</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">drop_last</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span>217</span>
+<span>218</span>
+<span>219</span>
+<span>220</span>
+<span>221</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataloader</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">workers</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">shuffle</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">rank</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">drop_last</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Create and return an InfiniteDataLoader or DataLoader for training or validation.</span>
 <span></span>
@@ -2035,6 +2040,7 @@ over a dataset without recreating the sampler.</p>
 <span></span>        <span class="n">shuffle</span><span class="o">=</span><span class="n">shuffle</span> <span class="ow">and</span> <span class="n">sampler</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>        <span class="n">num_workers</span><span class="o">=</span><span class="n">nw</span><span class="p">,</span>
 <span></span>        <span class="n">sampler</span><span class="o">=</span><span class="n">sampler</span><span class="p">,</span>
+<span></span>        <span class="n">prefetch_factor</span><span class="o">=</span><span class="mi">4</span> <span class="k">if</span> <span class="n">nw</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># increase over default 2</span>
 <span></span>        <span class="n">pin_memory</span><span class="o">=</span><span class="n">nd</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>
 <span></span>        <span class="n">collate_fn</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="s2">"collate_fn"</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
 <span></span>        <span class="n">worker_init_fn</span><span class="o">=</span><span class="n">seed_worker</span><span class="p">,</span>
@@ -2162,11 +2168,7 @@ over a dataset without recreating the sampler.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>220</span>
-<span>221</span>
-<span>222</span>
-<span>223</span>
-<span>224</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>224</span>
 <span>225</span>
 <span>226</span>
 <span>227</span>
@@ -2206,7 +2208,11 @@ over a dataset without recreating the sampler.</p>
 <span>261</span>
 <span>262</span>
 <span>263</span>
-<span>264</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_source</span><span class="p">(</span><span class="n">source</span><span class="p">):</span>
+<span>264</span>
+<span>265</span>
+<span>266</span>
+<span>267</span>
+<span>268</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_source</span><span class="p">(</span><span class="n">source</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check the type of input source and return corresponding flag values.</span>
 <span></span>
@@ -2392,11 +2398,7 @@ over a dataset without recreating the sampler.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>267</span>
-<span>268</span>
-<span>269</span>
-<span>270</span>
-<span>271</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>271</span>
 <span>272</span>
 <span>273</span>
 <span>274</span>
@@ -2433,7 +2435,11 @@ over a dataset without recreating the sampler.</p>
 <span>305</span>
 <span>306</span>
 <span>307</span>
-<span>308</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_inference_source</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">vid_stride</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">buffer</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">channels</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">):</span>
+<span>308</span>
+<span>309</span>
+<span>310</span>
+<span>311</span>
+<span>312</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_inference_source</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">vid_stride</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">buffer</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">channels</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Load an inference source for object detection and apply necessary transformations.</span>
 <span></span>
