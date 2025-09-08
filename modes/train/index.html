@@ -1310,6 +1310,12 @@
 <td><code>False</code></td>
 <td>Generates and saves plots of training and validation metrics, as well as prediction examples, providing visual insights into model performance and learning progression.</td>
 </tr>
+<tr>
+<td><code>compile</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>Enables PyTorch 2.x <code>torch.compile</code> graph compilation to optimize model execution. Applies to supported devices (CUDA/CPU/MPS). Uses <code>backend='inductor'</code>, <code>mode='max-autotune'</code>. Falls back to eager mode with a warning if unsupported.</td>
+</tr>
 </tbody>
 </table>
 <div class="admonition info">

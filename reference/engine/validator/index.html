@@ -2226,7 +2226,11 @@ batch processing times in milliseconds.</p>
 <span>246</span>
 <span>247</span>
 <span>248</span>
-<span>249</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
+<span>249</span>
+<span>250</span>
+<span>251</span>
+<span>252</span>
+<span>253</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trainer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Execute validation process, running inference on dataloader and computing performance metrics.</span>
@@ -2246,6 +2250,8 @@ batch processing times in milliseconds.</p>
 <span></span>        <span class="c1"># Force FP16 val during training</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">half</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="s2">"cpu"</span> <span class="ow">and</span> <span class="n">trainer</span><span class="o">.</span><span class="n">amp</span>
 <span></span>        <span class="n">model</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">ema</span><span class="o">.</span><span class="n">ema</span> <span class="ow">or</span> <span class="n">trainer</span><span class="o">.</span><span class="n">model</span>
+<span></span>        <span class="k">if</span> <span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">compile</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">"_orig_mod"</span><span class="p">):</span>
+<span></span>            <span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">_orig_mod</span>  <span class="c1"># validate non-compiled original model to avoid issues</span>
 <span></span>        <span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">half</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">half</span> <span class="k">else</span> <span class="n">model</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">loss_items</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">plots</span> <span class="o">&amp;=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">stopper</span><span class="o">.</span><span class="n">possible_stop</span> <span class="ow">or</span> <span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">==</span> <span class="n">trainer</span><span class="o">.</span><span class="n">epochs</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
@@ -2284,6 +2290,8 @@ batch processing times in milliseconds.</p>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">dataloader</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataloader</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_dataloader</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">split</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">batch</span><span class="p">)</span>
 <span></span>
 <span></span>        <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+<span></span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">compile</span><span class="p">:</span>
+<span></span>            <span class="n">model</span> <span class="o">=</span> <span class="n">attempt_compile</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 <span></span>        <span class="n">model</span><span class="o">.</span><span class="n">warmup</span><span class="p">(</span><span class="n">imgsz</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">pt</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">batch</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"channels"</span><span class="p">],</span> <span class="n">imgsz</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">))</span>  <span class="c1"># warmup</span>
 <span></span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">run_callbacks</span><span class="p">(</span><span class="s2">"on_val_start"</span><span class="p">)</span>
@@ -2294,7 +2302,7 @@ batch processing times in milliseconds.</p>
 <span></span>        <span class="n">Profile</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">),</span>
 <span></span>    <span class="p">)</span>
 <span></span>    <span class="n">bar</span> <span class="o">=</span> <span class="n">TQDM</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_desc</span><span class="p">(),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataloader</span><span class="p">))</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">init_metrics</span><span class="p">(</span><span class="n">de_parallel</span><span class="p">(</span><span class="n">model</span><span class="p">))</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">init_metrics</span><span class="p">(</span><span class="n">unwrap_model</span><span class="p">(</span><span class="n">model</span><span class="p">))</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">jdict</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># empty before each val</span>
 <span></span>    <span class="k">for</span> <span class="n">batch_i</span><span class="p">,</span> <span class="n">batch</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bar</span><span class="p">):</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">run_callbacks</span><span class="p">(</span><span class="s2">"on_val_batch_start"</span><span class="p">)</span>
@@ -2359,9 +2367,9 @@ batch processing times in milliseconds.</p>
 <p>Append the given callback to the specified event.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/validator.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>294</span>
-<span>295</span>
-<span>296</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>298</span>
+<span>299</span>
+<span>300</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Append the given callback to the specified event."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2378,9 +2386,9 @@ batch processing times in milliseconds.</p>
 <p>Build dataset from image path.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/validator.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>307</span>
-<span>308</span>
-<span>309</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>311</span>
+<span>312</span>
+<span>313</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Build dataset from image path."""</span>
 <span></span>    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"build_dataset function not implemented in validator"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2397,9 +2405,9 @@ batch processing times in milliseconds.</p>
 <p>Evaluate and return JSON format of prediction statistics.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/validator.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>364</span>
-<span>365</span>
-<span>366</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">eval_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stats</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>368</span>
+<span>369</span>
+<span>370</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">eval_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stats</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Evaluate and return JSON format of prediction statistics."""</span>
 <span></span>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
@@ -2416,9 +2424,9 @@ batch processing times in milliseconds.</p>
 <p>Finalize and return all metrics.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/validator.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>327</span>
-<span>328</span>
-<span>329</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">finalize_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>331</span>
+<span>332</span>
+<span>333</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">finalize_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Finalize and return all metrics."""</span>
 <span></span>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
@@ -2435,9 +2443,9 @@ batch processing times in milliseconds.</p>
 <p>Get data loader from dataset path and batch size.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/validator.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>303</span>
-<span>304</span>
-<span>305</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_dataloader</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset_path</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>307</span>
+<span>308</span>
+<span>309</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_dataloader</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset_path</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Get data loader from dataset path and batch size."""</span>
 <span></span>    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"get_dataloader function not implemented for this validator"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2454,9 +2462,9 @@ batch processing times in milliseconds.</p>
 <p>Get description of the YOLO model.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/validator.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>339</span>
-<span>340</span>
-<span>341</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_desc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>343</span>
+<span>344</span>
+<span>345</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_desc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Get description of the YOLO model."""</span>
 <span></span>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
@@ -2473,9 +2481,9 @@ batch processing times in milliseconds.</p>
 <p>Return statistics about the model's performance.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/validator.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>331</span>
-<span>332</span>
-<span>333</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>335</span>
+<span>336</span>
+<span>337</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return statistics about the model's performance."""</span>
 <span></span>    <span class="k">return</span> <span class="p">{}</span>
 </code></pre></div></td></tr></table></div>
@@ -2492,9 +2500,9 @@ batch processing times in milliseconds.</p>
 <p>Initialize performance metrics for the YOLO model.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/validator.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>319</span>
-<span>320</span>
-<span>321</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">init_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>323</span>
+<span>324</span>
+<span>325</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">init_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize performance metrics for the YOLO model."""</span>
 <span></span>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
@@ -2614,11 +2622,7 @@ batch processing times in milliseconds.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/validator.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>251</span>
-<span>252</span>
-<span>253</span>
-<span>254</span>
-<span>255</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>255</span>
 <span>256</span>
 <span>257</span>
 <span>258</span>
@@ -2655,7 +2659,11 @@ batch processing times in milliseconds.</p>
 <span>289</span>
 <span>290</span>
 <span>291</span>
-<span>292</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">match_predictions</span><span class="p">(</span>
+<span>292</span>
+<span>293</span>
+<span>294</span>
+<span>295</span>
+<span>296</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">match_predictions</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span> <span class="n">pred_classes</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">true_classes</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">iou</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">use_scipy</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
@@ -2711,9 +2719,9 @@ batch processing times in milliseconds.</p>
 <p>Register plots for visualization.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/validator.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>348</span>
-<span>349</span>
-<span>350</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>352</span>
+<span>353</span>
+<span>354</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Register plots for visualization."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">plots</span><span class="p">[</span><span class="n">Path</span><span class="p">(</span><span class="n">name</span><span class="p">)]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="s2">"timestamp"</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()}</span>
 </code></pre></div></td></tr></table></div>
@@ -2730,9 +2738,9 @@ batch processing times in milliseconds.</p>
 <p>Plot YOLO model predictions on batch images.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/validator.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>356</span>
-<span>357</span>
-<span>358</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_predictions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>360</span>
+<span>361</span>
+<span>362</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_predictions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Plot YOLO model predictions on batch images."""</span>
 <span></span>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
@@ -2749,9 +2757,9 @@ batch processing times in milliseconds.</p>
 <p>Plot validation samples during training.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/validator.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>352</span>
-<span>353</span>
-<span>354</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_val_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>356</span>
+<span>357</span>
+<span>358</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_val_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Plot validation samples during training."""</span>
 <span></span>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
@@ -2768,9 +2776,9 @@ batch processing times in milliseconds.</p>
 <p>Postprocess the predictions.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/validator.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>315</span>
-<span>316</span>
-<span>317</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>319</span>
+<span>320</span>
+<span>321</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Postprocess the predictions."""</span>
 <span></span>    <span class="k">return</span> <span class="n">preds</span>
 </code></pre></div></td></tr></table></div>
@@ -2787,9 +2795,9 @@ batch processing times in milliseconds.</p>
 <p>Convert predictions to JSON format.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/validator.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>360</span>
-<span>361</span>
-<span>362</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pred_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>364</span>
+<span>365</span>
+<span>366</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pred_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Convert predictions to JSON format."""</span>
 <span></span>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
@@ -2806,9 +2814,9 @@ batch processing times in milliseconds.</p>
 <p>Preprocess an input batch.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/validator.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>311</span>
-<span>312</span>
-<span>313</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>315</span>
+<span>316</span>
+<span>317</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Preprocess an input batch."""</span>
 <span></span>    <span class="k">return</span> <span class="n">batch</span>
 </code></pre></div></td></tr></table></div>
@@ -2825,9 +2833,9 @@ batch processing times in milliseconds.</p>
 <p>Print the results of the model's predictions.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/validator.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>335</span>
-<span>336</span>
-<span>337</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>339</span>
+<span>340</span>
+<span>341</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Print the results of the model's predictions."""</span>
 <span></span>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
@@ -2844,10 +2852,10 @@ batch processing times in milliseconds.</p>
 <p>Run all callbacks associated with a specified event.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/validator.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>298</span>
-<span>299</span>
-<span>300</span>
-<span>301</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>302</span>
+<span>303</span>
+<span>304</span>
+<span>305</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Run all callbacks associated with a specified event."""</span>
 <span></span>    <span class="k">for</span> <span class="n">callback</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="p">[]):</span>
 <span></span>        <span class="n">callback</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
@@ -2865,9 +2873,9 @@ batch processing times in milliseconds.</p>
 <p>Update metrics based on predictions and batch.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/validator.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>323</span>
-<span>324</span>
-<span>325</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>327</span>
+<span>328</span>
+<span>329</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Update metrics based on predictions and batch."""</span>
 <span></span>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>

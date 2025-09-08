@@ -1455,15 +1455,9 @@ segmentation models, enabling both object detection and instance segmentation ca
 <span>47</span>
 <span>48</span>
 <span>49</span>
-<span>50</span>
-<span>51</span>
-<span>52</span>
-<span>53</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>50</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the YOLOE Trainer with specified configurations.</span>
-<span></span>
-<span></span><span class="sd">    This method sets up the YOLOE trainer with the provided configuration and overrides, initializing</span>
-<span></span><span class="sd">    the training environment, model, and callbacks for YOLOE object detection training.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        cfg (dict): Configuration dictionary with default training settings from DEFAULT_CFG.</span>
@@ -1731,36 +1725,20 @@ most of the model and only training specific layers for efficient adaptation to 
 <span>41</span>
 <span>42</span>
 <span>43</span>
-<span>44</span>
-<span>45</span>
-<span>46</span>
-<span>47</span>
-<span>48</span>
-<span>49</span>
-<span>50</span>
-<span>51</span>
-<span>52</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>44</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a SegmentationTrainer object.</span>
-<span></span>
-<span></span><span class="sd">    This initializes a trainer for segmentation tasks, extending the detection trainer with segmentation-specific</span>
-<span></span><span class="sd">    functionality. It sets the task to 'segment' and prepares the trainer for training segmentation models.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        cfg (dict): Configuration dictionary with default training settings.</span>
 <span></span><span class="sd">        overrides (dict, optional): Dictionary of parameter overrides for the default configuration.</span>
 <span></span><span class="sd">        _callbacks (list, optional): List of callback functions to be executed during training.</span>
-<span></span>
-<span></span><span class="sd">    Examples:</span>
-<span></span><span class="sd">        &gt;&gt;&gt; from ultralytics.models.yolo.segment import SegmentationTrainer</span>
-<span></span><span class="sd">        &gt;&gt;&gt; args = dict(model="yolo11n-seg.pt", data="coco8-seg.yaml", epochs=3)</span>
-<span></span><span class="sd">        &gt;&gt;&gt; trainer = SegmentationTrainer(overrides=args)</span>
-<span></span><span class="sd">        &gt;&gt;&gt; trainer.train()</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="n">overrides</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 <span></span>        <span class="n">overrides</span> <span class="o">=</span> <span class="p">{}</span>
 <span></span>    <span class="n">overrides</span><span class="p">[</span><span class="s2">"task"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"segment"</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">overrides</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">dynamic_tensors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"batch_idx"</span><span class="p">,</span> <span class="s2">"cls"</span><span class="p">,</span> <span class="s2">"bboxes"</span><span class="p">,</span> <span class="s2">"masks"</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -1970,15 +1948,9 @@ most of the model and only training specific layers for efficient adaptation to 
 <span>47</span>
 <span>48</span>
 <span>49</span>
-<span>50</span>
-<span>51</span>
-<span>52</span>
-<span>53</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>50</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the YOLOE Trainer with specified configurations.</span>
-<span></span>
-<span></span><span class="sd">    This method sets up the YOLOE trainer with the provided configuration and overrides, initializing</span>
-<span></span><span class="sd">    the training environment, model, and callbacks for YOLOE object detection training.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        cfg (dict): Configuration dictionary with default training settings from DEFAULT_CFG.</span>
@@ -2021,15 +1993,9 @@ most of the model and only training specific layers for efficient adaptation to 
 <span>47</span>
 <span>48</span>
 <span>49</span>
-<span>50</span>
-<span>51</span>
-<span>52</span>
-<span>53</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>50</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the YOLOE Trainer with specified configurations.</span>
-<span></span>
-<span></span><span class="sd">    This method sets up the YOLOE trainer with the provided configuration and overrides, initializing</span>
-<span></span><span class="sd">    the training environment, model, and callbacks for YOLOE object detection training.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        cfg (dict): Configuration dictionary with default training settings from DEFAULT_CFG.</span>
