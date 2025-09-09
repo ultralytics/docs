@@ -3,31 +3,31 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Learn about Ultralytics YOLO format for pose estimation datasets, supported formats, COCO-Pose, COCO8-Pose, Tiger-Pose, and how to add your own dataset." name="description"/>
+<meta content="Discover Construction-PPE, a specialized dataset for detecting helmets, vests, gloves, boots, and goggles in real-world construction sites. Includes compliant and non-compliant scenarios for AI-powered safety monitoring." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/datasets/pose/" rel="canonical"/>
-<link href="../segment/package-seg/" rel="prev"/>
-<link href="coco/" rel="next"/>
+<link href="https://docs.ultralytics.com/datasets/detect/construction-ppe/" rel="canonical"/>
+<link href="../homeobjects-3k/" rel="prev"/>
+<link href="../visdrone/" rel="next"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.19" name="generator"/>
-<title>Pose Estimation Datasets Overview - Ultralytics YOLO Docs</title>
-<link href="../../assets/stylesheets/main.7e37652d.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<title>Construction-PPE Dataset - Ultralytics YOLO Docs</title>
+<link href="../../../assets/stylesheets/main.7e37652d.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="../../assets/_mkdocstrings.css" rel="stylesheet"/>
-<link href="../../stylesheets/style.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../../../stylesheets/style.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Pose Estimation Datasets Overview" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="pose estimation, Ultralytics, YOLO format, COCO-Pose, COCO8-Pose, Tiger-Pose, dataset conversion, keypoints" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/datasets/pose" property="og:url"/><meta content="Pose Estimation Datasets Overview" property="og:title"/><meta content="Learn about Ultralytics YOLO format for pose estimation datasets, supported formats, COCO-Pose, COCO8-Pose, Tiger-Pose, and how to add your own dataset." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/datasets/pose" property="twitter:url"/><meta content="Pose Estimation Datasets Overview" property="twitter:title"/><meta content="Learn about Ultralytics YOLO format for pose estimation datasets, supported formats, COCO-Pose, COCO8-Pose, Tiger-Pose, and how to add your own dataset." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "Pose Estimation Datasets Overview", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-08-21 13:50:33 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn about Ultralytics YOLO format for pose estimation datasets, supported formats, COCO-Pose, COCO8-Pose, Tiger-Pose, and how to add your own dataset.", "mainEntity": [{"@type": "Question", "name": "What is the Ultralytics YOLO format for pose estimation?", "acceptedAnswer": {"@type": "Answer", "text": "The Ultralytics YOLO format for pose estimation datasets involves labeling each image with a corresponding text file. Each row of the text file stores information about an object instance: For 2D poses, keypoints include pixel coordinates. For 3D, each keypoint also has a visibility flag. For more details, see Ultralytics YOLO format."}}, {"@type": "Question", "name": "How do I use the COCO-Pose dataset with Ultralytics YOLO?", "acceptedAnswer": {"@type": "Answer", "text": "To use the COCO-Pose dataset with Ultralytics YOLO:"}}, {"@type": "Question", "name": "How can I add my own dataset for pose estimation in Ultralytics YOLO?", "acceptedAnswer": {"@type": "Answer", "text": "To add your dataset:"}}, {"@type": "Question", "name": "What is the purpose of the dataset YAML file in Ultralytics YOLO?", "acceptedAnswer": {"@type": "Answer", "text": "The dataset YAML file in Ultralytics YOLO defines the dataset and model configuration for training. It specifies paths to training, validation, and test images, keypoint shapes, class names, and other configuration options. This structured format helps streamline dataset management and model training. Here is an example YAML format: Read more about creating YAML configuration files in Dataset YAML format."}}, {"@type": "Question", "name": "How can I convert COCO dataset labels to Ultralytics YOLO format for pose estimation?", "acceptedAnswer": {"@type": "Answer", "text": "Ultralytics provides a conversion tool to convert COCO dataset labels to the YOLO format, including keypoint information: This tool helps seamlessly integrate COCO datasets into YOLO projects. For details, refer to the Conversion Tool section and the data preprocessing guide."}}]}</script></head>
+<meta content="Construction-PPE" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Construction-PPE, PPE dataset, safety compliance, construction workers, object detection, YOLO11, workplace safety, computer vision" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/datasets/detect/construction-ppe" property="og:url"/><meta content="Construction-PPE" property="og:title"/><meta content="Discover Construction-PPE, a specialized dataset for detecting helmets, vests, gloves, boots, and goggles in real-world construction sites. Includes compliant and non-compliant scenarios for AI-powered safety monitoring." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/construction-ppe-dataset-sample.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/datasets/detect/construction-ppe" property="twitter:url"/><meta content="Construction-PPE" property="twitter:title"/><meta content="Discover Construction-PPE, a specialized dataset for detecting helmets, vests, gloves, boots, and goggles in real-world construction sites. Includes compliant and non-compliant scenarios for AI-powered safety monitoring." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/construction-ppe-dataset-sample.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "Construction-PPE", "image": ["https://github.com/ultralytics/docs/releases/download/0/construction-ppe-dataset-sample.avif"], "datePublished": "2025-09-09 17:02:51 +0500", "dateModified": "2025-09-09 17:02:51 +0500", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Discover Construction-PPE, a specialized dataset for detecting helmets, vests, gloves, boots, and goggles in real-world construction sites. Includes compliant and non-compliant scenarios for AI-powered safety monitoring.", "mainEntity": [{"@type": "Question", "name": "What makes the Construction-PPE dataset unique?", "acceptedAnswer": {"@type": "Answer", "text": "Unlike generic construction datasets, Construction-PPE explicitly includes missing equipment classes. This dual-labeling approach allows models to not only detect PPE but also flag violations in real-time."}}, {"@type": "Question", "name": "Which object categories are included?", "acceptedAnswer": {"@type": "Answer", "text": "The dataset covers helmets, vests, gloves, boots, goggles, and workers, along with their \u201cmissing PPE\u201d counterparts. This ensures comprehensive compliance coverage."}}, {"@type": "Question", "name": "How can I train a YOLO model using the Construction-PPE dataset?", "acceptedAnswer": {"@type": "Answer", "text": "To train a YOLO11 model using the Construction-PPE dataset, you can use the following code snippets:"}}, {"@type": "Question", "name": "Is this dataset suitable for real-world applications?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Images are curated from real construction sites under diverse conditions. This makes it highly effective for building deployable workplace safety monitoring systems."}}, {"@type": "Question", "name": "What are the benefits of using the Construction-PPE dataset in AI projects?", "acceptedAnswer": {"@type": "Answer", "text": "The dataset enables real-time detection of personal protective equipment, helping monitor worker safety on construction sites. With classes for both worn and missing gear, it supports AI systems that can automatically flag safety violations, generate compliance insights, and reduce risks. It also provides a practical resource for developing computer vision solutions in workplace safety, robotics, and academic research."}}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#pose-estimation-datasets-overview">
+<a class="md-skip" href="#construction-ppe-dataset">
           Skip to content
         </a>
 </div>
@@ -60,7 +60,7 @@
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
-              Pose Estimation Datasets Overview
+              Construction-PPE
           </span>
 </div>
 </div>
@@ -171,62 +171,62 @@
 <div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../..">
+<a class="md-tabs__link" href="../../..">
   Home
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../quickstart/">
+<a class="md-tabs__link" href="../../../quickstart/">
   Quickstart
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../modes/">
+<a class="md-tabs__link" href="../../../modes/">
   Modes
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../tasks/">
+<a class="md-tabs__link" href="../../../tasks/">
   Tasks
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../models/">
+<a class="md-tabs__link" href="../../../models/">
   Models
         </a>
 </li>
 <li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../">
+<a class="md-tabs__link" href="../../">
   Datasets
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../solutions/">
+<a class="md-tabs__link" href="../../../solutions/">
   Solutions 🚀
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../guides/">
+<a class="md-tabs__link" href="../../../guides/">
   Guides
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../integrations/">
+<a class="md-tabs__link" href="../../../integrations/">
   Integrations
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../hub/">
+<a class="md-tabs__link" href="../../../hub/">
   HUB
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../reference/cfg/__init__/">
+<a class="md-tabs__link" href="../../../reference/cfg/__init__/">
   Reference
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../help/">
+<a class="md-tabs__link" href="../../../help/">
   Help
         </a>
 </li>
@@ -259,7 +259,7 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../..">
+<a class="md-nav__link" href="../../..">
 <span class="md-ellipsis">
     Home
   </span>
@@ -267,7 +267,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../quickstart/">
+<a class="md-nav__link" href="../../../quickstart/">
 <span class="md-ellipsis">
     Quickstart
   </span>
@@ -275,7 +275,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../modes/">
+<a class="md-nav__link" href="../../../modes/">
 <span class="md-ellipsis">
     Modes
   </span>
@@ -283,7 +283,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../tasks/">
+<a class="md-nav__link" href="../../../tasks/">
 <span class="md-ellipsis">
     Tasks
   </span>
@@ -291,7 +291,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../models/">
+<a class="md-nav__link" href="../../../models/">
 <span class="md-ellipsis">
     Models
   </span>
@@ -301,7 +301,7 @@
 <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../">
+<a class="md-nav__link" href="../../">
 <span class="md-ellipsis">
     Datasets
   </span>
@@ -316,10 +316,10 @@
             Datasets
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_6_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_6_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../detect/">
+<a class="md-nav__link" href="../">
 <span class="md-ellipsis">
     Detection
   </span>
@@ -328,154 +328,257 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_6_2_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_6_2_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_6_2">
 <span class="md-nav__icon md-icon"></span>
             Detection
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/argoverse/">
+<a class="md-nav__link" href="../argoverse/">
 <span class="md-ellipsis">
     Argoverse
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/coco/">
+<a class="md-nav__link" href="../coco/">
 <span class="md-ellipsis">
     COCO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/coco8/">
+<a class="md-nav__link" href="../coco8/">
 <span class="md-ellipsis">
     COCO8
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/coco8-grayscale/">
+<a class="md-nav__link" href="../coco8-grayscale/">
 <span class="md-ellipsis">
     COCO8-Grayscale
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/coco8-multispectral/">
+<a class="md-nav__link" href="../coco8-multispectral/">
 <span class="md-ellipsis">
     COCO8-Multispectral
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/coco128/">
+<a class="md-nav__link" href="../coco128/">
 <span class="md-ellipsis">
     COCO128
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/lvis/">
+<a class="md-nav__link" href="../lvis/">
 <span class="md-ellipsis">
     LVIS
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/globalwheat2020/">
+<a class="md-nav__link" href="../globalwheat2020/">
 <span class="md-ellipsis">
     GlobalWheat2020
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/objects365/">
+<a class="md-nav__link" href="../objects365/">
 <span class="md-ellipsis">
     Objects365
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/open-images-v7/">
+<a class="md-nav__link" href="../open-images-v7/">
 <span class="md-ellipsis">
     OpenImagesV7
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/sku-110k/">
+<a class="md-nav__link" href="../sku-110k/">
 <span class="md-ellipsis">
     SKU-110K
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/homeobjects-3k/">
+<a class="md-nav__link" href="../homeobjects-3k/">
 <span class="md-ellipsis">
     HomeObjects-3K
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../detect/construction-ppe/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Construction-PPE
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     Construction-PPE
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dataset-structure">
+<span class="md-ellipsis">
+      Dataset Structure
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/visdrone/">
+<a class="md-nav__link" href="#applications">
+<span class="md-ellipsis">
+      Applications
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dataset-yaml">
+<span class="md-ellipsis">
+      Dataset YAML
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#usage">
+<span class="md-ellipsis">
+      Usage
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-images-and-annotations">
+<span class="md-ellipsis">
+      Sample Images and Annotations
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#license-and-attribution">
+<span class="md-ellipsis">
+      License and Attribution
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faq">
+<span class="md-ellipsis">
+      FAQ
+    </span>
+</a>
+<nav aria-label="FAQ" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-makes-the-construction-ppe-dataset-unique">
+<span class="md-ellipsis">
+      What makes the Construction-PPE dataset unique?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#which-object-categories-are-included">
+<span class="md-ellipsis">
+      Which object categories are included?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-can-i-train-a-yolo-model-using-the-construction-ppe-dataset">
+<span class="md-ellipsis">
+      How can I train a YOLO model using the Construction-PPE dataset?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#is-this-dataset-suitable-for-real-world-applications">
+<span class="md-ellipsis">
+      Is this dataset suitable for real-world applications?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-are-the-benefits-of-using-the-construction-ppe-dataset-in-ai-projects">
+<span class="md-ellipsis">
+      What are the benefits of using the Construction-PPE dataset in AI projects?
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../visdrone/">
 <span class="md-ellipsis">
     VisDrone
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/voc/">
+<a class="md-nav__link" href="../voc/">
 <span class="md-ellipsis">
     VOC
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/xview/">
+<a class="md-nav__link" href="../xview/">
 <span class="md-ellipsis">
     xView
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/roboflow-100/">
+<a class="md-nav__link" href="../roboflow-100/">
 <span class="md-ellipsis">
     RF100
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/brain-tumor/">
+<a class="md-nav__link" href="../brain-tumor/">
 <span class="md-ellipsis">
     Brain-tumor
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/african-wildlife/">
+<a class="md-nav__link" href="../african-wildlife/">
 <span class="md-ellipsis">
     African-wildlife
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/signature/">
+<a class="md-nav__link" href="../signature/">
 <span class="md-ellipsis">
     Signature
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../detect/medical-pills/">
+<a class="md-nav__link" href="../medical-pills/">
 <span class="md-ellipsis">
     Medical-pills
   </span>
@@ -487,7 +590,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../segment/">
+<a class="md-nav__link" href="../../segment/">
 <span class="md-ellipsis">
     Segmentation
   </span>
@@ -503,42 +606,42 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../segment/coco/">
+<a class="md-nav__link" href="../../segment/coco/">
 <span class="md-ellipsis">
     COCO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../segment/coco8-seg/">
+<a class="md-nav__link" href="../../segment/coco8-seg/">
 <span class="md-ellipsis">
     COCO8-seg
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../segment/coco128-seg/">
+<a class="md-nav__link" href="../../segment/coco128-seg/">
 <span class="md-ellipsis">
     COCO128-seg
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../segment/crack-seg/">
+<a class="md-nav__link" href="../../segment/crack-seg/">
 <span class="md-ellipsis">
     Crack-seg
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../segment/carparts-seg/">
+<a class="md-nav__link" href="../../segment/carparts-seg/">
 <span class="md-ellipsis">
     Carparts-seg
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../segment/package-seg/">
+<a class="md-nav__link" href="../../segment/package-seg/">
 <span class="md-ellipsis">
     Package-seg
   </span>
@@ -547,54 +650,54 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_6_4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link md-nav__link--active" href="./">
+<a class="md-nav__link" href="../../pose/">
 <span class="md-ellipsis">
     Pose
   </span>
 </a>
-<label class="md-nav__link md-nav__link--active" for="__nav_6_4" id="__nav_6_4_label" tabindex="">
+<label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_6_4_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_6_4_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_6_4">
 <span class="md-nav__icon md-icon"></span>
             Pose
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="coco/">
+<a class="md-nav__link" href="../../pose/coco/">
 <span class="md-ellipsis">
     COCO
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="coco8-pose/">
+<a class="md-nav__link" href="../../pose/coco8-pose/">
 <span class="md-ellipsis">
     COCO8-pose
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="tiger-pose/">
+<a class="md-nav__link" href="../../pose/tiger-pose/">
 <span class="md-ellipsis">
     Tiger-pose
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="hand-keypoints/">
+<a class="md-nav__link" href="../../pose/hand-keypoints/">
 <span class="md-ellipsis">
     Hand-keypoints
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="dog-pose/">
+<a class="md-nav__link" href="../../pose/dog-pose/">
 <span class="md-ellipsis">
     Dog-pose
   </span>
@@ -606,7 +709,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../classify/">
+<a class="md-nav__link" href="../../classify/">
 <span class="md-ellipsis">
     Classification
   </span>
@@ -622,70 +725,70 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../classify/caltech101/">
+<a class="md-nav__link" href="../../classify/caltech101/">
 <span class="md-ellipsis">
     Caltech 101
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../classify/caltech256/">
+<a class="md-nav__link" href="../../classify/caltech256/">
 <span class="md-ellipsis">
     Caltech 256
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../classify/cifar10/">
+<a class="md-nav__link" href="../../classify/cifar10/">
 <span class="md-ellipsis">
     CIFAR-10
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../classify/cifar100/">
+<a class="md-nav__link" href="../../classify/cifar100/">
 <span class="md-ellipsis">
     CIFAR-100
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../classify/fashion-mnist/">
+<a class="md-nav__link" href="../../classify/fashion-mnist/">
 <span class="md-ellipsis">
     Fashion-MNIST
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../classify/imagenet/">
+<a class="md-nav__link" href="../../classify/imagenet/">
 <span class="md-ellipsis">
     ImageNet
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../classify/imagenet10/">
+<a class="md-nav__link" href="../../classify/imagenet10/">
 <span class="md-ellipsis">
     ImageNet-10
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../classify/imagenette/">
+<a class="md-nav__link" href="../../classify/imagenette/">
 <span class="md-ellipsis">
     Imagenette
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../classify/imagewoof/">
+<a class="md-nav__link" href="../../classify/imagewoof/">
 <span class="md-ellipsis">
     Imagewoof
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../classify/mnist/">
+<a class="md-nav__link" href="../../classify/mnist/">
 <span class="md-ellipsis">
     MNIST
   </span>
@@ -697,7 +800,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6_6" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../obb/">
+<a class="md-nav__link" href="../../obb/">
 <span class="md-ellipsis">
     Oriented Bounding Boxes (OBB)
   </span>
@@ -713,14 +816,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../obb/dota-v2/">
+<a class="md-nav__link" href="../../obb/dota-v2/">
 <span class="md-ellipsis">
     DOTAv2
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../obb/dota8/">
+<a class="md-nav__link" href="../../obb/dota8/">
 <span class="md-ellipsis">
     DOTA8
   </span>
@@ -732,7 +835,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../track/">
+<a class="md-nav__link" href="../../track/">
 <span class="md-ellipsis">
     Multi-Object Tracking
   </span>
@@ -751,7 +854,7 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../solutions/">
+<a class="md-nav__link" href="../../../solutions/">
 <span class="md-ellipsis">
     Solutions 🚀
   </span>
@@ -759,7 +862,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../guides/">
+<a class="md-nav__link" href="../../../guides/">
 <span class="md-ellipsis">
     Guides
   </span>
@@ -767,7 +870,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../integrations/">
+<a class="md-nav__link" href="../../../integrations/">
 <span class="md-ellipsis">
     Integrations
   </span>
@@ -775,7 +878,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../hub/">
+<a class="md-nav__link" href="../../../hub/">
 <span class="md-ellipsis">
     HUB
   </span>
@@ -783,7 +886,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../reference/cfg/__init__/">
+<a class="md-nav__link" href="../../../reference/cfg/__init__/">
 <span class="md-ellipsis">
     Reference
   </span>
@@ -791,7 +894,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../help/">
+<a class="md-nav__link" href="../../../help/">
 <span class="md-ellipsis">
     Help
   </span>
@@ -813,29 +916,25 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#supported-dataset-formats">
+<a class="md-nav__link" href="#dataset-structure">
 <span class="md-ellipsis">
-      Supported Dataset Formats
-    </span>
-</a>
-<nav aria-label="Supported Dataset Formats" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics-yolo-format">
-<span class="md-ellipsis">
-      Ultralytics YOLO format
+      Dataset Structure
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#dataset-yaml-format">
+<a class="md-nav__link" href="#applications">
 <span class="md-ellipsis">
-      Dataset YAML format
+      Applications
     </span>
 </a>
 </li>
-</ul>
-</nav>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dataset-yaml">
+<span class="md-ellipsis">
+      Dataset YAML
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#usage">
@@ -845,64 +944,18 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#supported-datasets">
+<a class="md-nav__link" href="#sample-images-and-annotations">
 <span class="md-ellipsis">
-      Supported Datasets
-    </span>
-</a>
-<nav aria-label="Supported Datasets" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#coco-pose">
-<span class="md-ellipsis">
-      COCO-Pose
+      Sample Images and Annotations
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#coco8-pose">
+<a class="md-nav__link" href="#license-and-attribution">
 <span class="md-ellipsis">
-      COCO8-Pose
+      License and Attribution
     </span>
 </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#tiger-pose">
-<span class="md-ellipsis">
-      Tiger-Pose
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#hand-keypoints">
-<span class="md-ellipsis">
-      Hand Keypoints
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#dog-pose">
-<span class="md-ellipsis">
-      Dog-Pose
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#adding-your-own-dataset">
-<span class="md-ellipsis">
-      Adding your own dataset
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#conversion-tool">
-<span class="md-ellipsis">
-      Conversion Tool
-    </span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
@@ -913,37 +966,37 @@
 <nav aria-label="FAQ" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-is-the-ultralytics-yolo-format-for-pose-estimation">
+<a class="md-nav__link" href="#what-makes-the-construction-ppe-dataset-unique">
 <span class="md-ellipsis">
-      What is the Ultralytics YOLO format for pose estimation?
+      What makes the Construction-PPE dataset unique?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-use-the-coco-pose-dataset-with-ultralytics-yolo">
+<a class="md-nav__link" href="#which-object-categories-are-included">
 <span class="md-ellipsis">
-      How do I use the COCO-Pose dataset with Ultralytics YOLO?
+      Which object categories are included?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-can-i-add-my-own-dataset-for-pose-estimation-in-ultralytics-yolo">
+<a class="md-nav__link" href="#how-can-i-train-a-yolo-model-using-the-construction-ppe-dataset">
 <span class="md-ellipsis">
-      How can I add my own dataset for pose estimation in Ultralytics YOLO?
+      How can I train a YOLO model using the Construction-PPE dataset?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-is-the-purpose-of-the-dataset-yaml-file-in-ultralytics-yolo">
+<a class="md-nav__link" href="#is-this-dataset-suitable-for-real-world-applications">
 <span class="md-ellipsis">
-      What is the purpose of the dataset YAML file in Ultralytics YOLO?
+      Is this dataset suitable for real-world applications?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-can-i-convert-coco-dataset-labels-to-ultralytics-yolo-format-for-pose-estimation">
+<a class="md-nav__link" href="#what-are-the-benefits-of-using-the-construction-ppe-dataset-in-ai-projects">
 <span class="md-ellipsis">
-      How can I convert COCO dataset labels to Ultralytics YOLO format for pose estimation?
+      What are the benefits of using the Construction-PPE dataset in AI projects?
     </span>
 </a>
 </li>
@@ -957,271 +1010,167 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/datasets/pose/index.md" rel="edit" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/datasets/detect/construction-ppe.md" rel="edit" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a><a class="md-content__button md-icon" href="javascript:void(0)" onclick="copyMarkdownForLLM(this); return false;" title="Copy page in Markdown format"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg></a>
-<h1 id="pose-estimation-datasets-overview">Pose Estimation Datasets Overview</h1>
-<h2 id="supported-dataset-formats">Supported Dataset Formats</h2>
-<h3 id="ultralytics-yolo-format">Ultralytics YOLO format</h3>
-<p>The dataset label format used for training YOLO pose models is as follows:</p>
-<ol>
-<li>One text file per image: Each image in the dataset has a corresponding text file with the same name as the image file and the ".txt" extension.</li>
-<li>One row per object: Each row in the text file corresponds to one object instance in the image.</li>
-<li>Object information per row: Each row contains the following information about the object instance:<ul>
-<li>Object class index: An integer representing the class of the object (e.g., 0 for person, 1 for car, etc.).</li>
-<li>Object center coordinates: The x and y coordinates of the center of the object, normalized to be between 0 and 1.</li>
-<li>Object width and height: The width and height of the object, normalized to be between 0 and 1.</li>
-<li>Object keypoint coordinates: The keypoints of the object, normalized to be between 0 and 1.</li>
+<h1 id="construction-ppe-dataset">Construction-PPE Dataset</h1>
+<p>The Construction-PPE dataset is designed to improve safety compliance in construction sites by enabling detection of essential protective gear such as helmets, vests, gloves, boots, and goggles, along with annotations for missing equipment. Curated from real construction environments, it includes both compliant and non-compliant cases, making it a valuable resource for training AI models that monitor workplace safety.</p>
+<h2 id="dataset-structure">Dataset Structure</h2>
+<p>The Construction-PPE dataset is organized into three main subsets:</p>
+<ul>
+<li><strong>Training Set</strong>: The primary collection of annotated construction images featuring workers with both complete and partial PPE usage.</li>
+<li><strong>Validation Set</strong>: A designated subset used to fine-tune and assess model performance during PPE detection and compliance monitoring.</li>
+<li><strong>Test Set</strong>: An independent subset reserved for evaluating the final model's effectiveness in detecting PPE and identifying compliance issues.</li>
 </ul>
-</li>
-</ol>
-<p>Here is an example of the label format for pose estimation task:</p>
-<p>Format with Dim = 2</p>
-<div class="highlight"><pre><span></span><code><span></span>&lt;class-index&gt; &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt; &lt;px1&gt; &lt;py1&gt; &lt;px2&gt; &lt;py2&gt; ... &lt;pxn&gt; &lt;pyn&gt;
-</code></pre></div>
-<p>Format with Dim = 3</p>
-<div class="highlight"><pre><span></span><code><span></span>&lt;class-index&gt; &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt; &lt;px1&gt; &lt;py1&gt; &lt;p1-visibility&gt; &lt;px2&gt; &lt;py2&gt; &lt;p2-visibility&gt; &lt;pxn&gt; &lt;pyn&gt; &lt;pn-visibility&gt;
-</code></pre></div>
-<p>In this format, <code>&lt;class-index&gt;</code> is the index of the class for the object,<code>&lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;</code> are coordinates of <a href="https://www.ultralytics.com/glossary/bounding-box">bounding box</a>, and <code>&lt;px1&gt; &lt;py1&gt; &lt;px2&gt; &lt;py2&gt; ... &lt;pxn&gt; &lt;pyn&gt;</code> are the pixel coordinates of the keypoints. The coordinates are separated by spaces.</p>
-<h3 id="dataset-yaml-format">Dataset YAML format</h3>
-<p>The Ultralytics framework uses a YAML file format to define the dataset and model configuration for training pose estimation models. Here is an example of the YAML format used for defining a pose dataset:</p>
+<p>Each image is annotated in the <a href="../#what-is-the-ultralytics-yolo-dataset-format-and-how-to-structure-it">Ultralytics YOLO</a> format ensuring compatibility with state-of-the-art <a href="../../../tasks/detect/">object detection</a> and <a href="../../../modes/track/">tracking</a> pipelines.</p>
+<p>The dataset provides <strong>11 classes</strong> divided into positive (worn PPE) and negative (missing PPE) categories. This dual-positive/negative structure enables models to detect properly worn gear <strong>and</strong> identify safety violations.</p>
+<h2 id="applications">Applications</h2>
+<p>Construction-PPE powers a variety of safety-focused computer vision applications:</p>
+<ul>
+<li><strong>Automated compliance monitoring</strong>: Train AI models to instantly check if workers are wearing required safety gear like helmets, vests, or gloves, reducing risks on site.</li>
+<li><strong>Workplace safety analytics</strong>: Track PPE usage over time, spot frequent violations, and generate insights to improve safety culture.</li>
+<li><strong>Smart surveillance systems</strong>: Connect detection models with cameras to send real-time alerts when PPE is missing, preventing accidents before they happen.</li>
+<li><strong>Robotics and autonomous systems</strong>: Enable drones or robots to perform PPE checks across large sites, supporting faster and safer inspections.</li>
+<li><strong>Research and education</strong>: Provide a real-world dataset for students and researchers exploring workplace safety and human-object interactions.</li>
+</ul>
+<h2 id="dataset-yaml">Dataset YAML</h2>
+<p>The Construction-PPE dataset includes a YAML configuration file that defines the training and validation image paths along with the full list of object classes. You can access the <code>construction-ppe.yaml</code> file directly in the Ultralytics repository here: <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/construction-ppe.yaml">https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/construction-ppe.yaml</a></p>
 <div class="admonition example">
-<p class="admonition-title">ultralytics/cfg/datasets/coco8-pose.yaml</p>
+<p class="admonition-title">ultralytics/cfg/datasets/construction-ppe.yaml</p>
 <div class="highlight"><pre><span></span><code><span></span><span class="c1"># Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license</span>
 <span></span>
-<span></span><span class="c1"># COCO8-pose dataset (first 8 images from COCO train2017) by Ultralytics</span>
-<span></span><span class="c1"># Documentation: https://docs.ultralytics.com/datasets/pose/coco8-pose/</span>
-<span></span><span class="c1"># Example usage: yolo train data=coco8-pose.yaml</span>
+<span></span><span class="c1"># Construction-PPE dataset by Ultralytics</span>
+<span></span><span class="c1"># Documentation: https://docs.ultralytics.com/datasets/detect/construction-ppe/</span>
+<span></span><span class="c1"># Example usage: yolo train data=construction-ppe.yaml</span>
 <span></span><span class="c1"># parent</span>
 <span></span><span class="c1"># ├── ultralytics</span>
 <span></span><span class="c1"># └── datasets</span>
-<span></span><span class="c1">#     └── coco8-pose ← downloads here (1 MB)</span>
+<span></span><span class="c1">#     └── construction-ppe ← downloads here (178.4 MB)</span>
 <span></span>
 <span></span><span class="c1"># Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]</span>
-<span></span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">coco8-pose</span><span class="w"> </span><span class="c1"># dataset root dir</span>
-<span></span><span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/train</span><span class="w"> </span><span class="c1"># train images (relative to 'path') 4 images</span>
-<span></span><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/val</span><span class="w"> </span><span class="c1"># val images (relative to 'path') 4 images</span>
-<span></span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="c1"># test images (optional)</span>
-<span></span>
-<span></span><span class="c1"># Keypoints</span>
-<span></span><span class="nt">kpt_shape</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">17</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">3</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="c1"># number of keypoints, number of dims (2 for x,y or 3 for x,y,visible)</span>
-<span></span><span class="nt">flip_idx</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">4</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">3</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">6</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">5</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">8</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">7</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">10</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">9</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">12</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">11</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">14</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">13</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">16</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">15</span><span class="p p-Indicator">]</span>
+<span></span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">construction-ppe</span><span class="w"> </span><span class="c1"># dataset root dir</span>
+<span></span><span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/train</span><span class="w"> </span><span class="c1"># train images (relative to 'path') 1132 images</span>
+<span></span><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/val</span><span class="w"> </span><span class="c1"># val images (relative to 'path') 143 images</span>
+<span></span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/test</span><span class="w"> </span><span class="c1"># test images (relative to 'path') 141 images</span>
 <span></span>
 <span></span><span class="c1"># Classes</span>
 <span></span><span class="nt">names</span><span class="p">:</span>
-<span></span><span class="w">  </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">person</span>
+<span></span><span class="w">  </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">helmet</span>
+<span></span><span class="w">  </span><span class="nt">1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gloves</span>
+<span></span><span class="w">  </span><span class="nt">2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vest</span>
+<span></span><span class="w">  </span><span class="nt">3</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">boots</span>
+<span></span><span class="w">  </span><span class="nt">4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">goggles</span>
+<span></span><span class="w">  </span><span class="nt">5</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">none</span>
+<span></span><span class="w">  </span><span class="nt">6</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Person</span>
+<span></span><span class="w">  </span><span class="nt">7</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no_helmet</span>
+<span></span><span class="w">  </span><span class="nt">8</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no_goggle</span>
+<span></span><span class="w">  </span><span class="nt">9</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no_gloves</span>
+<span></span><span class="w">  </span><span class="nt">10</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no_boots</span>
 <span></span>
 <span></span><span class="c1"># Download script/URL (optional)</span>
-<span></span><span class="nt">download</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/ultralytics/assets/releases/download/v0.0.0/coco8-pose.zip</span>
+<span></span><span class="nt">download</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/ultralytics/assets/releases/download/v0.0.0/construction-ppe.zip</span>
 </code></pre></div>
 </div>
-<p>The <code>train</code> and <code>val</code> fields specify the paths to the directories containing the training and validation images, respectively.</p>
-<p><code>names</code> is a dictionary of class names. The order of the names should match the order of the object class indices in the YOLO dataset files.</p>
-<p>(Optional) if the points are symmetric then need flip_idx, like left-right side of human or face. For example if we assume five keypoints of facial landmark: [left eye, right eye, nose, left mouth, right mouth], and the original index is [0, 1, 2, 3, 4], then flip_idx is [1, 0, 2, 4, 3] (just exchange the left-right index, i.e. 0-1 and 3-4, and do not modify others like nose in this example).</p>
 <h2 id="usage">Usage</h2>
+<p>You can train a YOLO11n model on the Construction-PPE dataset for 100 epochs with an image size of 640. The following examples show how to get started quickly. For more options and advanced configurations, see the <a href="../../../modes/train/">Training guide</a>.</p>
 <div class="admonition example">
-<p class="admonition-title">Example</p>
+<p class="admonition-title">Train Example</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
 <span></span>
+<span></span><span class="c1"># Load pretrained model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Train the model on Construction-PPE dataset</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"construction-ppe.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>construction-ppe.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<h2 id="sample-images-and-annotations">Sample Images and Annotations</h2>
+<p>The dataset captures construction workers across varied environments, lighting conditions, and postures. Both <strong>compliant</strong> and <strong>non-compliant</strong> cases are included.</p>
+<p><img alt="Construction-PPE dataset sample image, showing compliant and non-compliant safety gear detection" src="https://github.com/ultralytics/docs/releases/download/0/construction-ppe-dataset-sample.avif"/></p>
+<h2 id="license-and-attribution">License and Attribution</h2>
+<p>Construction-PPE is developed and released under the <a href="https://github.com/ultralytics/ultralytics/blob/main/LICENSE">AGPL-3.0 License</a>, supporting open-source research and commercial applications with proper attribution.</p>
+<p>If you use this dataset in your research, please cite it:</p>
+<div class="admonition quote">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">BibTeX</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span></span><span class="nc">@dataset</span><span class="p">{</span><span class="nl">Dalvi_Construction_PPE_Dataset_2025</span><span class="p">,</span>
+<span></span><span class="w">    </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Mrunmayee Dalvi and Niyati Singh and Sahil Bhingarde and Ketaki Chalke}</span><span class="p">,</span>
+<span></span><span class="w">    </span><span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Construction-PPE: Personal Protective Equipment Detection Dataset}</span><span class="p">,</span>
+<span></span><span class="w">    </span><span class="na">month</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{January}</span><span class="p">,</span>
+<span></span><span class="w">    </span><span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2025}</span><span class="p">,</span>
+<span></span><span class="w">    </span><span class="na">version</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{1.0.0}</span><span class="p">,</span>
+<span></span><span class="w">    </span><span class="na">license</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{AGPL-3.0}</span><span class="p">,</span>
+<span></span><span class="w">    </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{https://docs.ultralytics.com/datasets/detect/construction-ppe/}</span><span class="p">,</span>
+<span></span><span class="w">    </span><span class="na">publisher</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Ultralytics}</span>
+<span></span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<h2 id="faq">FAQ</h2>
+<h3 id="what-makes-the-construction-ppe-dataset-unique">What makes the Construction-PPE dataset unique?</h3>
+<p>Unlike generic construction datasets, Construction-PPE explicitly includes <strong>missing equipment classes</strong>. This dual-labeling approach allows models to not only detect PPE but also flag violations in real-time.</p>
+<h3 id="which-object-categories-are-included">Which object categories are included?</h3>
+<p>The dataset covers helmets, vests, gloves, boots, goggles, and workers, along with their “missing PPE” counterparts. This ensures comprehensive compliance coverage.</p>
+<h3 id="how-can-i-train-a-yolo-model-using-the-construction-ppe-dataset">How can I train a YOLO model using the Construction-PPE dataset?</h3>
+<p>To train a YOLO11 model using the Construction-PPE dataset, you can use the following code snippets:</p>
+<div class="admonition example">
+<p class="admonition-title">Train Example</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
 <span></span><span class="c1"># Load a model</span>
-<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-pose.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
 <span></span>
 <span></span><span class="c1"># Train the model</span>
-<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8-pose.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"construction-ppe.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span></span><span class="c1"># Start training from a pretrained *.pt model</span>
-<span></span>yolo<span class="w"> </span>pose<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8-pose.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-pose.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<span></span>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>construction-ppe.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 </div>
 </div>
 </div>
 </div>
-<h2 id="supported-datasets">Supported Datasets</h2>
-<p>This section outlines the datasets that are compatible with Ultralytics YOLO format and can be used for training <a href="https://docs.ultralytics.com/tasks/pose/">pose estimation</a> models:</p>
-<h3 id="coco-pose">COCO-Pose</h3>
-<ul>
-<li><strong>Description</strong>: COCO-Pose is a large-scale <a href="https://www.ultralytics.com/glossary/object-detection">object detection</a>, segmentation, and pose estimation dataset. It is a subset of the popular COCO dataset and focuses on human pose estimation. COCO-Pose includes multiple keypoints for each human instance.</li>
-<li><strong>Label Format</strong>: Same as Ultralytics YOLO format as described above, with keypoints for human poses.</li>
-<li><strong>Number of Classes</strong>: 1 (Human).</li>
-<li><strong>Keypoints</strong>: 17 keypoints including nose, eyes, ears, shoulders, elbows, wrists, hips, knees, and ankles.</li>
-<li><strong>Usage</strong>: Suitable for training human pose estimation models.</li>
-<li><strong>Additional Notes</strong>: The dataset is rich and diverse, containing over 200k labeled images.</li>
-<li><a href="coco/">Read more about COCO-Pose</a></li>
-</ul>
-<h3 id="coco8-pose">COCO8-Pose</h3>
-<ul>
-<li><strong>Description</strong>: <a href="https://www.ultralytics.com/">Ultralytics</a> COCO8-Pose is a small, but versatile pose detection dataset composed of the first 8 images of the COCO train 2017 set, 4 for training and 4 for validation.</li>
-<li><strong>Label Format</strong>: Same as Ultralytics YOLO format as described above, with keypoints for human poses.</li>
-<li><strong>Number of Classes</strong>: 1 (Human).</li>
-<li><strong>Keypoints</strong>: 17 keypoints including nose, eyes, ears, shoulders, elbows, wrists, hips, knees, and ankles.</li>
-<li><strong>Usage</strong>: Suitable for testing and debugging object detection models, or for experimenting with new detection approaches.</li>
-<li><strong>Additional Notes</strong>: COCO8-Pose is ideal for sanity checks and <a href="https://docs.ultralytics.com/help/CI/">CI checks</a>.</li>
-<li><a href="coco8-pose/">Read more about COCO8-Pose</a></li>
-</ul>
-<h3 id="tiger-pose">Tiger-Pose</h3>
-<ul>
-<li><strong>Description</strong>: <a href="https://www.ultralytics.com/">Ultralytics</a> The Tiger Pose dataset comprises 263 images sourced from a <a href="https://www.youtube.com/watch?v=MIBAT6BGE6U&amp;pp=ygUbVGlnZXIgd2Fsa2luZyByZWZlcmVuY2UubXA0">YouTube Video</a>, with 210 images allocated for training and 53 for validation.</li>
-<li><strong>Label Format</strong>: Same as Ultralytics YOLO format as described above, with 12 keypoints for animal pose and no visible dimension.</li>
-<li><strong>Number of Classes</strong>: 1 (Tiger).</li>
-<li><strong>Keypoints</strong>: 12 keypoints.</li>
-<li><strong>Usage</strong>: Great for animal pose or any other pose that is not human-based.</li>
-<li><a href="tiger-pose/">Read more about Tiger-Pose</a></li>
-</ul>
-<h3 id="hand-keypoints">Hand Keypoints</h3>
-<ul>
-<li><strong>Description</strong>: Hand keypoints pose dataset comprises nearly 26K images, with 18776 images allocated for training and 7992 for validation.</li>
-<li><strong>Label Format</strong>: Same as Ultralytics YOLO format as described above, but with 21 keypoints for human hand and visible dimension.</li>
-<li><strong>Number of Classes</strong>: 1 (Hand).</li>
-<li><strong>Keypoints</strong>: 21 keypoints.</li>
-<li><strong>Usage</strong>: Great for human hand pose estimation and <a href="https://www.ultralytics.com/blog/enhancing-hand-keypoints-estimation-with-ultralytics-yolo11">gesture recognition</a>.</li>
-<li><a href="hand-keypoints/">Read more about Hand Keypoints</a></li>
-</ul>
-<h3 id="dog-pose">Dog-Pose</h3>
-<ul>
-<li><strong>Description</strong>: The Dog Pose dataset contains approximately 6,000 images, providing a diverse and extensive resource for training and validation of dog pose estimation models.</li>
-<li><strong>Label Format</strong>: Follows the Ultralytics YOLO format, with annotations for multiple keypoints specific to dog anatomy.</li>
-<li><strong>Number of Classes</strong>: 1 (Dog).</li>
-<li><strong>Keypoints</strong>: Includes 24 keypoints tailored to dog poses, such as limbs, joints, and head positions.</li>
-<li><strong>Usage</strong>: Ideal for training models to estimate dog poses in various scenarios, from research to <a href="https://www.ultralytics.com/blog/custom-training-ultralytics-yolo11-for-dog-pose-estimation">real-world applications</a>.</li>
-<li><a href="dog-pose/">Read more about Dog-Pose</a></li>
-</ul>
-<h3 id="adding-your-own-dataset">Adding your own dataset</h3>
-<p>If you have your own dataset and would like to use it for training pose estimation models with Ultralytics YOLO format, ensure that it follows the format specified above under "Ultralytics YOLO format". Convert your annotations to the required format and specify the paths, number of classes, and class names in the YAML configuration file.</p>
-<h3 id="conversion-tool">Conversion Tool</h3>
-<p>Ultralytics provides a convenient conversion tool to convert labels from the popular <a href="https://docs.ultralytics.com/datasets/detect/coco/">COCO dataset</a> format to YOLO format:</p>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.converter</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_coco</span>
-<span></span>
-<span></span><span class="n">convert_coco</span><span class="p">(</span><span class="n">labels_dir</span><span class="o">=</span><span class="s2">"path/to/coco/annotations/"</span><span class="p">,</span> <span class="n">use_keypoints</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-</div>
-<p>This conversion tool can be used to convert the COCO dataset or any dataset in the COCO format to the Ultralytics YOLO format. The <code>use_keypoints</code> parameter specifies whether to include keypoints (for pose estimation) in the converted labels.</p>
-<h2 id="faq">FAQ</h2>
-<h3 id="what-is-the-ultralytics-yolo-format-for-pose-estimation">What is the Ultralytics YOLO format for pose estimation?</h3>
-<p>The Ultralytics YOLO format for pose estimation datasets involves labeling each image with a corresponding text file. Each row of the text file stores information about an object instance:</p>
-<ul>
-<li>Object class index</li>
-<li>Object center coordinates (normalized x and y)</li>
-<li>Object width and height (normalized)</li>
-<li>Object keypoint coordinates (normalized pxn and pyn)</li>
-</ul>
-<p>For 2D poses, keypoints include pixel coordinates. For 3D, each keypoint also has a visibility flag. For more details, see <a href="#ultralytics-yolo-format">Ultralytics YOLO format</a>.</p>
-<h3 id="how-do-i-use-the-coco-pose-dataset-with-ultralytics-yolo">How do I use the COCO-Pose dataset with Ultralytics YOLO?</h3>
-<p>To use the <a href="https://docs.ultralytics.com/datasets/pose/coco/">COCO-Pose dataset</a> with Ultralytics YOLO:</p>
-<ol>
-<li>Download the dataset and prepare your label files in the YOLO format.</li>
-<li>Create a YAML configuration file specifying paths to training and validation images, keypoint shape, and class names.</li>
-<li>
-<p>Use the configuration file for training:</p>
-<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<span></span>
-<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-pose.pt"</span><span class="p">)</span>  <span class="c1"># load pretrained model</span>
-<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco-pose.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
-</code></pre></div>
-<p>For more information, visit <a href="coco/">COCO-Pose</a> and <a href="../../modes/train/">train</a> sections.</p>
-</li>
-</ol>
-<h3 id="how-can-i-add-my-own-dataset-for-pose-estimation-in-ultralytics-yolo">How can I add my own dataset for pose estimation in Ultralytics YOLO?</h3>
-<p>To add your dataset:</p>
-<ol>
-<li>Convert your annotations to the Ultralytics YOLO format.</li>
-<li>Create a YAML configuration file specifying the dataset paths, number of classes, and class names.</li>
-<li>
-<p>Use the configuration file to train your model:</p>
-<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<span></span>
-<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-pose.pt"</span><span class="p">)</span>
-<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"your-dataset.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
-</code></pre></div>
-<p>For complete steps, check the <a href="#adding-your-own-dataset">Adding your own dataset</a> section.</p>
-</li>
-</ol>
-<h3 id="what-is-the-purpose-of-the-dataset-yaml-file-in-ultralytics-yolo">What is the purpose of the dataset YAML file in Ultralytics YOLO?</h3>
-<p>The dataset YAML file in Ultralytics YOLO defines the dataset and model configuration for training. It specifies paths to training, validation, and test images, keypoint shapes, class names, and other configuration options. This structured format helps streamline <a href="https://docs.ultralytics.com/datasets/explorer/">dataset management</a> and model training. Here is an example YAML format:</p>
-<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license</span>
-<span></span>
-<span></span><span class="c1"># COCO8-pose dataset (first 8 images from COCO train2017) by Ultralytics</span>
-<span></span><span class="c1"># Documentation: https://docs.ultralytics.com/datasets/pose/coco8-pose/</span>
-<span></span><span class="c1"># Example usage: yolo train data=coco8-pose.yaml</span>
-<span></span><span class="c1"># parent</span>
-<span></span><span class="c1"># ├── ultralytics</span>
-<span></span><span class="c1"># └── datasets</span>
-<span></span><span class="c1">#     └── coco8-pose ← downloads here (1 MB)</span>
-<span></span>
-<span></span><span class="c1"># Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]</span>
-<span></span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">coco8-pose</span><span class="w"> </span><span class="c1"># dataset root dir</span>
-<span></span><span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/train</span><span class="w"> </span><span class="c1"># train images (relative to 'path') 4 images</span>
-<span></span><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/val</span><span class="w"> </span><span class="c1"># val images (relative to 'path') 4 images</span>
-<span></span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="c1"># test images (optional)</span>
-<span></span>
-<span></span><span class="c1"># Keypoints</span>
-<span></span><span class="nt">kpt_shape</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">17</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">3</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="c1"># number of keypoints, number of dims (2 for x,y or 3 for x,y,visible)</span>
-<span></span><span class="nt">flip_idx</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">4</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">3</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">6</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">5</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">8</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">7</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">10</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">9</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">12</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">11</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">14</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">13</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">16</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">15</span><span class="p p-Indicator">]</span>
-<span></span>
-<span></span><span class="c1"># Classes</span>
-<span></span><span class="nt">names</span><span class="p">:</span>
-<span></span><span class="w">  </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">person</span>
-<span></span>
-<span></span><span class="c1"># Download script/URL (optional)</span>
-<span></span><span class="nt">download</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/ultralytics/assets/releases/download/v0.0.0/coco8-pose.zip</span>
-</code></pre></div>
-<p>Read more about creating YAML configuration files in <a href="#dataset-yaml-format">Dataset YAML format</a>.</p>
-<h3 id="how-can-i-convert-coco-dataset-labels-to-ultralytics-yolo-format-for-pose-estimation">How can I convert COCO dataset labels to Ultralytics YOLO format for pose estimation?</h3>
-<p>Ultralytics provides a conversion tool to convert COCO dataset labels to the YOLO format, including keypoint information:</p>
-<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.converter</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_coco</span>
-<span></span>
-<span></span><span class="n">convert_coco</span><span class="p">(</span><span class="n">labels_dir</span><span class="o">=</span><span class="s2">"path/to/coco/annotations/"</span><span class="p">,</span> <span class="n">use_keypoints</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</code></pre></div>
-<p>This tool helps seamlessly integrate COCO datasets into YOLO projects. For details, refer to the <a href="#conversion-tool">Conversion Tool</a> section and the <a href="https://docs.ultralytics.com/guides/preprocessing_annotated_data/">data preprocessing guide</a>.</p>
+<h3 id="is-this-dataset-suitable-for-real-world-applications">Is this dataset suitable for real-world applications?</h3>
+<p>Yes. Images are curated from real construction sites under diverse conditions. This makes it highly effective for building deployable workplace safety monitoring systems.</p>
+<h3 id="what-are-the-benefits-of-using-the-construction-ppe-dataset-in-ai-projects">What are the benefits of using the Construction-PPE dataset in AI projects?</h3>
+<p>The dataset enables real-time detection of personal protective equipment, helping monitor worker safety on construction sites. With classes for both worn and missing gear, it supports AI systems that can automatically flag safety violations, generate compliance insights, and reduce risks. It also provides a practical resource for developing computer vision solutions in workplace safety, robotics, and academic research.</p>
 <br/><br/>
 <div class="git-info">
 <div class="dates-container">
-<span class="date-item" title="This page was first created on November 12, 2023">
-<span class="hover-item">📅</span> Created 1 year ago
+<span class="date-item" title="This page was first created on September 09, 2025">
+<span class="hover-item">📅</span> Created 0 days ago
     </span>
-<span class="date-item" title="This page was last updated on August 21, 2025">
-<span class="hover-item">✏️</span> Updated 19 days ago
+<span class="date-item" title="This page was last updated on September 09, 2025">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
-<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (13 changes)">
-<img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (3 changes)">
+<a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (1 change)">
 <img alt="RizwanMunawar" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/62513924?v=4&amp;s=96"/>
 </a>
-<a class="author-link" href="https://github.com/UltralyticsAssistant" title="UltralyticsAssistant (2 changes)">
-<img alt="UltralyticsAssistant" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/135830346?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/Laughing-q" title="Laughing-q (1 change)">
-<img alt="Laughing-q" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/61612323?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/Y-T-G" title="Y-T-G (1 change)">
-<img alt="Y-T-G" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/32206511?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/MatthewNoyce" title="MatthewNoyce (1 change)">
-<img alt="MatthewNoyce" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/131261051?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/jk4e" title="jk4e (1 change)">
-<img alt="jk4e" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/116908874?v=4&amp;s=96"/>
-</a>
 </div></div><div class="share-buttons">
-<button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/datasets/pose', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
+<button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/datasets/detect/construction-ppe', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
 <i class="fa-brands fa-x-twitter"></i> Tweet
     </button>
-<button class="share-button hover-item linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/datasets/pose', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;">
+<button class="share-button hover-item linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/datasets/detect/construction-ppe', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;">
 <i class="fa-brands fa-linkedin-in"></i> Share
     </button>
 </div>
@@ -1240,7 +1189,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Package-seg" class="md-footer__link md-footer__link--prev" href="../segment/package-seg/">
+<a aria-label="Previous: HomeObjects-3K" class="md-footer__link md-footer__link--prev" href="../homeobjects-3k/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
 </div>
@@ -1249,17 +1198,17 @@
                 Previous
               </span>
 <div class="md-ellipsis">
-                Package-seg
+                HomeObjects-3K
               </div>
 </div>
 </a>
-<a aria-label="Next: COCO" class="md-footer__link md-footer__link--next" href="coco/">
+<a aria-label="Next: VisDrone" class="md-footer__link md-footer__link--next" href="../visdrone/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                COCO
+                VisDrone
               </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -1315,12 +1264,12 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
-<script src="../../javascript/extra.js"></script>
-<script src="../../javascript/giscus.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+<script src="../../../javascript/extra.js"></script>
+<script src="../../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
-<script src="../../javascript/tablesort.js"></script>
+<script src="../../../javascript/tablesort.js"></script>
 <script>
                     async function copyMarkdownForLLM(button) {
                         const editBtn = document.querySelector('a[title="Edit this page"]');
