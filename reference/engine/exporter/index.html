@@ -2455,36 +2455,36 @@ process for each supported format.</p>
 <span></span>    <span class="c1"># Exports</span>
 <span></span>    <span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="s2">""</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">fmts</span><span class="p">)</span>  <span class="c1"># exported filenames</span>
 <span></span>    <span class="k">if</span> <span class="n">jit</span> <span class="ow">or</span> <span class="n">ncnn</span><span class="p">:</span>  <span class="c1"># TorchScript</span>
-<span></span>        <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_torchscript</span><span class="p">()</span>
+<span></span>        <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_torchscript</span><span class="p">()</span>
 <span></span>    <span class="k">if</span> <span class="n">engine</span><span class="p">:</span>  <span class="c1"># TensorRT required before ONNX</span>
-<span></span>        <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_engine</span><span class="p">(</span><span class="n">dla</span><span class="o">=</span><span class="n">dla</span><span class="p">)</span>
+<span></span>        <span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_engine</span><span class="p">(</span><span class="n">dla</span><span class="o">=</span><span class="n">dla</span><span class="p">)</span>
 <span></span>    <span class="k">if</span> <span class="n">onnx</span><span class="p">:</span>  <span class="c1"># ONNX</span>
-<span></span>        <span class="n">f</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_onnx</span><span class="p">()</span>
+<span></span>        <span class="n">f</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_onnx</span><span class="p">()</span>
 <span></span>    <span class="k">if</span> <span class="n">xml</span><span class="p">:</span>  <span class="c1"># OpenVINO</span>
-<span></span>        <span class="n">f</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_openvino</span><span class="p">()</span>
+<span></span>        <span class="n">f</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_openvino</span><span class="p">()</span>
 <span></span>    <span class="k">if</span> <span class="n">coreml</span><span class="p">:</span>  <span class="c1"># CoreML</span>
-<span></span>        <span class="n">f</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_coreml</span><span class="p">()</span>
+<span></span>        <span class="n">f</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_coreml</span><span class="p">()</span>
 <span></span>    <span class="k">if</span> <span class="n">is_tf_format</span><span class="p">:</span>  <span class="c1"># TensorFlow formats</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">int8</span> <span class="o">|=</span> <span class="n">edgetpu</span>
 <span></span>        <span class="n">f</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">keras_model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_saved_model</span><span class="p">()</span>
 <span></span>        <span class="k">if</span> <span class="n">pb</span> <span class="ow">or</span> <span class="n">tfjs</span><span class="p">:</span>  <span class="c1"># pb prerequisite to tfjs</span>
-<span></span>            <span class="n">f</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_pb</span><span class="p">(</span><span class="n">keras_model</span><span class="o">=</span><span class="n">keras_model</span><span class="p">)</span>
+<span></span>            <span class="n">f</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_pb</span><span class="p">(</span><span class="n">keras_model</span><span class="o">=</span><span class="n">keras_model</span><span class="p">)</span>
 <span></span>        <span class="k">if</span> <span class="n">tflite</span><span class="p">:</span>
-<span></span>            <span class="n">f</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_tflite</span><span class="p">()</span>
+<span></span>            <span class="n">f</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_tflite</span><span class="p">()</span>
 <span></span>        <span class="k">if</span> <span class="n">edgetpu</span><span class="p">:</span>
-<span></span>            <span class="n">f</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_edgetpu</span><span class="p">(</span><span class="n">tflite_model</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">_full_integer_quant.tflite"</span><span class="p">)</span>
+<span></span>            <span class="n">f</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_edgetpu</span><span class="p">(</span><span class="n">tflite_model</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">_full_integer_quant.tflite"</span><span class="p">)</span>
 <span></span>        <span class="k">if</span> <span class="n">tfjs</span><span class="p">:</span>
-<span></span>            <span class="n">f</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_tfjs</span><span class="p">()</span>
+<span></span>            <span class="n">f</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_tfjs</span><span class="p">()</span>
 <span></span>    <span class="k">if</span> <span class="n">paddle</span><span class="p">:</span>  <span class="c1"># PaddlePaddle</span>
-<span></span>        <span class="n">f</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_paddle</span><span class="p">()</span>
+<span></span>        <span class="n">f</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_paddle</span><span class="p">()</span>
 <span></span>    <span class="k">if</span> <span class="n">mnn</span><span class="p">:</span>  <span class="c1"># MNN</span>
-<span></span>        <span class="n">f</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_mnn</span><span class="p">()</span>
+<span></span>        <span class="n">f</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_mnn</span><span class="p">()</span>
 <span></span>    <span class="k">if</span> <span class="n">ncnn</span><span class="p">:</span>  <span class="c1"># NCNN</span>
-<span></span>        <span class="n">f</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_ncnn</span><span class="p">()</span>
+<span></span>        <span class="n">f</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_ncnn</span><span class="p">()</span>
 <span></span>    <span class="k">if</span> <span class="n">imx</span><span class="p">:</span>
-<span></span>        <span class="n">f</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_imx</span><span class="p">()</span>
+<span></span>        <span class="n">f</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_imx</span><span class="p">()</span>
 <span></span>    <span class="k">if</span> <span class="n">rknn</span><span class="p">:</span>
-<span></span>        <span class="n">f</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_rknn</span><span class="p">()</span>
+<span></span>        <span class="n">f</span><span class="p">[</span><span class="mi">14</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_rknn</span><span class="p">()</span>
 <span></span>
 <span></span>    <span class="c1"># Finish</span>
 <span></span>    <span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">f</span> <span class="k">if</span> <span class="n">x</span><span class="p">]</span>  <span class="c1"># filter out '' and None</span>
@@ -2697,7 +2697,7 @@ process for each supported format.</p>
 <span></span>        <span class="p">)</span>
 <span></span>        <span class="n">f</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">".mlmodel"</span><span class="p">)</span>
 <span></span>        <span class="n">ct_model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
-<span></span>    <span class="k">return</span> <span class="n">f</span><span class="p">,</span> <span class="n">ct_model</span>
+<span></span>    <span class="k">return</span> <span class="n">f</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2778,7 +2778,7 @@ process for each supported format.</p>
 <span></span>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> running '</span><span class="si">{</span><span class="n">cmd</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
 <span></span>    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">_add_tflite_metadata</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span></span>    <span class="k">return</span> <span class="n">f</span><span class="p">,</span> <span class="kc">None</span>
+<span></span>    <span class="k">return</span> <span class="n">f</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2831,7 +2831,7 @@ process for each supported format.</p>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_engine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dla</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"TensorRT:"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""Export YOLO model to TensorRT format https://developer.nvidia.com/tensorrt."""</span>
 <span></span>    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">im</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="s2">"cpu"</span><span class="p">,</span> <span class="s2">"export running on CPU but must be on GPU, i.e. use 'device=0'"</span>
-<span></span>    <span class="n">f_onnx</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_onnx</span><span class="p">()</span>  <span class="c1"># run before TRT import https://github.com/ultralytics/ultralytics/issues/7016</span>
+<span></span>    <span class="n">f_onnx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_onnx</span><span class="p">()</span>  <span class="c1"># run before TRT import https://github.com/ultralytics/ultralytics/issues/7016</span>
 <span></span>
 <span></span>    <span class="k">try</span><span class="p">:</span>
 <span></span>        <span class="kn">import</span><span class="w"> </span><span class="nn">tensorrt</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">trt</span>  <span class="c1"># noqa</span>
@@ -2861,7 +2861,7 @@ process for each supported format.</p>
 <span></span>        <span class="n">prefix</span><span class="o">=</span><span class="n">prefix</span><span class="p">,</span>
 <span></span>    <span class="p">)</span>
 <span></span>
-<span></span>    <span class="k">return</span> <span class="n">f</span><span class="p">,</span> <span class="kc">None</span>
+<span></span>    <span class="k">return</span> <span class="n">f</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3226,7 +3226,7 @@ process for each supported format.</p>
 <span></span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">f</span> <span class="o">/</span> <span class="s2">"labels.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
 <span></span>        <span class="n">file</span><span class="o">.</span><span class="n">writelines</span><span class="p">([</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span>
 <span></span>
-<span></span>    <span class="k">return</span> <span class="n">f</span><span class="p">,</span> <span class="kc">None</span>
+<span></span>    <span class="k">return</span> <span class="n">f</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3267,7 +3267,7 @@ process for each supported format.</p>
 <span>766</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_mnn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"MNN:"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""Export YOLO model to MNN format using MNN https://github.com/alibaba/MNN."""</span>
-<span></span>    <span class="n">f_onnx</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_onnx</span><span class="p">()</span>  <span class="c1"># get onnx model first</span>
+<span></span>    <span class="n">f_onnx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_onnx</span><span class="p">()</span>  <span class="c1"># get onnx model first</span>
 <span></span>
 <span></span>    <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"MNN&gt;=2.9.6"</span><span class="p">)</span>
 <span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">MNN</span>  <span class="c1"># noqa</span>
@@ -3287,7 +3287,7 @@ process for each supported format.</p>
 <span></span>    <span class="n">convert_scratch</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">".__convert_external_data.bin"</span><span class="p">)</span>
 <span></span>    <span class="k">if</span> <span class="n">convert_scratch</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
 <span></span>        <span class="n">convert_scratch</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
-<span></span>    <span class="k">return</span> <span class="n">f</span><span class="p">,</span> <span class="kc">None</span>
+<span></span>    <span class="k">return</span> <span class="n">f</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3434,7 +3434,7 @@ process for each supported format.</p>
 <span></span>        <span class="n">Path</span><span class="p">(</span><span class="n">f_debug</span><span class="p">)</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">missing_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span></span>
 <span></span>    <span class="n">YAML</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">f</span> <span class="o">/</span> <span class="s2">"metadata.yaml"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>  <span class="c1"># add metadata.yaml</span>
-<span></span>    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="kc">None</span>
+<span></span>    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3563,7 +3563,7 @@ process for each supported format.</p>
 <span></span>        <span class="n">meta</span><span class="o">.</span><span class="n">key</span><span class="p">,</span> <span class="n">meta</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">k</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
 <span></span>
 <span></span>    <span class="n">onnx</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">model_onnx</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
-<span></span>    <span class="k">return</span> <span class="n">f</span><span class="p">,</span> <span class="n">model_onnx</span>
+<span></span>    <span class="k">return</span> <span class="n">f</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3718,13 +3718,13 @@ process for each supported format.</p>
 <span></span>            <span class="n">ignored_scope</span><span class="o">=</span><span class="n">ignored_scope</span><span class="p">,</span>
 <span></span>        <span class="p">)</span>
 <span></span>        <span class="n">serialize</span><span class="p">(</span><span class="n">quantized_ov_model</span><span class="p">,</span> <span class="n">fq_ov</span><span class="p">)</span>
-<span></span>        <span class="k">return</span> <span class="n">fq</span><span class="p">,</span> <span class="kc">None</span>
+<span></span>        <span class="k">return</span> <span class="n">fq</span>
 <span></span>
 <span></span>    <span class="n">f</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">suffix</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"_openvino_model</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span></span>    <span class="n">f_ov</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">".xml"</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 <span></span>
 <span></span>    <span class="n">serialize</span><span class="p">(</span><span class="n">ov_model</span><span class="p">,</span> <span class="n">f_ov</span><span class="p">)</span>
-<span></span>    <span class="k">return</span> <span class="n">f</span><span class="p">,</span> <span class="kc">None</span>
+<span></span>    <span class="k">return</span> <span class="n">f</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3783,7 +3783,7 @@ process for each supported format.</p>
 <span></span>
 <span></span>    <span class="n">pytorch2paddle</span><span class="p">(</span><span class="n">module</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">jit_type</span><span class="o">=</span><span class="s2">"trace"</span><span class="p">,</span> <span class="n">input_examples</span><span class="o">=</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">im</span><span class="p">])</span>  <span class="c1"># export</span>
 <span></span>    <span class="n">YAML</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"metadata.yaml"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>  <span class="c1"># add metadata.yaml</span>
-<span></span>    <span class="k">return</span> <span class="n">f</span><span class="p">,</span> <span class="kc">None</span>
+<span></span>    <span class="k">return</span> <span class="n">f</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3826,7 +3826,7 @@ process for each supported format.</p>
 <span></span>    <span class="n">frozen_func</span> <span class="o">=</span> <span class="n">convert_variables_to_constants_v2</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 <span></span>    <span class="n">frozen_func</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">as_graph_def</span><span class="p">()</span>
 <span></span>    <span class="n">tf</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">write_graph</span><span class="p">(</span><span class="n">graph_or_graph_def</span><span class="o">=</span><span class="n">frozen_func</span><span class="o">.</span><span class="n">graph</span><span class="p">,</span> <span class="n">logdir</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">parent</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">as_text</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span></span>    <span class="k">return</span> <span class="n">f</span><span class="p">,</span> <span class="kc">None</span>
+<span></span>    <span class="k">return</span> <span class="n">f</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3880,7 +3880,7 @@ process for each supported format.</p>
 <span></span>
 <span></span>    <span class="kn">from</span><span class="w"> </span><span class="nn">rknn.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">RKNN</span>
 <span></span>
-<span></span>    <span class="n">f</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_onnx</span><span class="p">()</span>
+<span></span>    <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_onnx</span><span class="p">()</span>
 <span></span>    <span class="n">export_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">Path</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">_rknn_model"</span><span class="p">)</span>
 <span></span>    <span class="n">export_path</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span></span>
@@ -3891,7 +3891,7 @@ process for each supported format.</p>
 <span></span>    <span class="n">f</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">".onnx"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"-</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">.rknn"</span><span class="p">)</span>
 <span></span>    <span class="n">rknn</span><span class="o">.</span><span class="n">export_rknn</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">export_path</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span></span>    <span class="n">YAML</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">export_path</span> <span class="o">/</span> <span class="s2">"metadata.yaml"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
-<span></span>    <span class="k">return</span> <span class="n">export_path</span><span class="p">,</span> <span class="kc">None</span>
+<span></span>    <span class="k">return</span> <span class="n">export_path</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4036,7 +4036,7 @@ process for each supported format.</p>
 <span></span>
 <span></span>    <span class="c1"># Export to ONNX</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">simplify</span> <span class="o">=</span> <span class="kc">True</span>
-<span></span>    <span class="n">f_onnx</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_onnx</span><span class="p">()</span>
+<span></span>    <span class="n">f_onnx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_onnx</span><span class="p">()</span>
 <span></span>
 <span></span>    <span class="c1"># Export to TF</span>
 <span></span>    <span class="n">np_data</span> <span class="o">=</span> <span class="kc">None</span>
@@ -4157,7 +4157,7 @@ process for each supported format.</p>
 <span></span>
 <span></span>    <span class="c1"># Add metadata</span>
 <span></span>    <span class="n">YAML</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"metadata.yaml"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>  <span class="c1"># add metadata.yaml</span>
-<span></span>    <span class="k">return</span> <span class="n">f</span><span class="p">,</span> <span class="kc">None</span>
+<span></span>    <span class="k">return</span> <span class="n">f</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4200,7 +4200,7 @@ process for each supported format.</p>
 <span></span>        <span class="n">f</span> <span class="o">=</span> <span class="n">saved_model</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">_float16.tflite"</span>  <span class="c1"># fp32 in/out</span>
 <span></span>    <span class="k">else</span><span class="p">:</span>
 <span></span>        <span class="n">f</span> <span class="o">=</span> <span class="n">saved_model</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">_float32.tflite"</span>
-<span></span>    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="kc">None</span>
+<span></span>    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4245,7 +4245,7 @@ process for each supported format.</p>
 <span></span>        <span class="n">optimize_for_mobile</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span><span class="o">.</span><span class="n">_save_for_lite_interpreter</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">_extra_files</span><span class="o">=</span><span class="n">extra_files</span><span class="p">)</span>
 <span></span>    <span class="k">else</span><span class="p">:</span>
 <span></span>        <span class="n">ts</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">_extra_files</span><span class="o">=</span><span class="n">extra_files</span><span class="p">)</span>
-<span></span>    <span class="k">return</span> <span class="n">f</span><span class="p">,</span> <span class="kc">None</span>
+<span></span>    <span class="k">return</span> <span class="n">f</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5046,9 +5046,9 @@ number of detections after NMS.</p>
 <span></span>        <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span></span>        <span class="k">try</span><span class="p">:</span>
 <span></span>            <span class="k">with</span> <span class="n">Profile</span><span class="p">()</span> <span class="k">as</span> <span class="n">dt</span><span class="p">:</span>
-<span></span>                <span class="n">f</span><span class="p">,</span> <span class="n">model</span> <span class="o">=</span> <span class="n">inner_func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span></span>                <span class="n">f</span> <span class="o">=</span> <span class="n">inner_func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <span></span>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> export success ✅ </span><span class="si">{</span><span class="n">dt</span><span class="o">.</span><span class="n">t</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">s, saved as '</span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s2">' (</span><span class="si">{</span><span class="n">file_size</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> MB)"</span><span class="p">)</span>
-<span></span>            <span class="k">return</span> <span class="n">f</span><span class="p">,</span> <span class="n">model</span>
+<span></span>            <span class="k">return</span> <span class="n">f</span>
 <span></span>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 <span></span>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> export failure </span><span class="si">{</span><span class="n">dt</span><span class="o">.</span><span class="n">t</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">s: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span></span>            <span class="k">raise</span> <span class="n">e</span>
