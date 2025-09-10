@@ -4553,8 +4553,7 @@ convert tensor inputs to numpy arrays for processing.</p>
 <span>842</span>
 <span>843</span>
 <span>844</span>
-<span>845</span>
-<span>846</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@threaded</span>
+<span>845</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@threaded</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_images</span><span class="p">(</span>
 <span></span>    <span class="n">labels</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
 <span></span>    <span class="n">images</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span>
@@ -4688,14 +4687,13 @@ convert tensor inputs to numpy arrays for processing.</p>
 <span></span>
 <span></span>            <span class="c1"># Plot masks</span>
 <span></span>            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">masks</span><span class="p">):</span>
-<span></span>                <span class="k">if</span> <span class="n">idx</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">masks</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>  <span class="c1"># overlap_mask=False</span>
+<span></span>                <span class="k">if</span> <span class="n">idx</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">masks</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">masks</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># overlap_mask=False</span>
 <span></span>                    <span class="n">image_masks</span> <span class="o">=</span> <span class="n">masks</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
 <span></span>                <span class="k">else</span><span class="p">:</span>  <span class="c1"># overlap_mask=True</span>
 <span></span>                    <span class="n">image_masks</span> <span class="o">=</span> <span class="n">masks</span><span class="p">[[</span><span class="n">i</span><span class="p">]]</span>  <span class="c1"># (1, 640, 640)</span>
 <span></span>                    <span class="n">nl</span> <span class="o">=</span> <span class="n">idx</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<span></span>                    <span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nl</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">nl</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span>
-<span></span>                    <span class="n">image_masks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">image_masks</span><span class="p">,</span> <span class="n">nl</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span></span>                    <span class="n">image_masks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">image_masks</span> <span class="o">==</span> <span class="n">index</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+<span></span>                    <span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nl</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">nl</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span></span>                    <span class="n">image_masks</span> <span class="o">=</span> <span class="p">(</span><span class="n">image_masks</span> <span class="o">==</span> <span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 <span></span>
 <span></span>                <span class="n">im</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">annotator</span><span class="o">.</span><span class="n">im</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span></span>                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">image_masks</span><span class="p">)):</span>
@@ -4855,7 +4853,8 @@ pose estimation, and classification. Plots are saved as 'results.png' in the dir
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>849</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>848</span>
+<span>849</span>
 <span>850</span>
 <span>851</span>
 <span>852</span>
@@ -4919,8 +4918,7 @@ pose estimation, and classification. Plots are saved as 'results.png' in the dir
 <span>910</span>
 <span>911</span>
 <span>912</span>
-<span>913</span>
-<span>914</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@plt_settings</span><span class="p">()</span>
+<span>913</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@plt_settings</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_results</span><span class="p">(</span>
 <span></span>    <span class="n">file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"path/to/results.csv"</span><span class="p">,</span>
 <span></span>    <span class="nb">dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
@@ -5121,7 +5119,8 @@ pose estimation, and classification. Plots are saved as 'results.png' in the dir
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>917</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>916</span>
+<span>917</span>
 <span>918</span>
 <span>919</span>
 <span>920</span>
@@ -5150,8 +5149,7 @@ pose estimation, and classification. Plots are saved as 'results.png' in the dir
 <span>943</span>
 <span>944</span>
 <span>945</span>
-<span>946</span>
-<span>947</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plt_color_scatter</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">cmap</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"viridis"</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">edgecolors</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"none"</span><span class="p">):</span>
+<span>946</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plt_color_scatter</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">cmap</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"viridis"</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">edgecolors</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"none"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Plot a scatter plot with points colored based on a 2D histogram.</span>
 <span></span>
@@ -5229,7 +5227,8 @@ in the CSV, color-coded based on fitness scores. The best-performing configurati
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 950</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 949</span>
+<span> 950</span>
 <span> 951</span>
 <span> 952</span>
 <span> 953</span>
@@ -5282,8 +5281,7 @@ in the CSV, color-coded based on fitness scores. The best-performing configurati
 <span>1000</span>
 <span>1001</span>
 <span>1002</span>
-<span>1003</span>
-<span>1004</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@plt_settings</span><span class="p">()</span>
+<span>1003</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@plt_settings</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_tune_results</span><span class="p">(</span><span class="n">csv_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"tune_results.csv"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Plot the evolution results stored in a 'tune_results.csv' file. The function generates a scatter plot for each key</span>
@@ -5451,7 +5449,8 @@ in the CSV, color-coded based on fitness scores. The best-performing configurati
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1007</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1006</span>
+<span>1007</span>
 <span>1008</span>
 <span>1009</span>
 <span>1010</span>
@@ -5484,8 +5483,7 @@ in the CSV, color-coded based on fitness scores. The best-performing configurati
 <span>1037</span>
 <span>1038</span>
 <span>1039</span>
-<span>1040</span>
-<span>1041</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@plt_settings</span><span class="p">()</span>
+<span>1040</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@plt_settings</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">feature_visualization</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">module_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">stage</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"runs/detect/exp"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Visualize feature maps of a given model module during inference.</span>
