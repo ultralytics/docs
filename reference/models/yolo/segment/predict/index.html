@@ -1543,7 +1543,7 @@ prediction results.</p>
 <code>pred</code>
 </td>
 <td>
-<code><span title="np.ndarray">ndarray</span></code>
+<code><span title="torch.Tensor">Tensor</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1673,7 +1673,7 @@ prediction results.</p>
 <span></span><span class="sd">    Construct a single result object from the prediction.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        pred (np.ndarray): The predicted bounding boxes, scores, and masks.</span>
+<span></span><span class="sd">        pred (torch.Tensor): The predicted bounding boxes, scores, and masks.</span>
 <span></span><span class="sd">        img (torch.Tensor): The image after preprocessing.</span>
 <span></span><span class="sd">        orig_img (np.ndarray): The original image before preprocessing.</span>
 <span></span><span class="sd">        img_path (str): The path to the original image.</span>
@@ -1682,7 +1682,7 @@ prediction results.</p>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (Results): Result object containing the original image, image path, class names, bounding boxes, and masks.</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">pred</span><span class="p">):</span>  <span class="c1"># save empty boxes</span>
+<span></span>    <span class="k">if</span> <span class="n">pred</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># save empty boxes</span>
 <span></span>        <span class="n">masks</span> <span class="o">=</span> <span class="kc">None</span>
 <span></span>    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">retina_masks</span><span class="p">:</span>
 <span></span>        <span class="n">pred</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">scale_boxes</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="n">pred</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">orig_img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
