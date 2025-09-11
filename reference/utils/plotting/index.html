@@ -5111,7 +5111,9 @@ pose estimation, and classification. Plots are saved as 'results.png' in the dir
 <h2 class="doc doc-heading" id="ultralytics.utils.plotting.plot_tune_results">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.plotting.plot_tune_results</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">plot_tune_results</span><span class="p">(</span><span class="n">csv_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">'tune_results.csv'</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">plot_tune_results</span><span class="p">(</span>
+<span></span>    <span class="n">csv_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"tune_results.csv"</span><span class="p">,</span> <span class="n">exclude_zero_fitness_points</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Plot the evolution results stored in a 'tune_results.csv' file. The function generates a scatter plot for each key
@@ -5141,6 +5143,22 @@ in the CSV, color-coded based on fitness scores. The best-performing configurati
 </td>
 <td>
 <code>'tune_results.csv'</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>exclude_zero_fitness_points</code>
+</td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Don't include points with zero fitness in tuning plots.</p>
+</div>
+</td>
+<td>
+<code>True</code>
 </td>
 </tr>
 </tbody>
@@ -5204,14 +5222,19 @@ in the CSV, color-coded based on fitness scores. The best-performing configurati
 <span>987</span>
 <span>988</span>
 <span>989</span>
-<span>990</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@plt_settings</span><span class="p">()</span>
-<span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_tune_results</span><span class="p">(</span><span class="n">csv_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"tune_results.csv"</span><span class="p">):</span>
+<span>990</span>
+<span>991</span>
+<span>992</span>
+<span>993</span>
+<span>994</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@plt_settings</span><span class="p">()</span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_tune_results</span><span class="p">(</span><span class="n">csv_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"tune_results.csv"</span><span class="p">,</span> <span class="n">exclude_zero_fitness_points</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Plot the evolution results stored in a 'tune_results.csv' file. The function generates a scatter plot for each key</span>
 <span></span><span class="sd">    in the CSV, color-coded based on fitness scores. The best-performing configurations are highlighted on the plots.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        csv_file (str, optional): Path to the CSV file containing the tuning results.</span>
+<span></span><span class="sd">        exclude_zero_fitness_points (bool, optional): Don't include points with zero fitness in tuning plots.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; plot_tune_results("path/to/tune_results.csv")</span>
@@ -5233,6 +5256,9 @@ in the CSV, color-coded based on fitness scores. The best-performing configurati
 <span></span>    <span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">][</span><span class="n">num_metrics_columns</span><span class="p">:]</span>
 <span></span>    <span class="n">x</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
 <span></span>    <span class="n">fitness</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># fitness</span>
+<span></span>    <span class="k">if</span> <span class="n">exclude_zero_fitness_points</span><span class="p">:</span>
+<span></span>        <span class="n">mask</span> <span class="o">=</span> <span class="n">fitness</span> <span class="o">&gt;</span> <span class="mi">0</span>  <span class="c1"># exclude zero-fitness points</span>
+<span></span>        <span class="n">x</span><span class="p">,</span> <span class="n">fitness</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">fitness</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
 <span></span>    <span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">fitness</span><span class="p">)</span>  <span class="c1"># max fitness index</span>
 <span></span>    <span class="n">n</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># columns and rows in plot</span>
 <span></span>    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -5372,11 +5398,7 @@ in the CSV, color-coded based on fitness scores. The best-performing configurati
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 993</span>
-<span> 994</span>
-<span> 995</span>
-<span> 996</span>
-<span> 997</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 997</span>
 <span> 998</span>
 <span> 999</span>
 <span>1000</span>
@@ -5406,7 +5428,11 @@ in the CSV, color-coded based on fitness scores. The best-performing configurati
 <span>1024</span>
 <span>1025</span>
 <span>1026</span>
-<span>1027</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@plt_settings</span><span class="p">()</span>
+<span>1027</span>
+<span>1028</span>
+<span>1029</span>
+<span>1030</span>
+<span>1031</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@plt_settings</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">feature_visualization</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">module_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">stage</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"runs/detect/exp"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Visualize feature maps of a given model module during inference.</span>
