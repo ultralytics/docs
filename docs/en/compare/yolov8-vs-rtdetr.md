@@ -27,7 +27,7 @@ Choosing the right object detection model involves a trade-off between accuracy,
 
 ### Architecture and Key Features
 
-YOLOv8 features a highly optimized, anchor-free, single-stage architecture. It uses a CSPDarknet53-inspired backbone for efficient feature extraction and a C2f (Cross Stage Partial Bottlebeck with 2 convolutions) module in the neck to enhance feature fusion. This design results in a model that is not only fast and accurate but also computationally efficient.
+YOLOv8 features a highly optimized, anchor-free, single-stage architecture. It uses a CSPDarknet53-inspired backbone for efficient feature extraction and a C2f (Cross Stage Partial Bottleneck with 2 convolutions) module in the neck to enhance feature fusion. This design results in a model that is not only fast and accurate but also computationally efficient.
 
 A key advantage of YOLOv8 is its integration into the comprehensive [Ultralytics ecosystem](https://www.ultralytics.com/blog/ultralytics-hub-making-ml-accessible). This provides a **streamlined user experience** with a simple [Python API](https://docs.ultralytics.com/usage/python/) and [CLI](https://docs.ultralytics.com/usage/cli/), extensive [documentation](https://docs.ultralytics.com/), and active community support.
 
