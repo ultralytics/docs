@@ -5992,7 +5992,7 @@ warmup performs a single forward pass on a dummy input to prime the compiled gra
 <td>
 <div class="doc-md-description">
 <p>torch.compile mode. True → "default", False → no compile, or a string like
-"default", "reduce-overhead", "max-autotune".</p>
+"default", "reduce-overhead", "max-autotune-no-cudagraphs".</p>
 </div>
 </td>
 <td>
@@ -6111,7 +6111,10 @@ warmup performs a single forward pass on a dummy input to prime the compiled gra
 <span>1080</span>
 <span>1081</span>
 <span>1082</span>
-<span>1083</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">attempt_compile</span><span class="p">(</span>
+<span>1083</span>
+<span>1084</span>
+<span>1085</span>
+<span>1086</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">attempt_compile</span><span class="p">(</span>
 <span></span>    <span class="n">model</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span>
 <span></span>    <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">,</span>
 <span></span>    <span class="n">imgsz</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">640</span><span class="p">,</span>
@@ -6133,7 +6136,7 @@ warmup performs a single forward pass on a dummy input to prime the compiled gra
 <span></span><span class="sd">        use_autocast (bool, optional): Whether to run warmup under autocast on CUDA or MPS devices.</span>
 <span></span><span class="sd">        warmup (bool, optional): Whether to execute a single dummy forward pass to warm up the compiled model.</span>
 <span></span><span class="sd">        mode (bool | str, optional): torch.compile mode. True → "default", False → no compile, or a string like</span>
-<span></span><span class="sd">            "default", "reduce-overhead", "max-autotune".</span>
+<span></span><span class="sd">            "default", "reduce-overhead", "max-autotune-no-cudagraphs".</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        model (torch.nn.Module): Compiled model if compilation succeeds, otherwise the original unmodified model.</span>
@@ -6155,6 +6158,9 @@ warmup performs a single forward pass on a dummy input to prime the compiled gra
 <span></span>        <span class="n">mode</span> <span class="o">=</span> <span class="s2">"default"</span>
 <span></span>    <span class="n">prefix</span> <span class="o">=</span> <span class="n">colorstr</span><span class="p">(</span><span class="s2">"compile:"</span><span class="p">)</span>
 <span></span>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> starting torch.compile with '</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">' mode..."</span><span class="p">)</span>
+<span></span>    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">"max-autotune"</span><span class="p">:</span>
+<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> mode='</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">' not recommended, using mode='max-autotune-no-cudagraphs' instead"</span><span class="p">)</span>
+<span></span>        <span class="n">mode</span> <span class="o">=</span> <span class="s2">"max-autotune-no-cudagraphs"</span>
 <span></span>    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
 <span></span>    <span class="k">try</span><span class="p">:</span>
 <span></span>        <span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s2">"inductor"</span><span class="p">)</span>
