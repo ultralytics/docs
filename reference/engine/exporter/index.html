@@ -4719,7 +4719,7 @@ number of detections after NMS.</p>
 <span></span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">bs</span><span class="p">):</span>
 <span></span>        <span class="n">box</span><span class="p">,</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">score</span><span class="p">,</span> <span class="n">extra</span> <span class="o">=</span> <span class="n">boxes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">classes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">scores</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">extras</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 <span></span>        <span class="n">mask</span> <span class="o">=</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">conf</span>
-<span></span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_tf</span><span class="p">:</span>
+<span></span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_tf</span> <span class="ow">or</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">format</span> <span class="o">==</span> <span class="s2">"onnx"</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">obb</span><span class="p">):</span>
 <span></span>            <span class="c1"># TFLite GatherND error if mask is empty</span>
 <span></span>            <span class="n">score</span> <span class="o">*=</span> <span class="n">mask</span>
 <span></span>            <span class="c1"># Explicit length otherwise reshape error, hardcoded to `self.args.max_det * 5`</span>
@@ -5076,7 +5076,7 @@ number of detections after NMS.</p>
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
 <span class="date-item" title="This page was last updated on June 17, 2025">
-<span class="hover-item">✏️</span> Updated 2 months ago
+<span class="hover-item">✏️</span> Updated 3 months ago
     </span>
 </div>
 <div class="authors-container">
