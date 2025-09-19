@@ -1463,7 +1463,8 @@ segmentation models, enabling both object detection and instance segmentation ca
 <span>47</span>
 <span>48</span>
 <span>49</span>
-<span>50</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>50</span>
+<span>51</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the YOLOE Trainer with specified configurations.</span>
 <span></span>
@@ -1474,6 +1475,7 @@ segmentation models, enabling both object detection and instance segmentation ca
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="n">overrides</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 <span></span>        <span class="n">overrides</span> <span class="o">=</span> <span class="p">{}</span>
+<span></span>    <span class="k">assert</span> <span class="ow">not</span> <span class="n">overrides</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"compile"</span><span class="p">),</span> <span class="sa">f</span><span class="s2">"Training with 'model=</span><span class="si">{</span><span class="n">overrides</span><span class="p">[</span><span class="s1">'model'</span><span class="p">]</span><span class="si">}</span><span class="s2">' requires 'compile=False'"</span>
 <span></span>    <span class="n">overrides</span><span class="p">[</span><span class="s2">"overlap_mask"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">overrides</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -1954,7 +1956,8 @@ most of the model and only training specific layers for efficient adaptation to 
 <span>47</span>
 <span>48</span>
 <span>49</span>
-<span>50</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>50</span>
+<span>51</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the YOLOE Trainer with specified configurations.</span>
 <span></span>
@@ -1965,6 +1968,7 @@ most of the model and only training specific layers for efficient adaptation to 
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="n">overrides</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 <span></span>        <span class="n">overrides</span> <span class="o">=</span> <span class="p">{}</span>
+<span></span>    <span class="k">assert</span> <span class="ow">not</span> <span class="n">overrides</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"compile"</span><span class="p">),</span> <span class="sa">f</span><span class="s2">"Training with 'model=</span><span class="si">{</span><span class="n">overrides</span><span class="p">[</span><span class="s1">'model'</span><span class="p">]</span><span class="si">}</span><span class="s2">' requires 'compile=False'"</span>
 <span></span>    <span class="n">overrides</span><span class="p">[</span><span class="s2">"overlap_mask"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">overrides</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -1999,7 +2003,8 @@ most of the model and only training specific layers for efficient adaptation to 
 <span>47</span>
 <span>48</span>
 <span>49</span>
-<span>50</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>50</span>
+<span>51</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the YOLOE Trainer with specified configurations.</span>
 <span></span>
@@ -2010,6 +2015,7 @@ most of the model and only training specific layers for efficient adaptation to 
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="n">overrides</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 <span></span>        <span class="n">overrides</span> <span class="o">=</span> <span class="p">{}</span>
+<span></span>    <span class="k">assert</span> <span class="ow">not</span> <span class="n">overrides</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"compile"</span><span class="p">),</span> <span class="sa">f</span><span class="s2">"Training with 'model=</span><span class="si">{</span><span class="n">overrides</span><span class="p">[</span><span class="s1">'model'</span><span class="p">]</span><span class="si">}</span><span class="s2">' requires 'compile=False'"</span>
 <span></span>    <span class="n">overrides</span><span class="p">[</span><span class="s2">"overlap_mask"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">overrides</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
