@@ -886,7 +886,7 @@
 <p><a href="../../modes/train/">Train mode</a> is used for training a YOLO model on a custom dataset. In this mode, the model is trained using the specified dataset and hyperparameters. The training process involves optimizing the model's parameters so that it can accurately predict the classes and locations of objects in an image.</p>
 <div class="admonition example">
 <p class="admonition-title">Train</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">From pretrained (recommended)</label><label for="__tabbed_1_2">From scratch</label><label for="__tabbed_1_3">Resume</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="from-pretrained-recommended" name="__tabbed_1" type="radio"/><input id="from-scratch" name="__tabbed_1" type="radio"/><input id="resume" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="from-pretrained-recommended">From pretrained (recommended)</label><label for="from-scratch">From scratch</label><label for="resume">Resume</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
@@ -915,7 +915,7 @@
 <p><a href="../../modes/val/">Val mode</a> is used for validating a YOLO model after it has been trained. In this mode, the model is evaluated on a validation set to measure its <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a> and generalization performance. This mode can be used to tune the hyperparameters of the model to improve its performance.</p>
 <div class="admonition example">
 <p class="admonition-title">Val</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Val after training</label><label for="__tabbed_2_2">Val on another dataset</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="val-after-training" name="__tabbed_2" type="radio"/><input id="val-on-another-dataset" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="val-after-training">Val after training</label><label for="val-on-another-dataset">Val on another dataset</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
@@ -951,7 +951,7 @@
 <p><a href="../../modes/predict/">Predict mode</a> is used for making predictions using a trained YOLO model on new images or videos. In this mode, the model is loaded from a checkpoint file, and the user can provide images or videos to perform inference. The model predicts the classes and locations of objects in the input images or videos.</p>
 <div class="admonition example">
 <p class="admonition-title">Predict</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">From source</label><label for="__tabbed_3_2">Results usage</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="from-source" name="__tabbed_3" type="radio"/><input id="results-usage" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="from-source">From source</label><label for="results-usage">Results usage</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
@@ -1020,7 +1020,7 @@
 <p><a href="../../modes/export/">Export mode</a> is used for exporting a YOLO model to a format that can be used for deployment. In this mode, the model is converted to a format that can be used by other software applications or hardware devices. This mode is useful when deploying the model to production environments.</p>
 <div class="admonition example">
 <p class="admonition-title">Export</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><input id="__tabbed_4_2" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1">Export to ONNX</label><label for="__tabbed_4_2">Export to TensorRT</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="export-to-onnx" name="__tabbed_4" type="radio"/><input id="export-to-tensorrt" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="export-to-onnx">Export to ONNX</label><label for="export-to-tensorrt">Export to TensorRT</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Export an official YOLO model to <a href="https://www.ultralytics.com/glossary/onnx-open-neural-network-exchange">ONNX</a> with dynamic batch-size and image-size.
@@ -1046,7 +1046,7 @@
 <p><a href="../../modes/track/">Track mode</a> is used for tracking objects in real-time using a YOLO model. In this mode, the model is loaded from a checkpoint file, and the user can provide a live video stream to perform real-time object tracking. This mode is useful for applications such as surveillance systems or <a href="https://www.ultralytics.com/solutions/ai-in-automotive">self-driving cars</a>.</p>
 <div class="admonition example">
 <p class="admonition-title">Track</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="python" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="python">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
@@ -1069,7 +1069,7 @@
 <p><a href="../../modes/benchmark/">Benchmark mode</a> is used to profile the speed and accuracy of various export formats for YOLO. The benchmarks provide information on the size of the exported format, its <code>mAP50-95</code> metrics (for object detection and segmentation) or <code>accuracy_top5</code> metrics (for classification), and the inference time in milliseconds per image across various export formats like ONNX, <a href="https://docs.ultralytics.com/integrations/openvino/">OpenVINO</a>, TensorRT and others. This information can help users choose the optimal export format for their specific use case based on their requirements for speed and accuracy.</p>
 <div class="admonition example">
 <p class="admonition-title">Benchmark</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1">Python</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="python_1" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="python_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Benchmark an official YOLO model across all export formats.
