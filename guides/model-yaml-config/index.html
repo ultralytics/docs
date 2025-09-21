@@ -6,11 +6,11 @@
 <meta content="Learn how to structure and customize model architectures using Ultralytics YAML configuration files. Master module definitions, connections, and scaling parameters." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/guides/model-yaml-config/" rel="canonical"/>
-<link href="../vertex-ai-deployment-with-docker/" rel="prev"/>
-<link href="../../datasets/explorer/" rel="next"/>
+<link href="../model-deployment-options/" rel="prev"/>
+<link href="../kfold-cross-validation/" rel="next"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.20" name="generator"/>
-<title>Model YAML Configuration - Ultralytics YOLO Docs</title>
+<title>Model YAML Configuration Guide - Ultralytics YOLO Docs</title>
 <link href="../../assets/stylesheets/main.e53b48f4.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -21,13 +21,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Model YAML Configuration Guide" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO, model architecture, YAML configuration, neural networks, deep learning, backbone, head, modules, custom models" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/model-yaml-config" property="og:url"/><meta content="Model YAML Configuration Guide" property="og:title"/><meta content="Learn how to structure and customize model architectures using Ultralytics YAML configuration files. Master module definitions, connections, and scaling parameters." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/model-yaml-config" property="twitter:url"/><meta content="Model YAML Configuration Guide" property="twitter:title"/><meta content="Learn how to structure and customize model architectures using Ultralytics YAML configuration files. Master module definitions, connections, and scaling parameters." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "Model YAML Configuration Guide", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2025-09-17 06:35:38 +0800", "dateModified": "2025-09-17 06:35:38 +0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to structure and customize model architectures using Ultralytics YAML configuration files. Master module definitions, connections, and scaling parameters.", "mainEntity": [{"@type": "Question", "name": "How do I change the number of classes in my model?", "acceptedAnswer": {"@type": "Answer", "text": "Set the nc parameter at the top of your YAML file to match your dataset's number of classes."}}, {"@type": "Question", "name": "Can I use a custom backbone in my model YAML?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. You can use any supported module, including TorchVision backbones, or define your own custom module and import it as described in Custom Module Integration."}}, {"@type": "Question", "name": "How do I scale my model for different sizes (nano, small, medium, etc.)?", "acceptedAnswer": {"@type": "Answer", "text": "Use the scales section in your YAML to define scaling factors for depth, width, and max channels. The model will automatically apply these when you load the base YAML file with the scale appended to the filename (e.g., yolo11n.yaml)."}}, {"@type": "Question", "name": "What does the [from, repeats, module, args] format mean?", "acceptedAnswer": {"@type": "Answer", "text": "This format specifies how each layer is constructed:"}}, {"@type": "Question", "name": "How do I troubleshoot channel mismatch errors?", "acceptedAnswer": {"@type": "Answer", "text": "Check that the output channels of one layer match the expected input channels of the next. Use print(model.model.model) to inspect your model's architecture."}}, {"@type": "Question", "name": "Where can I find a list of available modules and their arguments?", "acceptedAnswer": {"@type": "Answer", "text": "Check the source code in the ultralytics/nn/modules directory for all available modules and their arguments."}}, {"@type": "Question", "name": "How do I add a custom module to my YAML configuration?", "acceptedAnswer": {"@type": "Answer", "text": "Define your module in the source code, import it as shown in Source Code Modification, and reference it by name in your YAML file."}}, {"@type": "Question", "name": "Can I use pretrained weights with a custom YAML?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, you can use model.load(\"path/to/weights\") to load weights from a pretrained checkpoint. However, only weights for layers that match would load successfully."}}, {"@type": "Question", "name": "How do I validate my model configuration?", "acceptedAnswer": {"@type": "Answer", "text": "Use model.info() to check whether FLOPs count is non-zero. A valid model should show non-zero FLOPs count. If it's zero, follow the suggestions in Debugging Tips to find the issue."}}]}</script></head>
+<meta content="Model YAML Configuration Guide" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO, model architecture, YAML configuration, neural networks, deep learning, backbone, head, modules, custom models" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/model-yaml-config" property="og:url"/><meta content="Model YAML Configuration Guide" property="og:title"/><meta content="Learn how to structure and customize model architectures using Ultralytics YAML configuration files. Master module definitions, connections, and scaling parameters." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/model-yaml-config" property="twitter:url"/><meta content="Model YAML Configuration Guide" property="twitter:title"/><meta content="Learn how to structure and customize model architectures using Ultralytics YAML configuration files. Master module definitions, connections, and scaling parameters." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "Model YAML Configuration Guide", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2025-09-17 06:35:38 +0800", "dateModified": "2025-09-22 01:34:41 +0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to structure and customize model architectures using Ultralytics YAML configuration files. Master module definitions, connections, and scaling parameters.", "mainEntity": [{"@type": "Question", "name": "How do I change the number of classes in my model?", "acceptedAnswer": {"@type": "Answer", "text": "Set the nc parameter at the top of your YAML file to match your dataset's number of classes."}}, {"@type": "Question", "name": "Can I use a custom backbone in my model YAML?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. You can use any supported module, including TorchVision backbones, or define your own custom module and import it as described in Custom Module Integration."}}, {"@type": "Question", "name": "How do I scale my model for different sizes (nano, small, medium, etc.)?", "acceptedAnswer": {"@type": "Answer", "text": "Use the scales section in your YAML to define scaling factors for depth, width, and max channels. The model will automatically apply these when you load the base YAML file with the scale appended to the filename (e.g., yolo11n.yaml)."}}, {"@type": "Question", "name": "What does the [from, repeats, module, args] format mean?", "acceptedAnswer": {"@type": "Answer", "text": "This format specifies how each layer is constructed:"}}, {"@type": "Question", "name": "How do I troubleshoot channel mismatch errors?", "acceptedAnswer": {"@type": "Answer", "text": "Check that the output channels of one layer match the expected input channels of the next. Use print(model.model.model) to inspect your model's architecture."}}, {"@type": "Question", "name": "Where can I find a list of available modules and their arguments?", "acceptedAnswer": {"@type": "Answer", "text": "Check the source code in the ultralytics/nn/modules directory for all available modules and their arguments."}}, {"@type": "Question", "name": "How do I add a custom module to my YAML configuration?", "acceptedAnswer": {"@type": "Answer", "text": "Define your module in the source code, import it as shown in Source Code Modification, and reference it by name in your YAML file."}}, {"@type": "Question", "name": "Can I use pretrained weights with a custom YAML?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, you can use model.load(\"path/to/weights\") to load weights from a pretrained checkpoint. However, only weights for layers that match would load successfully."}}, {"@type": "Question", "name": "How do I validate my model configuration?", "acceptedAnswer": {"@type": "Answer", "text": "Use model.info() to check whether FLOPs count is non-zero. A valid model should show non-zero FLOPs count. If it's zero, follow the suggestions in Debugging Tips to find the issue."}}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#model-yaml-configuration">
+<a class="md-skip" href="#model-yaml-configuration-guide">
           Skip to content
         </a>
 </div>
@@ -367,181 +367,6 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../kfold-cross-validation/">
-<span class="md-ellipsis">
-    K-Fold Cross Validation
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../hyperparameter-tuning/">
-<span class="md-ellipsis">
-    Hyperparameter Tuning
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../sahi-tiled-inference/">
-<span class="md-ellipsis">
-    SAHI Tiled Inference
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../azureml-quickstart/">
-<span class="md-ellipsis">
-    AzureML Quickstart
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../conda-quickstart/">
-<span class="md-ellipsis">
-    Conda Quickstart
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../docker-quickstart/">
-<span class="md-ellipsis">
-    Docker Quickstart
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../raspberry-pi/">
-<span class="md-ellipsis">
-    Raspberry Pi
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../nvidia-jetson/">
-<span class="md-ellipsis">
-    NVIDIA Jetson
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../deepstream-nvidia-jetson/">
-<span class="md-ellipsis">
-    DeepStream on NVIDIA Jetson
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../triton-inference-server/">
-<span class="md-ellipsis">
-    Triton Inference Server
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../isolating-segmentation-objects/">
-<span class="md-ellipsis">
-    Isolating Segmentation Objects
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../coral-edge-tpu-on-raspberry-pi/">
-<span class="md-ellipsis">
-    Edge TPU on Raspberry Pi
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../view-results-in-terminal/">
-<span class="md-ellipsis">
-    Viewing Inference Images in a Terminal
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../optimizing-openvino-latency-vs-throughput-modes/">
-<span class="md-ellipsis">
-    OpenVINO Latency vs Throughput modes
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../ros-quickstart/">
-<span class="md-ellipsis">
-    ROS Quickstart
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../steps-of-a-cv-project/">
-<span class="md-ellipsis">
-    Steps of a Computer Vision Project
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../defining-project-goals/">
-<span class="md-ellipsis">
-    Defining A Computer Vision Project's Goals
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../data-collection-and-annotation/">
-<span class="md-ellipsis">
-    Data Collection and Annotation
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../preprocessing_annotated_data/">
-<span class="md-ellipsis">
-    Preprocessing Annotated Data
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../model-training-tips/">
-<span class="md-ellipsis">
-    Tips for Model Training
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../model-evaluation-insights/">
-<span class="md-ellipsis">
-    Insights on Model Evaluation and Fine-Tuning
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../model-testing/">
-<span class="md-ellipsis">
-    A Guide on Model Testing
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../model-deployment-practices/">
-<span class="md-ellipsis">
-    Best Practices for Model Deployment
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../model-monitoring-and-maintenance/">
-<span class="md-ellipsis">
-    Maintaining Your Computer Vision Model
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../vertex-ai-deployment-with-docker/">
-<span class="md-ellipsis">
-    Deploying YOLO on Vertex AI in Docker container
-  </span>
-</a>
-</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
@@ -869,6 +694,181 @@
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../kfold-cross-validation/">
+<span class="md-ellipsis">
+    K-Fold Cross Validation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../hyperparameter-tuning/">
+<span class="md-ellipsis">
+    Hyperparameter Tuning
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sahi-tiled-inference/">
+<span class="md-ellipsis">
+    SAHI Tiled Inference
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../azureml-quickstart/">
+<span class="md-ellipsis">
+    AzureML Quickstart
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../conda-quickstart/">
+<span class="md-ellipsis">
+    Conda Quickstart
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../docker-quickstart/">
+<span class="md-ellipsis">
+    Docker Quickstart
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../raspberry-pi/">
+<span class="md-ellipsis">
+    Raspberry Pi
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../nvidia-jetson/">
+<span class="md-ellipsis">
+    NVIDIA Jetson
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../deepstream-nvidia-jetson/">
+<span class="md-ellipsis">
+    DeepStream on NVIDIA Jetson
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../triton-inference-server/">
+<span class="md-ellipsis">
+    Triton Inference Server
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../isolating-segmentation-objects/">
+<span class="md-ellipsis">
+    Isolating Segmentation Objects
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../coral-edge-tpu-on-raspberry-pi/">
+<span class="md-ellipsis">
+    Edge TPU on Raspberry Pi
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../view-results-in-terminal/">
+<span class="md-ellipsis">
+    Viewing Inference Images in a Terminal
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../optimizing-openvino-latency-vs-throughput-modes/">
+<span class="md-ellipsis">
+    OpenVINO Latency vs Throughput modes
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ros-quickstart/">
+<span class="md-ellipsis">
+    ROS Quickstart
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../steps-of-a-cv-project/">
+<span class="md-ellipsis">
+    Steps of a Computer Vision Project
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../defining-project-goals/">
+<span class="md-ellipsis">
+    Defining A Computer Vision Project's Goals
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-collection-and-annotation/">
+<span class="md-ellipsis">
+    Data Collection and Annotation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../preprocessing_annotated_data/">
+<span class="md-ellipsis">
+    Preprocessing Annotated Data
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../model-training-tips/">
+<span class="md-ellipsis">
+    Tips for Model Training
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../model-evaluation-insights/">
+<span class="md-ellipsis">
+    Insights on Model Evaluation and Fine-Tuning
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../model-testing/">
+<span class="md-ellipsis">
+    A Guide on Model Testing
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../model-deployment-practices/">
+<span class="md-ellipsis">
+    Best Practices for Model Deployment
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../model-monitoring-and-maintenance/">
+<span class="md-ellipsis">
+    Maintaining Your Computer Vision Model
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../vertex-ai-deployment-with-docker/">
+<span class="md-ellipsis">
+    Deploying YOLO on Vertex AI in Docker container
+  </span>
+</a>
 </li>
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_8_33" type="checkbox"/>
@@ -1321,7 +1321,7 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/guides/model-yaml-config.md" rel="edit" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a><a class="md-content__button md-icon" href="javascript:void(0)" onclick="copyMarkdownForLLM(this); return false;" title="Copy page in Markdown format"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg></a>
-<h1 id="model-yaml-configuration">Model YAML Configuration</h1>
+<h1 id="model-yaml-configuration-guide">Model YAML Configuration Guide</h1>
 <p>The model YAML configuration file serves as the architectural blueprint for Ultralytics neural networks. It defines how layers connect, what parameters each module uses, and how the entire network scales across different model sizes.</p>
 <h2 id="configuration-structure">Configuration Structure</h2>
 <p>Model YAML files are organized into three main sections that work together to define the architecture.</p>
@@ -1598,6 +1598,9 @@
 <p>Modifying the source code is the most versatile way to integrate your custom modules, but it can be tricky. To define and use a custom module, follow these steps:</p>
 <ol>
 <li>
+<p><strong>Install Ultralytics in development mode</strong> using the Git clone method from the <a href="https://docs.ultralytics.com/quickstart#git-clone">Quickstart guide</a>.</p>
+</li>
+<li>
 <p><strong>Define your module</strong> in <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/nn/modules/block.py"><code>ultralytics/nn/modules/block.py</code></a>:</p>
 <div class="highlight"><pre><span></span><code><span></span><span class="k">class</span><span class="w"> </span><span class="nc">CustomBlock</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 <span></span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">):</span>
@@ -1807,14 +1810,14 @@
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on September 17, 2025">
-<span class="hover-item">📅</span> Created 3 days ago
+<span class="hover-item">📅</span> Created 4 days ago
     </span>
-<span class="date-item" title="This page was last updated on September 17, 2025">
-<span class="hover-item">✏️</span> Updated 3 days ago
+<span class="date-item" title="This page was last updated on September 22, 2025">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
-<a class="author-link" href="https://github.com/Y-T-G" title="Y-T-G (1 change)">
+<a class="author-link" href="https://github.com/Y-T-G" title="Y-T-G (2 changes)">
 <img alt="Y-T-G" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/32206511?v=4&amp;s=96"/>
 </a>
 </div></div><div class="share-buttons">
@@ -1826,6 +1829,8 @@
     </button>
 </div>
 <br/>
+<h2 id="__comments">Comments</h2>
+<div id="giscus-container"></div>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
@@ -1838,7 +1843,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: Deploying YOLO on Vertex AI in Docker container" class="md-footer__link md-footer__link--prev" href="../vertex-ai-deployment-with-docker/">
+<a aria-label="Previous: Model Deployment Options" class="md-footer__link md-footer__link--prev" href="../model-deployment-options/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
 </div>
@@ -1847,17 +1852,17 @@
                 Previous
               </span>
 <div class="md-ellipsis">
-                Deploying YOLO on Vertex AI in Docker container
+                Model Deployment Options
               </div>
 </div>
 </a>
-<a aria-label="Next: Ultralytics Explorer" class="md-footer__link md-footer__link--next" href="../../datasets/explorer/">
+<a aria-label="Next: K-Fold Cross Validation" class="md-footer__link md-footer__link--next" href="../kfold-cross-validation/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                Ultralytics Explorer
+                K-Fold Cross Validation
               </div>
 </div>
 <div class="md-footer__button md-icon">
