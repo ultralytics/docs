@@ -1623,12 +1623,7 @@ i.e. <a href="https://github.com/ultralytics/hub/raw/main/example_datasets/coco8
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>613</span>
-<span>614</span>
-<span>615</span>
-<span>616</span>
-<span>617</span>
-<span>618</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>618</span>
 <span>619</span>
 <span>620</span>
 <span>621</span>
@@ -1648,7 +1643,12 @@ i.e. <a href="https://github.com/ultralytics/hub/raw/main/example_datasets/coco8
 <span>635</span>
 <span>636</span>
 <span>637</span>
-<span>638</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"detect"</span><span class="p">,</span> <span class="n">autodownload</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span>638</span>
+<span>639</span>
+<span>640</span>
+<span>641</span>
+<span>642</span>
+<span>643</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"detect"</span><span class="p">,</span> <span class="n">autodownload</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize class."""</span>
 <span></span>    <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
 <span></span>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Starting HUB dataset checks for </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">...."</span><span class="p">)</span>
@@ -1687,12 +1687,7 @@ i.e. <a href="https://github.com/ultralytics/hub/raw/main/example_datasets/coco8
 <p>Return dataset JSON for Ultralytics HUB.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>655</span>
-<span>656</span>
-<span>657</span>
-<span>658</span>
-<span>659</span>
-<span>660</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>660</span>
 <span>661</span>
 <span>662</span>
 <span>663</span>
@@ -1759,7 +1754,12 @@ i.e. <a href="https://github.com/ultralytics/hub/raw/main/example_datasets/coco8
 <span>724</span>
 <span>725</span>
 <span>726</span>
-<span>727</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span>727</span>
+<span>728</span>
+<span>729</span>
+<span>730</span>
+<span>731</span>
+<span>732</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return dataset JSON for Ultralytics HUB."""</span>
 <span></span>
 <span></span>    <span class="k">def</span><span class="w"> </span><span class="nf">_round</span><span class="p">(</span><span class="n">labels</span><span class="p">):</span>
@@ -1846,12 +1846,7 @@ i.e. <a href="https://github.com/ultralytics/hub/raw/main/example_datasets/coco8
 <p>Compress images for Ultralytics HUB.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>729</span>
-<span>730</span>
-<span>731</span>
-<span>732</span>
-<span>733</span>
-<span>734</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>734</span>
 <span>735</span>
 <span>736</span>
 <span>737</span>
@@ -1859,7 +1854,12 @@ i.e. <a href="https://github.com/ultralytics/hub/raw/main/example_datasets/coco8
 <span>739</span>
 <span>740</span>
 <span>741</span>
-<span>742</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_images</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span>742</span>
+<span>743</span>
+<span>744</span>
+<span>745</span>
+<span>746</span>
+<span>747</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_images</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Compress images for Ultralytics HUB."""</span>
 <span></span>    <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLODataset</span>  <span class="c1"># ClassificationDataset</span>
 <span></span>
@@ -3553,7 +3553,12 @@ If the dataset is not found locally, it attempts to download the dataset from th
 <span>572</span>
 <span>573</span>
 <span>574</span>
-<span>575</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_cls_dataset</span><span class="p">(</span><span class="n">dataset</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span> <span class="n">split</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span>575</span>
+<span>576</span>
+<span>577</span>
+<span>578</span>
+<span>579</span>
+<span>580</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_cls_dataset</span><span class="p">(</span><span class="n">dataset</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span> <span class="n">split</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check a classification dataset such as Imagenet.</span>
 <span></span>
@@ -3583,6 +3588,11 @@ If the dataset is not found locally, it attempts to download the dataset from th
 <span></span>    <span class="n">dataset</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
 <span></span>    <span class="n">data_dir</span> <span class="o">=</span> <span class="p">(</span><span class="n">dataset</span> <span class="k">if</span> <span class="n">dataset</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()</span> <span class="k">else</span> <span class="p">(</span><span class="n">DATASETS_DIR</span> <span class="o">/</span> <span class="n">dataset</span><span class="p">))</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">data_dir</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+<span></span>        <span class="k">if</span> <span class="n">data_dir</span><span class="o">.</span><span class="n">suffix</span> <span class="o">!=</span> <span class="s2">""</span><span class="p">:</span>
+<span></span>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span></span>                <span class="sa">f</span><span class="s1">'Classification datasets must be a directory (data="path/to/dir") not a file (data="</span><span class="si">{</span><span class="n">dataset</span><span class="si">}</span><span class="s1">"), '</span>
+<span></span>                <span class="s2">"See https://docs.ultralytics.com/datasets/classify/"</span>
+<span></span>            <span class="p">)</span>
 <span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
 <span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Dataset not found, missing path </span><span class="si">{</span><span class="n">data_dir</span><span class="si">}</span><span class="s2">, attempting download..."</span><span class="p">)</span>
 <span></span>        <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
@@ -3745,12 +3755,7 @@ resized.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>745</span>
-<span>746</span>
-<span>747</span>
-<span>748</span>
-<span>749</span>
-<span>750</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>750</span>
 <span>751</span>
 <span>752</span>
 <span>753</span>
@@ -3779,7 +3784,12 @@ resized.</p>
 <span>776</span>
 <span>777</span>
 <span>778</span>
-<span>779</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compress_one_image</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">f_new</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1920</span><span class="p">,</span> <span class="n">quality</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span><span class="p">):</span>
+<span>779</span>
+<span>780</span>
+<span>781</span>
+<span>782</span>
+<span>783</span>
+<span>784</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compress_one_image</span><span class="p">(</span><span class="n">f</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">f_new</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1920</span><span class="p">,</span> <span class="n">quality</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Compress a single image file to reduced size while preserving its aspect ratio and quality using either the Python</span>
 <span></span><span class="sd">    Imaging Library (PIL) or OpenCV library. If the input image is smaller than the maximum dimension, it will not be</span>
@@ -3828,14 +3838,14 @@ resized.</p>
 <p>Load an Ultralytics *.cache dictionary from path.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>782</span>
-<span>783</span>
-<span>784</span>
-<span>785</span>
-<span>786</span>
-<span>787</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>787</span>
 <span>788</span>
-<span>789</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_dataset_cache_file</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span>789</span>
+<span>790</span>
+<span>791</span>
+<span>792</span>
+<span>793</span>
+<span>794</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_dataset_cache_file</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Load an Ultralytics *.cache dictionary from path."""</span>
 <span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">gc</span>
 <span></span>
@@ -3857,17 +3867,17 @@ resized.</p>
 <p>Save an Ultralytics dataset *.cache dictionary x to path.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>792</span>
-<span>793</span>
-<span>794</span>
-<span>795</span>
-<span>796</span>
-<span>797</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>797</span>
 <span>798</span>
 <span>799</span>
 <span>800</span>
 <span>801</span>
-<span>802</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_dataset_cache_file</span><span class="p">(</span><span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span>802</span>
+<span>803</span>
+<span>804</span>
+<span>805</span>
+<span>806</span>
+<span>807</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_dataset_cache_file</span><span class="p">(</span><span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Save an Ultralytics dataset *.cache dictionary x to path."""</span>
 <span></span>    <span class="n">x</span><span class="p">[</span><span class="s2">"version"</span><span class="p">]</span> <span class="o">=</span> <span class="n">version</span>  <span class="c1"># add cache version</span>
 <span></span>    <span class="k">if</span> <span class="n">is_dir_writeable</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">parent</span><span class="p">):</span>
