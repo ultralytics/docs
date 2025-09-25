@@ -3,12 +3,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Explore a detailed technical comparison of YOLOv10 and PP-YOLOE+ object detection models. Learn their strengths, use cases, performance, and architecture." name="description"/>
+<meta content="YOLO26 from Ultralytics delivers faster, simpler, end-to-end NMS-free object detection optimized for edge and low-power devices." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/compare/pp-yoloe-vs-yolov10/" rel="canonical"/>
+<link href="https://docs.ultralytics.com/models/yolo26/" rel="canonical"/>
+<link href="../yolo11/" rel="prev"/>
+<link href="../yolo12/" rel="next"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.20" name="generator"/>
-<title>PP-YOLOE+ vs. YOLOv10: A Technical Comparison - Ultralytics YOLO Docs</title>
+<title>Ultralytics YOLO26 - Ultralytics YOLO Docs</title>
 <link href="../../assets/stylesheets/main.e53b48f4.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -19,13 +21,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="PP-YOLOE+ vs. YOLOv10: A Technical Comparison" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv10,PP-YOLOE+,object detection,model comparison,Ultralytics,YOLO,PP-YOLOE,computer vision,real-time object detection" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/pp-yoloe-vs-yolov10" property="og:url"/><meta content="PP-YOLOE+ vs. YOLOv10: A Technical Comparison" property="og:title"/><meta content="Explore a detailed technical comparison of YOLOv10 and PP-YOLOE+ object detection models. Learn their strengths, use cases, performance, and architecture." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/pp-yoloe-vs-yolov10" property="twitter:url"/><meta content="PP-YOLOE+ vs. YOLOv10: A Technical Comparison" property="twitter:title"/><meta content="Explore a detailed technical comparison of YOLOv10 and PP-YOLOE+ object detection models. Learn their strengths, use cases, performance, and architecture." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "PP-YOLOE+ vs. YOLOv10: A Technical Comparison", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-09-25 09:32:19 +0000", "dateModified": "2025-08-16 09:32:19 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore a detailed technical comparison of YOLOv10 and PP-YOLOE+ object detection models. Learn their strengths, use cases, performance, and architecture."}</script></head>
+<meta content="YOLO26 🚀 Coming soon" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLO26, Ultralytics YOLO, object detection, end-to-end NMS-free, simplified architecture, computer vision, AI, machine learning, edge AI, low power devices, quantization, real-time inference" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/models/yolo26" property="og:url"/><meta content="YOLO26 🚀 Coming soon" property="og:title"/><meta content="YOLO26 from Ultralytics delivers faster, simpler, end-to-end NMS-free object detection optimized for edge and low-power devices." property="og:description"/><meta content="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolo-comparison-plot.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/models/yolo26" property="twitter:url"/><meta content="YOLO26 🚀 Coming soon" property="twitter:title"/><meta content="YOLO26 from Ultralytics delivers faster, simpler, end-to-end NMS-free object detection optimized for edge and low-power devices." property="twitter:description"/><meta content="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolo-comparison-plot.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "YOLO26 \ud83d\ude80 Coming soon", "image": ["https://github.com/ultralytics/assets/releases/download/v0.0.0/yolo-comparison-plot.png"], "datePublished": "2025-09-25 17:31:39 +0800", "dateModified": "2025-09-25 17:31:39 +0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "YOLO26 from Ultralytics delivers faster, simpler, end-to-end NMS-free object detection optimized for edge and low-power devices.", "mainEntity": [{"@type": "Question", "name": "What tasks will YOLO26 support?", "acceptedAnswer": {"@type": "Answer", "text": "YOLO26 is designed as a unified model family, providing end-to-end support for multiple computer vision tasks: Each size variant (n, s, m, l, x) is planned to support all tasks at release."}}, {"@type": "Question", "name": "Why is YOLO26 optimized for edge deployment?", "acceptedAnswer": {"@type": "Answer", "text": "YOLO26 delivers state-of-the-art edge performance with:"}}, {"@type": "Question", "name": "When will YOLO26 models be available?", "acceptedAnswer": {"@type": "Answer", "text": "YOLO26 models are still in training and not yet open-sourced. Performance previews are shown here, with official downloads and releases planned in the near future.\nSee YOLO Vision 2025 for YOLO26 talks."}}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#pp-yoloe-vs-yolov10-a-technical-comparison">
+<a class="md-skip" href="#ultralytics-yolo26">
           Skip to content
         </a>
 </div>
@@ -58,7 +60,7 @@
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
-              PP-YOLOE+ vs. YOLOv10: A Technical Comparison
+              YOLO26 🚀 Coming soon
           </span>
 </div>
 </div>
@@ -188,8 +190,8 @@
   Tasks
         </a>
 </li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../models/">
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../">
   Models
         </a>
 </li>
@@ -288,13 +290,248 @@
 <span class="md-nav__icon md-icon"></span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../models/">
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../">
 <span class="md-ellipsis">
     Models
   </span>
-<span class="md-nav__icon md-icon"></span>
 </a>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            Models
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolov3/">
+<span class="md-ellipsis">
+    YOLOv3
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolov4/">
+<span class="md-ellipsis">
+    YOLOv4
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolov5/">
+<span class="md-ellipsis">
+    YOLOv5
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolov6/">
+<span class="md-ellipsis">
+    YOLOv6
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolov7/">
+<span class="md-ellipsis">
+    YOLOv7
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolov8/">
+<span class="md-ellipsis">
+    YOLOv8
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolov9/">
+<span class="md-ellipsis">
+    YOLOv9
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolov10/">
+<span class="md-ellipsis">
+    YOLOv10
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolo11/">
+<span class="md-ellipsis">
+    YOLO11
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    YOLO26 🚀 Coming soon
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    YOLO26 🚀 Coming soon
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#overview">
+<span class="md-ellipsis">
+      Overview
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#key-features">
+<span class="md-ellipsis">
+      Key Features
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#supported-tasks-and-modes">
+<span class="md-ellipsis">
+      Supported Tasks and Modes
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#performance-metrics">
+<span class="md-ellipsis">
+      Performance Metrics
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#citations-and-acknowledgements">
+<span class="md-ellipsis">
+      Citations and Acknowledgements
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faq">
+<span class="md-ellipsis">
+      FAQ
+    </span>
+</a>
+<nav aria-label="FAQ" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-are-the-key-improvements-in-yolo26-compared-to-yolo11">
+<span class="md-ellipsis">
+      What are the key improvements in YOLO26 compared to YOLO11?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-tasks-will-yolo26-support">
+<span class="md-ellipsis">
+      What tasks will YOLO26 support?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-is-yolo26-optimized-for-edge-deployment">
+<span class="md-ellipsis">
+      Why is YOLO26 optimized for edge deployment?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#when-will-yolo26-models-be-available">
+<span class="md-ellipsis">
+      When will YOLO26 models be available?
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolo12/">
+<span class="md-ellipsis">
+    YOLO12
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sam/">
+<span class="md-ellipsis">
+    SAM (Segment Anything Model)
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sam-2/">
+<span class="md-ellipsis">
+    SAM 2 (Segment Anything Model 2)
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../mobile-sam/">
+<span class="md-ellipsis">
+    MobileSAM (Mobile Segment Anything Model)
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../fast-sam/">
+<span class="md-ellipsis">
+    FastSAM (Fast Segment Anything Model)
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolo-nas/">
+<span class="md-ellipsis">
+    YOLO-NAS (Neural Architecture Search)
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../rtdetr/">
+<span class="md-ellipsis">
+    RT-DETR (Realtime Detection Transformer)
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yolo-world/">
+<span class="md-ellipsis">
+    YOLO-World (Real-Time Open-Vocabulary Object Detection)
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../yoloe/">
+<span class="md-ellipsis">
+    YOLOE (Real-Time Seeing Anything)
+  </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
 <a class="md-nav__link" href="../../datasets/">
@@ -367,89 +604,78 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#pp-yoloe-high-accuracy-in-the-paddlepaddle-ecosystem">
+<a class="md-nav__link" href="#overview">
 <span class="md-ellipsis">
-      PP-YOLOE+: High Accuracy in the PaddlePaddle Ecosystem
+      Overview
     </span>
 </a>
-<nav aria-label="PP-YOLOE+: High Accuracy in the PaddlePaddle Ecosystem" class="md-nav">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#key-features">
+<span class="md-ellipsis">
+      Key Features
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#supported-tasks-and-modes">
+<span class="md-ellipsis">
+      Supported Tasks and Modes
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#performance-metrics">
+<span class="md-ellipsis">
+      Performance Metrics
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#citations-and-acknowledgements">
+<span class="md-ellipsis">
+      Citations and Acknowledgements
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faq">
+<span class="md-ellipsis">
+      FAQ
+    </span>
+</a>
+<nav aria-label="FAQ" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#architecture-and-key-features">
+<a class="md-nav__link" href="#what-are-the-key-improvements-in-yolo26-compared-to-yolo11">
 <span class="md-ellipsis">
-      Architecture and Key Features
+      What are the key improvements in YOLO26 compared to YOLO11?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#strengths-and-weaknesses">
+<a class="md-nav__link" href="#what-tasks-will-yolo26-support">
 <span class="md-ellipsis">
-      Strengths and Weaknesses
+      What tasks will YOLO26 support?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#use-cases">
+<a class="md-nav__link" href="#why-is-yolo26-optimized-for-edge-deployment">
 <span class="md-ellipsis">
-      Use Cases
+      Why is YOLO26 optimized for edge deployment?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#when-will-yolo26-models-be-available">
+<span class="md-ellipsis">
+      When will YOLO26 models be available?
     </span>
 </a>
 </li>
 </ul>
 </nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yolov10-real-time-end-to-end-efficiency">
-<span class="md-ellipsis">
-      YOLOv10: Real-Time End-to-End Efficiency
-    </span>
-</a>
-<nav aria-label="YOLOv10: Real-Time End-to-End Efficiency" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#architecture-and-key-features_1">
-<span class="md-ellipsis">
-      Architecture and Key Features
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#strengths-and-weaknesses_1">
-<span class="md-ellipsis">
-      Strengths and Weaknesses
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#use-cases_1">
-<span class="md-ellipsis">
-      Use Cases
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#performance-analysis-pp-yoloe-vs-yolov10">
-<span class="md-ellipsis">
-      Performance Analysis: PP-YOLOE+ vs. YOLOv10
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#conclusion-which-model-should-you-choose">
-<span class="md-ellipsis">
-      Conclusion: Which Model Should You Choose?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#explore-other-models">
-<span class="md-ellipsis">
-      Explore Other Models
-    </span>
-</a>
 </li>
 </ul>
 </nav>
@@ -458,81 +684,122 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/docs/tree/main/docs/en/compare/pp-yoloe-vs-yolov10.md" rel="edit" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/models/yolo26.md" rel="edit" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a><a class="md-content__button md-icon" href="javascript:void(0)" onclick="copyMarkdownForLLM(this); return false;" title="Copy page in Markdown format"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg></a>
-<h1 id="pp-yoloe-vs-yolov10-a-technical-comparison">PP-YOLOE+ vs. YOLOv10: A Technical Comparison</h1>
-<p>Choosing the optimal object detection model is a critical decision that balances accuracy, speed, and computational resources for any computer vision project. This page provides a detailed technical comparison between PP-YOLOE+, developed by Baidu, and YOLOv10, a state-of-the-art model from Tsinghua University that is fully integrated into the Ultralytics ecosystem. We will analyze their architectures, performance metrics, and ideal use cases to help you make an informed choice.</p>
-<script async="" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer="" src="../../javascript/benchmark.js"></script>
-<canvas active-models='["PP-YOLOE+", "YOLOv10"]' height="400" id="modelComparisonChart" width="1024"></canvas>
-<h2 id="pp-yoloe-high-accuracy-in-the-paddlepaddle-ecosystem">PP-YOLOE+: High Accuracy in the PaddlePaddle Ecosystem</h2>
-<p>PP-YOLOE+ (Practical PaddlePaddle You Only Look One-level Efficient Plus) is an anchor-free, single-stage object detection model from Baidu's PaddleDetection framework. Introduced in 2022, its primary focus is on delivering high accuracy while maintaining efficiency, especially for users within the <a href="https://docs.ultralytics.com/integrations/paddlepaddle/">PaddlePaddle</a> deep learning environment.</p>
-<p><strong>Authors:</strong> PaddlePaddle Authors<br/>
-<strong>Organization:</strong> <a href="https://www.baidu.com/">Baidu</a><br/>
-<strong>Date:</strong> 2022-04-02<br/>
-<strong>ArXiv:</strong> <a href="https://arxiv.org/abs/2203.16250">https://arxiv.org/abs/2203.16250</a><br/>
-<strong>GitHub:</strong> <a href="https://github.com/PaddlePaddle/PaddleDetection/">https://github.com/PaddlePaddle/PaddleDetection/</a><br/>
-<strong>Docs:</strong> <a href="https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md">https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md</a></p>
-<h3 id="architecture-and-key-features">Architecture and Key Features</h3>
-<p>PP-YOLOE+ enhances the standard YOLO architecture with several key modifications to boost performance.</p>
+<h1 id="ultralytics-yolo26">Ultralytics YOLO26</h1>
+<div class="admonition note">
+<p class="admonition-title">Preview Only ⚠️</p>
+<p>🚧 YOLO26 models are still under development and not yet released. Performance numbers shown here are <strong>previews only</strong>.<br/>
+Final downloads and releases will follow soon — stay updated via <a href="https://www.ultralytics.com/events/yolovision">YOLO Vision 2025</a>.</p>
+</div>
+<h2 id="overview">Overview</h2>
+<p><a href="https://www.ultralytics.com/">Ultralytics</a> YOLO26 is the latest evolution in the YOLO series of real-time object detectors, engineered from the ground up for <strong>edge and low-power devices</strong>. It introduces a streamlined design that removes unnecessary complexity while integrating targeted innovations to deliver faster, lighter, and more accessible deployment.</p>
+<p>The architecture of YOLO26 is guided by three core principles:</p>
 <ul>
-<li><strong>Anchor-Free Design</strong>: By eliminating predefined anchor boxes, PP-YOLOE+ simplifies the detection pipeline and reduces the complexity of hyperparameter tuning. This approach is common in many modern <a href="https://www.ultralytics.com/glossary/anchor-free-detectors">anchor-free detectors</a>.</li>
-<li><strong>Efficient Components</strong>: It leverages a ResNet <a href="https://www.ultralytics.com/glossary/backbone">backbone</a> and a Path Aggregation Network (PAN) neck for effective feature fusion, which is a proven combination for balancing speed and accuracy.</li>
-<li><strong>Decoupled Head</strong>: The model separates the classification and regression tasks within the <a href="https://www.ultralytics.com/glossary/detection-head">detection head</a>, a technique known to improve detection accuracy by preventing task interference.</li>
-<li><strong>Task Alignment Learning (TAL)</strong>: It utilizes a specialized <a href="https://www.ultralytics.com/glossary/loss-function">loss function</a> designed to better align the classification and localization tasks, leading to more precise predictions.</li>
+<li><strong>Simplicity:</strong> YOLO26 is a <strong>native end-to-end model</strong>, producing predictions directly without the need for non-maximum suppression (NMS). By eliminating this post-processing step, inference becomes faster, lighter, and easier to deploy in real-world systems. This breakthrough approach was first pioneered in <a href="../yolov10/">YOLOv10</a> by Ao Wang at Tsinghua University and has been further advanced in YOLO26.  </li>
+<li><strong>Deployment Efficiency:</strong> The end-to-end design cuts out an entire stage of the pipeline, dramatically simplifying integration, reducing latency, and making deployment more robust across diverse environments.  </li>
+<li><strong>Training Innovation:</strong> YOLO26 introduces the <strong>MuSGD optimizer</strong>, a hybrid of <a href="https://docs.pytorch.org/docs/stable/generated/torch.optim.SGD.html">SGD</a> and <a href="https://arxiv.org/abs/2502.16982">Muon</a> — inspired by Moonshot AI's <a href="https://kimi.moonshot.cn/">Kimi K2</a> breakthroughs in LLM training. This optimizer brings enhanced stability and faster convergence, transferring optimization advances from language models into computer vision.  </li>
 </ul>
-<h3 id="strengths-and-weaknesses">Strengths and Weaknesses</h3>
-<p>PP-YOLOE+ has demonstrated strong performance, but it comes with certain trade-offs.</p>
+<p>Together, these innovations deliver a model family that achieves higher accuracy on small objects, provides seamless deployment, and runs <strong>up to 43% faster on CPUs</strong> — making YOLO26 one of the most practical and deployable YOLO models to date for resource-constrained environments.</p>
+<p><img alt="Ultralytics YOLO26 Comparison Plots" src="https://github.com/ultralytics/assets/releases/download/v0.0.0/yolo-comparison-plot.png"/></p>
+<h2 id="key-features">Key Features</h2>
 <ul>
-<li><strong>Strengths</strong>: The model can achieve very high accuracy, particularly with its larger variants. Its anchor-free design is efficient, and it is highly optimized for users already invested in the PaddlePaddle framework.</li>
-<li><strong>Weaknesses</strong>: Its primary drawback is its tight coupling with the PaddlePaddle ecosystem. This can create a steep learning curve and integration challenges for developers working with more common frameworks like <a href="https://pytorch.org/">PyTorch</a>. Furthermore, community support and available resources may be less extensive compared to models within the Ultralytics ecosystem.</li>
+<li>
+<p><strong>DFL Removal</strong><br/>
+  The Distribution Focal Loss (DFL) module, while effective, often complicated export and limited hardware compatibility. YOLO26 removes DFL entirely, simplifying inference and broadening support for <strong>edge and low-power devices</strong>.  </p>
+</li>
+<li>
+<p><strong>End-to-End NMS-Free Inference</strong><br/>
+  Unlike traditional detectors that rely on NMS as a separate post-processing step, YOLO26 is <strong>natively end-to-end</strong>. Predictions are generated directly, reducing latency and making integration into production systems faster, lighter, and more reliable.  </p>
+</li>
+<li>
+<p><strong>ProgLoss + STAL</strong><br/>
+  Improved loss functions increase detection accuracy, with notable improvements in <strong>small-object recognition</strong>, a critical requirement for IoT, robotics, aerial imagery, and other edge applications.  </p>
+</li>
+<li>
+<p><strong>MuSGD Optimizer</strong><br/>
+  A new hybrid optimizer that combines <a href="https://docs.pytorch.org/docs/stable/generated/torch.optim.SGD.html">SGD</a> with <a href="https://arxiv.org/abs/2502.16982">Muon</a>. Inspired by Moonshot AI's <a href="https://kimi.moonshot.cn/">Kimi K2</a>, MuSGD introduces advanced optimization methods from LLM training into computer vision, enabling more stable training and faster convergence.  </p>
+</li>
+<li>
+<p><strong>Up to 43% Faster CPU Inference</strong><br/>
+  Specifically optimized for edge computing, YOLO26 delivers significantly faster CPU inference, ensuring real-time performance on devices without GPUs.</p>
+</li>
 </ul>
-<h3 id="use-cases">Use Cases</h3>
-<p>PP-YOLOE+ is well-suited for applications where high accuracy is a priority and the development environment is based on PaddlePaddle.</p>
-<ul>
-<li><strong>Industrial Quality Inspection</strong>: Detecting small defects in <a href="https://www.ultralytics.com/solutions/ai-in-manufacturing">manufacturing</a> processes.</li>
-<li><strong>Smart Retail</strong>: Powering applications like automated checkout and <a href="https://www.ultralytics.com/blog/ai-for-smarter-retail-inventory-management">inventory management</a>.</li>
-<li><strong>Recycling Automation</strong>: Identifying different materials for <a href="https://www.ultralytics.com/blog/recycling-efficiency-the-power-of-vision-ai-in-automated-sorting">automated sorting systems</a>.</li>
-</ul>
-<p><a class="md-button" href="https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md">Learn more about PP-YOLOE+</a></p>
-<h2 id="yolov10-real-time-end-to-end-efficiency">YOLOv10: Real-Time End-to-End Efficiency</h2>
-<p>Ultralytics <a href="https://docs.ultralytics.com/models/yolov10/">YOLOv10</a> is the latest evolution in the YOLO series, developed by researchers at Tsinghua University. Released in May 2024, it introduces groundbreaking architectural changes to achieve true end-to-end, real-time object detection by eliminating post-processing bottlenecks and optimizing the model for superior efficiency.</p>
-<p><strong>Authors:</strong> Ao Wang, Hui Chen, Lihao Liu, et al.<br/>
-<strong>Organization:</strong> <a href="https://www.tsinghua.edu.cn/en/">Tsinghua University</a><br/>
-<strong>Date:</strong> 2024-05-23<br/>
-<strong>ArXiv:</strong> <a href="https://arxiv.org/abs/2405.14458">https://arxiv.org/abs/2405.14458</a><br/>
-<strong>GitHub:</strong> <a href="https://github.com/THU-MIG/yolov10">https://github.com/THU-MIG/yolov10</a><br/>
-<strong>Docs:</strong> <a href="https://docs.ultralytics.com/models/yolov10/">https://docs.ultralytics.com/models/yolov10/</a></p>
-<h3 id="architecture-and-key-features_1">Architecture and Key Features</h3>
-<p>YOLOv10's design philosophy centers on holistic efficiency and performance, making it a standout choice for a wide range of applications.</p>
-<ul>
-<li><strong>NMS-Free Training</strong>: YOLOv10's most significant innovation is its use of consistent dual assignments during training. This eliminates the need for <a href="https://www.ultralytics.com/glossary/non-maximum-suppression-nms">Non-Maximum Suppression (NMS)</a> during post-processing, which significantly reduces <a href="https://www.ultralytics.com/glossary/inference-latency">inference latency</a> and simplifies the deployment pipeline.</li>
-<li><strong>Holistic Efficiency-Accuracy Design</strong>: The model features a comprehensive optimization of its backbone, neck, and head. Innovations like a lightweight classification head and spatial-channel decoupled downsampling reduce computational overhead while preserving rich feature information.</li>
-<li><strong>Superior Efficiency and Scalability</strong>: YOLOv10 offers a wide range of scalable models, from Nano (N) to Extra-large (X). These models consistently outperform competitors by providing higher accuracy with fewer parameters and lower computational cost (<a href="https://www.ultralytics.com/glossary/flops">FLOPs</a>).</li>
-<li><strong>Ultralytics Ecosystem Advantage</strong>: YOLOv10 is seamlessly integrated into the Ultralytics ecosystem. This provides users with an unparalleled experience, characterized by <strong>ease of use</strong> through a simple <a href="https://docs.ultralytics.com/usage/python/">Python API</a> and <a href="https://docs.ultralytics.com/usage/cli/">CLI</a>, extensive <a href="https://docs.ultralytics.com/">documentation</a>, <strong>efficient training</strong> with readily available pre-trained weights, and <strong>lower memory requirements</strong>. The model is backed by a robust community and active development via <a href="https://docs.ultralytics.com/hub/">Ultralytics HUB</a>.</li>
-</ul>
-<h3 id="strengths-and-weaknesses_1">Strengths and Weaknesses</h3>
-<p>YOLOv10 sets a new standard for real-time object detectors.</p>
-<ul>
-<li><strong>Strengths</strong>: State-of-the-art speed and accuracy, a truly end-to-end NMS-free design, exceptional computational efficiency, and excellent scalability. Its integration into the well-maintained Ultralytics ecosystem makes it incredibly easy to train, deploy, and maintain.</li>
-<li><strong>Weaknesses</strong>: As a newer model, the community and third-party tools are still growing compared to long-established models like <a href="https://docs.ultralytics.com/models/yolov8/">YOLOv8</a>.</li>
-</ul>
-<h3 id="use-cases_1">Use Cases</h3>
-<p>YOLOv10's efficiency and end-to-end design make it the ideal choice for applications where speed and resource constraints are critical.</p>
-<ul>
-<li><strong>Real-Time Applications</strong>: Perfect for autonomous systems like <a href="https://www.ultralytics.com/solutions/ai-in-automotive">self-driving cars</a>, <a href="https://www.ultralytics.com/glossary/robotics">robotics</a>, and high-speed surveillance systems for <a href="https://www.ultralytics.com/blog/computer-vision-for-theft-prevention-enhancing-security">theft prevention</a>.</li>
-<li><strong>Edge Deployment</strong>: The smaller variants (YOLOv10n, YOLOv10s) are highly optimized for resource-constrained <a href="https://www.ultralytics.com/glossary/edge-ai">edge devices</a> such as <a href="https://docs.ultralytics.com/guides/raspberry-pi/">Raspberry Pi</a> and <a href="https://docs.ultralytics.com/guides/nvidia-jetson/">NVIDIA Jetson</a>.</li>
-<li><strong>High-Accuracy Tasks</strong>: Larger models (YOLOv10l, YOLOv10x) provide top-tier precision for demanding fields like <a href="https://www.ultralytics.com/glossary/medical-image-analysis">medical image analysis</a>.</li>
-</ul>
-<p><a class="md-button" href="https://docs.ultralytics.com/models/yolov10/">Learn more about YOLOv10</a></p>
-<h2 id="performance-analysis-pp-yoloe-vs-yolov10">Performance Analysis: PP-YOLOE+ vs. YOLOv10</h2>
-<p>The performance benchmarks clearly illustrate the advantages of YOLOv10's modern architecture. While PP-YOLOE+x achieves the highest mAP by a small margin, YOLOv10 consistently delivers a better balance of speed, accuracy, and efficiency across all model sizes.</p>
+<hr/>
+<h2 id="supported-tasks-and-modes">Supported Tasks and Modes</h2>
+<p>YOLO26 is designed as a <strong>multi-task model family</strong>, extending YOLO's versatility across diverse computer vision challenges:</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Task</th>
+<th>Inference</th>
+<th>Validation</th>
+<th>Training</th>
+<th>Export</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>YOLO26</td>
+<td><a href="../../tasks/detect/">Detection</a></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>YOLO26-seg</td>
+<td><a href="../../tasks/segment/">Instance Segmentation</a></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>YOLO26-pose</td>
+<td><a href="../../tasks/pose/">Pose/Keypoints</a></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>YOLO26-obb</td>
+<td><a href="../../tasks/obb/">Oriented Detection</a></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>YOLO26-cls</td>
+<td><a href="../../tasks/classify/">Classification</a></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>This unified framework ensures YOLO26 is applicable across real-time detection, segmentation, classification, pose estimation, and oriented object detection — all with training, validation, inference, and export support.</p>
+<hr/>
+<h2 id="performance-metrics">Performance Metrics</h2>
+<div class="admonition tip">
+<p class="admonition-title">Performance Preview</p>
+<p>The following benchmarks are <strong>early previews</strong>. Final numbers and downloadable weights will be released once training is complete.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="detection-coco" name="__tabbed_1" type="radio"/><input id="segmentation-coco" name="__tabbed_1" type="radio"/><input id="classification-imagenet" name="__tabbed_1" type="radio"/><input id="pose-coco" name="__tabbed_1" type="radio"/><input id="obb-dotav1" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="detection-coco">Detection (COCO)</label><label for="segmentation-coco">Segmentation (COCO)</label><label for="classification-imagenet">Classification (ImageNet)</label><label for="pose-coco">Pose (COCO)</label><label for="obb-dotav1">OBB (DOTAv1)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Trained on <a href="../../datasets/detect/coco/">COCO</a> with 80 pre-trained classes.<br/>
+See <a href="../../tasks/detect/">Detection Docs</a> for usage once models are released.</p>
 <table>
 <thead>
 <tr>
 <th>Model</th>
 <th>size<br/><sup>(pixels)</sup></th>
+<th>mAP<sup>val<br/>50-95(e2e)</sup></th>
 <th>mAP<sup>val<br/>50-95</sup></th>
 <th>Speed<br/><sup>CPU ONNX<br/>(ms)</sup></th>
 <th>Speed<br/><sup>T4 TensorRT10<br/>(ms)</sup></th>
@@ -542,140 +809,153 @@
 </thead>
 <tbody>
 <tr>
-<td>PP-YOLOE+t</td>
+<td>YOLO26n</td>
 <td>640</td>
-<td>39.9</td>
-<td>-</td>
-<td>2.84</td>
-<td>4.85</td>
-<td>19.15</td>
+<td>39.8</td>
+<td>40.3</td>
+<td>38.90 ± 0.7</td>
+<td>1.7 ± 0.0</td>
+<td>2.4</td>
+<td>5.4</td>
 </tr>
 <tr>
-<td>PP-YOLOE+s</td>
+<td>YOLO26s</td>
 <td>640</td>
-<td>43.7</td>
-<td>-</td>
-<td>2.62</td>
-<td>7.93</td>
-<td>17.36</td>
+<td>47.2</td>
+<td>47.6</td>
+<td>87.16 ± 0.9</td>
+<td>2.7 ± 0.0</td>
+<td>9.5</td>
+<td>20.7</td>
 </tr>
 <tr>
-<td>PP-YOLOE+m</td>
+<td>YOLO26m</td>
 <td>640</td>
-<td>49.8</td>
-<td>-</td>
-<td>5.56</td>
-<td>23.43</td>
-<td>49.91</td>
+<td>51.5</td>
+<td>51.7</td>
+<td>220.0 ± 1.4</td>
+<td>4.9 ± 0.1</td>
+<td>20.4</td>
+<td>68.2</td>
 </tr>
 <tr>
-<td>PP-YOLOE+l</td>
+<td>YOLO26l</td>
 <td>640</td>
-<td>52.9</td>
-<td>-</td>
-<td>8.36</td>
-<td>52.2</td>
-<td>110.07</td>
+<td>53.0*</td>
+<td>53.4*</td>
+<td>286.17 ± 2.0*</td>
+<td>6.5 ± 0.2*</td>
+<td>24.8</td>
+<td>86.4</td>
 </tr>
 <tr>
-<td>PP-YOLOE+x</td>
+<td>YOLO26x</td>
 <td>640</td>
-<td><strong>54.7</strong></td>
 <td>-</td>
-<td>14.3</td>
-<td>98.42</td>
-<td>206.59</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>YOLOv10n</td>
-<td>640</td>
-<td>39.5</td>
 <td>-</td>
-<td><strong>1.56</strong></td>
-<td><strong>2.3</strong></td>
-<td><strong>6.7</strong></td>
-</tr>
-<tr>
-<td>YOLOv10s</td>
-<td>640</td>
-<td><strong>46.7</strong></td>
 <td>-</td>
-<td>2.66</td>
-<td><strong>7.2</strong></td>
-<td>21.6</td>
-</tr>
-<tr>
-<td>YOLOv10m</td>
-<td>640</td>
-<td><strong>51.3</strong></td>
 <td>-</td>
-<td><strong>5.48</strong></td>
-<td><strong>15.4</strong></td>
-<td><strong>59.1</strong></td>
-</tr>
-<tr>
-<td>YOLOv10b</td>
-<td>640</td>
-<td>52.7</td>
 <td>-</td>
-<td><strong>6.54</strong></td>
-<td><strong>24.4</strong></td>
-<td><strong>92.0</strong></td>
-</tr>
-<tr>
-<td>YOLOv10l</td>
-<td>640</td>
-<td><strong>53.3</strong></td>
 <td>-</td>
-<td><strong>8.33</strong></td>
-<td><strong>29.5</strong></td>
-<td><strong>120.3</strong></td>
-</tr>
-<tr>
-<td>YOLOv10x</td>
-<td>640</td>
-<td>54.4</td>
-<td>-</td>
-<td><strong>12.2</strong></td>
-<td><strong>56.9</strong></td>
-<td><strong>160.4</strong></td>
 </tr>
 </tbody>
 </table>
-<p>For instance, YOLOv10m achieves a higher mAP than PP-YOLOE+m while being faster and having significantly fewer parameters (15.4M vs. 23.43M). Similarly, YOLOv10l surpasses PP-YOLOE+l in accuracy with nearly half the parameters. Even at the highest end, YOLOv10x is much more efficient than PP-YOLOE+x, offering comparable accuracy with far lower latency and computational requirements.</p>
-<h2 id="conclusion-which-model-should-you-choose">Conclusion: Which Model Should You Choose?</h2>
-<p>While PP-YOLOE+ is a powerful model for users committed to the PaddlePaddle framework, <strong>YOLOv10 is the clear recommendation for the vast majority of developers and researchers.</strong></p>
-<p>YOLOv10's superior efficiency, innovative NMS-free architecture, and state-of-the-art performance make it the more versatile and future-proof choice. Its seamless integration into the Ultralytics ecosystem removes barriers to entry, providing an easy-to-use, well-supported, and highly capable solution for a wide array of real-world applications, from edge devices to high-performance cloud servers.</p>
-<h2 id="explore-other-models">Explore Other Models</h2>
-<p>If you are exploring other options, consider looking at other state-of-the-art models in the Ultralytics ecosystem. You can find detailed comparisons like <a href="https://docs.ultralytics.com/compare/yolov10-vs-yolov9/">YOLOv10 vs. YOLOv9</a> and <a href="https://docs.ultralytics.com/compare/yolov10-vs-yolov8/">YOLOv10 vs. YOLOv8</a>. For those looking at the latest developments, check out the new <a href="https://docs.ultralytics.com/models/yolo11/">Ultralytics YOLO11</a>.</p>
+<p>*Metrics for YOLO26l and YOLO26x are in progress. Final benchmarks will be added here.</p>
+</div>
+<div class="tabbed-block">
+<p>Performance metrics coming soon.</p>
+</div>
+<div class="tabbed-block">
+<p>Performance metrics coming soon.</p>
+</div>
+<div class="tabbed-block">
+<p>Performance metrics coming soon.</p>
+</div>
+<div class="tabbed-block">
+<p>Performance metrics coming soon.</p>
+</div>
+</div>
+</div>
+</div>
+<hr/>
+<h2 id="citations-and-acknowledgements">Citations and Acknowledgements</h2>
+<div class="admonition tip">
+<p class="admonition-title">Ultralytics YOLO26 Publication</p>
+<p>Ultralytics has not published a formal research paper for YOLO26 due to the rapidly evolving nature of the models. Instead, we focus on delivering cutting-edge models and making them easy to use. For the latest updates on YOLO features, architectures, and usage, visit our <a href="https://github.com/ultralytics/ultralytics">GitHub repository</a> and <a href="https://docs.ultralytics.com/">documentation</a>.</p>
+</div>
+<p>If you use YOLO26 or other Ultralytics software in your work, please cite it as:</p>
+<div class="admonition quote">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="bibtex" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="bibtex">BibTeX</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span></span><span class="nc">@software</span><span class="p">{</span><span class="nl">yolo26_ultralytics</span><span class="p">,</span>
+<span></span><span class="w">  </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Glenn Jocher and Jing Qiu}</span><span class="p">,</span>
+<span></span><span class="w">  </span><span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Ultralytics YOLO26}</span><span class="p">,</span>
+<span></span><span class="w">  </span><span class="na">version</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{26.0.0}</span><span class="p">,</span>
+<span></span><span class="w">  </span><span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2025}</span><span class="p">,</span>
+<span></span><span class="w">  </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{https://github.com/ultralytics/ultralytics}</span><span class="p">,</span>
+<span></span><span class="w">  </span><span class="na">orcid</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{0000-0001-5950-6979, 0000-0003-3783-7069}</span><span class="p">,</span>
+<span></span><span class="w">  </span><span class="na">license</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{AGPL-3.0}</span>
+<span></span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>DOI pending. YOLO26 is available under <a href="https://github.com/ultralytics/ultralytics/blob/main/LICENSE">AGPL-3.0</a> and <a href="https://www.ultralytics.com/license">Enterprise</a> licenses.</p>
+<hr/>
+<h2 id="faq">FAQ</h2>
+<h3 id="what-are-the-key-improvements-in-yolo26-compared-to-yolo11">What are the key improvements in YOLO26 compared to YOLO11?</h3>
+<ul>
+<li><strong>DFL Removal</strong>: Simplifies export and expands edge compatibility  </li>
+<li><strong>End-to-End NMS-Free Inference</strong>: Eliminates NMS for faster, simpler deployment  </li>
+<li><strong>ProgLoss + STAL</strong>: Boosts accuracy, especially on small objects  </li>
+<li><strong>MuSGD Optimizer</strong>: Combines SGD and Muon (inspired by Moonshot's Kimi K2) for more stable, efficient training  </li>
+<li><strong>Up to 43% Faster CPU Inference</strong>: Major performance gains for CPU-only devices  </li>
+</ul>
+<h3 id="what-tasks-will-yolo26-support">What tasks will YOLO26 support?</h3>
+<p>YOLO26 is designed as a <strong>unified model family</strong>, providing end-to-end support for multiple computer vision tasks:</p>
+<ul>
+<li><a href="../../tasks/detect/">Object Detection</a> </li>
+<li><a href="../../tasks/segment/">Instance Segmentation</a> </li>
+<li><a href="../../tasks/classify/">Image Classification</a> </li>
+<li><a href="../../tasks/pose/">Pose Estimation</a> </li>
+<li><a href="../../tasks/obb/">Oriented Object Detection (OBB)</a> </li>
+</ul>
+<p>Each size variant (n, s, m, l, x) is planned to support all tasks at release.</p>
+<h3 id="why-is-yolo26-optimized-for-edge-deployment">Why is YOLO26 optimized for edge deployment?</h3>
+<p>YOLO26 delivers <strong>state-of-the-art edge performance</strong> with:  </p>
+<ul>
+<li>Up to 43% faster CPU inference  </li>
+<li>Reduced model size and memory footprint  </li>
+<li>Architecture simplified for compatibility (no DFL, no NMS)  </li>
+<li>Flexible export formats including TensorRT, ONNX, CoreML, TFLite, and OpenVINO  </li>
+</ul>
+<h3 id="when-will-yolo26-models-be-available">When will YOLO26 models be available?</h3>
+<p>YOLO26 models are still in training and not yet open-sourced. Performance previews are shown here, with official downloads and releases planned in the near future.
+See <a href="https://www.ultralytics.com/events/yolovision">YOLO Vision 2025</a> for YOLO26 talks.</p>
 <br/><br/>
 <div class="git-info">
 <div class="dates-container">
-<span class="date-item" title="This page was first created on September 25, 2024">
-<span class="hover-item">📅</span> Created 1 year ago
+<span class="date-item" title="This page was first created on September 25, 2025">
+<span class="hover-item">📅</span> Created 0 days ago
     </span>
-<span class="date-item" title="This page was last updated on August 16, 2025">
-<span class="hover-item">✏️</span> Updated 1 month ago
+<span class="date-item" title="This page was last updated on September 25, 2025">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
-<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (1 change)">
-<img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
+<a class="author-link" href="https://github.com/Laughing-q" title="Laughing-q (1 change)">
+<img alt="Laughing-q" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/61612323?v=4&amp;s=96"/>
+</a>
+<a class="author-link" href="https://github.com/UltralyticsAssistant" title="UltralyticsAssistant (1 change)">
+<img alt="UltralyticsAssistant" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/135830346?v=4&amp;s=96"/>
 </a>
 </div></div><div class="share-buttons">
-<button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/compare/pp-yoloe-vs-yolov10', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
+<button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/models/yolo26', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
 <i class="fa-brands fa-x-twitter"></i> Tweet
     </button>
-<button class="share-button hover-item linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/compare/pp-yoloe-vs-yolov10', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;">
+<button class="share-button hover-item linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/models/yolo26', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;">
 <i class="fa-brands fa-linkedin-in"></i> Share
     </button>
 </div>
@@ -693,6 +973,34 @@
 </button>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: YOLO11" class="md-footer__link md-footer__link--prev" href="../yolo11/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                YOLO11
+              </div>
+</div>
+</a>
+<a aria-label="Next: YOLO12" class="md-footer__link md-footer__link--next" href="../yolo12/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                YOLO12
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-copyright">
