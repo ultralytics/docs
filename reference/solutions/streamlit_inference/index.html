@@ -1618,8 +1618,7 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <span>181</span>
 <span>182</span>
 <span>183</span>
-<span>184</span>
-<span>185</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">configure</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>184</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">configure</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Configure the model and load selected classes for inference."""</span>
 <span></span>    <span class="c1"># Add dropdown menu for model selection</span>
 <span></span>    <span class="n">M_ORD</span><span class="p">,</span> <span class="n">T_ORD</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"yolo11n"</span><span class="p">,</span> <span class="s2">"yolo11s"</span><span class="p">,</span> <span class="s2">"yolo11m"</span><span class="p">,</span> <span class="s2">"yolo11l"</span><span class="p">,</span> <span class="s2">"yolo11x"</span><span class="p">],</span> <span class="p">[</span><span class="s2">""</span><span class="p">,</span> <span class="s2">"-seg"</span><span class="p">,</span> <span class="s2">"-pose"</span><span class="p">,</span> <span class="s2">"-obb"</span><span class="p">,</span> <span class="s2">"-cls"</span><span class="p">]</span>
@@ -1636,9 +1635,8 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <span></span>    <span class="n">selected_model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">sidebar</span><span class="o">.</span><span class="n">selectbox</span><span class="p">(</span><span class="s2">"Model"</span><span class="p">,</span> <span class="n">available_models</span><span class="p">)</span>
 <span></span>
 <span></span>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">spinner</span><span class="p">(</span><span class="s2">"Model is downloading..."</span><span class="p">):</span>
-<span></span>        <span class="k">if</span> <span class="p">(</span>
-<span></span>            <span class="n">selected_model</span><span class="o">.</span><span class="n">endswith</span><span class="p">((</span><span class="s2">".pt"</span><span class="p">,</span> <span class="s2">".onnx"</span><span class="p">,</span> <span class="s2">".torchscript"</span><span class="p">,</span> <span class="s2">".mlpackage"</span><span class="p">,</span> <span class="s2">".engine"</span><span class="p">,</span> <span class="s2">".rknn"</span><span class="p">))</span>
-<span></span>            <span class="ow">or</span> <span class="s2">"openvino_model"</span> <span class="ow">in</span> <span class="n">selected_model</span>
+<span></span>        <span class="k">if</span> <span class="n">selected_model</span><span class="o">.</span><span class="n">endswith</span><span class="p">((</span><span class="s2">".pt"</span><span class="p">,</span> <span class="s2">".onnx"</span><span class="p">,</span> <span class="s2">".torchscript"</span><span class="p">,</span> <span class="s2">".mlpackage"</span><span class="p">,</span> <span class="s2">".engine"</span><span class="p">))</span> <span class="ow">or</span> <span class="nb">any</span><span class="p">(</span>
+<span></span>            <span class="n">fmt</span> <span class="ow">in</span> <span class="n">selected_model</span> <span class="k">for</span> <span class="n">fmt</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"openvino_model"</span><span class="p">,</span> <span class="s2">"rknn_model"</span><span class="p">)</span>
 <span></span>        <span class="p">):</span>
 <span></span>            <span class="n">model_path</span> <span class="o">=</span> <span class="n">selected_model</span>
 <span></span>        <span class="k">else</span><span class="p">:</span>
@@ -1667,7 +1665,8 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <p>Perform inference on uploaded images.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/streamlit_inference.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>187</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>186</span>
+<span>187</span>
 <span>188</span>
 <span>189</span>
 <span>190</span>
@@ -1685,8 +1684,7 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <span>202</span>
 <span>203</span>
 <span>204</span>
-<span>205</span>
-<span>206</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">image_inference</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>205</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">image_inference</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Perform inference on uploaded images."""</span>
 <span></span>    <span class="k">for</span> <span class="n">img_info</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">img_file_names</span><span class="p">:</span>
 <span></span>        <span class="n">img_path</span> <span class="o">=</span> <span class="n">img_info</span><span class="p">[</span><span class="s2">"path"</span><span class="p">]</span>
@@ -1720,7 +1718,8 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <p>Perform real-time object detection inference on video or webcam feed.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/streamlit_inference.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>208</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>207</span>
+<span>208</span>
 <span>209</span>
 <span>210</span>
 <span>211</span>
@@ -1764,8 +1763,7 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <span>249</span>
 <span>250</span>
 <span>251</span>
-<span>252</span>
-<span>253</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>252</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Perform real-time object detection inference on video or webcam feed."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">web_ui</span><span class="p">()</span>  <span class="c1"># Initialize the web interface</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">sidebar</span><span class="p">()</span>  <span class="c1"># Create the sidebar</span>
