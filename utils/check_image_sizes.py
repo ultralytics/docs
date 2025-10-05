@@ -122,7 +122,9 @@ def check_image_sizes(download_dir, website, threshold_kb=500, max_workers=32, i
 
     if large_images:
         print(f"\n⚠️ Found {len(large_images)} images >= {threshold_kb} KB")
-        output = [f"*{len(large_images)} images >= {threshold_kb} KB{' (showing first 10)' if len(large_images) > 10 else ''}*"]
+        output = [
+            f"*{len(large_images)} images >= {threshold_kb} KB{' (showing first 10)' if len(large_images) > 10 else ''}*"
+        ]
         for size_kb, fmt, pages, url in large_images[:10]:
             # Extract filename from URL for concise display
             filename = Path(urlparse(url).path).name or "image"
