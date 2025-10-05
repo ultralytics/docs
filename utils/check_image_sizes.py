@@ -19,7 +19,7 @@ URL_IGNORE_LIST = {
 }
 
 
-def check_image_sizes(download_dir, website, threshold_kb=500, max_workers=64):
+def check_image_sizes(download_dir, website, threshold_kb=500, max_workers=64, ignore_gifs=False):
     """Check image sizes in downloaded HTML files and report large images."""
     print(f"Scanning {download_dir} for images...")
     unique_images = defaultdict(set)
@@ -33,7 +33,8 @@ def check_image_sizes(download_dir, website, threshold_kb=500, max_workers=64):
             for img in soup.find_all("img", src=True):
                 img_url = urljoin(f"https://{website}", img["src"])
                 if img_url not in URL_IGNORE_LIST:
-                    unique_images[img_url].add(page_url)
+                    if not ignore_gifs or not img_url.lower().endswith(".gif"):
+                        unique_images[img_url].add(page_url)
         except Exception:
             pass
 
@@ -125,10 +126,16 @@ def check_image_sizes(download_dir, website, threshold_kb=500, max_workers=64):
         for size_kb, fmt, pages, url in large_images[:10]:
             # Extract filename from URL for concise display
             filename = Path(urlparse(url).path).name or "image"
+            # Append format if filename doesn't have an extension
+            if not Path(filename).suffix and fmt:
+                filename = f"{filename}{fmt}"
+            # Truncate from start if too long, keeping extension visible
+            if len(filename) > 40:
+                filename = "..." + filename[-37:]
             # Get first page URL for context
             page_url = list(unique_images[url])[0]
             # Format as Slack hyperlink to avoid auto-expansion: <url|text>
-            output.append(f"• {size_kb:.1f} KB - {fmt} - <{url}|{filename}> - {page_url}")
+            output.append(f"• {size_kb:.1f} KB - <{url}|{filename}> - {page_url}")
 
         result = "\\n".join(output)
         with open(os.environ["GITHUB_ENV"], "a") as f:
@@ -141,9 +148,10 @@ def check_image_sizes(download_dir, website, threshold_kb=500, max_workers=64):
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
-        print("Usage: python check_image_sizes.py <download_dir> <website>")
+        print("Usage: python check_image_sizes.py <download_dir> <website> [ignore_gifs]")
         sys.exit(1)
 
     download_dir = sys.argv[1]
     website = sys.argv[2]
-    sys.exit(check_image_sizes(download_dir, website))
+    ignore_gifs = sys.argv[3].lower() in ("true", "1", "yes") if len(sys.argv) > 3 else False
+    sys.exit(check_image_sizes(download_dir, website, ignore_gifs=ignore_gifs))
