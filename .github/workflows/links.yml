@@ -241,4 +241,4 @@ jobs:
           webhook-type: incoming-webhook
           webhook: ${{ matrix.website == 'www.ultralytics.com' && secrets.SLACK_WEBHOOK_URL_WEBSITE || secrets.SLACK_WEBHOOK_URL_YOLO }}
           payload: |
-            text: "GitHub Actions: Large images found on *${{ matrix.website }}* ⚠️\n\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n\n${{ env.IMAGE_RESULTS }}\n"
+            text: "GitHub Actions: Large images found on *${{ matrix.website }}* 📦\n\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n\n${{ env.IMAGE_RESULTS }}\n"
