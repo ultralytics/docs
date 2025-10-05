@@ -28,8 +28,21 @@ jobs:
         website:
           [www.ultralytics.com, docs.ultralytics.com, handbook.ultralytics.com]
     steps:
-      - name: Install lychee
-        run: curl -sSfL "https://github.com/lycheeverse/lychee/releases/latest/download/lychee-x86_64-unknown-linux-gnu.tar.gz" | sudo tar xz -C /usr/local/bin
+      - uses: actions/checkout@v5
+        with:
+          repository: ultralytics/docs
+          ref: main
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.x'
+
+      - uses: astral-sh/setup-uv@v6
+
+      - name: Install lychee and dependencies
+        run: |
+          curl -sSfL "https://github.com/lycheeverse/lychee/releases/latest/download/lychee-x86_64-unknown-linux-gnu.tar.gz" | sudo tar xz -C /usr/local/bin
+          uv pip install --system -r requirements.txt
 
       - name: Get Website URLs
         run: |
@@ -81,6 +94,11 @@ jobs:
           --tries=3 \
           --no-verbose \
           --force-directories
+
+      - name: Check image sizes in downloaded pages
+        id: image_sizes
+        continue-on-error: true
+        run: python utils/check_image_sizes.py "${{ matrix.website }}" "${{ matrix.website }}"
 
       - name: Run codespell on downloaded pages
         id: codespell
@@ -198,3 +216,12 @@ jobs:
             {
               "text": "GitHub Actions: Spelling errors found for ${{ matrix.website }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n\n\n*📝 Spelling Errors:*\n${{ env.CODESPELL_ERRORS }}\n"
             }
+
+      - name: Notify Slack for large images
+        if: always() && steps.image_sizes.outcome == 'failure' && github.event_name == 'schedule' && github.run_attempt == '1'
+        uses: slackapi/slack-github-action@v2.1.1
+        with:
+          webhook-type: incoming-webhook
+          webhook: ${{ matrix.website == 'www.ultralytics.com' && secrets.SLACK_WEBHOOK_URL_WEBSITE || secrets.SLACK_WEBHOOK_URL_YOLO }}
+          payload: |
+            text: "GitHub Actions: Large images found on ${{ matrix.website }} ⚠️\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n\n${{ env.IMAGE_RESULTS }}\n"

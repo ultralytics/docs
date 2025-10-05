@@ -1,0 +1,108 @@
+# Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license
+
+import os
+import sys
+import requests
+from urllib.parse import urljoin, urlparse
+from pathlib import Path
+from concurrent.futures import ThreadPoolExecutor
+from collections import defaultdict
+from bs4 import BeautifulSoup
+
+HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
+
+
+def check_image_sizes(download_dir, website, threshold_mb=0.5, max_workers=64):
+    """Check image sizes in downloaded HTML files and report large images."""
+    print(f"Scanning {download_dir} for images...")
+    unique_images = defaultdict(set)
+
+    # Scan downloaded HTML files for image URLs
+    for html_file in Path(download_dir).rglob("*.html"):
+        try:
+            with open(html_file, "r", encoding="utf-8") as f:
+                soup = BeautifulSoup(f.read(), "html.parser")
+            page_url = f"https://{html_file.relative_to(download_dir)}".replace("/index.html", "/")
+            for img in soup.find_all("img", src=True):
+                img_url = urljoin(f"https://{website}", img["src"])
+                unique_images[img_url].add(page_url)
+        except Exception:
+            pass
+
+    print(f"Found {len(unique_images)} unique images")
+
+    # Check sizes
+    def get_size(url):
+        """Get file size and format for a URL."""
+        try:
+            response = requests.head(url, allow_redirects=True, timeout=10, headers=HEADERS)
+            size = int(response.headers.get("content-length", 0))
+            if size == 0:
+                response = requests.get(url, allow_redirects=True, timeout=10, stream=True, headers=HEADERS)
+                size = int(response.headers.get("content-length", 0))
+                response.close()
+
+            # Get format from Content-Type header first (more reliable)
+            content_type = response.headers.get("content-type", "").lower()
+            format_map = {
+                "image/jpeg": ".jpg",
+                "image/jpg": ".jpg",
+                "image/png": ".png",
+                "image/gif": ".gif",
+                "image/webp": ".webp",
+                "image/svg+xml": ".svg",
+                "image/avif": ".avif",
+                "image/bmp": ".bmp",
+                "image/tiff": ".tiff",
+            }
+            fmt = format_map.get(content_type.split(";")[0].strip())
+
+            # Fallback to URL parsing - check original URL first, then redirected URL
+            if not fmt:
+                fmt = Path(urlparse(url).path).suffix.lower()
+                if not fmt:
+                    final_url = response.url if response.history else url
+                    fmt = Path(urlparse(final_url).path).suffix.lower() or ".unknown"
+
+            return url, size, fmt
+        except Exception:
+            return url, None, None
+
+    large_images = []
+    with requests.Session() as session:
+        session.headers.update(HEADERS)
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            for url, size, fmt in executor.map(get_size, unique_images.keys()):
+                if size and size / 1024 / 1024 >= threshold_mb:
+                    large_images.append((size / 1024, fmt, len(unique_images[url]), url))
+
+    large_images.sort(reverse=True)
+
+    if large_images:
+        print(f"⚠️ Found {len(large_images)} images >= {threshold_mb} MB")
+        output = [f"*{len(large_images)} images >= {threshold_mb} MB on https://{website}*"]
+        for size_kb, fmt, pages, url in large_images[:10]:
+            # Extract filename from URL for concise display
+            filename = Path(urlparse(url).path).name or "image"
+            # Get first page URL for context
+            page_url = list(unique_images[url])[0]
+            # Format as Slack hyperlink to avoid auto-expansion: <url|text>
+            output.append(f"• {size_kb:.1f} KB - <{url}|{filename}> - {page_url}")
+
+        result = "\\n".join(output)
+        with open(os.environ["GITHUB_ENV"], "a") as f:
+            f.write(f"IMAGE_RESULTS<<EOF\n{result}\nEOF\n")
+        return 1
+    else:
+        print(f"✅ No images >= {threshold_mb} MB")
+        return 0
+
+
+if __name__ == "__main__":
+    if len(sys.argv) < 3:
+        print("Usage: python check_image_sizes.py <download_dir> <website>")
+        sys.exit(1)
+
+    download_dir = sys.argv[1]
+    website = sys.argv[2]
+    sys.exit(check_image_sizes(download_dir, website))
