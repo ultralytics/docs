@@ -122,7 +122,7 @@ def check_image_sizes(download_dir, website, threshold_kb=500, max_workers=32, i
 
     if large_images:
         print(f"\n⚠️ Found {len(large_images)} images >= {threshold_kb} KB")
-        output = [f"*{len(large_images)} images >= {threshold_kb} KB{' (showing first 10)' if len(large_images) > 10 else ''}*"]
+        output = [f"*{len(large_images)} images >= {threshold_kb}KB*{' (showing first 10)' if len(large_images) > 10 else ''}"]
         for size_kb, fmt, pages, url in large_images[:10]:
             # Extract filename from URL for concise display
             filename = Path(urlparse(url).path).name or "image"
@@ -134,11 +134,8 @@ def check_image_sizes(download_dir, website, threshold_kb=500, max_workers=32, i
                 filename = "..." + filename[-37:]
             # Get first page URL for context
             page_url = list(unique_images[url])[0]
-            # Truncate page URL from middle if too long
-            if len(page_url) > 50:
-                page_url = page_url[:25] + "..." + page_url[-22:]
             # Format as Slack hyperlink to avoid auto-expansion: <url|text>
-            output.append(f"• {size_kb:.1f} KB - <{url}|{filename}> - {page_url}")
+            output.append(f"• {size_kb:.0f}KB <{url}|{filename}> ➜ {page_url}")
 
         result = "\\n".join(output)
         with open(os.environ["GITHUB_ENV"], "a") as f:
