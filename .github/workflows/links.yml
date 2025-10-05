@@ -34,13 +34,13 @@ on:
     - cron: "0 0 * * *" # runs at 00:00 UTC every day
 
 jobs:
-  Links:
+  Quality-Checks:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false # This ensures that if one job fails, the others will still run
       matrix:
         website:
-          [handbook.ultralytics.com]
+          [www.ultralytics.com, docs.ultralytics.com, handbook.ultralytics.com]
     steps:
       - uses: actions/checkout@v5
         with:
