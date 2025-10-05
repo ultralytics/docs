@@ -29,7 +29,9 @@ def check_image_sizes(download_dir, website, threshold_kb=500, max_workers=32, i
         try:
             with open(html_file, encoding="utf-8") as f:
                 soup = BeautifulSoup(f.read(), "html.parser")
-            page_url = f"https://{website}/{html_file.relative_to(download_dir)}".replace("/index.html", "/").removesuffix(".html")
+            page_url = f"https://{website}/{html_file.relative_to(download_dir)}".replace(
+                "/index.html", "/"
+            ).removesuffix(".html")
             for img in soup.find_all("img", src=True):
                 img_url = urljoin(f"https://{website}", img["src"])
                 if img_url not in URL_IGNORE_LIST:
@@ -122,7 +124,9 @@ def check_image_sizes(download_dir, website, threshold_kb=500, max_workers=32, i
 
     if large_images:
         print(f"\n⚠️ Found {len(large_images)} images > {threshold_kb} KB")
-        output = [f"*{len(large_images)} images > {threshold_kb}KB*{' (showing first 10)' if len(large_images) > 10 else ''}"]
+        output = [
+            f"*{len(large_images)} images > {threshold_kb}KB*{' (showing first 10)' if len(large_images) > 10 else ''}"
+        ]
         for size_kb, fmt, pages, url in large_images[:10]:
             # Extract filename from URL for concise display
             filename = Path(urlparse(url).path).name or "image"
