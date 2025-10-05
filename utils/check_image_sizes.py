@@ -111,12 +111,12 @@ def check_image_sizes(download_dir, website, threshold_kb=500, max_workers=64):
 
     # Check for large images above threshold
     large_images = [
-        (size_kb, fmt, pages, url) for size_kb, fmt, pages, url in all_images if size_kb / 1024 >= threshold_mb
+        (size_kb, fmt, pages, url) for size_kb, fmt, pages, url in all_images if size_kb >= threshold_kb
     ]
 
     if large_images:
-        print(f"⚠️ Found {len(large_images)} images >= {threshold_mb} MB")
-        output = [f"*{len(large_images)} images >= {threshold_mb} MB on https://{website}*"]
+        print(f"\n⚠️ Found {len(large_images)} images >= {threshold_kb} KB")
+        output = [f"*{len(large_images)} images >= {threshold_kb} KB on https://{website}*"]
         for size_kb, fmt, pages, url in large_images[:10]:
             # Extract filename from URL for concise display
             filename = Path(urlparse(url).path).name or "image"
@@ -130,7 +130,7 @@ def check_image_sizes(download_dir, website, threshold_kb=500, max_workers=64):
             f.write(f"IMAGE_RESULTS<<EOF\n{result}\nEOF\n")
         return 1
     else:
-        print(f"✅ No images >= {threshold_mb} MB")
+        print(f"\n✅ No images >= {threshold_kb} KB")
         return 0
 
 
