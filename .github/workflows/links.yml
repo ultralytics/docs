@@ -109,7 +109,7 @@ jobs:
           --force-directories
 
       - name: Check image sizes in downloaded pages
-        if: github.event_name == 'schedule' || inputs.check_images
+        # if: github.event_name == 'schedule' || inputs.check_images
         id: image_sizes
         continue-on-error: true
         run: python utils/check_image_sizes.py "${{ matrix.website }}" "${{ matrix.website }}"
