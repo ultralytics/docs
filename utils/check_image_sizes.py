@@ -134,6 +134,9 @@ def check_image_sizes(download_dir, website, threshold_kb=500, max_workers=64, i
                 filename = "..." + filename[-37:]
             # Get first page URL for context
             page_url = list(unique_images[url])[0]
+            # Truncate page URL from middle if too long
+            if len(page_url) > 50:
+                page_url = page_url[:25] + "..." + page_url[-22:]
             # Format as Slack hyperlink to avoid auto-expansion: <url|text>
             output.append(f"• {size_kb:.1f} KB - <{url}|{filename}> - {page_url}")
 
