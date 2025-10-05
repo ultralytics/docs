@@ -108,14 +108,14 @@ jobs:
           --no-verbose \
           --force-directories
 
-      - name: Check image sizes in downloaded pages
-        # if: github.event_name == 'schedule' || inputs.check_images
+      - name: Check image sizes
+        if: github.event_name != 'workflow_dispatch' || inputs.check_images
         id: image_sizes
         continue-on-error: true
         run: python utils/check_image_sizes.py "${{ matrix.website }}" "${{ matrix.website }}"
 
-      - name: Run codespell on downloaded pages
-        if: github.event_name == 'schedule' || inputs.check_spelling
+      - name: Check spelling
+        if: github.event_name != 'workflow_dispatch' || inputs.check_spelling
         id: codespell
         continue-on-error: true
         run: |
@@ -149,8 +149,8 @@ jobs:
           fi
           echo "No spelling errors found ✅"
 
-      - name: Run Broken Link Checks on Website
-        if: github.event_name == 'schedule' || inputs.check_links
+      - name: Check broken links
+        if: github.event_name != 'workflow_dispatch' || inputs.check_links
         id: lychee
         uses: ultralytics/actions/retry@main
         with:
@@ -229,13 +229,10 @@ jobs:
           webhook-type: incoming-webhook
           webhook: ${{ matrix.website == 'www.ultralytics.com' && secrets.SLACK_WEBHOOK_URL_WEBSITE || secrets.SLACK_WEBHOOK_URL_YOLO }}
           payload: |
-            {
-              "text": "${{ matrix.website == 'www.ultralytics.com' && '<!subteam^S07ABRC4MLN>' || '<!subteam^S082BPCRAJ3>' }} GitHub Actions: Spelling errors found for *${{ matrix.website }}* ❌\n\n\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n\n\n*📝 Spelling Errors:*\n${{ env.CODESPELL_ERRORS }}\n"
-            }
+            text: "${{ matrix.website == 'www.ultralytics.com' && '<!subteam^S07ABRC4MLN>' || '<!subteam^S082BPCRAJ3>' }} GitHub Actions: Spelling errors found for *${{ matrix.website }}* ❌\n\n\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n\n\n*📝 Spelling Errors:*\n${{ env.CODESPELL_ERRORS }}\n"
 
       - name: Notify Slack for large images
-        # if: always() && steps.image_sizes.outcome == 'failure' && github.event_name == 'schedule' && github.run_attempt == '1'
-        if: always() && steps.image_sizes.outcome == 'failure' && github.event_name == 'pull_request' && github.run_attempt == '1'
+        if: always() && steps.image_sizes.outcome == 'failure' && github.event_name == 'schedule' && github.run_attempt == '1'
         uses: slackapi/slack-github-action@v2.1.1
         with:
           webhook-type: incoming-webhook
