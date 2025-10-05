@@ -2,11 +2,12 @@
 
 import os
 import sys
-import requests
-from urllib.parse import urljoin, urlparse
-from pathlib import Path
-from concurrent.futures import ThreadPoolExecutor
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
+from urllib.parse import urljoin, urlparse
+
+import requests
 from bs4 import BeautifulSoup
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
@@ -20,7 +21,7 @@ def check_image_sizes(download_dir, website, threshold_mb=0.5, max_workers=64):
     # Scan downloaded HTML files for image URLs
     for html_file in Path(download_dir).rglob("*.html"):
         try:
-            with open(html_file, "r", encoding="utf-8") as f:
+            with open(html_file, encoding="utf-8") as f:
                 soup = BeautifulSoup(f.read(), "html.parser")
             page_url = f"https://{html_file.relative_to(download_dir)}".replace("/index.html", "/")
             for img in soup.find_all("img", src=True):
