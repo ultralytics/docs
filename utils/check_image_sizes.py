@@ -79,35 +79,39 @@ def check_image_sizes(download_dir, website, threshold_mb=0.5, max_workers=64):
                     all_images.append((size / 1024, fmt, len(unique_images[url]), url))
 
     all_images.sort(reverse=True)
-    
+
     # Print statistics
     if all_images:
         import pandas as pd
-        
+
         df = pd.DataFrame(all_images, columns=["Size (KB)", "Format", "Pages", "URL"])
-        
+
         # Format statistics
         format_stats = (
-            df.groupby("Format").agg({"URL": "count", "Size (KB)": ["min", "max", "mean", "sum"]}).round(1).reset_index()
+            df.groupby("Format")
+            .agg({"URL": "count", "Size (KB)": ["min", "max", "mean", "sum"]})
+            .round(1)
+            .reset_index()
         )
         format_stats.columns = ["Format", "Count", "Min (KB)", "Max (KB)", "Mean (KB)", "Total (MB)"]
         format_stats["Total (MB)"] = (format_stats["Total (MB)"] / 1024).round(1)
         format_stats = format_stats.sort_values("Total (MB)", ascending=False)
-        
+
         print("\nImage Format Statistics:")
         print(format_stats.to_string(index=False))
         print(f"\nTotal images processed: {len(all_images)}")
-        
+
         # Print top 10 largest
         print("\nTop 10 Largest Images:")
         top_10 = df.head(10).copy()
         top_10["Size (KB)"] = top_10["Size (KB)"].round(1)
         top_10["URL"] = top_10["URL"].apply(lambda x: x if len(x) <= 120 else x[:60] + "..." + x[-57:])
         print(top_10.to_string(index=False))
-    
+
     # Check for large images above threshold
-    large_images = [(size_kb, fmt, pages, url) for size_kb, fmt, pages, url in all_images 
-                    if size_kb / 1024 >= threshold_mb]
+    large_images = [
+        (size_kb, fmt, pages, url) for size_kb, fmt, pages, url in all_images if size_kb / 1024 >= threshold_mb
+    ]
 
     if large_images:
         print(f"⚠️ Found {len(large_images)} images >= {threshold_mb} MB")
