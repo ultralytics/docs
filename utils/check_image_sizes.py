@@ -109,13 +109,13 @@ def check_image_sizes(download_dir, website, threshold_kb=500, max_workers=32, i
         print(format_stats.to_string(index=False))
         print(f"\nTotal images processed: {len(all_images)}")
 
-        # Print top 10 largest
-        print("\nTop 10 Largest Images:")
-        top_10 = df.head(10).copy()
-        top_10["Size (KB)"] = top_10["Size (KB)"].round(1)
-        top_10["Example Page"] = top_10["URL"].apply(lambda url: list(unique_images[url])[0])
-        top_10["URL"] = top_10["URL"].apply(lambda x: x if len(x) <= 120 else x[:60] + "..." + x[-57:])
-        print(top_10[["URL", "Pages", "Size (KB)", "Format", "Example Page"]].to_string(index=False))
+        # Print top 50 largest
+        print("\nTop 50 Largest Images:")
+        top_50 = df.head(50).copy()
+        top_50["Size (KB)"] = top_50["Size (KB)"].round(1)
+        top_50["Example Page"] = top_50["URL"].apply(lambda url: list(unique_images[url])[0])
+        top_50["URL"] = top_50["URL"].apply(lambda x: x if len(x) <= 120 else x[:60] + "..." + x[-57:])
+        print(top_50[["URL", "Pages", "Size (KB)", "Format", "Example Page"]].to_string(index=False))
 
     # Check for large images above threshold
     large_images = [(size_kb, fmt, pages, url) for size_kb, fmt, pages, url in all_images if size_kb >= threshold_kb]
