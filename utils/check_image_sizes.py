@@ -110,9 +110,7 @@ def check_image_sizes(download_dir, website, threshold_kb=500, max_workers=64):
         print(top_10[["URL", "Pages", "Size (KB)", "Format", "Example Page"]].to_string(index=False))
 
     # Check for large images above threshold
-    large_images = [
-        (size_kb, fmt, pages, url) for size_kb, fmt, pages, url in all_images if size_kb >= threshold_kb
-    ]
+    large_images = [(size_kb, fmt, pages, url) for size_kb, fmt, pages, url in all_images if size_kb >= threshold_kb]
 
     if large_images:
         print(f"\n⚠️ Found {len(large_images)} images >= {threshold_kb} KB")
