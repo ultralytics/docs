@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
 
 
-def check_image_sizes(download_dir, website, threshold_mb=0.5, max_workers=64):
+def check_image_sizes(download_dir, website, threshold_kb=500, max_workers=64):
     """Check image sizes in downloaded HTML files and report large images."""
     print(f"Scanning {download_dir} for images...")
     unique_images = defaultdict(set)
@@ -105,8 +105,9 @@ def check_image_sizes(download_dir, website, threshold_mb=0.5, max_workers=64):
         print("\nTop 10 Largest Images:")
         top_10 = df.head(10).copy()
         top_10["Size (KB)"] = top_10["Size (KB)"].round(1)
+        top_10["Example Page"] = top_10["URL"].apply(lambda url: list(unique_images[url])[0])
         top_10["URL"] = top_10["URL"].apply(lambda x: x if len(x) <= 120 else x[:60] + "..." + x[-57:])
-        print(top_10.to_string(index=False))
+        print(top_10[["URL", "Pages", "Size (KB)", "Format", "Example Page"]].to_string(index=False))
 
     # Check for large images above threshold
     large_images = [

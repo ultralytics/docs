@@ -235,6 +235,7 @@ jobs:
 
       - name: Notify Slack for large images
         if: always() && steps.image_sizes.outcome == 'failure' && github.event_name == 'schedule' && github.run_attempt == '1'
+        # if: always() && steps.image_sizes.outcome == 'failure' && github.event_name == 'pull_request' && github.run_attempt == '1'
         uses: slackapi/slack-github-action@v2.1.1
         with:
           webhook-type: incoming-webhook
