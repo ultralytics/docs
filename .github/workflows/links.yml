@@ -15,6 +15,7 @@ permissions:
   contents: read
 
 on:
+  pull_request:
   workflow_dispatch:
     inputs:
       check_links:
@@ -39,7 +40,7 @@ jobs:
       fail-fast: false # This ensures that if one job fails, the others will still run
       matrix:
         website:
-          [www.ultralytics.com, docs.ultralytics.com, handbook.ultralytics.com]
+          [handbook.ultralytics.com]
     steps:
       - uses: actions/checkout@v5
         with:
