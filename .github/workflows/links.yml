@@ -16,11 +16,24 @@ permissions:
 
 on:
   workflow_dispatch:
+    inputs:
+      check_links:
+        description: 'Check broken links'
+        type: boolean
+        default: true
+      check_spelling:
+        description: 'Check spelling'
+        type: boolean
+        default: true
+      check_images:
+        description: 'Check large images'
+        type: boolean
+        default: true
   schedule:
     - cron: "0 0 * * *" # runs at 00:00 UTC every day
 
 jobs:
-  Links:
+  Checks:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false # This ensures that if one job fails, the others will still run
@@ -28,8 +41,20 @@ jobs:
         website:
           [www.ultralytics.com, docs.ultralytics.com, handbook.ultralytics.com]
     steps:
-      - name: Install lychee
-        run: curl -sSfL "https://github.com/lycheeverse/lychee/releases/latest/download/lychee-x86_64-unknown-linux-gnu.tar.gz" | sudo tar xz -C /usr/local/bin
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.x'
+
+      - uses: astral-sh/setup-uv@v6
+
+      - name: Install lychee and dependencies
+        run: |
+          curl -sSfL "https://github.com/lycheeverse/lychee/releases/latest/download/lychee-x86_64-unknown-linux-gnu.tar.gz" | sudo tar xz -C /usr/local/bin
+          uv pip install --system -r requirements.txt
 
       - name: Get Website URLs
         run: |
@@ -82,7 +107,14 @@ jobs:
           --no-verbose \
           --force-directories
 
-      - name: Run codespell on downloaded pages
+      - name: Check image sizes
+        if: github.event_name != 'workflow_dispatch' || inputs.check_images
+        id: image_sizes
+        continue-on-error: true
+        run: python utils/check_image_sizes.py "${{ matrix.website }}" "${{ matrix.website }}"
+
+      - name: Check spelling
+        if: github.event_name != 'workflow_dispatch' || inputs.check_spelling
         id: codespell
         continue-on-error: true
         run: |
@@ -116,7 +148,8 @@ jobs:
           fi
           echo "No spelling errors found ✅"
 
-      - name: Run Broken Link Checks on Website
+      - name: Check broken links
+        if: github.event_name != 'workflow_dispatch' || inputs.check_links
         id: lychee
         uses: ultralytics/actions/retry@main
         with:
@@ -186,7 +219,7 @@ jobs:
           webhook-type: incoming-webhook
           webhook: ${{ matrix.website == 'www.ultralytics.com' && secrets.SLACK_WEBHOOK_URL_WEBSITE || secrets.SLACK_WEBHOOK_URL_YOLO }}
           payload: |
-            text: "GitHub Actions: Broken links found for ${{ matrix.website }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n\n\n${{ env.SUMMARY }}\n"
+            text: "${{ matrix.website == 'www.ultralytics.com' && '<!subteam^S07ABRC4MLN>' || '<!subteam^S082BPCRAJ3>' }} GitHub Actions: Broken links found for *${{ matrix.website }}* ❌\n\n\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n\n\n${{ env.SUMMARY }}\n"
 
       - name: Notify Slack for spelling errors
         if: always() && steps.codespell.outcome == 'failure' && github.event_name == 'schedule' && github.run_attempt == '1'
@@ -195,6 +228,13 @@ jobs:
           webhook-type: incoming-webhook
           webhook: ${{ matrix.website == 'www.ultralytics.com' && secrets.SLACK_WEBHOOK_URL_WEBSITE || secrets.SLACK_WEBHOOK_URL_YOLO }}
           payload: |
-            {
-              "text": "GitHub Actions: Spelling errors found for ${{ matrix.website }} ❌\n\n\n*Repository:* https://github.com/${{ github.repository }}\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n*Event:* ${{ github.event_name }}\n\n\n*📝 Spelling Errors:*\n${{ env.CODESPELL_ERRORS }}\n"
-            }
+            text: "${{ matrix.website == 'www.ultralytics.com' && '<!subteam^S07ABRC4MLN>' || '<!subteam^S082BPCRAJ3>' }} GitHub Actions: Spelling errors found for *${{ matrix.website }}* ❌\n\n\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n\n\n*📝 Spelling Errors:*\n${{ env.CODESPELL_ERRORS }}\n"
+
+      - name: Notify Slack for large images
+        if: always() && steps.image_sizes.outcome == 'failure' && github.event_name == 'schedule' && github.run_attempt == '1'
+        uses: slackapi/slack-github-action@v2.1.1
+        with:
+          webhook-type: incoming-webhook
+          webhook: ${{ matrix.website == 'www.ultralytics.com' && secrets.SLACK_WEBHOOK_URL_WEBSITE || secrets.SLACK_WEBHOOK_URL_YOLO }}
+          payload: |
+            text: "${{ matrix.website == 'www.ultralytics.com' && '<!subteam^S07ABRC4MLN>' || '<!subteam^S082BPCRAJ3>' }} GitHub Actions: Large images found on *${{ matrix.website }}* 📦\n\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n\n${{ env.IMAGE_RESULTS }}\n"
