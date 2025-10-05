@@ -12,6 +12,12 @@ from bs4 import BeautifulSoup
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
 
+# URLs to ignore when checking image sizes
+URL_IGNORE_LIST = {
+    # Add image URLs here that should be excluded from size checks
+    # Example: "https://example.com/large-banner.png",
+}
+
 
 def check_image_sizes(download_dir, website, threshold_kb=500, max_workers=64):
     """Check image sizes in downloaded HTML files and report large images."""
@@ -23,10 +29,11 @@ def check_image_sizes(download_dir, website, threshold_kb=500, max_workers=64):
         try:
             with open(html_file, encoding="utf-8") as f:
                 soup = BeautifulSoup(f.read(), "html.parser")
-            page_url = f"https://{html_file.relative_to(download_dir)}".replace("/index.html", "/")
+            page_url = f"https://{website}/{html_file.relative_to(download_dir)}".replace("/index.html", "/")
             for img in soup.find_all("img", src=True):
                 img_url = urljoin(f"https://{website}", img["src"])
-                unique_images[img_url].add(page_url)
+                if img_url not in URL_IGNORE_LIST:
+                    unique_images[img_url].add(page_url)
         except Exception:
             pass
 
@@ -123,7 +130,7 @@ def check_image_sizes(download_dir, website, threshold_kb=500, max_workers=64):
             # Get first page URL for context
             page_url = list(unique_images[url])[0]
             # Format as Slack hyperlink to avoid auto-expansion: <url|text>
-            output.append(f"• {size_kb:.1f} KB - <{url}|{filename}> - {page_url}")
+            output.append(f"• {size_kb:.1f} KB - {fmt} - <{url}|{filename}> - {page_url}")
 
         result = "\\n".join(output)
         with open(os.environ["GITHUB_ENV"], "a") as f:
