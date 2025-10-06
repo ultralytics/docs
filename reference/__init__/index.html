@@ -1205,11 +1205,11 @@
 <p>Lazy-import model classes on first access.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>30</span>
-<span>31</span>
-<span>32</span>
-<span>33</span>
-<span>34</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getattr__</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>35</span>
+<span>36</span>
+<span>37</span>
+<span>38</span>
+<span>39</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getattr__</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Lazy-import model classes on first access."""</span>
 <span></span>    <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">MODELS</span><span class="p">:</span>
 <span></span>        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="s2">"ultralytics.models"</span><span class="p">),</span> <span class="n">name</span><span class="p">)</span>
@@ -1228,9 +1228,9 @@
 <p>Extend dir() to include lazily available model names for IDE autocompletion.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>37</span>
-<span>38</span>
-<span>39</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__dir__</span><span class="p">():</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>42</span>
+<span>43</span>
+<span>44</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__dir__</span><span class="p">():</span>
 <span></span><span class="w">    </span><span class="sd">"""Extend dir() to include lazily available model names for IDE autocompletion."""</span>
 <span></span>    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="nb">globals</span><span class="p">())</span> <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="n">MODELS</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
