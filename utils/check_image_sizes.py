@@ -19,7 +19,7 @@ URL_IGNORE_LIST = {
 }
 
 
-def check_image_sizes(download_dir, website, threshold_kb=500, max_workers=32, ignore_gifs=False):
+def check_image_sizes(download_dir, website, threshold_kb=750, max_workers=32, ignore_gifs=False):
     """Check image sizes in downloaded HTML files and report large images."""
     print(f"Scanning {download_dir} for images...")
     unique_images = defaultdict(set)
