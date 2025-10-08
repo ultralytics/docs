@@ -3026,10 +3026,10 @@ requirement as a string, or a list of package requirements as strings.</p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">check_requirements</span><span class="p">(</span><span class="s2">"path/to/requirements.txt"</span><span class="p">)</span>
 </code></pre></div>
 <p>Check a single package</p>
-<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">check_requirements</span><span class="p">(</span><span class="s2">"ultralytics&gt;=8.0.0"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">check_requirements</span><span class="p">(</span><span class="s2">"ultralytics&gt;=8.3.200"</span><span class="p">,</span> <span class="n">cmds</span><span class="o">=</span><span class="s2">"--index-url https://download.pytorch.org/whl/cpu"</span><span class="p">)</span>
 </code></pre></div>
 <p>Check multiple packages</p>
-<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">check_requirements</span><span class="p">([</span><span class="s2">"numpy"</span><span class="p">,</span> <span class="s2">"ultralytics&gt;=8.0.0"</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">check_requirements</span><span class="p">([</span><span class="s2">"numpy"</span><span class="p">,</span> <span class="s2">"ultralytics&gt;=8.3.200"</span><span class="p">])</span>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
@@ -3136,10 +3136,10 @@ requirement as a string, or a list of package requirements as strings.</p>
 <span></span><span class="sd">        &gt;&gt;&gt; check_requirements("path/to/requirements.txt")</span>
 <span></span>
 <span></span><span class="sd">        Check a single package</span>
-<span></span><span class="sd">        &gt;&gt;&gt; check_requirements("ultralytics&gt;=8.0.0")</span>
+<span></span><span class="sd">        &gt;&gt;&gt; check_requirements("ultralytics&gt;=8.3.200", cmds="--index-url https://download.pytorch.org/whl/cpu")</span>
 <span></span>
 <span></span><span class="sd">        Check multiple packages</span>
-<span></span><span class="sd">        &gt;&gt;&gt; check_requirements(["numpy", "ultralytics&gt;=8.0.0"])</span>
+<span></span><span class="sd">        &gt;&gt;&gt; check_requirements(["numpy", "ultralytics&gt;=8.3.200"])</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">prefix</span> <span class="o">=</span> <span class="n">colorstr</span><span class="p">(</span><span class="s2">"red"</span><span class="p">,</span> <span class="s2">"bold"</span><span class="p">,</span> <span class="s2">"requirements:"</span><span class="p">)</span>
 <span></span>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">requirements</span><span class="p">,</span> <span class="n">Path</span><span class="p">):</span>  <span class="c1"># requirements.txt file</span>
