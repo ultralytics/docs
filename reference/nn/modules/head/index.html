@@ -5668,11 +5668,7 @@ Transformer decoder layers to output the final predictions.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>900</span>
-<span>901</span>
-<span>902</span>
-<span>903</span>
-<span>904</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>904</span>
 <span>905</span>
 <span>906</span>
 <span>907</span>
@@ -5745,7 +5741,11 @@ Transformer decoder layers to output the final predictions.</p>
 <span>974</span>
 <span>975</span>
 <span>976</span>
-<span>977</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>977</span>
+<span>978</span>
+<span>979</span>
+<span>980</span>
+<span>981</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">nc</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">80</span><span class="p">,</span>
 <span></span>    <span class="n">ch</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">1024</span><span class="p">,</span> <span class="mi">2048</span><span class="p">),</span>
@@ -5904,11 +5904,7 @@ class scores.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 979</span>
-<span> 980</span>
-<span> 981</span>
-<span> 982</span>
-<span> 983</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 983</span>
 <span> 984</span>
 <span> 985</span>
 <span> 986</span>
@@ -5952,7 +5948,11 @@ class scores.</p>
 <span>1024</span>
 <span>1025</span>
 <span>1026</span>
-<span>1027</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>1027</span>
+<span>1028</span>
+<span>1029</span>
+<span>1030</span>
+<span>1031</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Run the forward pass of the module, returning bounding box and classification scores for the input.</span>
 <span></span>
@@ -6164,13 +6164,7 @@ for improved efficiency and performance.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1207</span>
-<span>1208</span>
-<span>1209</span>
-<span>1210</span>
-<span>1211</span>
-<span>1212</span>
-<span>1213</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1213</span>
 <span>1214</span>
 <span>1215</span>
 <span>1216</span>
@@ -6183,7 +6177,13 @@ for improved efficiency and performance.</p>
 <span>1223</span>
 <span>1224</span>
 <span>1225</span>
-<span>1226</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nc</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">80</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">()):</span>
+<span>1226</span>
+<span>1227</span>
+<span>1228</span>
+<span>1229</span>
+<span>1230</span>
+<span>1231</span>
+<span>1232</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nc</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">80</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">()):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the v10Detect object with the specified number of classes and input channels.</span>
 <span></span>
@@ -6216,9 +6216,9 @@ for improved efficiency and performance.</p>
 <p>Remove the one2many head for inference optimization.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1228</span>
-<span>1229</span>
-<span>1230</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fuse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1234</span>
+<span>1235</span>
+<span>1236</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fuse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Remove the one2many head for inference optimization."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">cv2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cv3</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModuleList</span><span class="p">([</span><span class="n">nn</span><span class="o">.</span><span class="n">Identity</span><span class="p">()]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">nl</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
