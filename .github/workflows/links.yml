@@ -162,7 +162,7 @@ jobs:
             echo "Scanning $downloaded_files downloaded pages for broken links..."
 
             # Create summary.txt with the total page count
-            echo "*Results for $downloaded_files pages in https://${{ matrix.website }}*" > summary.txt
+            echo "*Results for $downloaded_files pages*" > summary.txt
             echo "" >> summary.txt
 
             rm -rf .lycheecache
@@ -191,6 +191,7 @@ jobs:
 
             # Second pass: remove TIMEOUT lines, pages that had timeouts, and squeeze blank lines
             ESCAPED_SUMMARY=$(grep -v "^\[TIMEOUT\]" summary.txt | \
+              grep -v "Issues found in .* inputs" | \
               grep -F -v -f /tmp/timeout_pages.txt | tr -d '\r' | \
               sed -E 's/[[:space:]]*\|[[:space:]]*Rejected status code[^:]*:[[:space:]]*/ | /g' | \
               cat -s | \
