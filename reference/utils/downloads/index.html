@@ -1412,7 +1412,8 @@
 <span>66</span>
 <span>67</span>
 <span>68</span>
-<span>69</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_url</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span> <span class="n">check</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span>69</span>
+<span>70</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_url</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span> <span class="n">check</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Validate if the given string is a URL and optionally check if the URL exists online.</span>
 <span></span>
@@ -1430,10 +1431,11 @@
 <span></span>    <span class="k">try</span><span class="p">:</span>
 <span></span>        <span class="n">url</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span></span>        <span class="n">result</span> <span class="o">=</span> <span class="n">parse</span><span class="o">.</span><span class="n">urlparse</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span></span>        <span class="k">assert</span> <span class="nb">all</span><span class="p">([</span><span class="n">result</span><span class="o">.</span><span class="n">scheme</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">netloc</span><span class="p">])</span>  <span class="c1"># check if is url</span>
+<span></span>        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">scheme</span> <span class="ow">and</span> <span class="n">result</span><span class="o">.</span><span class="n">netloc</span><span class="p">):</span>
+<span></span>            <span class="k">return</span> <span class="kc">False</span>
 <span></span>        <span class="k">if</span> <span class="n">check</span><span class="p">:</span>
-<span></span>            <span class="k">with</span> <span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
-<span></span>                <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">getcode</span><span class="p">()</span> <span class="o">==</span> <span class="mi">200</span>  <span class="c1"># check if exists online</span>
+<span></span>            <span class="n">r</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"HEAD"</span><span class="p">),</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span></span>            <span class="k">return</span> <span class="mi">200</span> <span class="o">&lt;=</span> <span class="n">r</span><span class="o">.</span><span class="n">getcode</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">400</span>
 <span></span>        <span class="k">return</span> <span class="kc">True</span>
 <span></span>    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
 <span></span>        <span class="k">return</span> <span class="kc">False</span>
@@ -1508,8 +1510,7 @@ are hidden system files and can cause issues when transferring files between dif
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/downloads.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>72</span>
-<span>73</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>73</span>
 <span>74</span>
 <span>75</span>
 <span>76</span>
@@ -1528,7 +1529,8 @@ are hidden system files and can cause issues when transferring files between dif
 <span>89</span>
 <span>90</span>
 <span>91</span>
-<span>92</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">delete_dsstore</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span> <span class="n">files_to_delete</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">".DS_Store"</span><span class="p">,</span> <span class="s2">"__MACOSX"</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>92</span>
+<span>93</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">delete_dsstore</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span> <span class="n">files_to_delete</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">".DS_Store"</span><span class="p">,</span> <span class="s2">"__MACOSX"</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Delete all specified system files in a directory.</span>
 <span></span>
@@ -1671,8 +1673,7 @@ are hidden system files and can cause issues when transferring files between dif
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/downloads.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 95</span>
-<span> 96</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 96</span>
 <span> 97</span>
 <span> 98</span>
 <span> 99</span>
@@ -1710,7 +1711,8 @@ are hidden system files and can cause issues when transferring files between dif
 <span>131</span>
 <span>132</span>
 <span>133</span>
-<span>134</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">zip_directory</span><span class="p">(</span>
+<span>134</span>
+<span>135</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">zip_directory</span><span class="p">(</span>
 <span></span>    <span class="n">directory</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span>
 <span></span>    <span class="n">compress</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 <span></span>    <span class="n">exclude</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">".DS_Store"</span><span class="p">,</span> <span class="s2">"__MACOSX"</span><span class="p">),</span>
@@ -1912,8 +1914,7 @@ If a path is not provided, the function will use the parent directory of the zip
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/downloads.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>137</span>
-<span>138</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>138</span>
 <span>139</span>
 <span>140</span>
 <span>141</span>
@@ -1978,7 +1979,8 @@ If a path is not provided, the function will use the parent directory of the zip
 <span>200</span>
 <span>201</span>
 <span>202</span>
-<span>203</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">unzip_file</span><span class="p">(</span>
+<span>203</span>
+<span>204</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">unzip_file</span><span class="p">(</span>
 <span></span>    <span class="n">file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span>
 <span></span>    <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">exclude</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">".DS_Store"</span><span class="p">,</span> <span class="s2">"__MACOSX"</span><span class="p">),</span>
@@ -2162,8 +2164,7 @@ If a path is not provided, the function will use the parent directory of the zip
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/downloads.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>206</span>
-<span>207</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>207</span>
 <span>208</span>
 <span>209</span>
 <span>210</span>
@@ -2192,7 +2193,8 @@ If a path is not provided, the function will use the parent directory of the zip
 <span>233</span>
 <span>234</span>
 <span>235</span>
-<span>236</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_disk_space</span><span class="p">(</span>
+<span>236</span>
+<span>237</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_disk_space</span><span class="p">(</span>
 <span></span>    <span class="n">file_bytes</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">(),</span>
 <span></span>    <span class="n">sf</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">,</span>
@@ -2302,8 +2304,7 @@ If a path is not provided, the function will use the parent directory of the zip
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/downloads.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>239</span>
-<span>240</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>240</span>
 <span>241</span>
 <span>242</span>
 <span>243</span>
@@ -2339,7 +2340,8 @@ If a path is not provided, the function will use the parent directory of the zip
 <span>273</span>
 <span>274</span>
 <span>275</span>
-<span>276</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_google_drive_file_info</span><span class="p">(</span><span class="n">link</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]:</span>
+<span>276</span>
+<span>277</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_google_drive_file_info</span><span class="p">(</span><span class="n">link</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Retrieve the direct download link and filename for a shareable Google Drive file link.</span>
 <span></span>
@@ -2605,8 +2607,7 @@ a successful download.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/downloads.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>279</span>
-<span>280</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>280</span>
 <span>281</span>
 <span>282</span>
 <span>283</span>
@@ -2718,9 +2719,7 @@ a successful download.</p>
 <span>389</span>
 <span>390</span>
 <span>391</span>
-<span>392</span>
-<span>393</span>
-<span>394</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">safe_download</span><span class="p">(</span>
+<span>392</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">safe_download</span><span class="p">(</span>
 <span></span>    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span>
 <span></span>    <span class="n">file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="nb">dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2767,10 +2766,7 @@ a successful download.</p>
 <span></span>    <span class="k">if</span> <span class="s2">"://"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="ow">and</span> <span class="n">Path</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>  <span class="c1"># URL exists ('://' check required in Windows Python&lt;3.10)</span>
 <span></span>        <span class="n">f</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>  <span class="c1"># filename</span>
 <span></span>    <span class="k">elif</span> <span class="ow">not</span> <span class="n">f</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>  <span class="c1"># URL and file do not exist</span>
-<span></span>        <span class="n">uri</span> <span class="o">=</span> <span class="p">(</span><span class="n">url</span> <span class="k">if</span> <span class="n">gdrive</span> <span class="k">else</span> <span class="n">clean_url</span><span class="p">(</span><span class="n">url</span><span class="p">))</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>  <span class="c1"># cleaned and aliased url</span>
-<span></span>            <span class="s2">"https://github.com/ultralytics/assets/releases/download/v0.0.0/"</span><span class="p">,</span>
-<span></span>            <span class="s2">"https://ultralytics.com/assets/"</span><span class="p">,</span>  <span class="c1"># assets alias</span>
-<span></span>        <span class="p">)</span>
+<span></span>        <span class="n">uri</span> <span class="o">=</span> <span class="p">(</span><span class="n">url</span> <span class="k">if</span> <span class="n">gdrive</span> <span class="k">else</span> <span class="n">clean_url</span><span class="p">(</span><span class="n">url</span><span class="p">))</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">ASSETS_URL</span><span class="p">,</span> <span class="s2">"https://ultralytics.com/assets"</span><span class="p">)</span>  <span class="c1"># clean</span>
 <span></span>        <span class="n">desc</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"Downloading </span><span class="si">{</span><span class="n">uri</span><span class="si">}</span><span class="s2"> to '</span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s2">'"</span>
 <span></span>        <span class="n">f</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># make directory if missing</span>
 <span></span>        <span class="n">curl_installed</span> <span class="o">=</span> <span class="n">shutil</span><span class="o">.</span><span class="n">which</span><span class="p">(</span><span class="s2">"curl"</span><span class="p">)</span>
@@ -2950,7 +2946,9 @@ a successful download.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/downloads.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>397</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>395</span>
+<span>396</span>
+<span>397</span>
 <span>398</span>
 <span>399</span>
 <span>400</span>
@@ -2982,9 +2980,7 @@ a successful download.</p>
 <span>426</span>
 <span>427</span>
 <span>428</span>
-<span>429</span>
-<span>430</span>
-<span>431</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_github_assets</span><span class="p">(</span>
+<span>429</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_github_assets</span><span class="p">(</span>
 <span></span>    <span class="n">repo</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"ultralytics/assets"</span><span class="p">,</span>
 <span></span>    <span class="n">version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"latest"</span><span class="p">,</span>
 <span></span>    <span class="n">retry</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -3139,7 +3135,9 @@ a successful download.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/downloads.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>434</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>432</span>
+<span>433</span>
+<span>434</span>
 <span>435</span>
 <span>436</span>
 <span>437</span>
@@ -3190,9 +3188,7 @@ a successful download.</p>
 <span>482</span>
 <span>483</span>
 <span>484</span>
-<span>485</span>
-<span>486</span>
-<span>487</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">attempt_download_asset</span><span class="p">(</span>
+<span>485</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">attempt_download_asset</span><span class="p">(</span>
 <span></span>    <span class="n">file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span>
 <span></span>    <span class="n">repo</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"ultralytics/assets"</span><span class="p">,</span>
 <span></span>    <span class="n">release</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"v8.3.0"</span><span class="p">,</span>
@@ -3414,7 +3410,9 @@ a successful download.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/downloads.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>490</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>488</span>
+<span>489</span>
+<span>490</span>
 <span>491</span>
 <span>492</span>
 <span>493</span>
@@ -3463,9 +3461,7 @@ a successful download.</p>
 <span>536</span>
 <span>537</span>
 <span>538</span>
-<span>539</span>
-<span>540</span>
-<span>541</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">download</span><span class="p">(</span>
+<span>539</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">download</span><span class="p">(</span>
 <span></span>    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span>
 <span></span>    <span class="nb">dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">(),</span>
 <span></span>    <span class="n">unzip</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>

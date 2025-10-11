@@ -3276,9 +3276,7 @@ them in the COCO dataset structure. It uses multithreading to generate images ef
 <span>700</span>
 <span>701</span>
 <span>702</span>
-<span>703</span>
-<span>704</span>
-<span>705</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">create_synthetic_coco_dataset</span><span class="p">():</span>
+<span>703</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">create_synthetic_coco_dataset</span><span class="p">():</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Create a synthetic COCO dataset with random images based on filenames from label lists.</span>
 <span></span>
@@ -3309,9 +3307,7 @@ them in the COCO dataset structure. It uses multithreading to generate images ef
 <span></span>
 <span></span>    <span class="c1"># Download labels</span>
 <span></span>    <span class="nb">dir</span> <span class="o">=</span> <span class="n">DATASETS_DIR</span> <span class="o">/</span> <span class="s2">"coco"</span>
-<span></span>    <span class="n">url</span> <span class="o">=</span> <span class="s2">"https://github.com/ultralytics/assets/releases/download/v0.0.0/"</span>
-<span></span>    <span class="n">label_zip</span> <span class="o">=</span> <span class="s2">"coco2017labels-segments.zip"</span>
-<span></span>    <span class="n">download</span><span class="p">([</span><span class="n">url</span> <span class="o">+</span> <span class="n">label_zip</span><span class="p">],</span> <span class="nb">dir</span><span class="o">=</span><span class="nb">dir</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+<span></span>    <span class="n">download</span><span class="p">([</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">ASSETS_URL</span><span class="si">}</span><span class="s2">/coco2017labels-segments.zip"</span><span class="p">],</span> <span class="nb">dir</span><span class="o">=</span><span class="nb">dir</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
 <span></span>
 <span></span>    <span class="c1"># Create synthetic images</span>
 <span></span>    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="nb">dir</span> <span class="o">/</span> <span class="s2">"labels"</span> <span class="o">/</span> <span class="s2">"test2017"</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Remove test2017 directory as not needed</span>
@@ -3439,7 +3435,9 @@ of channels. It can process either a single image or a directory of images.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/converter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>708</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>706</span>
+<span>707</span>
+<span>708</span>
 <span>709</span>
 <span>710</span>
 <span>711</span>
@@ -3486,9 +3484,7 @@ of channels. It can process either a single image or a directory of images.</p>
 <span>752</span>
 <span>753</span>
 <span>754</span>
-<span>755</span>
-<span>756</span>
-<span>757</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_to_multispectral</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span> <span class="n">n_channels</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">replace</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="nb">zip</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span>755</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_to_multispectral</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span> <span class="n">n_channels</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">replace</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="nb">zip</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert RGB images to multispectral images by interpolating across wavelength bands.</span>
 <span></span>
@@ -3643,7 +3639,9 @@ will be saved. If None, uses the parent directory of the NDJSON file. Defaults t
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/converter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>760</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>758</span>
+<span>759</span>
+<span>760</span>
 <span>761</span>
 <span>762</span>
 <span>763</span>
@@ -3748,9 +3746,7 @@ will be saved. If None, uses the parent directory of the NDJSON file. Defaults t
 <span>862</span>
 <span>863</span>
 <span>864</span>
-<span>865</span>
-<span>866</span>
-<span>867</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">convert_ndjson_to_yolo</span><span class="p">(</span><span class="n">ndjson_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span> <span class="n">output_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span>865</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">convert_ndjson_to_yolo</span><span class="p">(</span><span class="n">ndjson_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span> <span class="n">output_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert NDJSON dataset format to Ultralytics YOLO11 dataset structure.</span>
 <span></span>

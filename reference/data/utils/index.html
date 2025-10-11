@@ -1891,10 +1891,10 @@ i.e. <a href="https://github.com/ultralytics/hub/raw/main/example_datasets/coco8
 <p>Convert image paths to label paths by replacing 'images' with 'labels' and extension with '.txt'.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>44</span>
-<span>45</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>45</span>
 <span>46</span>
-<span>47</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">img2label_paths</span><span class="p">(</span><span class="n">img_paths</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span>47</span>
+<span>48</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">img2label_paths</span><span class="p">(</span><span class="n">img_paths</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Convert image paths to label paths by replacing 'images' with 'labels' and extension with '.txt'."""</span>
 <span></span>    <span class="n">sa</span><span class="p">,</span> <span class="n">sb</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="si">}</span><span class="s2">images</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="si">}</span><span class="s2">labels</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="si">}</span><span class="s2">"</span>  <span class="c1"># /images/, /labels/ substrings</span>
 <span></span>    <span class="k">return</span> <span class="p">[</span><span class="n">sb</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="n">sa</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">"."</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">".txt"</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">img_paths</span><span class="p">]</span>
@@ -2018,8 +2018,7 @@ It samples up to 5 files from the provided list and warns if access times exceed
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 50</span>
-<span> 51</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 51</span>
 <span> 52</span>
 <span> 53</span>
 <span> 54</span>
@@ -2093,7 +2092,8 @@ It samples up to 5 files from the provided list and warns if access times exceed
 <span>122</span>
 <span>123</span>
 <span>124</span>
-<span>125</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_file_speeds</span><span class="p">(</span>
+<span>125</span>
+<span>126</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_file_speeds</span><span class="p">(</span>
 <span></span>    <span class="n">files</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">threshold_ms</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">threshold_mb</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">max_files</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span>
 <span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
@@ -2183,8 +2183,7 @@ It samples up to 5 files from the provided list and warns if access times exceed
 <p>Return a single hash value of a list of paths (files or dirs).</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>128</span>
-<span>129</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>129</span>
 <span>130</span>
 <span>131</span>
 <span>132</span>
@@ -2193,7 +2192,8 @@ It samples up to 5 files from the provided list and warns if access times exceed
 <span>135</span>
 <span>136</span>
 <span>137</span>
-<span>138</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_hash</span><span class="p">(</span><span class="n">paths</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span>138</span>
+<span>139</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_hash</span><span class="p">(</span><span class="n">paths</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return a single hash value of a list of paths (files or dirs)."""</span>
 <span></span>    <span class="n">size</span> <span class="o">=</span> <span class="mi">0</span>
 <span></span>    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">paths</span><span class="p">:</span>
@@ -2218,8 +2218,7 @@ It samples up to 5 files from the provided list and warns if access times exceed
 <p>Return exif-corrected PIL size.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>141</span>
-<span>142</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>142</span>
 <span>143</span>
 <span>144</span>
 <span>145</span>
@@ -2229,7 +2228,8 @@ It samples up to 5 files from the provided list and warns if access times exceed
 <span>149</span>
 <span>150</span>
 <span>151</span>
-<span>152</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">exif_size</span><span class="p">(</span><span class="n">img</span><span class="p">:</span> <span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span>152</span>
+<span>153</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">exif_size</span><span class="p">(</span><span class="n">img</span><span class="p">:</span> <span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return exif-corrected PIL size."""</span>
 <span></span>    <span class="n">s</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">size</span>  <span class="c1"># (width, height)</span>
 <span></span>    <span class="k">if</span> <span class="n">img</span><span class="o">.</span><span class="n">format</span> <span class="o">==</span> <span class="s2">"JPEG"</span><span class="p">:</span>  <span class="c1"># only support JPEG images</span>
@@ -2255,8 +2255,7 @@ It samples up to 5 files from the provided list and warns if access times exceed
 <p>Verify one image.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>155</span>
-<span>156</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>156</span>
 <span>157</span>
 <span>158</span>
 <span>159</span>
@@ -2277,7 +2276,8 @@ It samples up to 5 files from the provided list and warns if access times exceed
 <span>174</span>
 <span>175</span>
 <span>176</span>
-<span>177</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">verify_image</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+<span>177</span>
+<span>178</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">verify_image</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Verify one image."""</span>
 <span></span>    <span class="p">(</span><span class="n">im_file</span><span class="p">,</span> <span class="bp">cls</span><span class="p">),</span> <span class="n">prefix</span> <span class="o">=</span> <span class="n">args</span>
 <span></span>    <span class="c1"># Number (found, corrupt), message</span>
@@ -2314,8 +2314,7 @@ It samples up to 5 files from the provided list and warns if access times exceed
 <p>Verify one image-label pair.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>180</span>
-<span>181</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>181</span>
 <span>182</span>
 <span>183</span>
 <span>184</span>
@@ -2383,7 +2382,8 @@ It samples up to 5 files from the provided list and warns if access times exceed
 <span>246</span>
 <span>247</span>
 <span>248</span>
-<span>249</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">verify_image_label</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span>249</span>
+<span>250</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">verify_image_label</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Verify one image-label pair."""</span>
 <span></span>    <span class="n">im_file</span><span class="p">,</span> <span class="n">lb_file</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">keypoint</span><span class="p">,</span> <span class="n">num_cls</span><span class="p">,</span> <span class="n">nkpt</span><span class="p">,</span> <span class="n">ndim</span><span class="p">,</span> <span class="n">single_cls</span> <span class="o">=</span> <span class="n">args</span>
 <span></span>    <span class="c1"># Number (missing, found, empty, corrupt), message, segments, keypoints</span>
@@ -2538,8 +2538,7 @@ adjusted for readability, depending on the background color's luminance.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>252</span>
-<span>253</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>253</span>
 <span>254</span>
 <span>255</span>
 <span>256</span>
@@ -2579,7 +2578,8 @@ adjusted for readability, depending on the background color's luminance.</p>
 <span>290</span>
 <span>291</span>
 <span>292</span>
-<span>293</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">visualize_image_annotations</span><span class="p">(</span><span class="n">image_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">txt_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">label_map</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]):</span>
+<span>293</span>
+<span>294</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">visualize_image_annotations</span><span class="p">(</span><span class="n">image_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">txt_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">label_map</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Visualize YOLO annotations (bounding boxes and class labels) on an image.</span>
 <span></span>
@@ -2739,8 +2739,7 @@ adjusted for readability, depending on the background color's luminance.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>296</span>
-<span>297</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>297</span>
 <span>298</span>
 <span>299</span>
 <span>300</span>
@@ -2761,7 +2760,8 @@ adjusted for readability, depending on the background color's luminance.</p>
 <span>315</span>
 <span>316</span>
 <span>317</span>
-<span>318</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">polygon2mask</span><span class="p">(</span>
+<span>318</span>
+<span>319</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">polygon2mask</span><span class="p">(</span>
 <span></span>    <span class="n">imgsz</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">polygons</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">color</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">downsample_ratio</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
@@ -2902,8 +2902,7 @@ adjusted for readability, depending on the background color's luminance.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>321</span>
-<span>322</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>322</span>
 <span>323</span>
 <span>324</span>
 <span>325</span>
@@ -2918,7 +2917,8 @@ adjusted for readability, depending on the background color's luminance.</p>
 <span>334</span>
 <span>335</span>
 <span>336</span>
-<span>337</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">polygons2masks</span><span class="p">(</span>
+<span>337</span>
+<span>338</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">polygons2masks</span><span class="p">(</span>
 <span></span>    <span class="n">imgsz</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">polygons</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">color</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">downsample_ratio</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
@@ -2951,8 +2951,7 @@ adjusted for readability, depending on the background color's luminance.</p>
 <p>Return a (640, 640) overlap mask.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>340</span>
-<span>341</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>341</span>
 <span>342</span>
 <span>343</span>
 <span>344</span>
@@ -2977,7 +2976,8 @@ adjusted for readability, depending on the background color's luminance.</p>
 <span>363</span>
 <span>364</span>
 <span>365</span>
-<span>366</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">polygons2masks_overlap</span><span class="p">(</span>
+<span>366</span>
+<span>367</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">polygons2masks_overlap</span><span class="p">(</span>
 <span></span>    <span class="n">imgsz</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">segments</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">downsample_ratio</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return a (640, 640) overlap mask."""</span>
@@ -3070,8 +3070,7 @@ performs a recursive search. It prefers YAML files that have the same stem as th
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>369</span>
-<span>370</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>370</span>
 <span>371</span>
 <span>372</span>
 <span>373</span>
@@ -3088,7 +3087,8 @@ performs a recursive search. It prefers YAML files that have the same stem as th
 <span>384</span>
 <span>385</span>
 <span>386</span>
-<span>387</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">find_dataset_yaml</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span>387</span>
+<span>388</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">find_dataset_yaml</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Find and return the YAML file associated with a Detect, Segment or Pose dataset.</span>
 <span></span>
@@ -3190,8 +3190,7 @@ resolves paths related to the dataset.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>390</span>
-<span>391</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>391</span>
 <span>392</span>
 <span>393</span>
 <span>394</span>
@@ -3282,7 +3281,8 @@ resolves paths related to the dataset.</p>
 <span>479</span>
 <span>480</span>
 <span>481</span>
-<span>482</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_det_dataset</span><span class="p">(</span><span class="n">dataset</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">autodownload</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span>482</span>
+<span>483</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_det_dataset</span><span class="p">(</span><span class="n">dataset</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">autodownload</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Download, verify, and/or unzip a dataset if not found locally.</span>
 <span></span>
@@ -3464,8 +3464,7 @@ If the dataset is not found locally, it attempts to download the dataset from th
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>485</span>
-<span>486</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>486</span>
 <span>487</span>
 <span>488</span>
 <span>489</span>
@@ -3600,8 +3599,7 @@ If the dataset is not found locally, it attempts to download the dataset from th
 <span></span>        <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"imagenet"</span><span class="p">:</span>
 <span></span>            <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">"bash"</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">ROOT</span> <span class="o">/</span> <span class="s2">"data/scripts/get_imagenet.sh"</span><span class="p">)],</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span></span>        <span class="k">else</span><span class="p">:</span>
-<span></span>            <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://github.com/ultralytics/assets/releases/download/v0.0.0/</span><span class="si">{</span><span class="n">dataset</span><span class="si">}</span><span class="s2">.zip"</span>
-<span></span>            <span class="n">download</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="n">data_dir</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+<span></span>            <span class="n">download</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">ASSETS_URL</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">dataset</span><span class="si">}</span><span class="s2">.zip"</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="n">data_dir</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
 <span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Dataset download success ✅ (</span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">s), saved to </span><span class="si">{</span><span class="n">colorstr</span><span class="p">(</span><span class="s1">'bold'</span><span class="p">,</span><span class="w"> </span><span class="n">data_dir</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 <span></span>    <span class="n">train_set</span> <span class="o">=</span> <span class="n">data_dir</span> <span class="o">/</span> <span class="s2">"train"</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">train_set</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
