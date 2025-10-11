@@ -1006,6 +1006,13 @@
 <nav aria-label=" ProfileModels" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.benchmarks.ProfileModels.check_dynamic">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> check_dynamic
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.utils.benchmarks.ProfileModels.generate_results_dict">
 <span class="md-ellipsis">
 <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> generate_results_dict
@@ -1319,6 +1326,13 @@
 </a>
 <nav aria-label=" ProfileModels" class="md-nav">
 <ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.benchmarks.ProfileModels.check_dynamic">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> check_dynamic
+    </span>
+</a>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.utils.benchmarks.ProfileModels.generate_results_dict">
 <span class="md-ellipsis">
@@ -2482,6 +2496,30 @@
 </details>
 <div class="doc doc-children">
 <div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.utils.benchmarks.ProfileModels.check_dynamic">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">check_dynamic</span>
+<span class="doc doc-labels">
+<small class="doc doc-label doc-label-staticmethod"><code>staticmethod</code></small>
+</span>
+</h3>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">check_dynamic</span><span class="p">(</span><span class="n">tensor_shape</span><span class="p">)</span>
+</code></pre></div>
+<div class="doc doc-contents">
+<p>Check whether the tensor shape in the ONNX model is dynamic.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>586</span>
+<span>587</span>
+<span>588</span>
+<span>589</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_dynamic</span><span class="p">(</span><span class="n">tensor_shape</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Check whether the tensor shape in the ONNX model is dynamic."""</span>
+<span></span>    <span class="k">return</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="n">dim</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">tensor_shape</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="ultralytics.utils.benchmarks.ProfileModels.generate_results_dict">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">generate_results_dict</span>
 <span class="doc doc-labels">
@@ -2597,21 +2635,7 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>676</span>
-<span>677</span>
-<span>678</span>
-<span>679</span>
-<span>680</span>
-<span>681</span>
-<span>682</span>
-<span>683</span>
-<span>684</span>
-<span>685</span>
-<span>686</span>
-<span>687</span>
-<span>688</span>
-<span>689</span>
-<span>690</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>690</span>
 <span>691</span>
 <span>692</span>
 <span>693</span>
@@ -2623,7 +2647,21 @@
 <span>699</span>
 <span>700</span>
 <span>701</span>
-<span>702</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span>702</span>
+<span>703</span>
+<span>704</span>
+<span>705</span>
+<span>706</span>
+<span>707</span>
+<span>708</span>
+<span>709</span>
+<span>710</span>
+<span>711</span>
+<span>712</span>
+<span>713</span>
+<span>714</span>
+<span>715</span>
+<span>716</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_results_dict</span><span class="p">(</span>
 <span></span>    <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span></span>    <span class="n">t_onnx</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
@@ -2767,21 +2805,7 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>651</span>
-<span>652</span>
-<span>653</span>
-<span>654</span>
-<span>655</span>
-<span>656</span>
-<span>657</span>
-<span>658</span>
-<span>659</span>
-<span>660</span>
-<span>661</span>
-<span>662</span>
-<span>663</span>
-<span>664</span>
-<span>665</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>665</span>
 <span>666</span>
 <span>667</span>
 <span>668</span>
@@ -2790,7 +2814,21 @@
 <span>671</span>
 <span>672</span>
 <span>673</span>
-<span>674</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_table_row</span><span class="p">(</span>
+<span>674</span>
+<span>675</span>
+<span>676</span>
+<span>677</span>
+<span>678</span>
+<span>679</span>
+<span>680</span>
+<span>681</span>
+<span>682</span>
+<span>683</span>
+<span>684</span>
+<span>685</span>
+<span>686</span>
+<span>687</span>
+<span>688</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_table_row</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span></span>    <span class="n">t_onnx</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
@@ -3098,21 +3136,7 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>704</span>
-<span>705</span>
-<span>706</span>
-<span>707</span>
-<span>708</span>
-<span>709</span>
-<span>710</span>
-<span>711</span>
-<span>712</span>
-<span>713</span>
-<span>714</span>
-<span>715</span>
-<span>716</span>
-<span>717</span>
-<span>718</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>718</span>
 <span>719</span>
 <span>720</span>
 <span>721</span>
@@ -3122,7 +3146,21 @@
 <span>725</span>
 <span>726</span>
 <span>727</span>
-<span>728</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span>728</span>
+<span>729</span>
+<span>730</span>
+<span>731</span>
+<span>732</span>
+<span>733</span>
+<span>734</span>
+<span>735</span>
+<span>736</span>
+<span>737</span>
+<span>738</span>
+<span>739</span>
+<span>740</span>
+<span>741</span>
+<span>742</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_table</span><span class="p">(</span><span class="n">table_rows</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Print a formatted table of model profiling results.</span>
@@ -3237,12 +3275,7 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>586</span>
-<span>587</span>
-<span>588</span>
-<span>589</span>
-<span>590</span>
-<span>591</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>591</span>
 <span>592</span>
 <span>593</span>
 <span>594</span>
@@ -3300,7 +3333,21 @@
 <span>646</span>
 <span>647</span>
 <span>648</span>
-<span>649</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">profile_onnx_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">onnx_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-3</span><span class="p">):</span>
+<span>649</span>
+<span>650</span>
+<span>651</span>
+<span>652</span>
+<span>653</span>
+<span>654</span>
+<span>655</span>
+<span>656</span>
+<span>657</span>
+<span>658</span>
+<span>659</span>
+<span>660</span>
+<span>661</span>
+<span>662</span>
+<span>663</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">profile_onnx_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">onnx_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-3</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Profile an ONNX model, measuring average inference time and standard deviation across multiple runs.</span>
 <span></span>
@@ -3321,27 +3368,36 @@
 <span></span>    <span class="n">sess_options</span><span class="o">.</span><span class="n">intra_op_num_threads</span> <span class="o">=</span> <span class="mi">8</span>  <span class="c1"># Limit the number of threads</span>
 <span></span>    <span class="n">sess</span> <span class="o">=</span> <span class="n">ort</span><span class="o">.</span><span class="n">InferenceSession</span><span class="p">(</span><span class="n">onnx_file</span><span class="p">,</span> <span class="n">sess_options</span><span class="p">,</span> <span class="n">providers</span><span class="o">=</span><span class="p">[</span><span class="s2">"CPUExecutionProvider"</span><span class="p">])</span>
 <span></span>
-<span></span>    <span class="n">input_tensor</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">get_inputs</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
-<span></span>    <span class="n">input_type</span> <span class="o">=</span> <span class="n">input_tensor</span><span class="o">.</span><span class="n">type</span>
-<span></span>    <span class="n">dynamic</span> <span class="o">=</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="n">dim</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">input_tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># dynamic input shape</span>
-<span></span>    <span class="n">input_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">)</span> <span class="k">if</span> <span class="n">dynamic</span> <span class="k">else</span> <span class="n">input_tensor</span><span class="o">.</span><span class="n">shape</span>
+<span></span>    <span class="n">input_data_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span></span>    <span class="k">for</span> <span class="n">input_tensor</span> <span class="ow">in</span> <span class="n">sess</span><span class="o">.</span><span class="n">get_inputs</span><span class="p">():</span>
+<span></span>        <span class="n">input_type</span> <span class="o">=</span> <span class="n">input_tensor</span><span class="o">.</span><span class="n">type</span>
+<span></span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_dynamic</span><span class="p">(</span><span class="n">input_tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">):</span>
+<span></span>            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">4</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_dynamic</span><span class="p">(</span><span class="n">input_tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+<span></span>                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Unsupported dynamic shape </span><span class="si">{</span><span class="n">input_tensor</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> of </span><span class="si">{</span><span class="n">input_tensor</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span></span>            <span class="n">input_shape</span> <span class="o">=</span> <span class="p">(</span>
+<span></span>                <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span> <span class="k">else</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="n">input_tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+<span></span>            <span class="p">)</span>
+<span></span>        <span class="k">else</span><span class="p">:</span>
+<span></span>            <span class="n">input_shape</span> <span class="o">=</span> <span class="n">input_tensor</span><span class="o">.</span><span class="n">shape</span>
 <span></span>
-<span></span>    <span class="c1"># Mapping ONNX datatype to numpy datatype</span>
-<span></span>    <span class="k">if</span> <span class="s2">"float16"</span> <span class="ow">in</span> <span class="n">input_type</span><span class="p">:</span>
-<span></span>        <span class="n">input_dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float16</span>
-<span></span>    <span class="k">elif</span> <span class="s2">"float"</span> <span class="ow">in</span> <span class="n">input_type</span><span class="p">:</span>
-<span></span>        <span class="n">input_dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span>
-<span></span>    <span class="k">elif</span> <span class="s2">"double"</span> <span class="ow">in</span> <span class="n">input_type</span><span class="p">:</span>
-<span></span>        <span class="n">input_dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span>
-<span></span>    <span class="k">elif</span> <span class="s2">"int64"</span> <span class="ow">in</span> <span class="n">input_type</span><span class="p">:</span>
-<span></span>        <span class="n">input_dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span>
-<span></span>    <span class="k">elif</span> <span class="s2">"int32"</span> <span class="ow">in</span> <span class="n">input_type</span><span class="p">:</span>
-<span></span>        <span class="n">input_dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span>
-<span></span>    <span class="k">else</span><span class="p">:</span>
-<span></span>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Unsupported ONNX datatype </span><span class="si">{</span><span class="n">input_type</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span></span>        <span class="c1"># Mapping ONNX datatype to numpy datatype</span>
+<span></span>        <span class="k">if</span> <span class="s2">"float16"</span> <span class="ow">in</span> <span class="n">input_type</span><span class="p">:</span>
+<span></span>            <span class="n">input_dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float16</span>
+<span></span>        <span class="k">elif</span> <span class="s2">"float"</span> <span class="ow">in</span> <span class="n">input_type</span><span class="p">:</span>
+<span></span>            <span class="n">input_dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span>
+<span></span>        <span class="k">elif</span> <span class="s2">"double"</span> <span class="ow">in</span> <span class="n">input_type</span><span class="p">:</span>
+<span></span>            <span class="n">input_dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span>
+<span></span>        <span class="k">elif</span> <span class="s2">"int64"</span> <span class="ow">in</span> <span class="n">input_type</span><span class="p">:</span>
+<span></span>            <span class="n">input_dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span>
+<span></span>        <span class="k">elif</span> <span class="s2">"int32"</span> <span class="ow">in</span> <span class="n">input_type</span><span class="p">:</span>
+<span></span>            <span class="n">input_dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span>
+<span></span>        <span class="k">else</span><span class="p">:</span>
+<span></span>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Unsupported ONNX datatype </span><span class="si">{</span><span class="n">input_type</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span></span>
-<span></span>    <span class="n">input_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="o">*</span><span class="n">input_shape</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">input_dtype</span><span class="p">)</span>
-<span></span>    <span class="n">input_name</span> <span class="o">=</span> <span class="n">input_tensor</span><span class="o">.</span><span class="n">name</span>
+<span></span>        <span class="n">input_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="o">*</span><span class="n">input_shape</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">input_dtype</span><span class="p">)</span>
+<span></span>        <span class="n">input_name</span> <span class="o">=</span> <span class="n">input_tensor</span><span class="o">.</span><span class="n">name</span>
+<span></span>        <span class="n">input_data_dict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">input_name</span><span class="p">:</span> <span class="n">input_data</span><span class="p">})</span>
+<span></span>
 <span></span>    <span class="n">output_name</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">get_outputs</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
 <span></span>
 <span></span>    <span class="c1"># Warmup runs</span>
@@ -3349,7 +3405,7 @@
 <span></span>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
 <span></span>        <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span></span>        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_warmup_runs</span><span class="p">):</span>
-<span></span>            <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">output_name</span><span class="p">],</span> <span class="p">{</span><span class="n">input_name</span><span class="p">:</span> <span class="n">input_data</span><span class="p">})</span>
+<span></span>            <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">output_name</span><span class="p">],</span> <span class="n">input_data_dict</span><span class="p">)</span>
 <span></span>        <span class="n">elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
 <span></span>
 <span></span>    <span class="c1"># Compute number of runs as higher of min_time or num_timed_runs</span>
@@ -3359,7 +3415,7 @@
 <span></span>    <span class="n">run_times</span> <span class="o">=</span> <span class="p">[]</span>
 <span></span>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">TQDM</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">num_runs</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="n">onnx_file</span><span class="p">):</span>
 <span></span>        <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span></span>        <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">output_name</span><span class="p">],</span> <span class="p">{</span><span class="n">input_name</span><span class="p">:</span> <span class="n">input_data</span><span class="p">})</span>
+<span></span>        <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">output_name</span><span class="p">],</span> <span class="n">input_data_dict</span><span class="p">)</span>
 <span></span>        <span class="n">run_times</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>  <span class="c1"># Convert to milliseconds</span>
 <span></span>
 <span></span>    <span class="n">run_times</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterative_sigma_clipping</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">run_times</span><span class="p">),</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">max_iters</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># sigma clipping</span>
