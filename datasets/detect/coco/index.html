@@ -1235,13 +1235,13 @@
 <span></span><span class="nt">download</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <span></span><span class="w">  </span><span class="no">from pathlib import Path</span>
 <span></span>
+<span></span><span class="w">  </span><span class="no">from ultralytics.utils import ASSETS_URL</span>
 <span></span><span class="w">  </span><span class="no">from ultralytics.utils.downloads import download</span>
 <span></span>
 <span></span><span class="w">  </span><span class="no"># Download labels</span>
 <span></span><span class="w">  </span><span class="no">segments = True  # segment or box labels</span>
 <span></span><span class="w">  </span><span class="no">dir = Path(yaml["path"])  # dataset root dir</span>
-<span></span><span class="w">  </span><span class="no">url = "https://github.com/ultralytics/assets/releases/download/v0.0.0/"</span>
-<span></span><span class="w">  </span><span class="no">urls = [url + ("coco2017labels-segments.zip" if segments else "coco2017labels.zip")]  # labels</span>
+<span></span><span class="w">  </span><span class="no">urls = [ASSETS_URL + ("/coco2017labels-segments.zip" if segments else "/coco2017labels.zip")]  # labels</span>
 <span></span><span class="w">  </span><span class="no">download(urls, dir=dir.parent)</span>
 <span></span><span class="w">  </span><span class="no"># Download data</span>
 <span></span><span class="w">  </span><span class="no">urls = [</span>

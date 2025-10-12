@@ -1075,7 +1075,7 @@
 <span></span><span class="w">  </span><span class="no">import shutil</span>
 <span></span>
 <span></span><span class="w">  </span><span class="no">from ultralytics.utils.downloads import download</span>
-<span></span><span class="w">  </span><span class="no">from ultralytics.utils import TQDM</span>
+<span></span><span class="w">  </span><span class="no">from ultralytics.utils import ASSETS_URL, TQDM</span>
 <span></span>
 <span></span>
 <span></span><span class="w">  </span><span class="no">def visdrone2yolo(dir, split, source_name=None):</span>
@@ -1114,10 +1114,10 @@
 <span></span><span class="w">  </span><span class="no"># Download (ignores test-challenge split)</span>
 <span></span><span class="w">  </span><span class="no">dir = Path(yaml["path"])  # dataset root dir</span>
 <span></span><span class="w">  </span><span class="no">urls = [</span>
-<span></span><span class="w">      </span><span class="no">"https://github.com/ultralytics/assets/releases/download/v0.0.0/VisDrone2019-DET-train.zip",</span>
-<span></span><span class="w">      </span><span class="no">"https://github.com/ultralytics/assets/releases/download/v0.0.0/VisDrone2019-DET-val.zip",</span>
-<span></span><span class="w">      </span><span class="no">"https://github.com/ultralytics/assets/releases/download/v0.0.0/VisDrone2019-DET-test-dev.zip",</span>
-<span></span><span class="w">      </span><span class="no"># "https://github.com/ultralytics/assets/releases/download/v0.0.0/VisDrone2019-DET-test-challenge.zip",</span>
+<span></span><span class="w">      </span><span class="no">f"{ASSETS_URL}/VisDrone2019-DET-train.zip",</span>
+<span></span><span class="w">      </span><span class="no">f"{ASSETS_URL}/VisDrone2019-DET-val.zip",</span>
+<span></span><span class="w">      </span><span class="no">f"{ASSETS_URL}/VisDrone2019-DET-test-dev.zip",</span>
+<span></span><span class="w">      </span><span class="no"># f"{ASSETS_URL}/VisDrone2019-DET-test-challenge.zip",</span>
 <span></span><span class="w">  </span><span class="no">]</span>
 <span></span><span class="w">  </span><span class="no">download(urls, dir=dir, threads=4)</span>
 <span></span>
