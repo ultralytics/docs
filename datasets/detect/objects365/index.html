@@ -1442,6 +1442,7 @@
 <span></span>
 <span></span><span class="c1"># Download script/URL (optional) ---------------------------------------------------------------------------------------</span>
 <span></span><span class="nt">download</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span></span><span class="w">  </span><span class="no">from concurrent.futures import ThreadPoolExecutor</span>
 <span></span><span class="w">  </span><span class="no">from pathlib import Path</span>
 <span></span>
 <span></span><span class="w">  </span><span class="no">import numpy as np</span>
@@ -1454,31 +1455,28 @@
 <span></span><span class="w">  </span><span class="no">check_requirements("faster-coco-eval")</span>
 <span></span><span class="w">  </span><span class="no">from faster_coco_eval import COCO</span>
 <span></span>
-<span></span><span class="w">  </span><span class="no"># Make Directories</span>
-<span></span><span class="w">  </span><span class="no">dir = Path(yaml["path"])  # dataset root dir</span>
-<span></span><span class="w">  </span><span class="no">for p in "images", "labels":</span>
-<span></span><span class="w">      </span><span class="no">(dir / p).mkdir(parents=True, exist_ok=True)</span>
-<span></span><span class="w">      </span><span class="no">for q in "train", "val":</span>
-<span></span><span class="w">          </span><span class="no">(dir / p / q).mkdir(parents=True, exist_ok=True)</span>
-<span></span>
 <span></span><span class="w">  </span><span class="no"># Train, Val Splits</span>
+<span></span><span class="w">  </span><span class="no">dir = Path(yaml["path"])</span>
 <span></span><span class="w">  </span><span class="no">for split, patches in [("train", 50 + 1), ("val", 43 + 1)]:</span>
 <span></span><span class="w">      </span><span class="no">print(f"Processing {split} in {patches} patches ...")</span>
 <span></span><span class="w">      </span><span class="no">images, labels = dir / "images" / split, dir / "labels" / split</span>
+<span></span><span class="w">      </span><span class="no">images.mkdir(parents=True, exist_ok=True)</span>
+<span></span><span class="w">      </span><span class="no">labels.mkdir(parents=True, exist_ok=True)</span>
 <span></span>
 <span></span><span class="w">      </span><span class="no"># Download</span>
 <span></span><span class="w">      </span><span class="no">url = f"https://dorc.ks3-cn-beijing.ksyun.com/data-set/2020Objects365%E6%95%B0%E6%8D%AE%E9%9B%86/{split}/"</span>
 <span></span><span class="w">      </span><span class="no">if split == "train":</span>
 <span></span><span class="w">          </span><span class="no">download([f"{url}zhiyuan_objv2_{split}.tar.gz"], dir=dir)  # annotations json</span>
-<span></span><span class="w">          </span><span class="no">download([f"{url}patch{i}.tar.gz" for i in range(patches)], dir=images, curl=True, threads=8)</span>
+<span></span><span class="w">          </span><span class="no">download([f"{url}patch{i}.tar.gz" for i in range(patches)], dir=images, threads=17)  # 51 patches / 17 threads = 3</span>
 <span></span><span class="w">      </span><span class="no">elif split == "val":</span>
 <span></span><span class="w">          </span><span class="no">download([f"{url}zhiyuan_objv2_{split}.json"], dir=dir)  # annotations json</span>
-<span></span><span class="w">          </span><span class="no">download([f"{url}images/v1/patch{i}.tar.gz" for i in range(15 + 1)], dir=images, curl=True, threads=8)</span>
-<span></span><span class="w">          </span><span class="no">download([f"{url}images/v2/patch{i}.tar.gz" for i in range(16, patches)], dir=images, curl=True, threads=8)</span>
+<span></span><span class="w">          </span><span class="no">download([f"{url}images/v1/patch{i}.tar.gz" for i in range(15 + 1)], dir=images, threads=16)</span>
+<span></span><span class="w">          </span><span class="no">download([f"{url}images/v2/patch{i}.tar.gz" for i in range(16, patches)], dir=images, threads=16)</span>
 <span></span>
 <span></span><span class="w">      </span><span class="no"># Move</span>
-<span></span><span class="w">      </span><span class="no">for f in TQDM(images.rglob("*.jpg"), desc=f"Moving {split} images"):</span>
-<span></span><span class="w">          </span><span class="no">f.rename(images / f.name)  # move to /images/{split}</span>
+<span></span><span class="w">      </span><span class="no">files = list(images.rglob("*.jpg"))</span>
+<span></span><span class="w">      </span><span class="no">with ThreadPoolExecutor(max_workers=16) as executor:</span>
+<span></span><span class="w">          </span><span class="no">list(TQDM(executor.map(lambda f: f.rename(images / f.name), files), total=len(files), desc=f"Moving {split} images"))</span>
 <span></span>
 <span></span><span class="w">      </span><span class="no"># Labels</span>
 <span></span><span class="w">      </span><span class="no">coco = COCO(dir / f"zhiyuan_objv2_{split}.json")</span>
@@ -1486,10 +1484,12 @@
 <span></span><span class="w">      </span><span class="no">for cid, cat in enumerate(names):</span>
 <span></span><span class="w">          </span><span class="no">catIds = coco.getCatIds(catNms=[cat])</span>
 <span></span><span class="w">          </span><span class="no">imgIds = coco.getImgIds(catIds=catIds)</span>
-<span></span><span class="w">          </span><span class="no">for im in TQDM(coco.loadImgs(imgIds), desc=f"Class {cid + 1}/{len(names)} {cat}"):</span>
-<span></span><span class="w">              </span><span class="no">width, height = im["width"], im["height"]</span>
-<span></span><span class="w">              </span><span class="no">path = Path(im["file_name"])  # image filename</span>
+<span></span>
+<span></span><span class="w">          </span><span class="no">def process_annotation(im):</span>
+<span></span><span class="w">              </span><span class="no">"""Process and write annotations for a single image."""</span>
 <span></span><span class="w">              </span><span class="no">try:</span>
+<span></span><span class="w">                  </span><span class="no">width, height = im["width"], im["height"]</span>
+<span></span><span class="w">                  </span><span class="no">path = Path(im["file_name"])</span>
 <span></span><span class="w">                  </span><span class="no">with open(labels / path.with_suffix(".txt").name, "a", encoding="utf-8") as file:</span>
 <span></span><span class="w">                      </span><span class="no">annIds = coco.getAnnIds(imgIds=im["id"], catIds=catIds, iscrowd=None)</span>
 <span></span><span class="w">                      </span><span class="no">for a in coco.loadAnns(annIds):</span>
@@ -1499,6 +1499,10 @@
 <span></span><span class="w">                          </span><span class="no">file.write(f"{cid} {x:.5f} {y:.5f} {w:.5f} {h:.5f}\n")</span>
 <span></span><span class="w">              </span><span class="no">except Exception as e:</span>
 <span></span><span class="w">                  </span><span class="no">print(e)</span>
+<span></span>
+<span></span><span class="w">          </span><span class="no">images_list = coco.loadImgs(imgIds)</span>
+<span></span><span class="w">          </span><span class="no">with ThreadPoolExecutor(max_workers=16) as executor:</span>
+<span></span><span class="w">              </span><span class="no">list(TQDM(executor.map(process_annotation, images_list), total=len(images_list), desc=f"Class {cid + 1}/{len(names)} {cat}"))</span>
 </code></pre></div>
 </div>
 <h2 id="usage">Usage</h2>
