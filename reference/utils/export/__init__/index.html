@@ -1366,8 +1366,7 @@
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/export/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>15</span>
-<span>16</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>16</span>
 <span>17</span>
 <span>18</span>
 <span>19</span>
@@ -1400,7 +1399,10 @@
 <span>46</span>
 <span>47</span>
 <span>48</span>
-<span>49</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">torch2onnx</span><span class="p">(</span>
+<span>49</span>
+<span>50</span>
+<span>51</span>
+<span>52</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">torch2onnx</span><span class="p">(</span>
 <span></span>    <span class="n">torch_model</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span>
 <span></span>    <span class="n">im</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">onnx_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -1424,6 +1426,7 @@
 <span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        Setting `do_constant_folding=True` may cause issues with DNN inference for torch&gt;=1.12.</span>
 <span></span><span class="sd">    """</span>
+<span></span>    <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"dynamo"</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span> <span class="k">if</span> <span class="n">TORCH_2_4</span> <span class="k">else</span> <span class="p">{}</span>
 <span></span>    <span class="n">torch</span><span class="o">.</span><span class="n">onnx</span><span class="o">.</span><span class="n">export</span><span class="p">(</span>
 <span></span>        <span class="n">torch_model</span><span class="p">,</span>
 <span></span>        <span class="n">im</span><span class="p">,</span>
@@ -1434,6 +1437,7 @@
 <span></span>        <span class="n">input_names</span><span class="o">=</span><span class="n">input_names</span><span class="p">,</span>
 <span></span>        <span class="n">output_names</span><span class="o">=</span><span class="n">output_names</span><span class="p">,</span>
 <span></span>        <span class="n">dynamic_axes</span><span class="o">=</span><span class="n">dynamic</span> <span class="ow">or</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span></span>    <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -1704,10 +1708,7 @@ Metadata is serialized and written to the engine file if provided.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/export/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 52</span>
-<span> 53</span>
-<span> 54</span>
-<span> 55</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 55</span>
 <span> 56</span>
 <span> 57</span>
 <span> 58</span>
@@ -1891,7 +1892,10 @@ Metadata is serialized and written to the engine file if provided.</p>
 <span>236</span>
 <span>237</span>
 <span>238</span>
-<span>239</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">onnx2engine</span><span class="p">(</span>
+<span>239</span>
+<span>240</span>
+<span>241</span>
+<span>242</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">onnx2engine</span><span class="p">(</span>
 <span></span>    <span class="n">onnx_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span></span>    <span class="n">engine_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">workspace</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2087,10 +2091,10 @@ Metadata is serialized and written to the engine file if provided.</p>
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on September 16, 2025">
-<span class="hover-item">📅</span> Created 28 days ago
+<span class="hover-item">📅</span> Created 29 days ago
     </span>
 <span class="date-item" title="This page was last updated on September 16, 2025">
-<span class="hover-item">✏️</span> Updated 28 days ago
+<span class="hover-item">✏️</span> Updated 29 days ago
     </span>
 </div>
 <div class="authors-container">
