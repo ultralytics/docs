@@ -1643,12 +1643,7 @@ A warning is issued when using Apple MPS device due to known bugs with pose mode
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>102</span>
-<span>103</span>
-<span>104</span>
-<span>105</span>
-<span>106</span>
-<span>107</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>107</span>
 <span>108</span>
 <span>109</span>
 <span>110</span>
@@ -1656,7 +1651,12 @@ A warning is issued when using Apple MPS device due to known bugs with pose mode
 <span>112</span>
 <span>113</span>
 <span>114</span>
-<span>115</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span>115</span>
+<span>116</span>
+<span>117</span>
+<span>118</span>
+<span>119</span>
+<span>120</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Retrieve the dataset and ensure it contains the required `kpt_shape` key.</span>
 <span></span>
@@ -1831,12 +1831,12 @@ A warning is issued when using Apple MPS device due to known bugs with pose mode
 <p>Return an instance of the PoseValidator class for validation.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 95</span>
-<span> 96</span>
-<span> 97</span>
-<span> 98</span>
-<span> 99</span>
-<span>100</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>100</span>
+<span>101</span>
+<span>102</span>
+<span>103</span>
+<span>104</span>
+<span>105</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return an instance of the PoseValidator class for validation."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">loss_names</span> <span class="o">=</span> <span class="s2">"box_loss"</span><span class="p">,</span> <span class="s2">"pose_loss"</span><span class="p">,</span> <span class="s2">"kobj_loss"</span><span class="p">,</span> <span class="s2">"cls_loss"</span><span class="p">,</span> <span class="s2">"dfl_loss"</span>
 <span></span>    <span class="k">return</span> <span class="n">yolo</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">PoseValidator</span><span class="p">(</span>
@@ -1859,10 +1859,20 @@ A warning is issued when using Apple MPS device due to known bugs with pose mode
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>90</span>
 <span>91</span>
 <span>92</span>
-<span>93</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_model_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>93</span>
+<span>94</span>
+<span>95</span>
+<span>96</span>
+<span>97</span>
+<span>98</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_model_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Set keypoints shape attribute of PoseModel."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">set_model_attributes</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">kpt_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"kpt_shape"</span><span class="p">]</span>
+<span></span>    <span class="n">kpt_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"kpt_names"</span><span class="p">)</span>
+<span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">kpt_names</span><span class="p">:</span>
+<span></span>        <span class="n">names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">kpt_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
+<span></span>        <span class="n">kpt_names</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">names</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">nc</span><span class="p">)}</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">kpt_names</span> <span class="o">=</span> <span class="n">kpt_names</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
