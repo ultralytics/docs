@@ -4426,12 +4426,7 @@ are the height and width of the input image. The mask is applied to the bounding
 <span>557</span>
 <span>558</span>
 <span>559</span>
-<span>560</span>
-<span>561</span>
-<span>562</span>
-<span>563</span>
-<span>564</span>
-<span>565</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_mask</span><span class="p">(</span><span class="n">protos</span><span class="p">,</span> <span class="n">masks_in</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">upsample</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span>560</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_mask</span><span class="p">(</span><span class="n">protos</span><span class="p">,</span> <span class="n">masks_in</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">upsample</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Apply masks to bounding boxes using mask head output.</span>
 <span></span>
@@ -4447,18 +4442,13 @@ are the height and width of the input image. The mask is applied to the bounding
 <span></span><span class="sd">            are the height and width of the input image. The mask is applied to the bounding boxes.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">c</span><span class="p">,</span> <span class="n">mh</span><span class="p">,</span> <span class="n">mw</span> <span class="o">=</span> <span class="n">protos</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># CHW</span>
-<span></span>    <span class="n">ih</span><span class="p">,</span> <span class="n">iw</span> <span class="o">=</span> <span class="n">shape</span>
 <span></span>    <span class="n">masks</span> <span class="o">=</span> <span class="p">(</span><span class="n">masks_in</span> <span class="o">@</span> <span class="n">protos</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">mh</span><span class="p">,</span> <span class="n">mw</span><span class="p">)</span>  <span class="c1"># CHW</span>
-<span></span>    <span class="n">width_ratio</span> <span class="o">=</span> <span class="n">mw</span> <span class="o">/</span> <span class="n">iw</span>
-<span></span>    <span class="n">height_ratio</span> <span class="o">=</span> <span class="n">mh</span> <span class="o">/</span> <span class="n">ih</span>
 <span></span>
-<span></span>    <span class="n">downsampled_bboxes</span> <span class="o">=</span> <span class="n">bboxes</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
-<span></span>    <span class="n">downsampled_bboxes</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*=</span> <span class="n">width_ratio</span>
-<span></span>    <span class="n">downsampled_bboxes</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">*=</span> <span class="n">width_ratio</span>
-<span></span>    <span class="n">downsampled_bboxes</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">*=</span> <span class="n">height_ratio</span>
-<span></span>    <span class="n">downsampled_bboxes</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*=</span> <span class="n">height_ratio</span>
+<span></span>    <span class="n">width_ratio</span> <span class="o">=</span> <span class="n">mw</span> <span class="o">/</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span></span>    <span class="n">height_ratio</span> <span class="o">=</span> <span class="n">mh</span> <span class="o">/</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span></span>    <span class="n">ratios</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">([[</span><span class="n">width_ratio</span><span class="p">,</span> <span class="n">height_ratio</span><span class="p">,</span> <span class="n">width_ratio</span><span class="p">,</span> <span class="n">height_ratio</span><span class="p">]],</span> <span class="n">device</span><span class="o">=</span><span class="n">bboxes</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 <span></span>
-<span></span>    <span class="n">masks</span> <span class="o">=</span> <span class="n">crop_mask</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">downsampled_bboxes</span><span class="p">)</span>  <span class="c1"># CHW</span>
+<span></span>    <span class="n">masks</span> <span class="o">=</span> <span class="n">crop_mask</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">boxes</span><span class="o">=</span><span class="n">bboxes</span> <span class="o">*</span> <span class="n">ratios</span><span class="p">)</span>  <span class="c1"># CHW</span>
 <span></span>    <span class="k">if</span> <span class="n">upsample</span><span class="p">:</span>
 <span></span>        <span class="n">masks</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">masks</span><span class="p">[</span><span class="kc">None</span><span class="p">],</span> <span class="n">shape</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"bilinear"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># CHW</span>
 <span></span>    <span class="k">return</span> <span class="n">masks</span><span class="o">.</span><span class="n">gt_</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
@@ -4574,7 +4564,12 @@ are the height and width of the input image. The mask is applied to the bounding
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>568</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>563</span>
+<span>564</span>
+<span>565</span>
+<span>566</span>
+<span>567</span>
+<span>568</span>
 <span>569</span>
 <span>570</span>
 <span>571</span>
@@ -4586,12 +4581,7 @@ are the height and width of the input image. The mask is applied to the bounding
 <span>577</span>
 <span>578</span>
 <span>579</span>
-<span>580</span>
-<span>581</span>
-<span>582</span>
-<span>583</span>
-<span>584</span>
-<span>585</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_mask_native</span><span class="p">(</span><span class="n">protos</span><span class="p">,</span> <span class="n">masks_in</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
+<span>580</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_mask_native</span><span class="p">(</span><span class="n">protos</span><span class="p">,</span> <span class="n">masks_in</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Apply masks to bounding boxes using mask head output with native upsampling.</span>
 <span></span>
@@ -4705,7 +4695,12 @@ are the height and width of the input image. The mask is applied to the bounding
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>588</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>583</span>
+<span>584</span>
+<span>585</span>
+<span>586</span>
+<span>587</span>
+<span>588</span>
 <span>589</span>
 <span>590</span>
 <span>591</span>
@@ -4722,12 +4717,7 @@ are the height and width of the input image. The mask is applied to the bounding
 <span>602</span>
 <span>603</span>
 <span>604</span>
-<span>605</span>
-<span>606</span>
-<span>607</span>
-<span>608</span>
-<span>609</span>
-<span>610</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_masks</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">padding</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span>605</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_masks</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">padding</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Rescale segment masks to target shape.</span>
 <span></span>
@@ -4901,7 +4891,12 @@ are the height and width of the input image. The mask is applied to the bounding
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>613</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>608</span>
+<span>609</span>
+<span>610</span>
+<span>611</span>
+<span>612</span>
+<span>613</span>
 <span>614</span>
 <span>615</span>
 <span>616</span>
@@ -4929,12 +4924,7 @@ are the height and width of the input image. The mask is applied to the bounding
 <span>638</span>
 <span>639</span>
 <span>640</span>
-<span>641</span>
-<span>642</span>
-<span>643</span>
-<span>644</span>
-<span>645</span>
-<span>646</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_coords</span><span class="p">(</span><span class="n">img1_shape</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">img0_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">padding</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span>641</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_coords</span><span class="p">(</span><span class="n">img1_shape</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">img0_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">padding</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Rescale segment coordinates from img1_shape to img0_shape.</span>
 <span></span>
@@ -5032,7 +5022,12 @@ are the height and width of the input image. The mask is applied to the bounding
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>649</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>644</span>
+<span>645</span>
+<span>646</span>
+<span>647</span>
+<span>648</span>
+<span>649</span>
 <span>650</span>
 <span>651</span>
 <span>652</span>
@@ -5043,12 +5038,7 @@ are the height and width of the input image. The mask is applied to the bounding
 <span>657</span>
 <span>658</span>
 <span>659</span>
-<span>660</span>
-<span>661</span>
-<span>662</span>
-<span>663</span>
-<span>664</span>
-<span>665</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">regularize_rboxes</span><span class="p">(</span><span class="n">rboxes</span><span class="p">):</span>
+<span>660</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">regularize_rboxes</span><span class="p">(</span><span class="n">rboxes</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Regularize rotated bounding boxes to range [0, pi/2].</span>
 <span></span>
@@ -5145,7 +5135,12 @@ are the height and width of the input image. The mask is applied to the bounding
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>668</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>663</span>
+<span>664</span>
+<span>665</span>
+<span>666</span>
+<span>667</span>
+<span>668</span>
 <span>669</span>
 <span>670</span>
 <span>671</span>
@@ -5168,12 +5163,7 @@ are the height and width of the input image. The mask is applied to the bounding
 <span>688</span>
 <span>689</span>
 <span>690</span>
-<span>691</span>
-<span>692</span>
-<span>693</span>
-<span>694</span>
-<span>695</span>
-<span>696</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">masks2segments</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">strategy</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"all"</span><span class="p">):</span>
+<span>691</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">masks2segments</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">strategy</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"all"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert masks to segments using contour detection.</span>
 <span></span>
@@ -5266,17 +5256,17 @@ are the height and width of the input image. The mask is applied to the bounding
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>699</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>694</span>
+<span>695</span>
+<span>696</span>
+<span>697</span>
+<span>698</span>
+<span>699</span>
 <span>700</span>
 <span>701</span>
 <span>702</span>
 <span>703</span>
-<span>704</span>
-<span>705</span>
-<span>706</span>
-<span>707</span>
-<span>708</span>
-<span>709</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_torch2numpy_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span>704</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_torch2numpy_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert a batch of FP32 torch tensors to NumPy uint8 arrays, changing from BCHW to BHWC layout.</span>
 <span></span>
@@ -5351,17 +5341,17 @@ are the height and width of the input image. The mask is applied to the bounding
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>712</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>707</span>
+<span>708</span>
+<span>709</span>
+<span>710</span>
+<span>711</span>
+<span>712</span>
 <span>713</span>
 <span>714</span>
 <span>715</span>
 <span>716</span>
-<span>717</span>
-<span>718</span>
-<span>719</span>
-<span>720</span>
-<span>721</span>
-<span>722</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clean_str</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<span>717</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clean_str</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Clean a string by replacing special characters with '_' character.</span>
 <span></span>
@@ -5386,11 +5376,11 @@ are the height and width of the input image. The mask is applied to the bounding
 <p>Create empty torch.Tensor or np.ndarray with same shape as input and float32 dtype.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>725</span>
-<span>726</span>
-<span>727</span>
-<span>728</span>
-<span>729</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>720</span>
+<span>721</span>
+<span>722</span>
+<span>723</span>
+<span>724</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Create empty torch.Tensor or np.ndarray with same shape as input and float32 dtype."""</span>
 <span></span>    <span class="k">return</span> <span class="p">(</span>
 <span></span>        <span class="n">torch</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
