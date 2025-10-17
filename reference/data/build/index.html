@@ -1838,6 +1838,7 @@ over a dataset without recreating the sampler.</p>
 <span></span>    <span class="n">shuffle</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 <span></span>    <span class="n">rank</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
 <span></span>    <span class="n">drop_last</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="n">pin_memory</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
@@ -1949,6 +1950,22 @@ over a dataset without recreating the sampler.</p>
 <code>False</code>
 </td>
 </tr>
+<tr class="doc-section-item">
+<td>
+<code>pin_memory</code>
+</td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to use pinned memory for dataloader.</p>
+</div>
+</td>
+<td>
+<code>True</code>
+</td>
+</tr>
 </tbody>
 </table>
 <p><span class="doc-section-title">Returns:</span></p>
@@ -2017,7 +2034,24 @@ over a dataset without recreating the sampler.</p>
 <span>219</span>
 <span>220</span>
 <span>221</span>
-<span>222</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataloader</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">workers</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">shuffle</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">rank</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">drop_last</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span>222</span>
+<span>223</span>
+<span>224</span>
+<span>225</span>
+<span>226</span>
+<span>227</span>
+<span>228</span>
+<span>229</span>
+<span>230</span>
+<span>231</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataloader</span><span class="p">(</span>
+<span></span>    <span class="n">dataset</span><span class="p">,</span>
+<span></span>    <span class="n">batch</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<span></span>    <span class="n">workers</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<span></span>    <span class="n">shuffle</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">rank</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+<span></span>    <span class="n">drop_last</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="n">pin_memory</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Create and return an InfiniteDataLoader or DataLoader for training or validation.</span>
 <span></span>
@@ -2028,6 +2062,7 @@ over a dataset without recreating the sampler.</p>
 <span></span><span class="sd">        shuffle (bool, optional): Whether to shuffle the dataset.</span>
 <span></span><span class="sd">        rank (int, optional): Process rank in distributed training. -1 for single-GPU training.</span>
 <span></span><span class="sd">        drop_last (bool, optional): Whether to drop the last incomplete batch.</span>
+<span></span><span class="sd">        pin_memory (bool, optional): Whether to use pinned memory for dataloader.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (InfiniteDataLoader): A dataloader that can be used for training or validation.</span>
@@ -2050,7 +2085,7 @@ over a dataset without recreating the sampler.</p>
 <span></span>        <span class="n">num_workers</span><span class="o">=</span><span class="n">nw</span><span class="p">,</span>
 <span></span>        <span class="n">sampler</span><span class="o">=</span><span class="n">sampler</span><span class="p">,</span>
 <span></span>        <span class="n">prefetch_factor</span><span class="o">=</span><span class="mi">4</span> <span class="k">if</span> <span class="n">nw</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># increase over default 2</span>
-<span></span>        <span class="n">pin_memory</span><span class="o">=</span><span class="n">nd</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>
+<span></span>        <span class="n">pin_memory</span><span class="o">=</span><span class="n">nd</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">pin_memory</span><span class="p">,</span>
 <span></span>        <span class="n">collate_fn</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="s2">"collate_fn"</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
 <span></span>        <span class="n">worker_init_fn</span><span class="o">=</span><span class="n">seed_worker</span><span class="p">,</span>
 <span></span>        <span class="n">generator</span><span class="o">=</span><span class="n">generator</span><span class="p">,</span>
@@ -2177,16 +2212,7 @@ over a dataset without recreating the sampler.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>225</span>
-<span>226</span>
-<span>227</span>
-<span>228</span>
-<span>229</span>
-<span>230</span>
-<span>231</span>
-<span>232</span>
-<span>233</span>
-<span>234</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>234</span>
 <span>235</span>
 <span>236</span>
 <span>237</span>
@@ -2223,7 +2249,16 @@ over a dataset without recreating the sampler.</p>
 <span>268</span>
 <span>269</span>
 <span>270</span>
-<span>271</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_source</span><span class="p">(</span><span class="n">source</span><span class="p">):</span>
+<span>271</span>
+<span>272</span>
+<span>273</span>
+<span>274</span>
+<span>275</span>
+<span>276</span>
+<span>277</span>
+<span>278</span>
+<span>279</span>
+<span>280</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_source</span><span class="p">(</span><span class="n">source</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check the type of input source and return corresponding flag values.</span>
 <span></span>
@@ -2411,16 +2446,7 @@ over a dataset without recreating the sampler.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>274</span>
-<span>275</span>
-<span>276</span>
-<span>277</span>
-<span>278</span>
-<span>279</span>
-<span>280</span>
-<span>281</span>
-<span>282</span>
-<span>283</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>283</span>
 <span>284</span>
 <span>285</span>
 <span>286</span>
@@ -2452,7 +2478,16 @@ over a dataset without recreating the sampler.</p>
 <span>312</span>
 <span>313</span>
 <span>314</span>
-<span>315</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_inference_source</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">vid_stride</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">buffer</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">channels</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">):</span>
+<span>315</span>
+<span>316</span>
+<span>317</span>
+<span>318</span>
+<span>319</span>
+<span>320</span>
+<span>321</span>
+<span>322</span>
+<span>323</span>
+<span>324</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_inference_source</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">vid_stride</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">buffer</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">channels</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Load an inference source for object detection and apply necessary transformations.</span>
 <span></span>
