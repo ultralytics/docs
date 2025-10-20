@@ -2285,9 +2285,9 @@ and various training utilities. It supports both single-GPU and multi-GPU distri
 <p>Build dataset.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/trainer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>716</span>
-<span>717</span>
-<span>718</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>722</span>
+<span>723</span>
+<span>724</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Build dataset."""</span>
 <span></span>    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"build_dataset function not implemented in trainer"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2438,13 +2438,7 @@ name is 'auto'.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/trainer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>889</span>
-<span>890</span>
-<span>891</span>
-<span>892</span>
-<span>893</span>
-<span>894</span>
-<span>895</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>895</span>
 <span>896</span>
 <span>897</span>
 <span>898</span>
@@ -2499,7 +2493,13 @@ name is 'auto'.</p>
 <span>947</span>
 <span>948</span>
 <span>949</span>
-<span>950</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_optimizer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"auto"</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">decay</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mf">1e5</span><span class="p">):</span>
+<span>950</span>
+<span>951</span>
+<span>952</span>
+<span>953</span>
+<span>954</span>
+<span>955</span>
+<span>956</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_optimizer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"auto"</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">decay</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mf">1e5</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Construct an optimizer for the given model.</span>
 <span></span>
@@ -2575,9 +2575,9 @@ name is 'auto'.</p>
 <p>Build target tensors for training YOLO model.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/trainer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>733</span>
-<span>734</span>
-<span>735</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_targets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">targets</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>739</span>
+<span>740</span>
+<span>741</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_targets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">targets</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Build target tensors for training YOLO model."""</span>
 <span></span>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
@@ -2594,13 +2594,7 @@ name is 'auto'.</p>
 <p>Check if resume checkpoint exists and update arguments accordingly.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/trainer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>786</span>
-<span>787</span>
-<span>788</span>
-<span>789</span>
-<span>790</span>
-<span>791</span>
-<span>792</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>792</span>
 <span>793</span>
 <span>794</span>
 <span>795</span>
@@ -2624,7 +2618,13 @@ name is 'auto'.</p>
 <span>813</span>
 <span>814</span>
 <span>815</span>
-<span>816</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_resume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">overrides</span><span class="p">):</span>
+<span>816</span>
+<span>817</span>
+<span>818</span>
+<span>819</span>
+<span>820</span>
+<span>821</span>
+<span>822</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_resume</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">overrides</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Check if resume checkpoint exists and update arguments accordingly."""</span>
 <span></span>    <span class="n">resume</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">resume</span>
 <span></span>    <span class="k">if</span> <span class="n">resume</span><span class="p">:</span>
@@ -2669,13 +2669,7 @@ name is 'auto'.</p>
 <p>Perform final evaluation and validation for object detection YOLO model.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/trainer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>769</span>
-<span>770</span>
-<span>771</span>
-<span>772</span>
-<span>773</span>
-<span>774</span>
-<span>775</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>775</span>
 <span>776</span>
 <span>777</span>
 <span>778</span>
@@ -2684,22 +2678,28 @@ name is 'auto'.</p>
 <span>781</span>
 <span>782</span>
 <span>783</span>
-<span>784</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">final_eval</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>784</span>
+<span>785</span>
+<span>786</span>
+<span>787</span>
+<span>788</span>
+<span>789</span>
+<span>790</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">final_eval</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Perform final evaluation and validation for object detection YOLO model."""</span>
-<span></span>    <span class="n">ckpt</span> <span class="o">=</span> <span class="p">{}</span>
-<span></span>    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">best</span><span class="p">:</span>
-<span></span>        <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-<span></span>            <span class="k">if</span> <span class="n">f</span> <span class="ow">is</span> <span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="p">:</span>
-<span></span>                <span class="n">ckpt</span> <span class="o">=</span> <span class="n">strip_optimizer</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span></span>            <span class="k">elif</span> <span class="n">f</span> <span class="ow">is</span> <span class="bp">self</span><span class="o">.</span><span class="n">best</span><span class="p">:</span>
-<span></span>                <span class="n">k</span> <span class="o">=</span> <span class="s2">"train_results"</span>  <span class="c1"># update best.pt train_metrics from last.pt</span>
-<span></span>                <span class="n">strip_optimizer</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">updates</span><span class="o">=</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">ckpt</span><span class="p">[</span><span class="n">k</span><span class="p">]}</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">ckpt</span> <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
-<span></span>                <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Validating </span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
-<span></span>                <span class="bp">self</span><span class="o">.</span><span class="n">validator</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">plots</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">plots</span>
-<span></span>                <span class="bp">self</span><span class="o">.</span><span class="n">validator</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">compile</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># disable final val compile as too slow</span>
-<span></span>                <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">validator</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
-<span></span>                <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"fitness"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span></span>                <span class="bp">self</span><span class="o">.</span><span class="n">run_callbacks</span><span class="p">(</span><span class="s2">"on_fit_epoch_end"</span><span class="p">)</span>
+<span></span>    <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">best</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">best</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="k">else</span> <span class="kc">None</span>
+<span></span>    <span class="k">with</span> <span class="n">torch_distributed_zero_first</span><span class="p">(</span><span class="n">LOCAL_RANK</span><span class="p">):</span>  <span class="c1"># strip only on GPU 0; other GPUs should wait</span>
+<span></span>        <span class="k">if</span> <span class="n">RANK</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}:</span>
+<span></span>            <span class="n">ckpt</span> <span class="o">=</span> <span class="n">strip_optimizer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="k">else</span> <span class="p">{}</span>
+<span></span>            <span class="k">if</span> <span class="n">model</span><span class="p">:</span>
+<span></span>                <span class="c1"># update best.pt train_metrics from last.pt</span>
+<span></span>                <span class="n">strip_optimizer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">best</span><span class="p">,</span> <span class="n">updates</span><span class="o">=</span><span class="p">{</span><span class="s2">"train_results"</span><span class="p">:</span> <span class="n">ckpt</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"train_results"</span><span class="p">)})</span>
+<span></span>    <span class="k">if</span> <span class="n">model</span><span class="p">:</span>
+<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Validating </span><span class="si">{</span><span class="n">model</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">validator</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">plots</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">plots</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">validator</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">compile</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># disable final val compile as too slow</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">validator</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"fitness"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">run_callbacks</span><span class="p">(</span><span class="s2">"on_fit_epoch_end"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2714,9 +2714,9 @@ name is 'auto'.</p>
 <p>Return dataloader derived from torch.data.Dataloader.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/trainer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>712</span>
-<span>713</span>
-<span>714</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_dataloader</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset_path</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>718</span>
+<span>719</span>
+<span>720</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_dataloader</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset_path</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return dataloader derived from torch.data.Dataloader."""</span>
 <span></span>    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"get_dataloader function not implemented in trainer"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2837,9 +2837,9 @@ name is 'auto'.</p>
 <p>Get model and raise NotImplementedError for loading cfg files.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/trainer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>704</span>
-<span>705</span>
-<span>706</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>710</span>
+<span>711</span>
+<span>712</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Get model and raise NotImplementedError for loading cfg files."""</span>
 <span></span>    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"This task trainer doesn't support loading cfg files"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2856,9 +2856,9 @@ name is 'auto'.</p>
 <p>Return a NotImplementedError when the get_validator function is called.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/trainer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>708</span>
-<span>709</span>
-<span>710</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>714</span>
+<span>715</span>
+<span>716</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return a NotImplementedError when the get_validator function is called."""</span>
 <span></span>    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"get_validator function not implemented in trainer"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2879,14 +2879,14 @@ name is 'auto'.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/trainer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>720</span>
-<span>721</span>
-<span>722</span>
-<span>723</span>
-<span>724</span>
-<span>725</span>
-<span>726</span>
-<span>727</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">label_loss_items</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loss_items</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">"train"</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>726</span>
+<span>727</span>
+<span>728</span>
+<span>729</span>
+<span>730</span>
+<span>731</span>
+<span>732</span>
+<span>733</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">label_loss_items</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loss_items</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">"train"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Return a loss dict with labelled training loss items tensor.</span>
 <span></span>
@@ -2908,10 +2908,10 @@ name is 'auto'.</p>
 <p>Register plots (e.g. to be consumed in callbacks).</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/trainer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>764</span>
-<span>765</span>
-<span>766</span>
-<span>767</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>770</span>
+<span>771</span>
+<span>772</span>
+<span>773</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Register plots (e.g. to be consumed in callbacks)."""</span>
 <span></span>    <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">plots</span><span class="p">[</span><span class="n">path</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="s2">"timestamp"</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()}</span>
@@ -2960,9 +2960,9 @@ name is 'auto'.</p>
 <p>Plot metrics from a CSV file.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/trainer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>760</span>
-<span>761</span>
-<span>762</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>766</span>
+<span>767</span>
+<span>768</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Plot metrics from a CSV file."""</span>
 <span></span>    <span class="n">plot_results</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">csv</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">)</span>  <span class="c1"># save results.png</span>
 </code></pre></div></td></tr></table></div>
@@ -2979,9 +2979,9 @@ name is 'auto'.</p>
 <p>Plot training labels for YOLO model.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/trainer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>746</span>
-<span>747</span>
-<span>748</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_training_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>752</span>
+<span>753</span>
+<span>754</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_training_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Plot training labels for YOLO model."""</span>
 <span></span>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
@@ -2998,9 +2998,9 @@ name is 'auto'.</p>
 <p>Plot training samples during YOLO training.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/trainer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>742</span>
-<span>743</span>
-<span>744</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_training_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>748</span>
+<span>749</span>
+<span>750</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_training_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Plot training samples during YOLO training."""</span>
 <span></span>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
@@ -3036,9 +3036,9 @@ name is 'auto'.</p>
 <p>Return a string describing training progress.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/trainer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>737</span>
-<span>738</span>
-<span>739</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">progress_string</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>743</span>
+<span>744</span>
+<span>745</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">progress_string</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return a string describing training progress."""</span>
 <span></span>    <span class="k">return</span> <span class="s2">""</span>
 </code></pre></div></td></tr></table></div>
@@ -3084,13 +3084,7 @@ name is 'auto'.</p>
 <p>Resume YOLO training from given epoch and best fitness.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/trainer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>861</span>
-<span>862</span>
-<span>863</span>
-<span>864</span>
-<span>865</span>
-<span>866</span>
-<span>867</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>867</span>
 <span>868</span>
 <span>869</span>
 <span>870</span>
@@ -3102,7 +3096,13 @@ name is 'auto'.</p>
 <span>876</span>
 <span>877</span>
 <span>878</span>
-<span>879</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">resume_training</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ckpt</span><span class="p">):</span>
+<span>879</span>
+<span>880</span>
+<span>881</span>
+<span>882</span>
+<span>883</span>
+<span>884</span>
+<span>885</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">resume_training</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ckpt</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Resume YOLO training from given epoch and best fitness."""</span>
 <span></span>    <span class="k">if</span> <span class="n">ckpt</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">resume</span><span class="p">:</span>
 <span></span>        <span class="k">return</span>
@@ -3156,15 +3156,15 @@ name is 'auto'.</p>
 <p>Save training metrics to a CSV file.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/trainer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>750</span>
-<span>751</span>
-<span>752</span>
-<span>753</span>
-<span>754</span>
-<span>755</span>
-<span>756</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>756</span>
 <span>757</span>
-<span>758</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metrics</span><span class="p">):</span>
+<span>758</span>
+<span>759</span>
+<span>760</span>
+<span>761</span>
+<span>762</span>
+<span>763</span>
+<span>764</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metrics</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Save training metrics to a CSV file."""</span>
 <span></span>    <span class="n">keys</span><span class="p">,</span> <span class="n">vals</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="nb">list</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
 <span></span>    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span>  <span class="c1"># number of cols</span>
@@ -3299,9 +3299,9 @@ name is 'auto'.</p>
 <p>Set or update model parameters before training.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/trainer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>729</span>
-<span>730</span>
-<span>731</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_model_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>735</span>
+<span>736</span>
+<span>737</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_model_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Set or update model parameters before training."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"names"</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
@@ -3498,7 +3498,13 @@ name is 'auto'.</p>
 <span>699</span>
 <span>700</span>
 <span>701</span>
-<span>702</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>702</span>
+<span>703</span>
+<span>704</span>
+<span>705</span>
+<span>706</span>
+<span>707</span>
+<span>708</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Run validation on val set using self.validator.</span>
 <span></span>
@@ -3506,7 +3512,13 @@ name is 'auto'.</p>
 <span></span><span class="sd">        metrics (dict): Dictionary of validation metrics.</span>
 <span></span><span class="sd">        fitness (float): Fitness score for the validation.</span>
 <span></span><span class="sd">    """</span>
+<span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ema</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">world_size</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span></span>        <span class="c1"># Sync EMA buffers from rank 0 to all ranks</span>
+<span></span>        <span class="k">for</span> <span class="n">buffer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ema</span><span class="o">.</span><span class="n">ema</span><span class="o">.</span><span class="n">buffers</span><span class="p">():</span>
+<span></span>            <span class="n">dist</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">src</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span></span>    <span class="n">metrics</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">validator</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span></span>    <span class="k">if</span> <span class="n">metrics</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span></span>        <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
 <span></span>    <span class="n">fitness</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"fitness"</span><span class="p">,</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">loss</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>  <span class="c1"># use loss as fitness measure if not found</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">best_fitness</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">best_fitness</span> <span class="o">&lt;</span> <span class="n">fitness</span><span class="p">:</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">best_fitness</span> <span class="o">=</span> <span class="n">fitness</span>
