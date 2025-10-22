@@ -548,6 +548,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.engine.exporter.Exporter.export_executorch">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> export_executorch
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.engine.exporter.Exporter.export_imx">
 <span class="md-ellipsis">
 <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> export_imx
@@ -1411,6 +1418,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.engine.exporter.Exporter.export_executorch">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> export_executorch
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.engine.exporter.Exporter.export_imx">
 <span class="md-ellipsis">
 <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> export_imx
@@ -1952,10 +1966,7 @@ process for each supported format.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>289</span>
-<span>290</span>
-<span>291</span>
-<span>292</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>292</span>
 <span>293</span>
 <span>294</span>
 <span>295</span>
@@ -1963,7 +1974,10 @@ process for each supported format.</p>
 <span>297</span>
 <span>298</span>
 <span>299</span>
-<span>300</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>300</span>
+<span>301</span>
+<span>302</span>
+<span>303</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the Exporter class.</span>
 <span></span>
@@ -1988,10 +2002,7 @@ process for each supported format.</p>
 <p>Return list of exported files/dirs after running callbacks.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>302</span>
-<span>303</span>
-<span>304</span>
-<span>305</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>305</span>
 <span>306</span>
 <span>307</span>
 <span>308</span>
@@ -2256,7 +2267,27 @@ process for each supported format.</p>
 <span>567</span>
 <span>568</span>
 <span>569</span>
-<span>570</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span>570</span>
+<span>571</span>
+<span>572</span>
+<span>573</span>
+<span>574</span>
+<span>575</span>
+<span>576</span>
+<span>577</span>
+<span>578</span>
+<span>579</span>
+<span>580</span>
+<span>581</span>
+<span>582</span>
+<span>583</span>
+<span>584</span>
+<span>585</span>
+<span>586</span>
+<span>587</span>
+<span>588</span>
+<span>589</span>
+<span>590</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return list of exported files/dirs after running callbacks."""</span>
 <span></span>    <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span></span>    <span class="n">fmt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>  <span class="c1"># to lowercase</span>
@@ -2279,9 +2310,24 @@ process for each supported format.</p>
 <span></span>    <span class="n">flags</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">==</span> <span class="n">fmt</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">fmts</span><span class="p">]</span>
 <span></span>    <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="n">flags</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
 <span></span>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Invalid export format='</span><span class="si">{</span><span class="n">fmt</span><span class="si">}</span><span class="s2">'. Valid formats are </span><span class="si">{</span><span class="n">fmts</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span></span>    <span class="p">(</span><span class="n">jit</span><span class="p">,</span> <span class="n">onnx</span><span class="p">,</span> <span class="n">xml</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">coreml</span><span class="p">,</span> <span class="n">saved_model</span><span class="p">,</span> <span class="n">pb</span><span class="p">,</span> <span class="n">tflite</span><span class="p">,</span> <span class="n">edgetpu</span><span class="p">,</span> <span class="n">tfjs</span><span class="p">,</span> <span class="n">paddle</span><span class="p">,</span> <span class="n">mnn</span><span class="p">,</span> <span class="n">ncnn</span><span class="p">,</span> <span class="n">imx</span><span class="p">,</span> <span class="n">rknn</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span>
-<span></span>        <span class="n">flags</span>  <span class="c1"># export booleans</span>
-<span></span>    <span class="p">)</span>
+<span></span>    <span class="p">(</span>
+<span></span>        <span class="n">jit</span><span class="p">,</span>
+<span></span>        <span class="n">onnx</span><span class="p">,</span>
+<span></span>        <span class="n">xml</span><span class="p">,</span>
+<span></span>        <span class="n">engine</span><span class="p">,</span>
+<span></span>        <span class="n">coreml</span><span class="p">,</span>
+<span></span>        <span class="n">saved_model</span><span class="p">,</span>
+<span></span>        <span class="n">pb</span><span class="p">,</span>
+<span></span>        <span class="n">tflite</span><span class="p">,</span>
+<span></span>        <span class="n">edgetpu</span><span class="p">,</span>
+<span></span>        <span class="n">tfjs</span><span class="p">,</span>
+<span></span>        <span class="n">paddle</span><span class="p">,</span>
+<span></span>        <span class="n">mnn</span><span class="p">,</span>
+<span></span>        <span class="n">ncnn</span><span class="p">,</span>
+<span></span>        <span class="n">imx</span><span class="p">,</span>
+<span></span>        <span class="n">rknn</span><span class="p">,</span>
+<span></span>        <span class="n">executorch</span><span class="p">,</span>
+<span></span>    <span class="p">)</span> <span class="o">=</span> <span class="n">flags</span>  <span class="c1"># export booleans</span>
 <span></span>
 <span></span>    <span class="n">is_tf_format</span> <span class="o">=</span> <span class="nb">any</span><span class="p">((</span><span class="n">saved_model</span><span class="p">,</span> <span class="n">pb</span><span class="p">,</span> <span class="n">tflite</span><span class="p">,</span> <span class="n">edgetpu</span><span class="p">,</span> <span class="n">tfjs</span><span class="p">))</span>
 <span></span>
@@ -2500,6 +2546,8 @@ process for each supported format.</p>
 <span></span>        <span class="n">f</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_imx</span><span class="p">()</span>
 <span></span>    <span class="k">if</span> <span class="n">rknn</span><span class="p">:</span>
 <span></span>        <span class="n">f</span><span class="p">[</span><span class="mi">14</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_rknn</span><span class="p">()</span>
+<span></span>    <span class="k">if</span> <span class="n">executorch</span><span class="p">:</span>
+<span></span>        <span class="n">f</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_executorch</span><span class="p">()</span>
 <span></span>
 <span></span>    <span class="c1"># Finish</span>
 <span></span>    <span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">f</span> <span class="k">if</span> <span class="n">x</span><span class="p">]</span>  <span class="c1"># filter out '' and None</span>
@@ -2539,9 +2587,9 @@ process for each supported format.</p>
 <p>Append the given callback to the specified event.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1358</span>
-<span>1359</span>
-<span>1360</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1411</span>
+<span>1412</span>
+<span>1413</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Append the given callback to the specified event."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2558,27 +2606,7 @@ process for each supported format.</p>
 <p>Export YOLO model to CoreML format.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>871</span>
-<span>872</span>
-<span>873</span>
-<span>874</span>
-<span>875</span>
-<span>876</span>
-<span>877</span>
-<span>878</span>
-<span>879</span>
-<span>880</span>
-<span>881</span>
-<span>882</span>
-<span>883</span>
-<span>884</span>
-<span>885</span>
-<span>886</span>
-<span>887</span>
-<span>888</span>
-<span>889</span>
-<span>890</span>
-<span>891</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>891</span>
 <span>892</span>
 <span>893</span>
 <span>894</span>
@@ -2650,7 +2678,27 @@ process for each supported format.</p>
 <span>960</span>
 <span>961</span>
 <span>962</span>
-<span>963</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
+<span>963</span>
+<span>964</span>
+<span>965</span>
+<span>966</span>
+<span>967</span>
+<span>968</span>
+<span>969</span>
+<span>970</span>
+<span>971</span>
+<span>972</span>
+<span>973</span>
+<span>974</span>
+<span>975</span>
+<span>976</span>
+<span>977</span>
+<span>978</span>
+<span>979</span>
+<span>980</span>
+<span>981</span>
+<span>982</span>
+<span>983</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_coreml</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"CoreML:"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""Export YOLO model to CoreML format."""</span>
 <span></span>    <span class="n">mlmodel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"mlmodel"</span>  <span class="c1"># legacy *.mlmodel export format requested</span>
@@ -2757,40 +2805,40 @@ process for each supported format.</p>
 <p>Export YOLO model to Edge TPU format <a href="https://coral.ai/docs/edgetpu/models-intro/">https://coral.ai/docs/edgetpu/models-intro/</a>.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1125</span>
-<span>1126</span>
-<span>1127</span>
-<span>1128</span>
-<span>1129</span>
-<span>1130</span>
-<span>1131</span>
-<span>1132</span>
-<span>1133</span>
-<span>1134</span>
-<span>1135</span>
-<span>1136</span>
-<span>1137</span>
-<span>1138</span>
-<span>1139</span>
-<span>1140</span>
-<span>1141</span>
-<span>1142</span>
-<span>1143</span>
-<span>1144</span>
-<span>1145</span>
-<span>1146</span>
-<span>1147</span>
-<span>1148</span>
-<span>1149</span>
-<span>1150</span>
-<span>1151</span>
-<span>1152</span>
-<span>1153</span>
-<span>1154</span>
-<span>1155</span>
-<span>1156</span>
-<span>1157</span>
-<span>1158</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1178</span>
+<span>1179</span>
+<span>1180</span>
+<span>1181</span>
+<span>1182</span>
+<span>1183</span>
+<span>1184</span>
+<span>1185</span>
+<span>1186</span>
+<span>1187</span>
+<span>1188</span>
+<span>1189</span>
+<span>1190</span>
+<span>1191</span>
+<span>1192</span>
+<span>1193</span>
+<span>1194</span>
+<span>1195</span>
+<span>1196</span>
+<span>1197</span>
+<span>1198</span>
+<span>1199</span>
+<span>1200</span>
+<span>1201</span>
+<span>1202</span>
+<span>1203</span>
+<span>1204</span>
+<span>1205</span>
+<span>1206</span>
+<span>1207</span>
+<span>1208</span>
+<span>1209</span>
+<span>1210</span>
+<span>1211</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_edgetpu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tflite_model</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"Edge TPU:"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""Export YOLO model to Edge TPU format https://coral.ai/docs/edgetpu/models-intro/."""</span>
 <span></span>    <span class="n">cmd</span> <span class="o">=</span> <span class="s2">"edgetpu_compiler --version"</span>
@@ -2838,27 +2886,7 @@ process for each supported format.</p>
 <p>Export YOLO model to TensorRT format <a href="https://developer.nvidia.com/tensorrt">https://developer.nvidia.com/tensorrt</a>.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 965</span>
-<span> 966</span>
-<span> 967</span>
-<span> 968</span>
-<span> 969</span>
-<span> 970</span>
-<span> 971</span>
-<span> 972</span>
-<span> 973</span>
-<span> 974</span>
-<span> 975</span>
-<span> 976</span>
-<span> 977</span>
-<span> 978</span>
-<span> 979</span>
-<span> 980</span>
-<span> 981</span>
-<span> 982</span>
-<span> 983</span>
-<span> 984</span>
-<span> 985</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 985</span>
 <span> 986</span>
 <span> 987</span>
 <span> 988</span>
@@ -2873,7 +2901,27 @@ process for each supported format.</p>
 <span> 997</span>
 <span> 998</span>
 <span> 999</span>
-<span>1000</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
+<span>1000</span>
+<span>1001</span>
+<span>1002</span>
+<span>1003</span>
+<span>1004</span>
+<span>1005</span>
+<span>1006</span>
+<span>1007</span>
+<span>1008</span>
+<span>1009</span>
+<span>1010</span>
+<span>1011</span>
+<span>1012</span>
+<span>1013</span>
+<span>1014</span>
+<span>1015</span>
+<span>1016</span>
+<span>1017</span>
+<span>1018</span>
+<span>1019</span>
+<span>1020</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_engine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dla</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"TensorRT:"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""Export YOLO model to TensorRT format https://developer.nvidia.com/tensorrt."""</span>
 <span></span>    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">im</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="s2">"cpu"</span><span class="p">,</span> <span class="s2">"export running on CPU but must be on GPU, i.e. use 'device=0'"</span>
@@ -2914,6 +2962,84 @@ process for each supported format.</p>
 </div>
 </div>
 <div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.engine.exporter.Exporter.export_executorch">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">export_executorch</span>
+</h3>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">export_executorch</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s1">'ExecuTorch:'</span><span class="p">))</span>
+</code></pre></div>
+<div class="doc doc-contents">
+<p>Exports a model to ExecuTorch (.pte) format into a dedicated directory and saves the required metadata,
+following Ultralytics conventions.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1145</span>
+<span>1146</span>
+<span>1147</span>
+<span>1148</span>
+<span>1149</span>
+<span>1150</span>
+<span>1151</span>
+<span>1152</span>
+<span>1153</span>
+<span>1154</span>
+<span>1155</span>
+<span>1156</span>
+<span>1157</span>
+<span>1158</span>
+<span>1159</span>
+<span>1160</span>
+<span>1161</span>
+<span>1162</span>
+<span>1163</span>
+<span>1164</span>
+<span>1165</span>
+<span>1166</span>
+<span>1167</span>
+<span>1168</span>
+<span>1169</span>
+<span>1170</span>
+<span>1171</span>
+<span>1172</span>
+<span>1173</span>
+<span>1174</span>
+<span>1175</span>
+<span>1176</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_executorch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"ExecuTorch:"</span><span class="p">)):</span>
+<span></span><span class="w">    </span><span class="sd">"""Exports a model to ExecuTorch (.pte) format into a dedicated directory and saves the required metadata,</span>
+<span></span><span class="sd">    following Ultralytics conventions.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> starting export with ExecuTorch..."</span><span class="p">)</span>
+<span></span>    <span class="k">assert</span> <span class="n">TORCH_2_9</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"ExecuTorch export requires torch&gt;=2.9.0 but torch==</span><span class="si">{</span><span class="n">TORCH_VERSION</span><span class="si">}</span><span class="s2"> is installed"</span>
+<span></span>    <span class="c1"># TorchAO release compatibility table bug https://github.com/pytorch/ao/issues/2919</span>
+<span></span>    <span class="c1"># Setuptools bug: https://github.com/pypa/setuptools/issues/4483</span>
+<span></span>    <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"setuptools&lt;71.0.0"</span><span class="p">)</span>  <span class="c1"># Setuptools bug: https://github.com/pypa/setuptools/issues/4483</span>
+<span></span>    <span class="n">check_requirements</span><span class="p">((</span><span class="s2">"executorch==1.0.0"</span><span class="p">,</span> <span class="s2">"flatbuffers"</span><span class="p">))</span>
+<span></span>
+<span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span></span>    <span class="kn">from</span><span class="w"> </span><span class="nn">executorch.backends.xnnpack.partition.xnnpack_partitioner</span><span class="w"> </span><span class="kn">import</span> <span class="n">XnnpackPartitioner</span>
+<span></span>    <span class="kn">from</span><span class="w"> </span><span class="nn">executorch.exir</span><span class="w"> </span><span class="kn">import</span> <span class="n">to_edge_transform_and_lower</span>
+<span></span>
+<span></span>    <span class="n">file_directory</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">suffix</span><span class="p">,</span> <span class="s2">"_executorch_model"</span><span class="p">))</span>
+<span></span>    <span class="n">file_directory</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="n">file_pte</span> <span class="o">=</span> <span class="n">file_directory</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">".pte"</span><span class="p">)</span><span class="o">.</span><span class="n">name</span>
+<span></span>    <span class="n">sample_inputs</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">im</span><span class="p">,)</span>
+<span></span>
+<span></span>    <span class="n">et_program</span> <span class="o">=</span> <span class="n">to_edge_transform_and_lower</span><span class="p">(</span>
+<span></span>        <span class="n">torch</span><span class="o">.</span><span class="n">export</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">sample_inputs</span><span class="p">),</span> <span class="n">partitioner</span><span class="o">=</span><span class="p">[</span><span class="n">XnnpackPartitioner</span><span class="p">()]</span>
+<span></span>    <span class="p">)</span><span class="o">.</span><span class="n">to_executorch</span><span class="p">()</span>
+<span></span>
+<span></span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_pte</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<span></span>        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">et_program</span><span class="o">.</span><span class="n">buffer</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="n">YAML</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">file_directory</span> <span class="o">/</span> <span class="s2">"metadata.yaml"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">file_directory</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="ultralytics.engine.exporter.Exporter.export_imx">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">export_imx</span>
 </h3>
@@ -2923,41 +3049,41 @@ process for each supported format.</p>
 <p>Export YOLO model to IMX format.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1220</span>
-<span>1221</span>
-<span>1222</span>
-<span>1223</span>
-<span>1224</span>
-<span>1225</span>
-<span>1226</span>
-<span>1227</span>
-<span>1228</span>
-<span>1229</span>
-<span>1230</span>
-<span>1231</span>
-<span>1232</span>
-<span>1233</span>
-<span>1234</span>
-<span>1235</span>
-<span>1236</span>
-<span>1237</span>
-<span>1238</span>
-<span>1239</span>
-<span>1240</span>
-<span>1241</span>
-<span>1242</span>
-<span>1243</span>
-<span>1244</span>
-<span>1245</span>
-<span>1246</span>
-<span>1247</span>
-<span>1248</span>
-<span>1249</span>
-<span>1250</span>
-<span>1251</span>
-<span>1252</span>
-<span>1253</span>
-<span>1254</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1273</span>
+<span>1274</span>
+<span>1275</span>
+<span>1276</span>
+<span>1277</span>
+<span>1278</span>
+<span>1279</span>
+<span>1280</span>
+<span>1281</span>
+<span>1282</span>
+<span>1283</span>
+<span>1284</span>
+<span>1285</span>
+<span>1286</span>
+<span>1287</span>
+<span>1288</span>
+<span>1289</span>
+<span>1290</span>
+<span>1291</span>
+<span>1292</span>
+<span>1293</span>
+<span>1294</span>
+<span>1295</span>
+<span>1296</span>
+<span>1297</span>
+<span>1298</span>
+<span>1299</span>
+<span>1300</span>
+<span>1301</span>
+<span>1302</span>
+<span>1303</span>
+<span>1304</span>
+<span>1305</span>
+<span>1306</span>
+<span>1307</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_imx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"IMX:"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""Export YOLO model to IMX format."""</span>
 <span></span>    <span class="k">assert</span> <span class="n">LINUX</span><span class="p">,</span> <span class="p">(</span>
@@ -3006,30 +3132,30 @@ process for each supported format.</p>
 <p>Export YOLO model to MNN format using MNN <a href="https://github.com/alibaba/MNN">https://github.com/alibaba/MNN</a>.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>778</span>
-<span>779</span>
-<span>780</span>
-<span>781</span>
-<span>782</span>
-<span>783</span>
-<span>784</span>
-<span>785</span>
-<span>786</span>
-<span>787</span>
-<span>788</span>
-<span>789</span>
-<span>790</span>
-<span>791</span>
-<span>792</span>
-<span>793</span>
-<span>794</span>
-<span>795</span>
-<span>796</span>
-<span>797</span>
-<span>798</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>798</span>
 <span>799</span>
 <span>800</span>
-<span>801</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
+<span>801</span>
+<span>802</span>
+<span>803</span>
+<span>804</span>
+<span>805</span>
+<span>806</span>
+<span>807</span>
+<span>808</span>
+<span>809</span>
+<span>810</span>
+<span>811</span>
+<span>812</span>
+<span>813</span>
+<span>814</span>
+<span>815</span>
+<span>816</span>
+<span>817</span>
+<span>818</span>
+<span>819</span>
+<span>820</span>
+<span>821</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_mnn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"MNN:"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""Export YOLO model to MNN format using MNN https://github.com/alibaba/MNN."""</span>
 <span></span>    <span class="n">f_onnx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">export_onnx</span><span class="p">()</span>  <span class="c1"># get onnx model first</span>
@@ -3067,27 +3193,7 @@ process for each supported format.</p>
 <p>Export YOLO model to NCNN format using PNNX <a href="https://github.com/pnnx/pnnx">https://github.com/pnnx/pnnx</a>.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>803</span>
-<span>804</span>
-<span>805</span>
-<span>806</span>
-<span>807</span>
-<span>808</span>
-<span>809</span>
-<span>810</span>
-<span>811</span>
-<span>812</span>
-<span>813</span>
-<span>814</span>
-<span>815</span>
-<span>816</span>
-<span>817</span>
-<span>818</span>
-<span>819</span>
-<span>820</span>
-<span>821</span>
-<span>822</span>
-<span>823</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>823</span>
 <span>824</span>
 <span>825</span>
 <span>826</span>
@@ -3133,7 +3239,27 @@ process for each supported format.</p>
 <span>866</span>
 <span>867</span>
 <span>868</span>
-<span>869</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
+<span>869</span>
+<span>870</span>
+<span>871</span>
+<span>872</span>
+<span>873</span>
+<span>874</span>
+<span>875</span>
+<span>876</span>
+<span>877</span>
+<span>878</span>
+<span>879</span>
+<span>880</span>
+<span>881</span>
+<span>882</span>
+<span>883</span>
+<span>884</span>
+<span>885</span>
+<span>886</span>
+<span>887</span>
+<span>888</span>
+<span>889</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_ncnn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"NCNN:"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""Export YOLO model to NCNN format using PNNX https://github.com/pnnx/pnnx."""</span>
 <span></span>    <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"ncnn"</span><span class="p">,</span> <span class="n">cmds</span><span class="o">=</span><span class="s2">"--no-deps"</span><span class="p">)</span>  <span class="c1"># no deps to avoid installing opencv-python</span>
@@ -3214,27 +3340,7 @@ process for each supported format.</p>
 <p>Export YOLO model to ONNX format.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>612</span>
-<span>613</span>
-<span>614</span>
-<span>615</span>
-<span>616</span>
-<span>617</span>
-<span>618</span>
-<span>619</span>
-<span>620</span>
-<span>621</span>
-<span>622</span>
-<span>623</span>
-<span>624</span>
-<span>625</span>
-<span>626</span>
-<span>627</span>
-<span>628</span>
-<span>629</span>
-<span>630</span>
-<span>631</span>
-<span>632</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>632</span>
 <span>633</span>
 <span>634</span>
 <span>635</span>
@@ -3279,7 +3385,27 @@ process for each supported format.</p>
 <span>674</span>
 <span>675</span>
 <span>676</span>
-<span>677</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
+<span>677</span>
+<span>678</span>
+<span>679</span>
+<span>680</span>
+<span>681</span>
+<span>682</span>
+<span>683</span>
+<span>684</span>
+<span>685</span>
+<span>686</span>
+<span>687</span>
+<span>688</span>
+<span>689</span>
+<span>690</span>
+<span>691</span>
+<span>692</span>
+<span>693</span>
+<span>694</span>
+<span>695</span>
+<span>696</span>
+<span>697</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_onnx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"ONNX:"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""Export YOLO model to ONNX format."""</span>
 <span></span>    <span class="n">requirements</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"onnx&gt;=1.12.0"</span><span class="p">]</span>
@@ -3359,27 +3485,7 @@ process for each supported format.</p>
 <p>Export YOLO model to OpenVINO format.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>679</span>
-<span>680</span>
-<span>681</span>
-<span>682</span>
-<span>683</span>
-<span>684</span>
-<span>685</span>
-<span>686</span>
-<span>687</span>
-<span>688</span>
-<span>689</span>
-<span>690</span>
-<span>691</span>
-<span>692</span>
-<span>693</span>
-<span>694</span>
-<span>695</span>
-<span>696</span>
-<span>697</span>
-<span>698</span>
-<span>699</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>699</span>
 <span>700</span>
 <span>701</span>
 <span>702</span>
@@ -3432,7 +3538,27 @@ process for each supported format.</p>
 <span>749</span>
 <span>750</span>
 <span>751</span>
-<span>752</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
+<span>752</span>
+<span>753</span>
+<span>754</span>
+<span>755</span>
+<span>756</span>
+<span>757</span>
+<span>758</span>
+<span>759</span>
+<span>760</span>
+<span>761</span>
+<span>762</span>
+<span>763</span>
+<span>764</span>
+<span>765</span>
+<span>766</span>
+<span>767</span>
+<span>768</span>
+<span>769</span>
+<span>770</span>
+<span>771</span>
+<span>772</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_openvino</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"OpenVINO:"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""Export YOLO model to OpenVINO format."""</span>
 <span></span>    <span class="c1"># OpenVINO &lt;= 2025.1.0 error on macOS 15.4+: https://github.com/openvinotoolkit/openvino/issues/30023"</span>
@@ -3520,29 +3646,29 @@ process for each supported format.</p>
 <p>Export YOLO model to PaddlePaddle format.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>754</span>
-<span>755</span>
-<span>756</span>
-<span>757</span>
-<span>758</span>
-<span>759</span>
-<span>760</span>
-<span>761</span>
-<span>762</span>
-<span>763</span>
-<span>764</span>
-<span>765</span>
-<span>766</span>
-<span>767</span>
-<span>768</span>
-<span>769</span>
-<span>770</span>
-<span>771</span>
-<span>772</span>
-<span>773</span>
-<span>774</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>774</span>
 <span>775</span>
-<span>776</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
+<span>776</span>
+<span>777</span>
+<span>778</span>
+<span>779</span>
+<span>780</span>
+<span>781</span>
+<span>782</span>
+<span>783</span>
+<span>784</span>
+<span>785</span>
+<span>786</span>
+<span>787</span>
+<span>788</span>
+<span>789</span>
+<span>790</span>
+<span>791</span>
+<span>792</span>
+<span>793</span>
+<span>794</span>
+<span>795</span>
+<span>796</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_paddle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"PaddlePaddle:"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""Export YOLO model to PaddlePaddle format."""</span>
 <span></span>    <span class="k">assert</span> <span class="ow">not</span> <span class="n">IS_JETSON</span><span class="p">,</span> <span class="s2">"Jetson Paddle exports not supported yet"</span>
@@ -3579,21 +3705,21 @@ process for each supported format.</p>
 <p>Export YOLO model to TensorFlow GraphDef *.pb format <a href="https://github.com/leimao/Frozen-Graph-TensorFlow">https://github.com/leimao/Frozen-Graph-TensorFlow</a>.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1093</span>
-<span>1094</span>
-<span>1095</span>
-<span>1096</span>
-<span>1097</span>
-<span>1098</span>
-<span>1099</span>
-<span>1100</span>
-<span>1101</span>
-<span>1102</span>
-<span>1103</span>
-<span>1104</span>
-<span>1105</span>
-<span>1106</span>
-<span>1107</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1113</span>
+<span>1114</span>
+<span>1115</span>
+<span>1116</span>
+<span>1117</span>
+<span>1118</span>
+<span>1119</span>
+<span>1120</span>
+<span>1121</span>
+<span>1122</span>
+<span>1123</span>
+<span>1124</span>
+<span>1125</span>
+<span>1126</span>
+<span>1127</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_pb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keras_model</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"TensorFlow GraphDef:"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""Export YOLO model to TensorFlow GraphDef *.pb format https://github.com/leimao/Frozen-Graph-TensorFlow."""</span>
 <span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>  <span class="c1"># noqa</span>
@@ -3622,32 +3748,32 @@ process for each supported format.</p>
 <p>Export YOLO model to RKNN format.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1193</span>
-<span>1194</span>
-<span>1195</span>
-<span>1196</span>
-<span>1197</span>
-<span>1198</span>
-<span>1199</span>
-<span>1200</span>
-<span>1201</span>
-<span>1202</span>
-<span>1203</span>
-<span>1204</span>
-<span>1205</span>
-<span>1206</span>
-<span>1207</span>
-<span>1208</span>
-<span>1209</span>
-<span>1210</span>
-<span>1211</span>
-<span>1212</span>
-<span>1213</span>
-<span>1214</span>
-<span>1215</span>
-<span>1216</span>
-<span>1217</span>
-<span>1218</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1246</span>
+<span>1247</span>
+<span>1248</span>
+<span>1249</span>
+<span>1250</span>
+<span>1251</span>
+<span>1252</span>
+<span>1253</span>
+<span>1254</span>
+<span>1255</span>
+<span>1256</span>
+<span>1257</span>
+<span>1258</span>
+<span>1259</span>
+<span>1260</span>
+<span>1261</span>
+<span>1262</span>
+<span>1263</span>
+<span>1264</span>
+<span>1265</span>
+<span>1266</span>
+<span>1267</span>
+<span>1268</span>
+<span>1269</span>
+<span>1270</span>
+<span>1271</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_rknn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"RKNN:"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""Export YOLO model to RKNN format."""</span>
 <span></span>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> starting export with rknn-toolkit2..."</span><span class="p">)</span>
@@ -3687,27 +3813,7 @@ process for each supported format.</p>
 <p>Export YOLO model to TensorFlow SavedModel format.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1002</span>
-<span>1003</span>
-<span>1004</span>
-<span>1005</span>
-<span>1006</span>
-<span>1007</span>
-<span>1008</span>
-<span>1009</span>
-<span>1010</span>
-<span>1011</span>
-<span>1012</span>
-<span>1013</span>
-<span>1014</span>
-<span>1015</span>
-<span>1016</span>
-<span>1017</span>
-<span>1018</span>
-<span>1019</span>
-<span>1020</span>
-<span>1021</span>
-<span>1022</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1022</span>
 <span>1023</span>
 <span>1024</span>
 <span>1025</span>
@@ -3776,7 +3882,27 @@ process for each supported format.</p>
 <span>1088</span>
 <span>1089</span>
 <span>1090</span>
-<span>1091</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
+<span>1091</span>
+<span>1092</span>
+<span>1093</span>
+<span>1094</span>
+<span>1095</span>
+<span>1096</span>
+<span>1097</span>
+<span>1098</span>
+<span>1099</span>
+<span>1100</span>
+<span>1101</span>
+<span>1102</span>
+<span>1103</span>
+<span>1104</span>
+<span>1105</span>
+<span>1106</span>
+<span>1107</span>
+<span>1108</span>
+<span>1109</span>
+<span>1110</span>
+<span>1111</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_saved_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"TensorFlow SavedModel:"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""Export YOLO model to TensorFlow SavedModel format."""</span>
 <span></span>    <span class="n">cuda</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span>
@@ -3880,38 +4006,38 @@ process for each supported format.</p>
 <p>Export YOLO model to TensorFlow.js format.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1160</span>
-<span>1161</span>
-<span>1162</span>
-<span>1163</span>
-<span>1164</span>
-<span>1165</span>
-<span>1166</span>
-<span>1167</span>
-<span>1168</span>
-<span>1169</span>
-<span>1170</span>
-<span>1171</span>
-<span>1172</span>
-<span>1173</span>
-<span>1174</span>
-<span>1175</span>
-<span>1176</span>
-<span>1177</span>
-<span>1178</span>
-<span>1179</span>
-<span>1180</span>
-<span>1181</span>
-<span>1182</span>
-<span>1183</span>
-<span>1184</span>
-<span>1185</span>
-<span>1186</span>
-<span>1187</span>
-<span>1188</span>
-<span>1189</span>
-<span>1190</span>
-<span>1191</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1213</span>
+<span>1214</span>
+<span>1215</span>
+<span>1216</span>
+<span>1217</span>
+<span>1218</span>
+<span>1219</span>
+<span>1220</span>
+<span>1221</span>
+<span>1222</span>
+<span>1223</span>
+<span>1224</span>
+<span>1225</span>
+<span>1226</span>
+<span>1227</span>
+<span>1228</span>
+<span>1229</span>
+<span>1230</span>
+<span>1231</span>
+<span>1232</span>
+<span>1233</span>
+<span>1234</span>
+<span>1235</span>
+<span>1236</span>
+<span>1237</span>
+<span>1238</span>
+<span>1239</span>
+<span>1240</span>
+<span>1241</span>
+<span>1242</span>
+<span>1243</span>
+<span>1244</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_tfjs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"TensorFlow.js:"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""Export YOLO model to TensorFlow.js format."""</span>
 <span></span>    <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"tensorflowjs"</span><span class="p">)</span>
@@ -3957,21 +4083,21 @@ process for each supported format.</p>
 <p>Export YOLO model to TensorFlow Lite format.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1109</span>
-<span>1110</span>
-<span>1111</span>
-<span>1112</span>
-<span>1113</span>
-<span>1114</span>
-<span>1115</span>
-<span>1116</span>
-<span>1117</span>
-<span>1118</span>
-<span>1119</span>
-<span>1120</span>
-<span>1121</span>
-<span>1122</span>
-<span>1123</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1129</span>
+<span>1130</span>
+<span>1131</span>
+<span>1132</span>
+<span>1133</span>
+<span>1134</span>
+<span>1135</span>
+<span>1136</span>
+<span>1137</span>
+<span>1138</span>
+<span>1139</span>
+<span>1140</span>
+<span>1141</span>
+<span>1142</span>
+<span>1143</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_tflite</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"TensorFlow Lite:"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""Export YOLO model to TensorFlow Lite format."""</span>
 <span></span>    <span class="c1"># BUG https://github.com/ultralytics/ultralytics/issues/13436</span>
@@ -4000,22 +4126,22 @@ process for each supported format.</p>
 <p>Export YOLO model to TorchScript format.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>595</span>
-<span>596</span>
-<span>597</span>
-<span>598</span>
-<span>599</span>
-<span>600</span>
-<span>601</span>
-<span>602</span>
-<span>603</span>
-<span>604</span>
-<span>605</span>
-<span>606</span>
-<span>607</span>
-<span>608</span>
-<span>609</span>
-<span>610</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>615</span>
+<span>616</span>
+<span>617</span>
+<span>618</span>
+<span>619</span>
+<span>620</span>
+<span>621</span>
+<span>622</span>
+<span>623</span>
+<span>624</span>
+<span>625</span>
+<span>626</span>
+<span>627</span>
+<span>628</span>
+<span>629</span>
+<span>630</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_torchscript</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"TorchScript:"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""Export YOLO model to TorchScript format."""</span>
 <span></span>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> starting export with torch </span><span class="si">{</span><span class="n">TORCH_VERSION</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
@@ -4045,28 +4171,28 @@ process for each supported format.</p>
 <p>Build and return a dataloader for calibration of INT8 models.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>572</span>
-<span>573</span>
-<span>574</span>
-<span>575</span>
-<span>576</span>
-<span>577</span>
-<span>578</span>
-<span>579</span>
-<span>580</span>
-<span>581</span>
-<span>582</span>
-<span>583</span>
-<span>584</span>
-<span>585</span>
-<span>586</span>
-<span>587</span>
-<span>588</span>
-<span>589</span>
-<span>590</span>
-<span>591</span>
-<span>592</span>
-<span>593</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_int8_calibration_dataloader</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>592</span>
+<span>593</span>
+<span>594</span>
+<span>595</span>
+<span>596</span>
+<span>597</span>
+<span>598</span>
+<span>599</span>
+<span>600</span>
+<span>601</span>
+<span>602</span>
+<span>603</span>
+<span>604</span>
+<span>605</span>
+<span>606</span>
+<span>607</span>
+<span>608</span>
+<span>609</span>
+<span>610</span>
+<span>611</span>
+<span>612</span>
+<span>613</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_int8_calibration_dataloader</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Build and return a dataloader for calibration of INT8 models."""</span>
 <span></span>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> collecting INT8 calibration images from 'data=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">data</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
 <span></span>    <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">check_cls_dataset</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">task</span> <span class="o">==</span> <span class="s2">"classify"</span> <span class="k">else</span> <span class="n">check_det_dataset</span><span class="p">)(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
@@ -4102,10 +4228,10 @@ process for each supported format.</p>
 <p>Execute all callbacks for a given event.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1362</span>
-<span>1363</span>
-<span>1364</span>
-<span>1365</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1415</span>
+<span>1416</span>
+<span>1417</span>
+<span>1418</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Execute all callbacks for a given event."""</span>
 <span></span>    <span class="k">for</span> <span class="n">callback</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="p">[]):</span>
 <span></span>        <span class="n">callback</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
@@ -4189,27 +4315,27 @@ process for each supported format.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1371</span>
-<span>1372</span>
-<span>1373</span>
-<span>1374</span>
-<span>1375</span>
-<span>1376</span>
-<span>1377</span>
-<span>1378</span>
-<span>1379</span>
-<span>1380</span>
-<span>1381</span>
-<span>1382</span>
-<span>1383</span>
-<span>1384</span>
-<span>1385</span>
-<span>1386</span>
-<span>1387</span>
-<span>1388</span>
-<span>1389</span>
-<span>1390</span>
-<span>1391</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">mlprogram</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1424</span>
+<span>1425</span>
+<span>1426</span>
+<span>1427</span>
+<span>1428</span>
+<span>1429</span>
+<span>1430</span>
+<span>1431</span>
+<span>1432</span>
+<span>1433</span>
+<span>1434</span>
+<span>1435</span>
+<span>1436</span>
+<span>1437</span>
+<span>1438</span>
+<span>1439</span>
+<span>1440</span>
+<span>1441</span>
+<span>1442</span>
+<span>1443</span>
+<span>1444</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">mlprogram</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the IOSDetectModel class with a YOLO model and example image.</span>
 <span></span>
@@ -4243,14 +4369,14 @@ process for each supported format.</p>
 <p>Normalize predictions of object detection model with input size-dependent factors.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1393</span>
-<span>1394</span>
-<span>1395</span>
-<span>1396</span>
-<span>1397</span>
-<span>1398</span>
-<span>1399</span>
-<span>1400</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1446</span>
+<span>1447</span>
+<span>1448</span>
+<span>1449</span>
+<span>1450</span>
+<span>1451</span>
+<span>1452</span>
+<span>1453</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Normalize predictions of object detection model with input size-dependent factors."""</span>
 <span></span>    <span class="n">xywh</span><span class="p">,</span> <span class="bp">cls</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nc</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mlprogram</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">nc</span> <span class="o">%</span> <span class="mi">80</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># NMS bug https://github.com/ultralytics/ultralytics/issues/22309</span>
@@ -4322,19 +4448,19 @@ process for each supported format.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1406</span>
-<span>1407</span>
-<span>1408</span>
-<span>1409</span>
-<span>1410</span>
-<span>1411</span>
-<span>1412</span>
-<span>1413</span>
-<span>1414</span>
-<span>1415</span>
-<span>1416</span>
-<span>1417</span>
-<span>1418</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1459</span>
+<span>1460</span>
+<span>1461</span>
+<span>1462</span>
+<span>1463</span>
+<span>1464</span>
+<span>1465</span>
+<span>1466</span>
+<span>1467</span>
+<span>1468</span>
+<span>1469</span>
+<span>1470</span>
+<span>1471</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the NMSModel.</span>
 <span></span>
@@ -4411,60 +4537,7 @@ number of detections after NMS.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1420</span>
-<span>1421</span>
-<span>1422</span>
-<span>1423</span>
-<span>1424</span>
-<span>1425</span>
-<span>1426</span>
-<span>1427</span>
-<span>1428</span>
-<span>1429</span>
-<span>1430</span>
-<span>1431</span>
-<span>1432</span>
-<span>1433</span>
-<span>1434</span>
-<span>1435</span>
-<span>1436</span>
-<span>1437</span>
-<span>1438</span>
-<span>1439</span>
-<span>1440</span>
-<span>1441</span>
-<span>1442</span>
-<span>1443</span>
-<span>1444</span>
-<span>1445</span>
-<span>1446</span>
-<span>1447</span>
-<span>1448</span>
-<span>1449</span>
-<span>1450</span>
-<span>1451</span>
-<span>1452</span>
-<span>1453</span>
-<span>1454</span>
-<span>1455</span>
-<span>1456</span>
-<span>1457</span>
-<span>1458</span>
-<span>1459</span>
-<span>1460</span>
-<span>1461</span>
-<span>1462</span>
-<span>1463</span>
-<span>1464</span>
-<span>1465</span>
-<span>1466</span>
-<span>1467</span>
-<span>1468</span>
-<span>1469</span>
-<span>1470</span>
-<span>1471</span>
-<span>1472</span>
-<span>1473</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1473</span>
 <span>1474</span>
 <span>1475</span>
 <span>1476</span>
@@ -4489,7 +4562,60 @@ number of detections after NMS.</p>
 <span>1495</span>
 <span>1496</span>
 <span>1497</span>
-<span>1498</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span>1498</span>
+<span>1499</span>
+<span>1500</span>
+<span>1501</span>
+<span>1502</span>
+<span>1503</span>
+<span>1504</span>
+<span>1505</span>
+<span>1506</span>
+<span>1507</span>
+<span>1508</span>
+<span>1509</span>
+<span>1510</span>
+<span>1511</span>
+<span>1512</span>
+<span>1513</span>
+<span>1514</span>
+<span>1515</span>
+<span>1516</span>
+<span>1517</span>
+<span>1518</span>
+<span>1519</span>
+<span>1520</span>
+<span>1521</span>
+<span>1522</span>
+<span>1523</span>
+<span>1524</span>
+<span>1525</span>
+<span>1526</span>
+<span>1527</span>
+<span>1528</span>
+<span>1529</span>
+<span>1530</span>
+<span>1531</span>
+<span>1532</span>
+<span>1533</span>
+<span>1534</span>
+<span>1535</span>
+<span>1536</span>
+<span>1537</span>
+<span>1538</span>
+<span>1539</span>
+<span>1540</span>
+<span>1541</span>
+<span>1542</span>
+<span>1543</span>
+<span>1544</span>
+<span>1545</span>
+<span>1546</span>
+<span>1547</span>
+<span>1548</span>
+<span>1549</span>
+<span>1550</span>
+<span>1551</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Perform inference with NMS post-processing. Supports Detect, Segment, OBB and Pose.</span>
 <span></span>
@@ -4585,9 +4711,7 @@ number of detections after NMS.</p>
 <p>Return a dictionary of Ultralytics YOLO export formats.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>118</span>
-<span>119</span>
-<span>120</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>120</span>
 <span>121</span>
 <span>122</span>
 <span>123</span>
@@ -4619,7 +4743,10 @@ number of detections after NMS.</p>
 <span>149</span>
 <span>150</span>
 <span>151</span>
-<span>152</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_formats</span><span class="p">():</span>
+<span>152</span>
+<span>153</span>
+<span>154</span>
+<span>155</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_formats</span><span class="p">():</span>
 <span></span><span class="w">    </span><span class="sd">"""Return a dictionary of Ultralytics YOLO export formats."""</span>
 <span></span>    <span class="n">x</span> <span class="o">=</span> <span class="p">[</span>
 <span></span>        <span class="p">[</span><span class="s2">"PyTorch"</span><span class="p">,</span> <span class="s2">"-"</span><span class="p">,</span> <span class="s2">".pt"</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="p">[]],</span>
@@ -4652,6 +4779,7 @@ number of detections after NMS.</p>
 <span></span>        <span class="p">[</span><span class="s2">"NCNN"</span><span class="p">,</span> <span class="s2">"ncnn"</span><span class="p">,</span> <span class="s2">"_ncnn_model"</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="p">[</span><span class="s2">"batch"</span><span class="p">,</span> <span class="s2">"half"</span><span class="p">]],</span>
 <span></span>        <span class="p">[</span><span class="s2">"IMX"</span><span class="p">,</span> <span class="s2">"imx"</span><span class="p">,</span> <span class="s2">"_imx_model"</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="p">[</span><span class="s2">"int8"</span><span class="p">,</span> <span class="s2">"fraction"</span><span class="p">,</span> <span class="s2">"nms"</span><span class="p">]],</span>
 <span></span>        <span class="p">[</span><span class="s2">"RKNN"</span><span class="p">,</span> <span class="s2">"rknn"</span><span class="p">,</span> <span class="s2">"_rknn_model"</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="p">[</span><span class="s2">"batch"</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">]],</span>
+<span></span>        <span class="p">[</span><span class="s2">"ExecuTorch"</span><span class="p">,</span> <span class="s2">"executorch"</span><span class="p">,</span> <span class="s2">"_executorch_model"</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="p">[</span><span class="s2">"batch"</span><span class="p">]],</span>
 <span></span>    <span class="p">]</span>
 <span></span>    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">([</span><span class="s2">"Format"</span><span class="p">,</span> <span class="s2">"Argument"</span><span class="p">,</span> <span class="s2">"Suffix"</span><span class="p">,</span> <span class="s2">"CPU"</span><span class="p">,</span> <span class="s2">"GPU"</span><span class="p">,</span> <span class="s2">"Arguments"</span><span class="p">],</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">x</span><span class="p">)))</span>
 </code></pre></div></td></tr></table></div>
@@ -4668,10 +4796,7 @@ number of detections after NMS.</p>
 <p>Return max ONNX opset for this torch version with ONNX fallback.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>155</span>
-<span>156</span>
-<span>157</span>
-<span>158</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>158</span>
 <span>159</span>
 <span>160</span>
 <span>161</span>
@@ -4693,7 +4818,10 @@ number of detections after NMS.</p>
 <span>177</span>
 <span>178</span>
 <span>179</span>
-<span>180</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">best_onnx_opset</span><span class="p">(</span><span class="n">onnx</span><span class="p">,</span> <span class="n">cuda</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span>180</span>
+<span>181</span>
+<span>182</span>
+<span>183</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">best_onnx_opset</span><span class="p">(</span><span class="n">onnx</span><span class="p">,</span> <span class="n">cuda</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return max ONNX opset for this torch version with ONNX fallback."""</span>
 <span></span>    <span class="n">version</span> <span class="o">=</span> <span class="s2">"."</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">TORCH_VERSION</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"."</span><span class="p">)[:</span><span class="mi">2</span><span class="p">])</span>
 <span></span>    <span class="k">if</span> <span class="n">TORCH_2_4</span><span class="p">:</span>  <span class="c1"># _constants.ONNX_MAX_OPSET first defined in torch 1.13</span>
@@ -4815,10 +4943,7 @@ number of detections after NMS.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>183</span>
-<span>184</span>
-<span>185</span>
-<span>186</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>186</span>
 <span>187</span>
 <span>188</span>
 <span>189</span>
@@ -4835,7 +4960,10 @@ number of detections after NMS.</p>
 <span>200</span>
 <span>201</span>
 <span>202</span>
-<span>203</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">validate_args</span><span class="p">(</span><span class="nb">format</span><span class="p">,</span> <span class="n">passed_args</span><span class="p">,</span> <span class="n">valid_args</span><span class="p">):</span>
+<span>203</span>
+<span>204</span>
+<span>205</span>
+<span>206</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">validate_args</span><span class="p">(</span><span class="nb">format</span><span class="p">,</span> <span class="n">passed_args</span><span class="p">,</span> <span class="n">valid_args</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Validate arguments based on the export format.</span>
 <span></span>
@@ -4870,13 +4998,13 @@ number of detections after NMS.</p>
 <p>Return TensorFlow GraphDef model output node names.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>206</span>
-<span>207</span>
-<span>208</span>
-<span>209</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>209</span>
 <span>210</span>
 <span>211</span>
-<span>212</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">gd_outputs</span><span class="p">(</span><span class="n">gd</span><span class="p">):</span>
+<span>212</span>
+<span>213</span>
+<span>214</span>
+<span>215</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">gd_outputs</span><span class="p">(</span><span class="n">gd</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return TensorFlow GraphDef model output node names."""</span>
 <span></span>    <span class="n">name_list</span><span class="p">,</span> <span class="n">input_list</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
 <span></span>    <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">gd</span><span class="o">.</span><span class="n">node</span><span class="p">:</span>  <span class="c1"># tensorflow.core.framework.node_def_pb2.NodeDef</span>
@@ -4897,10 +5025,7 @@ number of detections after NMS.</p>
 <p>YOLO export decorator, i.e. @try_export.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>215</span>
-<span>216</span>
-<span>217</span>
-<span>218</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>218</span>
 <span>219</span>
 <span>220</span>
 <span>221</span>
@@ -4917,7 +5042,10 @@ number of detections after NMS.</p>
 <span>232</span>
 <span>233</span>
 <span>234</span>
-<span>235</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">try_export</span><span class="p">(</span><span class="n">inner_func</span><span class="p">):</span>
+<span>235</span>
+<span>236</span>
+<span>237</span>
+<span>238</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">try_export</span><span class="p">(</span><span class="n">inner_func</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""YOLO export decorator, i.e. @try_export."""</span>
 <span></span>    <span class="n">inner_args</span> <span class="o">=</span> <span class="n">get_default_args</span><span class="p">(</span><span class="n">inner_func</span><span class="p">)</span>
 <span></span>

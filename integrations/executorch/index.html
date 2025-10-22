@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Learn how to export YOLO11 models to TFLite Edge TPU format for high-speed, low-power inferencing on mobile and embedded devices." name="description"/>
+<meta content="Export YOLO11 models to ExecuTorch format for efficient on-device inference on mobile and edge devices. Optimize your AI models for iOS, Android, and embedded systems." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/integrations/edge-tpu/" rel="canonical"/>
-<link href="../tflite/" rel="prev"/>
-<link href="../tfjs/" rel="next"/>
+<link href="https://docs.ultralytics.com/integrations/executorch/" rel="canonical"/>
+<link href="../roboflow/" rel="prev"/>
+<link href="../../hub/" rel="next"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.22" name="generator"/>
-<title>Learn to Export to TFLite Edge TPU Format From YOLO11 Model</title>
+<title>Deploy YOLO11 on Mobile &amp; Edge with ExecuTorch - Ultralytics YOLO Docs</title>
 <link href="../../assets/stylesheets/main.84d31ad4.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -21,13 +21,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="TFLite Edge TPU" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLO11, TFLite Edge TPU, TensorFlow Lite, model export, machine learning, edge computing, neural networks, Ultralytics" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/edge-tpu" property="og:url"/><meta content="TFLite Edge TPU" property="og:title"/><meta content="Learn how to export YOLO11 models to TFLite Edge TPU format for high-speed, low-power inferencing on mobile and embedded devices." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/tflite-edge-tpu-compile-workflow.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/edge-tpu" property="twitter:url"/><meta content="TFLite Edge TPU" property="twitter:title"/><meta content="Learn how to export YOLO11 models to TFLite Edge TPU format for high-speed, low-power inferencing on mobile and embedded devices." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/tflite-edge-tpu-compile-workflow.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "TFLite Edge TPU", "image": ["https://github.com/ultralytics/docs/releases/download/0/tflite-edge-tpu-compile-workflow.avif"], "datePublished": "2024-03-13 18:56:42 +0530", "dateModified": "2025-04-08 11:47:04 -0700", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to export YOLO11 models to TFLite Edge TPU format for high-speed, low-power inferencing on mobile and embedded devices.", "mainEntity": [{"@type": "Question", "name": "How do I export a YOLO11 model to TFLite Edge TPU format?", "acceptedAnswer": {"@type": "Answer", "text": "To export a YOLO11 model to TFLite Edge TPU format, you can follow these steps: For complete details on exporting models to other formats, refer to our export guide."}}, {"@type": "Question", "name": "What are the benefits of exporting YOLO11 models to TFLite Edge TPU?", "acceptedAnswer": {"@type": "Answer", "text": "Exporting YOLO11 models to TFLite Edge TPU offers several benefits: This makes it ideal for applications in edge computing, where devices have limited power and computational resources. Learn more about why you should export."}}, {"@type": "Question", "name": "Can I deploy TFLite Edge TPU models on mobile and embedded devices?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, TensorFlow Lite Edge TPU models can be deployed directly on mobile and embedded devices. This deployment approach allows models to execute directly on the hardware, offering faster and more efficient inferencing. For integration examples, check our guide on deploying Coral Edge TPU on Raspberry Pi."}}, {"@type": "Question", "name": "What are some common use cases for TFLite Edge TPU models?", "acceptedAnswer": {"@type": "Answer", "text": "Common use cases for TFLite Edge TPU models include: These applications benefit from the high performance and low power consumption of TFLite Edge TPU models. Discover more about usage scenarios."}}, {"@type": "Question", "name": "How can I troubleshoot issues while exporting or deploying TFLite Edge TPU models?", "acceptedAnswer": {"@type": "Answer", "text": "If you encounter issues while exporting or deploying TFLite Edge TPU models, refer to our Common Issues guide for troubleshooting tips. This guide covers common problems and solutions to help you ensure smooth operation. For additional support, visit our Help Center."}}]}</script></head>
+<meta content="ExecuTorch" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO11, ExecuTorch, model export, PyTorch, edge AI, mobile deployment, on-device inference, XNNPACK, embedded systems" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/integrations/executorch" property="og:url"/><meta content="ExecuTorch" property="og:title"/><meta content="Export YOLO11 models to ExecuTorch format for efficient on-device inference on mobile and edge devices. Optimize your AI models for iOS, Android, and embedded systems." property="og:description"/><meta content="https://github.com/ultralytics/assets/releases/download/v0.0.0/executorch-pipeline.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/integrations/executorch" property="twitter:url"/><meta content="ExecuTorch" property="twitter:title"/><meta content="Export YOLO11 models to ExecuTorch format for efficient on-device inference on mobile and edge devices. Optimize your AI models for iOS, Android, and embedded systems." property="twitter:description"/><meta content="https://github.com/ultralytics/assets/releases/download/v0.0.0/executorch-pipeline.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "ExecuTorch", "image": ["https://github.com/ultralytics/assets/releases/download/v0.0.0/executorch-pipeline.avif"], "datePublished": "2025-10-22 15:19:16 +0200", "dateModified": "2025-10-22 15:19:16 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Export YOLO11 models to ExecuTorch format for efficient on-device inference on mobile and edge devices. Optimize your AI models for iOS, Android, and embedded systems.", "mainEntity": [{"@type": "Question", "name": "How do I export a YOLO11 model to ExecuTorch format?", "acceptedAnswer": {"@type": "Answer", "text": "Export a YOLO11 model to ExecuTorch using either Python or CLI: or"}}, {"@type": "Question", "name": "What are the system requirements for ExecuTorch export?", "acceptedAnswer": {"@type": "Answer", "text": "ExecuTorch export requires: Note: During the first export, ExecuTorch will download and compile necessary components including the FlatBuffers compiler automatically."}}, {"@type": "Question", "name": "Can I run inference with ExecuTorch models directly in Python?", "acceptedAnswer": {"@type": "Answer", "text": "ExecuTorch models (.pte files) are designed for deployment on mobile and edge devices using the ExecuTorch runtime. They cannot be directly loaded with YOLO() for inference in Python. You need to integrate them into your target application using the ExecuTorch runtime libraries."}}, {"@type": "Question", "name": "What platforms are supported by ExecuTorch?", "acceptedAnswer": {"@type": "Answer", "text": "ExecuTorch supports:"}}, {"@type": "Question", "name": "How does ExecuTorch compare to TFLite for mobile deployment?", "acceptedAnswer": {"@type": "Answer", "text": "Both ExecuTorch and TFLite are excellent for mobile deployment: Choose ExecuTorch if you're already using PyTorch and want a native deployment path. Choose TFLite for maximum compatibility and mature tooling."}}, {"@type": "Question", "name": "Can I use ExecuTorch models with GPU acceleration?", "acceptedAnswer": {"@type": "Answer", "text": "Yes! ExecuTorch supports hardware acceleration through various backends: Refer to the ExecuTorch Documentation for backend-specific setup."}}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#learn-to-export-to-tflite-edge-tpu-format-from-yolo11-model">
+<a class="md-skip" href="#deploy-yolo11-on-mobile-edge-with-executorch">
           Skip to content
         </a>
 </div>
@@ -61,7 +61,7 @@
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
-              TFLite Edge TPU
+              ExecuTorch
           </span>
 </div>
 </div>
@@ -509,140 +509,12 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    TFLite Edge TPU
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../edge-tpu/">
 <span class="md-ellipsis">
     TFLite Edge TPU
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#why-should-you-export-to-tflite-edge-tpu">
-<span class="md-ellipsis">
-      Why Should You Export to TFLite Edge TPU?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#key-features-of-tflite-edge-tpu">
-<span class="md-ellipsis">
-      Key Features of TFLite Edge TPU
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#deployment-options-with-tflite-edge-tpu">
-<span class="md-ellipsis">
-      Deployment Options with TFLite Edge TPU
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#exporting-yolo11-models-to-tflite-edge-tpu">
-<span class="md-ellipsis">
-      Exporting YOLO11 Models to TFLite Edge TPU
-    </span>
-</a>
-<nav aria-label="Exporting YOLO11 Models to TFLite Edge TPU" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#installation">
-<span class="md-ellipsis">
-      Installation
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#usage">
-<span class="md-ellipsis">
-      Usage
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#export-arguments">
-<span class="md-ellipsis">
-      Export Arguments
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#deploying-exported-yolo11-tflite-edge-tpu-models">
-<span class="md-ellipsis">
-      Deploying Exported YOLO11 TFLite Edge TPU Models
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#summary">
-<span class="md-ellipsis">
-      Summary
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#faq">
-<span class="md-ellipsis">
-      FAQ
-    </span>
-</a>
-<nav aria-label="FAQ" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-export-a-yolo11-model-to-tflite-edge-tpu-format">
-<span class="md-ellipsis">
-      How do I export a YOLO11 model to TFLite Edge TPU format?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#what-are-the-benefits-of-exporting-yolo11-models-to-tflite-edge-tpu">
-<span class="md-ellipsis">
-      What are the benefits of exporting YOLO11 models to TFLite Edge TPU?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#can-i-deploy-tflite-edge-tpu-models-on-mobile-and-embedded-devices">
-<span class="md-ellipsis">
-      Can I deploy TFLite Edge TPU models on mobile and embedded devices?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#what-are-some-common-use-cases-for-tflite-edge-tpu-models">
-<span class="md-ellipsis">
-      What are some common use cases for TFLite Edge TPU models?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-can-i-troubleshoot-issues-while-exporting-or-deploying-tflite-edge-tpu-models">
-<span class="md-ellipsis">
-      How can I troubleshoot issues while exporting or deploying TFLite Edge TPU models?
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../tfjs/">
@@ -707,12 +579,222 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../executorch/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    ExecuTorch
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     ExecuTorch
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-export-to-executorch">
+<span class="md-ellipsis">
+      Why export to ExecuTorch?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#key-features-of-executorch">
+<span class="md-ellipsis">
+      Key features of ExecuTorch
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#deployment-options-with-executorch">
+<span class="md-ellipsis">
+      Deployment Options with ExecuTorch
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exporting-ultralytics-yolo11-models-to-executorch">
+<span class="md-ellipsis">
+      Exporting Ultralytics YOLO11 Models to ExecuTorch
+    </span>
+</a>
+<nav aria-label="Exporting Ultralytics YOLO11 Models to ExecuTorch" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installation">
+<span class="md-ellipsis">
+      Installation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#usage">
+<span class="md-ellipsis">
+      Usage
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#export-arguments">
+<span class="md-ellipsis">
+      Export Arguments
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#output-structure">
+<span class="md-ellipsis">
+      Output Structure
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using-exported-executorch-models">
+<span class="md-ellipsis">
+      Using Exported ExecuTorch Models
+    </span>
+</a>
+<nav aria-label="Using Exported ExecuTorch Models" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mobile-integration">
+<span class="md-ellipsis">
+      Mobile Integration
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#embedded-linux">
+<span class="md-ellipsis">
+      Embedded Linux
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#performance-optimization">
+<span class="md-ellipsis">
+      Performance Optimization
+    </span>
+</a>
+<nav aria-label="Performance Optimization" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#model-size-optimization">
+<span class="md-ellipsis">
+      Model Size Optimization
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inference-speed-optimization">
+<span class="md-ellipsis">
+      Inference Speed Optimization
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#benchmarks">
+<span class="md-ellipsis">
+      Benchmarks
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#troubleshooting">
+<span class="md-ellipsis">
+      Troubleshooting
+    </span>
+</a>
+<nav aria-label="Troubleshooting" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#common-issues">
+<span class="md-ellipsis">
+      Common Issues
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#summary">
+<span class="md-ellipsis">
+      Summary
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faq">
+<span class="md-ellipsis">
+      FAQ
+    </span>
+</a>
+<nav aria-label="FAQ" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-do-i-export-a-yolo11-model-to-executorch-format">
+<span class="md-ellipsis">
+      How do I export a YOLO11 model to ExecuTorch format?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-are-the-system-requirements-for-executorch-export">
+<span class="md-ellipsis">
+      What are the system requirements for ExecuTorch export?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#can-i-run-inference-with-executorch-models-directly-in-python">
+<span class="md-ellipsis">
+      Can I run inference with ExecuTorch models directly in Python?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-platforms-are-supported-by-executorch">
+<span class="md-ellipsis">
+      What platforms are supported by ExecuTorch?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-does-executorch-compare-to-tflite-for-mobile-deployment">
+<span class="md-ellipsis">
+      How does ExecuTorch compare to TFLite for mobile deployment?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#can-i-use-executorch-models-with-gpu-acceleration">
+<span class="md-ellipsis">
+      Can I use ExecuTorch models with GPU acceleration?
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -756,33 +838,33 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#why-should-you-export-to-tflite-edge-tpu">
+<a class="md-nav__link" href="#why-export-to-executorch">
 <span class="md-ellipsis">
-      Why Should You Export to TFLite Edge TPU?
+      Why export to ExecuTorch?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#key-features-of-tflite-edge-tpu">
+<a class="md-nav__link" href="#key-features-of-executorch">
 <span class="md-ellipsis">
-      Key Features of TFLite Edge TPU
+      Key features of ExecuTorch
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#deployment-options-with-tflite-edge-tpu">
+<a class="md-nav__link" href="#deployment-options-with-executorch">
 <span class="md-ellipsis">
-      Deployment Options with TFLite Edge TPU
+      Deployment Options with ExecuTorch
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#exporting-yolo11-models-to-tflite-edge-tpu">
+<a class="md-nav__link" href="#exporting-ultralytics-yolo11-models-to-executorch">
 <span class="md-ellipsis">
-      Exporting YOLO11 Models to TFLite Edge TPU
+      Exporting Ultralytics YOLO11 Models to ExecuTorch
     </span>
 </a>
-<nav aria-label="Exporting YOLO11 Models to TFLite Edge TPU" class="md-nav">
+<nav aria-label="Exporting Ultralytics YOLO11 Models to ExecuTorch" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#installation">
@@ -805,15 +887,90 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#output-structure">
+<span class="md-ellipsis">
+      Output Structure
+    </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#deploying-exported-yolo11-tflite-edge-tpu-models">
+<a class="md-nav__link" href="#using-exported-executorch-models">
 <span class="md-ellipsis">
-      Deploying Exported YOLO11 TFLite Edge TPU Models
+      Using Exported ExecuTorch Models
     </span>
 </a>
+<nav aria-label="Using Exported ExecuTorch Models" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mobile-integration">
+<span class="md-ellipsis">
+      Mobile Integration
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#embedded-linux">
+<span class="md-ellipsis">
+      Embedded Linux
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#performance-optimization">
+<span class="md-ellipsis">
+      Performance Optimization
+    </span>
+</a>
+<nav aria-label="Performance Optimization" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#model-size-optimization">
+<span class="md-ellipsis">
+      Model Size Optimization
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inference-speed-optimization">
+<span class="md-ellipsis">
+      Inference Speed Optimization
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#benchmarks">
+<span class="md-ellipsis">
+      Benchmarks
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#troubleshooting">
+<span class="md-ellipsis">
+      Troubleshooting
+    </span>
+</a>
+<nav aria-label="Troubleshooting" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#common-issues">
+<span class="md-ellipsis">
+      Common Issues
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#summary">
@@ -831,37 +988,44 @@
 <nav aria-label="FAQ" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-export-a-yolo11-model-to-tflite-edge-tpu-format">
+<a class="md-nav__link" href="#how-do-i-export-a-yolo11-model-to-executorch-format">
 <span class="md-ellipsis">
-      How do I export a YOLO11 model to TFLite Edge TPU format?
+      How do I export a YOLO11 model to ExecuTorch format?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-are-the-benefits-of-exporting-yolo11-models-to-tflite-edge-tpu">
+<a class="md-nav__link" href="#what-are-the-system-requirements-for-executorch-export">
 <span class="md-ellipsis">
-      What are the benefits of exporting YOLO11 models to TFLite Edge TPU?
+      What are the system requirements for ExecuTorch export?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#can-i-deploy-tflite-edge-tpu-models-on-mobile-and-embedded-devices">
+<a class="md-nav__link" href="#can-i-run-inference-with-executorch-models-directly-in-python">
 <span class="md-ellipsis">
-      Can I deploy TFLite Edge TPU models on mobile and embedded devices?
+      Can I run inference with ExecuTorch models directly in Python?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-are-some-common-use-cases-for-tflite-edge-tpu-models">
+<a class="md-nav__link" href="#what-platforms-are-supported-by-executorch">
 <span class="md-ellipsis">
-      What are some common use cases for TFLite Edge TPU models?
+      What platforms are supported by ExecuTorch?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-can-i-troubleshoot-issues-while-exporting-or-deploying-tflite-edge-tpu-models">
+<a class="md-nav__link" href="#how-does-executorch-compare-to-tflite-for-mobile-deployment">
 <span class="md-ellipsis">
-      How can I troubleshoot issues while exporting or deploying TFLite Edge TPU models?
+      How does ExecuTorch compare to TFLite for mobile deployment?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#can-i-use-executorch-models-with-gpu-acceleration">
+<span class="md-ellipsis">
+      Can I use ExecuTorch models with GPU acceleration?
     </span>
 </a>
 </li>
@@ -875,64 +1039,71 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/integrations/edge-tpu.md" rel="edit" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/integrations/executorch.md" rel="edit" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a><a class="md-content__button md-icon" href="javascript:void(0)" onclick="copyMarkdownForLLM(this); return false;" title="Copy page in Markdown format"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg></a>
-<h1 id="learn-to-export-to-tflite-edge-tpu-format-from-yolo11-model">Learn to Export to TFLite Edge TPU Format From YOLO11 Model</h1>
-<p>Deploying computer vision models on devices with limited computational power, such as mobile or embedded systems, can be tricky. Using a model format that is optimized for faster performance simplifies the process. The <a href="https://ai.google.dev/edge/litert">TensorFlow Lite</a> <a href="https://coral.ai/docs/edgetpu/models-intro/">Edge TPU</a> or TFLite Edge TPU model format is designed to use minimal power while delivering fast performance for neural networks.</p>
-<p>The export to TFLite Edge TPU format feature allows you to optimize your <a href="https://github.com/ultralytics/ultralytics">Ultralytics YOLO11</a> models for high-speed and low-power inferencing. In this guide, we'll walk you through converting your models to the TFLite Edge TPU format, making it easier for your models to perform well on various mobile and embedded devices.</p>
-<h2 id="why-should-you-export-to-tflite-edge-tpu">Why Should You Export to TFLite Edge TPU?</h2>
-<p>Exporting models to <a href="https://www.ultralytics.com/glossary/tensorflow">TensorFlow</a> Edge TPU makes <a href="https://www.ultralytics.com/glossary/machine-learning-ml">machine learning</a> tasks fast and efficient. This technology suits applications with limited power, computing resources, and connectivity. The Edge TPU is a hardware accelerator by Google. It speeds up TensorFlow Lite models on edge devices. The image below shows an example of the process involved.</p>
+<h1 id="deploy-yolo11-on-mobile-edge-with-executorch">Deploy YOLO11 on Mobile &amp; Edge with ExecuTorch</h1>
+<p>Deploying computer vision models on edge devices like smartphones, tablets, and embedded systems requires an optimized runtime that balances performance with resource constraints. ExecuTorch, PyTorch's solution for edge computing, enables efficient on-device inference for <a href="https://github.com/ultralytics/ultralytics">Ultralytics YOLO</a> models.</p>
+<p>This guide outlines how to export Ultralytics YOLO models to ExecuTorch format, enabling you to deploy your models on mobile and edge devices with optimized performance.</p>
+<h2 id="why-export-to-executorch">Why export to ExecuTorch?</h2>
 <p align="center">
-<img alt="TFLite Edge TPU" src="https://github.com/ultralytics/docs/releases/download/0/tflite-edge-tpu-compile-workflow.avif" width="100%"/>
+<img alt="PyTorch ExecuTorch overview" src="https://github.com/ultralytics/assets/releases/download/v0.0.0/executorch-pipeline.avif" width="100%"/>
 </p>
-<p>The Edge TPU works with quantized models. Quantization makes models smaller and faster without losing much <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a>. It is ideal for the limited resources of edge computing, allowing applications to respond quickly by reducing latency and allowing for quick data processing locally, without cloud dependency. Local processing also keeps user data private and secure since it's not sent to a remote server.</p>
-<h2 id="key-features-of-tflite-edge-tpu">Key Features of TFLite Edge TPU</h2>
-<p>Here are the key features that make TFLite Edge TPU a great model format choice for developers:</p>
+<p><a href="https://pytorch.org/executorch/">ExecuTorch</a> is PyTorch's end-to-end solution for enabling on-device inference capabilities across mobile and edge devices. Built with the goal of being portable and efficient, ExecuTorch can be used to run PyTorch programs on a wide variety of computing platforms.</p>
+<h2 id="key-features-of-executorch">Key features of ExecuTorch</h2>
+<p>ExecuTorch provides several powerful features for deploying Ultralytics YOLO models on edge devices:</p>
 <ul>
 <li>
-<p><strong>Optimized Performance on Edge Devices</strong>: The TFLite Edge TPU achieves high-speed neural networking performance through quantization, model optimization, hardware acceleration, and compiler optimization. Its minimalistic architecture contributes to its smaller size and cost-efficiency.</p>
+<p><strong>Portable Model Format</strong>: ExecuTorch uses the <code>.pte</code> (PyTorch ExecuTorch) format, which is optimized for size and loading speed on resource-constrained devices.</p>
 </li>
 <li>
-<p><strong>High Computational Throughput</strong>: TFLite Edge TPU combines specialized hardware acceleration and efficient runtime execution to achieve high computational throughput. It is well-suited for deploying machine learning models with stringent performance requirements on edge devices.</p>
+<p><strong>XNNPACK Backend</strong>: Default integration with XNNPACK provides highly optimized inference on mobile CPUs, delivering excellent performance without requiring specialized hardware.</p>
 </li>
 <li>
-<p><strong>Efficient Matrix Computations</strong>: The TensorFlow Edge TPU is optimized for matrix operations, which are crucial for <a href="https://www.ultralytics.com/glossary/neural-network-nn">neural network</a> computations. This efficiency is key in machine learning models, particularly those requiring numerous and complex matrix multiplications and transformations.</p>
+<p><strong>Quantization Support</strong>: Built-in support for quantization techniques to reduce model size and improve inference speed while maintaining accuracy.</p>
+</li>
+<li>
+<p><strong>Memory Efficiency</strong>: Optimized memory management reduces runtime memory footprint, making it suitable for devices with limited RAM.</p>
+</li>
+<li>
+<p><strong>Model Metadata</strong>: Exported models include metadata (image size, class names, etc.) in a separate YAML file for easy integration.</p>
 </li>
 </ul>
-<h2 id="deployment-options-with-tflite-edge-tpu">Deployment Options with TFLite Edge TPU</h2>
-<p>Before we jump into how to export YOLO11 models to the TFLite Edge TPU format, let's understand where TFLite Edge TPU models are usually used.</p>
-<p>TFLite Edge TPU offers various deployment options for machine learning models, including:</p>
+<h2 id="deployment-options-with-executorch">Deployment Options with ExecuTorch</h2>
+<p>ExecuTorch models can be deployed across various edge and mobile platforms:</p>
 <ul>
 <li>
-<p><strong>On-Device Deployment</strong>: TensorFlow Edge TPU models can be directly deployed on mobile and embedded devices. On-device deployment allows the models to execute directly on the hardware, eliminating the need for cloud connectivity.</p>
+<p><strong>Mobile Applications</strong>: Deploy on iOS and Android applications with native performance, enabling real-time object detection in mobile apps.</p>
 </li>
 <li>
-<p><strong>Edge Computing with Cloud TensorFlow TPUs</strong>: In scenarios where edge devices have limited processing capabilities, TensorFlow Edge TPUs can offload inference tasks to cloud servers equipped with TPUs.</p>
+<p><strong>Embedded Systems</strong>: Run on embedded Linux devices like Raspberry Pi, NVIDIA Jetson, and other ARM-based systems with optimized performance.</p>
 </li>
 <li>
-<p><strong>Hybrid Deployment</strong>: A hybrid approach combines on-device and cloud deployment and offers a versatile and scalable solution for deploying machine learning models. Advantages include on-device processing for quick responses and <a href="https://www.ultralytics.com/glossary/cloud-computing">cloud computing</a> for more complex computations.</p>
+<p><strong>Edge AI Devices</strong>: Deploy on specialized edge AI hardware with custom delegates for accelerated inference.</p>
+</li>
+<li>
+<p><strong>IoT Devices</strong>: Integrate into IoT devices for on-device inference without cloud connectivity requirements.</p>
 </li>
 </ul>
-<h2 id="exporting-yolo11-models-to-tflite-edge-tpu">Exporting YOLO11 Models to TFLite Edge TPU</h2>
-<p>You can expand model compatibility and deployment flexibility by converting YOLO11 models to TensorFlow Edge TPU.</p>
+<h2 id="exporting-ultralytics-yolo11-models-to-executorch">Exporting Ultralytics YOLO11 Models to ExecuTorch</h2>
+<p>Converting Ultralytics YOLO11 models to ExecuTorch format enables efficient deployment on mobile and edge devices.</p>
 <h3 id="installation">Installation</h3>
-<p>To install the required package, run:</p>
+<p>ExecuTorch export requires Python 3.10 or higher and specific dependencies:</p>
 <div class="admonition tip">
 <p class="admonition-title">Installation</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="cli" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="cli">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Install the required package for YOLO11</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Install Ultralytics package</span>
 <span></span>pip<span class="w"> </span>install<span class="w"> </span>ultralytics
 </code></pre></div>
 </div>
 </div>
 </div>
 </div>
-<p>For detailed instructions and best practices related to the installation process, check our <a href="../../quickstart/">Ultralytics Installation guide</a>. While installing the required packages for YOLO11, if you encounter any difficulties, consult our <a href="../../guides/yolo-common-issues/">Common Issues guide</a> for solutions and tips.</p>
+<p>For detailed instructions and best practices related to the installation process, check our <a href="../../quickstart/">YOLO11 Installation guide</a>. While installing the required packages for YOLO11, if you encounter any difficulties, consult our <a href="../../guides/yolo-common-issues/">Common Issues guide</a> for solutions and tips.</p>
 <h3 id="usage">Usage</h3>
-<p>All <a href="../../models/">Ultralytics YOLO11 models</a> are designed to support export out of the box, making it easy to integrate them into your preferred deployment workflow. You can <a href="../../modes/export/">view the full list of supported export formats and configuration options</a> to choose the best setup for your application.</p>
+<p>Exporting YOLO11 models to ExecuTorch is straightforward:</p>
 <div class="admonition example">
 <p class="admonition-title">Usage</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="python" name="__tabbed_2" type="radio"/><input id="cli_1" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="python">Python</label><label for="cli_1">CLI</label></div>
@@ -943,28 +1114,27 @@
 <span></span><span class="c1"># Load the YOLO11 model</span>
 <span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
 <span></span>
-<span></span><span class="c1"># Export the model to TFLite Edge TPU format</span>
-<span></span><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"edgetpu"</span><span class="p">)</span>  <span class="c1"># creates 'yolo11n_full_integer_quant_edgetpu.tflite'</span>
+<span></span><span class="c1"># Export the model to ExecuTorch format</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"executorch"</span><span class="p">)</span>  <span class="c1"># creates 'yolo11n_executorch_model' directory</span>
 <span></span>
-<span></span><span class="c1"># Load the exported TFLite Edge TPU model</span>
-<span></span><span class="n">edgetpu_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n_full_integer_quant_edgetpu.tflite"</span><span class="p">)</span>
+<span></span><span class="n">executorch_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n_executorch_model"</span><span class="p">)</span>
 <span></span>
-<span></span><span class="c1"># Run inference</span>
-<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">edgetpu_model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">executorch_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Export a YOLO11n PyTorch model to TFLite Edge TPU format</span>
-<span></span>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>edgetpu<span class="w"> </span><span class="c1"># creates 'yolo11n_full_integer_quant_edgetpu.tflite'</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Export a YOLO11n PyTorch model to ExecuTorch format</span>
+<span></span>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>executorch<span class="w"> </span><span class="c1"># creates 'yolo11n_executorch_model' directory</span>
 <span></span>
 <span></span><span class="c1"># Run inference with the exported model</span>
-<span></span>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n_full_integer_quant_edgetpu.tflite<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span>
+<span></span>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n_executorch_model<span class="w"> </span><span class="nv">source</span><span class="o">=</span>https://ultralytics.com/images/bus.jpg
 </code></pre></div>
 </div>
 </div>
 </div>
 </div>
 <h3 id="export-arguments">Export Arguments</h3>
+<p>When exporting to ExecuTorch format, you can specify the following arguments:</p>
 <table>
 <thead>
 <tr>
@@ -976,141 +1146,258 @@
 </thead>
 <tbody>
 <tr>
-<td><code>format</code></td>
-<td><code>str</code></td>
-<td><code>'edgetpu'</code></td>
-<td>Target format for the exported model, defining compatibility with various deployment environments.</td>
-</tr>
-<tr>
 <td><code>imgsz</code></td>
-<td><code>int</code> or <code>tuple</code></td>
+<td><code>int</code> or <code>list</code></td>
 <td><code>640</code></td>
-<td>Desired image size for the model input. Can be an integer for square images or a tuple <code>(height, width)</code> for specific dimensions.</td>
+<td>Image size for model input (height, width)</td>
 </tr>
 <tr>
 <td><code>device</code></td>
 <td><code>str</code></td>
-<td><code>None</code></td>
-<td>Specifies the device for exporting: CPU (<code>device=cpu</code>).</td>
+<td><code>'cpu'</code></td>
+<td>Device to use for export (<code>'cpu'</code>)</td>
 </tr>
 </tbody>
 </table>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Please make sure to use an x86 Linux machine when exporting to EdgeTPU.</p>
-</div>
-<p>For more details about the export process, visit the <a href="../../modes/export/">Ultralytics documentation page on exporting</a>.</p>
-<h2 id="deploying-exported-yolo11-tflite-edge-tpu-models">Deploying Exported YOLO11 TFLite Edge TPU Models</h2>
-<p>After successfully exporting your Ultralytics YOLO11 models to TFLite Edge TPU format, you can now deploy them. The primary and recommended first step for running a TFLite Edge TPU model is to use the YOLO("model_edgetpu.tflite") method, as outlined in the previous usage code snippet.</p>
-<p>However, for in-depth instructions on deploying your TFLite Edge TPU models, take a look at the following resources:</p>
+<h3 id="output-structure">Output Structure</h3>
+<p>The ExecuTorch export creates a directory containing the model and metadata:</p>
+<div class="highlight"><pre><span></span><code><span></span>yolo11n_executorch_model/
+<span></span>├── yolo11n.pte              # ExecuTorch model file
+<span></span>└── metadata.yaml            # Model metadata (classes, image size, etc.)
+</code></pre></div>
+<h2 id="using-exported-executorch-models">Using Exported ExecuTorch Models</h2>
+<p>After exporting your model, you'll need to integrate it into your target application using the ExecuTorch runtime.</p>
+<h3 id="mobile-integration">Mobile Integration</h3>
+<p>For mobile applications (iOS/Android), you'll need to:</p>
+<ol>
+<li><strong>Add ExecuTorch Runtime</strong>: Include the ExecuTorch runtime library in your mobile project</li>
+<li><strong>Load Model</strong>: Load the <code>.pte</code> file in your application</li>
+<li><strong>Run Inference</strong>: Process images and get predictions</li>
+</ol>
+<p>Example iOS integration (Objective-C/C++):</p>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1">// iOS uses C++ APIs for model loading and inference</span>
+<span></span><span class="c1">// See https://pytorch.org/executorch/stable/using-executorch-ios.html for complete examples</span>
+<span></span>
+<span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;executorch/extension/module/module.h&gt;</span>
+<span></span>
+<span></span><span class="n">using</span><span class="w"> </span><span class="n">namespace</span><span class="w"> </span><span class="o">::</span><span class="n">executorch</span><span class="o">::</span><span class="n">extension</span><span class="p">;</span>
+<span></span>
+<span></span><span class="c1">// Load the model</span>
+<span></span><span class="n">Module</span><span class="w"> </span><span class="n">module</span><span class="p">(</span><span class="s">"/path/to/yolo11n.pte"</span><span class="p">);</span>
+<span></span>
+<span></span><span class="c1">// Create input tensor</span>
+<span></span><span class="kt">float</span><span class="w"> </span><span class="n">input</span><span class="p">[</span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">640</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">640</span><span class="p">];</span>
+<span></span><span class="k">auto</span><span class="w"> </span><span class="n">tensor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">from_blob</span><span class="p">(</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">640</span><span class="p">,</span><span class="w"> </span><span class="mi">640</span><span class="p">});</span>
+<span></span>
+<span></span><span class="c1">// Run inference</span>
+<span></span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">module</span><span class="p">.</span><span class="n">forward</span><span class="p">(</span><span class="n">tensor</span><span class="p">);</span>
+</code></pre></div>
+<p>Example Android integration (Kotlin):</p>
+<div class="highlight"><pre><span></span><code><span></span><span class="k">import</span><span class="w"> </span><span class="nn">org.pytorch.executorch.EValue</span>
+<span></span><span class="k">import</span><span class="w"> </span><span class="nn">org.pytorch.executorch.Module</span>
+<span></span><span class="k">import</span><span class="w"> </span><span class="nn">org.pytorch.executorch.Tensor</span>
+<span></span>
+<span></span><span class="c1">// Load the model</span>
+<span></span><span class="kd">val</span><span class="w"> </span><span class="nv">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Module</span><span class="p">.</span><span class="na">load</span><span class="p">(</span><span class="s">"/path/to/yolo11n.pte"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1">// Prepare input tensor</span>
+<span></span><span class="kd">val</span><span class="w"> </span><span class="nv">inputTensor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Tensor</span><span class="p">.</span><span class="na">fromBlob</span><span class="p">(</span><span class="n">floatData</span><span class="p">,</span><span class="w"> </span><span class="n">longArrayOf</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">640</span><span class="p">,</span><span class="w"> </span><span class="m">640</span><span class="p">))</span>
+<span></span><span class="kd">val</span><span class="w"> </span><span class="nv">inputEValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EValue</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="n">inputTensor</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1">// Run inference</span>
+<span></span><span class="kd">val</span><span class="w"> </span><span class="nv">outputs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">module</span><span class="p">.</span><span class="na">forward</span><span class="p">(</span><span class="n">inputEValue</span><span class="p">)</span>
+<span></span><span class="kd">val</span><span class="w"> </span><span class="nv">scores</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">outputs</span><span class="o">[</span><span class="m">0</span><span class="o">]</span><span class="p">.</span><span class="na">toTensor</span><span class="p">().</span><span class="na">dataAsFloatArray</span>
+</code></pre></div>
+<h3 id="embedded-linux">Embedded Linux</h3>
+<p>For embedded Linux systems, use the ExecuTorch C++ API:</p>
+<div class="highlight"><pre><span></span><code><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;executorch/extension/module/module.h&gt;</span>
+<span></span>
+<span></span><span class="c1">// Load model</span>
+<span></span><span class="k">auto</span><span class="w"> </span><span class="k">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">torch</span><span class="o">::</span><span class="n">executor</span><span class="o">::</span><span class="n">Module</span><span class="p">(</span><span class="s">"yolo11n.pte"</span><span class="p">);</span>
+<span></span>
+<span></span><span class="c1">// Prepare input</span>
+<span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="w"> </span><span class="n">input_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">preprocessImage</span><span class="p">(</span><span class="n">image</span><span class="p">);</span>
+<span></span><span class="k">auto</span><span class="w"> </span><span class="n">input_tensor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">torch</span><span class="o">::</span><span class="n">executor</span><span class="o">::</span><span class="n">Tensor</span><span class="p">(</span><span class="n">input_data</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">640</span><span class="p">,</span><span class="w"> </span><span class="mi">640</span><span class="p">});</span>
+<span></span>
+<span></span><span class="c1">// Run inference</span>
+<span></span><span class="k">auto</span><span class="w"> </span><span class="n">outputs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">module</span><span class="p">.</span><span class="n">forward</span><span class="p">({</span><span class="n">input_tensor</span><span class="p">});</span>
+</code></pre></div>
+<p>For more details on integrating ExecuTorch into your applications, visit the <a href="https://pytorch.org/executorch/">ExecuTorch Documentation</a>.</p>
+<h2 id="performance-optimization">Performance Optimization</h2>
+<h3 id="model-size-optimization">Model Size Optimization</h3>
+<p>To reduce model size for deployment:</p>
 <ul>
-<li>
-<p><strong><a href="../../guides/coral-edge-tpu-on-raspberry-pi/">Coral Edge TPU on a Raspberry Pi with Ultralytics YOLO11</a></strong>: Discover how to integrate Coral Edge TPUs with Raspberry Pi for enhanced machine learning capabilities.</p>
-</li>
-<li>
-<p><strong><a href="https://coral.ai/docs/edgetpu/compiler/">Code Examples</a></strong>: Access practical TensorFlow Edge TPU deployment examples to kickstart your projects.</p>
-</li>
-<li>
-<p><strong><a href="https://coral.ai/docs/edgetpu/tflite-python/#overview">Run Inference on the Edge TPU with Python</a></strong>: Explore how to use the TensorFlow Lite Python API for Edge TPU applications, including setup and usage guidelines.</p>
-</li>
+<li><strong>Use Smaller Models</strong>: Start with YOLO11n (nano) for the smallest footprint</li>
+<li><strong>Lower Input Resolution</strong>: Use smaller image sizes (e.g., <code>imgsz=320</code> or <code>imgsz=416</code>)</li>
+<li><strong>Quantization</strong>: Apply quantization techniques (supported in future ExecuTorch versions)</li>
 </ul>
-<h2 id="summary">Summary</h2>
-<p>In this guide, we've learned how to export Ultralytics YOLO11 models to TFLite Edge TPU format. By following the steps mentioned above, you can increase the speed and power of your <a href="https://www.ultralytics.com/glossary/computer-vision-cv">computer vision</a> applications.</p>
-<p>For further details on usage, visit the <a href="https://cloud.google.com/tpu">Edge TPU official website</a>.</p>
-<p>Also, for more information on other Ultralytics YOLO11 integrations, please visit our <a href="../">integration guide page</a>. There, you'll discover valuable resources and insights.</p>
-<h2 id="faq">FAQ</h2>
-<h3 id="how-do-i-export-a-yolo11-model-to-tflite-edge-tpu-format">How do I export a YOLO11 model to TFLite Edge TPU format?</h3>
-<p>To export a YOLO11 model to TFLite Edge TPU format, you can follow these steps:</p>
-<div class="admonition example">
-<p class="admonition-title">Usage</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="python_1" name="__tabbed_3" type="radio"/><input id="cli_2" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="python_1">Python</label><label for="cli_2">CLI</label></div>
+<h3 id="inference-speed-optimization">Inference Speed Optimization</h3>
+<p>For faster inference:</p>
+<ul>
+<li><strong>XNNPACK Backend</strong>: The default XNNPACK backend provides optimized CPU inference</li>
+<li><strong>Hardware Acceleration</strong>: Use platform-specific delegates (e.g., CoreML for iOS)</li>
+<li><strong>Batch Processing</strong>: Process multiple images when possible</li>
+</ul>
+<h2 id="benchmarks">Benchmarks</h2>
+<p>The Ultralytics team benchmarked YOLO11 models, comparing speed and accuracy between PyTorch and ExecuTorch.</p>
+<div class="admonition tip">
+<p class="admonition-title">Performance</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="raspberry-pi-5" name="__tabbed_3" type="radio"/><input id="more-devices-coming-soon" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="raspberry-pi-5">Raspberry Pi 5</label><label for="more-devices-coming-soon">More devices coming soon!</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<span></span>
-<span></span><span class="c1"># Load the YOLO11 model</span>
-<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<span></span>
-<span></span><span class="c1"># Export the model to TFLite Edge TPU format</span>
-<span></span><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"edgetpu"</span><span class="p">)</span>  <span class="c1"># creates 'yolo11n_full_integer_quant_edgetpu.tflite'</span>
-<span></span>
-<span></span><span class="c1"># Load the exported TFLite Edge TPU model</span>
-<span></span><span class="n">edgetpu_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n_full_integer_quant_edgetpu.tflite"</span><span class="p">)</span>
-<span></span>
-<span></span><span class="c1"># Run inference</span>
-<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">edgetpu_model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Format</th>
+<th>Status</th>
+<th>Size (MB)</th>
+<th>metrics/mAP50-95(B)</th>
+<th>Inference time (ms/im)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>YOLO11n</td>
+<td>PyTorch</td>
+<td>✅</td>
+<td>5.4</td>
+<td>0.5060</td>
+<td>337.67</td>
+</tr>
+<tr>
+<td>YOLO11n</td>
+<td>ExecuTorch</td>
+<td>✅</td>
+<td>11</td>
+<td>0.5080</td>
+<td>167.28</td>
+</tr>
+<tr>
+<td>YOLO11s</td>
+<td>PyTorch</td>
+<td>✅</td>
+<td>19</td>
+<td>0.5770</td>
+<td>928.80</td>
+</tr>
+<tr>
+<td>YOLO11s</td>
+<td>ExecuTorch</td>
+<td>✅</td>
+<td>37</td>
+<td>0.5780</td>
+<td>388.31</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block"></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Inference time does not include pre/ post-processing.</p>
+</div>
+</div>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="common-issues">Common Issues</h3>
+<p><strong>Issue</strong>: <code>Python version error</code></p>
+<p><strong>Solution</strong>: ExecuTorch requires Python 3.10 or higher. Upgrade your Python installation:</p>
+<div class="highlight"><pre><span></span><code>```bash
+# Using conda
+conda create -n executorch python=3.10
+conda activate executorch
+```
 </code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Export a YOLO11n PyTorch model to TFLite Edge TPU format</span>
-<span></span>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>edgetpu<span class="w"> </span><span class="c1"># creates 'yolo11n_full_integer_quant_edgetpu.tflite'</span>
-<span></span>
-<span></span><span class="c1"># Run inference with the exported model</span>
-<span></span>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n_full_integer_quant_edgetpu.tflite<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span>
+<p><strong>Issue</strong>: <code>Export fails during first run</code></p>
+<p><strong>Solution</strong>: ExecuTorch may need to download and compile components on first use. Ensure you have:</p>
+<div class="highlight"><pre><span></span><code>```bash
+pip install --upgrade executorch
+```
 </code></pre></div>
-</div>
-</div>
-</div>
-</div>
-<p>For complete details on exporting models to other formats, refer to our <a href="../../modes/export/">export guide</a>.</p>
-<h3 id="what-are-the-benefits-of-exporting-yolo11-models-to-tflite-edge-tpu">What are the benefits of exporting YOLO11 models to TFLite Edge TPU?</h3>
-<p>Exporting YOLO11 models to TFLite Edge TPU offers several benefits:</p>
+<p><strong>Issue</strong>: <code>Import errors for ExecuTorch modules</code></p>
+<p><strong>Solution</strong>: Ensure ExecuTorch is properly installed:</p>
+<div class="highlight"><pre><span></span><code>```bash
+pip install executorch --force-reinstall
+```
+</code></pre></div>
+<p>For more troubleshooting help, visit the <a href="https://github.com/ultralytics/ultralytics/issues">Ultralytics GitHub Issues</a> or the <a href="https://pytorch.org/executorch/stable/getting-started-setup.html">ExecuTorch Documentation</a>.</p>
+<h2 id="summary">Summary</h2>
+<p>Exporting YOLO11 models to ExecuTorch format enables efficient deployment on mobile and edge devices. With PyTorch-native integration, cross-platform support, and optimized performance, ExecuTorch is an excellent choice for edge AI applications.</p>
+<p>Key takeaways:</p>
 <ul>
-<li><strong>Optimized Performance</strong>: Achieve high-speed neural network performance with minimal power consumption.</li>
-<li><strong>Reduced Latency</strong>: Quick local data processing without the need for cloud dependency.</li>
-<li><strong>Enhanced Privacy</strong>: Local processing keeps user data private and secure.</li>
+<li>ExecuTorch provides PyTorch-native edge deployment with excellent performance</li>
+<li>Export is simple with <code>format='executorch'</code> parameter</li>
+<li>Models are optimized for mobile CPUs via XNNPACK backend</li>
+<li>Supports iOS, Android, and embedded Linux platforms</li>
+<li>Requires Python 3.10+ and FlatBuffers compiler</li>
 </ul>
-<p>This makes it ideal for applications in <a href="https://www.ultralytics.com/glossary/edge-computing">edge computing</a>, where devices have limited power and computational resources. Learn more about <a href="#why-should-you-export-to-tflite-edge-tpu">why you should export</a>.</p>
-<h3 id="can-i-deploy-tflite-edge-tpu-models-on-mobile-and-embedded-devices">Can I deploy TFLite Edge TPU models on mobile and embedded devices?</h3>
-<p>Yes, TensorFlow Lite Edge TPU models can be deployed directly on mobile and embedded devices. This deployment approach allows models to execute directly on the hardware, offering faster and more efficient inferencing. For integration examples, check our <a href="../../guides/coral-edge-tpu-on-raspberry-pi/">guide on deploying Coral Edge TPU on Raspberry Pi</a>.</p>
-<h3 id="what-are-some-common-use-cases-for-tflite-edge-tpu-models">What are some common use cases for TFLite Edge TPU models?</h3>
-<p>Common use cases for TFLite Edge TPU models include:</p>
+<h2 id="faq">FAQ</h2>
+<h3 id="how-do-i-export-a-yolo11-model-to-executorch-format">How do I export a YOLO11 model to ExecuTorch format?</h3>
+<p>Export a YOLO11 model to ExecuTorch using either Python or CLI:</p>
+<div class="highlight"><pre><span></span><code>```python
+from ultralytics import YOLO
+model = YOLO("yolo11n.pt")
+model.export(format="executorch")
+```
+</code></pre></div>
+<p>or</p>
+<div class="highlight"><pre><span></span><code>```bash
+yolo export model=yolo11n.pt format=executorch
+```
+</code></pre></div>
+<h3 id="what-are-the-system-requirements-for-executorch-export">What are the system requirements for ExecuTorch export?</h3>
+<p>ExecuTorch export requires:</p>
 <ul>
-<li><strong>Smart Cameras</strong>: Enhancing real-time image and video analysis.</li>
-<li><strong>IoT Devices</strong>: Enabling smart home and industrial automation.</li>
-<li><strong>Healthcare</strong>: Accelerating medical imaging and diagnostics.</li>
-<li><strong>Retail</strong>: Improving inventory management and customer behavior analysis.</li>
+<li>Python 3.10 or higher</li>
+<li><code>executorch</code> package (install via <code>pip install executorch</code>)</li>
+<li>PyTorch (installed automatically with ultralytics)</li>
 </ul>
-<p>These applications benefit from the high performance and low power consumption of TFLite Edge TPU models. Discover more about <a href="#deployment-options-with-tflite-edge-tpu">usage scenarios</a>.</p>
-<h3 id="how-can-i-troubleshoot-issues-while-exporting-or-deploying-tflite-edge-tpu-models">How can I troubleshoot issues while exporting or deploying TFLite Edge TPU models?</h3>
-<p>If you encounter issues while exporting or deploying TFLite Edge TPU models, refer to our <a href="../../guides/yolo-common-issues/">Common Issues guide</a> for troubleshooting tips. This guide covers common problems and solutions to help you ensure smooth operation. For additional support, visit our <a href="https://docs.ultralytics.com/help/">Help Center</a>.</p>
+<p>Note: During the first export, ExecuTorch will download and compile necessary components including the FlatBuffers compiler automatically.</p>
+<h3 id="can-i-run-inference-with-executorch-models-directly-in-python">Can I run inference with ExecuTorch models directly in Python?</h3>
+<p>ExecuTorch models (<code>.pte</code> files) are designed for deployment on mobile and edge devices using the ExecuTorch runtime. They cannot be directly loaded with <code>YOLO()</code> for inference in Python. You need to integrate them into your target application using the ExecuTorch runtime libraries.</p>
+<h3 id="what-platforms-are-supported-by-executorch">What platforms are supported by ExecuTorch?</h3>
+<p>ExecuTorch supports:</p>
+<ul>
+<li><strong>Mobile</strong>: iOS and Android</li>
+<li><strong>Embedded Linux</strong>: Raspberry Pi, NVIDIA Jetson, and other ARM devices</li>
+<li><strong>Desktop</strong>: Linux, macOS, and Windows (for development)</li>
+</ul>
+<h3 id="how-does-executorch-compare-to-tflite-for-mobile-deployment">How does ExecuTorch compare to TFLite for mobile deployment?</h3>
+<p>Both ExecuTorch and TFLite are excellent for mobile deployment:</p>
+<ul>
+<li><strong>ExecuTorch</strong>: Better PyTorch integration, native PyTorch workflow, growing ecosystem</li>
+<li><strong>TFLite</strong>: More mature, wider hardware support, more deployment examples</li>
+</ul>
+<p>Choose ExecuTorch if you're already using PyTorch and want a native deployment path. Choose TFLite for maximum compatibility and mature tooling.</p>
+<h3 id="can-i-use-executorch-models-with-gpu-acceleration">Can I use ExecuTorch models with GPU acceleration?</h3>
+<p>Yes! ExecuTorch supports hardware acceleration through various backends:</p>
+<ul>
+<li><strong>Mobile GPU</strong>: Via Vulkan, Metal, or OpenCL delegates</li>
+<li><strong>NPU/DSP</strong>: Via platform-specific delegates</li>
+<li><strong>Default</strong>: XNNPACK for optimized CPU inference</li>
+</ul>
+<p>Refer to the <a href="https://pytorch.org/executorch/stable/native-delegates-executorch.html">ExecuTorch Documentation</a> for backend-specific setup.</p>
 <br/><br/>
 <div class="git-info">
 <div class="dates-container">
-<span class="date-item" title="This page was first created on March 13, 2024">
-<span class="hover-item">📅</span> Created 1 year ago
+<span class="date-item" title="This page was first created on October 22, 2025">
+<span class="hover-item">📅</span> Created 0 days ago
     </span>
-<span class="date-item" title="This page was last updated on April 08, 2025">
-<span class="hover-item">✏️</span> Updated 6 months ago
+<span class="date-item" title="This page was last updated on October 22, 2025">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
-<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (9 changes)">
-<img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/lakshanthad" title="lakshanthad (2 changes)">
-<img alt="lakshanthad" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/20147381?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/UltralyticsAssistant" title="UltralyticsAssistant (2 changes)">
-<img alt="UltralyticsAssistant" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/135830346?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/MatthewNoyce" title="MatthewNoyce (1 change)">
-<img alt="MatthewNoyce" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/131261051?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (1 change)">
-<img alt="RizwanMunawar" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/62513924?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/Burhan-Q" title="Burhan-Q (1 change)">
-<img alt="Burhan-Q" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/62214284?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/abirami-vina" title="abirami-vina (1 change)">
-<img alt="abirami-vina" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/25847604?v=4&amp;s=96"/>
+<a class="author-link" href="https://github.com/ambitious-octopus" title="ambitious-octopus (1 change)">
+<img alt="ambitious-octopus" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/3855193?v=4&amp;s=96"/>
 </a>
 </div></div><div class="share-buttons">
-<button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/integrations/edge-tpu', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
+<button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/integrations/executorch', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
 <i class="fa-brands fa-x-twitter"></i> Tweet
     </button>
-<button class="share-button hover-item linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/integrations/edge-tpu', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;">
+<button class="share-button hover-item linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/integrations/executorch', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;">
 <i class="fa-brands fa-linkedin-in"></i> Share
     </button>
 </div>
@@ -1129,7 +1416,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: TFLite" class="md-footer__link md-footer__link--prev" href="../tflite/">
+<a aria-label="Previous: Roboflow" class="md-footer__link md-footer__link--prev" href="../roboflow/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
 </div>
@@ -1138,17 +1425,17 @@
                 Previous
               </span>
 <div class="md-ellipsis">
-                TFLite
+                Roboflow
               </div>
 </div>
 </a>
-<a aria-label="Next: TF.js" class="md-footer__link md-footer__link--next" href="../tfjs/">
+<a aria-label="Next: Ultralytics HUB" class="md-footer__link md-footer__link--next" href="../../hub/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                TF.js
+                Ultralytics HUB
               </div>
 </div>
 <div class="md-footer__button md-icon">
