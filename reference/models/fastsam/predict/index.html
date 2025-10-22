@@ -1841,7 +1841,7 @@ optimized for single-class segmentation.</p>
 <span></span>            <span class="k">continue</span>
 <span></span>        <span class="n">masks</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">masks</span><span class="o">.</span><span class="n">data</span>
 <span></span>        <span class="k">if</span> <span class="n">masks</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">!=</span> <span class="n">result</span><span class="o">.</span><span class="n">orig_shape</span><span class="p">:</span>
-<span></span>            <span class="n">masks</span> <span class="o">=</span> <span class="n">scale_masks</span><span class="p">(</span><span class="n">masks</span><span class="p">[</span><span class="kc">None</span><span class="p">],</span> <span class="n">result</span><span class="o">.</span><span class="n">orig_shape</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span></span>            <span class="n">masks</span> <span class="o">=</span> <span class="p">(</span><span class="n">scale_masks</span><span class="p">(</span><span class="n">masks</span><span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">.</span><span class="n">float</span><span class="p">(),</span> <span class="n">result</span><span class="o">.</span><span class="n">orig_shape</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">byte</span><span class="p">()</span>
 <span></span>        <span class="c1"># bboxes prompt</span>
 <span></span>        <span class="n">idx</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">bool</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 <span></span>        <span class="k">if</span> <span class="n">bboxes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -1903,9 +1903,9 @@ optimized for single-class segmentation.</p>
 <p>Set prompts to be used during inference.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/fastsam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>179</span>
-<span>180</span>
-<span>181</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_prompts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prompts</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>173</span>
+<span>174</span>
+<span>175</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_prompts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prompts</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Set prompts to be used during inference."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">prompts</span> <span class="o">=</span> <span class="n">prompts</span>
 </code></pre></div></td></tr></table></div>
