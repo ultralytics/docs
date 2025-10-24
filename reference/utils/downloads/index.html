@@ -2028,7 +2028,7 @@ If a path is not provided, the function will use the parent directory of the zip
 <span></span>        <span class="k">if</span> <span class="n">unzip_as_dir</span><span class="p">:</span>
 <span></span>            <span class="c1"># Zip has 1 top-level directory</span>
 <span></span>            <span class="n">extract_path</span> <span class="o">=</span> <span class="n">path</span>  <span class="c1"># i.e. ../datasets</span>
-<span></span>            <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="o">/</span> <span class="nb">list</span><span class="p">(</span><span class="n">top_level_dirs</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># i.e. extract coco8/ dir to ../datasets/</span>
+<span></span>            <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="o">/</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">top_level_dirs</span><span class="p">))</span>  <span class="c1"># i.e. extract coco8/ dir to ../datasets/</span>
 <span></span>        <span class="k">else</span><span class="p">:</span>
 <span></span>            <span class="c1"># Zip has multiple files at top level</span>
 <span></span>            <span class="n">path</span> <span class="o">=</span> <span class="n">extract_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="o">/</span> <span class="n">Path</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span>  <span class="c1"># i.e. extract multiple files to ../datasets/coco8/</span>
@@ -2212,7 +2212,7 @@ If a path is not provided, the function will use the parent directory of the zip
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (bool): True if there is sufficient disk space, False otherwise.</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="n">total</span><span class="p">,</span> <span class="n">used</span><span class="p">,</span> <span class="n">free</span> <span class="o">=</span> <span class="n">shutil</span><span class="o">.</span><span class="n">disk_usage</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>  <span class="c1"># bytes</span>
+<span></span>    <span class="n">_total</span><span class="p">,</span> <span class="n">_used</span><span class="p">,</span> <span class="n">free</span> <span class="o">=</span> <span class="n">shutil</span><span class="o">.</span><span class="n">disk_usage</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>  <span class="c1"># bytes</span>
 <span></span>    <span class="k">if</span> <span class="n">file_bytes</span> <span class="o">*</span> <span class="n">sf</span> <span class="o">&lt;</span> <span class="n">free</span><span class="p">:</span>
 <span></span>        <span class="k">return</span> <span class="kc">True</span>  <span class="c1"># sufficient space</span>
 <span></span>

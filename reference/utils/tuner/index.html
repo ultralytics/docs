@@ -1188,9 +1188,9 @@
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">run_ray_tune</span><span class="p">(</span>
 <span></span>    <span class="n">model</span><span class="p">,</span>
-<span></span>    <span class="n">space</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">space</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">grace_period</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
-<span></span>    <span class="n">gpu_per_trial</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">gpu_per_trial</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">max_samples</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
 <span></span>    <span class="o">**</span><span class="n">train_args</span>
 <span></span><span class="p">)</span>
@@ -1336,9 +1336,7 @@
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tuner.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>  7</span>
-<span>  8</span>
-<span>  9</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>  9</span>
 <span> 10</span>
 <span> 11</span>
 <span> 12</span>
@@ -1488,11 +1486,13 @@
 <span>156</span>
 <span>157</span>
 <span>158</span>
-<span>159</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_ray_tune</span><span class="p">(</span>
+<span>159</span>
+<span>160</span>
+<span>161</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_ray_tune</span><span class="p">(</span>
 <span></span>    <span class="n">model</span><span class="p">,</span>
-<span></span>    <span class="n">space</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">space</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">grace_period</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
-<span></span>    <span class="n">gpu_per_trial</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">gpu_per_trial</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">max_samples</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
 <span></span>    <span class="o">**</span><span class="n">train_args</span><span class="p">,</span>
 <span></span><span class="p">):</span>

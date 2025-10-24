@@ -2551,7 +2551,7 @@ streams simultaneously, making it suitable for real-time video analysis tasks.</
 <span></span><span class="sd">        channels (int): Number of image channels (1 for grayscale, 3 for RGB).</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"mss"</span><span class="p">)</span>
-<span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">mss</span>  <span class="c1"># noqa</span>
+<span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">mss</span>
 <span></span>
 <span></span>    <span class="n">source</span><span class="p">,</span> <span class="o">*</span><span class="n">params</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">screen</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">top</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>  <span class="c1"># default to full screen 0</span>
@@ -3902,7 +3902,7 @@ further processing in object detection pipelines.</p>
 <span></span>
 <span></span>    <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">"pafy"</span><span class="p">:</span>
 <span></span>        <span class="n">check_requirements</span><span class="p">((</span><span class="s2">"pafy"</span><span class="p">,</span> <span class="s2">"youtube_dl==2020.12.2"</span><span class="p">))</span>
-<span></span>        <span class="kn">import</span><span class="w"> </span><span class="nn">pafy</span>  <span class="c1"># noqa</span>
+<span></span>        <span class="kn">import</span><span class="w"> </span><span class="nn">pafy</span>
 <span></span>
 <span></span>        <span class="k">return</span> <span class="n">pafy</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">getbestvideo</span><span class="p">(</span><span class="n">preftype</span><span class="o">=</span><span class="s2">"mp4"</span><span class="p">)</span><span class="o">.</span><span class="n">url</span>
 <span></span>

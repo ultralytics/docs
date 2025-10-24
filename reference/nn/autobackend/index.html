@@ -2455,11 +2455,11 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span></span>            <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"numpy==1.23.5"</span><span class="p">)</span>
 <span></span>
 <span></span>        <span class="k">try</span><span class="p">:</span>  <span class="c1"># https://developer.nvidia.com/nvidia-tensorrt-download</span>
-<span></span>            <span class="kn">import</span><span class="w"> </span><span class="nn">tensorrt</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">trt</span>  <span class="c1"># noqa</span>
+<span></span>            <span class="kn">import</span><span class="w"> </span><span class="nn">tensorrt</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">trt</span>
 <span></span>        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
 <span></span>            <span class="k">if</span> <span class="n">LINUX</span><span class="p">:</span>
 <span></span>                <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"tensorrt&gt;7.0.0,!=10.1.0"</span><span class="p">)</span>
-<span></span>            <span class="kn">import</span><span class="w"> </span><span class="nn">tensorrt</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">trt</span>  <span class="c1"># noqa</span>
+<span></span>            <span class="kn">import</span><span class="w"> </span><span class="nn">tensorrt</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">trt</span>
 <span></span>        <span class="n">check_version</span><span class="p">(</span><span class="n">trt</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span> <span class="s2">"&gt;=7.0.0"</span><span class="p">,</span> <span class="n">hard</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span></span>        <span class="n">check_version</span><span class="p">(</span><span class="n">trt</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span> <span class="s2">"!=10.1.0"</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">"https://github.com/ultralytics/ultralytics/pull/14239"</span><span class="p">)</span>
 <span></span>        <span class="k">if</span> <span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s2">"cpu"</span><span class="p">:</span>
@@ -2614,7 +2614,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span></span>            <span class="k">if</span> <span class="n">ARM64</span>
 <span></span>            <span class="k">else</span> <span class="s2">"paddlepaddle&gt;=3.0.0"</span>
 <span></span>        <span class="p">)</span>
-<span></span>        <span class="kn">import</span><span class="w"> </span><span class="nn">paddle.inference</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pdi</span>  <span class="c1"># noqa</span>
+<span></span>        <span class="kn">import</span><span class="w"> </span><span class="nn">paddle.inference</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pdi</span>
 <span></span>
 <span></span>        <span class="n">w</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
 <span></span>        <span class="n">model_file</span><span class="p">,</span> <span class="n">params_file</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
@@ -3128,7 +3128,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (torch.Tensor | list[torch.Tensor]): The raw output tensor(s) from the model.</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="n">b</span><span class="p">,</span> <span class="n">ch</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># batch, channel, height, width</span>
+<span></span>    <span class="n">_b</span><span class="p">,</span> <span class="n">_ch</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># batch, channel, height, width</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp16</span> <span class="ow">and</span> <span class="n">im</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">torch</span><span class="o">.</span><span class="n">float16</span><span class="p">:</span>
 <span></span>        <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">half</span><span class="p">()</span>  <span class="c1"># to FP16</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nhwc</span><span class="p">:</span>
