@@ -16,9 +16,9 @@ def check_hash_links(download_dir, website):
         try:
             with open(html_file, encoding="utf-8") as f:
                 soup = BeautifulSoup(f.read(), "html.parser")
-            page_url = (
-                f"https://{website}/{html_file.relative_to(download_dir)}".replace("/index.html", "/").removesuffix(".html")
-            )
+            page_url = f"https://{website}/{html_file.relative_to(download_dir)}".replace(
+                "/index.html", "/"
+            ).removesuffix(".html")
 
             for a_tag in soup.find_all("a", href=True):
                 href = a_tag["href"].strip()
