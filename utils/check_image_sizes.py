@@ -115,7 +115,7 @@ def check_image_sizes(download_dir, website, threshold_kb=750, max_workers=32, i
         print("\nTop 50 Largest Images:")
         top_50 = df.head(50).copy()
         top_50["Size (KB)"] = top_50["Size (KB)"].round(1)
-        top_50["Example Page"] = top_50["URL"].apply(lambda url: list(unique_images[url])[0])
+        top_50["Example Page"] = top_50["URL"].apply(lambda url: next(iter(unique_images[url])))
         top_50["URL"] = top_50["URL"].apply(lambda x: x if len(x) <= 120 else x[:60] + "..." + x[-57:])
         print(top_50[["URL", "Pages", "Size (KB)", "Format", "Example Page"]].to_string(index=False))
 
@@ -137,7 +137,7 @@ def check_image_sizes(download_dir, website, threshold_kb=750, max_workers=32, i
             if len(filename) > 40:
                 filename = "..." + filename[-37:]
             # Get first page URL for context
-            page_url = list(unique_images[url])[0]
+            page_url = next(iter(unique_images[url]))
             # Format as Slack hyperlink to avoid auto-expansion: <url|text>
             output.append(f"• {size_kb:.0f}KB <{url}|{filename}> ➜ {page_url}")
 
