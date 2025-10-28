@@ -33,10 +33,6 @@ on:
         description: 'Check links ending with #'
         type: boolean
         default: true
-      check_british_spelling:
-        description: 'Check British English spellings'
-        type: boolean
-        default: true
   schedule:
     - cron: "0 0 * * *" # runs at 00:00 UTC every day
 
@@ -127,12 +123,6 @@ jobs:
         continue-on-error: true
         run: python utils/check_hash_links.py "${{ matrix.website }}" "${{ matrix.website }}"
 
-      - name: Check British spelling
-        if: github.event_name != 'workflow_dispatch' || inputs.check_british_spelling
-        id: british_spelling
-        continue-on-error: true
-        run: python utils/check_british_spelling.py "${{ matrix.website }}" "${{ matrix.website }}"
-
       - name: Check spelling
         if: github.event_name != 'workflow_dispatch' || inputs.check_spelling
         id: codespell
@@ -143,6 +133,8 @@ jobs:
 
           # Run codespell on HTML files
           CODESPELL_OUTPUT=$(find ./${{ matrix.website }} -type f -name "*.html" -print0 | xargs -0 codespell \
+            --dictionary=- \
+            --dictionary=utils/british_spellings.txt \
             --uri-ignore-words-list "*" \
             --ignore-words-list "MENAT,Hart,wither,Bund,DED,AKS,VAs,RepResNet,iDenfy,WIT,Smoot,EHR,ROUGE,ALS,iTerm,Carmel,FPR,Hach,Calle,ore,COO,MOT,crate,nd,ned,strack,dota,ane,segway,fo,gool,winn,commend,bloc,nam,afterall,skelton,goin,tread,braket" \
             --skip "*.pt,*.pth,*.torchscript,*.onnx,*.tflite,*.pb,*.bin,*.param,*.mlmodel,*.engine,*.npy,*.data*,*.csv,*pnnx*,*venv*,*translat*,*lock*,__pycache__*,*.ico,*.jpg,*.png,*.mp4,*.mov,/runs,/.git,./docs/mkdocs_??.yml" \
@@ -268,12 +260,3 @@ jobs:
           webhook: ${{ matrix.website == 'www.ultralytics.com' && secrets.SLACK_WEBHOOK_URL_WEBSITE || secrets.SLACK_WEBHOOK_URL_YOLO }}
           payload: |
             text: "${{ matrix.website == 'www.ultralytics.com' && '<!subteam^S07ABRC4MLN>' || '<!subteam^S082BPCRAJ3>' }} GitHub Actions: Links ending with # found for *${{ matrix.website }}* 🔗\n\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n\n${{ env.HASH_LINKS }}\n"
-
-      - name: Notify Slack for British spelling
-        if: always() && steps.british_spelling.outcome == 'failure' && github.event_name == 'schedule' && github.run_attempt == '1'
-        uses: slackapi/slack-github-action@v2.1.1
-        with:
-          webhook-type: incoming-webhook
-          webhook: ${{ matrix.website == 'www.ultralytics.com' && secrets.SLACK_WEBHOOK_URL_WEBSITE || secrets.SLACK_WEBHOOK_URL_YOLO }}
-          payload: |
-            text: "${{ matrix.website == 'www.ultralytics.com' && '<!subteam^S07ABRC4MLN>' || '<!subteam^S082BPCRAJ3>' }} GitHub Actions: British spellings found for *${{ matrix.website }}* 🇬🇧\n\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n\n${{ env.BRITISH_SPELLINGS }}\n"
