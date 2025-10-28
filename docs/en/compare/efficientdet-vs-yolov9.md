@@ -90,7 +90,7 @@ YOLOv9's superior performance stems from two main innovations:
 
 YOLOv9 is particularly well-suited for applications where accuracy and efficiency are paramount, such as:
 
-- High-resolution image analysis, like in [satellite imagery](https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery).
+- High-resolution image analysis, like in [satellite imagery](https://www.ultralytics.com/blog/using-computer-vision-to-analyze-satellite-imagery).
 - Complex scene understanding required in [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-automotive) and [robotics](https://www.ultralytics.com/glossary/robotics).
 - Detailed object recognition for tasks like [quality control in manufacturing](https://www.ultralytics.com/blog/improving-manufacturing-with-computer-vision).
 

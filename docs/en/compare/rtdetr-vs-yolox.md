@@ -50,7 +50,7 @@ RTDETRv2 is best suited for applications where achieving the highest possible ac
 
 - **Autonomous Vehicles:** For reliable perception systems in [self-driving cars](https://www.ultralytics.com/solutions/ai-in-automotive) where accuracy is non-negotiable.
 - **Medical Imaging:** For precise detection of anomalies in [medical scans](https://www.ultralytics.com/blog/using-yolo11-for-tumor-detection-in-medical-imaging), where detail and context are crucial.
-- **High-Resolution Analysis:** Ideal for analyzing large images, such as [satellite imagery](https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery), where global context is important.
+- **High-Resolution Analysis:** Ideal for analyzing large images, such as [satellite imagery](https://www.ultralytics.com/blog/using-computer-vision-to-analyze-satellite-imagery), where global context is important.
 - **Advanced Robotics:** For robots operating in complex and unstructured environments that require a deep understanding of the scene.
 
 [Learn more about RTDETRv2](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme){ .md-button }

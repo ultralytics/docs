@@ -94,7 +94,7 @@ RTDETRv2 is the preferred choice for applications where **maximum accuracy is no
 
 - **Autonomous Vehicles:** Essential for reliable perception in [self-driving cars](https://www.ultralytics.com/solutions/ai-in-automotive) where accuracy can be a matter of safety.
 - **Medical Imaging:** Precise detection of anomalies in [medical scans](https://www.ultralytics.com/solutions/ai-in-healthcare) is a perfect application.
-- **Satellite Imagery Analysis:** Detailed analysis of high-resolution [satellite images](https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery) for applications like environmental monitoring or urban planning.
+- **Satellite Imagery Analysis:** Detailed analysis of high-resolution [satellite images](https://www.ultralytics.com/blog/using-computer-vision-to-analyze-satellite-imagery) for applications like environmental monitoring or urban planning.
 
 ## Performance Face-Off: Speed vs. Accuracy
 
