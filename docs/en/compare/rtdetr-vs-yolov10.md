@@ -51,7 +51,7 @@ RTDETRv2 is best suited for applications where accuracy is paramount and computa
 
 - **Autonomous Driving:** For precise environmental perception in [AI in self-driving cars](https://www.ultralytics.com/blog/ai-in-self-driving-cars).
 - **Medical Imaging:** For detailed analysis and anomaly detection in [AI in Healthcare](https://www.ultralytics.com/solutions/ai-in-healthcare).
-- **High-Resolution Imagery:** For analyzing satellite or aerial images where capturing fine details is crucial, similar to [using computer vision to analyse satellite imagery](https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery).
+- **High-Resolution Imagery:** For analyzing satellite or aerial images where capturing fine details is crucial, similar to [using computer vision to analyze satellite imagery](https://www.ultralytics.com/blog/using-computer-vision-to-analyze-satellite-imagery).
 - **Robotics:** To enable accurate object interaction in complex environments, enhancing capabilities in [AI's role in robotics](https://www.ultralytics.com/blog/from-algorithms-to-automation-ais-role-in-robotics).
 
 [Learn more about RTDETRv2](https://docs.ultralytics.com/models/rtdetr/){ .md-button }
