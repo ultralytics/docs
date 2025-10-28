@@ -129,7 +129,7 @@ jobs:
         continue-on-error: true
         run: |
           # Install codespell
-          pip install codespell
+          uv pip install --system codespell
 
           # Run codespell on HTML files
           CODESPELL_OUTPUT=$(find ./${{ matrix.website }} -type f -name "*.html" -print0 | xargs -0 codespell \
