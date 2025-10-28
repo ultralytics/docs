@@ -94,7 +94,7 @@ YOLOv9's architecture is designed to maximize information retention and learning
 
 YOLOv9 is well-suited for applications where achieving the highest possible accuracy is the primary goal, and computational resources are less constrained.
 
-- **High-Resolution Analysis:** Scenarios demanding detailed analysis of large images, such as in [medical imaging](https://www.ultralytics.com/glossary/medical-image-analysis) or [satellite imagery analysis](https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery).
+- **High-Resolution Analysis:** Scenarios demanding detailed analysis of large images, such as in [medical imaging](https://www.ultralytics.com/glossary/medical-image-analysis) or [satellite imagery analysis](https://www.ultralytics.com/blog/using-computer-vision-to-analyze-satellite-imagery).
 - **Advanced Security Systems:** Complex surveillance environments where accurately identifying a wide range of objects is critical for [security](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8).
 - **Quality Control:** Industrial applications where detecting minute defects with high precision is necessary for [manufacturing quality control](https://www.ultralytics.com/solutions/ai-in-manufacturing).
 

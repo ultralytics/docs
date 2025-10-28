@@ -50,7 +50,7 @@ YOLOX made a significant impact by introducing an **anchor-free** design to the 
 
 YOLOX is well-suited for scenarios that demand high accuracy and for research purposes.
 
-- **High-Accuracy Applications:** Its strong performance makes it ideal for tasks like [medical image analysis](https://www.ultralytics.com/glossary/medical-image-analysis) or detailed [satellite image analysis](https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery).
+- **High-Accuracy Applications:** Its strong performance makes it ideal for tasks like [medical image analysis](https://www.ultralytics.com/glossary/medical-image-analysis) or detailed [satellite image analysis](https://www.ultralytics.com/blog/using-computer-vision-to-analyze-satellite-imagery).
 - **Research and Development:** The simplified, anchor-free design makes it an excellent baseline for researchers exploring new object detection methodologies.
 - **Edge Deployment:** Smaller variants like YOLOX-Nano are designed for resource-constrained environments, making them suitable for [edge AI](https://www.ultralytics.com/glossary/edge-ai) applications.
 

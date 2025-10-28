@@ -92,7 +92,7 @@ RTDETRv2's architecture is built upon [Vision Transformers (ViT)](https://www.ul
 RTDETRv2 is best suited for scenarios where achieving the highest possible accuracy is the primary goal and computational resources are not a major constraint:
 
 - **Medical Imaging:** Analyzing complex medical scans where precision is critical for diagnosis.
-- **Satellite Imagery:** Detecting small or obscured objects in high-resolution [satellite images](https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery).
+- **Satellite Imagery:** Detecting small or obscured objects in high-resolution [satellite images](https://www.ultralytics.com/blog/using-computer-vision-to-analyze-satellite-imagery).
 - **Scientific Research:** Used in research environments where model performance is prioritized over deployment efficiency.
 
 [Learn more about RT-DETR](https://docs.ultralytics.com/models/rtdetr/){ .md-button }

@@ -105,7 +105,7 @@ For deployment, YOLOv8's versatility shines. It can be easily exported to numero
 
 ## Conclusion: Which Model Should You Choose?
 
-RTDETRv2 is a powerful model for researchers and teams with significant computational resources who need to squeeze out the last fraction of a percentage in accuracy for complex [object detection](https://www.ultralytics.com/glossary/object-detection) tasks, such as in [autonomous driving](https://www.ultralytics.com/solutions/ai-in-automotive) or [satellite image analysis](https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery).
+RTDETRv2 is a powerful model for researchers and teams with significant computational resources who need to squeeze out the last fraction of a percentage in accuracy for complex [object detection](https://www.ultralytics.com/glossary/object-detection) tasks, such as in [autonomous driving](https://www.ultralytics.com/solutions/ai-in-automotive) or [satellite image analysis](https://www.ultralytics.com/blog/using-computer-vision-to-analyze-satellite-imagery).
 
 However, for the vast majority of developers, researchers, and businesses, **Ultralytics YOLOv8 is the clear winner**. It offers a far more practical and effective solution by delivering an exceptional balance of speed and accuracy. Its key advantages—**versatility across multiple tasks, ease of use, superior training efficiency, lower resource requirements, and a comprehensive, well-supported ecosystem**—make it the ideal choice for building robust, real-world computer vision applications quickly and efficiently. Whether you are deploying on a high-end server or a low-power edge device, YOLOv8 provides a scalable, high-performance, and user-friendly solution.
 

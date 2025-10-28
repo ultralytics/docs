@@ -77,7 +77,7 @@ RTDETRv2 utilizes a hybrid approach that combines the strengths of CNNs and Tran
 
 ### Strengths
 
-- **High Accuracy:** The transformer architecture enables RTDETRv2 to achieve excellent [mAP](https://www.ultralytics.com/glossary/mean-average-precision-map) scores, particularly on complex datasets with dense or small objects, such as those in [satellite image analysis](https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery).
+- **High Accuracy:** The transformer architecture enables RTDETRv2 to achieve excellent [mAP](https://www.ultralytics.com/glossary/mean-average-precision-map) scores, particularly on complex datasets with dense or small objects, such as those in [satellite image analysis](https://www.ultralytics.com/blog/using-computer-vision-to-analyze-satellite-imagery).
 - **Real-Time Capability:** It is optimized to provide competitive inference speeds, especially when accelerated on powerful GPUs using tools like [NVIDIA TensorRT](https://docs.ultralytics.com/integrations/tensorrt/).
 - **Robust Feature Extraction:** By capturing global context, it performs well in challenging scenarios like occlusion, which is beneficial for applications like [autonomous driving](https://www.ultralytics.com/solutions/ai-in-automotive).
 

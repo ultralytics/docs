@@ -52,7 +52,7 @@ DAMO-YOLO is well-suited for scenarios where achieving maximum accuracy with a n
 
 - **Research and Development:** Its innovative components make it an excellent model for academic research and for teams exploring cutting-edge detection techniques.
 - **Industrial Automation:** In controlled environments like [manufacturing](https://www.ultralytics.com/solutions/ai-in-manufacturing), where high-precision defect detection is crucial, DAMO-YOLO's accuracy can be a significant asset.
-- **High-Resolution Imagery:** Applications involving detailed analysis of high-resolution images, such as [satellite imagery analysis](https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery), can benefit from its robust feature fusion capabilities.
+- **High-Resolution Imagery:** Applications involving detailed analysis of high-resolution images, such as [satellite imagery analysis](https://www.ultralytics.com/blog/using-computer-vision-to-analyze-satellite-imagery), can benefit from its robust feature fusion capabilities.
 
 [Learn more about DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO){ .md-button }
 

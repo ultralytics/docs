@@ -117,7 +117,7 @@ RT-DETRv2 is best suited for specialized, non-real-time applications where accur
 - **Autonomous Driving:** For precise environmental perception in [AI in self-driving cars](https://www.ultralytics.com/solutions/ai-in-automotive).
 - **High-End Robotics:** To enable accurate object interaction in complex industrial environments, enhancing capabilities in [AI's role in robotics](https://www.ultralytics.com/blog/from-algorithms-to-automation-ais-role-in-robotics).
 - **Medical Imaging:** For detailed analysis and anomaly detection in [AI in Healthcare](https://www.ultralytics.com/solutions/ai-in-healthcare).
-- **High-Resolution Imagery:** For analyzing satellite or aerial images, similar to [using computer vision to analyze satellite imagery](https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery).
+- **High-Resolution Imagery:** For analyzing satellite or aerial images, similar to [using computer vision to analyze satellite imagery](https://www.ultralytics.com/blog/using-computer-vision-to-analyze-satellite-imagery).
 
 ## Conclusion
 

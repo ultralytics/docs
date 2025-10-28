@@ -92,7 +92,7 @@ YOLOX adopts a streamlined approach by eliminating anchor boxes, which simplifie
 
 YOLOX is an excellent choice for scenarios where high precision is a priority and for research purposes.
 
-- **High-Accuracy Demanding Applications:** Ideal for scenarios where precision is paramount, such as [medical image analysis](https://www.ultralytics.com/glossary/medical-image-analysis) or [satellite image analysis](https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery).
+- **High-Accuracy Demanding Applications:** Ideal for scenarios where precision is paramount, such as [medical image analysis](https://www.ultralytics.com/glossary/medical-image-analysis) or [satellite image analysis](https://www.ultralytics.com/blog/using-computer-vision-to-analyze-satellite-imagery).
 - **Research and Development:** Its simplified and novel structure makes it a great baseline for researchers exploring new object detection methodologies.
 - **Versatile Object Detection:** Applicable across a broad spectrum of tasks, benefiting from its robust and generalizable design.
 

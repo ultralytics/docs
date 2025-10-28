@@ -50,7 +50,7 @@ YOLOv9 introduces two groundbreaking concepts:
 YOLOv9 is an excellent choice for applications where achieving the highest possible accuracy is the primary goal:
 
 - **Advanced Robotics:** For complex tasks requiring precise [object detection](https://www.ultralytics.com/glossary/object-detection) in dynamic environments.
-- **High-Resolution Image Analysis:** Ideal for scenarios like [satellite imagery analysis](https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery) where detail is paramount.
+- **High-Resolution Image Analysis:** Ideal for scenarios like [satellite imagery analysis](https://www.ultralytics.com/blog/using-computer-vision-to-analyze-satellite-imagery) where detail is paramount.
 - **Critical Safety Systems:** Applications in [autonomous driving](https://www.ultralytics.com/solutions/ai-in-automotive) or advanced [security systems](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8) where accuracy can be mission-critical.
 
 [Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9/){ .md-button }

@@ -77,7 +77,7 @@ EfficientDet uses a compound scaling method to scale network width, depth, and r
 
 EfficientDet models are known for their high accuracy, making them suitable for applications where precision is the top priority, but computational resources are still a factor. Example use cases include:
 
-- **High-accuracy image analysis**: [Medical image analysis](https://www.ultralytics.com/solutions/ai-in-healthcare) and [satellite image analysis](https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery).
+- **High-accuracy image analysis**: [Medical image analysis](https://www.ultralytics.com/solutions/ai-in-healthcare) and [satellite image analysis](https://www.ultralytics.com/blog/using-computer-vision-to-analyze-satellite-imagery).
 - **Detailed scene understanding**: [Robotics](https://www.ultralytics.com/glossary/robotics) and [autonomous driving](https://www.ultralytics.com/solutions/ai-in-automotive) requiring precise object recognition.
 
 ### Strengths of EfficientDet
