@@ -143,12 +143,12 @@ jobs:
             echo "## 📝 Spelling Errors" >> $GITHUB_STEP_SUMMARY
             echo "$MODIFIED_OUTPUT" >> $GITHUB_STEP_SUMMARY
 
-            # Prepare limited output for Slack (first 30 errors)
-            SLACK_OUTPUT=$(echo "$MODIFIED_OUTPUT" | grep "==>" | head -30 | awk '{printf "%s\\n", $0}')
-            if [ "$TOTAL_ERRORS" -gt 30 ]; then
-              SLACK_HEADER="*${TOTAL_ERRORS} spelling errors (showing first 30)*\\n\\n"
+            # Prepare limited output for Slack (first 10 errors)
+            SLACK_OUTPUT=$(echo "$MODIFIED_OUTPUT" | grep "==>" | head -10 | awk '{printf "%s\\n", $0}')
+            if [ "$TOTAL_ERRORS" -gt 10 ]; then
+              SLACK_HEADER="*${TOTAL_ERRORS} Spelling Errors (showing first 10)*\\n\\n"
             else
-              SLACK_HEADER="*${TOTAL_ERRORS} spelling errors*\\n\\n"
+              SLACK_HEADER="*${TOTAL_ERRORS} Spelling Errors*\\n\\n"
             fi
 
             echo "CODESPELL_ERRORS<<EOF" >> $GITHUB_ENV
@@ -240,7 +240,7 @@ jobs:
           webhook-type: incoming-webhook
           webhook: ${{ matrix.website == 'www.ultralytics.com' && secrets.SLACK_WEBHOOK_URL_WEBSITE || secrets.SLACK_WEBHOOK_URL_YOLO }}
           payload: |
-            text: "${{ matrix.website == 'www.ultralytics.com' && '<!subteam^S07ABRC4MLN>' || '<!subteam^S082BPCRAJ3>' }} GitHub Actions: Spelling errors found for *${{ matrix.website }}* ❌\n\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n\n*📝 Spelling Errors:*\n${{ env.CODESPELL_ERRORS }}\n"
+            text: "${{ matrix.website == 'www.ultralytics.com' && '<!subteam^S07ABRC4MLN>' || '<!subteam^S082BPCRAJ3>' }} GitHub Actions: Spelling errors found for *${{ matrix.website }}* 📝\n\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n\n${{ env.CODESPELL_ERRORS }}\n"
 
       - name: Notify Slack for large images
         if: always() && steps.image_sizes.outcome == 'failure' && github.event_name == 'schedule' && github.run_attempt == '1'
