@@ -4,7 +4,7 @@ import os
 import sys
 from collections import defaultdict
 from pathlib import Path
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup
 
@@ -59,7 +59,7 @@ def check_links(download_dir, website):
         for page_url in sorted(empty_hrefs.keys())[:10]:
             output.append(f"• {page_url}")
         if len(empty_hrefs) > 10:
-            output[-1] = output[-1].replace("*", f"* (showing first 10)", 1)
+            output[-1] = output[-1].replace("*", "* (showing first 10)", 1)
 
     if circular_links:
         issues_found = True
@@ -72,7 +72,7 @@ def check_links(download_dir, website):
             examples = ", ".join(f"`{h}`" for h in sorted(circular_links[page_url])[:3])
             output.append(f"• {page_url} → {examples}")
         if len(circular_links) > 10:
-            output[-1] = output[-1].replace("*", f"* (showing first 10)", 1)
+            output[-1] = output[-1].replace("*", "* (showing first 10)", 1)
 
     if issues_found:
         result = "\\n".join(output)
