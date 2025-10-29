@@ -35,8 +35,8 @@ def check_links(download_dir, website):
                     if absolute_url == page_url:
                         circular_links[page_url].add(href)
 
-        except Exception:
-            pass
+        except Exception as e:
+            print(f"⚠️ Error processing {html_file}: {e}")
 
     # Report results
     issues_found = False
@@ -64,7 +64,7 @@ def check_links(download_dir, website):
             output.append(f"• {page_url} → {examples}")
 
     if issues_found:
-        result = "\\n".join(output)
+        result = "\n".join(output)
         with open(os.environ["GITHUB_ENV"], "a") as f:
             f.write(f"LINK_ISSUES<<EOF\n{result}\nEOF\n")
         return 1
