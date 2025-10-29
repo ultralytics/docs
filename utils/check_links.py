@@ -21,7 +21,8 @@ def check_links(download_dir, website):
                 soup = BeautifulSoup(f.read(), "html.parser")
 
             page_url = (
-                f"https://{website}/{html_file.relative_to(download_dir)}".replace("/index.html", "/")
+                f"https://{website}/{html_file.relative_to(download_dir)}"
+                .replace("/index.html", "/")
                 .removesuffix(".html")
                 .rstrip("/")
             )
@@ -30,9 +31,11 @@ def check_links(download_dir, website):
                 href = link["href"]
                 if href == "#":
                     empty_hrefs[page_url] += 1
-                elif href:
-                    absolute_url = urljoin(page_url, href).split("#")[0].rstrip("/")
-                    if absolute_url == page_url:
+                elif href and not href.startswith("#"):  # Skip valid anchors like #section
+                    absolute_url = urljoin(page_url, href)
+                    base_url, _, fragment = absolute_url.partition("#")
+                    # Flag if same page with no fragment or empty fragment
+                    if base_url.rstrip("/") == page_url and not fragment:
                         circular_links[page_url].add(href)
 
         except Exception as e:
@@ -65,8 +68,11 @@ def check_links(download_dir, website):
 
     if issues_found:
         result = "\n".join(output)
+        # Write to both ENV for Slack and STEP_SUMMARY for Actions UI
         with open(os.environ["GITHUB_ENV"], "a") as f:
             f.write(f"LINK_ISSUES<<EOF\n{result}\nEOF\n")
+        with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as f:
+            f.write(f"\n## 🔗 Link Issues\n{result}\n")
         return 1
 
     print("\n✅ No problematic links found")
