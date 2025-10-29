@@ -29,6 +29,10 @@ on:
         description: 'Check large images'
         type: boolean
         default: true
+      check_circular_links:
+        description: 'Check circular links and href=#'
+        type: boolean
+        default: true
   schedule:
     - cron: "0 0 * * *" # runs at 00:00 UTC every day
 
@@ -112,6 +116,12 @@ jobs:
         id: image_sizes
         continue-on-error: true
         run: python utils/check_image_sizes.py "${{ matrix.website }}" "${{ matrix.website }}"
+
+      - name: Check circular links
+        if: github.event_name != 'workflow_dispatch' || inputs.check_circular_links
+        id: link_check
+        continue-on-error: true
+        run: python utils/check_links.py "${{ matrix.website }}" "${{ matrix.website }}"
 
       - name: Check spelling
         if: github.event_name != 'workflow_dispatch' || inputs.check_spelling
@@ -250,3 +260,12 @@ jobs:
           webhook: ${{ matrix.website == 'www.ultralytics.com' && secrets.SLACK_WEBHOOK_URL_WEBSITE || secrets.SLACK_WEBHOOK_URL_YOLO }}
           payload: |
             text: "${{ matrix.website == 'www.ultralytics.com' && '<!subteam^S07ABRC4MLN>' || '<!subteam^S082BPCRAJ3>' }} GitHub Actions: Large images found for *${{ matrix.website }}* 📦\n\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n\n${{ env.IMAGE_RESULTS }}\n"
+
+      - name: Notify Slack for link issues
+        if: always() && steps.link_check.outcome == 'failure' && github.event_name == 'schedule' && github.run_attempt == '1'
+        uses: slackapi/slack-github-action@v2.1.1
+        with:
+          webhook-type: incoming-webhook
+          webhook: ${{ matrix.website == 'www.ultralytics.com' && secrets.SLACK_WEBHOOK_URL_WEBSITE || secrets.SLACK_WEBHOOK_URL_YOLO }}
+          payload: |
+            text: "${{ matrix.website == 'www.ultralytics.com' && '<!subteam^S07ABRC4MLN>' || '<!subteam^S082BPCRAJ3>' }} GitHub Actions: Link issues found for *${{ matrix.website }}* 🔗\n\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n\n${{ env.LINK_ISSUES }}\n"
