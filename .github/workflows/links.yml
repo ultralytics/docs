@@ -240,7 +240,7 @@ jobs:
           webhook-type: incoming-webhook
           webhook: ${{ matrix.website == 'www.ultralytics.com' && secrets.SLACK_WEBHOOK_URL_WEBSITE || secrets.SLACK_WEBHOOK_URL_YOLO }}
           payload: |
-            text: "${{ matrix.website == 'www.ultralytics.com' && '<!subteam^S07ABRC4MLN>' || '<!subteam^S082BPCRAJ3>' }} GitHub Actions: Spelling errors found for *${{ matrix.website }}* ❌\n\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n\n*📝 Spelling Errors:*\n${{ env.CODESPELL_ERRORS }}\n"
+            text: "${{ matrix.website == 'www.ultralytics.com' && '<!subteam^S07ABRC4MLN>' || '<!subteam^S082BPCRAJ3>' }} GitHub Actions: Spelling errors found for *${{ matrix.website }}* 📝\n\n*Action:* https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n*Author:* ${{ github.actor }}\n\n${{ env.CODESPELL_ERRORS }}\n"
 
       - name: Notify Slack for large images
         if: always() && steps.image_sizes.outcome == 'failure' && github.event_name == 'schedule' && github.run_attempt == '1'
