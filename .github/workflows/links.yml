@@ -143,12 +143,12 @@ jobs:
             echo "## 📝 Spelling Errors" >> $GITHUB_STEP_SUMMARY
             echo "$MODIFIED_OUTPUT" >> $GITHUB_STEP_SUMMARY
 
-            # Prepare limited output for Slack (first 30 errors)
-            SLACK_OUTPUT=$(echo "$MODIFIED_OUTPUT" | grep "==>" | head -30 | awk '{printf "%s\\n", $0}')
-            if [ "$TOTAL_ERRORS" -gt 30 ]; then
-              SLACK_HEADER="*${TOTAL_ERRORS} spelling errors (showing first 30)*\\n\\n"
+            # Prepare limited output for Slack (first 10 errors)
+            SLACK_OUTPUT=$(echo "$MODIFIED_OUTPUT" | grep "==>" | head -10 | awk '{printf "%s\\n", $0}')
+            if [ "$TOTAL_ERRORS" -gt 10 ]; then
+              SLACK_HEADER="*${TOTAL_ERRORS} Spelling Errors (showing first 10)*\\n\\n"
             else
-              SLACK_HEADER="*${TOTAL_ERRORS} spelling errors*\\n\\n"
+              SLACK_HEADER="*${TOTAL_ERRORS} Spelling Errors*\\n\\n"
             fi
 
             echo "CODESPELL_ERRORS<<EOF" >> $GITHUB_ENV
