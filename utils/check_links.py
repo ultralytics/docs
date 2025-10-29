@@ -21,8 +21,7 @@ def check_links(download_dir, website):
                 soup = BeautifulSoup(f.read(), "html.parser")
 
             page_url = (
-                f"https://{website}/{html_file.relative_to(download_dir)}"
-                .replace("/index.html", "/")
+                f"https://{website}/{html_file.relative_to(download_dir)}".replace("/index.html", "/")
                 .removesuffix(".html")
                 .rstrip("/")
             )
