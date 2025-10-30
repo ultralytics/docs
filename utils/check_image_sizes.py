@@ -124,9 +124,7 @@ def check_image_sizes(download_dir, website, threshold_kb=750, max_workers=32, i
 
     if large_images:
         print(f"\n⚠️ Found {len(large_images)} images > {threshold_kb} KB")
-        output = [
-            f"*{len(large_images)} images > {threshold_kb}KB*{' (showing first 10)' if len(large_images) > 10 else ''}"
-        ]
+        output = [f"*{len(large_images)} images > {threshold_kb}KB*"]
         for size_kb, fmt, pages, url in large_images[:10]:
             # Extract filename from URL for concise display
             filename = Path(urlparse(url).path).name or "image"
@@ -140,6 +138,15 @@ def check_image_sizes(download_dir, website, threshold_kb=750, max_workers=32, i
             page_url = next(iter(unique_images[url]))
             # Format as Slack hyperlink to avoid auto-expansion: <url|text>
             output.append(f"• {size_kb:.0f}KB <{url}|{filename}> ➜ {page_url}")
+        if len(large_images) > 10:
+            repo = os.environ.get("GITHUB_REPOSITORY", "")
+            run_id = os.environ.get("GITHUB_RUN_ID", "")
+            if repo and run_id:
+                output.append(
+                    f"\n_...{len(large_images) - 10} more in <https://github.com/{repo}/actions/runs/{run_id}|Action summary>_"
+                )
+            else:
+                output.append(f"\n_...{len(large_images) - 10} more in Action summary_")
 
         result = "\\n".join(output)
         with open(os.environ["GITHUB_ENV"], "a") as f:
