@@ -145,14 +145,15 @@ jobs:
 
             # Prepare limited output for Slack (first 10 errors)
             SLACK_OUTPUT=$(echo "$MODIFIED_OUTPUT" | grep "==>" | head -10 | awk '{printf "%s\\n", $0}')
+            SLACK_HEADER="*${TOTAL_ERRORS} Spelling Errors*\\n\\n"
             if [ "$TOTAL_ERRORS" -gt 10 ]; then
-              SLACK_HEADER="*${TOTAL_ERRORS} Spelling Errors* (showing first 10)\\n\\n"
+              SLACK_FOOTER="\\n\\n_...$(($TOTAL_ERRORS - 10)) more in <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|Action summary>_"
             else
-              SLACK_HEADER="*${TOTAL_ERRORS} Spelling Errors*\\n\\n"
+              SLACK_FOOTER=""
             fi
 
             echo "CODESPELL_ERRORS<<EOF" >> $GITHUB_ENV
-            echo "${SLACK_HEADER}${SLACK_OUTPUT}" >> $GITHUB_ENV
+            echo "${SLACK_HEADER}${SLACK_OUTPUT}${SLACK_FOOTER}" >> $GITHUB_ENV
             echo "EOF" >> $GITHUB_ENV
 
             exit 1
