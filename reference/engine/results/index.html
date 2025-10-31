@@ -1962,9 +1962,9 @@
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../utils/__init__/#ultralytics.utils.SimpleClass" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.SimpleClass&lt;/span&gt;'>SimpleClass</a></code></p>
 <p>Base tensor class with additional methods for easy manipulation and device handling.</p>
-<p>This class provides a foundation for tensor-like objects with device management capabilities,
-supporting both PyTorch tensors and NumPy arrays. It includes methods for moving data between
-devices and converting between tensor types.</p>
+<p>This class provides a foundation for tensor-like objects with device management capabilities, supporting both
+PyTorch tensors and NumPy arrays. It includes methods for moving data between devices and converting between tensor
+types.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -2726,9 +2726,9 @@ numpy array, otherwise returns self.</p>
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../utils/__init__/#ultralytics.utils.SimpleClass" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.SimpleClass&lt;/span&gt;'>SimpleClass</a></code>, <code><a class="autorefs autorefs-internal" href="../../utils/__init__/#ultralytics.utils.DataExportMixin" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.DataExportMixin&lt;/span&gt;'>DataExportMixin</a></code></p>
 <p>A class for storing and manipulating inference results.</p>
-<p>This class provides comprehensive functionality for handling inference results from various
-Ultralytics models, including detection, segmentation, classification, and pose estimation.
-It supports visualization, data export, and various coordinate transformations.</p>
+<p>This class provides comprehensive functionality for handling inference results from various Ultralytics models,
+including detection, segmentation, classification, and pose estimation. It supports visualization, data export, and
+various coordinate transformations.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -4599,6 +4599,11 @@ subdirectory named after the object's class, with the filename based on the inpu
 </tr>
 </tbody>
 </table>
+<p><span class="doc-section-title">Examples:</span></p>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span>    <span class="n">result</span><span class="o">.</span><span class="n">save_crop</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="s2">"path/to/crops"</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s2">"detection"</span><span class="p">)</span>
+</code></pre></div>
 <details class="notes" open="">
 <summary>Notes</summary>
 <ul>
@@ -4608,11 +4613,6 @@ subdirectory named after the object's class, with the filename based on the inpu
 <li>Original image is copied before cropping to avoid modifying the original.</li>
 </ul>
 </details>
-<p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span>    <span class="n">result</span><span class="o">.</span><span class="n">save_crop</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="s2">"path/to/crops"</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="s2">"detection"</span><span class="p">)</span>
-</code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>752</span>
@@ -4660,16 +4660,16 @@ subdirectory named after the object's class, with the filename based on the inpu
 <span></span><span class="sd">        save_dir (str | Path): Directory path where cropped images will be saved.</span>
 <span></span><span class="sd">        file_name (str | Path): Base filename for the saved cropped images.</span>
 <span></span>
+<span></span><span class="sd">    Examples:</span>
+<span></span><span class="sd">        &gt;&gt;&gt; results = model("path/to/image.jpg")</span>
+<span></span><span class="sd">        &gt;&gt;&gt; for result in results:</span>
+<span></span><span class="sd">        &gt;&gt;&gt;     result.save_crop(save_dir="path/to/crops", file_name="detection")</span>
+<span></span>
 <span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        - This method does not support Classify or Oriented Bounding Box (OBB) tasks.</span>
 <span></span><span class="sd">        - Crops are saved as 'save_dir/class_name/file_name.jpg'.</span>
 <span></span><span class="sd">        - The method will create necessary subdirectories if they don't exist.</span>
 <span></span><span class="sd">        - Original image is copied before cropping to avoid modifying the original.</span>
-<span></span>
-<span></span><span class="sd">    Examples:</span>
-<span></span><span class="sd">        &gt;&gt;&gt; results = model("path/to/image.jpg")</span>
-<span></span><span class="sd">        &gt;&gt;&gt; for result in results:</span>
-<span></span><span class="sd">        &gt;&gt;&gt;     result.save_crop(save_dir="path/to/crops", file_name="detection")</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">probs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 <span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"Classify task do not support `save_crop`."</span><span class="p">)</span>
@@ -5008,8 +5008,8 @@ visualize the model's predictions directly.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Convert inference results to a summarized dictionary with optional normalization for box coordinates.</p>
-<p>This method creates a list of detection dictionaries, each containing information about a single
-detection or classification result. For classification tasks, it returns the top class and its
+<p>This method creates a list of detection dictionaries, each containing information about a single detection or
+classification result. For classification tasks, it returns the top class and its
 confidence. For detection tasks, it includes class information, bounding box coordinates, and
 optionally mask segments and keypoints.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -5072,8 +5072,8 @@ optionally mask segments and keypoints.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>A list of dictionaries, each containing summarized information for a single detection
-or classification result. The structure of each dictionary varies based on the task type
+<p>A list of dictionaries, each containing summarized information for a single
+detection or classification result. The structure of each dictionary varies based on the task type
 (classification or detection) and available information (boxes, masks, keypoints).</p>
 </div>
 </td>
@@ -5156,8 +5156,8 @@ or classification result. The structure of each dictionary varies based on the t
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert inference results to a summarized dictionary with optional normalization for box coordinates.</span>
 <span></span>
-<span></span><span class="sd">    This method creates a list of detection dictionaries, each containing information about a single</span>
-<span></span><span class="sd">    detection or classification result. For classification tasks, it returns the top class and its</span>
+<span></span><span class="sd">    This method creates a list of detection dictionaries, each containing information about a single detection or</span>
+<span></span><span class="sd">    classification result. For classification tasks, it returns the top class and its</span>
 <span></span><span class="sd">    confidence. For detection tasks, it includes class information, bounding box coordinates, and</span>
 <span></span><span class="sd">    optionally mask segments and keypoints.</span>
 <span></span>
@@ -5166,8 +5166,8 @@ or classification result. The structure of each dictionary varies based on the t
 <span></span><span class="sd">        decimals (int): Number of decimal places to round the output values to.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (list[dict[str, Any]]): A list of dictionaries, each containing summarized information for a single detection</span>
-<span></span><span class="sd">            or classification result. The structure of each dictionary varies based on the task type</span>
+<span></span><span class="sd">        (list[dict[str, Any]]): A list of dictionaries, each containing summarized information for a single</span>
+<span></span><span class="sd">            detection or classification result. The structure of each dictionary varies based on the task type</span>
 <span></span><span class="sd">            (classification or detection) and available information (boxes, masks, keypoints).</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
@@ -5356,8 +5356,8 @@ or classification result. The structure of each dictionary varies based on the t
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Update the Results object with new detection data.</p>
-<p>This method allows updating the boxes, masks, probabilities, and oriented bounding boxes (OBB) of the
-Results object. It ensures that boxes are clipped to the original image shape.</p>
+<p>This method allows updating the boxes, masks, probabilities, and oriented bounding boxes (OBB) of the Results
+object. It ensures that boxes are clipped to the original image shape.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -5506,8 +5506,8 @@ confidence scores. The format is (x1, y1, x2, y2, conf, class).</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Update the Results object with new detection data.</span>
 <span></span>
-<span></span><span class="sd">    This method allows updating the boxes, masks, probabilities, and oriented bounding boxes (OBB) of the</span>
-<span></span><span class="sd">    Results object. It ensures that boxes are clipped to the original image shape.</span>
+<span></span><span class="sd">    This method allows updating the boxes, masks, probabilities, and oriented bounding boxes (OBB) of the Results</span>
+<span></span><span class="sd">    object. It ensures that boxes are clipped to the original image shape.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        boxes (torch.Tensor | None): A tensor of shape (N, 6) containing bounding box coordinates and</span>
@@ -5664,8 +5664,8 @@ number of detections per class. For classification tasks, it includes the top 5 
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.BaseTensor&lt;/span&gt;'>BaseTensor</a></code></p>
 <p>A class for managing and manipulating detection boxes.</p>
 <p>This class provides comprehensive functionality for handling detection boxes, including their coordinates,
-confidence scores, class labels, and optional tracking IDs. It supports various box formats and offers
-methods for easy manipulation and conversion between different coordinate systems.</p>
+confidence scores, class labels, and optional tracking IDs. It supports various box formats and offers methods for
+easy manipulation and conversion between different coordinate systems.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -5865,9 +5865,9 @@ methods for easy manipulation and conversion between different coordinate system
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">boxes</span><span class="o">.</span><span class="n">xywhn</span><span class="p">)</span>
 </code></pre></div>
-<p>This class manages detection boxes, providing easy access and manipulation of box coordinates,
-confidence scores, class identifiers, and optional tracking IDs. It supports multiple formats
-for box coordinates, including both absolute and normalized forms.</p>
+<p>This class manages detection boxes, providing easy access and manipulation of box coordinates, confidence
+scores, class identifiers, and optional tracking IDs. It supports multiple formats for box coordinates,
+including both absolute and normalized forms.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -5889,8 +5889,8 @@ for box coordinates, including both absolute and normalized forms.</p>
 <td>
 <div class="doc-md-description">
 <p>A tensor or numpy array with detection boxes of shape
-(num_boxes, 6) or (num_boxes, 7). Columns should contain
-[x1, y1, x2, y2, (optional) track_id, confidence, class].</p>
+(num_boxes, 6) or (num_boxes, 7). Columns should contain [x1, y1, x2, y2, (optional) track_id,
+confidence, class].</p>
 </div>
 </td>
 <td>
@@ -6007,14 +6007,14 @@ for box coordinates, including both absolute and normalized forms.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the Boxes class with detection box data and the original image shape.</span>
 <span></span>
-<span></span><span class="sd">    This class manages detection boxes, providing easy access and manipulation of box coordinates,</span>
-<span></span><span class="sd">    confidence scores, class identifiers, and optional tracking IDs. It supports multiple formats</span>
-<span></span><span class="sd">    for box coordinates, including both absolute and normalized forms.</span>
+<span></span><span class="sd">    This class manages detection boxes, providing easy access and manipulation of box coordinates, confidence</span>
+<span></span><span class="sd">    scores, class identifiers, and optional tracking IDs. It supports multiple formats for box coordinates,</span>
+<span></span><span class="sd">    including both absolute and normalized forms.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        boxes (torch.Tensor | np.ndarray): A tensor or numpy array with detection boxes of shape</span>
-<span></span><span class="sd">            (num_boxes, 6) or (num_boxes, 7). Columns should contain</span>
-<span></span><span class="sd">            [x1, y1, x2, y2, (optional) track_id, confidence, class].</span>
+<span></span><span class="sd">            (num_boxes, 6) or (num_boxes, 7). Columns should contain [x1, y1, x2, y2, (optional) track_id,</span>
+<span></span><span class="sd">            confidence, class].</span>
 <span></span><span class="sd">        orig_shape (tuple[int, int]): The original image shape as (height, width). Used for normalization.</span>
 <span></span>
 <span></span><span class="sd">    Attributes:</span>
@@ -6202,9 +6202,8 @@ otherwise None. Shape is (N,) where N is the number of boxes.</p>
 <td>
 <div class="doc-md-description">
 <p>Boxes in [x_center, y_center, width, height] format, where x_center,
-y_center are the coordinates of the center point of the bounding box, width, height are the
-dimensions of the bounding box and the shape of the returned tensor is (N, 4), where N is the
-number of boxes.</p>
+y_center are the coordinates of the center point of the bounding box, width, height are the dimensions
+of the bounding box and the shape of the returned tensor is (N, 4), where N is the number of boxes.</p>
 </div>
 </td>
 </tr>
@@ -6231,8 +6230,8 @@ number of boxes.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return normalized bounding boxes in [x, y, width, height] format.</p>
-<p>This property calculates and returns the normalized bounding box coordinates in the format
-[x_center, y_center, width, height], where all values are relative to the original image dimensions.</p>
+<p>This property calculates and returns the normalized bounding box coordinates in the format [x_center, y_center,
+width, height], where all values are relative to the original image dimensions.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -6249,8 +6248,8 @@ number of boxes.</p>
 <td>
 <div class="doc-md-description">
 <p>Normalized bounding boxes with shape (N, 4), where N is the
-number of boxes. Each row contains [x_center, y_center, width, height] values normalized
-to [0, 1] based on the original image dimensions.</p>
+number of boxes. Each row contains [x_center, y_center, width, height] values normalized to [0, 1] based
+on the original image dimensions.</p>
 </div>
 </td>
 </tr>
@@ -6317,8 +6316,8 @@ coordinates in [x1, y1, x2, y2] format, where n is the number of boxes.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return normalized bounding box coordinates relative to the original image size.</p>
-<p>This property calculates and returns the bounding box coordinates in [x1, y1, x2, y2] format,
-normalized to the range [0, 1] based on the original image dimensions.</p>
+<p>This property calculates and returns the bounding box coordinates in [x1, y1, x2, y2] format, normalized to the
+range [0, 1] based on the original image dimensions.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -6362,8 +6361,8 @@ the number of boxes. Each row contains [x1, y1, x2, y2] values normalized to [0,
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.BaseTensor&lt;/span&gt;'>BaseTensor</a></code></p>
 <p>A class for storing and manipulating detection masks.</p>
-<p>This class extends BaseTensor and provides functionality for handling segmentation masks,
-including methods for converting between pixel and normalized coordinates.</p>
+<p>This class extends BaseTensor and provides functionality for handling segmentation masks, including methods for
+converting between pixel and normalized coordinates.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -6532,7 +6531,8 @@ including methods for converting between pixel and normalized coordinates.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1101</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1100</span>
+<span>1101</span>
 <span>1102</span>
 <span>1103</span>
 <span>1104</span>
@@ -6548,8 +6548,7 @@ including methods for converting between pixel and normalized coordinates.</p>
 <span>1114</span>
 <span>1115</span>
 <span>1116</span>
-<span>1117</span>
-<span>1118</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">masks</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>1117</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">masks</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the Masks class with detection mask data and the original image shape.</span>
 <span></span>
@@ -6582,8 +6581,8 @@ including methods for converting between pixel and normalized coordinates.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return the [x, y] pixel coordinates for each segment in the mask tensor.</p>
-<p>This property calculates and returns a list of pixel coordinates for each segmentation mask in the
-Masks object. The coordinates are scaled to match the original image dimensions.</p>
+<p>This property calculates and returns a list of pixel coordinates for each segmentation mask in the Masks object.
+The coordinates are scaled to match the original image dimensions.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -6600,8 +6599,8 @@ Masks object. The coordinates are scaled to match the original image dimensions.
 <td>
 <div class="doc-md-description">
 <p>A list of numpy arrays, where each array contains the [x, y] pixel
-coordinates for a single segmentation mask. Each array has shape (N, 2), where N is the
-number of points in the segment.</p>
+coordinates for a single segmentation mask. Each array has shape (N, 2), where N is the number of points
+in the segment.</p>
 </div>
 </td>
 </tr>
@@ -6628,8 +6627,8 @@ number of points in the segment.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return normalized xy-coordinates of the segmentation masks.</p>
-<p>This property calculates and caches the normalized xy-coordinates of the segmentation masks. The coordinates
-are normalized relative to the original image shape.</p>
+<p>This property calculates and caches the normalized xy-coordinates of the segmentation masks. The coordinates are
+normalized relative to the original image shape.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -6674,9 +6673,8 @@ mask contour.</p>
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.BaseTensor&lt;/span&gt;'>BaseTensor</a></code></p>
 <p>A class for storing and manipulating detection keypoints.</p>
-<p>This class encapsulates functionality for handling keypoint data, including coordinate manipulation,
-normalization, and confidence values. It supports keypoint detection results with optional visibility
-information.</p>
+<p>This class encapsulates functionality for handling keypoint data, including coordinate manipulation, normalization,
+and confidence values. It supports keypoint detection results with optional visibility information.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -6820,8 +6818,8 @@ information.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">keypoints</span><span class="o">.</span><span class="n">conf</span><span class="p">)</span>  <span class="c1"># Access confidence values</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">keypoints_cpu</span> <span class="o">=</span> <span class="n">keypoints</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>  <span class="c1"># Move keypoints to CPU</span>
 </code></pre></div>
-<p>This method processes the input keypoints tensor, handling both 2D and 3D formats. For 3D tensors
-(x, y, confidence), it masks out low-confidence keypoints by setting their coordinates to zero.</p>
+<p>This method processes the input keypoints tensor, handling both 2D and 3D formats. For 3D tensors (x, y,
+confidence), it masks out low-confidence keypoints by setting their coordinates to zero.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -6876,7 +6874,9 @@ information.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1205</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1203</span>
+<span>1204</span>
+<span>1205</span>
 <span>1206</span>
 <span>1207</span>
 <span>1208</span>
@@ -6895,14 +6895,12 @@ information.</p>
 <span>1221</span>
 <span>1222</span>
 <span>1223</span>
-<span>1224</span>
-<span>1225</span>
-<span>1226</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keypoints</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>1224</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keypoints</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the Keypoints object with detection keypoints and original image dimensions.</span>
 <span></span>
-<span></span><span class="sd">    This method processes the input keypoints tensor, handling both 2D and 3D formats. For 3D tensors</span>
-<span></span><span class="sd">    (x, y, confidence), it masks out low-confidence keypoints by setting their coordinates to zero.</span>
+<span></span><span class="sd">    This method processes the input keypoints tensor, handling both 2D and 3D formats. For 3D tensors (x, y,</span>
+<span></span><span class="sd">    confidence), it masks out low-confidence keypoints by setting their coordinates to zero.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        keypoints (torch.Tensor): A tensor containing keypoint data. Shape can be either:</span>
@@ -6950,8 +6948,8 @@ information.</p>
 <td>
 <div class="doc-md-description">
 <p>A tensor containing confidence scores for each keypoint if available,
-otherwise None. Shape is (num_detections, num_keypoints) for batched data or (num_keypoints,)
-for single detection.</p>
+otherwise None. Shape is (num_detections, num_keypoints) for batched data or (num_keypoints,) for
+single detection.</p>
 </div>
 </td>
 </tr>
@@ -7043,8 +7041,8 @@ the number of detections and K is the number of keypoints per detection.</p>
 <td>
 <div class="doc-md-description">
 <p>A tensor or array of shape (N, K, 2) containing normalized keypoint
-coordinates, where N is the number of instances, K is the number of keypoints, and the last
-dimension contains [x, y] values in the range [0, 1].</p>
+coordinates, where N is the number of instances, K is the number of keypoints, and the last dimension
+contains [x, y] values in the range [0, 1].</p>
 </div>
 </td>
 </tr>
@@ -7071,8 +7069,8 @@ dimension contains [x, y] values in the range [0, 1].</p>
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.BaseTensor&lt;/span&gt;'>BaseTensor</a></code></p>
 <p>A class for storing and manipulating classification probabilities.</p>
-<p>This class extends BaseTensor and provides methods for accessing and manipulating
-classification probabilities, including top-1 and top-5 predictions.</p>
+<p>This class extends BaseTensor and provides methods for accessing and manipulating classification probabilities,
+including top-1 and top-5 predictions.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -7350,7 +7348,9 @@ for consistency with other result classes.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1327</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1325</span>
+<span>1326</span>
+<span>1327</span>
 <span>1328</span>
 <span>1329</span>
 <span>1330</span>
@@ -7378,9 +7378,7 @@ for consistency with other result classes.</p>
 <span>1352</span>
 <span>1353</span>
 <span>1354</span>
-<span>1355</span>
-<span>1356</span>
-<span>1357</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">probs</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>1355</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">probs</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the Probs class with classification probabilities.</span>
 <span></span>
@@ -7549,9 +7547,9 @@ from the classification results.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return confidence scores for the top 5 classification predictions.</p>
-<p>This property retrieves the confidence scores corresponding to the top 5 class probabilities
-predicted by the model. It provides a quick way to access the most likely class predictions
-along with their associated confidence levels.</p>
+<p>This property retrieves the confidence scores corresponding to the top 5 class probabilities predicted by the
+model. It provides a quick way to access the most likely class predictions along with their associated
+confidence levels.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -7595,9 +7593,8 @@ top 5 predicted classes, sorted in descending order of probability.</p>
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.BaseTensor&lt;/span&gt;'>BaseTensor</a></code></p>
 <p>A class for storing and manipulating Oriented Bounding Boxes (OBB).</p>
-<p>This class provides functionality to handle oriented bounding boxes, including conversion between
-different formats, normalization, and access to various properties of the boxes. It supports
-both tracking and non-tracking scenarios.</p>
+<p>This class provides functionality to handle oriented bounding boxes, including conversion between different formats,
+normalization, and access to various properties of the boxes. It supports both tracking and non-tracking scenarios.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -7794,8 +7791,8 @@ both tracking and non-tracking scenarios.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">obb</span><span class="o">.</span><span class="n">conf</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">obb</span><span class="o">.</span><span class="n">cls</span><span class="p">)</span>
 </code></pre></div>
-<p>This class stores and manipulates Oriented Bounding Boxes (OBB) for object detection tasks. It provides
-various properties and methods to access and transform the OBB data.</p>
+<p>This class stores and manipulates Oriented Bounding Boxes (OBB) for object detection tasks. It provides various
+properties and methods to access and transform the OBB data.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -7918,7 +7915,10 @@ If present, the third last column contains track IDs, and the fifth column conta
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1468</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1465</span>
+<span>1466</span>
+<span>1467</span>
+<span>1468</span>
 <span>1469</span>
 <span>1470</span>
 <span>1471</span>
@@ -7949,15 +7949,12 @@ If present, the third last column contains track IDs, and the fifth column conta
 <span>1496</span>
 <span>1497</span>
 <span>1498</span>
-<span>1499</span>
-<span>1500</span>
-<span>1501</span>
-<span>1502</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">boxes</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>1499</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">boxes</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize an OBB (Oriented Bounding Box) instance with oriented bounding box data and original image shape.</span>
 <span></span>
-<span></span><span class="sd">    This class stores and manipulates Oriented Bounding Boxes (OBB) for object detection tasks. It provides</span>
-<span></span><span class="sd">    various properties and methods to access and transform the OBB data.</span>
+<span></span><span class="sd">    This class stores and manipulates Oriented Bounding Boxes (OBB) for object detection tasks. It provides various</span>
+<span></span><span class="sd">    properties and methods to access and transform the OBB data.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        boxes (torch.Tensor | np.ndarray): A tensor or numpy array containing the detection boxes,</span>
@@ -8172,9 +8169,9 @@ oriented bounding box. Returns None if tracking IDs are not available.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Convert oriented bounding boxes (OBB) to axis-aligned bounding boxes in xyxy format.</p>
-<p>This property calculates the minimal enclosing rectangle for each oriented bounding box and returns it in
-xyxy format (x1, y1, x2, y2). This is useful for operations that require axis-aligned bounding boxes, such
-as IoU calculation with non-rotated boxes.</p>
+<p>This property calculates the minimal enclosing rectangle for each oriented bounding box and returns it in xyxy
+format (x1, y1, x2, y2). This is useful for operations that require axis-aligned bounding boxes, such as IoU
+calculation with non-rotated boxes.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -8289,8 +8286,8 @@ moving clockwise.</p>
 <td>
 <div class="doc-md-description">
 <p>Normalized rotated bounding boxes in xyxyxyxy format with shape (N, 4, 2),
-where N is the number of boxes. Each box is represented by 4 points (x, y), normalized relative to
-the original image dimensions.</p>
+where N is the number of boxes. Each box is represented by 4 points (x, y), normalized relative to the
+original image dimensions.</p>
 </div>
 </td>
 </tr>

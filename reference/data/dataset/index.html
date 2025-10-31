@@ -2550,8 +2550,8 @@
 </tr>
 </tbody>
 </table>
-<details class="note" open="">
-<summary>Note</summary>
+<details class="notes" open="">
+<summary>Notes</summary>
 <p>cls is not with bboxes now, classification and semantic segmentation need an independent cls label
 Can also support classification and semantic segmentation by adding or removing dict keys there.</p>
 </details>
@@ -2598,7 +2598,7 @@ Can also support classification and semantic segmentation by adding or removing 
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (dict): Updated label dictionary with instances.</span>
 <span></span>
-<span></span><span class="sd">    Note:</span>
+<span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        cls is not with bboxes now, classification and semantic segmentation need an independent cls label</span>
 <span></span><span class="sd">        Can also support classification and semantic segmentation by adding or removing dict keys there.</span>
 <span></span><span class="sd">    """</span>
@@ -2639,8 +2639,8 @@ Can also support classification and semantic segmentation by adding or removing 
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.data.dataset.YOLODataset" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.data.dataset.YOLODataset&lt;/span&gt;'>YOLODataset</a></code></p>
 <p>Dataset class for loading object detection and/or segmentation labels in YOLO format with multi-modal support.</p>
-<p>This class extends YOLODataset to add text information for multi-modal model training, enabling models to
-process both image and text data.</p>
+<p>This class extends YOLODataset to add text information for multi-modal model training, enabling models to process
+both image and text data.</p>
 <p><span class="doc-section-title">Methods:</span></p>
 <table>
 <thead>
@@ -3046,8 +3046,8 @@ process both image and text data.</p>
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.data.dataset.YOLODataset" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.data.dataset.YOLODataset&lt;/span&gt;'>YOLODataset</a></code></p>
 <p>Dataset class for object detection tasks using annotations from a JSON file in grounding format.</p>
-<p>This dataset is designed for grounding tasks where annotations are provided in a JSON file rather than
-the standard YOLO format text files.</p>
+<p>This dataset is designed for grounding tasks where annotations are provided in a JSON file rather than the standard
+YOLO format text files.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -3784,9 +3784,9 @@ the standard YOLO format text files.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Verify the number of instances in the dataset matches expected counts.</p>
-<p>This method checks if the total number of bounding box instances in the provided
-labels matches the expected count for known datasets. It performs validation
-against a predefined set of datasets with known instance counts.</p>
+<p>This method checks if the total number of bounding box instances in the provided labels matches the expected
+count for known datasets. It performs validation against a predefined set of datasets with known instance
+counts.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -3808,8 +3808,8 @@ against a predefined set of datasets with known instance counts.</p>
 <td>
 <div class="doc-md-description">
 <p>List of label dictionaries, where each dictionary
-contains dataset annotations. Each label dict must have a 'bboxes' key with
-a numpy array or tensor containing bounding box coordinates.</p>
+contains dataset annotations. Each label dict must have a 'bboxes' key with a numpy array or tensor
+containing bounding box coordinates.</p>
 </div>
 </td>
 <td>
@@ -3840,8 +3840,8 @@ for a recognized dataset.</p>
 </tr>
 </tbody>
 </table>
-<details class="note" open="">
-<summary>Note</summary>
+<details class="notes" open="">
+<summary>Notes</summary>
 <p>For unrecognized datasets (those not in the predefined expected_counts),
 a warning is logged and verification is skipped.</p>
 </details>
@@ -3884,20 +3884,20 @@ a warning is logged and verification is skipped.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Verify the number of instances in the dataset matches expected counts.</span>
 <span></span>
-<span></span><span class="sd">    This method checks if the total number of bounding box instances in the provided</span>
-<span></span><span class="sd">    labels matches the expected count for known datasets. It performs validation</span>
-<span></span><span class="sd">    against a predefined set of datasets with known instance counts.</span>
+<span></span><span class="sd">    This method checks if the total number of bounding box instances in the provided labels matches the expected</span>
+<span></span><span class="sd">    count for known datasets. It performs validation against a predefined set of datasets with known instance</span>
+<span></span><span class="sd">    counts.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        labels (list[dict[str, Any]]): List of label dictionaries, where each dictionary</span>
-<span></span><span class="sd">            contains dataset annotations. Each label dict must have a 'bboxes' key with</span>
-<span></span><span class="sd">            a numpy array or tensor containing bounding box coordinates.</span>
+<span></span><span class="sd">            contains dataset annotations. Each label dict must have a 'bboxes' key with a numpy array or tensor</span>
+<span></span><span class="sd">            containing bounding box coordinates.</span>
 <span></span>
 <span></span><span class="sd">    Raises:</span>
 <span></span><span class="sd">        AssertionError: If the actual instance count doesn't match the expected count</span>
 <span></span><span class="sd">            for a recognized dataset.</span>
 <span></span>
-<span></span><span class="sd">    Note:</span>
+<span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        For unrecognized datasets (those not in the predefined expected_counts),</span>
 <span></span><span class="sd">        a warning is logged and verification is skipped.</span>
 <span></span><span class="sd">    """</span>
@@ -3929,8 +3929,8 @@ a warning is logged and verification is skipped.</p>
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.utils.data.ConcatDataset">ConcatDataset</span></code></p>
 <p>Dataset as a concatenation of multiple datasets.</p>
-<p>This class is useful to assemble different existing datasets for YOLO training, ensuring they use the same
-collation function.</p>
+<p>This class is useful to assemble different existing datasets for YOLO training, ensuring they use the same collation
+function.</p>
 <p><span class="doc-section-title">Methods:</span></p>
 <table>
 <thead>
@@ -4190,7 +4190,7 @@ to speed up training.</p>
 <td>
 <div class="doc-md-description">
 <p>A list of tuples, each containing the path to an image, its class index, path to its .npy cache
-            file (if caching on disk), and optionally the loaded image array (if caching in RAM).</p>
+file (if caching on disk), and optionally the loaded image array (if caching in RAM).</p>
 </div>
 </td>
 </tr>

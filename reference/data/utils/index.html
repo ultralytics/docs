@@ -1607,11 +1607,6 @@
 </tr>
 </tbody>
 </table>
-<details class="note" open="">
-<summary>Note</summary>
-<p>Download *.zip files from <a href="https://github.com/ultralytics/hub/tree/main/example_datasets">https://github.com/ultralytics/hub/tree/main/example_datasets</a>
-i.e. <a href="https://github.com/ultralytics/hub/raw/main/example_datasets/coco8.zip">https://github.com/ultralytics/hub/raw/main/example_datasets/coco8.zip</a> for coco8.zip.</p>
-</details>
 <p><span class="doc-section-title">Examples:</span></p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUBDatasetStats</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">stats</span> <span class="o">=</span> <span class="n">HUBDatasetStats</span><span class="p">(</span><span class="s2">"path/to/coco8.zip"</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">)</span>  <span class="c1"># detect dataset</span>
@@ -1622,6 +1617,11 @@ i.e. <a href="https://github.com/ultralytics/hub/raw/main/example_datasets/coco8
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">stats</span><span class="o">.</span><span class="n">get_json</span><span class="p">(</span><span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">stats</span><span class="o">.</span><span class="n">process_images</span><span class="p">()</span>
 </code></pre></div>
+<details class="notes" open="">
+<summary>Notes</summary>
+<p>Download *.zip files from <a href="https://github.com/ultralytics/hub/tree/main/example_datasets">https://github.com/ultralytics/hub/tree/main/example_datasets</a>
+i.e. <a href="https://github.com/ultralytics/hub/raw/main/example_datasets/coco8.zip">https://github.com/ultralytics/hub/raw/main/example_datasets/coco8.zip</a> for coco8.zip.</p>
+</details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/utils.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>618</span>
@@ -1916,8 +1916,8 @@ i.e. <a href="https://github.com/ultralytics/hub/raw/main/example_datasets/coco8
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Check dataset file access speed and provide performance feedback.</p>
-<p>This function tests the access speed of dataset files by measuring ping (stat call) time and read speed.
-It samples up to 5 files from the provided list and warns if access times exceed the threshold.</p>
+<p>This function tests the access speed of dataset files by measuring ping (stat call) time and read speed. It samples
+up to 5 files from the provided list and warns if access times exceed the threshold.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2099,8 +2099,8 @@ It samples up to 5 files from the provided list and warns if access times exceed
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check dataset file access speed and provide performance feedback.</span>
 <span></span>
-<span></span><span class="sd">    This function tests the access speed of dataset files by measuring ping (stat call) time and read speed.</span>
-<span></span><span class="sd">    It samples up to 5 files from the provided list and warns if access times exceed the threshold.</span>
+<span></span><span class="sd">    This function tests the access speed of dataset files by measuring ping (stat call) time and read speed. It samples</span>
+<span></span><span class="sd">    up to 5 files from the provided list and warns if access times exceed the threshold.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        files (list[str]): List of file paths to check for access speed.</span>
@@ -2467,10 +2467,10 @@ It samples up to 5 files from the provided list and warns if access times exceed
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Visualize YOLO annotations (bounding boxes and class labels) on an image.</p>
-<p>This function reads an image and its corresponding annotation file in YOLO format, then
-draws bounding boxes around detected objects and labels them with their respective class names.
-The bounding box colors are assigned based on the class ID, and the text color is dynamically
-adjusted for readability, depending on the background color's luminance.</p>
+<p>This function reads an image and its corresponding annotation file in YOLO format, then draws bounding boxes around
+detected objects and labels them with their respective class names. The bounding box colors are assigned based on
+the class ID, and the text color is dynamically adjusted for readability, depending on the background color's
+luminance.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2583,10 +2583,10 @@ adjusted for readability, depending on the background color's luminance.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Visualize YOLO annotations (bounding boxes and class labels) on an image.</span>
 <span></span>
-<span></span><span class="sd">    This function reads an image and its corresponding annotation file in YOLO format, then</span>
-<span></span><span class="sd">    draws bounding boxes around detected objects and labels them with their respective class names.</span>
-<span></span><span class="sd">    The bounding box colors are assigned based on the class ID, and the text color is dynamically</span>
-<span></span><span class="sd">    adjusted for readability, depending on the background color's luminance.</span>
+<span></span><span class="sd">    This function reads an image and its corresponding annotation file in YOLO format, then draws bounding boxes around</span>
+<span></span><span class="sd">    detected objects and labels them with their respective class names. The bounding box colors are assigned based on</span>
+<span></span><span class="sd">    the class ID, and the text color is dynamically adjusted for readability, depending on the background color's</span>
+<span></span><span class="sd">    luminance.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        image_path (str): The path to the image file to annotate, and it can be in formats supported by PIL.</span>
@@ -2675,7 +2675,7 @@ adjusted for readability, depending on the background color's luminance.</p>
 <td>
 <div class="doc-md-description">
 <p>A list of polygons. Each polygon is an array with shape (N, M), where
-                         N is the number of polygons, and M is the number of points such that M % 2 = 0.</p>
+N is the number of polygons, and M is the number of points such that M % 2 = 0.</p>
 </div>
 </td>
 <td>
@@ -2770,7 +2770,7 @@ adjusted for readability, depending on the background color's luminance.</p>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        imgsz (tuple[int, int]): The size of the image as (height, width).</span>
 <span></span><span class="sd">        polygons (list[np.ndarray]): A list of polygons. Each polygon is an array with shape (N, M), where</span>
-<span></span><span class="sd">                                     N is the number of polygons, and M is the number of points such that M % 2 = 0.</span>
+<span></span><span class="sd">            N is the number of polygons, and M is the number of points such that M % 2 = 0.</span>
 <span></span><span class="sd">        color (int, optional): The color value to fill in the polygons on the mask.</span>
 <span></span><span class="sd">        downsample_ratio (int, optional): Factor by which to downsample the mask.</span>
 <span></span>
@@ -2838,7 +2838,7 @@ adjusted for readability, depending on the background color's luminance.</p>
 <td>
 <div class="doc-md-description">
 <p>A list of polygons. Each polygon is an array with shape (N, M), where
-                         N is the number of polygons, and M is the number of points such that M % 2 = 0.</p>
+N is the number of polygons, and M is the number of points such that M % 2 = 0.</p>
 </div>
 </td>
 <td>
@@ -2927,7 +2927,7 @@ adjusted for readability, depending on the background color's luminance.</p>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        imgsz (tuple[int, int]): The size of the image as (height, width).</span>
 <span></span><span class="sd">        polygons (list[np.ndarray]): A list of polygons. Each polygon is an array with shape (N, M), where</span>
-<span></span><span class="sd">                                     N is the number of polygons, and M is the number of points such that M % 2 = 0.</span>
+<span></span><span class="sd">            N is the number of polygons, and M is the number of points such that M % 2 = 0.</span>
 <span></span><span class="sd">        color (int): The color value to fill in the polygons on the masks.</span>
 <span></span><span class="sd">        downsample_ratio (int, optional): Factor by which to downsample each mask.</span>
 <span></span>
@@ -3387,8 +3387,8 @@ resolves paths related to the dataset.</p>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Check a classification dataset such as Imagenet.</p>
-<p>This function accepts a <code>dataset</code> name and attempts to retrieve the corresponding dataset information.
-If the dataset is not found locally, it attempts to download the dataset from the internet and save it locally.</p>
+<p>This function accepts a <code>dataset</code> name and attempts to retrieve the corresponding dataset information. If the
+dataset is not found locally, it attempts to download the dataset from the internet and save it locally.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -3562,8 +3562,8 @@ If the dataset is not found locally, it attempts to download the dataset from th
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check a classification dataset such as Imagenet.</span>
 <span></span>
-<span></span><span class="sd">    This function accepts a `dataset` name and attempts to retrieve the corresponding dataset information.</span>
-<span></span><span class="sd">    If the dataset is not found locally, it attempts to download the dataset from the internet and save it locally.</span>
+<span></span><span class="sd">    This function accepts a `dataset` name and attempts to retrieve the corresponding dataset information. If the</span>
+<span></span><span class="sd">    dataset is not found locally, it attempts to download the dataset from the internet and save it locally.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        dataset (str | Path): The name of the dataset.</span>

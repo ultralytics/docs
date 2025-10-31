@@ -1528,8 +1528,8 @@
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Ultralytics color palette for visualization and plotting.</p>
-<p>This class provides methods to work with the Ultralytics color palette, including converting hex color codes to
-RGB values and accessing predefined color schemes for object detection and pose estimation.</p>
+<p>This class provides methods to work with the Ultralytics color palette, including converting hex color codes to RGB
+values and accessing predefined color schemes for object detection and pose estimation.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -3039,8 +3039,8 @@ Please use the official Ultralytics colors for all marketing materials.</p>
 </tr>
 </tbody>
 </table>
-<details class="note" open="">
-<summary>Note</summary>
+<details class="notes" open="">
+<summary>Notes</summary>
 <ul>
 <li><code>kpt_line=True</code> currently only supports human pose plotting.</li>
 <li>Modifies self.im in-place.</li>
@@ -3135,7 +3135,7 @@ Please use the official Ultralytics colors for all marketing materials.</p>
 <span></span><span class="sd">        conf_thres (float, optional): Confidence threshold.</span>
 <span></span><span class="sd">        kpt_color (tuple, optional): Keypoint color (B, G, R).</span>
 <span></span>
-<span></span><span class="sd">    Note:</span>
+<span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        - `kpt_line=True` currently only supports human pose plotting.</span>
 <span></span><span class="sd">        - Modifies self.im in-place.</span>
 <span></span><span class="sd">        - If self.pil is True, converts image to numpy array and back to PIL.</span>
@@ -3910,9 +3910,9 @@ Please use the official Ultralytics colors for all marketing materials.</p>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Save image crop as {file} with crop size multiple {gain} and {pad} pixels. Save and/or return crop.</p>
-<p>This function takes a bounding box and an image, and then saves a cropped portion of the image according
-to the bounding box. Optionally, the crop can be squared, and the function allows for gain and padding
-adjustments to the bounding box.</p>
+<p>This function takes a bounding box and an image, and then saves a cropped portion of the image according to the
+bounding box. Optionally, the crop can be squared, and the function allows for gain and padding adjustments to the
+bounding box.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -4148,9 +4148,9 @@ adjustments to the bounding box.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Save image crop as {file} with crop size multiple {gain} and {pad} pixels. Save and/or return crop.</span>
 <span></span>
-<span></span><span class="sd">    This function takes a bounding box and an image, and then saves a cropped portion of the image according</span>
-<span></span><span class="sd">    to the bounding box. Optionally, the crop can be squared, and the function allows for gain and padding</span>
-<span></span><span class="sd">    adjustments to the bounding box.</span>
+<span></span><span class="sd">    This function takes a bounding box and an image, and then saves a cropped portion of the image according to the</span>
+<span></span><span class="sd">    bounding box. Optionally, the crop can be squared, and the function allows for gain and padding adjustments to the</span>
+<span></span><span class="sd">    bounding box.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        xyxy (torch.Tensor | list): A tensor or list representing the bounding box in xyxy format.</span>
@@ -4231,7 +4231,8 @@ adjustments to the bounding box.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Dictionary containing detection data with keys like 'cls', 'bboxes', 'conf', 'masks', 'keypoints', 'batch_idx', 'img'.</p>
+<p>Dictionary containing detection data with keys like 'cls', 'bboxes', 'conf', 'masks',
+'keypoints', 'batch_idx', 'img'.</p>
 </div>
 </td>
 <td>
@@ -4405,8 +4406,8 @@ adjustments to the bounding box.</p>
 </tr>
 </tbody>
 </table>
-<details class="note" open="">
-<summary>Note</summary>
+<details class="notes" open="">
+<summary>Notes</summary>
 <p>This function supports both tensor and numpy array inputs. It will automatically
 convert tensor inputs to numpy arrays for processing.</p>
 <p>Channel Support:
@@ -4594,7 +4595,8 @@ convert tensor inputs to numpy arrays for processing.</p>
 <span>863</span>
 <span>864</span>
 <span>865</span>
-<span>866</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@threaded</span>
+<span>866</span>
+<span>867</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@threaded</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_images</span><span class="p">(</span>
 <span></span>    <span class="n">labels</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
 <span></span>    <span class="n">images</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span>
@@ -4611,7 +4613,8 @@ convert tensor inputs to numpy arrays for processing.</p>
 <span></span><span class="sd">    Plot image grid with labels, bounding boxes, masks, and keypoints.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        labels (dict[str, Any]): Dictionary containing detection data with keys like 'cls', 'bboxes', 'conf', 'masks', 'keypoints', 'batch_idx', 'img'.</span>
+<span></span><span class="sd">        labels (dict[str, Any]): Dictionary containing detection data with keys like 'cls', 'bboxes', 'conf', 'masks',</span>
+<span></span><span class="sd">            'keypoints', 'batch_idx', 'img'.</span>
 <span></span><span class="sd">        images (torch.Tensor | np.ndarray]): Batch of images to plot. Shape: (batch_size, channels, height, width).</span>
 <span></span><span class="sd">        paths (Optional[list[str]]): List of file paths for each image in the batch.</span>
 <span></span><span class="sd">        fname (str): Output filename for the plotted image grid.</span>
@@ -4625,7 +4628,7 @@ convert tensor inputs to numpy arrays for processing.</p>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (np.ndarray): Plotted image grid as a numpy array if save is False, None otherwise.</span>
 <span></span>
-<span></span><span class="sd">    Note:</span>
+<span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        This function supports both tensor and numpy array inputs. It will automatically</span>
 <span></span><span class="sd">        convert tensor inputs to numpy arrays for processing.</span>
 <span></span>
@@ -4856,8 +4859,7 @@ pose estimation, and classification. Plots are saved as 'results.png' in the dir
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>869</span>
-<span>870</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>870</span>
 <span>871</span>
 <span>872</span>
 <span>873</span>
@@ -4908,7 +4910,8 @@ pose estimation, and classification. Plots are saved as 'results.png' in the dir
 <span>918</span>
 <span>919</span>
 <span>920</span>
-<span>921</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@plt_settings</span><span class="p">()</span>
+<span>921</span>
+<span>922</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@plt_settings</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_results</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"path/to/results.csv"</span><span class="p">,</span> <span class="nb">dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="n">on_plot</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Plot training results from a results CSV file. The function supports various types of data including segmentation,</span>
@@ -5096,8 +5099,7 @@ pose estimation, and classification. Plots are saved as 'results.png' in the dir
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>924</span>
-<span>925</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>925</span>
 <span>926</span>
 <span>927</span>
 <span>928</span>
@@ -5126,7 +5128,8 @@ pose estimation, and classification. Plots are saved as 'results.png' in the dir
 <span>951</span>
 <span>952</span>
 <span>953</span>
-<span>954</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plt_color_scatter</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">cmap</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"viridis"</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">edgecolors</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"none"</span><span class="p">):</span>
+<span>954</span>
+<span>955</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plt_color_scatter</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">cmap</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"viridis"</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">edgecolors</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"none"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Plot a scatter plot with points colored based on a 2D histogram.</span>
 <span></span>
@@ -5222,8 +5225,7 @@ in the CSV, color-coded based on fitness scores. The best-performing configurati
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 957</span>
-<span> 958</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 958</span>
 <span> 959</span>
 <span> 960</span>
 <span> 961</span>
@@ -5288,7 +5290,8 @@ in the CSV, color-coded based on fitness scores. The best-performing configurati
 <span>1020</span>
 <span>1021</span>
 <span>1022</span>
-<span>1023</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@plt_settings</span><span class="p">()</span>
+<span>1023</span>
+<span>1024</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@plt_settings</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_tune_results</span><span class="p">(</span><span class="n">csv_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"tune_results.csv"</span><span class="p">,</span> <span class="n">exclude_zero_fitness_points</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Plot the evolution results stored in a 'tune_results.csv' file. The function generates a scatter plot for each key</span>
@@ -5468,8 +5471,7 @@ in the CSV, color-coded based on fitness scores. The best-performing configurati
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1026</span>
-<span>1027</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1027</span>
 <span>1028</span>
 <span>1029</span>
 <span>1030</span>
@@ -5502,7 +5504,8 @@ in the CSV, color-coded based on fitness scores. The best-performing configurati
 <span>1057</span>
 <span>1058</span>
 <span>1059</span>
-<span>1060</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@plt_settings</span><span class="p">()</span>
+<span>1060</span>
+<span>1061</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@plt_settings</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">feature_visualization</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">module_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">stage</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"runs/detect/exp"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Visualize feature maps of a given model module during inference.</span>

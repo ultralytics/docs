@@ -1713,9 +1713,18 @@ num_classes).</p>
 <td>
 <div class="doc-md-description">
 <p>A list of size batch_size, each element is a tuple
-(index_i, index_j), where index_i is the tensor of indices of the selected predictions (in order)
-and index_j is the tensor of indices of the corresponding selected ground truth targets (in order).
-For each batch element, it holds: len(index_i) = len(index_j) = min(num_queries, num_target_boxes).</p>
+(index_i, index_j), where index_i is the tensor of indices of the selected predictions (in order) and
+index_j is the tensor of indices of the corresponding selected ground truth targets (in order).</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code><span title="list">list</span>[<span title="tuple">tuple</span>[<span title="torch.Tensor">Tensor</span>, <span title="torch.Tensor">Tensor</span>]]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>For each batch element, it holds: len(index_i) = len(index_j) = min(num_queries, num_target_boxes).</p>
 </div>
 </td>
 </tr>
@@ -1828,9 +1837,9 @@ For each batch element, it holds: len(index_i) = len(index_j) = min(num_queries,
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (list[tuple[torch.Tensor, torch.Tensor]]): A list of size batch_size, each element is a tuple</span>
-<span></span><span class="sd">            (index_i, index_j), where index_i is the tensor of indices of the selected predictions (in order)</span>
-<span></span><span class="sd">            and index_j is the tensor of indices of the corresponding selected ground truth targets (in order).</span>
-<span></span><span class="sd">            For each batch element, it holds: len(index_i) = len(index_j) = min(num_queries, num_target_boxes).</span>
+<span></span><span class="sd">            (index_i, index_j), where index_i is the tensor of indices of the selected predictions (in order) and</span>
+<span></span><span class="sd">            index_j is the tensor of indices of the corresponding selected ground truth targets (in order).</span>
+<span></span><span class="sd">        For each batch element, it holds: len(index_i) = len(index_j) = min(num_queries, num_target_boxes).</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">bs</span><span class="p">,</span> <span class="n">nq</span><span class="p">,</span> <span class="n">nc</span> <span class="o">=</span> <span class="n">pred_scores</span><span class="o">.</span><span class="n">shape</span>
 <span></span>
@@ -1907,8 +1916,8 @@ For each batch element, it holds: len(index_i) = len(index_j) = min(num_queries,
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Generate contrastive denoising training group with positive and negative samples from ground truths.</p>
-<p>This function creates denoising queries for contrastive denoising training by adding noise to ground truth
-bounding boxes and class labels. It generates both positive and negative samples to improve model robustness.</p>
+<p>This function creates denoising queries for contrastive denoising training by adding noise to ground truth bounding
+boxes and class labels. It generates both positive and negative samples to improve model robustness.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1930,8 +1939,8 @@ bounding boxes and class labels. It generates both positive and negative samples
 <td>
 <div class="doc-md-description">
 <p>Batch dictionary containing 'gt_cls' (torch.Tensor with shape (num_gts,)),
-'gt_bboxes' (torch.Tensor with shape (num_gts, 4)), and 'gt_groups' (list[int]) indicating number of
-ground truths per image.</p>
+'gt_bboxes' (torch.Tensor with shape (num_gts, 4)), and 'gt_groups' (list[int]) indicating number of ground
+truths per image.</p>
 </div>
 </td>
 <td>
@@ -2257,13 +2266,13 @@ ground truths per image.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Generate contrastive denoising training group with positive and negative samples from ground truths.</span>
 <span></span>
-<span></span><span class="sd">    This function creates denoising queries for contrastive denoising training by adding noise to ground truth</span>
-<span></span><span class="sd">    bounding boxes and class labels. It generates both positive and negative samples to improve model robustness.</span>
+<span></span><span class="sd">    This function creates denoising queries for contrastive denoising training by adding noise to ground truth bounding</span>
+<span></span><span class="sd">    boxes and class labels. It generates both positive and negative samples to improve model robustness.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        batch (dict[str, Any]): Batch dictionary containing 'gt_cls' (torch.Tensor with shape (num_gts,)),</span>
-<span></span><span class="sd">            'gt_bboxes' (torch.Tensor with shape (num_gts, 4)), and 'gt_groups' (list[int]) indicating number of</span>
-<span></span><span class="sd">            ground truths per image.</span>
+<span></span><span class="sd">            'gt_bboxes' (torch.Tensor with shape (num_gts, 4)), and 'gt_groups' (list[int]) indicating number of ground</span>
+<span></span><span class="sd">            truths per image.</span>
 <span></span><span class="sd">        num_classes (int): Total number of object classes.</span>
 <span></span><span class="sd">        num_queries (int): Number of object queries.</span>
 <span></span><span class="sd">        class_embed (torch.Tensor): Class embedding weights to map labels to embedding space.</span>

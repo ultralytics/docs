@@ -1344,8 +1344,8 @@
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../../../engine/predictor/#ultralytics.engine.predictor.BasePredictor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.predictor.BasePredictor&lt;/span&gt;'>BasePredictor</a></code></p>
 <p>A class extending the BasePredictor class for prediction based on a classification model.</p>
-<p>This predictor handles the specific requirements of classification models, including preprocessing images
-and postprocessing predictions to generate classification results.</p>
+<p>This predictor handles the specific requirements of classification models, including preprocessing images and
+postprocessing predictions to generate classification results.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -1396,12 +1396,6 @@ and postprocessing predictions to generate classification results.</p>
 </tr>
 </tbody>
 </table>
-<details class="notes" open="">
-<summary>Notes</summary>
-<ul>
-<li>Torchvision classification models can also be passed to the 'model' argument, i.e. model='resnet18'.</li>
-</ul>
-</details>
 <p><span class="doc-section-title">Examples:</span></p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">ASSETS</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.classify</span><span class="w"> </span><span class="kn">import</span> <span class="n">ClassificationPredictor</span>
@@ -1409,6 +1403,12 @@ and postprocessing predictions to generate classification results.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">predictor</span> <span class="o">=</span> <span class="n">ClassificationPredictor</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">predictor</span><span class="o">.</span><span class="n">predict_cli</span><span class="p">()</span>
 </code></pre></div>
+<details class="notes" open="">
+<summary>Notes</summary>
+<ul>
+<li>Torchvision classification models can also be passed to the 'model' argument, i.e. model='resnet18'.</li>
+</ul>
+</details>
 <p>This constructor initializes a ClassificationPredictor instance, which extends BasePredictor for classification
 tasks. It ensures the task is set to 'classify' regardless of input configuration.</p>
 <p><span class="doc-section-title">Parameters:</span></p>

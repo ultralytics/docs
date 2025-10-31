@@ -1733,9 +1733,9 @@
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Sequential">Sequential</span></code></p>
 <p>A sequential container that performs 2D convolution followed by batch normalization.</p>
-<p>This module combines a 2D convolution layer with batch normalization, providing a common building block
-for convolutional neural networks. The batch normalization weights and biases are initialized to specific
-values for optimal training performance.</p>
+<p>This module combines a 2D convolution layer with batch normalization, providing a common building block for
+convolutional neural networks. The batch normalization weights and biases are initialized to specific values for
+optimal training performance.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -1995,8 +1995,8 @@ values for optimal training performance.</p>
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>Embed images into patches and project them into a specified embedding dimension.</p>
-<p>This module converts input images into patch embeddings using a sequence of convolutional layers,
-effectively downsampling the spatial dimensions while increasing the channel dimension.</p>
+<p>This module converts input images into patch embeddings using a sequence of convolutional layers, effectively
+downsampling the spatial dimensions while increasing the channel dimension.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -2235,8 +2235,8 @@ effectively downsampling the spatial dimensions while increasing the channel dim
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>Mobile Inverted Bottleneck Conv (MBConv) layer, part of the EfficientNet architecture.</p>
-<p>This module implements the mobile inverted bottleneck convolution with expansion, depthwise convolution,
-and projection phases, along with residual connections for improved gradient flow.</p>
+<p>This module implements the mobile inverted bottleneck convolution with expansion, depthwise convolution, and
+projection phases, along with residual connections for improved gradient flow.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -2570,9 +2570,9 @@ and projection phases, along with residual connections for improved gradient flo
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>Merge neighboring patches in the feature map and project to a new dimension.</p>
-<p>This class implements a patch merging operation that combines spatial information and adjusts the feature
-dimension using a series of convolutional layers with batch normalization. It effectively reduces spatial
-resolution while potentially increasing channel dimensions.</p>
+<p>This class implements a patch merging operation that combines spatial information and adjusts the feature dimension
+using a series of convolutional layers with batch normalization. It effectively reduces spatial resolution while
+potentially increasing channel dimensions.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -2857,8 +2857,8 @@ resolution while potentially increasing channel dimensions.</p>
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>Convolutional Layer featuring multiple MobileNetV3-style inverted bottleneck convolutions (MBConv).</p>
-<p>This layer optionally applies downsample operations to the output and supports gradient checkpointing
-for memory efficiency during training.</p>
+<p>This layer optionally applies downsample operations to the output and supports gradient checkpointing for memory
+efficiency during training.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -2944,8 +2944,8 @@ for memory efficiency during training.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span><span class="go">torch.Size([1, 3136, 128])</span>
 </code></pre></div>
-<p>This layer consists of multiple MobileNetV3-style inverted bottleneck convolutions (MBConv) and
-optionally applies downsampling to the output.</p>
+<p>This layer consists of multiple MobileNetV3-style inverted bottleneck convolutions (MBConv) and optionally
+applies downsampling to the output.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -3078,7 +3078,7 @@ optionally applies downsampling to the output.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>The dimensionality of the output. None means it will be the same as <code>dim</code>.</p>
+<p>Output dimensions. None means it will be the same as <code>dim</code>.</p>
 </div>
 </td>
 <td>
@@ -3174,8 +3174,8 @@ optionally applies downsampling to the output.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the ConvLayer with the given dimensions and settings.</span>
 <span></span>
-<span></span><span class="sd">    This layer consists of multiple MobileNetV3-style inverted bottleneck convolutions (MBConv) and</span>
-<span></span><span class="sd">    optionally applies downsampling to the output.</span>
+<span></span><span class="sd">    This layer consists of multiple MobileNetV3-style inverted bottleneck convolutions (MBConv) and optionally</span>
+<span></span><span class="sd">    applies downsampling to the output.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        dim (int): The dimensionality of the input and output.</span>
@@ -3185,7 +3185,7 @@ optionally applies downsampling to the output.</p>
 <span></span><span class="sd">        drop_path (float | list[float], optional): Drop path rate. Single float or a list of floats for each MBConv.</span>
 <span></span><span class="sd">        downsample (Optional[nn.Module], optional): Function for downsampling the output. None to skip downsampling.</span>
 <span></span><span class="sd">        use_checkpoint (bool, optional): Whether to use gradient checkpointing to save memory.</span>
-<span></span><span class="sd">        out_dim (Optional[int], optional): The dimensionality of the output. None means it will be the same as `dim`.</span>
+<span></span><span class="sd">        out_dim (Optional[int], optional): Output dimensions. None means it will be the same as `dim`.</span>
 <span></span><span class="sd">        conv_expand_ratio (float, optional): Expansion ratio for the MBConv layers.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
@@ -3259,8 +3259,8 @@ optionally applies downsampling to the output.</p>
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>Multi-layer Perceptron (MLP) module for transformer architectures.</p>
-<p>This module applies layer normalization, two fully-connected layers with an activation function in between,
-and dropout. It is commonly used in transformer-based architectures for processing token embeddings.</p>
+<p>This module applies layer normalization, two fully-connected layers with an activation function in between, and
+dropout. It is commonly used in transformer-based architectures for processing token embeddings.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -3534,9 +3534,9 @@ and dropout. It is commonly used in transformer-based architectures for processi
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>Multi-head attention module with spatial awareness and trainable attention biases.</p>
-<p>This module implements a multi-head attention mechanism with support for spatial awareness, applying
-attention biases based on spatial resolution. It includes trainable attention biases for each unique
-offset between spatial positions in the resolution grid.</p>
+<p>This module implements a multi-head attention mechanism with support for spatial awareness, applying attention
+biases based on spatial resolution. It includes trainable attention biases for each unique offset between spatial
+positions in the resolution grid.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -3699,9 +3699,9 @@ offset between spatial positions in the resolution grid.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span><span class="go">torch.Size([1, 196, 256])</span>
 </code></pre></div>
-<p>This module implements a multi-head attention mechanism with support for spatial awareness, applying
-attention biases based on spatial resolution. It includes trainable attention biases for each unique
-offset between spatial positions in the resolution grid.</p>
+<p>This module implements a multi-head attention mechanism with support for spatial awareness, applying attention
+biases based on spatial resolution. It includes trainable attention biases for each unique offset between
+spatial positions in the resolution grid.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -3857,9 +3857,9 @@ offset between spatial positions in the resolution grid.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the Attention module for multi-head attention with spatial awareness.</span>
 <span></span>
-<span></span><span class="sd">    This module implements a multi-head attention mechanism with support for spatial awareness, applying</span>
-<span></span><span class="sd">    attention biases based on spatial resolution. It includes trainable attention biases for each unique</span>
-<span></span><span class="sd">    offset between spatial positions in the resolution grid.</span>
+<span></span><span class="sd">    This module implements a multi-head attention mechanism with support for spatial awareness, applying attention</span>
+<span></span><span class="sd">    biases based on spatial resolution. It includes trainable attention biases for each unique offset between</span>
+<span></span><span class="sd">    spatial positions in the resolution grid.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        dim (int): The dimensionality of the input and output.</span>
@@ -4008,9 +4008,9 @@ offset between spatial positions in the resolution grid.</p>
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>TinyViT Block that applies self-attention and a local convolution to the input.</p>
-<p>This block is a key component of the TinyViT architecture, combining self-attention mechanisms with
-local convolutions to process input features efficiently. It supports windowed attention for
-computational efficiency and includes residual connections.</p>
+<p>This block is a key component of the TinyViT architecture, combining self-attention mechanisms with local
+convolutions to process input features efficiently. It supports windowed attention for computational efficiency and
+includes residual connections.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -4129,8 +4129,8 @@ computational efficiency and includes residual connections.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span><span class="go">torch.Size([1, 196, 192])</span>
 </code></pre></div>
-<p>This block is a key component of the TinyViT architecture, combining self-attention mechanisms with
-local convolutions to process input features efficiently.</p>
+<p>This block is a key component of the TinyViT architecture, combining self-attention mechanisms with local
+convolutions to process input features efficiently.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -4357,8 +4357,8 @@ local convolutions to process input features efficiently.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a TinyViT block with self-attention and local convolution.</span>
 <span></span>
-<span></span><span class="sd">    This block is a key component of the TinyViT architecture, combining self-attention mechanisms with</span>
-<span></span><span class="sd">    local convolutions to process input features efficiently.</span>
+<span></span><span class="sd">    This block is a key component of the TinyViT architecture, combining self-attention mechanisms with local</span>
+<span></span><span class="sd">    convolutions to process input features efficiently.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        dim (int): Dimensionality of the input and output features.</span>
@@ -4599,9 +4599,9 @@ dimension, input resolution, number of attention heads, window size, and MLP rat
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>A basic TinyViT layer for one stage in a TinyViT architecture.</p>
-<p>This class represents a single layer in the TinyViT model, consisting of multiple TinyViT blocks
-and an optional downsampling operation. It processes features at a specific resolution and
-dimensionality within the overall architecture.</p>
+<p>This class represents a single layer in the TinyViT model, consisting of multiple TinyViT blocks and an optional
+downsampling operation. It processes features at a specific resolution and dimensionality within the overall
+architecture.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -4687,8 +4687,8 @@ dimensionality within the overall architecture.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span><span class="go">torch.Size([1, 784, 384])</span>
 </code></pre></div>
-<p>This layer consists of multiple TinyViT blocks and an optional downsampling operation. It is designed to
-process feature maps at a specific resolution and dimensionality within the TinyViT model.</p>
+<p>This layer consists of multiple TinyViT blocks and an optional downsampling operation. It is designed to process
+feature maps at a specific resolution and dimensionality within the TinyViT model.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -4821,7 +4821,8 @@ process feature maps at a specific resolution and dimensionality within the Tiny
 </td>
 <td>
 <div class="doc-md-description">
-<p>Stochastic depth rate. Can be a float or a list of floats for each block.</p>
+<p>Stochastic depth rate. Can be a float or a list of floats for
+each block.</p>
 </div>
 </td>
 <td>
@@ -4837,7 +4838,8 @@ process feature maps at a specific resolution and dimensionality within the Tiny
 </td>
 <td>
 <div class="doc-md-description">
-<p>Downsampling layer at the end of the layer. None to skip downsampling.</p>
+<p>Downsampling layer at the end of the layer. None to skip
+downsampling.</p>
 </div>
 </td>
 <td>
@@ -4901,7 +4903,7 @@ process feature maps at a specific resolution and dimensionality within the Tiny
 </td>
 <td>
 <div class="doc-md-description">
-<p>Output dimension after downsampling. None means it will be the same as <code>dim</code>.</p>
+<p>Output dimension after downsampling. None means it will be the same as dim.</p>
 </div>
 </td>
 <td>
@@ -4978,7 +4980,9 @@ process feature maps at a specific resolution and dimensionality within the Tiny
 <span>754</span>
 <span>755</span>
 <span>756</span>
-<span>757</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>757</span>
+<span>758</span>
+<span>759</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">input_resolution</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
@@ -4997,8 +5001,8 @@ process feature maps at a specific resolution and dimensionality within the Tiny
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a BasicLayer in the TinyViT architecture.</span>
 <span></span>
-<span></span><span class="sd">    This layer consists of multiple TinyViT blocks and an optional downsampling operation. It is designed to</span>
-<span></span><span class="sd">    process feature maps at a specific resolution and dimensionality within the TinyViT model.</span>
+<span></span><span class="sd">    This layer consists of multiple TinyViT blocks and an optional downsampling operation. It is designed to process</span>
+<span></span><span class="sd">    feature maps at a specific resolution and dimensionality within the TinyViT model.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        dim (int): Dimensionality of the input and output features.</span>
@@ -5008,12 +5012,14 @@ process feature maps at a specific resolution and dimensionality within the Tiny
 <span></span><span class="sd">        window_size (int): Size of the local window for attention computation.</span>
 <span></span><span class="sd">        mlp_ratio (float, optional): Ratio of MLP hidden dimension to embedding dimension.</span>
 <span></span><span class="sd">        drop (float, optional): Dropout rate.</span>
-<span></span><span class="sd">        drop_path (float | list[float], optional): Stochastic depth rate. Can be a float or a list of floats for each block.</span>
-<span></span><span class="sd">        downsample (nn.Module | None, optional): Downsampling layer at the end of the layer. None to skip downsampling.</span>
+<span></span><span class="sd">        drop_path (float | list[float], optional): Stochastic depth rate. Can be a float or a list of floats for</span>
+<span></span><span class="sd">            each block.</span>
+<span></span><span class="sd">        downsample (nn.Module | None, optional): Downsampling layer at the end of the layer. None to skip</span>
+<span></span><span class="sd">            downsampling.</span>
 <span></span><span class="sd">        use_checkpoint (bool, optional): Whether to use gradient checkpointing to save memory.</span>
 <span></span><span class="sd">        local_conv_size (int, optional): Kernel size for the local convolution in each TinyViT block.</span>
 <span></span><span class="sd">        activation (nn.Module): Activation function used in the MLP.</span>
-<span></span><span class="sd">        out_dim (int | None, optional): Output dimension after downsampling. None means it will be the same as `dim`.</span>
+<span></span><span class="sd">        out_dim (int | None, optional): Output dimension after downsampling. None means it will be the same as dim.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">=</span> <span class="n">dim</span>
@@ -5058,9 +5064,9 @@ process feature maps at a specific resolution and dimensionality within the Tiny
 <p>Return a string with the layer's parameters for printing.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>765</span>
-<span>766</span>
-<span>767</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">extra_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>767</span>
+<span>768</span>
+<span>769</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">extra_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return a string with the layer's parameters for printing."""</span>
 <span></span>    <span class="k">return</span> <span class="sa">f</span><span class="s2">"dim=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="si">}</span><span class="s2">, input_resolution=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">input_resolution</span><span class="si">}</span><span class="s2">, depth=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">depth</span><span class="si">}</span><span class="s2">"</span>
 </code></pre></div></td></tr></table></div>
@@ -5077,11 +5083,11 @@ process feature maps at a specific resolution and dimensionality within the Tiny
 <p>Process input through TinyViT blocks and optional downsampling.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>759</span>
-<span>760</span>
-<span>761</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>761</span>
 <span>762</span>
-<span>763</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>763</span>
+<span>764</span>
+<span>765</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Process input through TinyViT blocks and optional downsampling."""</span>
 <span></span>    <span class="k">for</span> <span class="n">blk</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocks</span><span class="p">:</span>
 <span></span>        <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">checkpoint</span><span class="p">(</span><span class="n">blk</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_checkpoint</span> <span class="k">else</span> <span class="n">blk</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># warn: checkpoint is slow import</span>
@@ -5118,9 +5124,9 @@ process feature maps at a specific resolution and dimensionality within the Tiny
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>TinyViT: A compact vision transformer architecture for efficient image classification and feature extraction.</p>
-<p>This class implements the TinyViT model, which combines elements of vision transformers and convolutional
-neural networks for improved efficiency and performance on vision tasks. It features hierarchical processing
-with patch embedding, multiple stages of attention and convolution blocks, and a feature refinement neck.</p>
+<p>This class implements the TinyViT model, which combines elements of vision transformers and convolutional neural
+networks for improved efficiency and performance on vision tasks. It features hierarchical processing with patch
+embedding, multiple stages of attention and convolution blocks, and a feature refinement neck.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -5261,8 +5267,8 @@ with patch embedding, multiple stages of attention and convolution blocks, and a
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span><span class="go">torch.Size([1, 256, 56, 56])</span>
 </code></pre></div>
-<p>This constructor sets up the TinyViT architecture, including patch embedding, multiple layers of
-attention and convolution blocks, and a classification head.</p>
+<p>This constructor sets up the TinyViT architecture, including patch embedding, multiple layers of attention and
+convolution blocks, and a classification head.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -5502,9 +5508,7 @@ attention and convolution blocks, and a classification head.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>799</span>
-<span>800</span>
-<span>801</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>801</span>
 <span>802</span>
 <span>803</span>
 <span>804</span>
@@ -5614,7 +5618,9 @@ attention and convolution blocks, and a classification head.</p>
 <span>908</span>
 <span>909</span>
 <span>910</span>
-<span>911</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>911</span>
+<span>912</span>
+<span>913</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">img_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">224</span><span class="p">,</span>
 <span></span>    <span class="n">in_chans</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
@@ -5634,8 +5640,8 @@ attention and convolution blocks, and a classification head.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the TinyViT model.</span>
 <span></span>
-<span></span><span class="sd">    This constructor sets up the TinyViT architecture, including patch embedding, multiple layers of</span>
-<span></span><span class="sd">    attention and convolution blocks, and a classification head.</span>
+<span></span><span class="sd">    This constructor sets up the TinyViT architecture, including patch embedding, multiple layers of attention and</span>
+<span></span><span class="sd">    convolution blocks, and a classification head.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        img_size (int, optional): Size of the input image.</span>
@@ -5740,9 +5746,9 @@ attention and convolution blocks, and a classification head.</p>
 <p>Perform the forward pass through the TinyViT model, extracting features from the input image.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>980</span>
-<span>981</span>
-<span>982</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>982</span>
+<span>983</span>
+<span>984</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Perform the forward pass through the TinyViT model, extracting features from the input image."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward_features</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -5759,9 +5765,7 @@ attention and convolution blocks, and a classification head.</p>
 <p>Process input through feature extraction layers, returning spatial features.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>965</span>
-<span>966</span>
-<span>967</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>967</span>
 <span>968</span>
 <span>969</span>
 <span>970</span>
@@ -5772,7 +5776,9 @@ attention and convolution blocks, and a classification head.</p>
 <span>975</span>
 <span>976</span>
 <span>977</span>
-<span>978</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>978</span>
+<span>979</span>
+<span>980</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Process input through feature extraction layers, returning spatial features."""</span>
 <span></span>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">patch_embed</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># x input is (N, C, H, W)</span>
 <span></span>
@@ -5800,10 +5806,10 @@ attention and convolution blocks, and a classification head.</p>
 <p>Return a set of keywords for parameters that should not use weight decay.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>960</span>
-<span>961</span>
-<span>962</span>
-<span>963</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">jit</span><span class="o">.</span><span class="n">ignore</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>962</span>
+<span>963</span>
+<span>964</span>
+<span>965</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">jit</span><span class="o">.</span><span class="n">ignore</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">no_weight_decay_keywords</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return a set of keywords for parameters that should not use weight decay."""</span>
 <span></span>    <span class="k">return</span> <span class="p">{</span><span class="s2">"attention_biases"</span><span class="p">}</span>
@@ -5821,21 +5827,21 @@ attention and convolution blocks, and a classification head.</p>
 <p>Set image size to make model compatible with different image sizes.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>984</span>
-<span>985</span>
-<span>986</span>
-<span>987</span>
-<span>988</span>
-<span>989</span>
-<span>990</span>
-<span>991</span>
-<span>992</span>
-<span>993</span>
-<span>994</span>
-<span>995</span>
-<span>996</span>
-<span>997</span>
-<span>998</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">1024</span><span class="p">]):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 986</span>
+<span> 987</span>
+<span> 988</span>
+<span> 989</span>
+<span> 990</span>
+<span> 991</span>
+<span> 992</span>
+<span> 993</span>
+<span> 994</span>
+<span> 995</span>
+<span> 996</span>
+<span> 997</span>
+<span> 998</span>
+<span> 999</span>
+<span>1000</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">1024</span><span class="p">]):</span>
 <span></span><span class="w">    </span><span class="sd">"""Set image size to make model compatible with different image sizes."""</span>
 <span></span>    <span class="n">imgsz</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="o">//</span> <span class="mi">4</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">imgsz</span><span class="p">]</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">patches_resolution</span> <span class="o">=</span> <span class="n">imgsz</span>
@@ -5864,9 +5870,7 @@ attention and convolution blocks, and a classification head.</p>
 <p>Set layer-wise learning rate decay for the TinyViT model based on depth.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>913</span>
-<span>914</span>
-<span>915</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>915</span>
 <span>916</span>
 <span>917</span>
 <span>918</span>
@@ -5897,7 +5901,9 @@ attention and convolution blocks, and a classification head.</p>
 <span>943</span>
 <span>944</span>
 <span>945</span>
-<span>946</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_layer_lr_decay</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer_lr_decay</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+<span>946</span>
+<span>947</span>
+<span>948</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_layer_lr_decay</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer_lr_decay</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Set layer-wise learning rate decay for the TinyViT model based on depth."""</span>
 <span></span>    <span class="n">decay_rate</span> <span class="o">=</span> <span class="n">layer_lr_decay</span>
 <span></span>

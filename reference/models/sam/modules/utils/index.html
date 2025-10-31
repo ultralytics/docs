@@ -1796,8 +1796,8 @@
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Initialize 1D and 2D coordinate tensors for a grid of specified dimensions.</p>
-<p>This function creates coordinate tensors for a grid with dimensions end_x × end_y. It generates a linear index tensor
-and corresponding x and y coordinate tensors.</p>
+<p>This function creates coordinate tensors for a grid with dimensions end_x × end_y. It generates a linear index
+tensor and corresponding x and y coordinate tensors.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1912,8 +1912,8 @@ and corresponding x and y coordinate tensors.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize 1D and 2D coordinate tensors for a grid of specified dimensions.</span>
 <span></span>
-<span></span><span class="sd">    This function creates coordinate tensors for a grid with dimensions end_x × end_y. It generates a linear index tensor</span>
-<span></span><span class="sd">    and corresponding x and y coordinate tensors.</span>
+<span></span><span class="sd">    This function creates coordinate tensors for a grid with dimensions end_x × end_y. It generates a linear index</span>
+<span></span><span class="sd">    tensor and corresponding x and y coordinate tensors.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        end_x (int): Width of the grid (number of columns).</span>
@@ -1946,8 +1946,8 @@ and corresponding x and y coordinate tensors.</p>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Compute axial complex exponential positional encodings for 2D spatial positions in a grid.</p>
-<p>This function generates complex exponential positional encodings for a 2D grid of spatial positions,
-using separate frequency components for the x and y dimensions.</p>
+<p>This function generates complex exponential positional encodings for a 2D grid of spatial positions, using separate
+frequency components for the x and y dimensions.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2088,8 +2088,8 @@ using separate frequency components for the x and y dimensions.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Compute axial complex exponential positional encodings for 2D spatial positions in a grid.</span>
 <span></span>
-<span></span><span class="sd">    This function generates complex exponential positional encodings for a 2D grid of spatial positions,</span>
-<span></span><span class="sd">    using separate frequency components for the x and y dimensions.</span>
+<span></span><span class="sd">    This function generates complex exponential positional encodings for a 2D grid of spatial positions, using separate</span>
+<span></span><span class="sd">    frequency components for the x and y dimensions.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        dim (int): Dimension of the positional encoding.</span>
@@ -2127,8 +2127,8 @@ using separate frequency components for the x and y dimensions.</p>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Reshape frequency tensor for broadcasting with input tensor.</p>
-<p>Reshapes a frequency tensor to ensure dimensional compatibility for broadcasting with an input tensor.
-This function is typically used in positional encoding operations.</p>
+<p>Reshapes a frequency tensor to ensure dimensional compatibility for broadcasting with an input tensor. This function
+is typically used in positional encoding operations.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2243,8 +2243,8 @@ This function is typically used in positional encoding operations.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Reshape frequency tensor for broadcasting with input tensor.</span>
 <span></span>
-<span></span><span class="sd">    Reshapes a frequency tensor to ensure dimensional compatibility for broadcasting with an input tensor.</span>
-<span></span><span class="sd">    This function is typically used in positional encoding operations.</span>
+<span></span><span class="sd">    Reshapes a frequency tensor to ensure dimensional compatibility for broadcasting with an input tensor. This function</span>
+<span></span><span class="sd">    is typically used in positional encoding operations.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        freqs_cis (torch.Tensor): Frequency tensor with shape matching the last two dimensions of x.</span>
@@ -2653,8 +2653,8 @@ to match key sequence length.</p>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Unpartition windowed sequences into original sequences and remove padding.</p>
-<p>This function reverses the windowing process, reconstructing the original input from windowed segments
-and removing any padding that was added during the windowing process.</p>
+<p>This function reverses the windowing process, reconstructing the original input from windowed segments and removing
+any padding that was added during the windowing process.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2676,8 +2676,8 @@ and removing any padding that was added during the windowing process.</p>
 <td>
 <div class="doc-md-description">
 <p>Input tensor of windowed sequences with shape (B * num_windows, window_size,
-window_size, C), where B is the batch size, num_windows is the number of windows, window_size is
-the size of each window, and C is the number of channels.</p>
+window_size, C), where B is the batch size, num_windows is the number of windows, window_size is the size of
+each window, and C is the number of channels.</p>
 </div>
 </td>
 <td>
@@ -2805,13 +2805,13 @@ are the original height and width, and C is the number of channels.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Unpartition windowed sequences into original sequences and remove padding.</span>
 <span></span>
-<span></span><span class="sd">    This function reverses the windowing process, reconstructing the original input from windowed segments</span>
-<span></span><span class="sd">    and removing any padding that was added during the windowing process.</span>
+<span></span><span class="sd">    This function reverses the windowing process, reconstructing the original input from windowed segments and removing</span>
+<span></span><span class="sd">    any padding that was added during the windowing process.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        windows (torch.Tensor): Input tensor of windowed sequences with shape (B * num_windows, window_size,</span>
-<span></span><span class="sd">            window_size, C), where B is the batch size, num_windows is the number of windows, window_size is</span>
-<span></span><span class="sd">            the size of each window, and C is the number of channels.</span>
+<span></span><span class="sd">            window_size, C), where B is the batch size, num_windows is the number of windows, window_size is the size of</span>
+<span></span><span class="sd">            each window, and C is the number of channels.</span>
 <span></span><span class="sd">        window_size (int): Size of each window.</span>
 <span></span><span class="sd">        pad_hw (tuple[int, int]): Padded height and width (Hp, Wp) of the input before windowing.</span>
 <span></span><span class="sd">        hw (tuple[int, int]): Original height and width (H, W) of the input before padding and windowing.</span>

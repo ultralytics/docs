@@ -2279,11 +2279,11 @@ DataFrame, CSV and JSON.</p>
 <span></span><span class="sd">    Export results or metrics to CSV string format.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">       normalize (bool, optional): Normalize numeric values.</span>
-<span></span><span class="sd">       decimals (int, optional): Decimal precision.</span>
+<span></span><span class="sd">        normalize (bool, optional): Normalize numeric values.</span>
+<span></span><span class="sd">        decimals (int, optional): Decimal precision.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">       (str): CSV content as string.</span>
+<span></span><span class="sd">        (str): CSV content as string.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
 <span></span>
@@ -2528,8 +2528,8 @@ DataFrame, CSV and JSON.</p>
 </h2>
 <div class="doc doc-contents first">
 <p>A simple base class for creating objects with string representations of their attributes.</p>
-<p>This class provides a foundation for creating objects that can be easily printed or represented as strings,
-showing all their non-callable attributes. It's useful for debugging and introspection of object states.</p>
+<p>This class provides a foundation for creating objects that can be easily printed or represented as strings, showing
+all their non-callable attributes. It's useful for debugging and introspection of object states.</p>
 <p><span class="doc-section-title">Methods:</span></p>
 <table>
 <thead>
@@ -2675,9 +2675,9 @@ y: 'hello'</p>
 <p class="doc doc-class-bases">
               Bases: <code><span title="types.SimpleNamespace">SimpleNamespace</span></code></p>
 <p>An iterable SimpleNamespace class that provides enhanced functionality for attribute access and iteration.</p>
-<p>This class extends the SimpleNamespace class with additional methods for iteration, string representation,
-and attribute access. It is designed to be used as a convenient container for storing and accessing
-configuration parameters.</p>
+<p>This class extends the SimpleNamespace class with additional methods for iteration, string representation, and
+attribute access. It is designed to be used as a convenient container for storing and accessing configuration
+parameters.</p>
 <p><span class="doc-section-title">Methods:</span></p>
 <table>
 <thead>
@@ -3525,8 +3525,8 @@ It allows code to continue execution even when exceptions occur, which is useful
               Bases: <code><span title="contextlib.ContextDecorator">ContextDecorator</span></code></p>
 <p>Retry class for function execution with exponential backoff.</p>
 <p>This decorator can be used to retry a function on exceptions, up to a specified number of times with an
-exponentially increasing delay between retries. It's useful for handling transient failures in network
-operations or other unreliable processes.</p>
+exponentially increasing delay between retries. It's useful for handling transient failures in network operations or
+other unreliable processes.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -4376,9 +4376,9 @@ include directories for datasets, weights, and runs, as well as various integrat
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Set up logging with UTF-8 encoding and configurable verbosity.</p>
-<p>This function configures logging for the Ultralytics library, setting the appropriate logging level and
-formatter based on the verbosity flag and the current process rank. It handles special cases for Windows
-environments where UTF-8 encoding might not be the default.</p>
+<p>This function configures logging for the Ultralytics library, setting the appropriate logging level and formatter
+based on the verbosity flag and the current process rank. It handles special cases for Windows environments where
+UTF-8 encoding might not be the default.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -4532,9 +4532,9 @@ environments where UTF-8 encoding might not be the default.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Set up logging with UTF-8 encoding and configurable verbosity.</span>
 <span></span>
-<span></span><span class="sd">    This function configures logging for the Ultralytics library, setting the appropriate logging level and</span>
-<span></span><span class="sd">    formatter based on the verbosity flag and the current process rank. It handles special cases for Windows</span>
-<span></span><span class="sd">    environments where UTF-8 encoding might not be the default.</span>
+<span></span><span class="sd">    This function configures logging for the Ultralytics library, setting the appropriate logging level and formatter</span>
+<span></span><span class="sd">    based on the verbosity flag and the current process rank. It handles special cases for Windows environments where</span>
+<span></span><span class="sd">    UTF-8 encoding might not be the default.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        name (str): Name of the logger.</span>
@@ -5834,7 +5834,7 @@ environments where UTF-8 encoding might not be the default.</p>
 <td>
 <div class="doc-md-description">
 <p>A sequence of strings where the first n-1 strings are color and style arguments,
-          and the last string is the one to be colored.</p>
+and the last string is the one to be colored.</p>
 </div>
 </td>
 <td>
@@ -5864,6 +5864,10 @@ environments where UTF-8 encoding might not be the default.</p>
 </tr>
 </tbody>
 </table>
+<p><span class="doc-section-title">Examples:</span></p>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"blue"</span><span class="p">,</span> <span class="s2">"bold"</span><span class="p">,</span> <span class="s2">"hello world"</span><span class="p">)</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">"</span><span class="se">\033</span><span class="s2">[34m</span><span class="se">\033</span><span class="s2">[1mhello world</span><span class="se">\033</span><span class="s2">[0m"</span>
+</code></pre></div>
 <details class="notes" open="">
 <summary>Notes</summary>
 <p>Supported Colors and Styles:
@@ -5872,10 +5876,6 @@ environments where UTF-8 encoding might not be the default.</p>
                'bright_blue', 'bright_magenta', 'bright_cyan', 'bright_white'
 - Misc: 'end', 'bold', 'underline'</p>
 </details>
-<p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"blue"</span><span class="p">,</span> <span class="s2">"bold"</span><span class="p">,</span> <span class="s2">"hello world"</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">"</span><span class="se">\033</span><span class="s2">[34m</span><span class="se">\033</span><span class="s2">[1mhello world</span><span class="se">\033</span><span class="s2">[0m"</span>
-</code></pre></div>
 <details class="references" open="">
 <summary>References</summary>
 <p><a href="https://en.wikipedia.org/wiki/ANSI_escape_code">https://en.wikipedia.org/wiki/ANSI_escape_code</a></p>
@@ -5947,10 +5947,14 @@ environments where UTF-8 encoding might not be the default.</p>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        *input (str | Path): A sequence of strings where the first n-1 strings are color and style arguments,</span>
-<span></span><span class="sd">                      and the last string is the one to be colored.</span>
+<span></span><span class="sd">            and the last string is the one to be colored.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (str): The input string wrapped with ANSI escape codes for the specified color and style.</span>
+<span></span>
+<span></span><span class="sd">    Examples:</span>
+<span></span><span class="sd">        &gt;&gt;&gt; colorstr("blue", "bold", "hello world")</span>
+<span></span><span class="sd">        &gt;&gt;&gt; "\033[34m\033[1mhello world\033[0m"</span>
 <span></span>
 <span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        Supported Colors and Styles:</span>
@@ -5958,10 +5962,6 @@ environments where UTF-8 encoding might not be the default.</p>
 <span></span><span class="sd">        - Bright Colors: 'bright_black', 'bright_red', 'bright_green', 'bright_yellow',</span>
 <span></span><span class="sd">                       'bright_blue', 'bright_magenta', 'bright_cyan', 'bright_white'</span>
 <span></span><span class="sd">        - Misc: 'end', 'bold', 'underline'</span>
-<span></span>
-<span></span><span class="sd">    Examples:</span>
-<span></span><span class="sd">        &gt;&gt;&gt; colorstr("blue", "bold", "hello world")</span>
-<span></span><span class="sd">        &gt;&gt;&gt; "\033[34m\033[1mhello world\033[0m"</span>
 <span></span>
 <span></span><span class="sd">    References:</span>
 <span></span><span class="sd">        https://en.wikipedia.org/wiki/ANSI_escape_code</span>
@@ -6100,9 +6100,9 @@ environments where UTF-8 encoding might not be the default.</p>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Multi-thread a target function by default and return the thread or function result.</p>
-<p>This decorator provides flexible execution of the target function, either in a separate thread or synchronously.
-By default, the function runs in a thread, but this can be controlled via the 'threaded=False' keyword argument
-which is removed from kwargs before calling the function.</p>
+<p>This decorator provides flexible execution of the target function, either in a separate thread or synchronously. By
+default, the function runs in a thread, but this can be controlled via the 'threaded=False' keyword argument which
+is removed from kwargs before calling the function.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -6199,9 +6199,9 @@ which is removed from kwargs before calling the function.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Multi-thread a target function by default and return the thread or function result.</span>
 <span></span>
-<span></span><span class="sd">    This decorator provides flexible execution of the target function, either in a separate thread or synchronously.</span>
-<span></span><span class="sd">    By default, the function runs in a thread, but this can be controlled via the 'threaded=False' keyword argument</span>
-<span></span><span class="sd">    which is removed from kwargs before calling the function.</span>
+<span></span><span class="sd">    This decorator provides flexible execution of the target function, either in a separate thread or synchronously. By</span>
+<span></span><span class="sd">    default, the function runs in a thread, but this can be controlled via the 'threaded=False' keyword argument which</span>
+<span></span><span class="sd">    is removed from kwargs before calling the function.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        func (callable): The function to be potentially executed in a separate thread.</span>

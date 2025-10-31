@@ -1551,8 +1551,8 @@ detection, segmentation, classification, pose estimation, and oriented bounding 
 <p>Initialize from a YAML configuration</p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.yaml"</span><span class="p">)</span>
 </code></pre></div>
-<p>This constructor initializes a YOLO model, automatically switching to specialized model types
-(YOLOWorld or YOLOE) based on the model filename.</p>
+<p>This constructor initializes a YOLO model, automatically switching to specialized model types (YOLOWorld or
+YOLOE) based on the model filename.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1661,8 +1661,8 @@ Defaults to auto-detection based on model.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a YOLO model.</span>
 <span></span>
-<span></span><span class="sd">    This constructor initializes a YOLO model, automatically switching to specialized model types</span>
-<span></span><span class="sd">    (YOLOWorld or YOLOE) based on the model filename.</span>
+<span></span><span class="sd">    This constructor initializes a YOLO model, automatically switching to specialized model types (YOLOWorld or</span>
+<span></span><span class="sd">    YOLOE) based on the model filename.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        model (str | Path): Model name or path to model file, i.e. 'yolo11n.pt', 'yolo11n.yaml'.</span>
@@ -1722,9 +1722,9 @@ Defaults to auto-detection based on model.</p>
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../../engine/model/#ultralytics.engine.model.Model" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.model.Model&lt;/span&gt;'>Model</a></code></p>
 <p>YOLO-World object detection model.</p>
-<p>YOLO-World is an open-vocabulary object detection model that can detect objects based on text descriptions
-without requiring training on specific classes. It extends the YOLO architecture to support real-time
-open-vocabulary detection.</p>
+<p>YOLO-World is an open-vocabulary object detection model that can detect objects based on text descriptions without
+requiring training on specific classes. It extends the YOLO architecture to support real-time open-vocabulary
+detection.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -1804,8 +1804,8 @@ open-vocabulary detection.</p>
 <p>Set custom classes for detection</p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">set_classes</span><span class="p">([</span><span class="s2">"person"</span><span class="p">,</span> <span class="s2">"car"</span><span class="p">,</span> <span class="s2">"bicycle"</span><span class="p">])</span>
 </code></pre></div>
-<p>Loads a YOLOv8-World model for object detection. If no custom class names are provided, it assigns default
-COCO class names.</p>
+<p>Loads a YOLOv8-World model for object detection. If no custom class names are provided, it assigns default COCO
+class names.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1872,8 +1872,8 @@ COCO class names.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize YOLOv8-World model with a pre-trained model file.</span>
 <span></span>
-<span></span><span class="sd">    Loads a YOLOv8-World model for object detection. If no custom class names are provided, it assigns default</span>
-<span></span><span class="sd">    COCO class names.</span>
+<span></span><span class="sd">    Loads a YOLOv8-World model for object detection. If no custom class names are provided, it assigns default COCO</span>
+<span></span><span class="sd">    class names.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        model (str | Path): Path to the pre-trained model file. Supports *.pt and *.yaml formats.</span>
@@ -1993,8 +1993,8 @@ COCO class names.</p>
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../../engine/model/#ultralytics.engine.model.Model" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.model.Model&lt;/span&gt;'>Model</a></code></p>
 <p>YOLOE object detection and segmentation model.</p>
-<p>YOLOE is an enhanced YOLO model that supports both object detection and instance segmentation tasks with
-improved performance and additional features like visual and text positional embeddings.</p>
+<p>YOLOE is an enhanced YOLO model that supports both object detection and instance segmentation tasks with improved
+performance and additional features like visual and text positional embeddings.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -2253,8 +2253,8 @@ improved performance and additional features like visual and text positional emb
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Get visual positional embeddings for the given image and visual features.</p>
-<p>This method extracts positional embeddings from visual features based on the input image. It requires
-that the model is an instance of YOLOEModel.</p>
+<p>This method extracts positional embeddings from visual features based on the input image. It requires that the
+model is an instance of YOLOEModel.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2354,8 +2354,8 @@ that the model is an instance of YOLOEModel.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Get visual positional embeddings for the given image and visual features.</span>
 <span></span>
-<span></span><span class="sd">    This method extracts positional embeddings from visual features based on the input image. It requires</span>
-<span></span><span class="sd">    that the model is an instance of YOLOEModel.</span>
+<span></span><span class="sd">    This method extracts positional embeddings from visual features based on the input image. It requires that the</span>
+<span></span><span class="sd">    model is an instance of YOLOEModel.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        img (torch.Tensor): Input image tensor.</span>
@@ -2824,8 +2824,8 @@ loaded based on the task.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Set vocabulary and class names for the YOLOE model.</p>
-<p>This method configures the vocabulary and class names used by the model for text processing and
-classification tasks. The model must be an instance of YOLOEModel.</p>
+<p>This method configures the vocabulary and class names used by the model for text processing and classification
+tasks. The model must be an instance of YOLOEModel.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2921,8 +2921,8 @@ classification tasks. The model must be an instance of YOLOEModel.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Set vocabulary and class names for the YOLOE model.</span>
 <span></span>
-<span></span><span class="sd">    This method configures the vocabulary and class names used by the model for text processing and</span>
-<span></span><span class="sd">    classification tasks. The model must be an instance of YOLOEModel.</span>
+<span></span><span class="sd">    This method configures the vocabulary and class names used by the model for text processing and classification</span>
+<span></span><span class="sd">    tasks. The model must be an instance of YOLOEModel.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        vocab (list[str]): Vocabulary list containing tokens or words used by the model for text processing.</span>

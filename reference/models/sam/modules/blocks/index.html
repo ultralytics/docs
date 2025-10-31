@@ -1929,9 +1929,8 @@
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>A mask downsampling and embedding module for efficient processing of input masks.</p>
-<p>This class implements a mask downsampler that progressively reduces the spatial dimensions of input masks
-while expanding their channel dimensions using convolutional layers, layer normalization, and activation
-functions.</p>
+<p>This class implements a mask downsampler that progressively reduces the spatial dimensions of input masks while
+expanding their channel dimensions using convolutional layers, layer normalization, and activation functions.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -1984,7 +1983,8 @@ activation functions for downsampling and embedding masks.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 77</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 76</span>
+<span> 77</span>
 <span> 78</span>
 <span> 79</span>
 <span> 80</span>
@@ -2013,8 +2013,7 @@ activation functions for downsampling and embedding masks.</p>
 <span>103</span>
 <span>104</span>
 <span>105</span>
-<span>106</span>
-<span>107</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>106</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">embed_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">256</span><span class="p">,</span>
 <span></span>    <span class="n">kernel_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
@@ -2058,9 +2057,9 @@ activation functions for downsampling and embedding masks.</p>
 <p>Downsample and encode input mask to embed_dim channels using convolutional layers and LayerNorm2d.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>109</span>
-<span>110</span>
-<span>111</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>108</span>
+<span>109</span>
+<span>110</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Downsample and encode input mask to embed_dim channels using convolutional layers and LayerNorm2d."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2087,8 +2086,8 @@ activation functions for downsampling and embedding masks.</p>
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>ConvNeXt Block for efficient feature extraction in convolutional neural networks.</p>
-<p>This block implements a modified version of the ConvNeXt architecture, offering improved performance and
-flexibility in feature extraction.</p>
+<p>This block implements a modified version of the ConvNeXt architecture, offering improved performance and flexibility
+in feature extraction.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -2325,7 +2324,8 @@ flexibility in feature extraction.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>142</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>141</span>
+<span>142</span>
 <span>143</span>
 <span>144</span>
 <span>145</span>
@@ -2371,8 +2371,7 @@ flexibility in feature extraction.</p>
 <span>185</span>
 <span>186</span>
 <span>187</span>
-<span>188</span>
-<span>189</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>188</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">kernel_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span>
@@ -2433,7 +2432,8 @@ flexibility in feature extraction.</p>
 <p>Apply ConvNeXt block operations to input tensor, including convolutions and residual connection.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>191</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>190</span>
+<span>191</span>
 <span>192</span>
 <span>193</span>
 <span>194</span>
@@ -2446,8 +2446,7 @@ flexibility in feature extraction.</p>
 <span>201</span>
 <span>202</span>
 <span>203</span>
-<span>204</span>
-<span>205</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span>204</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Apply ConvNeXt block operations to input tensor, including convolutions and residual connection."""</span>
 <span></span>    <span class="nb">input</span> <span class="o">=</span> <span class="n">x</span>
 <span></span>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dwconv</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -2632,7 +2631,8 @@ flexibility in feature extraction.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>230</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>229</span>
+<span>230</span>
 <span>231</span>
 <span>232</span>
 <span>233</span>
@@ -2655,8 +2655,7 @@ flexibility in feature extraction.</p>
 <span>250</span>
 <span>251</span>
 <span>252</span>
-<span>253</span>
-<span>254</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span> <span class="n">num_layers</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">input_projection</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span>253</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span> <span class="n">num_layers</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">input_projection</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the Fuser module for feature fusion through multiple layers.</span>
 <span></span>
@@ -2694,12 +2693,12 @@ flexibility in feature extraction.</p>
 <p>Apply a series of layers to the input tensor, optionally projecting it first.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>256</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>255</span>
+<span>256</span>
 <span>257</span>
 <span>258</span>
 <span>259</span>
-<span>260</span>
-<span>261</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span>260</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Apply a series of layers to the input tensor, optionally projecting it first."""</span>
 <span></span>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">proj</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span></span>    <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">layers</span><span class="p">:</span>
@@ -2729,9 +2728,9 @@ flexibility in feature extraction.</p>
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../transformer/#ultralytics.models.sam.modules.transformer.TwoWayAttentionBlock" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.transformer.TwoWayAttentionBlock&lt;/span&gt;'>TwoWayAttentionBlock</a></code></p>
 <p>A two-way attention block for performing self-attention and cross-attention in both directions.</p>
-<p>This block extends the TwoWayAttentionBlock and consists of four main components: self-attention on
-sparse inputs, cross-attention from sparse to dense inputs, an MLP block on sparse inputs, and
-cross-attention from dense to sparse inputs.</p>
+<p>This block extends the TwoWayAttentionBlock and consists of four main components: self-attention on sparse inputs,
+cross-attention from sparse to dense inputs, an MLP block on sparse inputs, and cross-attention from dense to sparse
+inputs.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -2869,8 +2868,8 @@ cross-attention from dense to sparse inputs.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sparse_output</span><span class="p">,</span> <span class="n">dense_output</span> <span class="o">=</span> <span class="n">block</span><span class="p">(</span><span class="n">sparse_input</span><span class="p">,</span> <span class="n">dense_input</span><span class="p">)</span>
 </code></pre></div>
 <p>This block extends the TwoWayAttentionBlock and consists of four main components: self-attention on sparse
-inputs, cross-attention from sparse to dense inputs, an MLP block on sparse inputs, and cross-attention
-from dense to sparse inputs.</p>
+inputs, cross-attention from sparse to dense inputs, an MLP block on sparse inputs, and cross-attention from
+dense to sparse inputs.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2988,7 +2987,8 @@ from dense to sparse inputs.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>293</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>292</span>
+<span>293</span>
 <span>294</span>
 <span>295</span>
 <span>296</span>
@@ -3018,8 +3018,7 @@ from dense to sparse inputs.</p>
 <span>320</span>
 <span>321</span>
 <span>322</span>
-<span>323</span>
-<span>324</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>323</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">embedding_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -3032,8 +3031,8 @@ from dense to sparse inputs.</p>
 <span></span><span class="sd">    Initialize a SAM2TwoWayAttentionBlock for performing self-attention and cross-attention in two directions.</span>
 <span></span>
 <span></span><span class="sd">    This block extends the TwoWayAttentionBlock and consists of four main components: self-attention on sparse</span>
-<span></span><span class="sd">    inputs, cross-attention from sparse to dense inputs, an MLP block on sparse inputs, and cross-attention</span>
-<span></span><span class="sd">    from dense to sparse inputs.</span>
+<span></span><span class="sd">    inputs, cross-attention from sparse to dense inputs, an MLP block on sparse inputs, and cross-attention from</span>
+<span></span><span class="sd">    dense to sparse inputs.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        embedding_dim (int): The channel dimension of the embeddings.</span>
@@ -3074,9 +3073,9 @@ from dense to sparse inputs.</p>
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../transformer/#ultralytics.models.sam.modules.transformer.TwoWayTransformer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.transformer.TwoWayTransformer&lt;/span&gt;'>TwoWayTransformer</a></code></p>
 <p>A Two-Way Transformer module for simultaneous attention to image and query points.</p>
-<p>This class extends the TwoWayTransformer, implementing a specialized transformer decoder that attends to an
-input image using queries with supplied positional embeddings. It is particularly useful for tasks like
-object detection, image segmentation, and point cloud processing.</p>
+<p>This class extends the TwoWayTransformer, implementing a specialized transformer decoder that attends to an input
+image using queries with supplied positional embeddings. It is particularly useful for tasks like object detection,
+image segmentation, and point cloud processing.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -3193,8 +3192,8 @@ object detection, image segmentation, and point cloud processing.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">output</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span><span class="go">torch.Size([1, 100, 256]) torch.Size([1, 256, 64, 64])</span>
 </code></pre></div>
-<p>This transformer decoder attends to an input image using queries with supplied positional embeddings.
-It is designed for tasks like object detection, image segmentation, and point cloud processing.</p>
+<p>This transformer decoder attends to an input image using queries with supplied positional embeddings. It is
+designed for tasks like object detection, image segmentation, and point cloud processing.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -3317,7 +3316,8 @@ It is designed for tasks like object detection, image segmentation, and point cl
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>356</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>355</span>
+<span>356</span>
 <span>357</span>
 <span>358</span>
 <span>359</span>
@@ -3362,8 +3362,7 @@ It is designed for tasks like object detection, image segmentation, and point cl
 <span>398</span>
 <span>399</span>
 <span>400</span>
-<span>401</span>
-<span>402</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>401</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">depth</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">embedding_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -3375,8 +3374,8 @@ It is designed for tasks like object detection, image segmentation, and point cl
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a SAM2TwoWayTransformer instance.</span>
 <span></span>
-<span></span><span class="sd">    This transformer decoder attends to an input image using queries with supplied positional embeddings.</span>
-<span></span><span class="sd">    It is designed for tasks like object detection, image segmentation, and point cloud processing.</span>
+<span></span><span class="sd">    This transformer decoder attends to an input image using queries with supplied positional embeddings. It is</span>
+<span></span><span class="sd">    designed for tasks like object detection, image segmentation, and point cloud processing.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        depth (int): Number of layers in the transformer.</span>
@@ -3432,8 +3431,8 @@ It is designed for tasks like object detection, image segmentation, and point cl
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../transformer/#ultralytics.models.sam.modules.transformer.Attention" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.transformer.Attention&lt;/span&gt;'>Attention</a></code></p>
 <p>Implements rotary position encoding for attention mechanisms in transformer architectures.</p>
-<p>This class extends the base Attention class by incorporating Rotary Position Encoding (RoPE) to enhance
-the positional awareness of the attention mechanism.</p>
+<p>This class extends the base Attention class by incorporating Rotary Position Encoding (RoPE) to enhance the
+positional awareness of the attention mechanism.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -3509,7 +3508,8 @@ the positional awareness of the attention mechanism.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>430</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>429</span>
+<span>430</span>
 <span>431</span>
 <span>432</span>
 <span>433</span>
@@ -3522,8 +3522,7 @@ the positional awareness of the attention mechanism.</p>
 <span>440</span>
 <span>441</span>
 <span>442</span>
-<span>443</span>
-<span>444</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>443</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="o">*</span><span class="n">args</span><span class="p">,</span>
 <span></span>    <span class="n">rope_theta</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">10000.0</span><span class="p">,</span>
@@ -3553,7 +3552,8 @@ the positional awareness of the attention mechanism.</p>
 <p>Apply rotary position encoding and compute attention between query, key, and value tensors.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>446</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>445</span>
+<span>446</span>
 <span>447</span>
 <span>448</span>
 <span>449</span>
@@ -3591,8 +3591,7 @@ the positional awareness of the attention mechanism.</p>
 <span>481</span>
 <span>482</span>
 <span>483</span>
-<span>484</span>
-<span>485</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">num_k_exclude_rope</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>484</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">num_k_exclude_rope</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Apply rotary position encoding and compute attention between query, key, and value tensors."""</span>
 <span></span>    <span class="n">q</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">q_proj</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
 <span></span>    <span class="n">k</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_proj</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
@@ -3651,9 +3650,9 @@ the positional awareness of the attention mechanism.</p>
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>Implements multiscale self-attention with optional query pooling for efficient feature extraction.</p>
-<p>This class provides a flexible implementation of multiscale attention, allowing for optional
-downsampling of query features through pooling. It's designed to enhance the model's ability to
-capture multiscale information in visual tasks.</p>
+<p>This class provides a flexible implementation of multiscale attention, allowing for optional downsampling of query
+features through pooling. It's designed to enhance the model's ability to capture multiscale information in visual
+tasks.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -3773,7 +3772,8 @@ capture multiscale information in visual tasks.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>533</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>532</span>
+<span>533</span>
 <span>534</span>
 <span>535</span>
 <span>536</span>
@@ -3791,8 +3791,7 @@ capture multiscale information in visual tasks.</p>
 <span>548</span>
 <span>549</span>
 <span>550</span>
-<span>551</span>
-<span>552</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>551</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">dim_out</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -3825,7 +3824,8 @@ capture multiscale information in visual tasks.</p>
 <p>Apply multiscale attention with optional query pooling to extract multiscale features.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>554</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>553</span>
+<span>554</span>
 <span>555</span>
 <span>556</span>
 <span>557</span>
@@ -3850,8 +3850,7 @@ capture multiscale information in visual tasks.</p>
 <span>576</span>
 <span>577</span>
 <span>578</span>
-<span>579</span>
-<span>580</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>579</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Apply multiscale attention with optional query pooling to extract multiscale features."""</span>
 <span></span>    <span class="n">B</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
 <span></span>    <span class="c1"># qkv with shape (B, H * W, 3, nHead, C)</span>
@@ -3905,8 +3904,8 @@ capture multiscale information in visual tasks.</p>
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>A multiscale attention block with window partitioning and query pooling for efficient vision transformers.</p>
-<p>This class implements a multiscale attention mechanism with optional window partitioning and downsampling,
-designed for use in vision transformer architectures.</p>
+<p>This class implements a multiscale attention mechanism with optional window partitioning and downsampling, designed
+for use in vision transformer architectures.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -4068,7 +4067,8 @@ designed for use in vision transformer architectures.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>614</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>613</span>
+<span>614</span>
 <span>615</span>
 <span>616</span>
 <span>617</span>
@@ -4113,8 +4113,7 @@ designed for use in vision transformer architectures.</p>
 <span>656</span>
 <span>657</span>
 <span>658</span>
-<span>659</span>
-<span>660</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>659</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">dim_out</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -4174,7 +4173,8 @@ designed for use in vision transformer architectures.</p>
 <p>Process input through multiscale attention and MLP, with optional windowing and downsampling.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>662</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>661</span>
+<span>662</span>
 <span>663</span>
 <span>664</span>
 <span>665</span>
@@ -4206,8 +4206,7 @@ designed for use in vision transformer architectures.</p>
 <span>691</span>
 <span>692</span>
 <span>693</span>
-<span>694</span>
-<span>695</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>694</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Process input through multiscale attention and MLP, with optional windowing and downsampling."""</span>
 <span></span>    <span class="n">shortcut</span> <span class="o">=</span> <span class="n">x</span>  <span class="c1"># B, H, W, C</span>
 <span></span>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">norm1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -4263,8 +4262,8 @@ designed for use in vision transformer architectures.</p>
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>A module for generating sinusoidal positional embeddings for 2D inputs like images.</p>
-<p>This class implements sinusoidal position encoding for 2D spatial positions, which can be used in
-transformer-based models for computer vision tasks.</p>
+<p>This class implements sinusoidal position encoding for 2D spatial positions, which can be used in transformer-based
+models for computer vision tasks.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -4384,7 +4383,8 @@ transformer-based models for computer vision tasks.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>726</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>725</span>
+<span>726</span>
 <span>727</span>
 <span>728</span>
 <span>729</span>
@@ -4402,8 +4402,7 @@ transformer-based models for computer vision tasks.</p>
 <span>741</span>
 <span>742</span>
 <span>743</span>
-<span>744</span>
-<span>745</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>744</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">num_pos_feats</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">temperature</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">,</span>
@@ -4436,11 +4435,11 @@ transformer-based models for computer vision tasks.</p>
 <p>Encode box coordinates and dimensions into positional embeddings for detection.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>762</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>761</span>
+<span>762</span>
 <span>763</span>
 <span>764</span>
-<span>765</span>
-<span>766</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
+<span>765</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">encode_boxes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">h</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Encode box coordinates and dimensions into positional embeddings for detection."""</span>
 <span></span>    <span class="n">pos_x</span><span class="p">,</span> <span class="n">pos_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_encode_xy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
@@ -4459,14 +4458,14 @@ transformer-based models for computer vision tasks.</p>
 <p>Encode 2D points with sinusoidal embeddings and append labels.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>770</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>769</span>
+<span>770</span>
 <span>771</span>
 <span>772</span>
 <span>773</span>
 <span>774</span>
 <span>775</span>
-<span>776</span>
-<span>777</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
+<span>776</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">encode_points</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">labels</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Encode 2D points with sinusoidal embeddings and append labels."""</span>
 <span></span>    <span class="p">(</span><span class="n">bx</span><span class="p">,</span> <span class="n">nx</span><span class="p">),</span> <span class="p">(</span><span class="n">by</span><span class="p">,</span> <span class="n">ny</span><span class="p">),</span> <span class="p">(</span><span class="n">bl</span><span class="p">,</span> <span class="n">nl</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">labels</span><span class="o">.</span><span class="n">shape</span>
@@ -4488,7 +4487,8 @@ transformer-based models for computer vision tasks.</p>
 <p>Generate sinusoidal position embeddings for 2D inputs like images.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>779</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>778</span>
+<span>779</span>
 <span>780</span>
 <span>781</span>
 <span>782</span>
@@ -4518,8 +4518,7 @@ transformer-based models for computer vision tasks.</p>
 <span>806</span>
 <span>807</span>
 <span>808</span>
-<span>809</span>
-<span>810</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
+<span>809</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Generate sinusoidal position embeddings for 2D inputs like images."""</span>
 <span></span>    <span class="n">cache_key</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
@@ -4637,7 +4636,8 @@ particularly useful for transformer-based models that require position informati
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>836</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>835</span>
+<span>836</span>
 <span>837</span>
 <span>838</span>
 <span>839</span>
@@ -4645,8 +4645,7 @@ particularly useful for transformer-based models that require position informati
 <span>841</span>
 <span>842</span>
 <span>843</span>
-<span>844</span>
-<span>845</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_pos_feats</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="n">scale</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>844</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_pos_feats</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="n">scale</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize random spatial frequency position embedding for transformers."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span></span>    <span class="k">if</span> <span class="n">scale</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">scale</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">:</span>
@@ -4669,7 +4668,8 @@ particularly useful for transformer-based models that require position informati
 <p>Generate positional encoding for a grid using random spatial frequencies.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>856</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>855</span>
+<span>856</span>
 <span>857</span>
 <span>858</span>
 <span>859</span>
@@ -4682,8 +4682,7 @@ particularly useful for transformer-based models that require position informati
 <span>866</span>
 <span>867</span>
 <span>868</span>
-<span>869</span>
-<span>870</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>869</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Generate positional encoding for a grid using random spatial frequencies."""</span>
 <span></span>    <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">size</span>
 <span></span>    <span class="n">grid</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span>
@@ -4714,12 +4713,12 @@ particularly useful for transformer-based models that require position informati
 <p>Positionally encode input coordinates, normalizing them to [0,1] based on the given image size.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>872</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>871</span>
+<span>872</span>
 <span>873</span>
 <span>874</span>
 <span>875</span>
-<span>876</span>
-<span>877</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward_with_coords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coords_input</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">image_size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>876</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward_with_coords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coords_input</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">image_size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Positionally encode input coordinates, normalizing them to [0,1] based on the given image size."""</span>
 <span></span>    <span class="n">coords</span> <span class="o">=</span> <span class="n">coords_input</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
 <span></span>    <span class="n">coords</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">image_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -4753,9 +4752,9 @@ particularly useful for transformer-based models that require position informati
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>Transformer block with support for window attention and residual propagation.</p>
-<p>This class implements a transformer block that can use either global or windowed self-attention,
-followed by a feed-forward network. It supports relative positional embeddings and is designed
-for use in vision transformer architectures.</p>
+<p>This class implements a transformer block that can use either global or windowed self-attention, followed by a
+feed-forward network. It supports relative positional embeddings and is designed for use in vision transformer
+architectures.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -4850,9 +4849,9 @@ for use in vision transformer architectures.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span><span class="go">torch.Size([1, 56, 56, 256])</span>
 </code></pre></div>
-<p>This constructor sets up a transformer block that can use either global or windowed self-attention,
-followed by a feed-forward network. It supports relative positional embeddings and is designed
-for use in vision transformer architectures.</p>
+<p>This constructor sets up a transformer block that can use either global or windowed self-attention, followed by
+a feed-forward network. It supports relative positional embeddings and is designed for use in vision transformer
+architectures.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -5035,7 +5034,8 @@ for use in vision transformer architectures.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>907</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>906</span>
+<span>907</span>
 <span>908</span>
 <span>909</span>
 <span>910</span>
@@ -5087,8 +5087,7 @@ for use in vision transformer architectures.</p>
 <span>956</span>
 <span>957</span>
 <span>958</span>
-<span>959</span>
-<span>960</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>959</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -5104,9 +5103,9 @@ for use in vision transformer architectures.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a transformer block with optional window attention and relative positional embeddings.</span>
 <span></span>
-<span></span><span class="sd">    This constructor sets up a transformer block that can use either global or windowed self-attention,</span>
-<span></span><span class="sd">    followed by a feed-forward network. It supports relative positional embeddings and is designed</span>
-<span></span><span class="sd">    for use in vision transformer architectures.</span>
+<span></span><span class="sd">    This constructor sets up a transformer block that can use either global or windowed self-attention, followed by</span>
+<span></span><span class="sd">    a feed-forward network. It supports relative positional embeddings and is designed for use in vision transformer</span>
+<span></span><span class="sd">    architectures.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        dim (int): Number of input channels.</span>
@@ -5155,7 +5154,8 @@ for use in vision transformer architectures.</p>
 <p>Process input through transformer block with optional windowed self-attention and residual connection.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>962</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>961</span>
+<span>962</span>
 <span>963</span>
 <span>964</span>
 <span>965</span>
@@ -5169,8 +5169,7 @@ for use in vision transformer architectures.</p>
 <span>973</span>
 <span>974</span>
 <span>975</span>
-<span>976</span>
-<span>977</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>976</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Process input through transformer block with optional windowed self-attention and residual connection."""</span>
 <span></span>    <span class="n">shortcut</span> <span class="o">=</span> <span class="n">x</span>
 <span></span>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">norm1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -5210,9 +5209,9 @@ for use in vision transformer architectures.</p>
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>Relative Position Attention module for efficient self-attention in transformer architectures.</p>
-<p>This class implements a multi-head attention mechanism with relative positional embeddings, designed
-for use in vision transformer models. It supports optional query pooling and window partitioning
-for efficient processing of large inputs.</p>
+<p>This class implements a multi-head attention mechanism with relative positional embeddings, designed for use in
+vision transformer models. It supports optional query pooling and window partitioning for efficient processing of
+large inputs.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -5328,8 +5327,8 @@ for efficient processing of large inputs.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span><span class="go">torch.Size([1, 32, 32, 256])</span>
 </code></pre></div>
-<p>This module implements multi-head attention with optional relative positional encodings, designed
-specifically for vision tasks in transformer models.</p>
+<p>This module implements multi-head attention with optional relative positional encodings, designed specifically
+for vision tasks in transformer models.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -5449,7 +5448,8 @@ Required if use_rel_pos is True.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1008</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1007</span>
+<span>1008</span>
 <span>1009</span>
 <span>1010</span>
 <span>1011</span>
@@ -5492,8 +5492,7 @@ Required if use_rel_pos is True.</p>
 <span>1048</span>
 <span>1049</span>
 <span>1050</span>
-<span>1051</span>
-<span>1052</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>1051</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span>
@@ -5505,8 +5504,8 @@ Required if use_rel_pos is True.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a Relative Position Attention module for transformer-based architectures.</span>
 <span></span>
-<span></span><span class="sd">    This module implements multi-head attention with optional relative positional encodings, designed</span>
-<span></span><span class="sd">    specifically for vision tasks in transformer models.</span>
+<span></span><span class="sd">    This module implements multi-head attention with optional relative positional encodings, designed specifically</span>
+<span></span><span class="sd">    for vision tasks in transformer models.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        dim (int): Number of input channels.</span>
@@ -5551,7 +5550,8 @@ Required if use_rel_pos is True.</p>
 <p>Apply multi-head attention with optional relative positional encoding to input tensor.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1054</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1053</span>
+<span>1054</span>
 <span>1055</span>
 <span>1056</span>
 <span>1057</span>
@@ -5565,8 +5565,7 @@ Required if use_rel_pos is True.</p>
 <span>1065</span>
 <span>1066</span>
 <span>1067</span>
-<span>1068</span>
-<span>1069</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>1068</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Apply multi-head attention with optional relative positional encoding to input tensor."""</span>
 <span></span>    <span class="n">B</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
 <span></span>    <span class="c1"># qkv with shape (3, B, nHead, H * W, C)</span>
@@ -5605,9 +5604,9 @@ Required if use_rel_pos is True.</p>
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>Image to Patch Embedding module for vision transformer architectures.</p>
-<p>This module converts an input image into a sequence of patch embeddings using a convolutional layer.
-It is commonly used as the first layer in vision transformer architectures to transform image data
-into a suitable format for subsequent transformer blocks.</p>
+<p>This module converts an input image into a sequence of patch embeddings using a convolutional layer. It is commonly
+used as the first layer in vision transformer architectures to transform image data into a suitable format for
+subsequent transformer blocks.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -5657,8 +5656,8 @@ into a suitable format for subsequent transformer blocks.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span><span class="go">torch.Size([1, 768, 14, 14])</span>
 </code></pre></div>
-<p>This module is typically used as the first layer in vision transformer architectures to transform
-image data into a suitable format for subsequent transformer blocks.</p>
+<p>This module is typically used as the first layer in vision transformer architectures to transform image data
+into a suitable format for subsequent transformer blocks.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -5761,7 +5760,8 @@ image data into a suitable format for subsequent transformer blocks.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1094</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1093</span>
+<span>1094</span>
 <span>1095</span>
 <span>1096</span>
 <span>1097</span>
@@ -5790,8 +5790,7 @@ image data into a suitable format for subsequent transformer blocks.</p>
 <span>1120</span>
 <span>1121</span>
 <span>1122</span>
-<span>1123</span>
-<span>1124</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>1123</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">kernel_size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span>
 <span></span>    <span class="n">stride</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span>
@@ -5802,8 +5801,8 @@ image data into a suitable format for subsequent transformer blocks.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the PatchEmbed module for converting image patches to embeddings.</span>
 <span></span>
-<span></span><span class="sd">    This module is typically used as the first layer in vision transformer architectures to transform</span>
-<span></span><span class="sd">    image data into a suitable format for subsequent transformer blocks.</span>
+<span></span><span class="sd">    This module is typically used as the first layer in vision transformer architectures to transform image data</span>
+<span></span><span class="sd">    into a suitable format for subsequent transformer blocks.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        kernel_size (tuple[int, int]): Size of the convolutional kernel for patch extraction.</span>
@@ -5835,9 +5834,9 @@ image data into a suitable format for subsequent transformer blocks.</p>
 <p>Compute patch embedding by applying convolution and transposing resulting tensor.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1126</span>
-<span>1127</span>
-<span>1128</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1125</span>
+<span>1126</span>
+<span>1127</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Compute patch embedding by applying convolution and transposing resulting tensor."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">proj</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># B C H W -&gt; B H W C</span>
 </code></pre></div></td></tr></table></div>
@@ -5857,7 +5856,8 @@ image data into a suitable format for subsequent transformer blocks.</p>
 <p>Apply pooling and optional normalization to a tensor, handling spatial dimension permutations.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>488</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>487</span>
+<span>488</span>
 <span>489</span>
 <span>490</span>
 <span>491</span>
@@ -5868,8 +5868,7 @@ image data into a suitable format for subsequent transformer blocks.</p>
 <span>496</span>
 <span>497</span>
 <span>498</span>
-<span>499</span>
-<span>500</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">do_pool</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">pool</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span> <span class="n">norm</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>499</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">do_pool</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">pool</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span> <span class="n">norm</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Apply pooling and optional normalization to a tensor, handling spatial dimension permutations."""</span>
 <span></span>    <span class="k">if</span> <span class="n">pool</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 <span></span>        <span class="k">return</span> <span class="n">x</span>

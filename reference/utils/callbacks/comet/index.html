@@ -2015,8 +2015,8 @@
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Scale bounding box from resized image coordinates to original image coordinates.</p>
-<p>YOLO resizes images during training and the label values are normalized based on this resized shape.
-This function rescales the bounding box labels to the original image shape.</p>
+<p>YOLO resizes images during training and the label values are normalized based on this resized shape. This function
+rescales the bounding box labels to the original image shape.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2153,8 +2153,8 @@ This function rescales the bounding box labels to the original image shape.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Scale bounding box from resized image coordinates to original image coordinates.</span>
 <span></span>
-<span></span><span class="sd">    YOLO resizes images during training and the label values are normalized based on this resized shape.</span>
-<span></span><span class="sd">    This function rescales the bounding box labels to the original image shape.</span>
+<span></span><span class="sd">    YOLO resizes images during training and the label values are normalized based on this resized shape. This function</span>
+<span></span><span class="sd">    rescales the bounding box labels to the original image shape.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        box (torch.Tensor): Bounding box in normalized xywh format.</span>
@@ -2296,17 +2296,8 @@ visualization or evaluation.</p>
 <p>Formatted ground truth annotations with the following structure:
 - 'boxes': List of box coordinates [x, y, width, height]
 - 'label': Label string with format "gt_{class_name}"
-- 'score': Confidence score (always 1.0, scaled by _scale_confidence_score)</p>
-</div>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td>
-<code><span title="dict">dict</span> | None</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Returns None if no bounding boxes are found for the image.</p>
+- 'score': Confidence score (always 1.0, scaled by _scale_confidence_score)
+Returns None if no bounding boxes are found for the image.</p>
 </div>
 </td>
 </tr>
@@ -2391,7 +2382,7 @@ visualization or evaluation.</p>
 <span></span><span class="sd">            - 'boxes': List of box coordinates [x, y, width, height]</span>
 <span></span><span class="sd">            - 'label': Label string with format "gt_{class_name}"</span>
 <span></span><span class="sd">            - 'score': Confidence score (always 1.0, scaled by _scale_confidence_score)</span>
-<span></span><span class="sd">        Returns None if no bounding boxes are found for the image.</span>
+<span></span><span class="sd">            Returns None if no bounding boxes are found for the image.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">indices</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"batch_idx"</span><span class="p">]</span> <span class="o">==</span> <span class="n">img_idx</span>
 <span></span>    <span class="n">bboxes</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"bboxes"</span><span class="p">][</span><span class="n">indices</span><span class="p">]</span>
@@ -3025,8 +3016,8 @@ visualization or evaluation.</p>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Log images to the experiment with optional annotations.</p>
-<p>This function logs images to a Comet ML experiment, optionally including annotation data for visualization
-such as bounding boxes or segmentation masks.</p>
+<p>This function logs images to a Comet ML experiment, optionally including annotation data for visualization such as
+bounding boxes or segmentation masks.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -3131,8 +3122,8 @@ annotation contains visualization data like bounding boxes, labels, and confiden
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Log images to the experiment with optional annotations.</span>
 <span></span>
-<span></span><span class="sd">    This function logs images to a Comet ML experiment, optionally including annotation data for visualization</span>
-<span></span><span class="sd">    such as bounding boxes or segmentation masks.</span>
+<span></span><span class="sd">    This function logs images to a Comet ML experiment, optionally including annotation data for visualization such as</span>
+<span></span><span class="sd">    bounding boxes or segmentation masks.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        experiment (comet_ml.CometExperiment): The Comet ML experiment to log images to.</span>
@@ -3160,8 +3151,8 @@ annotation contains visualization data like bounding boxes, labels, and confiden
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Log predicted boxes for a single image during training.</p>
-<p>This function logs image predictions to a Comet ML experiment during model validation. It processes
-validation data and formats both ground truth and prediction annotations for visualization in the Comet
+<p>This function logs image predictions to a Comet ML experiment during model validation. It processes validation data
+and formats both ground truth and prediction annotations for visualization in the Comet
 dashboard. The function respects configured limits on the number of images to log.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
@@ -3296,8 +3287,8 @@ The number of logged images is limited by the COMET_MAX_IMAGE_PREDICTIONS enviro
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Log predicted boxes for a single image during training.</span>
 <span></span>
-<span></span><span class="sd">    This function logs image predictions to a Comet ML experiment during model validation. It processes</span>
-<span></span><span class="sd">    validation data and formats both ground truth and prediction annotations for visualization in the Comet</span>
+<span></span><span class="sd">    This function logs image predictions to a Comet ML experiment during model validation. It processes validation data</span>
+<span></span><span class="sd">    and formats both ground truth and prediction annotations for visualization in the Comet</span>
 <span></span><span class="sd">    dashboard. The function respects configured limits on the number of images to log.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
@@ -3366,8 +3357,8 @@ The number of logged images is limited by the COMET_MAX_IMAGE_PREDICTIONS enviro
 <div class="doc doc-contents first">
 <p>Log evaluation plots and label plots for the experiment.</p>
 <p>This function logs various evaluation plots and confusion matrices to the experiment tracking system. It handles
-different types of metrics (SegmentMetrics, PoseMetrics, DetMetrics, OBBMetrics) and logs the appropriate plots
-for each type.</p>
+different types of metrics (SegmentMetrics, PoseMetrics, DetMetrics, OBBMetrics) and logs the appropriate plots for
+each type.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -3470,8 +3461,8 @@ directory information.</p>
 <span></span><span class="sd">    Log evaluation plots and label plots for the experiment.</span>
 <span></span>
 <span></span><span class="sd">    This function logs various evaluation plots and confusion matrices to the experiment tracking system. It handles</span>
-<span></span><span class="sd">    different types of metrics (SegmentMetrics, PoseMetrics, DetMetrics, OBBMetrics) and logs the appropriate plots</span>
-<span></span><span class="sd">    for each type.</span>
+<span></span><span class="sd">    different types of metrics (SegmentMetrics, PoseMetrics, DetMetrics, OBBMetrics) and logs the appropriate plots for</span>
+<span></span><span class="sd">    each type.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        experiment (comet_ml.CometExperiment): The Comet ML experiment to log plots to.</span>
@@ -3649,8 +3640,7 @@ experiment. It enables integration with experiment tracking platforms.</p>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Logs a table to the provided experiment.</p>
-<p>This function is used to log a table file to the given experiment. The table
-is identified by its file path.</p>
+<p>This function is used to log a table file to the given experiment. The table is identified by its file path.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -3708,13 +3698,11 @@ is identified by its file path.</p>
 <span>526</span>
 <span>527</span>
 <span>528</span>
-<span>529</span>
-<span>530</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_table</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">table_path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>529</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_table</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">table_path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Logs a table to the provided experiment.</span>
 <span></span>
-<span></span><span class="sd">    This function is used to log a table file to the given experiment. The table</span>
-<span></span><span class="sd">    is identified by its file path.</span>
+<span></span><span class="sd">    This function is used to log a table file to the given experiment. The table is identified by its file path.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        experiment (comet_ml.CometExperiment): The experiment object where the table file will be logged.</span>
@@ -3735,9 +3723,9 @@ is identified by its file path.</p>
 <p>Create or resume a CometML experiment at the start of a YOLO pre-training routine.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>533</span>
-<span>534</span>
-<span>535</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>532</span>
+<span>533</span>
+<span>534</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Create or resume a CometML experiment at the start of a YOLO pre-training routine."""</span>
 <span></span>    <span class="n">_resume_or_create_experiment</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -3754,7 +3742,8 @@ is identified by its file path.</p>
 <p>Log metrics and save batch images at the end of training epochs.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>538</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>537</span>
+<span>538</span>
 <span>539</span>
 <span>540</span>
 <span>541</span>
@@ -3763,8 +3752,7 @@ is identified by its file path.</p>
 <span>544</span>
 <span>545</span>
 <span>546</span>
-<span>547</span>
-<span>548</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>547</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Log metrics and save batch images at the end of training epochs."""</span>
 <span></span>    <span class="n">experiment</span> <span class="o">=</span> <span class="n">comet_ml</span><span class="o">.</span><span class="n">get_running_experiment</span><span class="p">()</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">experiment</span><span class="p">:</span>
@@ -3787,12 +3775,12 @@ is identified by its file path.</p>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Log model assets at the end of each epoch during training.</p>
-<p>This function is called at the end of each training epoch to log metrics, learning rates, and model information
-to a Comet ML experiment. It also logs model assets, confusion matrices, and image predictions based on
-configuration settings.</p>
+<p>This function is called at the end of each training epoch to log metrics, learning rates, and model information to a
+Comet ML experiment. It also logs model assets, confusion matrices, and image predictions based on configuration
+settings.</p>
 <p>The function retrieves the current Comet ML experiment and logs various training metrics. If it's the first epoch,
-it also logs model information. On specified save intervals, it logs the model, confusion matrix (if enabled),
-and image predictions (if enabled).</p>
+it also logs model information. On specified save intervals, it logs the model, confusion matrix (if enabled), and
+image predictions (if enabled).</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -3828,7 +3816,8 @@ and image predictions (if enabled).</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>551</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>550</span>
+<span>551</span>
 <span>552</span>
 <span>553</span>
 <span>554</span>
@@ -3869,18 +3858,17 @@ and image predictions (if enabled).</p>
 <span>589</span>
 <span>590</span>
 <span>591</span>
-<span>592</span>
-<span>593</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>592</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Log model assets at the end of each epoch during training.</span>
 <span></span>
-<span></span><span class="sd">    This function is called at the end of each training epoch to log metrics, learning rates, and model information</span>
-<span></span><span class="sd">    to a Comet ML experiment. It also logs model assets, confusion matrices, and image predictions based on</span>
-<span></span><span class="sd">    configuration settings.</span>
+<span></span><span class="sd">    This function is called at the end of each training epoch to log metrics, learning rates, and model information to a</span>
+<span></span><span class="sd">    Comet ML experiment. It also logs model assets, confusion matrices, and image predictions based on configuration</span>
+<span></span><span class="sd">    settings.</span>
 <span></span>
 <span></span><span class="sd">    The function retrieves the current Comet ML experiment and logs various training metrics. If it's the first epoch,</span>
-<span></span><span class="sd">    it also logs model information. On specified save intervals, it logs the model, confusion matrix (if enabled),</span>
-<span></span><span class="sd">    and image predictions (if enabled).</span>
+<span></span><span class="sd">    it also logs model information. On specified save intervals, it logs the model, confusion matrix (if enabled), and</span>
+<span></span><span class="sd">    image predictions (if enabled).</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        trainer (BaseTrainer): The YOLO trainer object containing training state, metrics, and configuration.</span>
@@ -3927,7 +3915,8 @@ and image predictions (if enabled).</p>
 <p>Perform operations at the end of training.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>596</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>595</span>
+<span>596</span>
 <span>597</span>
 <span>598</span>
 <span>599</span>
@@ -3957,8 +3946,7 @@ and image predictions (if enabled).</p>
 <span>623</span>
 <span>624</span>
 <span>625</span>
-<span>626</span>
-<span>627</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>626</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Perform operations at the end of training."""</span>
 <span></span>    <span class="n">experiment</span> <span class="o">=</span> <span class="n">comet_ml</span><span class="o">.</span><span class="n">get_running_experiment</span><span class="p">()</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">experiment</span><span class="p">:</span>

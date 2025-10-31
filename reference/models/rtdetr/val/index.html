@@ -2079,7 +2079,8 @@ each mode.</p>
 <td>
 <div class="doc-md-description">
 <p>Raw predictions from the model. If tensor, should have shape
-(batch_size, num_predictions, num_classes + 4) where last dimension contains bbox coords and class scores.</p>
+(batch_size, num_predictions, num_classes + 4) where last dimension contains bbox coords and
+class scores.</p>
 </div>
 </td>
 <td>
@@ -2145,7 +2146,8 @@ each mode.</p>
 <span>187</span>
 <span>188</span>
 <span>189</span>
-<span>190</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span>
+<span>190</span>
+<span>191</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
@@ -2153,7 +2155,8 @@ each mode.</p>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        preds (torch.Tensor | list | tuple): Raw predictions from the model. If tensor, should have shape</span>
-<span></span><span class="sd">            (batch_size, num_predictions, num_classes + 4) where last dimension contains bbox coords and class scores.</span>
+<span></span><span class="sd">            (batch_size, num_predictions, num_classes + 4) where last dimension contains bbox coords and</span>
+<span></span><span class="sd">            class scores.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (list[dict[str, torch.Tensor]]): List of dictionaries for each image, each containing:</span>
@@ -2237,8 +2240,7 @@ with bounding box coordinates, confidence scores, and class predictions.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/rtdetr/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>192</span>
-<span>193</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>193</span>
 <span>194</span>
 <span>195</span>
 <span>196</span>
@@ -2263,7 +2265,8 @@ with bounding box coordinates, confidence scores, and class predictions.</p>
 <span>215</span>
 <span>216</span>
 <span>217</span>
-<span>218</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pred_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">pbatch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>218</span>
+<span>219</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pred_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">pbatch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Serialize YOLO predictions to COCO json format.</span>
 <span></span>

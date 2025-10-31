@@ -2399,16 +2399,16 @@
 </tr>
 </tbody>
 </table>
-<details class="notes" open="">
-<summary>Notes</summary>
-<p>FP16 'half' argument option removed for ONNX as slower on CPU than FP32.</p>
-</details>
 <p><span class="doc-section-title">Examples:</span></p>
 <p>Initialize and profile models</p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.benchmarks</span><span class="w"> </span><span class="kn">import</span> <span class="n">ProfileModels</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">profiler</span> <span class="o">=</span> <span class="n">ProfileModels</span><span class="p">([</span><span class="s2">"yolo11n.yaml"</span><span class="p">,</span> <span class="s2">"yolov8s.yaml"</span><span class="p">],</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">profiler</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </code></pre></div>
+<details class="notes" open="">
+<summary>Notes</summary>
+<p>FP16 'half' argument option removed for ONNX as slower on CPU than FP32.</p>
+</details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>409</span>
@@ -2475,14 +2475,14 @@
 <span></span><span class="sd">        trt (bool): Flag to indicate whether to profile using TensorRT.</span>
 <span></span><span class="sd">        device (torch.device | str | None): Device used for profiling. If None, it is determined automatically.</span>
 <span></span>
-<span></span><span class="sd">    Notes:</span>
-<span></span><span class="sd">        FP16 'half' argument option removed for ONNX as slower on CPU than FP32.</span>
-<span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        Initialize and profile models</span>
 <span></span><span class="sd">        &gt;&gt;&gt; from ultralytics.utils.benchmarks import ProfileModels</span>
 <span></span><span class="sd">        &gt;&gt;&gt; profiler = ProfileModels(["yolo11n.yaml", "yolov8s.yaml"], imgsz=640)</span>
 <span></span><span class="sd">        &gt;&gt;&gt; profiler.run()</span>
+<span></span>
+<span></span><span class="sd">    Notes:</span>
+<span></span><span class="sd">        FP16 'half' argument option removed for ONNX as slower on CPU than FP32.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">paths</span> <span class="o">=</span> <span class="n">paths</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">num_timed_runs</span> <span class="o">=</span> <span class="n">num_timed_runs</span>

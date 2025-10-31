@@ -1420,6 +1420,7 @@ visualization.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Authenticate the email server for sending alert notifications.</p>
+<p>This method initializes a secure connection with the SMTP server and logs in using the provided credentials.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1481,7 +1482,6 @@ visualization.</p>
 </tr>
 </tbody>
 </table>
-<p>This method initializes a secure connection with the SMTP server and logs in using the provided credentials.</p>
 <p><span class="doc-section-title">Examples:</span></p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">alarm</span> <span class="o">=</span> <span class="n">SecurityAlarm</span><span class="p">()</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">alarm</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="s2">"sender@example.com"</span><span class="p">,</span> <span class="s2">"password123"</span><span class="p">,</span> <span class="s2">"recipient@example.com"</span><span class="p">)</span>
@@ -1513,12 +1513,12 @@ visualization.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Authenticate the email server for sending alert notifications.</span>
 <span></span>
+<span></span><span class="sd">    This method initializes a secure connection with the SMTP server and logs in using the provided credentials.</span>
+<span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        from_email (str): Sender's email address.</span>
 <span></span><span class="sd">        password (str): Password for the sender's email account.</span>
 <span></span><span class="sd">        to_email (str): Recipient's email address.</span>
-<span></span>
-<span></span><span class="sd">    This method initializes a secure connection with the SMTP server and logs in using the provided credentials.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; alarm = SecurityAlarm()</span>
@@ -1543,6 +1543,9 @@ visualization.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Monitor the frame, process object detections, and trigger alerts if thresholds are exceeded.</p>
+<p>This method processes the input frame, extracts detections, annotates the frame with bounding boxes, and sends
+an email notification if the number of detected objects surpasses the specified threshold and an alert has not
+already been sent.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1594,9 +1597,6 @@ visualization.</p>
 </tr>
 </tbody>
 </table>
-<p>This method processes the input frame, extracts detections, annotates the frame with bounding boxes, and sends
-an email notification if the number of detected objects surpasses the specified threshold and an alert has not
-already been sent.</p>
 <p><span class="doc-section-title">Examples:</span></p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">alarm</span> <span class="o">=</span> <span class="n">SecurityAlarm</span><span class="p">()</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">frame</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
@@ -1645,16 +1645,16 @@ already been sent.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Monitor the frame, process object detections, and trigger alerts if thresholds are exceeded.</span>
 <span></span>
+<span></span><span class="sd">    This method processes the input frame, extracts detections, annotates the frame with bounding boxes, and sends</span>
+<span></span><span class="sd">    an email notification if the number of detected objects surpasses the specified threshold and an alert has not</span>
+<span></span><span class="sd">    already been sent.</span>
+<span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        im0 (np.ndarray): The input image or frame to be processed and annotated.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (SolutionResults): Contains processed image `plot_im`, 'total_tracks' (total number of tracked objects) and</span>
 <span></span><span class="sd">            'email_sent' (whether an email alert was triggered).</span>
-<span></span>
-<span></span><span class="sd">    This method processes the input frame, extracts detections, annotates the frame with bounding boxes, and sends</span>
-<span></span><span class="sd">    an email notification if the number of detected objects surpasses the specified threshold and an alert has not</span>
-<span></span><span class="sd">    already been sent.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; alarm = SecurityAlarm()</span>
@@ -1691,6 +1691,8 @@ already been sent.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Send an email notification with an image attachment indicating the number of objects detected.</p>
+<p>This method encodes the input image, composes the email message with details about the detection, and sends it
+to the specified recipient.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1736,8 +1738,6 @@ already been sent.</p>
 </tr>
 </tbody>
 </table>
-<p>This method encodes the input image, composes the email message with details about the detection, and sends it
-to the specified recipient.</p>
 <p><span class="doc-section-title">Examples:</span></p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">alarm</span> <span class="o">=</span> <span class="n">SecurityAlarm</span><span class="p">()</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">frame</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
@@ -1792,12 +1792,12 @@ to the specified recipient.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Send an email notification with an image attachment indicating the number of objects detected.</span>
 <span></span>
+<span></span><span class="sd">    This method encodes the input image, composes the email message with details about the detection, and sends it</span>
+<span></span><span class="sd">    to the specified recipient.</span>
+<span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        im0 (np.ndarray): The input image or frame to be attached to the email.</span>
 <span></span><span class="sd">        records (int, optional): The number of detected objects to be included in the email message.</span>
-<span></span>
-<span></span><span class="sd">    This method encodes the input image, composes the email message with details about the detection, and sends it</span>
-<span></span><span class="sd">    to the specified recipient.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; alarm = SecurityAlarm()</span>

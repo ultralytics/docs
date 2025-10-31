@@ -1414,8 +1414,8 @@
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../detect/val/#ultralytics.models.yolo.detect.val.DetectionValidator" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.detect.val.DetectionValidator&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.detect.DetectionValidator&lt;/code&gt;)'>DetectionValidator</a></code></p>
 <p>A class extending the DetectionValidator class for validation based on a pose model.</p>
-<p>This validator is specifically designed for pose estimation tasks, handling keypoints and implementing
-specialized metrics for pose evaluation.</p>
+<p>This validator is specifically designed for pose estimation tasks, handling keypoints and implementing specialized
+metrics for pose evaluation.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -1752,11 +1752,11 @@ due to a known bug with pose models.</p>
 <p>Evaluate object detection model using COCO JSON format.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>263</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>262</span>
+<span>263</span>
 <span>264</span>
 <span>265</span>
-<span>266</span>
-<span>267</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">eval_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stats</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span>266</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">eval_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stats</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Evaluate object detection model using COCO JSON format."""</span>
 <span></span>    <span class="n">anno_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"path"</span><span class="p">]</span> <span class="o">/</span> <span class="s2">"annotations/person_keypoints_val2017.json"</span>  <span class="c1"># annotations</span>
 <span></span>    <span class="n">pred_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="s2">"predictions.json"</span>  <span class="c1"># predictions</span>
@@ -1882,10 +1882,9 @@ due to a known bug with pose models.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Postprocess YOLO predictions to extract and reshape keypoints for pose estimation.</p>
-<p>This method extends the parent class postprocessing by extracting keypoints from the 'extra'
-field of predictions and reshaping them according to the keypoint shape configuration.
-The keypoints are reshaped from a flattened format to the proper dimensional structure
-(typically [N, 17, 3] for COCO pose format).</p>
+<p>This method extends the parent class postprocessing by extracting keypoints from the 'extra' field of
+predictions and reshaping them according to the keypoint shape configuration. The keypoints are reshaped from a
+flattened format to the proper dimensional structure (typically [N, 17, 3] for COCO pose format).</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1941,11 +1940,11 @@ bounding boxes, confidence scores, class predictions, and keypoint data.</p>
 </tr>
 </tbody>
 </table>
-<details class="note" open="">
-<summary>Note</summary>
-<p>If no keypoints are present in a prediction (empty keypoints), that prediction
-is skipped and continues to the next one. The keypoints are extracted from the
-'extra' field which contains additional task-specific data beyond basic detection.</p>
+<details class="notes" open="">
+<summary>Notes</summary>
+<p>If no keypoints are present in a prediction (empty keypoints), that prediction is skipped and continues
+to the next one. The keypoints are extracted from the 'extra' field which contains additional
+task-specific data beyond basic detection.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary>
@@ -1976,15 +1975,13 @@ is skipped and continues to the next one. The keypoints are extracted from the
 <span>145</span>
 <span>146</span>
 <span>147</span>
-<span>148</span>
-<span>149</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+<span>148</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Postprocess YOLO predictions to extract and reshape keypoints for pose estimation.</span>
 <span></span>
-<span></span><span class="sd">    This method extends the parent class postprocessing by extracting keypoints from the 'extra'</span>
-<span></span><span class="sd">    field of predictions and reshaping them according to the keypoint shape configuration.</span>
-<span></span><span class="sd">    The keypoints are reshaped from a flattened format to the proper dimensional structure</span>
-<span></span><span class="sd">    (typically [N, 17, 3] for COCO pose format).</span>
+<span></span><span class="sd">    This method extends the parent class postprocessing by extracting keypoints from the 'extra' field of</span>
+<span></span><span class="sd">    predictions and reshaping them according to the keypoint shape configuration. The keypoints are reshaped from a</span>
+<span></span><span class="sd">    flattened format to the proper dimensional structure (typically [N, 17, 3] for COCO pose format).</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        preds (torch.Tensor): Raw prediction tensor from the YOLO pose model containing</span>
@@ -1997,10 +1994,10 @@ is skipped and continues to the next one. The keypoints are extracted from the
 <span></span><span class="sd">            - 'cls': Class predictions</span>
 <span></span><span class="sd">            - 'keypoints': Reshaped keypoint coordinates with shape (-1, *self.kpt_shape)</span>
 <span></span>
-<span></span><span class="sd">    Note:</span>
-<span></span><span class="sd">        If no keypoints are present in a prediction (empty keypoints), that prediction</span>
-<span></span><span class="sd">        is skipped and continues to the next one. The keypoints are extracted from the</span>
-<span></span><span class="sd">        'extra' field which contains additional task-specific data beyond basic detection.</span>
+<span></span><span class="sd">    Notes:</span>
+<span></span><span class="sd">        If no keypoints are present in a prediction (empty keypoints), that prediction is skipped and continues</span>
+<span></span><span class="sd">        to the next one. The keypoints are extracted from the 'extra' field which contains additional</span>
+<span></span><span class="sd">        task-specific data beyond basic detection.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">preds</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">postprocess</span><span class="p">(</span><span class="n">preds</span><span class="p">)</span>
 <span></span>    <span class="k">for</span> <span class="n">pred</span> <span class="ow">in</span> <span class="n">preds</span><span class="p">:</span>
@@ -2018,8 +2015,8 @@ is skipped and continues to the next one. The keypoints are extracted from the
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Convert YOLO predictions to COCO JSON format.</p>
-<p>This method takes prediction tensors and a filename, converts the bounding boxes from YOLO format
-to COCO format, and appends the results to the internal JSON dictionary (self.jdict).</p>
+<p>This method takes prediction tensors and a filename, converts the bounding boxes from YOLO format to COCO
+format, and appends the results to the internal JSON dictionary (self.jdict).</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2074,7 +2071,8 @@ before saving to the JSON dictionary.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>229</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>228</span>
+<span>229</span>
 <span>230</span>
 <span>231</span>
 <span>232</span>
@@ -2093,13 +2091,12 @@ before saving to the JSON dictionary.</p>
 <span>245</span>
 <span>246</span>
 <span>247</span>
-<span>248</span>
-<span>249</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pred_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">pbatch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>248</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pred_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">pbatch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert YOLO predictions to COCO JSON format.</span>
 <span></span>
-<span></span><span class="sd">    This method takes prediction tensors and a filename, converts the bounding boxes from YOLO format</span>
-<span></span><span class="sd">    to COCO format, and appends the results to the internal JSON dictionary (self.jdict).</span>
+<span></span><span class="sd">    This method takes prediction tensors and a filename, converts the bounding boxes from YOLO format to COCO</span>
+<span></span><span class="sd">    format, and appends the results to the internal JSON dictionary (self.jdict).</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        predn (dict[str, torch.Tensor]): Prediction dictionary containing 'bboxes', 'conf', 'cls',</span>
@@ -2175,7 +2172,7 @@ before saving to the JSON dictionary.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Dictionary containing predictions with keys 'bboxes', 'conf', 'cls' and 'keypoints.</p>
+<p>Prediction dict with keys 'bboxes', 'conf', 'cls' and 'keypoints.</p>
 </div>
 </td>
 <td>
@@ -2239,7 +2236,8 @@ normalized (x, y, visibility) values for each point.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>205</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>204</span>
+<span>205</span>
 <span>206</span>
 <span>207</span>
 <span>208</span>
@@ -2260,13 +2258,12 @@ normalized (x, y, visibility) values for each point.</p>
 <span>223</span>
 <span>224</span>
 <span>225</span>
-<span>226</span>
-<span>227</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_one_txt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">save_conf</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">shape</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>226</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_one_txt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">save_conf</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">shape</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Save YOLO pose detections to a text file in normalized coordinates.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        predn (dict[str, torch.Tensor]): Dictionary containing predictions with keys 'bboxes', 'conf', 'cls' and 'keypoints.</span>
+<span></span><span class="sd">        predn (dict[str, torch.Tensor]): Prediction dict with keys 'bboxes', 'conf', 'cls' and 'keypoints.</span>
 <span></span><span class="sd">        save_conf (bool): Whether to save confidence scores.</span>
 <span></span><span class="sd">        shape (tuple[int, int]): Shape of the original image (height, width).</span>
 <span></span><span class="sd">        file (Path): Output file path to save detections.</span>
@@ -2300,7 +2297,8 @@ normalized (x, y, visibility) values for each point.</p>
 <p>Scales predictions to the original image size.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>251</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>250</span>
+<span>251</span>
 <span>252</span>
 <span>253</span>
 <span>254</span>
@@ -2309,8 +2307,7 @@ normalized (x, y, visibility) values for each point.</p>
 <span>257</span>
 <span>258</span>
 <span>259</span>
-<span>260</span>
-<span>261</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_preds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">pbatch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+<span>260</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_preds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">pbatch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Scales predictions to the original image size."""</span>
 <span></span>    <span class="k">return</span> <span class="p">{</span>
 <span></span>        <span class="o">**</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">scale_preds</span><span class="p">(</span><span class="n">predn</span><span class="p">,</span> <span class="n">pbatch</span><span class="p">),</span>

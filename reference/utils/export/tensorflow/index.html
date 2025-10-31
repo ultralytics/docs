@@ -1568,10 +1568,12 @@
 </tr>
 </tbody>
 </table>
-<details class="note" open="">
-<summary>Note</summary>
-<p>Requires onnx2tf package. Downloads calibration data if INT8 quantization is enabled.
-Removes temporary files and renames quantized models after conversion.</p>
+<details class="notes" open="">
+<summary>Notes</summary>
+<ul>
+<li>Requires onnx2tf package. Downloads calibration data if INT8 quantization is enabled.</li>
+<li>Removes temporary files and renames quantized models after conversion.</li>
+</ul>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/export/tensorflow.py</code></summary>
@@ -1657,9 +1659,9 @@ Removes temporary files and renames quantized models after conversion.</p>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (keras.Model): Converted Keras model.</span>
 <span></span>
-<span></span><span class="sd">    Note:</span>
-<span></span><span class="sd">        Requires onnx2tf package. Downloads calibration data if INT8 quantization is enabled.</span>
-<span></span><span class="sd">        Removes temporary files and renames quantized models after conversion.</span>
+<span></span><span class="sd">    Notes:</span>
+<span></span><span class="sd">        - Requires onnx2tf package. Downloads calibration data if INT8 quantization is enabled.</span>
+<span></span><span class="sd">        - Removes temporary files and renames quantized models after conversion.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="c1"># Pre-download calibration file to fix https://github.com/PINTO0309/onnx2tf/issues/545</span>
 <span></span>    <span class="n">onnx2tf_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"calibration_image_sample_data_20x128x128x3_float32.npy"</span><span class="p">)</span>
@@ -1769,8 +1771,8 @@ Removes temporary files and renames quantized models after conversion.</p>
 </tr>
 </tbody>
 </table>
-<details class="note" open="">
-<summary>Note</summary>
+<details class="notes" open="">
+<summary>Notes</summary>
 <p>Creates a frozen graph by converting variables to constants for inference optimization.</p>
 </details>
 <details class="quote">
@@ -1804,7 +1806,7 @@ Removes temporary files and renames quantized models after conversion.</p>
 <span></span><span class="sd">        file (Path): Output file path (suffix will be changed to .pb).</span>
 <span></span><span class="sd">        prefix (str, optional): Logging prefix. Defaults to "".</span>
 <span></span>
-<span></span><span class="sd">    Note:</span>
+<span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        Creates a frozen graph by converting variables to constants for inference optimization.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
@@ -1891,8 +1893,8 @@ Removes temporary files and renames quantized models after conversion.</p>
 </tr>
 </tbody>
 </table>
-<details class="note" open="">
-<summary>Note</summary>
+<details class="notes" open="">
+<summary>Notes</summary>
 <p>Requires the Edge TPU compiler to be installed. The function compiles the TFLite model
 for optimal performance on Google's Edge TPU hardware accelerator.</p>
 </details>
@@ -1932,7 +1934,7 @@ for optimal performance on Google's Edge TPU hardware accelerator.</p>
 <span></span><span class="sd">        output_dir (str | Path): Output directory path for the compiled Edge TPU model.</span>
 <span></span><span class="sd">        prefix (str, optional): Logging prefix. Defaults to "".</span>
 <span></span>
-<span></span><span class="sd">    Note:</span>
+<span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        Requires the Edge TPU compiler to be installed. The function compiles the TFLite model</span>
 <span></span><span class="sd">        for optimal performance on Google's Edge TPU hardware accelerator.</span>
 <span></span><span class="sd">    """</span>
@@ -2060,8 +2062,8 @@ for optimal performance on Google's Edge TPU hardware accelerator.</p>
 </tr>
 </tbody>
 </table>
-<details class="note" open="">
-<summary>Note</summary>
+<details class="notes" open="">
+<summary>Notes</summary>
 <p>Requires tensorflowjs package. Uses tensorflowjs_converter command-line tool for conversion.
 Handles spaces in file paths and warns if output directory contains spaces.</p>
 </details>
@@ -2116,7 +2118,7 @@ Handles spaces in file paths and warns if output directory contains spaces.</p>
 <span></span><span class="sd">        int8 (bool, optional): Enable INT8 quantization. Defaults to False.</span>
 <span></span><span class="sd">        prefix (str, optional): Logging prefix. Defaults to "".</span>
 <span></span>
-<span></span><span class="sd">    Note:</span>
+<span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        Requires tensorflowjs package. Uses tensorflowjs_converter command-line tool for conversion.</span>
 <span></span><span class="sd">        Handles spaces in file paths and warns if output directory contains spaces.</span>
 <span></span><span class="sd">    """</span>

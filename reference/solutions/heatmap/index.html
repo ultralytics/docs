@@ -1521,10 +1521,9 @@ streams. It uses tracked object positions to create a cumulative heatmap effect 
 <td>
 <div class="doc-md-description">
 <p>Contains processed image <code>plot_im</code>,
-'in_count' (int, count of objects entering the region),
-'out_count' (int, count of objects exiting the region),
-'classwise_count' (dict, per-class object count), and
-'total_tracks' (int, total number of tracked objects).</p>
+'in_count' (int, count of objects entering the region), 'out_count' (int, count of objects exiting the
+region), 'classwise_count' (dict, per-class object count), and 'total_tracks' (int, total number of
+tracked objects).</p>
 </div>
 </td>
 </tr>
@@ -1585,8 +1584,7 @@ streams. It uses tracked object positions to create a cumulative heatmap effect 
 <span>127</span>
 <span>128</span>
 <span>129</span>
-<span>130</span>
-<span>131</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SolutionResults</span><span class="p">:</span>
+<span>130</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SolutionResults</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Generate heatmap for each frame using Ultralytics tracking.</span>
 <span></span>
@@ -1595,10 +1593,9 @@ streams. It uses tracked object positions to create a cumulative heatmap effect 
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (SolutionResults): Contains processed image `plot_im`,</span>
-<span></span><span class="sd">            'in_count' (int, count of objects entering the region),</span>
-<span></span><span class="sd">            'out_count' (int, count of objects exiting the region),</span>
-<span></span><span class="sd">            'classwise_count' (dict, per-class object count), and</span>
-<span></span><span class="sd">            'total_tracks' (int, total number of tracked objects).</span>
+<span></span><span class="sd">            'in_count' (int, count of objects entering the region), 'out_count' (int, count of objects exiting the</span>
+<span></span><span class="sd">            region), 'classwise_count' (dict, per-class object count), and 'total_tracks' (int, total number of</span>
+<span></span><span class="sd">            tracked objects).</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">initialized</span><span class="p">:</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">heatmap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.99</span>

@@ -1588,10 +1588,6 @@ is the corresponding 91-index class ID.</p>
 </tr>
 </tbody>
 </table>
-<details class="references" open="">
-<summary>References</summary>
-<p><a href="https://tech.amikelive.com/node-718/what-object-categories-labels-are-in-coco-dataset/">https://tech.amikelive.com/node-718/what-object-categories-labels-are-in-coco-dataset/</a></p>
-</details>
 <p><span class="doc-section-title">Examples:</span></p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">"data/coco.names"</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">"str"</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
@@ -1603,6 +1599,10 @@ is the corresponding 91-index class ID.</p>
 <p>Convert the COCO to darknet format</p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x2</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span> <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">a</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">91</span><span class="p">)]</span>
 </code></pre></div>
+<details class="references" open="">
+<summary>References</summary>
+<p><a href="https://tech.amikelive.com/node-718/what-object-categories-labels-are-in-coco-dataset/">https://tech.amikelive.com/node-718/what-object-categories-labels-are-in-coco-dataset/</a></p>
+</details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/converter.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>126</span>
@@ -1714,9 +1714,6 @@ is the corresponding 91-index class ID.</p>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (list[int]): A list of 80 class IDs where each value is the corresponding 91-index class ID.</span>
 <span></span>
-<span></span><span class="sd">    References:</span>
-<span></span><span class="sd">        https://tech.amikelive.com/node-718/what-object-categories-labels-are-in-coco-dataset/</span>
-<span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; import numpy as np</span>
 <span></span><span class="sd">        &gt;&gt;&gt; a = np.loadtxt("data/coco.names", dtype="str", delimiter="\n")</span>
@@ -1727,6 +1724,9 @@ is the corresponding 91-index class ID.</p>
 <span></span>
 <span></span><span class="sd">        Convert the COCO to darknet format</span>
 <span></span><span class="sd">        &gt;&gt;&gt; x2 = [list(b[i] == a).index(True) if any(b[i] == a) else None for i in range(91)]</span>
+<span></span>
+<span></span><span class="sd">    References:</span>
+<span></span><span class="sd">        https://tech.amikelive.com/node-718/what-object-categories-labels-are-in-coco-dataset/</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">return</span> <span class="p">[</span>
 <span></span>        <span class="mi">1</span><span class="p">,</span>
@@ -2830,7 +2830,7 @@ associated label from the original labels directory and writes new labels in YOL
 <td>
 <div class="doc-md-description">
 <p>Original segmentations in COCO's JSON file.
-                   Each element is a list of coordinates, like [segmentation1, segmentation2,...].</p>
+Each element is a list of coordinates, like [segmentation1, segmentation2,...].</p>
 </div>
 </td>
 <td>
@@ -2918,7 +2918,7 @@ associated label from the original labels directory and writes new labels in YOL
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        segments (list[list]): Original segmentations in COCO's JSON file.</span>
-<span></span><span class="sd">                               Each element is a list of coordinates, like [segmentation1, segmentation2,...].</span>
+<span></span><span class="sd">            Each element is a list of coordinates, like [segmentation1, segmentation2,...].</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        s (list[np.ndarray]): A list of connected segments represented as NumPy arrays.</span>
@@ -3205,9 +3205,9 @@ into <code>labels-segment</code> in the same directory level of <code>im_dir</co
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Create a synthetic COCO dataset with random images based on filenames from label lists.</p>
-<p>This function downloads COCO labels, reads image filenames from label list files,
-creates synthetic images for train2017 and val2017 subsets, and organizes
-them in the COCO dataset structure. It uses multithreading to generate images efficiently.</p>
+<p>This function downloads COCO labels, reads image filenames from label list files, creates synthetic images for
+train2017 and val2017 subsets, and organizes them in the COCO dataset structure. It uses multithreading to generate
+images efficiently.</p>
 <p><span class="doc-section-title">Examples:</span></p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.converter</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_synthetic_coco_dataset</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">create_synthetic_coco_dataset</span><span class="p">()</span>
@@ -3280,9 +3280,9 @@ them in the COCO dataset structure. It uses multithreading to generate images ef
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Create a synthetic COCO dataset with random images based on filenames from label lists.</span>
 <span></span>
-<span></span><span class="sd">    This function downloads COCO labels, reads image filenames from label list files,</span>
-<span></span><span class="sd">    creates synthetic images for train2017 and val2017 subsets, and organizes</span>
-<span></span><span class="sd">    them in the COCO dataset structure. It uses multithreading to generate images efficiently.</span>
+<span></span><span class="sd">    This function downloads COCO labels, reads image filenames from label list files, creates synthetic images for</span>
+<span></span><span class="sd">    train2017 and val2017 subsets, and organizes them in the COCO dataset structure. It uses multithreading to generate</span>
+<span></span><span class="sd">    images efficiently.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; from ultralytics.data.converter import create_synthetic_coco_dataset</span>
@@ -3347,8 +3347,8 @@ them in the COCO dataset structure. It uses multithreading to generate images ef
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Convert RGB images to multispectral images by interpolating across wavelength bands.</p>
-<p>This function takes RGB images and interpolates them to create multispectral images with a specified number
-of channels. It can process either a single image or a directory of images.</p>
+<p>This function takes RGB images and interpolates them to create multispectral images with a specified number of
+channels. It can process either a single image or a directory of images.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -3488,8 +3488,8 @@ of channels. It can process either a single image or a directory of images.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert RGB images to multispectral images by interpolating across wavelength bands.</span>
 <span></span>
-<span></span><span class="sd">    This function takes RGB images and interpolates them to create multispectral images with a specified number</span>
-<span></span><span class="sd">    of channels. It can process either a single image or a directory of images.</span>
+<span></span><span class="sd">    This function takes RGB images and interpolates them to create multispectral images with a specified number of</span>
+<span></span><span class="sd">    channels. It can process either a single image or a directory of images.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        path (str | Path): Path to an image file or directory containing images to convert.</span>
@@ -3551,9 +3551,9 @@ of channels. It can process either a single image or a directory of images.</p>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Convert NDJSON dataset format to Ultralytics YOLO11 dataset structure.</p>
-<p>This function converts datasets stored in NDJSON (Newline Delimited JSON) format to the standard YOLO
-format with separate directories for images and labels. It supports parallel processing for efficient
-conversion of large datasets and can download images from URLs if they don't exist locally.</p>
+<p>This function converts datasets stored in NDJSON (Newline Delimited JSON) format to the standard YOLO format with
+separate directories for images and labels. It supports parallel processing for efficient conversion of large
+datasets and can download images from URLs if they don't exist locally.</p>
 <p>The NDJSON format consists of:
 - First line: Dataset metadata with class names and configuration
 - Subsequent lines: Individual image records with annotations and optional URLs</p>
@@ -3750,9 +3750,9 @@ will be saved. If None, uses the parent directory of the NDJSON file. Defaults t
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert NDJSON dataset format to Ultralytics YOLO11 dataset structure.</span>
 <span></span>
-<span></span><span class="sd">    This function converts datasets stored in NDJSON (Newline Delimited JSON) format to the standard YOLO</span>
-<span></span><span class="sd">    format with separate directories for images and labels. It supports parallel processing for efficient</span>
-<span></span><span class="sd">    conversion of large datasets and can download images from URLs if they don't exist locally.</span>
+<span></span><span class="sd">    This function converts datasets stored in NDJSON (Newline Delimited JSON) format to the standard YOLO format with</span>
+<span></span><span class="sd">    separate directories for images and labels. It supports parallel processing for efficient conversion of large</span>
+<span></span><span class="sd">    datasets and can download images from URLs if they don't exist locally.</span>
 <span></span>
 <span></span><span class="sd">    The NDJSON format consists of:</span>
 <span></span><span class="sd">    - First line: Dataset metadata with class names and configuration</span>

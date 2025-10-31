@@ -11487,15 +11487,15 @@ capabilities. It includes a series of PSABlock modules for self-attention and fe
 </tr>
 </tbody>
 </table>
-<details class="notes" open="">
-<summary>Notes</summary>
-<p>This module essentially is the same as PSA module, but refactored to allow stacking more PSABlock modules.</p>
-</details>
 <p><span class="doc-section-title">Examples:</span></p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c2psa</span> <span class="o">=</span> <span class="n">C2PSA</span><span class="p">(</span><span class="n">c1</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">c2</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">input_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">output_tensor</span> <span class="o">=</span> <span class="n">c2psa</span><span class="p">(</span><span class="n">input_tensor</span><span class="p">)</span>
 </code></pre></div>
+<details class="notes" open="">
+<summary>Notes</summary>
+<p>This module essentially is the same as PSA module, but refactored to allow stacking more PSABlock modules.</p>
+</details>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -11713,7 +11713,8 @@ capabilities. It includes a series of PSABlock modules for self-attention and fe
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.nn.modules.block.C2f" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.modules.block.C2f&lt;/span&gt;'>C2f</a></code></p>
 <p>C2fPSA module with enhanced feature extraction using PSA blocks.</p>
-<p>This class extends the C2f module by incorporating PSA blocks for improved attention mechanisms and feature extraction.</p>
+<p>This class extends the C2f module by incorporating PSA blocks for improved attention mechanisms and feature
+extraction.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -11884,8 +11885,7 @@ capabilities. It includes a series of PSABlock modules for self-attention and fe
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/block.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1558</span>
-<span>1559</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1559</span>
 <span>1560</span>
 <span>1561</span>
 <span>1562</span>
@@ -11896,7 +11896,8 @@ capabilities. It includes a series of PSABlock modules for self-attention and fe
 <span>1567</span>
 <span>1568</span>
 <span>1569</span>
-<span>1570</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">c2</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">):</span>
+<span>1570</span>
+<span>1571</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">c2</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize C2fPSA module.</span>
 <span></span>
@@ -12068,8 +12069,7 @@ efficiently reducing the spatial dimensions of the input tensor while maintainin
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/block.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1597</span>
-<span>1598</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1598</span>
 <span>1599</span>
 <span>1600</span>
 <span>1601</span>
@@ -12080,7 +12080,8 @@ efficiently reducing the spatial dimensions of the input tensor while maintainin
 <span>1606</span>
 <span>1607</span>
 <span>1608</span>
-<span>1609</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">c2</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span>1609</span>
+<span>1610</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">c2</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize SCDown module.</span>
 <span></span>
@@ -12156,8 +12157,7 @@ efficiently reducing the spatial dimensions of the input tensor while maintainin
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/block.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1611</span>
-<span>1612</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1612</span>
 <span>1613</span>
 <span>1614</span>
 <span>1615</span>
@@ -12166,7 +12166,8 @@ efficiently reducing the spatial dimensions of the input tensor while maintainin
 <span>1618</span>
 <span>1619</span>
 <span>1620</span>
-<span>1621</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>1621</span>
+<span>1622</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Apply convolution and downsampling to the input tensor.</span>
 <span></span>
@@ -12200,30 +12201,8 @@ efficiently reducing the spatial dimensions of the input tensor while maintainin
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>TorchVision module to allow loading any torchvision model.</p>
-<p>This class provides a way to load a model from the torchvision library, optionally load pre-trained weights, and customize the model by truncating or unwrapping layers.</p>
-<p><span class="doc-section-title">Attributes:</span></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="doc-section-item">
-<td><code><span title="ultralytics.nn.modules.block.TorchVision.m">m</span></code></td>
-<td>
-<code><span title="torch.nn.Module">Module</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>The loaded torchvision model, possibly truncated and unwrapped.</p>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
+<p>This class provides a way to load a model from the torchvision library, optionally load pre-trained weights, and
+customize the model by truncating or unwrapping layers.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -12276,7 +12255,7 @@ efficiently reducing the spatial dimensions of the input tensor while maintainin
 </td>
 <td>
 <div class="doc-md-description">
-<p>If True, unwraps the model to a sequential containing all but the last <code>truncate</code> layers. Default is True.</p>
+<p>Unwraps the model to a sequential containing all but the last <code>truncate</code> layers.</p>
 </div>
 </td>
 <td>
@@ -12313,6 +12292,29 @@ efficiently reducing the spatial dimensions of the input tensor while maintainin
 </td>
 <td>
 <code>False</code>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Attributes:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.nn.modules.block.TorchVision.m">m</span></code></td>
+<td>
+<code><span title="torch.nn.Module">Module</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>The loaded torchvision model, possibly truncated and unwrapped.</p>
+</div>
 </td>
 </tr>
 </tbody>
@@ -12412,9 +12414,7 @@ efficiently reducing the spatial dimensions of the input tensor while maintainin
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/block.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1641</span>
-<span>1642</span>
-<span>1643</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1643</span>
 <span>1644</span>
 <span>1645</span>
 <span>1646</span>
@@ -12440,7 +12440,9 @@ efficiently reducing the spatial dimensions of the input tensor while maintainin
 <span>1666</span>
 <span>1667</span>
 <span>1668</span>
-<span>1669</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>1669</span>
+<span>1670</span>
+<span>1671</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"DEFAULT"</span><span class="p">,</span> <span class="n">unwrap</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">truncate</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">split</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
 <span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
@@ -12532,9 +12534,7 @@ efficiently reducing the spatial dimensions of the input tensor while maintainin
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/block.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1671</span>
-<span>1672</span>
-<span>1673</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1673</span>
 <span>1674</span>
 <span>1675</span>
 <span>1676</span>
@@ -12547,7 +12547,9 @@ efficiently reducing the spatial dimensions of the input tensor while maintainin
 <span>1683</span>
 <span>1684</span>
 <span>1685</span>
-<span>1686</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>1686</span>
+<span>1687</span>
+<span>1688</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Forward pass through the model.</span>
 <span></span>
@@ -12749,9 +12751,7 @@ making it particularly effective for object detection tasks.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/block.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1715</span>
-<span>1716</span>
-<span>1717</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1717</span>
 <span>1718</span>
 <span>1719</span>
 <span>1720</span>
@@ -12767,7 +12767,9 @@ making it particularly effective for object detection tasks.</p>
 <span>1730</span>
 <span>1731</span>
 <span>1732</span>
-<span>1733</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">area</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+<span>1733</span>
+<span>1734</span>
+<span>1735</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">area</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize an Area-attention module for YOLO models.</span>
 <span></span>
@@ -12849,9 +12851,7 @@ making it particularly effective for object detection tasks.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/block.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1735</span>
-<span>1736</span>
-<span>1737</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1737</span>
 <span>1738</span>
 <span>1739</span>
 <span>1740</span>
@@ -12886,7 +12886,9 @@ making it particularly effective for object detection tasks.</p>
 <span>1769</span>
 <span>1770</span>
 <span>1771</span>
-<span>1772</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>1772</span>
+<span>1773</span>
+<span>1774</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Process the input tensor through the area-attention.</span>
 <span></span>
@@ -13091,9 +13093,7 @@ maintaining effectiveness.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/block.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1799</span>
-<span>1800</span>
-<span>1801</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1801</span>
 <span>1802</span>
 <span>1803</span>
 <span>1804</span>
@@ -13107,7 +13107,9 @@ maintaining effectiveness.</p>
 <span>1812</span>
 <span>1813</span>
 <span>1814</span>
-<span>1815</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">mlp_ratio</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.2</span><span class="p">,</span> <span class="n">area</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+<span>1815</span>
+<span>1816</span>
+<span>1817</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">mlp_ratio</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.2</span><span class="p">,</span> <span class="n">area</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize an Area-attention block module.</span>
 <span></span>
@@ -13187,9 +13189,7 @@ maintaining effectiveness.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/block.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1829</span>
-<span>1830</span>
-<span>1831</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1831</span>
 <span>1832</span>
 <span>1833</span>
 <span>1834</span>
@@ -13198,7 +13198,9 @@ maintaining effectiveness.</p>
 <span>1837</span>
 <span>1838</span>
 <span>1839</span>
-<span>1840</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>1840</span>
+<span>1841</span>
+<span>1842</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Forward pass through ABlock.</span>
 <span></span>
@@ -13497,9 +13499,7 @@ processing. It supports both area-attention and standard convolution modes.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/block.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1867</span>
-<span>1868</span>
-<span>1869</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1869</span>
 <span>1870</span>
 <span>1871</span>
 <span>1872</span>
@@ -13538,7 +13538,9 @@ processing. It supports both area-attention and standard convolution modes.</p>
 <span>1905</span>
 <span>1906</span>
 <span>1907</span>
-<span>1908</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>1908</span>
+<span>1909</span>
+<span>1910</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">c1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">c2</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -13643,9 +13645,7 @@ processing. It supports both area-attention and standard convolution modes.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/block.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1910</span>
-<span>1911</span>
-<span>1912</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1912</span>
 <span>1913</span>
 <span>1914</span>
 <span>1915</span>
@@ -13658,7 +13658,9 @@ processing. It supports both area-attention and standard convolution modes.</p>
 <span>1922</span>
 <span>1923</span>
 <span>1924</span>
-<span>1925</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>1925</span>
+<span>1926</span>
+<span>1927</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Forward pass through A2C2f layer.</span>
 <span></span>
@@ -13754,9 +13756,7 @@ processing. It supports both area-attention and standard convolution modes.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/block.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1931</span>
-<span>1932</span>
-<span>1933</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1933</span>
 <span>1934</span>
 <span>1935</span>
 <span>1936</span>
@@ -13765,7 +13765,9 @@ processing. It supports both area-attention and standard convolution modes.</p>
 <span>1939</span>
 <span>1940</span>
 <span>1941</span>
-<span>1942</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gc</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">ec</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>1942</span>
+<span>1943</span>
+<span>1944</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gc</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">ec</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize SwiGLU FFN with input dimension, output dimension, and expansion factor.</span>
 <span></span>
@@ -13790,12 +13792,12 @@ processing. It supports both area-attention and standard convolution modes.</p>
 <p>Apply SwiGLU transformation to input features.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/block.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1944</span>
-<span>1945</span>
-<span>1946</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1946</span>
 <span>1947</span>
 <span>1948</span>
-<span>1949</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>1949</span>
+<span>1950</span>
+<span>1951</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Apply SwiGLU transformation to input features."""</span>
 <span></span>    <span class="n">x12</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">w12</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span></span>    <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">x12</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
@@ -13849,9 +13851,7 @@ processing. It supports both area-attention and standard convolution modes.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/block.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1955</span>
-<span>1956</span>
-<span>1957</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1957</span>
 <span>1958</span>
 <span>1959</span>
 <span>1960</span>
@@ -13861,7 +13861,9 @@ processing. It supports both area-attention and standard convolution modes.</p>
 <span>1964</span>
 <span>1965</span>
 <span>1966</span>
-<span>1967</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>1967</span>
+<span>1968</span>
+<span>1969</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize residual module with the wrapped module.</span>
 <span></span>
@@ -13887,9 +13889,9 @@ processing. It supports both area-attention and standard convolution modes.</p>
 <p>Apply residual connection to input features.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/block.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1969</span>
-<span>1970</span>
-<span>1971</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1971</span>
+<span>1972</span>
+<span>1973</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Apply residual connection to input features."""</span>
 <span></span>    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -13972,9 +13974,7 @@ processing. It supports both area-attention and standard convolution modes.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/block.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1977</span>
-<span>1978</span>
-<span>1979</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1979</span>
 <span>1980</span>
 <span>1981</span>
 <span>1982</span>
@@ -13998,7 +13998,9 @@ processing. It supports both area-attention and standard convolution modes.</p>
 <span>2000</span>
 <span>2001</span>
 <span>2002</span>
-<span>2003</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">c3</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">embed</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span>2003</span>
+<span>2004</span>
+<span>2005</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ch</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">c3</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">embed</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize SAVPE module with channels, intermediate channels, and embedding dimension.</span>
 <span></span>
@@ -14038,9 +14040,7 @@ processing. It supports both area-attention and standard convolution modes.</p>
 <p>Process input features and visual prompts to generate enhanced embeddings.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/block.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2005</span>
-<span>2006</span>
-<span>2007</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2007</span>
 <span>2008</span>
 <span>2009</span>
 <span>2010</span>
@@ -14064,7 +14064,9 @@ processing. It supports both area-attention and standard convolution modes.</p>
 <span>2028</span>
 <span>2029</span>
 <span>2030</span>
-<span>2031</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">vp</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>2031</span>
+<span>2032</span>
+<span>2033</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">vp</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Process input features and visual prompts to generate enhanced embeddings."""</span>
 <span></span>    <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cv2</span><span class="p">[</span><span class="n">i</span><span class="p">](</span><span class="n">xi</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">xi</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span>
 <span></span>    <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cv4</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>

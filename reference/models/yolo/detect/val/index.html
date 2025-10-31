@@ -1884,8 +1884,7 @@ prediction processing, and visualization of results.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>299</span>
-<span>300</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>300</span>
 <span>301</span>
 <span>302</span>
 <span>303</span>
@@ -1896,7 +1895,8 @@ prediction processing, and visualization of results.</p>
 <span>308</span>
 <span>309</span>
 <span>310</span>
-<span>311</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"val"</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+<span>311</span>
+<span>312</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"val"</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Build YOLO Dataset.</span>
 <span></span>
@@ -1927,9 +1927,9 @@ prediction processing, and visualization of results.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Evaluate COCO/LVIS metrics using faster-coco-eval library.</p>
-<p>Performs evaluation using the faster-coco-eval library to compute mAP metrics
-for object detection. Updates the provided stats dictionary with computed metrics
-including mAP50, mAP50-95, and LVIS-specific metrics if applicable.</p>
+<p>Performs evaluation using the faster-coco-eval library to compute mAP metrics for object detection. Updates the
+provided stats dictionary with computed metrics including mAP50, mAP50-95, and LVIS-specific metrics if
+applicable.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2048,8 +2048,7 @@ to iou_types if multiple types provided. Defaults to "Box".</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>463</span>
-<span>464</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>464</span>
 <span>465</span>
 <span>466</span>
 <span>467</span>
@@ -2109,7 +2108,8 @@ to iou_types if multiple types provided. Defaults to "Box".</p>
 <span>521</span>
 <span>522</span>
 <span>523</span>
-<span>524</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">coco_evaluate</span><span class="p">(</span>
+<span>524</span>
+<span>525</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">coco_evaluate</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">stats</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
 <span></span>    <span class="n">pred_json</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -2120,9 +2120,9 @@ to iou_types if multiple types provided. Defaults to "Box".</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Evaluate COCO/LVIS metrics using faster-coco-eval library.</span>
 <span></span>
-<span></span><span class="sd">    Performs evaluation using the faster-coco-eval library to compute mAP metrics</span>
-<span></span><span class="sd">    for object detection. Updates the provided stats dictionary with computed metrics</span>
-<span></span><span class="sd">    including mAP50, mAP50-95, and LVIS-specific metrics if applicable.</span>
+<span></span><span class="sd">    Performs evaluation using the faster-coco-eval library to compute mAP metrics for object detection. Updates the</span>
+<span></span><span class="sd">    provided stats dictionary with computed metrics including mAP50, mAP50-95, and LVIS-specific metrics if</span>
+<span></span><span class="sd">    applicable.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        stats (dict[str, Any]): Dictionary to store computed metrics and statistics.</span>
@@ -2235,8 +2235,7 @@ to iou_types if multiple types provided. Defaults to "Box".</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>445</span>
-<span>446</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>446</span>
 <span>447</span>
 <span>448</span>
 <span>449</span>
@@ -2251,7 +2250,8 @@ to iou_types if multiple types provided. Defaults to "Box".</p>
 <span>458</span>
 <span>459</span>
 <span>460</span>
-<span>461</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">eval_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stats</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span>461</span>
+<span>462</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">eval_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stats</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Evaluate YOLO output in JSON format and return performance statistics.</span>
 <span></span>
@@ -2434,8 +2434,7 @@ to iou_types if multiple types provided. Defaults to "Box".</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>313</span>
-<span>314</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>314</span>
 <span>315</span>
 <span>316</span>
 <span>317</span>
@@ -2454,7 +2453,8 @@ to iou_types if multiple types provided. Defaults to "Box".</p>
 <span>330</span>
 <span>331</span>
 <span>332</span>
-<span>333</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_dataloader</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">:</span>
+<span>333</span>
+<span>334</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_dataloader</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Construct and return dataloader.</span>
 <span></span>
@@ -2732,8 +2732,7 @@ to iou_types if multiple types provided. Defaults to "Box".</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>351</span>
-<span>352</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>352</span>
 <span>353</span>
 <span>354</span>
 <span>355</span>
@@ -2759,7 +2758,8 @@ to iou_types if multiple types provided. Defaults to "Box".</p>
 <span>375</span>
 <span>376</span>
 <span>377</span>
-<span>378</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_predictions</span><span class="p">(</span>
+<span>378</span>
+<span>379</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_predictions</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">preds</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]],</span> <span class="n">ni</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">max_det</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
@@ -2846,8 +2846,7 @@ to iou_types if multiple types provided. Defaults to "Box".</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>335</span>
-<span>336</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>336</span>
 <span>337</span>
 <span>338</span>
 <span>339</span>
@@ -2860,7 +2859,8 @@ to iou_types if multiple types provided. Defaults to "Box".</p>
 <span>346</span>
 <span>347</span>
 <span>348</span>
-<span>349</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_val_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">ni</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>349</span>
+<span>350</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_val_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">ni</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Plot validation image samples.</span>
 <span></span>
@@ -3054,8 +3054,7 @@ with bounding box coordinates, confidence scores, and class predictions.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>399</span>
-<span>400</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>400</span>
 <span>401</span>
 <span>402</span>
 <span>403</span>
@@ -3086,7 +3085,8 @@ with bounding box coordinates, confidence scores, and class predictions.</p>
 <span>428</span>
 <span>429</span>
 <span>430</span>
-<span>431</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pred_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">pbatch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>431</span>
+<span>432</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pred_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">pbatch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Serialize YOLO predictions to COCO json format.</span>
 <span></span>
@@ -3359,8 +3359,7 @@ with bounding box coordinates, confidence scores, and class predictions.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>380</span>
-<span>381</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>381</span>
 <span>382</span>
 <span>383</span>
 <span>384</span>
@@ -3376,7 +3375,8 @@ with bounding box coordinates, confidence scores, and class predictions.</p>
 <span>394</span>
 <span>395</span>
 <span>396</span>
-<span>397</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_one_txt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">save_conf</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">shape</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>397</span>
+<span>398</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_one_txt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">save_conf</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">shape</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Save YOLO detections to a txt file in normalized coordinates in a specific format.</span>
 <span></span>
@@ -3410,8 +3410,7 @@ with bounding box coordinates, confidence scores, and class predictions.</p>
 <p>Scales predictions to the original image size.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>433</span>
-<span>434</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>434</span>
 <span>435</span>
 <span>436</span>
 <span>437</span>
@@ -3420,7 +3419,8 @@ with bounding box coordinates, confidence scores, and class predictions.</p>
 <span>440</span>
 <span>441</span>
 <span>442</span>
-<span>443</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_preds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">pbatch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+<span>443</span>
+<span>444</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_preds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">pbatch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Scales predictions to the original image size."""</span>
 <span></span>    <span class="k">return</span> <span class="p">{</span>
 <span></span>        <span class="o">**</span><span class="n">predn</span><span class="p">,</span>

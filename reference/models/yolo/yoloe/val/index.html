@@ -1367,9 +1367,9 @@
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../detect/val/#ultralytics.models.yolo.detect.val.DetectionValidator" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.detect.val.DetectionValidator&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.detect.DetectionValidator&lt;/code&gt;)'>DetectionValidator</a></code></p>
 <p>A validator class for YOLOE detection models that handles both text and visual prompt embeddings.</p>
-<p>This class extends DetectionValidator to provide specialized validation functionality for YOLOE models.
-It supports validation using either text prompts or visual prompt embeddings extracted from training samples,
-enabling flexible evaluation strategies for prompt-based object detection.</p>
+<p>This class extends DetectionValidator to provide specialized validation functionality for YOLOE models. It supports
+validation using either text prompts or visual prompt embeddings extracted from training samples, enabling flexible
+evaluation strategies for prompt-based object detection.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -1519,9 +1519,9 @@ enabling flexible evaluation strategies for prompt-based object detection.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Run validation on the model using either text or visual prompt embeddings.</p>
-<p>This method validates the model using either text prompts or visual prompts, depending on the load_vp flag.
-It supports validation during training (using a trainer object) or standalone validation with a provided
-model. For visual prompts, reference data can be specified to extract embeddings from a different dataset.</p>
+<p>This method validates the model using either text prompts or visual prompts, depending on the load_vp flag. It
+supports validation during training (using a trainer object) or standalone validation with a provided model. For
+visual prompts, reference data can be specified to extract embeddings from a different dataset.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1622,7 +1622,8 @@ model. For visual prompts, reference data can be specified to extract embeddings
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>136</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>135</span>
+<span>136</span>
 <span>137</span>
 <span>138</span>
 <span>139</span>
@@ -1690,8 +1691,7 @@ model. For visual prompts, reference data can be specified to extract embeddings
 <span>201</span>
 <span>202</span>
 <span>203</span>
-<span>204</span>
-<span>205</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
+<span>204</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">trainer</span><span class="p">:</span> <span class="n">Any</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -1702,9 +1702,9 @@ model. For visual prompts, reference data can be specified to extract embeddings
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Run validation on the model using either text or visual prompt embeddings.</span>
 <span></span>
-<span></span><span class="sd">    This method validates the model using either text prompts or visual prompts, depending on the load_vp flag.</span>
-<span></span><span class="sd">    It supports validation during training (using a trainer object) or standalone validation with a provided</span>
-<span></span><span class="sd">    model. For visual prompts, reference data can be specified to extract embeddings from a different dataset.</span>
+<span></span><span class="sd">    This method validates the model using either text prompts or visual prompts, depending on the load_vp flag. It</span>
+<span></span><span class="sd">    supports validation during training (using a trainer object) or standalone validation with a provided model. For</span>
+<span></span><span class="sd">    visual prompts, reference data can be specified to extract embeddings from a different dataset.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        trainer (object, optional): Trainer object containing the model and device.</span>
@@ -1773,9 +1773,9 @@ model. For visual prompts, reference data can be specified to extract embeddings
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Extract visual prompt embeddings from training samples.</p>
-<p>This method processes a dataloader to compute visual prompt embeddings for each class using a YOLOE model.
-It normalizes the embeddings and handles cases where no samples exist for a class by setting their
-embeddings to zero.</p>
+<p>This method processes a dataloader to compute visual prompt embeddings for each class using a YOLOE model. It
+normalizes the embeddings and handles cases where no samples exist for a class by setting their embeddings to
+zero.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1897,9 +1897,9 @@ embeddings to zero.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Extract visual prompt embeddings from training samples.</span>
 <span></span>
-<span></span><span class="sd">    This method processes a dataloader to compute visual prompt embeddings for each class using a YOLOE model.</span>
-<span></span><span class="sd">    It normalizes the embeddings and handles cases where no samples exist for a class by setting their</span>
-<span></span><span class="sd">    embeddings to zero.</span>
+<span></span><span class="sd">    This method processes a dataloader to compute visual prompt embeddings for each class using a YOLOE model. It</span>
+<span></span><span class="sd">    normalizes the embeddings and handles cases where no samples exist for a class by setting their embeddings to</span>
+<span></span><span class="sd">    zero.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        dataloader (torch.utils.data.DataLoader): The dataloader providing training samples.</span>
@@ -1953,9 +1953,8 @@ embeddings to zero.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Create a dataloader for LVIS training visual prompt samples.</p>
-<p>This method prepares a dataloader for visual prompt embeddings (VPE) using the specified dataset.
-It applies necessary transformations including LoadVisualPrompt and configurations to the dataset
-for validation purposes.</p>
+<p>This method prepares a dataloader for visual prompt embeddings (VPE) using the specified dataset. It applies
+necessary transformations including LoadVisualPrompt and configurations to the dataset for validation purposes.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2040,14 +2039,12 @@ for validation purposes.</p>
 <span>130</span>
 <span>131</span>
 <span>132</span>
-<span>133</span>
-<span>134</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_vpe_dataloader</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">:</span>
+<span>133</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_vpe_dataloader</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Create a dataloader for LVIS training visual prompt samples.</span>
 <span></span>
-<span></span><span class="sd">    This method prepares a dataloader for visual prompt embeddings (VPE) using the specified dataset.</span>
-<span></span><span class="sd">    It applies necessary transformations including LoadVisualPrompt and configurations to the dataset</span>
-<span></span><span class="sd">    for validation purposes.</span>
+<span></span><span class="sd">    This method prepares a dataloader for visual prompt embeddings (VPE) using the specified dataset. It applies</span>
+<span></span><span class="sd">    necessary transformations including LoadVisualPrompt and configurations to the dataset for validation purposes.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        data (dict): Dataset configuration dictionary containing paths and settings.</span>

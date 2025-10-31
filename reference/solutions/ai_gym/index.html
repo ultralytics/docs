@@ -1319,8 +1319,8 @@ repetitions of exercises based on predefined angle thresholds for up and down po
 </td>
 <td>
 <div class="doc-md-description">
-<p>Keyword arguments passed to the parent class constructor.
-model (str): Model name or path, defaults to "yolo11n-pose.pt".</p>
+<p>Keyword arguments passed to the parent class constructor including:
+- model (str): Model name or path, defaults to "yolo11n-pose.pt".</p>
 </div>
 </td>
 <td>
@@ -1351,8 +1351,8 @@ model (str): Model name or path, defaults to "yolo11n-pose.pt".</p>
 <span></span><span class="sd">    Initialize AIGym for workout monitoring using pose estimation and predefined angles.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        **kwargs (Any): Keyword arguments passed to the parent class constructor.</span>
-<span></span><span class="sd">            model (str): Model name or path, defaults to "yolo11n-pose.pt".</span>
+<span></span><span class="sd">        **kwargs (Any): Keyword arguments passed to the parent class constructor including:</span>
+<span></span><span class="sd">            - model (str): Model name or path, defaults to "yolo11n-pose.pt".</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">kwargs</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"model"</span><span class="p">,</span> <span class="s2">"yolo11n-pose.pt"</span><span class="p">)</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -1373,9 +1373,8 @@ model (str): Model name or path, defaults to "yolo11n-pose.pt".</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Monitor workouts using Ultralytics YOLO Pose Model.</p>
-<p>This function processes an input image to track and analyze human poses for workout monitoring. It uses
-the YOLO Pose model to detect keypoints, estimate angles, and count repetitions based on predefined
-angle thresholds.</p>
+<p>This function processes an input image to track and analyze human poses for workout monitoring. It uses the YOLO
+Pose model to detect keypoints, estimate angles, and count repetitions based on predefined angle thresholds.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1420,11 +1419,9 @@ angle thresholds.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Contains processed image <code>plot_im</code>,
-'workout_count' (list of completed reps),
-'workout_stage' (list of current stages),
-'workout_angle' (list of angles), and
-'total_tracks' (total number of tracked individuals).</p>
+<p>Contains processed image <code>plot_im</code>, 'workout_count' (list of completed reps),
+'workout_stage' (list of current stages), 'workout_angle' (list of angles), and 'total_tracks' (total
+number of tracked individuals).</p>
 </div>
 </td>
 </tr>
@@ -1498,26 +1495,20 @@ angle thresholds.</p>
 <span>108</span>
 <span>109</span>
 <span>110</span>
-<span>111</span>
-<span>112</span>
-<span>113</span>
-<span>114</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SolutionResults</span><span class="p">:</span>
+<span>111</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SolutionResults</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Monitor workouts using Ultralytics YOLO Pose Model.</span>
 <span></span>
-<span></span><span class="sd">    This function processes an input image to track and analyze human poses for workout monitoring. It uses</span>
-<span></span><span class="sd">    the YOLO Pose model to detect keypoints, estimate angles, and count repetitions based on predefined</span>
-<span></span><span class="sd">    angle thresholds.</span>
+<span></span><span class="sd">    This function processes an input image to track and analyze human poses for workout monitoring. It uses the YOLO</span>
+<span></span><span class="sd">    Pose model to detect keypoints, estimate angles, and count repetitions based on predefined angle thresholds.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        im0 (np.ndarray): Input image for processing.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (SolutionResults): Contains processed image `plot_im`,</span>
-<span></span><span class="sd">            'workout_count' (list of completed reps),</span>
-<span></span><span class="sd">            'workout_stage' (list of current stages),</span>
-<span></span><span class="sd">            'workout_angle' (list of angles), and</span>
-<span></span><span class="sd">            'total_tracks' (total number of tracked individuals).</span>
+<span></span><span class="sd">        (SolutionResults): Contains processed image `plot_im`, 'workout_count' (list of completed reps),</span>
+<span></span><span class="sd">            'workout_stage' (list of current stages), 'workout_angle' (list of angles), and 'total_tracks' (total</span>
+<span></span><span class="sd">            number of tracked individuals).</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; gym = AIGym()</span>

@@ -1486,8 +1486,8 @@
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../../../engine/validator/#ultralytics.engine.validator.BaseValidator" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.validator.BaseValidator&lt;/span&gt;'>BaseValidator</a></code></p>
 <p>A class extending the BaseValidator class for validation based on a classification model.</p>
-<p>This validator handles the validation process for classification models, including metrics calculation,
-confusion matrix generation, and visualization of results.</p>
+<p>This validator handles the validation process for classification models, including metrics calculation, confusion
+matrix generation, and visualization of results.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -1839,11 +1839,6 @@ confusion matrix generation, and visualization of results.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Finalize metrics including confusion matrix and processing speed.</p>
-<details class="notes" open="">
-<summary>Notes</summary>
-<p>This method processes the accumulated predictions and targets to generate the confusion matrix,
-optionally plots it, and updates the metrics object with speed information.</p>
-</details>
 <p><span class="doc-section-title">Examples:</span></p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">validator</span> <span class="o">=</span> <span class="n">ClassificationValidator</span><span class="p">()</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">validator</span><span class="o">.</span><span class="n">pred</span> <span class="o">=</span> <span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])]</span>  <span class="c1"># Top-3 predictions for one sample</span>
@@ -1851,6 +1846,11 @@ optionally plots it, and updates the metrics object with speed information.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">validator</span><span class="o">.</span><span class="n">finalize_metrics</span><span class="p">()</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">validator</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">)</span>  <span class="c1"># Access the confusion matrix</span>
 </code></pre></div>
+<details class="notes" open="">
+<summary>Notes</summary>
+<p>This method processes the accumulated predictions and targets to generate the confusion matrix,
+optionally plots it, and updates the metrics object with speed information.</p>
+</details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/classify/val.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>114</span>
@@ -1878,16 +1878,16 @@ optionally plots it, and updates the metrics object with speed information.</p>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Finalize metrics including confusion matrix and processing speed.</span>
 <span></span>
-<span></span><span class="sd">    Notes:</span>
-<span></span><span class="sd">        This method processes the accumulated predictions and targets to generate the confusion matrix,</span>
-<span></span><span class="sd">        optionally plots it, and updates the metrics object with speed information.</span>
-<span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; validator = ClassificationValidator()</span>
 <span></span><span class="sd">        &gt;&gt;&gt; validator.pred = [torch.tensor([[0, 1, 2]])]  # Top-3 predictions for one sample</span>
 <span></span><span class="sd">        &gt;&gt;&gt; validator.targets = [torch.tensor([0])]  # Ground truth class</span>
 <span></span><span class="sd">        &gt;&gt;&gt; validator.finalize_metrics()</span>
 <span></span><span class="sd">        &gt;&gt;&gt; print(validator.metrics.confusion_matrix)  # Access the confusion matrix</span>
+<span></span>
+<span></span><span class="sd">    Notes:</span>
+<span></span><span class="sd">        This method processes the accumulated predictions and targets to generate the confusion matrix,</span>
+<span></span><span class="sd">        optionally plots it, and updates the metrics object with speed information.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="o">.</span><span class="n">process_cls_preds</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pred</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">targets</span><span class="p">)</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">plots</span><span class="p">:</span>

@@ -2254,7 +2254,7 @@ classification and localization information.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Overlaps between predicted and ground truth boxes with shape (bs, max_num_obj, h*w).</p>
+<p>Overlaps between predicted vs ground truth boxes with shape (bs, max_num_obj, h*w).</p>
 </div>
 </td>
 </tr>
@@ -2302,7 +2302,7 @@ classification and localization information.</p>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        mask_pos (torch.Tensor): Positive mask with shape (bs, max_num_obj, h*w).</span>
 <span></span><span class="sd">        align_metric (torch.Tensor): Alignment metric with shape (bs, max_num_obj, h*w).</span>
-<span></span><span class="sd">        overlaps (torch.Tensor): Overlaps between predicted and ground truth boxes with shape (bs, max_num_obj, h*w).</span>
+<span></span><span class="sd">        overlaps (torch.Tensor): Overlaps between predicted vs ground truth boxes with shape (bs, max_num_obj, h*w).</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">mask_in_gts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">select_candidates_in_gts</span><span class="p">(</span><span class="n">anc_points</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">)</span>
 <span></span>    <span class="c1"># Get anchor_align metric, (b, max_num_obj, h*w)</span>
@@ -2346,7 +2346,7 @@ classification and localization information.</p>
 <td>
 <div class="doc-md-description">
 <p>Ground truth labels of shape (b, max_num_obj, 1), where b is the
-                batch size and max_num_obj is the maximum number of objects.</p>
+batch size and max_num_obj is the maximum number of objects.</p>
 </div>
 </td>
 <td>
@@ -2379,8 +2379,7 @@ classification and localization information.</p>
 <td>
 <div class="doc-md-description">
 <p>Indices of the assigned ground truth objects for positive
-                    anchor points, with shape (b, h<em>w), where h</em>w is the total
-                    number of anchor points.</p>
+anchor points, with shape (b, h<em>w), where h</em>w is the total number of anchor points.</p>
 </div>
 </td>
 <td>
@@ -2397,7 +2396,7 @@ classification and localization information.</p>
 <td>
 <div class="doc-md-description">
 <p>A boolean tensor of shape (b, h*w) indicating the positive
-              (foreground) anchor points.</p>
+(foreground) anchor points.</p>
 </div>
 </td>
 <td>
@@ -2489,20 +2488,18 @@ classification and localization information.</p>
 <span>270</span>
 <span>271</span>
 <span>272</span>
-<span>273</span>
-<span>274</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_targets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gt_labels</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">target_gt_idx</span><span class="p">,</span> <span class="n">fg_mask</span><span class="p">):</span>
+<span>273</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_targets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gt_labels</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">target_gt_idx</span><span class="p">,</span> <span class="n">fg_mask</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Compute target labels, target bounding boxes, and target scores for the positive anchor points.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        gt_labels (torch.Tensor): Ground truth labels of shape (b, max_num_obj, 1), where b is the</span>
-<span></span><span class="sd">                            batch size and max_num_obj is the maximum number of objects.</span>
+<span></span><span class="sd">            batch size and max_num_obj is the maximum number of objects.</span>
 <span></span><span class="sd">        gt_bboxes (torch.Tensor): Ground truth bounding boxes of shape (b, max_num_obj, 4).</span>
 <span></span><span class="sd">        target_gt_idx (torch.Tensor): Indices of the assigned ground truth objects for positive</span>
-<span></span><span class="sd">                                anchor points, with shape (b, h*w), where h*w is the total</span>
-<span></span><span class="sd">                                number of anchor points.</span>
+<span></span><span class="sd">            anchor points, with shape (b, h*w), where h*w is the total number of anchor points.</span>
 <span></span><span class="sd">        fg_mask (torch.Tensor): A boolean tensor of shape (b, h*w) indicating the positive</span>
-<span></span><span class="sd">                          (foreground) anchor points.</span>
+<span></span><span class="sd">            (foreground) anchor points.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        target_labels (torch.Tensor): Target labels for positive anchor points with shape (b, h*w).</span>
@@ -2732,14 +2729,17 @@ classification and localization information.</p>
 </tr>
 </tbody>
 </table>
-<details class="note" open="">
-<summary>Note</summary>
-<p>b: batch size, n_boxes: number of ground truth boxes, h: height, w: width.
-Bounding box format: [x_min, y_min, x_max, y_max].</p>
+<details class="notes" open="">
+<summary>Notes</summary>
+<ul>
+<li>b: batch size, n_boxes: number of ground truth boxes, h: height, w: width.</li>
+<li>Bounding box format: [x_min, y_min, x_max, y_max].</li>
+</ul>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tal.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>276</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>275</span>
+<span>276</span>
 <span>277</span>
 <span>278</span>
 <span>279</span>
@@ -2759,8 +2759,7 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 <span>293</span>
 <span>294</span>
 <span>295</span>
-<span>296</span>
-<span>297</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span>296</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">select_candidates_in_gts</span><span class="p">(</span><span class="n">xy_centers</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-9</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Select positive anchor centers within ground truth bounding boxes.</span>
@@ -2773,9 +2772,9 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (torch.Tensor): Boolean mask of positive anchors, shape (b, n_boxes, h*w).</span>
 <span></span>
-<span></span><span class="sd">    Note:</span>
-<span></span><span class="sd">        b: batch size, n_boxes: number of ground truth boxes, h: height, w: width.</span>
-<span></span><span class="sd">        Bounding box format: [x_min, y_min, x_max, y_max].</span>
+<span></span><span class="sd">    Notes:</span>
+<span></span><span class="sd">        - b: batch size, n_boxes: number of ground truth boxes, h: height, w: width.</span>
+<span></span><span class="sd">        - Bounding box format: [x_min, y_min, x_max, y_max].</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">n_anchors</span> <span class="o">=</span> <span class="n">xy_centers</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span></span>    <span class="n">bs</span><span class="p">,</span> <span class="n">n_boxes</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">gt_bboxes</span><span class="o">.</span><span class="n">shape</span>
@@ -2901,7 +2900,8 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tal.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>299</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>298</span>
+<span>299</span>
 <span>300</span>
 <span>301</span>
 <span>302</span>
@@ -2928,8 +2928,7 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 <span>323</span>
 <span>324</span>
 <span>325</span>
-<span>326</span>
-<span>327</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span>326</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">select_highest_overlaps</span><span class="p">(</span><span class="n">mask_pos</span><span class="p">,</span> <span class="n">overlaps</span><span class="p">,</span> <span class="n">n_max_boxes</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Select anchor boxes with highest IoU when assigned to multiple ground truths.</span>
@@ -3173,9 +3172,9 @@ computed based on the given metrics.</p>
 <p>Calculate IoU for rotated bounding boxes.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tal.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>333</span>
-<span>334</span>
-<span>335</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">iou_calculation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">pd_bboxes</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>332</span>
+<span>333</span>
+<span>334</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">iou_calculation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">pd_bboxes</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Calculate IoU for rotated bounding boxes."""</span>
 <span></span>    <span class="k">return</span> <span class="n">probiou</span><span class="p">(</span><span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">pd_bboxes</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">clamp_</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -3261,7 +3260,8 @@ computed based on the given metrics.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tal.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>337</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>336</span>
+<span>337</span>
 <span>338</span>
 <span>339</span>
 <span>340</span>
@@ -3285,8 +3285,7 @@ computed based on the given metrics.</p>
 <span>358</span>
 <span>359</span>
 <span>360</span>
-<span>361</span>
-<span>362</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span>361</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">select_candidates_in_gts</span><span class="p">(</span><span class="n">xy_centers</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Select the positive anchor center in gt for rotated bounding boxes.</span>
@@ -3329,7 +3328,8 @@ computed based on the given metrics.</p>
 <p>Generate anchors from features.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tal.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>365</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>364</span>
+<span>365</span>
 <span>366</span>
 <span>367</span>
 <span>368</span>
@@ -3340,8 +3340,7 @@ computed based on the given metrics.</p>
 <span>373</span>
 <span>374</span>
 <span>375</span>
-<span>376</span>
-<span>377</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">make_anchors</span><span class="p">(</span><span class="n">feats</span><span class="p">,</span> <span class="n">strides</span><span class="p">,</span> <span class="n">grid_cell_offset</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+<span>376</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">make_anchors</span><span class="p">(</span><span class="n">feats</span><span class="p">,</span> <span class="n">strides</span><span class="p">,</span> <span class="n">grid_cell_offset</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Generate anchors from features."""</span>
 <span></span>    <span class="n">anchor_points</span><span class="p">,</span> <span class="n">stride_tensor</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
 <span></span>    <span class="k">assert</span> <span class="n">feats</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
@@ -3368,7 +3367,8 @@ computed based on the given metrics.</p>
 <p>Transform distance(ltrb) to box(xywh or xyxy).</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tal.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>380</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>379</span>
+<span>380</span>
 <span>381</span>
 <span>382</span>
 <span>383</span>
@@ -3376,8 +3376,7 @@ computed based on the given metrics.</p>
 <span>385</span>
 <span>386</span>
 <span>387</span>
-<span>388</span>
-<span>389</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">dist2bbox</span><span class="p">(</span><span class="n">distance</span><span class="p">,</span> <span class="n">anchor_points</span><span class="p">,</span> <span class="n">xywh</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+<span>388</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">dist2bbox</span><span class="p">(</span><span class="n">distance</span><span class="p">,</span> <span class="n">anchor_points</span><span class="p">,</span> <span class="n">xywh</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Transform distance(ltrb) to box(xywh or xyxy)."""</span>
 <span></span>    <span class="n">lt</span><span class="p">,</span> <span class="n">rb</span> <span class="o">=</span> <span class="n">distance</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">dim</span><span class="p">)</span>
 <span></span>    <span class="n">x1y1</span> <span class="o">=</span> <span class="n">anchor_points</span> <span class="o">-</span> <span class="n">lt</span>
@@ -3401,10 +3400,10 @@ computed based on the given metrics.</p>
 <p>Transform bbox(xyxy) to dist(ltrb).</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tal.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>392</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>391</span>
+<span>392</span>
 <span>393</span>
-<span>394</span>
-<span>395</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bbox2dist</span><span class="p">(</span><span class="n">anchor_points</span><span class="p">,</span> <span class="n">bbox</span><span class="p">,</span> <span class="n">reg_max</span><span class="p">):</span>
+<span>394</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bbox2dist</span><span class="p">(</span><span class="n">anchor_points</span><span class="p">,</span> <span class="n">bbox</span><span class="p">,</span> <span class="n">reg_max</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Transform bbox(xyxy) to dist(ltrb)."""</span>
 <span></span>    <span class="n">x1y1</span><span class="p">,</span> <span class="n">x2y2</span> <span class="o">=</span> <span class="n">bbox</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span></span>    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">anchor_points</span> <span class="o">-</span> <span class="n">x1y1</span><span class="p">,</span> <span class="n">x2y2</span> <span class="o">-</span> <span class="n">anchor_points</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">clamp_</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">reg_max</span> <span class="o">-</span> <span class="mf">0.01</span><span class="p">)</span>  <span class="c1"># dist (lt, rb)</span>
@@ -3520,7 +3519,8 @@ computed based on the given metrics.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tal.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>398</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>397</span>
+<span>398</span>
 <span>399</span>
 <span>400</span>
 <span>401</span>
@@ -3538,8 +3538,7 @@ computed based on the given metrics.</p>
 <span>413</span>
 <span>414</span>
 <span>415</span>
-<span>416</span>
-<span>417</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">dist2rbox</span><span class="p">(</span><span class="n">pred_dist</span><span class="p">,</span> <span class="n">pred_angle</span><span class="p">,</span> <span class="n">anchor_points</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+<span>416</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">dist2rbox</span><span class="p">(</span><span class="n">pred_dist</span><span class="p">,</span> <span class="n">pred_angle</span><span class="p">,</span> <span class="n">anchor_points</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Decode predicted rotated bounding box coordinates from anchor points and distribution.</span>
 <span></span>

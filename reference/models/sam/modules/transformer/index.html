@@ -1403,9 +1403,8 @@
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>A Two-Way Transformer module for simultaneous attention to image and query points.</p>
-<p>This class implements a specialized transformer decoder that attends to an input image using queries with
-supplied positional embeddings. It's useful for tasks like object detection, image segmentation, and point
-cloud processing.</p>
+<p>This class implements a specialized transformer decoder that attends to an input image using queries with supplied
+positional embeddings. It's useful for tasks like object detection, image segmentation, and point cloud processing.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -1633,7 +1632,8 @@ cloud processing.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/transformer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>42</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>41</span>
+<span>42</span>
 <span>43</span>
 <span>44</span>
 <span>45</span>
@@ -1672,8 +1672,7 @@ cloud processing.</p>
 <span>78</span>
 <span>79</span>
 <span>80</span>
-<span>81</span>
-<span>82</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>81</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">depth</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">embedding_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -1821,7 +1820,8 @@ cloud processing.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/transformer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 84</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 83</span>
+<span> 84</span>
 <span> 85</span>
 <span> 86</span>
 <span> 87</span>
@@ -1862,8 +1862,7 @@ cloud processing.</p>
 <span>122</span>
 <span>123</span>
 <span>124</span>
-<span>125</span>
-<span>126</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
+<span>125</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">image_embedding</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">image_pe</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
@@ -1931,8 +1930,8 @@ cloud processing.</p>
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>A two-way attention block for simultaneous attention to image and query points.</p>
 <p>This class implements a specialized transformer block with four main layers: self-attention on sparse inputs,
-cross-attention of sparse inputs to dense inputs, MLP block on sparse inputs, and cross-attention of dense
-inputs to sparse inputs.</p>
+cross-attention of sparse inputs to dense inputs, MLP block on sparse inputs, and cross-attention of dense inputs to
+sparse inputs.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -2073,8 +2072,8 @@ inputs to sparse inputs.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">processed_queries</span><span class="p">,</span> <span class="n">processed_keys</span> <span class="o">=</span> <span class="n">block</span><span class="p">(</span><span class="n">queries</span><span class="p">,</span> <span class="n">keys</span><span class="p">,</span> <span class="n">query_pe</span><span class="p">,</span> <span class="n">key_pe</span><span class="p">)</span>
 </code></pre></div>
 <p>This block implements a specialized transformer layer with four main components: self-attention on sparse
-inputs, cross-attention of sparse inputs to dense inputs, MLP block on sparse inputs, and cross-attention
-of dense inputs to sparse inputs.</p>
+inputs, cross-attention of sparse inputs to dense inputs, MLP block on sparse inputs, and cross-attention of
+dense inputs to sparse inputs.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2186,7 +2185,8 @@ of dense inputs to sparse inputs.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/transformer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>161</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>160</span>
+<span>161</span>
 <span>162</span>
 <span>163</span>
 <span>164</span>
@@ -2222,8 +2222,7 @@ of dense inputs to sparse inputs.</p>
 <span>194</span>
 <span>195</span>
 <span>196</span>
-<span>197</span>
-<span>198</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>197</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">embedding_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -2236,8 +2235,8 @@ of dense inputs to sparse inputs.</p>
 <span></span><span class="sd">    Initialize a TwoWayAttentionBlock for simultaneous attention to image and query points.</span>
 <span></span>
 <span></span><span class="sd">    This block implements a specialized transformer layer with four main components: self-attention on sparse</span>
-<span></span><span class="sd">    inputs, cross-attention of sparse inputs to dense inputs, MLP block on sparse inputs, and cross-attention</span>
-<span></span><span class="sd">    of dense inputs to sparse inputs.</span>
+<span></span><span class="sd">    inputs, cross-attention of sparse inputs to dense inputs, MLP block on sparse inputs, and cross-attention of</span>
+<span></span><span class="sd">    dense inputs to sparse inputs.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        embedding_dim (int): Channel dimension of the embeddings.</span>
@@ -2384,7 +2383,8 @@ of dense inputs to sparse inputs.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/transformer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>200</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>199</span>
+<span>200</span>
 <span>201</span>
 <span>202</span>
 <span>203</span>
@@ -2427,8 +2427,7 @@ of dense inputs to sparse inputs.</p>
 <span>240</span>
 <span>241</span>
 <span>242</span>
-<span>243</span>
-<span>244</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
+<span>243</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span> <span class="n">queries</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">keys</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">query_pe</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">key_pe</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
@@ -2495,8 +2494,8 @@ of dense inputs to sparse inputs.</p>
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>An attention layer with downscaling capability for embedding size after projection.</p>
-<p>This class implements a multi-head attention mechanism with the option to downsample the internal
-dimension of queries, keys, and values.</p>
+<p>This class implements a multi-head attention mechanism with the option to downsample the internal dimension of
+queries, keys, and values.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -2740,7 +2739,8 @@ dimension of queries, keys, and values.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/transformer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>278</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>277</span>
+<span>278</span>
 <span>279</span>
 <span>280</span>
 <span>281</span>
@@ -2768,8 +2768,7 @@ dimension of queries, keys, and values.</p>
 <span>303</span>
 <span>304</span>
 <span>305</span>
-<span>306</span>
-<span>307</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>306</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">embedding_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -2894,7 +2893,8 @@ dimension of queries, keys, and values.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/transformer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>323</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>322</span>
+<span>323</span>
 <span>324</span>
 <span>325</span>
 <span>326</span>
@@ -2924,8 +2924,7 @@ dimension of queries, keys, and values.</p>
 <span>350</span>
 <span>351</span>
 <span>352</span>
-<span>353</span>
-<span>354</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>353</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Apply multi-head attention to query, key, and value tensors with optional downsampling.</span>
 <span></span>
