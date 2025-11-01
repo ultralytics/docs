@@ -147,7 +147,7 @@ jobs:
             SLACK_OUTPUT=$(echo "$MODIFIED_OUTPUT" | grep "==>" | head -10 | awk '{printf "%s\\n", $0}')
             SLACK_HEADER="*${TOTAL_ERRORS} Spelling Errors*\\n\\n"
             if [ "$TOTAL_ERRORS" -gt 10 ]; then
-              SLACK_FOOTER="\\n\\n_...$(($TOTAL_ERRORS - 10)) more in <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|Action summary>_"
+              SLACK_FOOTER="...$(($TOTAL_ERRORS - 10)) more in <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|Action summary>"
             else
               SLACK_FOOTER=""
             fi
