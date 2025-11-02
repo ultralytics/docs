@@ -143,7 +143,7 @@ def check_image_sizes(download_dir, website, threshold_kb=750, max_workers=32, i
             run_id = os.environ.get("GITHUB_RUN_ID", "")
             if repo and run_id:
                 output.append(
-                    f"...{len(large_images) - 10} more in <https://github.com/{repo}/actions/runs/{run_id}|Action summary>"
+                    f"...{len(large_images) - 10} more ➜ <https://github.com/{repo}/actions/runs/{run_id}|Action summary>"
                 )
 
         result = "\\n".join(output)
