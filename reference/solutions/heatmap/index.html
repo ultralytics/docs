@@ -1350,7 +1350,8 @@ streams. It uses tracked object positions to create a cumulative heatmap effect 
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/heatmap.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>38</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>37</span>
+<span>38</span>
 <span>39</span>
 <span>40</span>
 <span>41</span>
@@ -1363,11 +1364,8 @@ streams. It uses tracked object positions to create a cumulative heatmap effect 
 <span>48</span>
 <span>49</span>
 <span>50</span>
-<span>51</span>
-<span>52</span>
-<span>53</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Initialize the Heatmap class for real-time video stream heatmap generation based on object tracks.</span>
+<span>51</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Initialize the Heatmap class for real-time video stream heatmap generation based on object tracks.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        **kwargs (Any): Keyword arguments passed to the parent ObjectCounter class.</span>
@@ -1423,7 +1421,9 @@ streams. It uses tracked object positions to create a cumulative heatmap effect 
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/heatmap.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>55</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>53</span>
+<span>54</span>
+<span>55</span>
 <span>56</span>
 <span>57</span>
 <span>58</span>
@@ -1440,12 +1440,8 @@ streams. It uses tracked object positions to create a cumulative heatmap effect 
 <span>69</span>
 <span>70</span>
 <span>71</span>
-<span>72</span>
-<span>73</span>
-<span>74</span>
-<span>75</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">heatmap_effect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Efficiently calculate heatmap area and effect location for applying colormap.</span>
+<span>72</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">heatmap_effect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Efficiently calculate heatmap area and effect location for applying colormap.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        box (list[float]): Bounding box coordinates [x0, y0, x1, y1].</span>
@@ -1520,10 +1516,9 @@ streams. It uses tracked object positions to create a cumulative heatmap effect 
 </td>
 <td>
 <div class="doc-md-description">
-<p>Contains processed image <code>plot_im</code>,
-'in_count' (int, count of objects entering the region), 'out_count' (int, count of objects exiting the
-region), 'classwise_count' (dict, per-class object count), and 'total_tracks' (int, total number of
-tracked objects).</p>
+<p>Contains processed image <code>plot_im</code>, 'in_count' (int, count of objects entering the
+region), 'out_count' (int, count of objects exiting the region), 'classwise_count' (dict, per-class
+object count), and 'total_tracks' (int, total number of tracked objects).</p>
 </div>
 </td>
 </tr>
@@ -1531,7 +1526,10 @@ tracked objects).</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/heatmap.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 77</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 74</span>
+<span> 75</span>
+<span> 76</span>
+<span> 77</span>
 <span> 78</span>
 <span> 79</span>
 <span> 80</span>
@@ -1579,23 +1577,16 @@ tracked objects).</p>
 <span>122</span>
 <span>123</span>
 <span>124</span>
-<span>125</span>
-<span>126</span>
-<span>127</span>
-<span>128</span>
-<span>129</span>
-<span>130</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SolutionResults</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Generate heatmap for each frame using Ultralytics tracking.</span>
+<span>125</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SolutionResults</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Generate heatmap for each frame using Ultralytics tracking.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        im0 (np.ndarray): Input image array for processing.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (SolutionResults): Contains processed image `plot_im`,</span>
-<span></span><span class="sd">            'in_count' (int, count of objects entering the region), 'out_count' (int, count of objects exiting the</span>
-<span></span><span class="sd">            region), 'classwise_count' (dict, per-class object count), and 'total_tracks' (int, total number of</span>
-<span></span><span class="sd">            tracked objects).</span>
+<span></span><span class="sd">        (SolutionResults): Contains processed image `plot_im`, 'in_count' (int, count of objects entering the</span>
+<span></span><span class="sd">            region), 'out_count' (int, count of objects exiting the region), 'classwise_count' (dict, per-class</span>
+<span></span><span class="sd">            object count), and 'total_tracks' (int, total number of tracked objects).</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">initialized</span><span class="p">:</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">heatmap</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.99</span>

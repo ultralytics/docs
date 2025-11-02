@@ -1533,10 +1533,8 @@ different classes.</p>
 <span>46</span>
 <span>47</span>
 <span>48</span>
-<span>49</span>
-<span>50</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_custom_table</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">classes</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Precision Recall Curve"</span><span class="p">,</span> <span class="n">x_title</span><span class="o">=</span><span class="s2">"Recall"</span><span class="p">,</span> <span class="n">y_title</span><span class="o">=</span><span class="s2">"Precision"</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Create and log a custom metric visualization to wandb.plot.pr_curve.</span>
+<span>49</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_custom_table</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">classes</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Precision Recall Curve"</span><span class="p">,</span> <span class="n">x_title</span><span class="o">=</span><span class="s2">"Recall"</span><span class="p">,</span> <span class="n">y_title</span><span class="o">=</span><span class="s2">"Precision"</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Create and log a custom metric visualization to wandb.plot.pr_curve.</span>
 <span></span>
 <span></span><span class="sd">    This function crafts a custom metric visualization that mimics the behavior of the default wandb precision-recall</span>
 <span></span><span class="sd">    curve while allowing for enhanced customization. The visual metric is useful for monitoring model performance across</span>
@@ -1754,7 +1752,8 @@ represent aggregated data (mean) or individual class data, depending on the 'onl
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/wb.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 53</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 52</span>
+<span> 53</span>
 <span> 54</span>
 <span> 55</span>
 <span> 56</span>
@@ -1803,9 +1802,7 @@ represent aggregated data (mean) or individual class data, depending on the 'onl
 <span> 99</span>
 <span>100</span>
 <span>101</span>
-<span>102</span>
-<span>103</span>
-<span>104</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_plot_curve</span><span class="p">(</span>
+<span>102</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_plot_curve</span><span class="p">(</span>
 <span></span>    <span class="n">x</span><span class="p">,</span>
 <span></span>    <span class="n">y</span><span class="p">,</span>
 <span></span>    <span class="n">names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -1816,8 +1813,7 @@ represent aggregated data (mean) or individual class data, depending on the 'onl
 <span></span>    <span class="n">num_x</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
 <span></span>    <span class="n">only_mean</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span></span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Log a metric curve visualization.</span>
+<span></span><span class="w">    </span><span class="sd">"""Log a metric curve visualization.</span>
 <span></span>
 <span></span><span class="sd">    This function generates a metric curve based on input data and logs the visualization to wandb. The curve can</span>
 <span></span><span class="sd">    represent aggregated data (mean) or individual class data, depending on the 'only_mean' flag.</span>
@@ -1891,8 +1887,8 @@ plots to WandB at the specified step.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Dictionary of plots to log, where keys are plot names and values are dictionaries
-containing plot metadata including timestamps.</p>
+<p>Dictionary of plots to log, where keys are plot names and values are dictionaries containing plot
+metadata including timestamps.</p>
 </div>
 </td>
 <td>
@@ -1925,7 +1921,9 @@ Each plot is logged as a WandB Image object.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/wb.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>107</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>105</span>
+<span>106</span>
+<span>107</span>
 <span>108</span>
 <span>109</span>
 <span>110</span>
@@ -1943,19 +1941,15 @@ Each plot is logged as a WandB Image object.</p>
 <span>122</span>
 <span>123</span>
 <span>124</span>
-<span>125</span>
-<span>126</span>
-<span>127</span>
-<span>128</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_plots</span><span class="p">(</span><span class="n">plots</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Log plots to WandB at a specific step if they haven't been logged already.</span>
+<span>125</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_plots</span><span class="p">(</span><span class="n">plots</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Log plots to WandB at a specific step if they haven't been logged already.</span>
 <span></span>
 <span></span><span class="sd">    This function checks each plot in the input dictionary against previously processed plots and logs new or updated</span>
 <span></span><span class="sd">    plots to WandB at the specified step.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        plots (dict): Dictionary of plots to log, where keys are plot names and values are dictionaries</span>
-<span></span><span class="sd">            containing plot metadata including timestamps.</span>
+<span></span><span class="sd">        plots (dict): Dictionary of plots to log, where keys are plot names and values are dictionaries containing plot</span>
+<span></span><span class="sd">            metadata including timestamps.</span>
 <span></span><span class="sd">        step (int): The step/epoch at which to log the plots in the WandB run.</span>
 <span></span>
 <span></span><span class="sd">    Notes:</span>
@@ -1982,14 +1976,14 @@ Each plot is logged as a WandB Image object.</p>
 <p>Initialize and start wandb project if module is present.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/wb.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>131</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>128</span>
+<span>129</span>
+<span>130</span>
+<span>131</span>
 <span>132</span>
 <span>133</span>
 <span>134</span>
-<span>135</span>
-<span>136</span>
-<span>137</span>
-<span>138</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<span>135</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize and start wandb project if module is present."""</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">wb</span><span class="o">.</span><span class="n">run</span><span class="p">:</span>
 <span></span>        <span class="n">wb</span><span class="o">.</span><span class="n">init</span><span class="p">(</span>
@@ -2011,13 +2005,13 @@ Each plot is logged as a WandB Image object.</p>
 <p>Log training metrics and model information at the end of an epoch.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/wb.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>141</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>138</span>
+<span>139</span>
+<span>140</span>
+<span>141</span>
 <span>142</span>
 <span>143</span>
-<span>144</span>
-<span>145</span>
-<span>146</span>
-<span>147</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<span>144</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Log training metrics and model information at the end of an epoch."""</span>
 <span></span>    <span class="n">_log_plots</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">plots</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 <span></span>    <span class="n">_log_plots</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">validator</span><span class="o">.</span><span class="n">plots</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
@@ -2038,12 +2032,12 @@ Each plot is logged as a WandB Image object.</p>
 <p>Log metrics and save images at the end of each training epoch.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/wb.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>150</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>147</span>
+<span>148</span>
+<span>149</span>
+<span>150</span>
 <span>151</span>
-<span>152</span>
-<span>153</span>
-<span>154</span>
-<span>155</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<span>152</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Log metrics and save images at the end of each training epoch."""</span>
 <span></span>    <span class="n">wb</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">label_loss_items</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">tloss</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">"train"</span><span class="p">),</span> <span class="n">step</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 <span></span>    <span class="n">wb</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">lr</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
@@ -2063,7 +2057,10 @@ Each plot is logged as a WandB Image object.</p>
 <p>Save the best model as an artifact and log final plots at the end of training.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/wb.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>158</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>155</span>
+<span>156</span>
+<span>157</span>
+<span>158</span>
 <span>159</span>
 <span>160</span>
 <span>161</span>
@@ -2081,10 +2078,7 @@ Each plot is logged as a WandB Image object.</p>
 <span>173</span>
 <span>174</span>
 <span>175</span>
-<span>176</span>
-<span>177</span>
-<span>178</span>
-<span>179</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<span>176</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Save the best model as an artifact and log final plots at the end of training."""</span>
 <span></span>    <span class="n">_log_plots</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">validator</span><span class="o">.</span><span class="n">plots</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 <span></span>    <span class="n">_log_plots</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">plots</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>

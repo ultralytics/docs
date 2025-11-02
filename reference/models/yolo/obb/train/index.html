@@ -1353,8 +1353,8 @@ objects at arbitrary angles rather than just axis-aligned rectangles.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Names of the loss components used during training including box_loss, cls_loss,
-and dfl_loss.</p>
+<p>Names of the loss components used during training including box_loss, cls_loss, and
+dfl_loss.</p>
 </div>
 </td>
 </tr>
@@ -1413,8 +1413,8 @@ and dfl_loss.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Configuration dictionary for the trainer. Contains training parameters and
-model configuration.</p>
+<p>Configuration dictionary for the trainer. Contains training parameters and model
+configuration.</p>
 </div>
 </td>
 <td>
@@ -1430,8 +1430,8 @@ model configuration.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Dictionary of parameter overrides for the configuration. Any values here
-will take precedence over those in cfg.</p>
+<p>Dictionary of parameter overrides for the configuration. Any values here will
+take precedence over those in cfg.</p>
 </div>
 </td>
 <td>
@@ -1458,7 +1458,8 @@ will take precedence over those in cfg.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/obb/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>36</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>35</span>
+<span>36</span>
 <span>37</span>
 <span>38</span>
 <span>39</span>
@@ -1470,17 +1471,14 @@ will take precedence over those in cfg.</p>
 <span>45</span>
 <span>46</span>
 <span>47</span>
-<span>48</span>
-<span>49</span>
-<span>50</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Initialize an OBBTrainer object for training Oriented Bounding Box (OBB) models.</span>
+<span>48</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Initialize an OBBTrainer object for training Oriented Bounding Box (OBB) models.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        cfg (dict, optional): Configuration dictionary for the trainer. Contains training parameters and</span>
-<span></span><span class="sd">            model configuration.</span>
-<span></span><span class="sd">        overrides (dict, optional): Dictionary of parameter overrides for the configuration. Any values here</span>
-<span></span><span class="sd">            will take precedence over those in cfg.</span>
+<span></span><span class="sd">        cfg (dict, optional): Configuration dictionary for the trainer. Contains training parameters and model</span>
+<span></span><span class="sd">            configuration.</span>
+<span></span><span class="sd">        overrides (dict, optional): Dictionary of parameter overrides for the configuration. Any values here will</span>
+<span></span><span class="sd">            take precedence over those in cfg.</span>
 <span></span><span class="sd">        _callbacks (list[Any], optional): List of callback functions to be invoked during training.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="n">overrides</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1591,7 +1589,9 @@ containing configuration parameters, or None to use default configuration.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/obb/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>52</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>50</span>
+<span>51</span>
+<span>52</span>
 <span>53</span>
 <span>54</span>
 <span>55</span>
@@ -1611,14 +1611,10 @@ containing configuration parameters, or None to use default configuration.</p>
 <span>69</span>
 <span>70</span>
 <span>71</span>
-<span>72</span>
-<span>73</span>
-<span>74</span>
-<span>75</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span>
+<span>72</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">OBBModel</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Return OBBModel initialized with specified config and weights.</span>
+<span></span><span class="w">    </span><span class="sd">"""Return OBBModel initialized with specified config and weights.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        cfg (str | dict, optional): Model configuration. Can be a path to a YAML config file, a dictionary</span>
@@ -1652,12 +1648,12 @@ containing configuration parameters, or None to use default configuration.</p>
 <p>Return an instance of OBBValidator for validation of YOLO model.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/obb/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>77</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>74</span>
+<span>75</span>
+<span>76</span>
+<span>77</span>
 <span>78</span>
-<span>79</span>
-<span>80</span>
-<span>81</span>
-<span>82</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>79</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return an instance of OBBValidator for validation of YOLO model."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">loss_names</span> <span class="o">=</span> <span class="s2">"box_loss"</span><span class="p">,</span> <span class="s2">"cls_loss"</span><span class="p">,</span> <span class="s2">"dfl_loss"</span>
 <span></span>    <span class="k">return</span> <span class="n">yolo</span><span class="o">.</span><span class="n">obb</span><span class="o">.</span><span class="n">OBBValidator</span><span class="p">(</span>

@@ -1636,8 +1636,7 @@
 <span>116</span>
 <span>117</span>
 <span>118</span>
-<span>119</span>
-<span>120</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">onnx2saved_model</span><span class="p">(</span>
+<span>119</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">onnx2saved_model</span><span class="p">(</span>
 <span></span>    <span class="n">onnx_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span></span>    <span class="n">output_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
 <span></span>    <span class="n">int8</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -1645,8 +1644,7 @@
 <span></span>    <span class="n">disable_group_convolution</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">prefix</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span>
 <span></span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Convert a ONNX model to TensorFlow SavedModel format via ONNX.</span>
+<span></span><span class="w">    </span><span class="sd">"""Convert a ONNX model to TensorFlow SavedModel format via ONNX.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        onnx_file (str): ONNX file path.</span>
@@ -1777,7 +1775,8 @@
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/export/tensorflow.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>123</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>122</span>
+<span>123</span>
 <span>124</span>
 <span>125</span>
 <span>126</span>
@@ -1795,11 +1794,8 @@
 <span>138</span>
 <span>139</span>
 <span>140</span>
-<span>141</span>
-<span>142</span>
-<span>143</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">keras2pb</span><span class="p">(</span><span class="n">keras_model</span><span class="p">,</span> <span class="n">file</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Convert a Keras model to TensorFlow GraphDef (.pb) format.</span>
+<span>141</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">keras2pb</span><span class="p">(</span><span class="n">keras_model</span><span class="p">,</span> <span class="n">file</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Convert a Keras model to TensorFlow GraphDef (.pb) format.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        keras_model(tf_keras): Keras model to convert to frozen graph format.</span>
@@ -1900,7 +1896,9 @@ for optimal performance on Google's Edge TPU hardware accelerator.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/export/tensorflow.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>146</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>144</span>
+<span>145</span>
+<span>146</span>
 <span>147</span>
 <span>148</span>
 <span>149</span>
@@ -1922,12 +1920,8 @@ for optimal performance on Google's Edge TPU hardware accelerator.</p>
 <span>165</span>
 <span>166</span>
 <span>167</span>
-<span>168</span>
-<span>169</span>
-<span>170</span>
-<span>171</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tflite2edgetpu</span><span class="p">(</span><span class="n">tflite_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span> <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Convert a TensorFlow Lite model to Edge TPU format using the Edge TPU compiler.</span>
+<span>168</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tflite2edgetpu</span><span class="p">(</span><span class="n">tflite_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span> <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Convert a TensorFlow Lite model to Edge TPU format using the Edge TPU compiler.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        tflite_file (str | Path): Path to the input TensorFlow Lite (.tflite) model file.</span>
@@ -2069,7 +2063,10 @@ Handles spaces in file paths and warns if output directory contains spaces.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/export/tensorflow.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>174</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>171</span>
+<span>172</span>
+<span>173</span>
+<span>174</span>
 <span>175</span>
 <span>176</span>
 <span>177</span>
@@ -2103,13 +2100,8 @@ Handles spaces in file paths and warns if output directory contains spaces.</p>
 <span>205</span>
 <span>206</span>
 <span>207</span>
-<span>208</span>
-<span>209</span>
-<span>210</span>
-<span>211</span>
-<span>212</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pb2tfjs</span><span class="p">(</span><span class="n">pb_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">half</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">int8</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Convert a TensorFlow GraphDef (.pb) model to TensorFlow.js format.</span>
+<span>208</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pb2tfjs</span><span class="p">(</span><span class="n">pb_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">half</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">int8</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Convert a TensorFlow GraphDef (.pb) model to TensorFlow.js format.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        pb_file (str): Path to the input TensorFlow GraphDef (.pb) model file.</span>
@@ -2160,13 +2152,13 @@ Handles spaces in file paths and warns if output directory contains spaces.</p>
 <p>Return TensorFlow GraphDef model output node names.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/export/tensorflow.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>215</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>211</span>
+<span>212</span>
+<span>213</span>
+<span>214</span>
+<span>215</span>
 <span>216</span>
-<span>217</span>
-<span>218</span>
-<span>219</span>
-<span>220</span>
-<span>221</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">gd_outputs</span><span class="p">(</span><span class="n">gd</span><span class="p">):</span>
+<span>217</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">gd_outputs</span><span class="p">(</span><span class="n">gd</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return TensorFlow GraphDef model output node names."""</span>
 <span></span>    <span class="n">name_list</span><span class="p">,</span> <span class="n">input_list</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
 <span></span>    <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">gd</span><span class="o">.</span><span class="n">node</span><span class="p">:</span>  <span class="c1"># tensorflow.core.framework.node_def_pb2.NodeDef</span>

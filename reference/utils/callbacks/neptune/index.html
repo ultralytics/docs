@@ -1438,10 +1438,8 @@
 <span>30</span>
 <span>31</span>
 <span>32</span>
-<span>33</span>
-<span>34</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_scalars</span><span class="p">(</span><span class="n">scalars</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">step</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Log scalars to the NeptuneAI experiment logger.</span>
+<span>33</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_scalars</span><span class="p">(</span><span class="n">scalars</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">step</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Log scalars to the NeptuneAI experiment logger.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        scalars (dict): Dictionary of scalar values to log to NeptuneAI.</span>
@@ -1519,7 +1517,8 @@ specified group name.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/neptune.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>37</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>36</span>
+<span>37</span>
 <span>38</span>
 <span>39</span>
 <span>40</span>
@@ -1534,11 +1533,8 @@ specified group name.</p>
 <span>49</span>
 <span>50</span>
 <span>51</span>
-<span>52</span>
-<span>53</span>
-<span>54</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_images</span><span class="p">(</span><span class="n">imgs_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">group</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Log images to the NeptuneAI experiment logger.</span>
+<span>52</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_images</span><span class="p">(</span><span class="n">imgs_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">group</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Log images to the NeptuneAI experiment logger.</span>
 <span></span>
 <span></span><span class="sd">    This function logs image data to Neptune.ai when a valid Neptune run is active. Images are organized under the</span>
 <span></span><span class="sd">    specified group name.</span>
@@ -1568,16 +1564,16 @@ specified group name.</p>
 <p>Log plots to the NeptuneAI experiment logger.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/neptune.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>57</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>55</span>
+<span>56</span>
+<span>57</span>
 <span>58</span>
 <span>59</span>
 <span>60</span>
 <span>61</span>
 <span>62</span>
 <span>63</span>
-<span>64</span>
-<span>65</span>
-<span>66</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_plot</span><span class="p">(</span><span class="n">title</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">plot_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>64</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_plot</span><span class="p">(</span><span class="n">title</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">plot_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Log plots to the NeptuneAI experiment logger."""</span>
 <span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.image</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpimg</span>
 <span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -1601,7 +1597,9 @@ specified group name.</p>
 <p>Initialize NeptuneAI run and log hyperparameters before training starts.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/neptune.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>69</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>67</span>
+<span>68</span>
+<span>69</span>
 <span>70</span>
 <span>71</span>
 <span>72</span>
@@ -1610,9 +1608,7 @@ specified group name.</p>
 <span>75</span>
 <span>76</span>
 <span>77</span>
-<span>78</span>
-<span>79</span>
-<span>80</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>78</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize NeptuneAI run and log hyperparameters before training starts."""</span>
 <span></span>    <span class="k">try</span><span class="p">:</span>
 <span></span>        <span class="k">global</span> <span class="n">run</span>
@@ -1638,12 +1634,12 @@ specified group name.</p>
 <p>Log training metrics and learning rate at the end of each training epoch.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/neptune.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>83</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>81</span>
+<span>82</span>
+<span>83</span>
 <span>84</span>
 <span>85</span>
-<span>86</span>
-<span>87</span>
-<span>88</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>86</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Log training metrics and learning rate at the end of each training epoch."""</span>
 <span></span>    <span class="n">_log_scalars</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">label_loss_items</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">tloss</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">"train"</span><span class="p">),</span> <span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 <span></span>    <span class="n">_log_scalars</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">lr</span><span class="p">,</span> <span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
@@ -1663,13 +1659,13 @@ specified group name.</p>
 <p>Log model info and validation metrics at the end of each fit epoch.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/neptune.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>91</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>89</span>
+<span>90</span>
+<span>91</span>
 <span>92</span>
 <span>93</span>
 <span>94</span>
-<span>95</span>
-<span>96</span>
-<span>97</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>95</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Log model info and validation metrics at the end of each fit epoch."""</span>
 <span></span>    <span class="k">if</span> <span class="n">run</span> <span class="ow">and</span> <span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 <span></span>        <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.torch_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">model_info_for_loggers</span>
@@ -1690,11 +1686,11 @@ specified group name.</p>
 <p>Log validation images at the end of validation.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/neptune.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>100</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 98</span>
+<span> 99</span>
+<span>100</span>
 <span>101</span>
-<span>102</span>
-<span>103</span>
-<span>104</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_val_end</span><span class="p">(</span><span class="n">validator</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>102</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_val_end</span><span class="p">(</span><span class="n">validator</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Log validation images at the end of validation."""</span>
 <span></span>    <span class="k">if</span> <span class="n">run</span><span class="p">:</span>
 <span></span>        <span class="c1"># Log val_labels and val_pred</span>
@@ -1713,7 +1709,9 @@ specified group name.</p>
 <p>Log final results, plots, and model weights at the end of training.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/neptune.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>107</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>105</span>
+<span>106</span>
+<span>107</span>
 <span>108</span>
 <span>109</span>
 <span>110</span>
@@ -1725,9 +1723,7 @@ specified group name.</p>
 <span>116</span>
 <span>117</span>
 <span>118</span>
-<span>119</span>
-<span>120</span>
-<span>121</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>119</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Log final results, plots, and model weights at the end of training."""</span>
 <span></span>    <span class="k">if</span> <span class="n">run</span><span class="p">:</span>
 <span></span>        <span class="c1"># Log final results, CM matrix + PR plots</span>

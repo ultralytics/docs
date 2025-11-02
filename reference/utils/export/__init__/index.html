@@ -579,8 +579,7 @@
 <span>46</span>
 <span>47</span>
 <span>48</span>
-<span>49</span>
-<span>50</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">torch2onnx</span><span class="p">(</span>
+<span>49</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">torch2onnx</span><span class="p">(</span>
 <span></span>    <span class="n">torch_model</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span>
 <span></span>    <span class="n">im</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">onnx_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -589,8 +588,7 @@
 <span></span>    <span class="n">output_names</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"output0"</span><span class="p">],</span>
 <span></span>    <span class="n">dynamic</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Export a PyTorch model to ONNX format.</span>
+<span></span><span class="w">    </span><span class="sd">"""Export a PyTorch model to ONNX format.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        torch_model (torch.nn.Module): The PyTorch model to export.</span>
@@ -886,7 +884,8 @@ Metadata is serialized and written to the engine file if provided.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/export/engine.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 53</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 52</span>
+<span> 53</span>
 <span> 54</span>
 <span> 55</span>
 <span> 56</span>
@@ -1070,10 +1069,7 @@ Metadata is serialized and written to the engine file if provided.</p>
 <span>234</span>
 <span>235</span>
 <span>236</span>
-<span>237</span>
-<span>238</span>
-<span>239</span>
-<span>240</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">onnx2engine</span><span class="p">(</span>
+<span>237</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">onnx2engine</span><span class="p">(</span>
 <span></span>    <span class="n">onnx_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span></span>    <span class="n">engine_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">workspace</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -1087,8 +1083,7 @@ Metadata is serialized and written to the engine file if provided.</p>
 <span></span>    <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Export a YOLO model to TensorRT engine format.</span>
+<span></span><span class="w">    </span><span class="sd">"""Export a YOLO model to TensorRT engine format.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        onnx_file (str): Path to the ONNX file to be converted.</span>
@@ -1177,8 +1172,7 @@ Metadata is serialized and written to the engine file if provided.</p>
 <span></span>        <span class="n">config</span><span class="o">.</span><span class="n">profiling_verbosity</span> <span class="o">=</span> <span class="n">trt</span><span class="o">.</span><span class="n">ProfilingVerbosity</span><span class="o">.</span><span class="n">DETAILED</span>
 <span></span>
 <span></span>        <span class="k">class</span><span class="w"> </span><span class="nc">EngineCalibrator</span><span class="p">(</span><span class="n">trt</span><span class="o">.</span><span class="n">IInt8Calibrator</span><span class="p">):</span>
-<span></span><span class="w">            </span><span class="sd">"""</span>
-<span></span><span class="sd">            Custom INT8 calibrator for TensorRT engine optimization.</span>
+<span></span><span class="w">            </span><span class="sd">"""Custom INT8 calibrator for TensorRT engine optimization.</span>
 <span></span>
 <span></span><span class="sd">            This calibrator provides the necessary interface for TensorRT to perform INT8 quantization calibration using</span>
 <span></span><span class="sd">            a dataset. It handles batch generation, caching, and calibration algorithm selection.</span>

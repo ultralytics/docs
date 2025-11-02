@@ -1415,7 +1415,8 @@ MongoDB Atlas coordination for multi-machine hyperparameter optimization.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/tuner.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 85</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 84</span>
+<span> 85</span>
 <span> 86</span>
 <span> 87</span>
 <span> 88</span>
@@ -1470,11 +1471,8 @@ MongoDB Atlas coordination for multi-machine hyperparameter optimization.</p>
 <span>137</span>
 <span>138</span>
 <span>139</span>
-<span>140</span>
-<span>141</span>
-<span>142</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Initialize the Tuner with configurations.</span>
+<span>140</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Initialize the Tuner with configurations.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        args (dict): Configuration for hyperparameter evolution.</span>
@@ -1610,7 +1608,15 @@ MongoDB Atlas coordination for multi-machine hyperparameter optimization.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/tuner.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>350</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>342</span>
+<span>343</span>
+<span>344</span>
+<span>345</span>
+<span>346</span>
+<span>347</span>
+<span>348</span>
+<span>349</span>
+<span>350</span>
 <span>351</span>
 <span>352</span>
 <span>353</span>
@@ -1709,18 +1715,8 @@ MongoDB Atlas coordination for multi-machine hyperparameter optimization.</p>
 <span>446</span>
 <span>447</span>
 <span>448</span>
-<span>449</span>
-<span>450</span>
-<span>451</span>
-<span>452</span>
-<span>453</span>
-<span>454</span>
-<span>455</span>
-<span>456</span>
-<span>457</span>
-<span>458</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">iterations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">cleanup</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Execute the hyperparameter evolution process when the Tuner instance is called.</span>
+<span>449</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">iterations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">cleanup</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Execute the hyperparameter evolution process when the Tuner instance is called.</span>
 <span></span>
 <span></span><span class="sd">    This method iterates through the specified number of iterations, performing the following steps:</span>
 <span></span><span class="sd">    1. Sync MongoDB results to CSV (if using distributed mode)</span>

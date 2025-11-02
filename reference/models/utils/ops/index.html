@@ -1491,7 +1491,8 @@ components. Should contain keys 'class', 'bbox', 'giou', 'mask', and 'dice'.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>50</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>49</span>
+<span>50</span>
 <span>51</span>
 <span>52</span>
 <span>53</span>
@@ -1518,9 +1519,7 @@ components. Should contain keys 'class', 'bbox', 'giou', 'mask', and 'dice'.</p>
 <span>74</span>
 <span>75</span>
 <span>76</span>
-<span>77</span>
-<span>78</span>
-<span>79</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>77</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">cost_gain</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">use_fl</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
@@ -1529,8 +1528,7 @@ components. Should contain keys 'class', 'bbox', 'giou', 'mask', and 'dice'.</p>
 <span></span>    <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">,</span>
 <span></span>    <span class="n">gamma</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span>
 <span></span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Initialize HungarianMatcher for optimal assignment of predicted and ground truth bounding boxes.</span>
+<span></span><span class="w">    </span><span class="sd">"""Initialize HungarianMatcher for optimal assignment of predicted and ground truth bounding boxes.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        cost_gain (dict[str, float], optional): Dictionary of cost coefficients for different matching cost</span>
@@ -1712,9 +1710,9 @@ num_classes).</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>A list of size batch_size, each element is a tuple
-(index_i, index_j), where index_i is the tensor of indices of the selected predictions (in order) and
-index_j is the tensor of indices of the corresponding selected ground truth targets (in order).</p>
+<p>A list of size batch_size, each element is a tuple (index_i,
+index_j), where index_i is the tensor of indices of the selected predictions (in order) and index_j is
+the tensor of indices of the corresponding selected ground truth targets (in order).</p>
 </div>
 </td>
 </tr>
@@ -1732,7 +1730,9 @@ index_j is the tensor of indices of the corresponding selected ground truth targ
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 81</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 79</span>
+<span> 80</span>
+<span> 81</span>
 <span> 82</span>
 <span> 83</span>
 <span> 84</span>
@@ -1806,10 +1806,7 @@ index_j is the tensor of indices of the corresponding selected ground truth targ
 <span>152</span>
 <span>153</span>
 <span>154</span>
-<span>155</span>
-<span>156</span>
-<span>157</span>
-<span>158</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
+<span>155</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">pred_bboxes</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">pred_scores</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
@@ -1819,8 +1816,7 @@ index_j is the tensor of indices of the corresponding selected ground truth targ
 <span></span>    <span class="n">masks</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">gt_mask</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Compute optimal assignment between predictions and ground truth using Hungarian algorithm.</span>
+<span></span><span class="w">    </span><span class="sd">"""Compute optimal assignment between predictions and ground truth using Hungarian algorithm.</span>
 <span></span>
 <span></span><span class="sd">    This method calculates matching costs based on classification scores, bounding box coordinates, and optionally</span>
 <span></span><span class="sd">    mask predictions, then finds the optimal bipartite assignment between predictions and ground truth.</span>
@@ -1836,9 +1832,9 @@ index_j is the tensor of indices of the corresponding selected ground truth targ
 <span></span><span class="sd">        gt_mask (list[torch.Tensor], optional): Ground truth masks, each with shape (num_masks, Height, Width).</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (list[tuple[torch.Tensor, torch.Tensor]]): A list of size batch_size, each element is a tuple</span>
-<span></span><span class="sd">            (index_i, index_j), where index_i is the tensor of indices of the selected predictions (in order) and</span>
-<span></span><span class="sd">            index_j is the tensor of indices of the corresponding selected ground truth targets (in order).</span>
+<span></span><span class="sd">        (list[tuple[torch.Tensor, torch.Tensor]]): A list of size batch_size, each element is a tuple (index_i,</span>
+<span></span><span class="sd">            index_j), where index_i is the tensor of indices of the selected predictions (in order) and index_j is</span>
+<span></span><span class="sd">            the tensor of indices of the corresponding selected ground truth targets (in order).</span>
 <span></span><span class="sd">        For each batch element, it holds: len(index_i) = len(index_j) = min(num_queries, num_target_boxes).</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">bs</span><span class="p">,</span> <span class="n">nq</span><span class="p">,</span> <span class="n">nc</span> <span class="o">=</span> <span class="n">pred_scores</span><span class="o">.</span><span class="n">shape</span>
@@ -1938,9 +1934,9 @@ boxes and class labels. It generates both positive and negative samples to impro
 </td>
 <td>
 <div class="doc-md-description">
-<p>Batch dictionary containing 'gt_cls' (torch.Tensor with shape (num_gts,)),
-'gt_bboxes' (torch.Tensor with shape (num_gts, 4)), and 'gt_groups' (list[int]) indicating number of ground
-truths per image.</p>
+<p>Batch dictionary containing 'gt_cls' (torch.Tensor with shape (num_gts,)), 'gt_bboxes'
+(torch.Tensor with shape (num_gts, 4)), and 'gt_groups' (list[int]) indicating number of ground truths
+per image.</p>
 </div>
 </td>
 <td>
@@ -2125,7 +2121,10 @@ truths per image.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>191</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>188</span>
+<span>189</span>
+<span>190</span>
+<span>191</span>
 <span>192</span>
 <span>193</span>
 <span>194</span>
@@ -2249,11 +2248,7 @@ truths per image.</p>
 <span>312</span>
 <span>313</span>
 <span>314</span>
-<span>315</span>
-<span>316</span>
-<span>317</span>
-<span>318</span>
-<span>319</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_cdn_group</span><span class="p">(</span>
+<span>315</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_cdn_group</span><span class="p">(</span>
 <span></span>    <span class="n">batch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
 <span></span>    <span class="n">num_classes</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">num_queries</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -2263,16 +2258,15 @@ truths per image.</p>
 <span></span>    <span class="n">box_noise_scale</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
 <span></span>    <span class="n">training</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Generate contrastive denoising training group with positive and negative samples from ground truths.</span>
+<span></span><span class="w">    </span><span class="sd">"""Generate contrastive denoising training group with positive and negative samples from ground truths.</span>
 <span></span>
 <span></span><span class="sd">    This function creates denoising queries for contrastive denoising training by adding noise to ground truth bounding</span>
 <span></span><span class="sd">    boxes and class labels. It generates both positive and negative samples to improve model robustness.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        batch (dict[str, Any]): Batch dictionary containing 'gt_cls' (torch.Tensor with shape (num_gts,)),</span>
-<span></span><span class="sd">            'gt_bboxes' (torch.Tensor with shape (num_gts, 4)), and 'gt_groups' (list[int]) indicating number of ground</span>
-<span></span><span class="sd">            truths per image.</span>
+<span></span><span class="sd">        batch (dict[str, Any]): Batch dictionary containing 'gt_cls' (torch.Tensor with shape (num_gts,)), 'gt_bboxes'</span>
+<span></span><span class="sd">            (torch.Tensor with shape (num_gts, 4)), and 'gt_groups' (list[int]) indicating number of ground truths</span>
+<span></span><span class="sd">            per image.</span>
 <span></span><span class="sd">        num_classes (int): Total number of object classes.</span>
 <span></span><span class="sd">        num_queries (int): Number of object queries.</span>
 <span></span><span class="sd">        class_embed (torch.Tensor): Class embedding weights to map labels to embedding space.</span>

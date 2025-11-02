@@ -1270,10 +1270,8 @@
 <span>22</span>
 <span>23</span>
 <span>24</span>
-<span>25</span>
-<span>26</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">find_free_network_port</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Find a free port on localhost.</span>
+<span>25</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">find_free_network_port</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Find a free port on localhost.</span>
 <span></span>
 <span></span><span class="sd">    It is useful in single-node training when we don't want to connect to a real main node but have to set the</span>
 <span></span><span class="sd">    `MASTER_PORT` environment variable.</span>
@@ -1361,7 +1359,8 @@ Must have args attribute and be a class instance.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/dist.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>29</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>28</span>
+<span>29</span>
 <span>30</span>
 <span>31</span>
 <span>32</span>
@@ -1406,11 +1405,8 @@ Must have args attribute and be a class instance.</p>
 <span>71</span>
 <span>72</span>
 <span>73</span>
-<span>74</span>
-<span>75</span>
-<span>76</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_ddp_file</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Generate a DDP (Distributed Data Parallel) file for multi-GPU training.</span>
+<span>74</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_ddp_file</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Generate a DDP (Distributed Data Parallel) file for multi-GPU training.</span>
 <span></span>
 <span></span><span class="sd">    This function creates a temporary Python file that enables distributed training across multiple GPUs. The file</span>
 <span></span><span class="sd">    contains the necessary configuration to initialize the trainer in a distributed environment.</span>
@@ -1530,7 +1526,9 @@ Must have args attribute and be a class instance.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/dist.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 79</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 77</span>
+<span> 78</span>
+<span> 79</span>
 <span> 80</span>
 <span> 81</span>
 <span> 82</span>
@@ -1555,12 +1553,8 @@ Must have args attribute and be a class instance.</p>
 <span>101</span>
 <span>102</span>
 <span>103</span>
-<span>104</span>
-<span>105</span>
-<span>106</span>
-<span>107</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_ddp_command</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Generate command for distributed training.</span>
+<span>104</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_ddp_command</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Generate command for distributed training.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        trainer (ultralytics.engine.trainer.BaseTrainer): The trainer containing configuration for distributed training.</span>
@@ -1653,7 +1647,10 @@ temporary file for DDP training, and deletes it if so.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/dist.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>110</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>107</span>
+<span>108</span>
+<span>109</span>
+<span>110</span>
 <span>111</span>
 <span>112</span>
 <span>113</span>
@@ -1666,13 +1663,8 @@ temporary file for DDP training, and deletes it if so.</p>
 <span>120</span>
 <span>121</span>
 <span>122</span>
-<span>123</span>
-<span>124</span>
-<span>125</span>
-<span>126</span>
-<span>127</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ddp_cleanup</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Delete temporary file if created during distributed data parallel (DDP) training.</span>
+<span>123</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ddp_cleanup</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Delete temporary file if created during distributed data parallel (DDP) training.</span>
 <span></span>
 <span></span><span class="sd">    This function checks if the provided file contains the trainer's ID in its name, indicating it was created as a</span>
 <span></span><span class="sd">    temporary file for DDP training, and deletes it if so.</span>

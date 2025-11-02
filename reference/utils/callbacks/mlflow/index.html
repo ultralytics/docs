@@ -1429,10 +1429,8 @@ MLFLOW_KEEP_RUN_ACTIVE: Boolean indicating whether to keep the MLflow run active
 <span>81</span>
 <span>82</span>
 <span>83</span>
-<span>84</span>
-<span>85</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Log training parameters to MLflow at the end of the pretraining routine.</span>
+<span>84</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Log training parameters to MLflow at the end of the pretraining routine.</span>
 <span></span>
 <span></span><span class="sd">    This function sets up MLflow logging based on environment variables and trainer arguments. It sets the tracking URI,</span>
 <span></span><span class="sd">    experiment name, and run name, then starts the MLflow run if not already active. It finally logs the parameters from</span>
@@ -1483,7 +1481,8 @@ MLFLOW_KEEP_RUN_ACTIVE: Boolean indicating whether to keep the MLflow run active
 <p>Log training metrics at the end of each train epoch to MLflow.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/mlflow.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>88</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>87</span>
+<span>88</span>
 <span>89</span>
 <span>90</span>
 <span>91</span>
@@ -1491,8 +1490,7 @@ MLFLOW_KEEP_RUN_ACTIVE: Boolean indicating whether to keep the MLflow run active
 <span>93</span>
 <span>94</span>
 <span>95</span>
-<span>96</span>
-<span>97</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<span>96</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Log training metrics at the end of each train epoch to MLflow."""</span>
 <span></span>    <span class="k">if</span> <span class="n">mlflow</span><span class="p">:</span>
 <span></span>        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_metrics</span><span class="p">(</span>
@@ -1516,10 +1514,10 @@ MLFLOW_KEEP_RUN_ACTIVE: Boolean indicating whether to keep the MLflow run active
 <p>Log training metrics at the end of each fit epoch to MLflow.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/mlflow.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>100</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 99</span>
+<span>100</span>
 <span>101</span>
-<span>102</span>
-<span>103</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<span>102</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Log training metrics at the end of each fit epoch to MLflow."""</span>
 <span></span>    <span class="k">if</span> <span class="n">mlflow</span><span class="p">:</span>
 <span></span>        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_metrics</span><span class="p">(</span><span class="n">metrics</span><span class="o">=</span><span class="n">sanitize_dict</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">metrics</span><span class="p">),</span> <span class="n">step</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span><span class="p">)</span>
@@ -1537,7 +1535,8 @@ MLFLOW_KEEP_RUN_ACTIVE: Boolean indicating whether to keep the MLflow run active
 <p>Log model artifacts at the end of training.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/mlflow.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>106</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>105</span>
+<span>106</span>
 <span>107</span>
 <span>108</span>
 <span>109</span>
@@ -1553,8 +1552,7 @@ MLFLOW_KEEP_RUN_ACTIVE: Boolean indicating whether to keep the MLflow run active
 <span>119</span>
 <span>120</span>
 <span>121</span>
-<span>122</span>
-<span>123</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<span>122</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Log model artifacts at the end of training."""</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">mlflow</span><span class="p">:</span>
 <span></span>        <span class="k">return</span>

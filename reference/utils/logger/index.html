@@ -1439,7 +1439,8 @@ to reduce noise from repetitive console output.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/logger.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>55</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>54</span>
+<span>55</span>
 <span>56</span>
 <span>57</span>
 <span>58</span>
@@ -1460,11 +1461,8 @@ to reduce noise from repetitive console output.</p>
 <span>73</span>
 <span>74</span>
 <span>75</span>
-<span>76</span>
-<span>77</span>
-<span>78</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">destination</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Initialize with API endpoint or local file path.</span>
+<span>76</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">destination</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Initialize with API endpoint or local file path.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        destination (str | Path): API endpoint URL (http/https) or local file path for streaming output.</span>
@@ -1499,7 +1497,9 @@ to reduce noise from repetitive console output.</p>
 <p>Start capturing console output and redirect stdout/stderr to custom capture objects.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/logger.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>80</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>78</span>
+<span>79</span>
+<span>80</span>
 <span>81</span>
 <span>82</span>
 <span>83</span>
@@ -1514,9 +1514,7 @@ to reduce noise from repetitive console output.</p>
 <span>92</span>
 <span>93</span>
 <span>94</span>
-<span>95</span>
-<span>96</span>
-<span>97</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">start_capture</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>95</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">start_capture</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Start capturing console output and redirect stdout/stderr to custom capture objects."""</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">active</span><span class="p">:</span>
 <span></span>        <span class="k">return</span>
@@ -1548,15 +1546,15 @@ to reduce noise from repetitive console output.</p>
 <p>Stop capturing console output and restore original stdout/stderr.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/logger.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 99</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 97</span>
+<span> 98</span>
+<span> 99</span>
 <span>100</span>
 <span>101</span>
 <span>102</span>
 <span>103</span>
 <span>104</span>
-<span>105</span>
-<span>106</span>
-<span>107</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">stop_capture</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>105</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">stop_capture</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Stop capturing console output and restore original stdout/stderr."""</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">active</span><span class="p">:</span>
 <span></span>        <span class="k">return</span>
@@ -1653,14 +1651,14 @@ performance monitoring and analysis.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/logger.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>259</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>256</span>
+<span>257</span>
+<span>258</span>
+<span>259</span>
 <span>260</span>
 <span>261</span>
 <span>262</span>
-<span>263</span>
-<span>264</span>
-<span>265</span>
-<span>266</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>263</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the system logger."""</span>
 <span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">psutil</span>  <span class="c1"># scoped as slow import</span>
 <span></span>
@@ -1737,7 +1735,10 @@ statistics, and GPU metrics (if available). Example output:</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/logger.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>279</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>276</span>
+<span>277</span>
+<span>278</span>
+<span>279</span>
 <span>280</span>
 <span>281</span>
 <span>282</span>
@@ -1797,13 +1798,8 @@ statistics, and GPU metrics (if available). Example output:</p>
 <span>336</span>
 <span>337</span>
 <span>338</span>
-<span>339</span>
-<span>340</span>
-<span>341</span>
-<span>342</span>
-<span>343</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Get current system metrics.</span>
+<span>339</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Get current system metrics.</span>
 <span></span>
 <span></span><span class="sd">    Collects comprehensive system metrics including CPU usage, RAM usage, disk I/O statistics, network I/O</span>
 <span></span><span class="sd">    statistics, and GPU metrics (if available). Example output:</span>

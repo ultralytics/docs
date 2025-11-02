@@ -1420,10 +1420,8 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 <span>60</span>
 <span>61</span>
 <span>62</span>
-<span>63</span>
-<span>64</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bbox_iof</span><span class="p">(</span><span class="n">polygon1</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">bbox2</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-6</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Calculate Intersection over Foreground (IoF) between polygons and bounding boxes.</span>
+<span>63</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bbox_iof</span><span class="p">(</span><span class="n">polygon1</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">bbox2</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-6</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Calculate Intersection over Foreground (IoF) between polygons and bounding boxes.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        polygon1 (np.ndarray): Polygon coordinates with shape (N, 8).</span>
@@ -1557,42 +1555,40 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/split_dota.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 67</span>
-<span> 68</span>
-<span> 69</span>
-<span> 70</span>
-<span> 71</span>
-<span> 72</span>
-<span> 73</span>
-<span> 74</span>
-<span> 75</span>
-<span> 76</span>
-<span> 77</span>
-<span> 78</span>
-<span> 79</span>
-<span> 80</span>
-<span> 81</span>
-<span> 82</span>
-<span> 83</span>
-<span> 84</span>
-<span> 85</span>
-<span> 86</span>
-<span> 87</span>
-<span> 88</span>
-<span> 89</span>
-<span> 90</span>
-<span> 91</span>
-<span> 92</span>
-<span> 93</span>
-<span> 94</span>
-<span> 95</span>
-<span> 96</span>
-<span> 97</span>
-<span> 98</span>
-<span> 99</span>
-<span>100</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_yolo_dota</span><span class="p">(</span><span class="n">data_root</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">split</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"train"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Load DOTA dataset annotations and image information.</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>66</span>
+<span>67</span>
+<span>68</span>
+<span>69</span>
+<span>70</span>
+<span>71</span>
+<span>72</span>
+<span>73</span>
+<span>74</span>
+<span>75</span>
+<span>76</span>
+<span>77</span>
+<span>78</span>
+<span>79</span>
+<span>80</span>
+<span>81</span>
+<span>82</span>
+<span>83</span>
+<span>84</span>
+<span>85</span>
+<span>86</span>
+<span>87</span>
+<span>88</span>
+<span>89</span>
+<span>90</span>
+<span>91</span>
+<span>92</span>
+<span>93</span>
+<span>94</span>
+<span>95</span>
+<span>96</span>
+<span>97</span>
+<span>98</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_yolo_dota</span><span class="p">(</span><span class="n">data_root</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">split</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"train"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span></span><span class="w">    </span><span class="sd">"""Load DOTA dataset annotations and image information.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        data_root (str): Data root directory.</span>
@@ -1758,7 +1754,9 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/split_dota.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>103</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>101</span>
+<span>102</span>
+<span>103</span>
 <span>104</span>
 <span>105</span>
 <span>106</span>
@@ -1805,18 +1803,14 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 <span>147</span>
 <span>148</span>
 <span>149</span>
-<span>150</span>
-<span>151</span>
-<span>152</span>
-<span>153</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_windows</span><span class="p">(</span>
+<span>150</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_windows</span><span class="p">(</span>
 <span></span>    <span class="n">im_size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
 <span></span>    <span class="n">crop_sizes</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1024</span><span class="p">,),</span>
 <span></span>    <span class="n">gaps</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">200</span><span class="p">,),</span>
 <span></span>    <span class="n">im_rate_thr</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">,</span>
 <span></span>    <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Get the coordinates of sliding windows for image cropping.</span>
+<span></span><span class="w">    </span><span class="sd">"""Get the coordinates of sliding windows for image cropping.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        im_size (tuple[int, int]): Original image size, (H, W).</span>
@@ -1875,7 +1869,10 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 <p>Get objects for each window based on IoF threshold.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/split_dota.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>156</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>153</span>
+<span>154</span>
+<span>155</span>
+<span>156</span>
 <span>157</span>
 <span>158</span>
 <span>159</span>
@@ -1883,10 +1880,7 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 <span>161</span>
 <span>162</span>
 <span>163</span>
-<span>164</span>
-<span>165</span>
-<span>166</span>
-<span>167</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_window_obj</span><span class="p">(</span><span class="n">anno</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">windows</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">iof_thr</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span>164</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_window_obj</span><span class="p">(</span><span class="n">anno</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">windows</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">iof_thr</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Get objects for each window based on IoF threshold."""</span>
 <span></span>    <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">anno</span><span class="p">[</span><span class="s2">"ori_size"</span><span class="p">]</span>
 <span></span>    <span class="n">label</span> <span class="o">=</span> <span class="n">anno</span><span class="p">[</span><span class="s2">"label"</span><span class="p">]</span>
@@ -2039,7 +2033,10 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/split_dota.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>170</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>167</span>
+<span>168</span>
+<span>169</span>
+<span>170</span>
 <span>171</span>
 <span>172</span>
 <span>173</span>
@@ -2084,11 +2081,7 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 <span>212</span>
 <span>213</span>
 <span>214</span>
-<span>215</span>
-<span>216</span>
-<span>217</span>
-<span>218</span>
-<span>219</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">crop_and_save</span><span class="p">(</span>
+<span>215</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">crop_and_save</span><span class="p">(</span>
 <span></span>    <span class="n">anno</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
 <span></span>    <span class="n">windows</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
 <span></span>    <span class="n">window_objs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
@@ -2096,8 +2089,7 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 <span></span>    <span class="n">lb_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span></span>    <span class="n">allow_background_images</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Crop images and save new labels for each window.</span>
+<span></span><span class="w">    </span><span class="sd">"""Crop images and save new labels for each window.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        anno (dict[str, Any]): Annotation dict, including 'filepath', 'label', 'ori_size' as its keys.</span>
@@ -2266,7 +2258,11 @@ and the output directory structure is:
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/split_dota.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>222</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>218</span>
+<span>219</span>
+<span>220</span>
+<span>221</span>
+<span>222</span>
 <span>223</span>
 <span>224</span>
 <span>225</span>
@@ -2301,20 +2297,14 @@ and the output directory structure is:
 <span>254</span>
 <span>255</span>
 <span>256</span>
-<span>257</span>
-<span>258</span>
-<span>259</span>
-<span>260</span>
-<span>261</span>
-<span>262</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">split_images_and_labels</span><span class="p">(</span>
+<span>257</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">split_images_and_labels</span><span class="p">(</span>
 <span></span>    <span class="n">data_root</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span></span>    <span class="n">save_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span></span>    <span class="n">split</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"train"</span><span class="p">,</span>
 <span></span>    <span class="n">crop_sizes</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1024</span><span class="p">,),</span>
 <span></span>    <span class="n">gaps</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">200</span><span class="p">,),</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Split both images and labels for a given dataset split.</span>
+<span></span><span class="w">    </span><span class="sd">"""Split both images and labels for a given dataset split.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        data_root (str): Root directory of the dataset.</span>
@@ -2479,7 +2469,12 @@ and the output directory structure is:
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/split_dota.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>265</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>260</span>
+<span>261</span>
+<span>262</span>
+<span>263</span>
+<span>264</span>
+<span>265</span>
 <span>266</span>
 <span>267</span>
 <span>268</span>
@@ -2509,17 +2504,10 @@ and the output directory structure is:
 <span>292</span>
 <span>293</span>
 <span>294</span>
-<span>295</span>
-<span>296</span>
-<span>297</span>
-<span>298</span>
-<span>299</span>
-<span>300</span>
-<span>301</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">split_trainval</span><span class="p">(</span>
+<span>295</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">split_trainval</span><span class="p">(</span>
 <span></span>    <span class="n">data_root</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">crop_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1024</span><span class="p">,</span> <span class="n">gap</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> <span class="n">rates</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,)</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Split train and val sets of DOTA dataset with multiple scaling rates.</span>
+<span></span><span class="w">    </span><span class="sd">"""Split train and val sets of DOTA dataset with multiple scaling rates.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        data_root (str): Root directory of the dataset.</span>
@@ -2676,7 +2664,13 @@ and the output directory structure is:
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/split_dota.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>304</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>298</span>
+<span>299</span>
+<span>300</span>
+<span>301</span>
+<span>302</span>
+<span>303</span>
+<span>304</span>
 <span>305</span>
 <span>306</span>
 <span>307</span>
@@ -2711,18 +2705,10 @@ and the output directory structure is:
 <span>336</span>
 <span>337</span>
 <span>338</span>
-<span>339</span>
-<span>340</span>
-<span>341</span>
-<span>342</span>
-<span>343</span>
-<span>344</span>
-<span>345</span>
-<span>346</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">split_test</span><span class="p">(</span>
+<span>339</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">split_test</span><span class="p">(</span>
 <span></span>    <span class="n">data_root</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">crop_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1024</span><span class="p">,</span> <span class="n">gap</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> <span class="n">rates</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,)</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Split test set of DOTA dataset, labels are not included within this set.</span>
+<span></span><span class="w">    </span><span class="sd">"""Split test set of DOTA dataset, labels are not included within this set.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        data_root (str): Root directory of the dataset.</span>

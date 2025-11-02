@@ -1403,10 +1403,10 @@ that the original working directory is restored after the context or decorated f
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/files.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>43</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>42</span>
+<span>43</span>
 <span>44</span>
-<span>45</span>
-<span>46</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">):</span>
+<span>45</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the WorkingDirectory context manager with the target directory."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">dir</span> <span class="o">=</span> <span class="n">new_dir</span>  <span class="c1"># new dir</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">cwd</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>  <span class="c1"># current dir</span>
@@ -1423,9 +1423,9 @@ that the original working directory is restored after the context or decorated f
 <p>Change the current working directory to the specified directory upon entering the context.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/files.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>48</span>
-<span>49</span>
-<span>50</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>47</span>
+<span>48</span>
+<span>49</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Change the current working directory to the specified directory upon entering the context."""</span>
 <span></span>    <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dir</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -1442,9 +1442,9 @@ that the original working directory is restored after the context or decorated f
 <p>Restore the original working directory when exiting the context.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/files.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>52</span>
-<span>53</span>
-<span>54</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>51</span>
+<span>52</span>
+<span>53</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Restore the original working directory when exiting the context."""</span>
 <span></span>    <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cwd</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -1508,8 +1508,7 @@ the context code block, then copies the file/directory back to its original loca
 </td>
 <td>
 <div class="doc-md-description">
-<p>Temporary path with spaces replaced by underscores if spaces were present, otherwise the
-original path.</p>
+<p>Temporary path with any spaces replaced by underscores.</p>
 </div>
 </td>
 </tr>
@@ -1522,7 +1521,8 @@ original path.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/files.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 57</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 56</span>
+<span> 57</span>
 <span> 58</span>
 <span> 59</span>
 <span> 60</span>
@@ -1568,13 +1568,9 @@ original path.</p>
 <span>100</span>
 <span>101</span>
 <span>102</span>
-<span>103</span>
-<span>104</span>
-<span>105</span>
-<span>106</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@contextmanager</span>
+<span>103</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@contextmanager</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">spaces_in_path</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Context manager to handle paths with spaces in their names.</span>
+<span></span><span class="w">    </span><span class="sd">"""Context manager to handle paths with spaces in their names.</span>
 <span></span>
 <span></span><span class="sd">    If a path contains spaces, it replaces them with underscores, copies the file/directory to the new path, executes</span>
 <span></span><span class="sd">    the context code block, then copies the file/directory back to its original location.</span>
@@ -1583,8 +1579,7 @@ original path.</p>
 <span></span><span class="sd">        path (str | Path): The original path that may contain spaces.</span>
 <span></span>
 <span></span><span class="sd">    Yields:</span>
-<span></span><span class="sd">        (Path | str): Temporary path with spaces replaced by underscores if spaces were present, otherwise the</span>
-<span></span><span class="sd">            original path.</span>
+<span></span><span class="sd">        (Path | str): Temporary path with any spaces replaced by underscores.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; with spaces_in_path('/path/with spaces') as new_path:</span>
@@ -1752,7 +1747,10 @@ will be appended directly to the end of the path.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/files.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>109</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>106</span>
+<span>107</span>
+<span>108</span>
+<span>109</span>
 <span>110</span>
 <span>111</span>
 <span>112</span>
@@ -1793,13 +1791,8 @@ will be appended directly to the end of the path.</p>
 <span>147</span>
 <span>148</span>
 <span>149</span>
-<span>150</span>
-<span>151</span>
-<span>152</span>
-<span>153</span>
-<span>154</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">increment_path</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span> <span class="n">exist_ok</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">sep</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="n">mkdir</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Increment a file or directory path, i.e., runs/exp --&gt; runs/exp{sep}2, runs/exp{sep}3, ... etc.</span>
+<span>150</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">increment_path</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span> <span class="n">exist_ok</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">sep</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="n">mkdir</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Increment a file or directory path, i.e., runs/exp --&gt; runs/exp{sep}2, runs/exp{sep}3, ... etc.</span>
 <span></span>
 <span></span><span class="sd">    If the path exists and `exist_ok` is not True, the path will be incremented by appending a number and `sep` to the</span>
 <span></span><span class="sd">    end of the path. If the path is a file, the file extension will be preserved. If the path is a directory, the number</span>
@@ -1857,10 +1850,10 @@ will be appended directly to the end of the path.</p>
 <p>Return days since the last modification of the specified file.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/files.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>157</span>
-<span>158</span>
-<span>159</span>
-<span>160</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">file_age</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">=</span> <span class="vm">__file__</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>153</span>
+<span>154</span>
+<span>155</span>
+<span>156</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">file_age</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">=</span> <span class="vm">__file__</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return days since the last modification of the specified file."""</span>
 <span></span>    <span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_mtime</span><span class="p">)</span>  <span class="c1"># delta</span>
 <span></span>    <span class="k">return</span> <span class="n">dt</span><span class="o">.</span><span class="n">days</span>  <span class="c1"># + dt.seconds / 86400  # fractional days</span>
@@ -1878,10 +1871,10 @@ will be appended directly to the end of the path.</p>
 <p>Return the file modification date in 'YYYY-M-D' format.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/files.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>163</span>
-<span>164</span>
-<span>165</span>
-<span>166</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">file_date</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">=</span> <span class="vm">__file__</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>159</span>
+<span>160</span>
+<span>161</span>
+<span>162</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">file_date</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">=</span> <span class="vm">__file__</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the file modification date in 'YYYY-M-D' format."""</span>
 <span></span>    <span class="n">t</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_mtime</span><span class="p">)</span>
 <span></span>    <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">t</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">t</span><span class="o">.</span><span class="n">month</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">t</span><span class="o">.</span><span class="n">day</span><span class="si">}</span><span class="s2">"</span>
@@ -1899,16 +1892,16 @@ will be appended directly to the end of the path.</p>
 <p>Return the size of a file or directory in megabytes (MB).</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/files.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>169</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>165</span>
+<span>166</span>
+<span>167</span>
+<span>168</span>
+<span>169</span>
 <span>170</span>
 <span>171</span>
 <span>172</span>
 <span>173</span>
-<span>174</span>
-<span>175</span>
-<span>176</span>
-<span>177</span>
-<span>178</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">file_size</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span>174</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">file_size</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the size of a file or directory in megabytes (MB)."""</span>
 <span></span>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">)):</span>
 <span></span>        <span class="n">mb</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">20</span>  <span class="c1"># bytes to MiB (1024 ** 2)</span>
@@ -1932,10 +1925,10 @@ will be appended directly to the end of the path.</p>
 <p>Return the path to the most recent 'last.pt' file in the specified directory for resuming training.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/files.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>181</span>
-<span>182</span>
-<span>183</span>
-<span>184</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_latest_run</span><span class="p">(</span><span class="n">search_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"."</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>177</span>
+<span>178</span>
+<span>179</span>
+<span>180</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_latest_run</span><span class="p">(</span><span class="n">search_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"."</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the path to the most recent 'last.pt' file in the specified directory for resuming training."""</span>
 <span></span>    <span class="n">last_list</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">search_dir</span><span class="si">}</span><span class="s2">/**/last*.pt"</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span></span>    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">last_list</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getctime</span><span class="p">)</span> <span class="k">if</span> <span class="n">last_list</span> <span class="k">else</span> <span class="s2">""</span>
@@ -2024,7 +2017,11 @@ will be appended directly to the end of the path.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/files.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>187</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>183</span>
+<span>184</span>
+<span>185</span>
+<span>186</span>
+<span>187</span>
 <span>188</span>
 <span>189</span>
 <span>190</span>
@@ -2055,14 +2052,8 @@ will be appended directly to the end of the path.</p>
 <span>215</span>
 <span>216</span>
 <span>217</span>
-<span>218</span>
-<span>219</span>
-<span>220</span>
-<span>221</span>
-<span>222</span>
-<span>223</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_models</span><span class="p">(</span><span class="n">model_names</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">,),</span> <span class="n">source_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">update_names</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Update and re-save specified YOLO models in an 'updated_models' subdirectory.</span>
+<span>218</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_models</span><span class="p">(</span><span class="n">model_names</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">,),</span> <span class="n">source_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">update_names</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Update and re-save specified YOLO models in an 'updated_models' subdirectory.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        model_names (tuple, optional): Model filenames to update.</span>

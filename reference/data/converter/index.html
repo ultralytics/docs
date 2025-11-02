@@ -1345,8 +1345,8 @@
 </td>
 <td>
 <div class="doc-md-description">
-<p>A list of 91 class IDs where the index represents the 80-index class ID and the value
-is the corresponding 91-index class ID.</p>
+<p>A list of 91 class IDs where the index represents the 80-index class ID and the value is the
+corresponding 91-index class ID.</p>
 </div>
 </td>
 </tr>
@@ -1453,14 +1453,12 @@ is the corresponding 91-index class ID.</p>
 <span>119</span>
 <span>120</span>
 <span>121</span>
-<span>122</span>
-<span>123</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">coco91_to_coco80_class</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Convert 91-index COCO class IDs to 80-index COCO class IDs.</span>
+<span>122</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">coco91_to_coco80_class</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span></span><span class="w">    </span><span class="sd">"""Convert 91-index COCO class IDs to 80-index COCO class IDs.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (list[int]): A list of 91 class IDs where the index represents the 80-index class ID and the value</span>
-<span></span><span class="sd">            is the corresponding 91-index class ID.</span>
+<span></span><span class="sd">        (list[int]): A list of 91 class IDs where the index represents the 80-index class ID and the value is the</span>
+<span></span><span class="sd">            corresponding 91-index class ID.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">return</span> <span class="p">[</span>
 <span></span>        <span class="mi">0</span><span class="p">,</span>
@@ -1605,7 +1603,8 @@ is the corresponding 91-index class ID.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/converter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>126</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>125</span>
+<span>126</span>
 <span>127</span>
 <span>128</span>
 <span>129</span>
@@ -1705,11 +1704,8 @@ is the corresponding 91-index class ID.</p>
 <span>223</span>
 <span>224</span>
 <span>225</span>
-<span>226</span>
-<span>227</span>
-<span>228</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">coco80_to_coco91_class</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-<span></span><span class="w">    </span><span class="sa">r</span><span class="sd">"""</span>
-<span></span><span class="sd">    Convert 80-index (val2014) to 91-index (paper).</span>
+<span>226</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">coco80_to_coco91_class</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span></span><span class="w">    </span><span class="sa">r</span><span class="sd">"""Convert 80-index (val2014) to 91-index (paper).</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (list[int]): A list of 80 class IDs where each value is the corresponding 91-index class ID.</span>
@@ -1949,7 +1945,9 @@ is the corresponding 91-index class ID.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/converter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>231</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>229</span>
+<span>230</span>
+<span>231</span>
 <span>232</span>
 <span>233</span>
 <span>234</span>
@@ -2062,10 +2060,7 @@ is the corresponding 91-index class ID.</p>
 <span>341</span>
 <span>342</span>
 <span>343</span>
-<span>344</span>
-<span>345</span>
-<span>346</span>
-<span>347</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_coco</span><span class="p">(</span>
+<span>344</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_coco</span><span class="p">(</span>
 <span></span>    <span class="n">labels_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"../coco/annotations/"</span><span class="p">,</span>
 <span></span>    <span class="n">save_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"coco_converted/"</span><span class="p">,</span>
 <span></span>    <span class="n">use_segments</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -2073,8 +2068,7 @@ is the corresponding 91-index class ID.</p>
 <span></span>    <span class="n">cls91to80</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 <span></span>    <span class="n">lvis</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Convert COCO dataset annotations to a YOLO annotation format suitable for training YOLO models.</span>
+<span></span><span class="w">    </span><span class="sd">"""Convert COCO dataset annotations to a YOLO annotation format suitable for training YOLO models.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        labels_dir (str, optional): Path to directory containing COCO dataset annotation files.</span>
@@ -2284,7 +2278,10 @@ format. The converted masks are saved in the specified output directory.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/converter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>350</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>347</span>
+<span>348</span>
+<span>349</span>
+<span>350</span>
 <span>351</span>
 <span>352</span>
 <span>353</span>
@@ -2353,13 +2350,8 @@ format. The converted masks are saved in the specified output directory.</p>
 <span>416</span>
 <span>417</span>
 <span>418</span>
-<span>419</span>
-<span>420</span>
-<span>421</span>
-<span>422</span>
-<span>423</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_segment_masks_to_yolo_seg</span><span class="p">(</span><span class="n">masks_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">classes</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Convert a dataset of segmentation mask images to the YOLO segmentation format.</span>
+<span>419</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_segment_masks_to_yolo_seg</span><span class="p">(</span><span class="n">masks_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">classes</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Convert a dataset of segmentation mask images to the YOLO segmentation format.</span>
 <span></span>
 <span></span><span class="sd">    This function takes the directory containing the binary format mask images and converts them into YOLO segmentation</span>
 <span></span><span class="sd">    format. The converted masks are saved in the specified output directory.</span>
@@ -2498,7 +2490,11 @@ associated label from the original labels directory and writes new labels in YOL
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/converter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>426</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>422</span>
+<span>423</span>
+<span>424</span>
+<span>425</span>
+<span>426</span>
 <span>427</span>
 <span>428</span>
 <span>429</span>
@@ -2583,14 +2579,8 @@ associated label from the original labels directory and writes new labels in YOL
 <span>508</span>
 <span>509</span>
 <span>510</span>
-<span>511</span>
-<span>512</span>
-<span>513</span>
-<span>514</span>
-<span>515</span>
-<span>516</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_dota_to_yolo_obb</span><span class="p">(</span><span class="n">dota_root_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Convert DOTA dataset annotations to YOLO OBB (Oriented Bounding Box) format.</span>
+<span>511</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_dota_to_yolo_obb</span><span class="p">(</span><span class="n">dota_root_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Convert DOTA dataset annotations to YOLO OBB (Oriented Bounding Box) format.</span>
 <span></span>
 <span></span><span class="sd">    The function processes images in the 'train' and 'val' folders of the DOTA dataset. For each image, it reads the</span>
 <span></span><span class="sd">    associated label from the original labels directory and writes new labels in YOLO OBB format to a new directory.</span>
@@ -2769,22 +2759,20 @@ associated label from the original labels directory and writes new labels in YOL
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/converter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>519</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>514</span>
+<span>515</span>
+<span>516</span>
+<span>517</span>
+<span>518</span>
+<span>519</span>
 <span>520</span>
 <span>521</span>
 <span>522</span>
 <span>523</span>
 <span>524</span>
 <span>525</span>
-<span>526</span>
-<span>527</span>
-<span>528</span>
-<span>529</span>
-<span>530</span>
-<span>531</span>
-<span>532</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">min_index</span><span class="p">(</span><span class="n">arr1</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">arr2</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Find a pair of indexes with the shortest distance between two arrays of 2D points.</span>
+<span>526</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">min_index</span><span class="p">(</span><span class="n">arr1</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">arr2</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Find a pair of indexes with the shortest distance between two arrays of 2D points.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        arr1 (np.ndarray): A NumPy array of shape (N, 2) representing N 2D points.</span>
@@ -2807,7 +2795,8 @@ associated label from the original labels directory and writes new labels in YOL
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">merge_multi_segment</span><span class="p">(</span><span class="n">segments</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">])</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Merge multiple segments into one list by connecting the coordinates with the minimum distance between each segment.</p>
+<p>Merge multiple segments into one list by connecting the coordinates with the minimum distance between each
+segment.</p>
 <p>This function connects these coordinates with a thin line to merge all segments into one.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
@@ -2829,8 +2818,8 @@ associated label from the original labels directory and writes new labels in YOL
 </td>
 <td>
 <div class="doc-md-description">
-<p>Original segmentations in COCO's JSON file.
-Each element is a list of coordinates, like [segmentation1, segmentation2,...].</p>
+<p>Original segmentations in COCO's JSON file. Each element is a list of coordinates, like
+[segmentation1, segmentation2,...].</p>
 </div>
 </td>
 <td>
@@ -2862,7 +2851,13 @@ Each element is a list of coordinates, like [segmentation1, segmentation2,...].<
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/converter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>535</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>529</span>
+<span>530</span>
+<span>531</span>
+<span>532</span>
+<span>533</span>
+<span>534</span>
+<span>535</span>
 <span>536</span>
 <span>537</span>
 <span>538</span>
@@ -2904,21 +2899,15 @@ Each element is a list of coordinates, like [segmentation1, segmentation2,...].<
 <span>574</span>
 <span>575</span>
 <span>576</span>
-<span>577</span>
-<span>578</span>
-<span>579</span>
-<span>580</span>
-<span>581</span>
-<span>582</span>
-<span>583</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">merge_multi_segment</span><span class="p">(</span><span class="n">segments</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">]):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Merge multiple segments into one list by connecting the coordinates with the minimum distance between each segment.</span>
+<span>577</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">merge_multi_segment</span><span class="p">(</span><span class="n">segments</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">]):</span>
+<span></span><span class="w">    </span><span class="sd">"""Merge multiple segments into one list by connecting the coordinates with the minimum distance between each</span>
+<span></span><span class="sd">    segment.</span>
 <span></span>
 <span></span><span class="sd">    This function connects these coordinates with a thin line to merge all segments into one.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        segments (list[list]): Original segmentations in COCO's JSON file.</span>
-<span></span><span class="sd">            Each element is a list of coordinates, like [segmentation1, segmentation2,...].</span>
+<span></span><span class="sd">        segments (list[list]): Original segmentations in COCO's JSON file. Each element is a list of coordinates, like</span>
+<span></span><span class="sd">            [segmentation1, segmentation2,...].</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        s (list[np.ndarray]): A list of connected segments represented as NumPy arrays.</span>
@@ -2975,8 +2964,8 @@ Each element is a list of coordinates, like [segmentation1, segmentation2,...].<
 <span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Convert existing object detection dataset (bounding boxes) to segmentation dataset or oriented bounding box (OBB) in
-YOLO format. Generate segmentation data using SAM auto-annotator as needed.</p>
+<p>Convert existing object detection dataset (bounding boxes) to segmentation dataset or oriented bounding box (OBB)
+in YOLO format. Generate segmentation data using SAM auto-annotator as needed.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -3013,8 +3002,8 @@ YOLO format. Generate segmentation data using SAM auto-annotator as needed.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Path to save the generated labels, labels will be saved
-into <code>labels-segment</code> in the same directory level of <code>im_dir</code> if save_dir is None.</p>
+<p>Path to save the generated labels, labels will be saved into <code>labels-segment</code>
+in the same directory level of <code>im_dir</code> if save_dir is None.</p>
 </div>
 </td>
 <td>
@@ -3070,7 +3059,13 @@ into <code>labels-segment</code> in the same directory level of <code>im_dir</co
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/converter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>586</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>580</span>
+<span>581</span>
+<span>582</span>
+<span>583</span>
+<span>584</span>
+<span>585</span>
+<span>586</span>
 <span>587</span>
 <span>588</span>
 <span>589</span>
@@ -3124,22 +3119,14 @@ into <code>labels-segment</code> in the same directory level of <code>im_dir</co
 <span>637</span>
 <span>638</span>
 <span>639</span>
-<span>640</span>
-<span>641</span>
-<span>642</span>
-<span>643</span>
-<span>644</span>
-<span>645</span>
-<span>646</span>
-<span>647</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">yolo_bbox2segment</span><span class="p">(</span><span class="n">im_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">sam_model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"sam_b.pt"</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Convert existing object detection dataset (bounding boxes) to segmentation dataset or oriented bounding box (OBB) in</span>
-<span></span><span class="sd">    YOLO format. Generate segmentation data using SAM auto-annotator as needed.</span>
+<span>640</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">yolo_bbox2segment</span><span class="p">(</span><span class="n">im_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">sam_model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"sam_b.pt"</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Convert existing object detection dataset (bounding boxes) to segmentation dataset or oriented bounding box (OBB)</span>
+<span></span><span class="sd">    in YOLO format. Generate segmentation data using SAM auto-annotator as needed.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        im_dir (str | Path): Path to image directory to convert.</span>
-<span></span><span class="sd">        save_dir (str | Path, optional): Path to save the generated labels, labels will be saved</span>
-<span></span><span class="sd">            into `labels-segment` in the same directory level of `im_dir` if save_dir is None.</span>
+<span></span><span class="sd">        save_dir (str | Path, optional): Path to save the generated labels, labels will be saved into `labels-segment`</span>
+<span></span><span class="sd">            in the same directory level of `im_dir` if save_dir is None.</span>
 <span></span><span class="sd">        sam_model (str): Segmentation model to use for intermediate segmentation data.</span>
 <span></span><span class="sd">        device (int | str, optional): The specific device to run SAM models.</span>
 <span></span>
@@ -3223,7 +3210,14 @@ images efficiently.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/converter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>650</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>643</span>
+<span>644</span>
+<span>645</span>
+<span>646</span>
+<span>647</span>
+<span>648</span>
+<span>649</span>
+<span>650</span>
 <span>651</span>
 <span>652</span>
 <span>653</span>
@@ -3268,17 +3262,8 @@ images efficiently.</p>
 <span>692</span>
 <span>693</span>
 <span>694</span>
-<span>695</span>
-<span>696</span>
-<span>697</span>
-<span>698</span>
-<span>699</span>
-<span>700</span>
-<span>701</span>
-<span>702</span>
-<span>703</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">create_synthetic_coco_dataset</span><span class="p">():</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Create a synthetic COCO dataset with random images based on filenames from label lists.</span>
+<span>695</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">create_synthetic_coco_dataset</span><span class="p">():</span>
+<span></span><span class="w">    </span><span class="sd">"""Create a synthetic COCO dataset with random images based on filenames from label lists.</span>
 <span></span>
 <span></span><span class="sd">    This function downloads COCO labels, reads image filenames from label list files, creates synthetic images for</span>
 <span></span><span class="sd">    train2017 and val2017 subsets, and organizes them in the COCO dataset structure. It uses multithreading to generate</span>
@@ -3435,7 +3420,15 @@ channels. It can process either a single image or a directory of images.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/converter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>706</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>698</span>
+<span>699</span>
+<span>700</span>
+<span>701</span>
+<span>702</span>
+<span>703</span>
+<span>704</span>
+<span>705</span>
+<span>706</span>
 <span>707</span>
 <span>708</span>
 <span>709</span>
@@ -3475,18 +3468,8 @@ channels. It can process either a single image or a directory of images.</p>
 <span>743</span>
 <span>744</span>
 <span>745</span>
-<span>746</span>
-<span>747</span>
-<span>748</span>
-<span>749</span>
-<span>750</span>
-<span>751</span>
-<span>752</span>
-<span>753</span>
-<span>754</span>
-<span>755</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_to_multispectral</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span> <span class="n">n_channels</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">replace</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="nb">zip</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Convert RGB images to multispectral images by interpolating across wavelength bands.</span>
+<span>746</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_to_multispectral</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span> <span class="n">n_channels</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">replace</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="nb">zip</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Convert RGB images to multispectral images by interpolating across wavelength bands.</span>
 <span></span>
 <span></span><span class="sd">    This function takes RGB images and interpolates them to create multispectral images with a specified number of</span>
 <span></span><span class="sd">    channels. It can process either a single image or a directory of images.</span>
@@ -3593,8 +3576,8 @@ datasets and can download images from URLs if they don't exist locally.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Directory where the converted YOLO dataset
-will be saved. If None, uses the parent directory of the NDJSON file. Defaults to None.</p>
+<p>Directory where the converted YOLO dataset will be saved. If
+None, uses the parent directory of the NDJSON file. Defaults to None.</p>
 </div>
 </td>
 <td>
@@ -3639,7 +3622,16 @@ will be saved. If None, uses the parent directory of the NDJSON file. Defaults t
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/converter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>758</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>749</span>
+<span>750</span>
+<span>751</span>
+<span>752</span>
+<span>753</span>
+<span>754</span>
+<span>755</span>
+<span>756</span>
+<span>757</span>
+<span>758</span>
 <span>759</span>
 <span>760</span>
 <span>761</span>
@@ -3736,19 +3728,8 @@ will be saved. If None, uses the parent directory of the NDJSON file. Defaults t
 <span>852</span>
 <span>853</span>
 <span>854</span>
-<span>855</span>
-<span>856</span>
-<span>857</span>
-<span>858</span>
-<span>859</span>
-<span>860</span>
-<span>861</span>
-<span>862</span>
-<span>863</span>
-<span>864</span>
-<span>865</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">convert_ndjson_to_yolo</span><span class="p">(</span><span class="n">ndjson_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span> <span class="n">output_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Convert NDJSON dataset format to Ultralytics YOLO11 dataset structure.</span>
+<span>855</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">convert_ndjson_to_yolo</span><span class="p">(</span><span class="n">ndjson_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span> <span class="n">output_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Convert NDJSON dataset format to Ultralytics YOLO11 dataset structure.</span>
 <span></span>
 <span></span><span class="sd">    This function converts datasets stored in NDJSON (Newline Delimited JSON) format to the standard YOLO format with</span>
 <span></span><span class="sd">    separate directories for images and labels. It supports parallel processing for efficient conversion of large</span>
@@ -3760,8 +3741,8 @@ will be saved. If None, uses the parent directory of the NDJSON file. Defaults t
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        ndjson_path (Union[str, Path]): Path to the input NDJSON file containing dataset information.</span>
-<span></span><span class="sd">        output_path (Optional[Union[str, Path]], optional): Directory where the converted YOLO dataset</span>
-<span></span><span class="sd">            will be saved. If None, uses the parent directory of the NDJSON file. Defaults to None.</span>
+<span></span><span class="sd">        output_path (Optional[Union[str, Path]], optional): Directory where the converted YOLO dataset will be saved. If</span>
+<span></span><span class="sd">            None, uses the parent directory of the NDJSON file. Defaults to None.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (Path): Path to the generated data.yaml file that can be used for YOLO training.</span>

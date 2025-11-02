@@ -21,7 +21,7 @@
 <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="utils" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics HUB SDK, threaded decorator, multi-threading, Python utils, performance enhancement, code efficiency" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/hub/sdk/reference/helpers/utils" property="og:url"/><meta content="utils" property="og:title"/><meta content="Learn to multi-thread functions using the @threaded decorator in the Ultralytics HUB SDK. Enhance your code efficiency and performance." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/hub/sdk/reference/helpers/utils" property="twitter:url"/><meta content="utils" property="twitter:title"/><meta content="Learn to multi-thread functions using the @threaded decorator in the Ultralytics HUB SDK. Enhance your code efficiency and performance." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "utils", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-11-02 16:23:37 +0000", "dateModified": "2025-09-23 16:23:37 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn to multi-thread functions using the @threaded decorator in the Ultralytics HUB SDK. Enhance your code efficiency and performance."}</script></head>
+<meta content="utils" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics HUB SDK, threaded decorator, multi-threading, Python utils, performance enhancement, code efficiency" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/hub/sdk/reference/helpers/utils" property="og:url"/><meta content="utils" property="og:title"/><meta content="Learn to multi-thread functions using the @threaded decorator in the Ultralytics HUB SDK. Enhance your code efficiency and performance." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/hub/sdk/reference/helpers/utils" property="twitter:url"/><meta content="utils" property="twitter:title"/><meta content="Learn to multi-thread functions using the @threaded decorator in the Ultralytics HUB SDK. Enhance your code efficiency and performance." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "utils", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-11-02 20:13:10 +0000", "dateModified": "2025-09-23 20:13:10 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn to multi-thread functions using the @threaded decorator in the Ultralytics HUB SDK. Enhance your code efficiency and performance."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -706,9 +706,9 @@
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Multi-threads a target function by default and returns the thread or function result.</p>
-<p>This decorator provides flexible execution of the target function, either in a separate thread or synchronously.
-By default, the function runs in a thread, but this can be controlled via the 'threaded=False' keyword argument
-which is removed from kwargs before calling the function.</p>
+<p>This decorator provides flexible execution of the target function, either in a separate thread or synchronously. By
+default, the function runs in a thread, but this can be controlled via the 'threaded=False' keyword argument which
+is removed from kwargs before calling the function.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -811,16 +811,12 @@ which is removed from kwargs before calling the function.</p>
 <span>45</span>
 <span>46</span>
 <span>47</span>
-<span>48</span>
-<span>49</span>
-<span>50</span>
-<span>51</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">threaded</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Multi-threads a target function by default and returns the thread or function result.</span>
+<span>48</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">threaded</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Multi-threads a target function by default and returns the thread or function result.</span>
 <span></span>
-<span></span><span class="sd">    This decorator provides flexible execution of the target function, either in a separate thread or synchronously.</span>
-<span></span><span class="sd">    By default, the function runs in a thread, but this can be controlled via the 'threaded=False' keyword argument</span>
-<span></span><span class="sd">    which is removed from kwargs before calling the function.</span>
+<span></span><span class="sd">    This decorator provides flexible execution of the target function, either in a separate thread or synchronously. By</span>
+<span></span><span class="sd">    default, the function runs in a thread, but this can be controlled via the 'threaded=False' keyword argument which</span>
+<span></span><span class="sd">    is removed from kwargs before calling the function.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        func (callable): The function to be potentially executed in a separate thread.</span>
@@ -838,13 +834,11 @@ which is removed from kwargs before calling the function.</p>
 <span></span><span class="sd">    """</span>
 <span></span>
 <span></span>    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span></span><span class="w">        </span><span class="sd">"""</span>
-<span></span><span class="sd">        Multi-threads a given function based on 'threaded' kwarg and returns the thread or function result.</span>
+<span></span><span class="w">        </span><span class="sd">"""Multi-threads a given function based on 'threaded' kwarg and returns the thread or function result.</span>
 <span></span>
 <span></span><span class="sd">        Args:</span>
 <span></span><span class="sd">            *args: Variable length argument list to pass to the target function.</span>
 <span></span><span class="sd">            **kwargs: Arbitrary keyword arguments to pass to the target function.</span>
-<span></span>
 <span></span><span class="sd">        Keyword Args:</span>
 <span></span><span class="sd">            threaded (bool, optional): Whether to run in a thread. Defaults to True.</span>
 <span></span>

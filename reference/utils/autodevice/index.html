@@ -1301,8 +1301,8 @@ selection. Manages NVML initialization and shutdown internally.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Indicates if <code>pynvml</code> is ready for use. True if import and <code>nvmlInit()</code> succeeded,
-False otherwise.</p>
+<p>Indicates if <code>pynvml</code> is ready for use. True if import and <code>nvmlInit()</code> succeeded, False
+otherwise.</p>
 </div>
 </td>
 </tr>
@@ -1324,9 +1324,9 @@ False otherwise.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>'index', 'name', 'utilization' (%),
-'memory_used' (MiB), 'memory_total' (MiB), 'memory_free' (MiB), 'temperature' (C), 'power_draw' (W),
-'power_limit' (W or 'N/A'). Empty if NVML is unavailable or queries fail.</p>
+<p>'index', 'name', 'utilization' (%), 'memory_used' (MiB),
+'memory_total' (MiB), 'memory_free' (MiB), 'temperature' (C), 'power_draw' (W), 'power_limit' (W or 'N/A').
+Empty if NVML is unavailable or queries fail.</p>
 </div>
 </td>
 </tr>
@@ -1386,7 +1386,8 @@ False otherwise.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/autodevice.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>47</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>46</span>
+<span>47</span>
 <span>48</span>
 <span>49</span>
 <span>50</span>
@@ -1398,8 +1399,7 @@ False otherwise.</p>
 <span>56</span>
 <span>57</span>
 <span>58</span>
-<span>59</span>
-<span>60</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>59</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize GPUInfo, attempting to import and initialize pynvml."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">pynvml</span><span class="p">:</span> <span class="n">Any</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">nvml_available</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
@@ -1426,9 +1426,9 @@ False otherwise.</p>
 <p>Ensure NVML is shut down when the object is garbage collected.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/autodevice.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>62</span>
-<span>63</span>
-<span>64</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>61</span>
+<span>62</span>
+<span>63</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Ensure NVML is shut down when the object is garbage collected."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -1445,7 +1445,8 @@ False otherwise.</p>
 <p>Print GPU status in a compact table format using current stats.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/autodevice.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>115</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>114</span>
+<span>115</span>
 <span>116</span>
 <span>117</span>
 <span>118</span>
@@ -1464,8 +1465,7 @@ False otherwise.</p>
 <span>131</span>
 <span>132</span>
 <span>133</span>
-<span>134</span>
-<span>135</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>134</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Print GPU status in a compact table format using current stats."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">refresh_stats</span><span class="p">()</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">gpu_stats</span><span class="p">:</span>
@@ -1500,7 +1500,8 @@ False otherwise.</p>
 <p>Refresh the internal gpu_stats list by querying NVML.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/autodevice.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>75</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>74</span>
+<span>75</span>
 <span>76</span>
 <span>77</span>
 <span>78</span>
@@ -1510,8 +1511,7 @@ False otherwise.</p>
 <span>82</span>
 <span>83</span>
 <span>84</span>
-<span>85</span>
-<span>86</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">refresh_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>85</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">refresh_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Refresh the internal gpu_stats list by querying NVML."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">gpu_stats</span> <span class="o">=</span> <span class="p">[]</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">nvml_available</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">pynvml</span><span class="p">:</span>
@@ -1626,7 +1626,8 @@ Returns basic CUDA indices if NVML fails. Empty list if no GPUs found.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/autodevice.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>137</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>136</span>
+<span>137</span>
 <span>138</span>
 <span>139</span>
 <span>140</span>
@@ -1675,13 +1676,10 @@ Returns basic CUDA indices if NVML fails. Empty list if no GPUs found.</p>
 <span>183</span>
 <span>184</span>
 <span>185</span>
-<span>186</span>
-<span>187</span>
-<span>188</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">select_idle_gpu</span><span class="p">(</span>
+<span>186</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">select_idle_gpu</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">min_memory_fraction</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">min_util_fraction</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Select the most idle GPUs based on utilization and free memory.</span>
+<span></span><span class="w">    </span><span class="sd">"""Select the most idle GPUs based on utilization and free memory.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        count (int): The number of idle GPUs to select.</span>
@@ -1743,14 +1741,14 @@ Returns basic CUDA indices if NVML fails. Empty list if no GPUs found.</p>
 <p>Shut down NVML if it was initialized.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/autodevice.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>66</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>65</span>
+<span>66</span>
 <span>67</span>
 <span>68</span>
 <span>69</span>
 <span>70</span>
 <span>71</span>
-<span>72</span>
-<span>73</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">shutdown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>72</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">shutdown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Shut down NVML if it was initialized."""</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nvml_available</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">pynvml</span><span class="p">:</span>
 <span></span>        <span class="k">try</span><span class="p">:</span>

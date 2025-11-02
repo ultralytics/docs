@@ -1414,10 +1414,8 @@ corresponding scalar values.</p>
 <span>36</span>
 <span>37</span>
 <span>38</span>
-<span>39</span>
-<span>40</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_scalars</span><span class="p">(</span><span class="n">scalars</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">step</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Log scalar values to TensorBoard.</span>
+<span>39</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_scalars</span><span class="p">(</span><span class="n">scalars</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">step</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Log scalar values to TensorBoard.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        scalars (dict): Dictionary of scalar values to log to TensorBoard. Keys are scalar names and values are the</span>
@@ -1467,8 +1465,8 @@ approach for models like RTDETR that may require special handling.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>The trainer object containing the model to visualize.
-Must have attributes model and args with imgsz.</p>
+<p>The trainer object containing the model to visualize. Must
+have attributes model and args with imgsz.</p>
 </div>
 </td>
 <td>
@@ -1485,7 +1483,8 @@ model architectures.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/tensorboard.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>43</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>42</span>
+<span>43</span>
 <span>44</span>
 <span>45</span>
 <span>46</span>
@@ -1531,19 +1530,16 @@ model architectures.</p>
 <span>86</span>
 <span>87</span>
 <span>88</span>
-<span>89</span>
-<span>90</span>
-<span>91</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_tensorboard_graph</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Log model graph to TensorBoard.</span>
+<span>89</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_tensorboard_graph</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Log model graph to TensorBoard.</span>
 <span></span>
 <span></span><span class="sd">    This function attempts to visualize the model architecture in TensorBoard by tracing the model with a dummy input</span>
 <span></span><span class="sd">    tensor. It first tries a simple method suitable for YOLO models, and if that fails, falls back to a more complex</span>
 <span></span><span class="sd">    approach for models like RTDETR that may require special handling.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        trainer (ultralytics.engine.trainer.BaseTrainer): The trainer object containing the model to visualize.</span>
-<span></span><span class="sd">            Must have attributes model and args with imgsz.</span>
+<span></span><span class="sd">        trainer (ultralytics.engine.trainer.BaseTrainer): The trainer object containing the model to visualize. Must</span>
+<span></span><span class="sd">            have attributes model and args with imgsz.</span>
 <span></span>
 <span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        This function requires TensorBoard integration to be enabled and the global WRITER to be initialized.</span>
@@ -1596,15 +1592,15 @@ model architectures.</p>
 <p>Initialize TensorBoard logging with SummaryWriter.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/tensorboard.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 94</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 92</span>
+<span> 93</span>
+<span> 94</span>
 <span> 95</span>
 <span> 96</span>
 <span> 97</span>
 <span> 98</span>
 <span> 99</span>
-<span>100</span>
-<span>101</span>
-<span>102</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>100</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize TensorBoard logging with SummaryWriter."""</span>
 <span></span>    <span class="k">if</span> <span class="n">SummaryWriter</span><span class="p">:</span>
 <span></span>        <span class="k">try</span><span class="p">:</span>
@@ -1627,10 +1623,10 @@ model architectures.</p>
 <p>Log TensorBoard graph.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/tensorboard.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>105</span>
-<span>106</span>
-<span>107</span>
-<span>108</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>103</span>
+<span>104</span>
+<span>105</span>
+<span>106</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Log TensorBoard graph."""</span>
 <span></span>    <span class="k">if</span> <span class="n">WRITER</span><span class="p">:</span>
 <span></span>        <span class="n">_log_tensorboard_graph</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span>
@@ -1648,10 +1644,10 @@ model architectures.</p>
 <p>Log scalar statistics at the end of a training epoch.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/tensorboard.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>111</span>
-<span>112</span>
-<span>113</span>
-<span>114</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>109</span>
+<span>110</span>
+<span>111</span>
+<span>112</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Log scalar statistics at the end of a training epoch."""</span>
 <span></span>    <span class="n">_log_scalars</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">label_loss_items</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">tloss</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">"train"</span><span class="p">),</span> <span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 <span></span>    <span class="n">_log_scalars</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">lr</span><span class="p">,</span> <span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
@@ -1669,9 +1665,9 @@ model architectures.</p>
 <p>Log epoch metrics at end of training epoch.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/tensorboard.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>117</span>
-<span>118</span>
-<span>119</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>115</span>
+<span>116</span>
+<span>117</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Log epoch metrics at end of training epoch."""</span>
 <span></span>    <span class="n">_log_scalars</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">metrics</span><span class="p">,</span> <span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>

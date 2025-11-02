@@ -1328,10 +1328,8 @@
 <span>57</span>
 <span>58</span>
 <span>59</span>
-<span>60</span>
-<span>61</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">request_with_credentials</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Make an AJAX request with cookies attached in a Google Colab environment.</span>
+<span>60</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">request_with_credentials</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Make an AJAX request with cookies attached in a Google Colab environment.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        url (str): The URL to make the request to.</span>
@@ -1472,7 +1470,8 @@
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>64</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>63</span>
+<span>64</span>
 <span>65</span>
 <span>66</span>
 <span>67</span>
@@ -1501,11 +1500,8 @@
 <span>90</span>
 <span>91</span>
 <span>92</span>
-<span>93</span>
-<span>94</span>
-<span>95</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">requests_with_progress</span><span class="p">(</span><span class="n">method</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Make an HTTP request using the specified method and URL, with an optional progress bar.</span>
+<span>93</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">requests_with_progress</span><span class="p">(</span><span class="n">method</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Make an HTTP request using the specified method and URL, with an optional progress bar.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        method (str): The HTTP method to use (e.g. 'GET', 'POST').</span>
@@ -1738,7 +1734,9 @@ None.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 98</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 96</span>
+<span> 97</span>
+<span> 98</span>
 <span> 99</span>
 <span>100</span>
 <span>101</span>
@@ -1802,10 +1800,7 @@ None.</p>
 <span>159</span>
 <span>160</span>
 <span>161</span>
-<span>162</span>
-<span>163</span>
-<span>164</span>
-<span>165</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">smart_request</span><span class="p">(</span>
+<span>162</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">smart_request</span><span class="p">(</span>
 <span></span>    <span class="n">method</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span></span>    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span></span>    <span class="n">retry</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
@@ -1816,8 +1811,7 @@ None.</p>
 <span></span>    <span class="n">progress</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span></span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Make an HTTP request using the 'requests' library, with exponential backoff retries up to a specified timeout.</span>
+<span></span><span class="w">    </span><span class="sd">"""Make an HTTP request using the 'requests' library, with exponential backoff retries up to a specified timeout.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        method (str): The HTTP method to use for the request. Choices are 'post' and 'get'.</span>

@@ -1489,7 +1489,8 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/utils/gmc.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>45</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>44</span>
+<span>45</span>
 <span>46</span>
 <span>47</span>
 <span>48</span>
@@ -1533,11 +1534,8 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 <span>86</span>
 <span>87</span>
 <span>88</span>
-<span>89</span>
-<span>90</span>
-<span>91</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"sparseOptFlow"</span><span class="p">,</span> <span class="n">downscale</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Initialize a Generalized Motion Compensation (GMC) object with tracking method and downscale factor.</span>
+<span>89</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"sparseOptFlow"</span><span class="p">,</span> <span class="n">downscale</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Initialize a Generalized Motion Compensation (GMC) object with tracking method and downscale factor.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        method (str): The tracking method to use. Options include 'orb', 'sift', 'ecc', 'sparseOptFlow', 'none'.</span>
@@ -1668,7 +1666,9 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/utils/gmc.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 93</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 91</span>
+<span> 92</span>
+<span> 93</span>
 <span> 94</span>
 <span> 95</span>
 <span> 96</span>
@@ -1690,12 +1690,8 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 <span>112</span>
 <span>113</span>
 <span>114</span>
-<span>115</span>
-<span>116</span>
-<span>117</span>
-<span>118</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_frame</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">detections</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Apply object detection on a raw frame using the specified method.</span>
+<span>115</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_frame</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">detections</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Apply object detection on a raw frame using the specified method.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        raw_frame (np.ndarray): The raw frame to be processed, with shape (H, W, C).</span>
@@ -1790,7 +1786,10 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/utils/gmc.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>120</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>117</span>
+<span>118</span>
+<span>119</span>
+<span>120</span>
 <span>121</span>
 <span>122</span>
 <span>123</span>
@@ -1824,13 +1823,8 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 <span>151</span>
 <span>152</span>
 <span>153</span>
-<span>154</span>
-<span>155</span>
-<span>156</span>
-<span>157</span>
-<span>158</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">apply_ecc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_frame</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Apply the ECC (Enhanced Correlation Coefficient) algorithm to a raw frame for motion compensation.</span>
+<span>154</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">apply_ecc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_frame</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Apply the ECC (Enhanced Correlation Coefficient) algorithm to a raw frame for motion compensation.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        raw_frame (np.ndarray): The raw frame to be processed, with shape (H, W, C).</span>
@@ -1956,7 +1950,11 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/utils/gmc.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>160</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>156</span>
+<span>157</span>
+<span>158</span>
+<span>159</span>
+<span>160</span>
 <span>161</span>
 <span>162</span>
 <span>163</span>
@@ -2067,14 +2065,8 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 <span>268</span>
 <span>269</span>
 <span>270</span>
-<span>271</span>
-<span>272</span>
-<span>273</span>
-<span>274</span>
-<span>275</span>
-<span>276</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">apply_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_frame</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">detections</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Apply feature-based methods like ORB or SIFT to a raw frame.</span>
+<span>271</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">apply_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_frame</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">detections</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Apply feature-based methods like ORB or SIFT to a raw frame.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        raw_frame (np.ndarray): The raw frame to be processed, with shape (H, W, C).</span>
@@ -2260,7 +2252,12 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/utils/gmc.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>278</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>273</span>
+<span>274</span>
+<span>275</span>
+<span>276</span>
+<span>277</span>
+<span>278</span>
 <span>279</span>
 <span>280</span>
 <span>281</span>
@@ -2319,15 +2316,8 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 <span>334</span>
 <span>335</span>
 <span>336</span>
-<span>337</span>
-<span>338</span>
-<span>339</span>
-<span>340</span>
-<span>341</span>
-<span>342</span>
-<span>343</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">apply_sparseoptflow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_frame</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Apply Sparse Optical Flow method to a raw frame.</span>
+<span>337</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">apply_sparseoptflow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_frame</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Apply Sparse Optical Flow method to a raw frame.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        raw_frame (np.ndarray): The raw frame to be processed, with shape (H, W, C).</span>
@@ -2405,12 +2395,12 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 <p>Reset the internal parameters including previous frame, keypoints, and descriptors.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/utils/gmc.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>345</span>
-<span>346</span>
-<span>347</span>
-<span>348</span>
-<span>349</span>
-<span>350</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset_params</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>339</span>
+<span>340</span>
+<span>341</span>
+<span>342</span>
+<span>343</span>
+<span>344</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset_params</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Reset the internal parameters including previous frame, keypoints, and descriptors."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">prevFrame</span> <span class="o">=</span> <span class="kc">None</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">prevKeyPoints</span> <span class="o">=</span> <span class="kc">None</span>
