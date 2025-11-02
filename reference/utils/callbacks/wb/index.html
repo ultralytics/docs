@@ -9,7 +9,7 @@
 <link href="../tensorboard/" rel="prev"/>
 <link href="../../checks/" rel="next"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.22" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.23" name="generator"/>
 <title>Reference for ultralytics/utils/callbacks/wb.py</title>
 <link href="../../../../assets/stylesheets/main.84d31ad4.min.css" rel="stylesheet"/>
 <link href="../../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
@@ -2019,11 +2019,11 @@ Each plot is logged as a WandB Image object.</p>
 <span>146</span>
 <span>147</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Log training metrics and model information at the end of an epoch."""</span>
-<span></span>    <span class="n">wb</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">metrics</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 <span></span>    <span class="n">_log_plots</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">plots</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 <span></span>    <span class="n">_log_plots</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">validator</span><span class="o">.</span><span class="n">plots</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 <span></span>    <span class="k">if</span> <span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 <span></span>        <span class="n">wb</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">model_info_for_loggers</span><span class="p">(</span><span class="n">trainer</span><span class="p">),</span> <span class="n">step</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span></span>    <span class="n">wb</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">metrics</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">commit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># commit forces sync</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
