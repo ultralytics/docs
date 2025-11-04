@@ -6799,11 +6799,7 @@ for the model.</p>
 <span>1728</span>
 <span>1729</span>
 <span>1730</span>
-<span>1731</span>
-<span>1732</span>
-<span>1733</span>
-<span>1734</span>
-<span>1735</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>1731</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">cfg</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="n">DEFAULT_CFG</span><span class="p">,</span>
 <span></span>    <span class="n">overrides</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -6838,12 +6834,8 @@ for the model.</p>
 <span></span>
 <span></span>    <span class="c1"># Initialize the object index set and mappings</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">obj_idx_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">obj_id_to_idx</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">obj_idx_to_id</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">obj_id_to_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj_idx_to_id</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">max_obj_num</span><span class="p">)))</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">_max_obj_num</span> <span class="o">=</span> <span class="n">max_obj_num</span>
-<span></span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_max_obj_num</span><span class="p">):</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">obj_id_to_idx</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">obj_idx_to_id</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -6886,7 +6878,11 @@ for the model.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1805</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1801</span>
+<span>1802</span>
+<span>1803</span>
+<span>1804</span>
+<span>1805</span>
 <span>1806</span>
 <span>1807</span>
 <span>1808</span>
@@ -6896,11 +6892,7 @@ for the model.</p>
 <span>1812</span>
 <span>1813</span>
 <span>1814</span>
-<span>1815</span>
-<span>1816</span>
-<span>1817</span>
-<span>1818</span>
-<span>1819</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_im_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>1815</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_im_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the image state by processing the input image and extracting features.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
@@ -6929,18 +6921,18 @@ for the model.</p>
 <p>Get memory and positional encoding from memory, which is used to condition the current image features.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1936</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1932</span>
+<span>1933</span>
+<span>1934</span>
+<span>1935</span>
+<span>1936</span>
 <span>1937</span>
 <span>1938</span>
 <span>1939</span>
 <span>1940</span>
 <span>1941</span>
 <span>1942</span>
-<span>1943</span>
-<span>1944</span>
-<span>1945</span>
-<span>1946</span>
-<span>1947</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_maskmem_enc</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+<span>1943</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_maskmem_enc</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Get memory and positional encoding from memory, which is used to condition the current image features."""</span>
 <span></span>    <span class="n">to_cat_memory</span><span class="p">,</span> <span class="n">to_cat_memory_pos_embed</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
 <span></span>    <span class="k">for</span> <span class="n">consolidated_out</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">memory_bank</span><span class="p">:</span>
@@ -7135,7 +7127,11 @@ negative).</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1737</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1733</span>
+<span>1734</span>
+<span>1735</span>
+<span>1736</span>
+<span>1737</span>
 <span>1738</span>
 <span>1739</span>
 <span>1740</span>
@@ -7197,11 +7193,7 @@ negative).</p>
 <span>1796</span>
 <span>1797</span>
 <span>1798</span>
-<span>1799</span>
-<span>1800</span>
-<span>1801</span>
-<span>1802</span>
-<span>1803</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
+<span>1799</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">inference</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">im</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
@@ -7392,7 +7384,11 @@ pointers. Keys include 'point_inputs', 'mask_inputs', 'pred_masks', 'pred_masks_
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1960</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1956</span>
+<span>1957</span>
+<span>1958</span>
+<span>1959</span>
+<span>1960</span>
 <span>1961</span>
 <span>1962</span>
 <span>1963</span>
@@ -7437,11 +7433,7 @@ pointers. Keys include 'point_inputs', 'mask_inputs', 'pred_masks', 'pred_masks_
 <span>2002</span>
 <span>2003</span>
 <span>2004</span>
-<span>2005</span>
-<span>2006</span>
-<span>2007</span>
-<span>2008</span>
-<span>2009</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">track_step</span><span class="p">(</span>
+<span>2005</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">track_step</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">obj_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">point</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -7587,7 +7579,11 @@ pointers. Keys include 'point_inputs', 'mask_inputs', 'pred_masks', 'pred_masks_
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1821</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1817</span>
+<span>1818</span>
+<span>1819</span>
+<span>1820</span>
+<span>1821</span>
 <span>1822</span>
 <span>1823</span>
 <span>1824</span>
@@ -7662,11 +7658,7 @@ pointers. Keys include 'point_inputs', 'mask_inputs', 'pred_masks', 'pred_masks_
 <span>1893</span>
 <span>1894</span>
 <span>1895</span>
-<span>1896</span>
-<span>1897</span>
-<span>1898</span>
-<span>1899</span>
-<span>1900</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
+<span>1896</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_memory</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">obj_ids</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
