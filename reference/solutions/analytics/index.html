@@ -1453,8 +1453,7 @@ object detection and tracking data.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/analytics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>49</span>
-<span>50</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>50</span>
 <span>51</span>
 <span>52</span>
 <span>53</span>
@@ -1495,7 +1494,10 @@ object detection and tracking data.</p>
 <span>88</span>
 <span>89</span>
 <span>90</span>
-<span>91</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>91</span>
+<span>92</span>
+<span>93</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@plt_settings</span><span class="p">()</span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize Analytics class with various chart types for visual data representation."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <span></span>
@@ -1644,9 +1646,7 @@ and 'classwise_count' (dict, per-class object count).</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/analytics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 93</span>
-<span> 94</span>
-<span> 95</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 95</span>
 <span> 96</span>
 <span> 97</span>
 <span> 98</span>
@@ -1686,7 +1686,9 @@ and 'classwise_count' (dict, per-class object count).</p>
 <span>132</span>
 <span>133</span>
 <span>134</span>
-<span>135</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">frame_number</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SolutionResults</span><span class="p">:</span>
+<span>135</span>
+<span>136</span>
+<span>137</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">frame_number</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SolutionResults</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Process image data and run object tracking to update analytics charts.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
@@ -1836,9 +1838,7 @@ classes. If None, updates a single line graph.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/analytics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>137</span>
-<span>138</span>
-<span>139</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>139</span>
 <span>140</span>
 <span>141</span>
 <span>142</span>
@@ -1961,7 +1961,9 @@ classes. If None, updates a single line graph.</p>
 <span>259</span>
 <span>260</span>
 <span>261</span>
-<span>262</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_graph</span><span class="p">(</span>
+<span>262</span>
+<span>263</span>
+<span>264</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_graph</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span> <span class="n">frame_number</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">count_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"line"</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Update the graph with new data for single or multiple classes.</span>
