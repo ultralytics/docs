@@ -34,9 +34,8 @@ def check_image_sizes(download_dir, website, threshold_kb=750, max_workers=32, i
             ).removesuffix(".html")
             for img in soup.find_all("img", src=True):
                 img_url = urljoin(f"https://{website}", img["src"])
-                if img_url not in URL_IGNORE_LIST:
-                    if not ignore_gifs or not img_url.lower().endswith(".gif"):
-                        unique_images[img_url].add(page_url)
+                if img_url not in URL_IGNORE_LIST and (not ignore_gifs or not img_url.lower().endswith(".gif")):
+                    unique_images[img_url].add(page_url)
         except Exception:
             pass
 
@@ -116,7 +115,9 @@ def check_image_sizes(download_dir, website, threshold_kb=750, max_workers=32, i
         top_50 = df.head(50).copy()
         top_50["Size (KB)"] = top_50["Size (KB)"].round(1)
         top_50["Example Page"] = top_50["URL"].apply(lambda url: next(iter(unique_images[url])))
-        top_50["URL"] = top_50["URL"].apply(lambda x: x if len(x) <= 120 else x[:60] + "..." + x[-57:])
+        top_50["URL"] = top_50["URL"].apply(
+            lambda x: x if len(x) <= 120 else f"{x[:60]}...{x[-57:]}"
+        )
         print(top_50[["URL", "Pages", "Size (KB)", "Format", "Example Page"]].to_string(index=False))
 
     # Check for large images above threshold
@@ -133,7 +134,7 @@ def check_image_sizes(download_dir, website, threshold_kb=750, max_workers=32, i
                 filename = f"{filename}{fmt}"
             # Truncate from start if too long, keeping extension visible
             if len(filename) > 40:
-                filename = "..." + filename[-37:]
+                filename = f"...{filename[-37:]}"
             # Get first page URL for context
             page_url = next(iter(unique_images[url]))
             # Format as Slack hyperlink to avoid auto-expansion: <url|text>
