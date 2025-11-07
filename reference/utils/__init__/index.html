@@ -5107,14 +5107,14 @@ UTF-8 encoding might not be the default.</p>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (bool): True if running on an NVIDIA Jetson device, False otherwise.</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="k">if</span> <span class="n">jetson</span> <span class="o">:=</span> <span class="p">(</span><span class="s2">"tegra"</span> <span class="ow">in</span> <span class="n">DEVICE_MODEL</span><span class="p">):</span>
-<span></span>        <span class="k">if</span> <span class="n">jetpack</span><span class="p">:</span>
-<span></span>            <span class="k">try</span><span class="p">:</span>
-<span></span>                <span class="n">content</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"/etc/nv_tegra_release"</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span></span>                <span class="n">version_map</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">:</span> <span class="s2">"R32"</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="s2">"R35"</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span> <span class="s2">"R36"</span><span class="p">}</span>  <span class="c1"># JetPack to L4T major version mapping</span>
-<span></span>                <span class="k">return</span> <span class="n">jetpack</span> <span class="ow">in</span> <span class="n">version_map</span> <span class="ow">and</span> <span class="n">version_map</span><span class="p">[</span><span class="n">jetpack</span><span class="p">]</span> <span class="ow">in</span> <span class="n">content</span>
-<span></span>            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-<span></span>                <span class="k">return</span> <span class="kc">False</span>
+<span></span>    <span class="n">jetson</span> <span class="o">=</span> <span class="s2">"tegra"</span> <span class="ow">in</span> <span class="n">DEVICE_MODEL</span>
+<span></span>    <span class="k">if</span> <span class="n">jetson</span> <span class="ow">and</span> <span class="n">jetpack</span><span class="p">:</span>
+<span></span>        <span class="k">try</span><span class="p">:</span>
+<span></span>            <span class="n">content</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"/etc/nv_tegra_release"</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span></span>            <span class="n">version_map</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">:</span> <span class="s2">"R32"</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="s2">"R35"</span><span class="p">,</span> <span class="mi">6</span><span class="p">:</span> <span class="s2">"R36"</span><span class="p">}</span>  <span class="c1"># JetPack to L4T major version mapping</span>
+<span></span>            <span class="k">return</span> <span class="n">jetpack</span> <span class="ow">in</span> <span class="n">version_map</span> <span class="ow">and</span> <span class="n">version_map</span><span class="p">[</span><span class="n">jetpack</span><span class="p">]</span> <span class="ow">in</span> <span class="n">content</span>
+<span></span>        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+<span></span>            <span class="k">return</span> <span class="kc">False</span>
 <span></span>    <span class="k">return</span> <span class="n">jetson</span>
 </code></pre></div></td></tr></table></div>
 </details>

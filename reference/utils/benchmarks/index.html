@@ -3348,7 +3348,7 @@
 <span></span>    <span class="n">sess_options</span><span class="o">.</span><span class="n">intra_op_num_threads</span> <span class="o">=</span> <span class="mi">8</span>  <span class="c1"># Limit the number of threads</span>
 <span></span>    <span class="n">sess</span> <span class="o">=</span> <span class="n">ort</span><span class="o">.</span><span class="n">InferenceSession</span><span class="p">(</span><span class="n">onnx_file</span><span class="p">,</span> <span class="n">sess_options</span><span class="p">,</span> <span class="n">providers</span><span class="o">=</span><span class="p">[</span><span class="s2">"CPUExecutionProvider"</span><span class="p">])</span>
 <span></span>
-<span></span>    <span class="n">input_data_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span></span>    <span class="n">input_data_dict</span> <span class="o">=</span> <span class="p">{}</span>
 <span></span>    <span class="k">for</span> <span class="n">input_tensor</span> <span class="ow">in</span> <span class="n">sess</span><span class="o">.</span><span class="n">get_inputs</span><span class="p">():</span>
 <span></span>        <span class="n">input_type</span> <span class="o">=</span> <span class="n">input_tensor</span><span class="o">.</span><span class="n">type</span>
 <span></span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_dynamic</span><span class="p">(</span><span class="n">input_tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">):</span>
@@ -3376,7 +3376,7 @@
 <span></span>
 <span></span>        <span class="n">input_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="o">*</span><span class="n">input_shape</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">input_dtype</span><span class="p">)</span>
 <span></span>        <span class="n">input_name</span> <span class="o">=</span> <span class="n">input_tensor</span><span class="o">.</span><span class="n">name</span>
-<span></span>        <span class="n">input_data_dict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">input_name</span><span class="p">:</span> <span class="n">input_data</span><span class="p">})</span>
+<span></span>        <span class="n">input_data_dict</span><span class="p">[</span><span class="n">input_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">input_data</span>
 <span></span>
 <span></span>    <span class="n">output_name</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">get_outputs</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
 <span></span>
