@@ -115,9 +115,7 @@ def check_image_sizes(download_dir, website, threshold_kb=750, max_workers=32, i
         top_50 = df.head(50).copy()
         top_50["Size (KB)"] = top_50["Size (KB)"].round(1)
         top_50["Example Page"] = top_50["URL"].apply(lambda url: next(iter(unique_images[url])))
-        top_50["URL"] = top_50["URL"].apply(
-            lambda x: x if len(x) <= 120 else f"{x[:60]}...{x[-57:]}"
-        )
+        top_50["URL"] = top_50["URL"].apply(lambda x: x if len(x) <= 120 else f"{x[:60]}...{x[-57:]}")
         print(top_50[["URL", "Pages", "Size (KB)", "Format", "Example Page"]].to_string(index=False))
 
     # Check for large images above threshold
