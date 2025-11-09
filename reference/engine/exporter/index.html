@@ -2575,9 +2575,9 @@ process for each supported format.</p>
 <p>Append the given callback to the specified event.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1308</span>
-<span>1309</span>
-<span>1310</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1309</span>
+<span>1310</span>
+<span>1311</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Append the given callback to the specified event."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2815,7 +2815,8 @@ process for each supported format.</p>
 <span>1126</span>
 <span>1127</span>
 <span>1128</span>
-<span>1129</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
+<span>1129</span>
+<span>1130</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_edgetpu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tflite_model</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"Edge TPU:"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""Export YOLO model to Edge TPU format https://coral.ai/docs/edgetpu/models-intro/."""</span>
 <span></span>    <span class="n">cmd</span> <span class="o">=</span> <span class="s2">"edgetpu_compiler --version"</span>
@@ -2823,14 +2824,15 @@ process for each supported format.</p>
 <span></span>    <span class="k">assert</span> <span class="n">LINUX</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"export only supported on Linux. See </span><span class="si">{</span><span class="n">help_url</span><span class="si">}</span><span class="s2">"</span>
 <span></span>    <span class="k">if</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">DEVNULL</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">DEVNULL</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">returncode</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
 <span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> export requires Edge TPU compiler. Attempting install from </span><span class="si">{</span><span class="n">help_url</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span></span>        <span class="n">sudo</span> <span class="o">=</span> <span class="s2">"sudo "</span> <span class="k">if</span> <span class="n">is_sudo_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">""</span>
 <span></span>        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">(</span>
-<span></span>            <span class="s2">"curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -"</span><span class="p">,</span>
-<span></span>            <span class="s1">'echo "deb https://packages.cloud.google.com/apt coral-edgetpu-stable main" | '</span>
-<span></span>            <span class="s2">"sudo tee /etc/apt/sources.list.d/coral-edgetpu.list"</span><span class="p">,</span>
-<span></span>            <span class="s2">"sudo apt-get update"</span><span class="p">,</span>
-<span></span>            <span class="s2">"sudo apt-get install edgetpu-compiler"</span><span class="p">,</span>
+<span></span>            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">sudo</span><span class="si">}</span><span class="s2">mkdir -p /etc/apt/keyrings"</span><span class="p">,</span>
+<span></span>            <span class="sa">f</span><span class="s2">"curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | </span><span class="si">{</span><span class="n">sudo</span><span class="si">}</span><span class="s2">gpg --dearmor -o /etc/apt/keyrings/google.gpg"</span><span class="p">,</span>
+<span></span>            <span class="sa">f</span><span class="s1">'echo "deb [signed-by=/etc/apt/keyrings/google.gpg] https://packages.cloud.google.com/apt coral-edgetpu-stable main" | </span><span class="si">{</span><span class="n">sudo</span><span class="si">}</span><span class="s1">tee /etc/apt/sources.list.d/coral-edgetpu.list'</span><span class="p">,</span>
+<span></span>            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">sudo</span><span class="si">}</span><span class="s2">apt-get update"</span><span class="p">,</span>
+<span></span>            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">sudo</span><span class="si">}</span><span class="s2">apt-get install -y edgetpu-compiler"</span><span class="p">,</span>
 <span></span>        <span class="p">):</span>
-<span></span>            <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">c</span> <span class="k">if</span> <span class="n">is_sudo_available</span><span class="p">()</span> <span class="k">else</span> <span class="n">c</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"sudo "</span><span class="p">,</span> <span class="s2">""</span><span class="p">),</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span>            <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span></span>
 <span></span>    <span class="n">ver</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span></span>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> starting export with Edge TPU compiler </span><span class="si">{</span><span class="n">ver</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
@@ -3015,8 +3017,7 @@ following Ultralytics conventions.</p>
 <p>Export YOLO model to IMX format.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1170</span>
-<span>1171</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1171</span>
 <span>1172</span>
 <span>1173</span>
 <span>1174</span>
@@ -3049,7 +3050,8 @@ following Ultralytics conventions.</p>
 <span>1201</span>
 <span>1202</span>
 <span>1203</span>
-<span>1204</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
+<span>1204</span>
+<span>1205</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_imx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"IMX:"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""Export YOLO model to IMX format."""</span>
 <span></span>    <span class="k">assert</span> <span class="n">LINUX</span><span class="p">,</span> <span class="p">(</span>
@@ -3628,8 +3630,7 @@ following Ultralytics conventions.</p>
 <p>Export YOLO model to RKNN format.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1143</span>
-<span>1144</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1144</span>
 <span>1145</span>
 <span>1146</span>
 <span>1147</span>
@@ -3653,7 +3654,8 @@ following Ultralytics conventions.</p>
 <span>1165</span>
 <span>1166</span>
 <span>1167</span>
-<span>1168</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
+<span>1168</span>
+<span>1169</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_rknn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"RKNN:"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""Export YOLO model to RKNN format."""</span>
 <span></span>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> starting export with rknn-toolkit2..."</span><span class="p">)</span>
@@ -3840,8 +3842,7 @@ following Ultralytics conventions.</p>
 <p>Export YOLO model to TensorFlow.js format.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1131</span>
-<span>1132</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1132</span>
 <span>1133</span>
 <span>1134</span>
 <span>1135</span>
@@ -3850,7 +3851,8 @@ following Ultralytics conventions.</p>
 <span>1138</span>
 <span>1139</span>
 <span>1140</span>
-<span>1141</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
+<span>1141</span>
+<span>1142</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_tfjs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"TensorFlow.js:"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""Export YOLO model to TensorFlow.js format."""</span>
 <span></span>    <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"tensorflowjs"</span><span class="p">)</span>
@@ -4020,10 +4022,10 @@ following Ultralytics conventions.</p>
 <p>Execute all callbacks for a given event.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1312</span>
-<span>1313</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1313</span>
 <span>1314</span>
-<span>1315</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span>1315</span>
+<span>1316</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Execute all callbacks for a given event."""</span>
 <span></span>    <span class="k">for</span> <span class="n">callback</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="p">[]):</span>
 <span></span>        <span class="n">callback</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
@@ -4107,8 +4109,7 @@ following Ultralytics conventions.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1321</span>
-<span>1322</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1322</span>
 <span>1323</span>
 <span>1324</span>
 <span>1325</span>
@@ -4126,7 +4127,8 @@ following Ultralytics conventions.</p>
 <span>1337</span>
 <span>1338</span>
 <span>1339</span>
-<span>1340</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">mlprogram</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span>1340</span>
+<span>1341</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">mlprogram</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the IOSDetectModel class with a YOLO model and example image.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
@@ -4159,14 +4161,14 @@ following Ultralytics conventions.</p>
 <p>Normalize predictions of object detection model with input size-dependent factors.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1342</span>
-<span>1343</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1343</span>
 <span>1344</span>
 <span>1345</span>
 <span>1346</span>
 <span>1347</span>
 <span>1348</span>
-<span>1349</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span>1349</span>
+<span>1350</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Normalize predictions of object detection model with input size-dependent factors."""</span>
 <span></span>    <span class="n">xywh</span><span class="p">,</span> <span class="bp">cls</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nc</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mlprogram</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">nc</span> <span class="o">%</span> <span class="mi">80</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># NMS bug https://github.com/ultralytics/ultralytics/issues/22309</span>
@@ -4238,8 +4240,7 @@ following Ultralytics conventions.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1355</span>
-<span>1356</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1356</span>
 <span>1357</span>
 <span>1358</span>
 <span>1359</span>
@@ -4249,7 +4250,8 @@ following Ultralytics conventions.</p>
 <span>1363</span>
 <span>1364</span>
 <span>1365</span>
-<span>1366</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+<span>1366</span>
+<span>1367</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the NMSModel.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
@@ -4325,8 +4327,7 @@ of detections after NMS.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1368</span>
-<span>1369</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1369</span>
 <span>1370</span>
 <span>1371</span>
 <span>1372</span>
@@ -4401,7 +4402,8 @@ of detections after NMS.</p>
 <span>1441</span>
 <span>1442</span>
 <span>1443</span>
-<span>1444</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span>1444</span>
+<span>1445</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Perform inference with NMS post-processing. Supports Detect, Segment, OBB and Pose.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
