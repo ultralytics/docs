@@ -1300,6 +1300,29 @@
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../../engine/model/#ultralytics.engine.model.Model" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.model.Model&lt;/span&gt;'>Model</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.model.SAM" id="mermaid-link-ultralytics.models.sam.model.SAM" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.model.SAM&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../../engine/model/#ultralytics.engine.model.Model" id="mermaid-link-ultralytics.engine.model.Model" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.model.Model&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.sam.model.SAM">
+              flowchart TD
+              ultralytics.models.sam.model.SAM[SAM]
+              ultralytics.engine.model.Model[Model]
+                              ultralytics.engine.model.Model --&gt; ultralytics.models.sam.model.SAM
+              click ultralytics.models.sam.model.SAM href "" "ultralytics.models.sam.model.SAM"
+              click ultralytics.engine.model.Model href "" "ultralytics.engine.model.Model"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.sam.model.SAM');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>SAM (Segment Anything Model) interface class for real-time image segmentation tasks.</p>
 <p>This class provides an interface to the Segment Anything Model (SAM) from Ultralytics, designed for promptable
 segmentation with versatility in image analysis. It supports various prompts such as bounding boxes, points, or
@@ -1436,7 +1459,7 @@ labels, and features zero-shot performance capabilities.</p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sam</span> <span class="o">=</span> <span class="n">SAM</span><span class="p">(</span><span class="s2">"sam_b.pt"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">sam</span><span class="o">.</span><span class="n">is_sam2</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>50</span>
 <span>51</span>
@@ -1668,7 +1691,7 @@ np.ndarray object.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">sam</span><span class="p">(</span><span class="s2">"image.jpg"</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="p">[[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">375</span><span class="p">]])</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Detected </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">masks</span><span class="p">)</span><span class="si">}</span><span class="s2"> masks"</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>109</span>
 <span>110</span>
@@ -1800,7 +1823,7 @@ np.ndarray object.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">info</span> <span class="o">=</span> <span class="n">sam</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># Print summary information</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>134</span>
 <span>135</span>
@@ -1989,7 +2012,7 @@ np.ndarray object.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
 <span></span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Detected </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">masks</span><span class="p">)</span><span class="si">}</span><span class="s2"> masks"</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 83</span>
 <span> 84</span>
@@ -2168,7 +2191,7 @@ np.ndarray object.</p>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@main/js/chat.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
 <script src="../../../../javascript/extra.js"></script>
 <script src="../../../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

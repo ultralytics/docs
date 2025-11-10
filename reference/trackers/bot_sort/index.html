@@ -1445,6 +1445,33 @@
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../byte_tracker/#ultralytics.trackers.byte_tracker.STrack" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.trackers.byte_tracker.STrack&lt;/span&gt;'>STrack</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.trackers.bot_sort.BOTrack" id="mermaid-link-ultralytics.trackers.bot_sort.BOTrack" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.trackers.bot_sort.BOTrack&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../byte_tracker/#ultralytics.trackers.byte_tracker.STrack" id="mermaid-link-ultralytics.trackers.byte_tracker.STrack" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.trackers.byte_tracker.STrack&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../basetrack/#ultralytics.trackers.basetrack.BaseTrack" id="mermaid-link-ultralytics.trackers.basetrack.BaseTrack" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.trackers.basetrack.BaseTrack&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.trackers.bot_sort.BOTrack">
+              flowchart TD
+              ultralytics.trackers.bot_sort.BOTrack[BOTrack]
+              ultralytics.trackers.byte_tracker.STrack[STrack]
+              ultralytics.trackers.basetrack.BaseTrack[BaseTrack]
+                              ultralytics.trackers.byte_tracker.STrack --&gt; ultralytics.trackers.bot_sort.BOTrack
+                                ultralytics.trackers.basetrack.BaseTrack --&gt; ultralytics.trackers.byte_tracker.STrack
+              click ultralytics.trackers.bot_sort.BOTrack href "" "ultralytics.trackers.bot_sort.BOTrack"
+              click ultralytics.trackers.byte_tracker.STrack href "" "ultralytics.trackers.byte_tracker.STrack"
+              click ultralytics.trackers.basetrack.BaseTrack href "" "ultralytics.trackers.basetrack.BaseTrack"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.trackers.bot_sort.BOTrack');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>An extended version of the STrack class for YOLO, adding object tracking features.</p>
 <p>This class extends the STrack class to include additional functionalities for object tracking, such as feature
 smoothing, Kalman filter prediction, and reactivation of tracks.</p>
@@ -1729,7 +1756,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">feat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bo_track</span> <span class="o">=</span> <span class="n">BOTrack</span><span class="p">(</span><span class="n">xywh</span><span class="p">,</span> <span class="n">score</span><span class="p">,</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">feat</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>56</span>
 <span>57</span>
@@ -1810,7 +1837,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Convert tlwh bounding box coordinates to xywh format.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>142</span>
 <span>143</span>
@@ -1832,7 +1859,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Predict the mean and covariance for multiple object tracks using a shared Kalman filter.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>126</span>
 <span>127</span>
@@ -1875,7 +1902,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Predict the object's future state using the Kalman filter to update its mean and covariance.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 96</span>
 <span> 97</span>
@@ -1904,7 +1931,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Reactivate a track with updated features and optionally assign a new ID.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>105</span>
 <span>106</span>
@@ -1930,7 +1957,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Convert bounding box from tlwh (top-left-width-height) to xywh (center-x-center-y-width-height) format.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>146</span>
 <span>147</span>
@@ -1955,7 +1982,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Update the track with new detection information and the current frame ID.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>111</span>
 <span>112</span>
@@ -1978,7 +2005,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Update the feature vector and apply exponential moving average smoothing.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>85</span>
 <span>86</span>
@@ -2015,6 +2042,29 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../byte_tracker/#ultralytics.trackers.byte_tracker.BYTETracker" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.trackers.byte_tracker.BYTETracker&lt;/span&gt;'>BYTETracker</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.trackers.bot_sort.BOTSORT" id="mermaid-link-ultralytics.trackers.bot_sort.BOTSORT" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.trackers.bot_sort.BOTSORT&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../byte_tracker/#ultralytics.trackers.byte_tracker.BYTETracker" id="mermaid-link-ultralytics.trackers.byte_tracker.BYTETracker" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.trackers.byte_tracker.BYTETracker&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.trackers.bot_sort.BOTSORT">
+              flowchart TD
+              ultralytics.trackers.bot_sort.BOTSORT[BOTSORT]
+              ultralytics.trackers.byte_tracker.BYTETracker[BYTETracker]
+                              ultralytics.trackers.byte_tracker.BYTETracker --&gt; ultralytics.trackers.bot_sort.BOTSORT
+              click ultralytics.trackers.bot_sort.BOTSORT href "" "ultralytics.trackers.bot_sort.BOTSORT"
+              click ultralytics.trackers.byte_tracker.BYTETracker href "" "ultralytics.trackers.byte_tracker.BYTETracker"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.trackers.bot_sort.BOTSORT');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>An extended version of the BYTETracker class for YOLO, designed for object tracking with ReID and GMC algorithm.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
@@ -2194,7 +2244,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="n">parse_args</span><span class="p">()</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bot_sort</span> <span class="o">=</span> <span class="n">BOTSORT</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">frame_rate</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>181</span>
 <span>182</span>
@@ -2256,7 +2306,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Calculate distances between tracks and detections using IoU and optionally ReID embeddings.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>223</span>
 <span>224</span>
@@ -2297,7 +2347,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return an instance of KalmanFilterXYWH for predicting and updating object states in the tracking process.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>207</span>
 <span>208</span>
@@ -2316,7 +2366,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Initialize object tracks using detection bounding boxes, scores, class labels, and optional ReID features.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>211</span>
 <span>212</span>
@@ -2351,7 +2401,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Predict the mean and covariance of multiple object tracks using a shared Kalman filter.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>238</span>
 <span>239</span>
@@ -2370,7 +2420,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Reset the BOTSORT tracker to its initial state, clearing all tracked objects and internal states.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>242</span>
 <span>243</span>
@@ -2423,7 +2473,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>251</span>
 <span>252</span>
@@ -2455,7 +2505,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Extract embeddings for detected objects.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/bot_sort.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>262</span>
 <span>263</span>
@@ -2603,7 +2653,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@main/js/chat.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
 <script src="../../../javascript/extra.js"></script>
 <script src="../../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

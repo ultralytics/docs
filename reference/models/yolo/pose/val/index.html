@@ -1413,6 +1413,33 @@
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../detect/val/#ultralytics.models.yolo.detect.val.DetectionValidator" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.detect.val.DetectionValidator&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.detect.DetectionValidator&lt;/code&gt;)'>DetectionValidator</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.pose.val.PoseValidator" id="mermaid-link-ultralytics.models.yolo.pose.val.PoseValidator" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.pose.val.PoseValidator&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../detect/val/#ultralytics.models.yolo.detect.val.DetectionValidator" id="mermaid-link-ultralytics.models.yolo.detect.val.DetectionValidator" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.detect.val.DetectionValidator&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../../../engine/validator/#ultralytics.engine.validator.BaseValidator" id="mermaid-link-ultralytics.engine.validator.BaseValidator" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.validator.BaseValidator&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.yolo.pose.val.PoseValidator">
+              flowchart TD
+              ultralytics.models.yolo.pose.val.PoseValidator[PoseValidator]
+              ultralytics.models.yolo.detect.val.DetectionValidator[DetectionValidator]
+              ultralytics.engine.validator.BaseValidator[BaseValidator]
+                              ultralytics.models.yolo.detect.val.DetectionValidator --&gt; ultralytics.models.yolo.pose.val.PoseValidator
+                                ultralytics.engine.validator.BaseValidator --&gt; ultralytics.models.yolo.detect.val.DetectionValidator
+              click ultralytics.models.yolo.pose.val.PoseValidator href "" "ultralytics.models.yolo.pose.val.PoseValidator"
+              click ultralytics.models.yolo.detect.val.DetectionValidator href "" "ultralytics.models.yolo.detect.val.DetectionValidator"
+              click ultralytics.engine.validator.BaseValidator href "" "ultralytics.engine.validator.BaseValidator"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.yolo.pose.val.PoseValidator');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>A class extending the DetectionValidator class for validation based on a pose model.</p>
 <p>This validator is specifically designed for pose estimation tasks, handling keypoints and implementing specialized
 metrics for pose evaluation.</p>
@@ -1670,7 +1697,7 @@ specialized metrics for pose evaluation.</p>
 for OKS calculation and sets up PoseMetrics for evaluation. A warning is displayed when using Apple MPS
 due to a known bug with pose models.</p>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>50</span>
 <span>51</span>
@@ -1748,7 +1775,7 @@ due to a known bug with pose models.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Evaluate object detection model using COCO JSON format.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>255</span>
 <span>256</span>
@@ -1771,7 +1798,7 @@ due to a known bug with pose models.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return description of evaluation metrics in string format.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 90</span>
 <span> 91</span>
@@ -1843,7 +1870,7 @@ due to a known bug with pose models.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>106</span>
 <span>107</span>
@@ -1942,7 +1969,7 @@ scores, class predictions, and keypoint data.</p>
 to the next one. The keypoints are extracted from the 'extra' field which contains additional
 task-specific data beyond basic detection.</p>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>118</span>
 <span>119</span>
@@ -2063,7 +2090,7 @@ tensors.</p>
 converts bounding boxes from xyxy to xywh format, and adjusts coordinates from center to top-left corner
 before saving to the JSON dictionary.</p>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>222</span>
 <span>223</span>
@@ -2116,7 +2143,7 @@ before saving to the JSON dictionary.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Preprocess batch by converting keypoints data to float and moving it to the device.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>84</span>
 <span>85</span>
@@ -2226,7 +2253,7 @@ before saving to the JSON dictionary.</p>
 <p>The output format is: class_id x_center y_center width height confidence keypoints where keypoints are
 normalized (x, y, visibility) values for each point.</p>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>199</span>
 <span>200</span>
@@ -2285,7 +2312,7 @@ normalized (x, y, visibility) values for each point.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Scales predictions to the original image size.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>243</span>
 <span>244</span>
@@ -2433,7 +2460,7 @@ normalized (x, y, visibility) values for each point.</p>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@main/js/chat.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
 <script src="../../../../../javascript/extra.js"></script>
 <script src="../../../../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

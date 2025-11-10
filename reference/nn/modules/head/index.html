@@ -1806,6 +1806,25 @@
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.nn.modules.head.Detect" id="mermaid-link-ultralytics.nn.modules.head.Detect" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.modules.head.Detect&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.nn.modules.head.Detect">
+              flowchart TD
+              ultralytics.nn.modules.head.Detect[Detect]
+              click ultralytics.nn.modules.head.Detect href "" "ultralytics.nn.modules.head.Detect"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.nn.modules.head.Detect');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>YOLO Detect head for object detection models.</p>
 <p>This class implements the detection head used in YOLO models for predicting bounding boxes and class probabilities.
 It supports both training and inference modes, with optional end-to-end detection capabilities.</p>
@@ -2146,7 +2165,7 @@ It supports both training and inference modes, with optional end-to-end detectio
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 79</span>
 <span> 80</span>
@@ -2226,7 +2245,7 @@ It supports both training and inference modes, with optional end-to-end detectio
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Initialize Detect() biases, WARNING: requires stride availability.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>169</span>
 <span>170</span>
@@ -2265,7 +2284,7 @@ It supports both training and inference modes, with optional end-to-end detectio
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Decode bounding boxes from predictions.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>182</span>
 <span>183</span>
@@ -2294,7 +2313,7 @@ It supports both training and inference modes, with optional end-to-end detectio
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Concatenate and return predicted bounding boxes and class probabilities.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>114</span>
 <span>115</span>
@@ -2380,7 +2399,7 @@ processed detections or tuple with detections and raw outputs.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>126</span>
 <span>127</span>
@@ -2524,7 +2543,7 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>191</span>
 <span>192</span>
@@ -2585,6 +2604,29 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.nn.modules.head.Detect" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.modules.head.Detect&lt;/span&gt;'>Detect</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.nn.modules.head.Segment" id="mermaid-link-ultralytics.nn.modules.head.Segment" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.modules.head.Segment&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.nn.modules.head.Detect" id="mermaid-link-ultralytics.nn.modules.head.Detect" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.modules.head.Detect&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.nn.modules.head.Segment">
+              flowchart TD
+              ultralytics.nn.modules.head.Segment[Segment]
+              ultralytics.nn.modules.head.Detect[Detect]
+                              ultralytics.nn.modules.head.Detect --&gt; ultralytics.nn.modules.head.Segment
+              click ultralytics.nn.modules.head.Segment href "" "ultralytics.nn.modules.head.Segment"
+              click ultralytics.nn.modules.head.Detect href "" "ultralytics.nn.modules.head.Detect"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.nn.modules.head.Segment');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>YOLO Segment head for segmentation models.</p>
 <p>This class extends the Detect head to include mask prediction capabilities for instance segmentation tasks.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
@@ -2745,7 +2787,7 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>236</span>
 <span>237</span>
@@ -2789,7 +2831,7 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return model outputs and mask coefficients if training, otherwise return outputs and mask coefficients.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>253</span>
 <span>254</span>
@@ -2826,6 +2868,29 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.nn.modules.head.Detect" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.modules.head.Detect&lt;/span&gt;'>Detect</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.nn.modules.head.OBB" id="mermaid-link-ultralytics.nn.modules.head.OBB" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.modules.head.OBB&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.nn.modules.head.Detect" id="mermaid-link-ultralytics.nn.modules.head.Detect" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.modules.head.Detect&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.nn.modules.head.OBB">
+              flowchart TD
+              ultralytics.nn.modules.head.OBB[OBB]
+              ultralytics.nn.modules.head.Detect[Detect]
+                              ultralytics.nn.modules.head.Detect --&gt; ultralytics.nn.modules.head.OBB
+              click ultralytics.nn.modules.head.OBB href "" "ultralytics.nn.modules.head.OBB"
+              click ultralytics.nn.modules.head.Detect href "" "ultralytics.nn.modules.head.Detect"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.nn.modules.head.OBB');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>YOLO OBB detection head for detection with rotation models.</p>
 <p>This class extends the Detect head to include oriented bounding box prediction with rotation angles.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
@@ -2967,7 +3032,7 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>286</span>
 <span>287</span>
@@ -3005,7 +3070,7 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Decode rotated bounding boxes.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>314</span>
 <span>315</span>
@@ -3024,7 +3089,7 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Concatenate and return predicted bounding boxes and class probabilities.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>300</span>
 <span>301</span>
@@ -3067,6 +3132,29 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.nn.modules.head.Detect" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.modules.head.Detect&lt;/span&gt;'>Detect</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.nn.modules.head.Pose" id="mermaid-link-ultralytics.nn.modules.head.Pose" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.modules.head.Pose&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.nn.modules.head.Detect" id="mermaid-link-ultralytics.nn.modules.head.Detect" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.modules.head.Detect&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.nn.modules.head.Pose">
+              flowchart TD
+              ultralytics.nn.modules.head.Pose[Pose]
+              ultralytics.nn.modules.head.Detect[Detect]
+                              ultralytics.nn.modules.head.Detect --&gt; ultralytics.nn.modules.head.Pose
+              click ultralytics.nn.modules.head.Pose href "" "ultralytics.nn.modules.head.Pose"
+              click ultralytics.nn.modules.head.Detect href "" "ultralytics.nn.modules.head.Detect"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.nn.modules.head.Pose');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>YOLO Pose head for keypoints models.</p>
 <p>This class extends the Detect head to include keypoint prediction capabilities for pose estimation tasks.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
@@ -3208,7 +3296,7 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>340</span>
 <span>341</span>
@@ -3248,7 +3336,7 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Perform forward pass through YOLO model and return predictions.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>355</span>
 <span>356</span>
@@ -3279,7 +3367,7 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Decode keypoints from predictions.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>365</span>
 <span>366</span>
@@ -3338,6 +3426,25 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.nn.modules.head.Classify" id="mermaid-link-ultralytics.nn.modules.head.Classify" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.modules.head.Classify&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.nn.modules.head.Classify">
+              flowchart TD
+              ultralytics.nn.modules.head.Classify[Classify]
+              click ultralytics.nn.modules.head.Classify href "" "ultralytics.nn.modules.head.Classify"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.nn.modules.head.Classify');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>YOLO classification head, i.e. x(b,c1,20,20) to x(b,c2).</p>
 <p>This class implements a classification head that transforms feature maps into class predictions.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
@@ -3541,7 +3648,7 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>411</span>
 <span>412</span>
@@ -3587,7 +3694,7 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Perform forward pass of the YOLO model on input image data.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>429</span>
 <span>430</span>
@@ -3624,6 +3731,29 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.nn.modules.head.Detect" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.modules.head.Detect&lt;/span&gt;'>Detect</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.nn.modules.head.WorldDetect" id="mermaid-link-ultralytics.nn.modules.head.WorldDetect" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.modules.head.WorldDetect&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.nn.modules.head.Detect" id="mermaid-link-ultralytics.nn.modules.head.Detect" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.modules.head.Detect&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.nn.modules.head.WorldDetect">
+              flowchart TD
+              ultralytics.nn.modules.head.WorldDetect[WorldDetect]
+              ultralytics.nn.modules.head.Detect[Detect]
+                              ultralytics.nn.modules.head.Detect --&gt; ultralytics.nn.modules.head.WorldDetect
+              click ultralytics.nn.modules.head.WorldDetect href "" "ultralytics.nn.modules.head.WorldDetect"
+              click ultralytics.nn.modules.head.Detect href "" "ultralytics.nn.modules.head.Detect"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.nn.modules.head.WorldDetect');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Head for integrating YOLO detection models with semantic understanding from text embeddings.</p>
 <p>This class extends the standard Detect head to incorporate text embeddings for enhanced semantic understanding in
 object detection tasks.</p>
@@ -3772,7 +3902,7 @@ object detection tasks.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>462</span>
 <span>463</span>
@@ -3810,7 +3940,7 @@ object detection tasks.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Initialize Detect() biases, WARNING: requires stride availability.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>486</span>
 <span>487</span>
@@ -3837,7 +3967,7 @@ object detection tasks.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Concatenate and return predicted bounding boxes and class probabilities.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>476</span>
 <span>477</span>
@@ -3872,6 +4002,25 @@ object detection tasks.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.nn.modules.head.LRPCHead" id="mermaid-link-ultralytics.nn.modules.head.LRPCHead" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.modules.head.LRPCHead&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.nn.modules.head.LRPCHead">
+              flowchart TD
+              ultralytics.nn.modules.head.LRPCHead[LRPCHead]
+              click ultralytics.nn.modules.head.LRPCHead href "" "ultralytics.nn.modules.head.LRPCHead"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.nn.modules.head.LRPCHead');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Lightweight Region Proposal and Classification Head for efficient object detection.</p>
 <p>This head combines region proposal filtering with classification to enable efficient detection with dynamic
 vocabulary support.</p>
@@ -4042,7 +4191,7 @@ vocabulary support.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>520</span>
 <span>521</span>
@@ -4082,7 +4231,7 @@ vocabulary support.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Convert a 1x1 convolutional layer to a linear layer.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>535</span>
 <span>536</span>
@@ -4111,7 +4260,7 @@ vocabulary support.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Process classification and localization features to generate detection proposals.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>543</span>
 <span>544</span>
@@ -4158,6 +4307,29 @@ vocabulary support.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.nn.modules.head.Detect" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.modules.head.Detect&lt;/span&gt;'>Detect</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.nn.modules.head.YOLOEDetect" id="mermaid-link-ultralytics.nn.modules.head.YOLOEDetect" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.modules.head.YOLOEDetect&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.nn.modules.head.Detect" id="mermaid-link-ultralytics.nn.modules.head.Detect" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.modules.head.Detect&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.nn.modules.head.YOLOEDetect">
+              flowchart TD
+              ultralytics.nn.modules.head.YOLOEDetect[YOLOEDetect]
+              ultralytics.nn.modules.head.Detect[Detect]
+                              ultralytics.nn.modules.head.Detect --&gt; ultralytics.nn.modules.head.YOLOEDetect
+              click ultralytics.nn.modules.head.YOLOEDetect href "" "ultralytics.nn.modules.head.YOLOEDetect"
+              click ultralytics.nn.modules.head.Detect href "" "ultralytics.nn.modules.head.Detect"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.nn.modules.head.YOLOEDetect');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Head for integrating YOLO detection models with semantic understanding from text embeddings.</p>
 <p>This class extends the standard Detect head to support text-guided detection with enhanced semantic understanding
 through text embeddings and visual prompt embeddings.</p>
@@ -4382,7 +4554,7 @@ through text embeddings and visual prompt embeddings.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>591</span>
 <span>592</span>
@@ -4456,7 +4628,7 @@ through text embeddings and visual prompt embeddings.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Initialize biases for detection heads.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>733</span>
 <span>734</span>
@@ -4491,7 +4663,7 @@ through text embeddings and visual prompt embeddings.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Process features with class prompt embeddings to generate detections.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>721</span>
 <span>722</span>
@@ -4528,7 +4700,7 @@ through text embeddings and visual prompt embeddings.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Process features with fused text embeddings to generate detections for prompt-free model.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>683</span>
 <span>684</span>
@@ -4615,7 +4787,7 @@ through text embeddings and visual prompt embeddings.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Fuse text features with model weights for efficient inference.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>623</span>
 <span>624</span>
@@ -4720,7 +4892,7 @@ through text embeddings and visual prompt embeddings.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Get text prompt embeddings with normalization.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>670</span>
 <span>671</span>
@@ -4739,7 +4911,7 @@ through text embeddings and visual prompt embeddings.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Get visual prompt embeddings with spatial awareness.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>674</span>
 <span>675</span>
@@ -4779,6 +4951,33 @@ through text embeddings and visual prompt embeddings.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.nn.modules.head.YOLOEDetect" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.modules.head.YOLOEDetect&lt;/span&gt;'>YOLOEDetect</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.nn.modules.head.YOLOESegment" id="mermaid-link-ultralytics.nn.modules.head.YOLOESegment" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.modules.head.YOLOESegment&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.nn.modules.head.YOLOEDetect" id="mermaid-link-ultralytics.nn.modules.head.YOLOEDetect" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.modules.head.YOLOEDetect&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.nn.modules.head.Detect" id="mermaid-link-ultralytics.nn.modules.head.Detect" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.modules.head.Detect&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.nn.modules.head.YOLOESegment">
+              flowchart TD
+              ultralytics.nn.modules.head.YOLOESegment[YOLOESegment]
+              ultralytics.nn.modules.head.YOLOEDetect[YOLOEDetect]
+              ultralytics.nn.modules.head.Detect[Detect]
+                              ultralytics.nn.modules.head.YOLOEDetect --&gt; ultralytics.nn.modules.head.YOLOESegment
+                                ultralytics.nn.modules.head.Detect --&gt; ultralytics.nn.modules.head.YOLOEDetect
+              click ultralytics.nn.modules.head.YOLOESegment href "" "ultralytics.nn.modules.head.YOLOESegment"
+              click ultralytics.nn.modules.head.YOLOEDetect href "" "ultralytics.nn.modules.head.YOLOEDetect"
+              click ultralytics.nn.modules.head.Detect href "" "ultralytics.nn.modules.head.Detect"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.nn.modules.head.YOLOESegment');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>YOLO segmentation head with text embedding capabilities.</p>
 <p>This class extends YOLOEDetect to include mask prediction capabilities for instance segmentation tasks with
 text-guided semantic understanding.</p>
@@ -4973,7 +5172,7 @@ text-guided semantic understanding.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>768</span>
 <span>769</span>
@@ -5025,7 +5224,7 @@ text-guided semantic understanding.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return model outputs and mask coefficients if training, otherwise return outputs and mask coefficients.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>789</span>
 <span>790</span>
@@ -5098,6 +5297,25 @@ text-guided semantic understanding.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.nn.modules.head.RTDETRDecoder" id="mermaid-link-ultralytics.nn.modules.head.RTDETRDecoder" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.modules.head.RTDETRDecoder&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.nn.modules.head.RTDETRDecoder">
+              flowchart TD
+              ultralytics.nn.modules.head.RTDETRDecoder[RTDETRDecoder]
+              click ultralytics.nn.modules.head.RTDETRDecoder href "" "ultralytics.nn.modules.head.RTDETRDecoder"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.nn.modules.head.RTDETRDecoder');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Real-Time Deformable Transformer Decoder (RTDETRDecoder) module for object detection.</p>
 <p>This decoder module utilizes Transformer architecture along with deformable convolutions to predict bounding boxes
 and class labels for objects in an image. It integrates features from multiple layers and runs through a series of
@@ -5623,7 +5841,7 @@ Transformer decoder layers to output the final predictions.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>857</span>
 <span>858</span>
@@ -5857,7 +6075,7 @@ class scores.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>935</span>
 <span>936</span>
@@ -5970,6 +6188,29 @@ class scores.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.nn.modules.head.Detect" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.modules.head.Detect&lt;/span&gt;'>Detect</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.nn.modules.head.v10Detect" id="mermaid-link-ultralytics.nn.modules.head.v10Detect" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.modules.head.v10Detect&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.nn.modules.head.Detect" id="mermaid-link-ultralytics.nn.modules.head.Detect" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.modules.head.Detect&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.nn.modules.head.v10Detect">
+              flowchart TD
+              ultralytics.nn.modules.head.v10Detect[v10Detect]
+              ultralytics.nn.modules.head.Detect[Detect]
+                              ultralytics.nn.modules.head.Detect --&gt; ultralytics.nn.modules.head.v10Detect
+              click ultralytics.nn.modules.head.v10Detect href "" "ultralytics.nn.modules.head.v10Detect"
+              click ultralytics.nn.modules.head.Detect href "" "ultralytics.nn.modules.head.Detect"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.nn.modules.head.v10Detect');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>v10 Detection head from <a href="https://arxiv.org/pdf/2405.14458">https://arxiv.org/pdf/2405.14458</a>.</p>
 <p>This class implements the YOLOv10 detection head with dual-assignment training and consistent dual predictions for
 improved efficiency and performance.</p>
@@ -6115,7 +6356,7 @@ improved efficiency and performance.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1160</span>
 <span>1161</span>
@@ -6165,7 +6406,7 @@ improved efficiency and performance.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Remove the one2many head for inference optimization.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1180</span>
 <span>1181</span>
@@ -6303,7 +6544,7 @@ improved efficiency and performance.</p>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@main/js/chat.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
 <script src="../../../../javascript/extra.js"></script>
 <script src="../../../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

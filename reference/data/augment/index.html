@@ -2115,7 +2115,7 @@ tasks. It is designed to be compatible with both classification and semantic seg
 <p><span class="doc-section-title">Examples:</span></p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transform</span> <span class="o">=</span> <span class="n">BaseTransform</span><span class="p">()</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>46</span>
 <span>47</span>
@@ -2206,7 +2206,7 @@ data, and 'instances' for object instances.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">labels</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"img"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="s2">"instances"</span><span class="p">:</span> <span class="p">[]}</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transformed_labels</span> <span class="o">=</span> <span class="n">transform</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>118</span>
 <span>119</span>
@@ -2323,7 +2323,7 @@ on the specific implementation.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">transformed_labels</span><span class="p">)</span>
 <span></span><span class="go">[1, 2, 3]</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>57</span>
 <span>58</span>
@@ -2436,7 +2436,7 @@ logic.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">labels</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"instances"</span><span class="p">:</span> <span class="n">Instances</span><span class="p">(</span><span class="n">xyxy</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="bp">cls</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,)))}</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transformed_labels</span> <span class="o">=</span> <span class="n">transform</span><span class="o">.</span><span class="n">apply_instances</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>79</span>
 <span>80</span>
@@ -2544,7 +2544,7 @@ transformations. In its base form, it does not perform any operations.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">semantic_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transformed_mask</span> <span class="o">=</span> <span class="n">transform</span><span class="o">.</span><span class="n">apply_semantic</span><span class="p">(</span><span class="n">semantic_mask</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 99</span>
 <span>100</span>
@@ -2719,7 +2719,7 @@ transformations. In its base form, it does not perform any operations.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transforms</span> <span class="o">=</span> <span class="p">[</span><span class="n">RandomHSV</span><span class="p">(),</span> <span class="n">RandomFlip</span><span class="p">()]</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">compose</span> <span class="o">=</span> <span class="n">Compose</span><span class="p">(</span><span class="n">transforms</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>164</span>
 <span>165</span>
@@ -2812,7 +2812,7 @@ the list.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">compose</span> <span class="o">=</span> <span class="n">Compose</span><span class="p">(</span><span class="n">transforms</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transformed_data</span> <span class="o">=</span> <span class="n">compose</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>177</span>
 <span>178</span>
@@ -2942,7 +2942,7 @@ the list.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">single_transform</span> <span class="o">=</span> <span class="n">compose</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Returns a Compose object with only RandomPerspective</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">multiple_transforms</span> <span class="o">=</span> <span class="n">compose</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># Returns a Compose object with RandomFlip and RandomPerspective</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>225</span>
 <span>226</span>
@@ -3025,7 +3025,7 @@ the list.</p>
 <span></span><span class="go">    RandomPerspective(degrees=10, translate=0.1, scale=0.1)</span>
 <span></span><span class="go">])</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>287</span>
 <span>288</span>
@@ -3141,7 +3141,7 @@ the list.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">compose</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">NewTransform</span><span class="p">()</span>  <span class="c1"># Replace second transform</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">compose</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">NewTransform1</span><span class="p">(),</span> <span class="n">NewTransform2</span><span class="p">()]</span>  <span class="c1"># Replace first two transforms</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>246</span>
 <span>247</span>
@@ -3237,7 +3237,7 @@ the list.</p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">compose</span> <span class="o">=</span> <span class="n">Compose</span><span class="p">([</span><span class="n">RandomFlip</span><span class="p">(),</span> <span class="n">RandomPerspective</span><span class="p">()])</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">compose</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">RandomHSV</span><span class="p">())</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>198</span>
 <span>199</span>
@@ -3323,7 +3323,7 @@ the list.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">compose</span><span class="o">.</span><span class="n">transforms</span><span class="p">)</span>
 <span></span><span class="go">3</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>210</span>
 <span>211</span>
@@ -3392,7 +3392,7 @@ the list.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">transform_list</span><span class="p">))</span>
 <span></span><span class="go">3</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>272</span>
 <span>273</span>
@@ -3605,7 +3605,7 @@ application of transforms and manages the mixing of multiple images and labels.<
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pre_transform</span> <span class="o">=</span> <span class="n">Compose</span><span class="p">([</span><span class="n">RandomFlip</span><span class="p">(),</span> <span class="n">RandomPerspective</span><span class="p">()])</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mix_transform</span> <span class="o">=</span> <span class="n">BaseMixTransform</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">pre_transform</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>335</span>
 <span>336</span>
@@ -3709,7 +3709,7 @@ additional images, applies pre-transforms if specified, and then performs the mi
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transform</span> <span class="o">=</span> <span class="n">BaseMixTransform</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">pre_transform</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">transform</span><span class="p">({</span><span class="s2">"image"</span><span class="p">:</span> <span class="n">img</span><span class="p">,</span> <span class="s2">"bboxes"</span><span class="p">:</span> <span class="n">boxes</span><span class="p">,</span> <span class="s2">"cls"</span><span class="p">:</span> <span class="n">classes</span><span class="p">})</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>354</span>
 <span>355</span>
@@ -3824,7 +3824,7 @@ additional images, applies pre-transforms if specified, and then performs the mi
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">indexes</span> <span class="o">=</span> <span class="n">transform</span><span class="o">.</span><span class="n">get_indexes</span><span class="p">()</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">indexes</span><span class="p">)</span>  <span class="c1"># [3, 18, 7, 2]</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>413</span>
 <span>414</span>
@@ -3865,6 +3865,29 @@ additional images, applies pre-transforms if specified, and then performs the mi
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.data.augment.BaseMixTransform" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.data.augment.BaseMixTransform&lt;/span&gt;'>BaseMixTransform</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.data.augment.Mosaic" id="mermaid-link-ultralytics.data.augment.Mosaic" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.data.augment.Mosaic&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.data.augment.BaseMixTransform" id="mermaid-link-ultralytics.data.augment.BaseMixTransform" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.data.augment.BaseMixTransform&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.data.augment.Mosaic">
+              flowchart TD
+              ultralytics.data.augment.Mosaic[Mosaic]
+              ultralytics.data.augment.BaseMixTransform[BaseMixTransform]
+                              ultralytics.data.augment.BaseMixTransform --&gt; ultralytics.data.augment.Mosaic
+              click ultralytics.data.augment.Mosaic href "" "ultralytics.data.augment.Mosaic"
+              click ultralytics.data.augment.BaseMixTransform href "" "ultralytics.data.augment.BaseMixTransform"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.data.augment.Mosaic');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Mosaic augmentation for image datasets.</p>
 <p>This class performs mosaic augmentation by combining multiple (4 or 9) images into a single mosaic image. The
 augmentation is applied to a dataset with a given probability.</p>
@@ -4091,7 +4114,7 @@ augmentation is applied to a dataset with a given probability.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">YourDataset</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mosaic_aug</span> <span class="o">=</span> <span class="n">Mosaic</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>500</span>
 <span>501</span>
@@ -4180,7 +4203,7 @@ used in the mosaic (either 3 or 8, depending on whether n is 4 or 9).</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">indexes</span> <span class="o">=</span> <span class="n">mosaic</span><span class="o">.</span><span class="n">get_indexes</span><span class="p">()</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">indexes</span><span class="p">))</span>  <span class="c1"># Output: 3</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>525</span>
 <span>526</span>
@@ -4235,6 +4258,29 @@ used in the mosaic (either 3 or 8, depending on whether n is 4 or 9).</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.data.augment.BaseMixTransform" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.data.augment.BaseMixTransform&lt;/span&gt;'>BaseMixTransform</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.data.augment.MixUp" id="mermaid-link-ultralytics.data.augment.MixUp" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.data.augment.MixUp&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.data.augment.BaseMixTransform" id="mermaid-link-ultralytics.data.augment.BaseMixTransform" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.data.augment.BaseMixTransform&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.data.augment.MixUp">
+              flowchart TD
+              ultralytics.data.augment.MixUp[MixUp]
+              ultralytics.data.augment.BaseMixTransform[BaseMixTransform]
+                              ultralytics.data.augment.BaseMixTransform --&gt; ultralytics.data.augment.MixUp
+              click ultralytics.data.augment.MixUp href "" "ultralytics.data.augment.MixUp"
+              click ultralytics.data.augment.BaseMixTransform href "" "ultralytics.data.augment.BaseMixTransform"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.data.augment.MixUp');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Apply MixUp augmentation to image datasets.</p>
 <p>This class implements the MixUp augmentation technique as described in the paper <a href="https://arxiv.org/abs/1710.09412">mixup: Beyond Empirical Risk
 Minimization</a>. MixUp combines two images and their labels using a random weight.</p>
@@ -4376,7 +4422,7 @@ and labels. This implementation is designed for use with the Ultralytics YOLO fr
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">YOLODataset</span><span class="p">(</span><span class="s2">"path/to/data.yaml"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mixup</span> <span class="o">=</span> <span class="n">MixUp</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">pre_transform</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>859</span>
 <span>860</span>
@@ -4432,6 +4478,29 @@ and labels. This implementation is designed for use with the Ultralytics YOLO fr
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.data.augment.BaseMixTransform" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.data.augment.BaseMixTransform&lt;/span&gt;'>BaseMixTransform</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.data.augment.CutMix" id="mermaid-link-ultralytics.data.augment.CutMix" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.data.augment.CutMix&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.data.augment.BaseMixTransform" id="mermaid-link-ultralytics.data.augment.BaseMixTransform" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.data.augment.BaseMixTransform&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.data.augment.CutMix">
+              flowchart TD
+              ultralytics.data.augment.CutMix[CutMix]
+              ultralytics.data.augment.BaseMixTransform[BaseMixTransform]
+                              ultralytics.data.augment.BaseMixTransform --&gt; ultralytics.data.augment.CutMix
+              click ultralytics.data.augment.CutMix href "" "ultralytics.data.augment.CutMix"
+              click ultralytics.data.augment.BaseMixTransform href "" "ultralytics.data.augment.BaseMixTransform"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.data.augment.CutMix');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Apply CutMix augmentation to image datasets as described in the paper <a href="https://arxiv.org/abs/1905.04899">https://arxiv.org/abs/1905.04899</a>.</p>
 <p>CutMix combines two images by replacing a random rectangular region of one image with the corresponding region from
 another image, and adjusts the labels proportionally to the area of the mixed region.</p>
@@ -4628,7 +4697,7 @@ another image, and adjusts the labels proportionally to the area of the mixed re
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>925</span>
 <span>926</span>
@@ -4971,7 +5040,7 @@ transformation.</p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transform</span> <span class="o">=</span> <span class="n">RandomPerspective</span><span class="p">(</span><span class="n">degrees</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">translate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">shear</span><span class="o">=</span><span class="mf">5.0</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">transform</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>  <span class="c1"># Apply random perspective to labels</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1048</span>
 <span>1049</span>
@@ -5132,7 +5201,7 @@ accordingly.</p>
 May include:
     - 'mosaic_border' (tuple[int, int]): Border size for mosaic augmentation.</p>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1249</span>
 <span>1250</span>
@@ -5398,7 +5467,7 @@ maintain consistency.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">border</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transformed_img</span><span class="p">,</span> <span class="n">matrix</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">affine_transform</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">border</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1085</span>
 <span>1086</span>
@@ -5609,7 +5678,7 @@ boxes.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transformed_bboxes</span> <span class="o">=</span> <span class="n">apply_bboxes</span><span class="p">(</span><span class="n">bboxes</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1148</span>
 <span>1149</span>
@@ -5762,7 +5831,7 @@ the number of keypoints per instance, and 3 represents (x, y, visibility).</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># Identity transformation</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transformed_keypoints</span> <span class="o">=</span> <span class="n">random_perspective</span><span class="o">.</span><span class="n">apply_keypoints</span><span class="p">(</span><span class="n">keypoints</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1216</span>
 <span>1217</span>
@@ -5923,7 +5992,7 @@ number of points in each segment.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># Identity transformation matrix</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">new_bboxes</span><span class="p">,</span> <span class="n">new_segments</span> <span class="o">=</span> <span class="n">apply_segments</span><span class="p">(</span><span class="n">segments</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1181</span>
 <span>1182</span>
@@ -6160,7 +6229,7 @@ boxes that meet all criteria.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">candidates</span><span class="p">)</span>
 <span></span><span class="go">[True True]</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1328</span>
 <span>1329</span>
@@ -6402,7 +6471,7 @@ boxes that meet all criteria.</p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">hsv_aug</span> <span class="o">=</span> <span class="n">RandomHSV</span><span class="p">(</span><span class="n">hgain</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">sgain</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">vgain</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">hsv_aug</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1396</span>
 <span>1397</span>
@@ -6507,7 +6576,7 @@ image as a numpy array.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">labels</span> <span class="o">=</span> <span class="n">hsv_augmenter</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">augmented_img</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1414</span>
 <span>1415</span>
@@ -6761,7 +6830,7 @@ any instances (bounding boxes, keypoints, etc.) accordingly.</p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">flip</span> <span class="o">=</span> <span class="n">RandomFlip</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s2">"horizontal"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">flip_with_idx</span> <span class="o">=</span> <span class="n">RandomFlip</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s2">"vertical"</span><span class="p">,</span> <span class="n">flip_idx</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1474</span>
 <span>1475</span>
@@ -6883,7 +6952,7 @@ flipped image.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">random_flip</span> <span class="o">=</span> <span class="n">RandomFlip</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s2">"horizontal"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">flipped_labels</span> <span class="o">=</span> <span class="n">random_flip</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1499</span>
 <span>1500</span>
@@ -7335,7 +7404,7 @@ tasks. It supports various resizing modes including auto-sizing, scale-fill, and
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">letterbox</span> <span class="o">=</span> <span class="n">LetterBox</span><span class="p">(</span><span class="n">new_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">),</span> <span class="n">auto</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">scale_fill</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">scaleup</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resized_img</span> <span class="o">=</span> <span class="n">letterbox</span><span class="p">(</span><span class="n">original_img</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1568</span>
 <span>1569</span>
@@ -7520,7 +7589,7 @@ padded image only.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resized_img</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">updated_instances</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s2">"instances"</span><span class="p">]</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1616</span>
 <span>1617</span>
@@ -7691,6 +7760,29 @@ padded image only.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.data.augment.BaseMixTransform" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.data.augment.BaseMixTransform&lt;/span&gt;'>BaseMixTransform</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.data.augment.CopyPaste" id="mermaid-link-ultralytics.data.augment.CopyPaste" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.data.augment.CopyPaste&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.data.augment.BaseMixTransform" id="mermaid-link-ultralytics.data.augment.BaseMixTransform" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.data.augment.BaseMixTransform&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.data.augment.CopyPaste">
+              flowchart TD
+              ultralytics.data.augment.CopyPaste[CopyPaste]
+              ultralytics.data.augment.BaseMixTransform[BaseMixTransform]
+                              ultralytics.data.augment.BaseMixTransform --&gt; ultralytics.data.augment.CopyPaste
+              click ultralytics.data.augment.CopyPaste href "" "ultralytics.data.augment.CopyPaste"
+              click ultralytics.data.augment.BaseMixTransform href "" "ultralytics.data.augment.BaseMixTransform"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.data.augment.CopyPaste');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>CopyPaste class for applying Copy-Paste augmentation to image datasets.</p>
 <p>This class implements the Copy-Paste augmentation technique as described in the paper "Simple Copy-Paste is a Strong
 Data Augmentation Method for Instance Segmentation" (<a href="https://arxiv.org/abs/2012.07177">https://arxiv.org/abs/2012.07177</a>). It combines objects from
@@ -7773,7 +7865,7 @@ different images to create new training samples.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">copypaste</span> <span class="o">=</span> <span class="n">CopyPaste</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">augmented_labels</span> <span class="o">=</span> <span class="n">copypaste</span><span class="p">(</span><span class="n">original_labels</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1747</span>
 <span>1748</span>
@@ -7795,7 +7887,7 @@ different images to create new training samples.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Apply Copy-Paste augmentation to an image and its labels.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1758</span>
 <span>1759</span>
@@ -8085,7 +8177,7 @@ contrast, RandomGamma, and image quality reduction through compression.</p>
 <li>Some transforms are applied with very low probability (0.01) by default.</li>
 </ul>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1848</span>
 <span>1849</span>
@@ -8414,7 +8506,7 @@ spatial and non-spatial transformations on the input image and its corresponding
 <li>Requires the Albumentations library to be installed.</li>
 </ul>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1971</span>
 <span>1972</span>
@@ -8977,7 +9069,7 @@ estimation tasks, preparing them for use in PyTorch DataLoader's <code>collate_f
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">format</span><span class="o">.</span><span class="n">bbox_format</span><span class="p">)</span>
 <span></span><span class="go">xyxy</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2056</span>
 <span>2057</span>
@@ -9163,7 +9255,7 @@ applying normalization if required.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">formatted_labels</span> <span class="o">=</span> <span class="n">formatter</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">formatted_labels</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2110</span>
 <span>2111</span>
@@ -9342,7 +9434,7 @@ applying normalization if required.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2244</span>
 <span>2245</span>
@@ -9418,7 +9510,7 @@ applying normalization if required.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2269</span>
 <span>2270</span>
@@ -9593,7 +9685,7 @@ applying normalization if required.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2289</span>
 <span>2290</span>
@@ -9778,7 +9870,7 @@ applying normalization if required.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2252</span>
 <span>2253</span>
@@ -10102,7 +10194,7 @@ max_samples.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">random_load_text</span><span class="o">.</span><span class="n">max_samples</span>
 <span></span><span class="go">120</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2361</span>
 <span>2362</span>
@@ -10261,7 +10353,7 @@ keys.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">labels</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"cls"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">]]),</span> <span class="s2">"texts"</span><span class="p">:</span> <span class="p">[[</span><span class="s2">"dog"</span><span class="p">],</span> <span class="p">[</span><span class="s2">"cat"</span><span class="p">],</span> <span class="p">[</span><span class="s2">"bird"</span><span class="p">]]}</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">updated_labels</span> <span class="o">=</span> <span class="n">loader</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2406</span>
 <span>2407</span>
@@ -10620,7 +10712,7 @@ size) is created. If a tuple, it should be (height, width).</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span><span class="go">(224, 224, 3)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2723</span>
 <span>2724</span>
@@ -10750,7 +10842,7 @@ target height and width respectively.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">resized_image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span><span class="go">(640, 640, 3)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2753</span>
 <span>2754</span>
@@ -10952,7 +11044,7 @@ size) is made. If size is a sequence like (h, w), it is used as the output size.
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cropped_img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span><span class="go">(224, 224, 3)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2809</span>
 <span>2810</span>
@@ -11067,7 +11159,7 @@ object.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cropped_image</span> <span class="o">=</span> <span class="n">transform</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">cropped_image</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2832</span>
 <span>2833</span>
@@ -11227,7 +11319,7 @@ half-precision (float16) conversion.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">tensor_img</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 <span></span><span class="go">torch.float16</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2883</span>
 <span>2884</span>
@@ -11338,7 +11430,7 @@ shape (C, H, W) in RGB order.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">tensor_img</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">tensor_img</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 <span></span><span class="go">torch.Size([3, 640, 640]) torch.float16</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2903</span>
 <span>2904</span>
@@ -11523,7 +11615,7 @@ transformations.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">hyp</span><span class="o">.</span><span class="n">augmentations</span> <span class="o">=</span> <span class="n">augmentations</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transforms</span> <span class="o">=</span> <span class="n">v8_transforms</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">hyp</span><span class="o">=</span><span class="n">hyp</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2472</span>
 <span>2473</span>
@@ -11809,7 +11901,7 @@ tuple, it defines (height, width).</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transformed_img</span> <span class="o">=</span> <span class="n">transforms</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2547</span>
 <span>2548</span>
@@ -12195,7 +12287,7 @@ options for resizing, flipping, color jittering, auto augmentation, and random e
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transforms</span> <span class="o">=</span> <span class="n">classify_augmentations</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">224</span><span class="p">,</span> <span class="n">auto_augment</span><span class="o">=</span><span class="s2">"randaugment"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">augmented_image</span> <span class="o">=</span> <span class="n">transforms</span><span class="p">(</span><span class="n">original_image</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2597</span>
 <span>2598</span>
@@ -12524,7 +12616,7 @@ options for resizing, flipping, color jittering, auto augmentation, and random e
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@main/js/chat.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
 <script src="../../../javascript/extra.js"></script>
 <script src="../../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

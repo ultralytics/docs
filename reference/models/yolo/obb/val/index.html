@@ -1399,6 +1399,33 @@
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../detect/val/#ultralytics.models.yolo.detect.val.DetectionValidator" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.detect.val.DetectionValidator&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.detect.DetectionValidator&lt;/code&gt;)'>DetectionValidator</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.obb.val.OBBValidator" id="mermaid-link-ultralytics.models.yolo.obb.val.OBBValidator" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.obb.val.OBBValidator&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../detect/val/#ultralytics.models.yolo.detect.val.DetectionValidator" id="mermaid-link-ultralytics.models.yolo.detect.val.DetectionValidator" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.detect.val.DetectionValidator&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../../../engine/validator/#ultralytics.engine.validator.BaseValidator" id="mermaid-link-ultralytics.engine.validator.BaseValidator" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.validator.BaseValidator&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.yolo.obb.val.OBBValidator">
+              flowchart TD
+              ultralytics.models.yolo.obb.val.OBBValidator[OBBValidator]
+              ultralytics.models.yolo.detect.val.DetectionValidator[DetectionValidator]
+              ultralytics.engine.validator.BaseValidator[BaseValidator]
+                              ultralytics.models.yolo.detect.val.DetectionValidator --&gt; ultralytics.models.yolo.obb.val.OBBValidator
+                                ultralytics.engine.validator.BaseValidator --&gt; ultralytics.models.yolo.detect.val.DetectionValidator
+              click ultralytics.models.yolo.obb.val.OBBValidator href "" "ultralytics.models.yolo.obb.val.OBBValidator"
+              click ultralytics.models.yolo.detect.val.DetectionValidator href "" "ultralytics.models.yolo.detect.val.DetectionValidator"
+              click ultralytics.engine.validator.BaseValidator href "" "ultralytics.engine.validator.BaseValidator"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.yolo.obb.val.OBBValidator');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>A class extending the DetectionValidator class for validation based on an Oriented Bounding Box (OBB) model.</p>
 <p>This validator specializes in evaluating models that predict rotated bounding boxes, commonly used for aerial and
 satellite imagery where objects can appear at various orientations.</p>
@@ -1607,7 +1634,7 @@ extends the DetectionValidator class and configures it specifically for the OBB 
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/obb/val.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>45</span>
 <span>46</span>
@@ -1699,7 +1726,7 @@ extends the DetectionValidator class and configures it specifically for the OBB 
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/obb/val.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>228</span>
 <span>229</span>
@@ -1869,7 +1896,7 @@ extends the DetectionValidator class and configures it specifically for the OBB 
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/obb/val.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>61</span>
 <span>62</span>
@@ -1969,7 +1996,7 @@ extends the DetectionValidator class and configures it specifically for the OBB 
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">preds</span> <span class="o">=</span> <span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">)]</span>  <span class="c1"># Example predictions for one image</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">validator</span><span class="o">.</span><span class="n">plot_predictions</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/obb/val.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>144</span>
 <span>145</span>
@@ -2068,7 +2095,7 @@ extends the DetectionValidator class and configures it specifically for the OBB 
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/obb/val.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 97</span>
 <span> 98</span>
@@ -2159,7 +2186,7 @@ bounding box coordinates, confidence scores, and class predictions.</p>
 (x, y, w, h, angle) and polygon format (x1, y1, x2, y2, x3, y3, x4, y4) before adding them
 to the JSON dictionary.</p>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/obb/val.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>163</span>
 <span>164</span>
@@ -2318,7 +2345,7 @@ class predictions, and angles in format (x, y, w, h, conf, cls, angle).</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">predn</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">45</span><span class="p">]])</span>  <span class="c1"># One detection: x,y,w,h,conf,cls,angle</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">validator</span><span class="o">.</span><span class="n">save_one_txt</span><span class="p">(</span><span class="n">predn</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">),</span> <span class="s2">"detection.txt"</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/obb/val.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>193</span>
 <span>194</span>
@@ -2383,7 +2410,7 @@ class predictions, and angles in format (x, y, w, h, conf, cls, angle).</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Scales predictions to the original image size.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/obb/val.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>219</span>
 <span>220</span>
@@ -2525,7 +2552,7 @@ class predictions, and angles in format (x, y, w, h, conf, cls, angle).</p>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@main/js/chat.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
 <script src="../../../../../javascript/extra.js"></script>
 <script src="../../../../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

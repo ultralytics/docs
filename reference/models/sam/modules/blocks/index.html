@@ -1803,6 +1803,25 @@
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.blocks.DropPath" id="mermaid-link-ultralytics.models.sam.modules.blocks.DropPath" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.blocks.DropPath&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.sam.modules.blocks.DropPath">
+              flowchart TD
+              ultralytics.models.sam.modules.blocks.DropPath[DropPath]
+              click ultralytics.models.sam.modules.blocks.DropPath href "" "ultralytics.models.sam.modules.blocks.DropPath"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.sam.modules.blocks.DropPath');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Implements stochastic depth regularization for neural networks during training.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
@@ -1862,7 +1881,7 @@
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">output</span> <span class="o">=</span> <span class="n">drop_path</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>35</span>
 <span>36</span>
@@ -1884,7 +1903,7 @@
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Apply stochastic depth to input tensor during training, with optional scaling.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>41</span>
 <span>42</span>
@@ -1928,6 +1947,25 @@
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.blocks.MaskDownSampler" id="mermaid-link-ultralytics.models.sam.modules.blocks.MaskDownSampler" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.blocks.MaskDownSampler&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.sam.modules.blocks.MaskDownSampler">
+              flowchart TD
+              ultralytics.models.sam.modules.blocks.MaskDownSampler[MaskDownSampler]
+              click ultralytics.models.sam.modules.blocks.MaskDownSampler href "" "ultralytics.models.sam.modules.blocks.MaskDownSampler"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.sam.modules.blocks.MaskDownSampler');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>A mask downsampling and embedding module for efficient processing of input masks.</p>
 <p>This class implements a mask downsampler that progressively reduces the spatial dimensions of input masks while
 expanding their channel dimensions using convolutional layers, layer normalization, and activation functions.</p>
@@ -1981,7 +2019,7 @@ functions for downsampling and embedding masks.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span><span class="go">torch.Size([1, 256, 16, 16])</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 74</span>
 <span> 75</span>
@@ -2055,7 +2093,7 @@ functions for downsampling and embedding masks.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Downsample and encode input mask to embed_dim channels using convolutional layers and LayerNorm2d.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>106</span>
 <span>107</span>
@@ -2085,6 +2123,25 @@ functions for downsampling and embedding masks.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.blocks.CXBlock" id="mermaid-link-ultralytics.models.sam.modules.blocks.CXBlock" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.blocks.CXBlock&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.sam.modules.blocks.CXBlock">
+              flowchart TD
+              ultralytics.models.sam.modules.blocks.CXBlock[CXBlock]
+              click ultralytics.models.sam.modules.blocks.CXBlock href "" "ultralytics.models.sam.modules.blocks.CXBlock"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.sam.modules.blocks.CXBlock');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>ConvNeXt Block for efficient feature extraction in convolutional neural networks.</p>
 <p>This block implements a modified version of the ConvNeXt architecture, offering improved performance and flexibility
 in feature extraction.</p>
@@ -2322,7 +2379,7 @@ flexibility in feature extraction.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span><span class="go">torch.Size([1, 64, 32, 32])</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>138</span>
 <span>139</span>
@@ -2428,7 +2485,7 @@ flexibility in feature extraction.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Apply ConvNeXt block operations to input tensor, including convolutions and residual connection.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>186</span>
 <span>187</span>
@@ -2480,6 +2537,25 @@ flexibility in feature extraction.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.blocks.Fuser" id="mermaid-link-ultralytics.models.sam.modules.blocks.Fuser" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.blocks.Fuser&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.sam.modules.blocks.Fuser">
+              flowchart TD
+              ultralytics.models.sam.modules.blocks.Fuser[Fuser]
+              click ultralytics.models.sam.modules.blocks.Fuser href "" "ultralytics.models.sam.modules.blocks.Fuser"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.sam.modules.blocks.Fuser');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>A module for fusing features through multiple layers of a neural network.</p>
 <p>This class applies a series of identical layers to an input tensor, optionally projecting the input first.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
@@ -2627,7 +2703,7 @@ flexibility in feature extraction.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">input_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">output</span> <span class="o">=</span> <span class="n">fuser</span><span class="p">(</span><span class="n">input_tensor</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>224</span>
 <span>225</span>
@@ -2687,7 +2763,7 @@ flexibility in feature extraction.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Apply a series of layers to the input tensor, optionally projecting it first.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>249</span>
 <span>250</span>
@@ -2723,6 +2799,29 @@ flexibility in feature extraction.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../transformer/#ultralytics.models.sam.modules.transformer.TwoWayAttentionBlock" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.transformer.TwoWayAttentionBlock&lt;/span&gt;'>TwoWayAttentionBlock</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.blocks.SAM2TwoWayAttentionBlock" id="mermaid-link-ultralytics.models.sam.modules.blocks.SAM2TwoWayAttentionBlock" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.blocks.SAM2TwoWayAttentionBlock&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../transformer/#ultralytics.models.sam.modules.transformer.TwoWayAttentionBlock" id="mermaid-link-ultralytics.models.sam.modules.transformer.TwoWayAttentionBlock" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.transformer.TwoWayAttentionBlock&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.sam.modules.blocks.SAM2TwoWayAttentionBlock">
+              flowchart TD
+              ultralytics.models.sam.modules.blocks.SAM2TwoWayAttentionBlock[SAM2TwoWayAttentionBlock]
+              ultralytics.models.sam.modules.transformer.TwoWayAttentionBlock[TwoWayAttentionBlock]
+                              ultralytics.models.sam.modules.transformer.TwoWayAttentionBlock --&gt; ultralytics.models.sam.modules.blocks.SAM2TwoWayAttentionBlock
+              click ultralytics.models.sam.modules.blocks.SAM2TwoWayAttentionBlock href "" "ultralytics.models.sam.modules.blocks.SAM2TwoWayAttentionBlock"
+              click ultralytics.models.sam.modules.transformer.TwoWayAttentionBlock href "" "ultralytics.models.sam.modules.transformer.TwoWayAttentionBlock"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.sam.modules.blocks.SAM2TwoWayAttentionBlock');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>A two-way attention block for performing self-attention and cross-attention in both directions.</p>
 <p>This block extends the TwoWayAttentionBlock and consists of four main components: self-attention on sparse inputs,
 cross-attention from sparse to dense inputs, an MLP block on sparse inputs, and cross-attention from dense to sparse
@@ -2981,7 +3080,7 @@ dense to sparse inputs.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dense_inputs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sparse_outputs</span><span class="p">,</span> <span class="n">dense_outputs</span> <span class="o">=</span> <span class="n">block</span><span class="p">(</span><span class="n">sparse_inputs</span><span class="p">,</span> <span class="n">dense_inputs</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>285</span>
 <span>286</span>
@@ -3066,6 +3165,29 @@ dense to sparse inputs.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../transformer/#ultralytics.models.sam.modules.transformer.TwoWayTransformer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.transformer.TwoWayTransformer&lt;/span&gt;'>TwoWayTransformer</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.blocks.SAM2TwoWayTransformer" id="mermaid-link-ultralytics.models.sam.modules.blocks.SAM2TwoWayTransformer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.blocks.SAM2TwoWayTransformer&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../transformer/#ultralytics.models.sam.modules.transformer.TwoWayTransformer" id="mermaid-link-ultralytics.models.sam.modules.transformer.TwoWayTransformer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.transformer.TwoWayTransformer&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.sam.modules.blocks.SAM2TwoWayTransformer">
+              flowchart TD
+              ultralytics.models.sam.modules.blocks.SAM2TwoWayTransformer[SAM2TwoWayTransformer]
+              ultralytics.models.sam.modules.transformer.TwoWayTransformer[TwoWayTransformer]
+                              ultralytics.models.sam.modules.transformer.TwoWayTransformer --&gt; ultralytics.models.sam.modules.blocks.SAM2TwoWayTransformer
+              click ultralytics.models.sam.modules.blocks.SAM2TwoWayTransformer href "" "ultralytics.models.sam.modules.blocks.SAM2TwoWayTransformer"
+              click ultralytics.models.sam.modules.transformer.TwoWayTransformer href "" "ultralytics.models.sam.modules.transformer.TwoWayTransformer"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.sam.modules.blocks.SAM2TwoWayTransformer');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>A Two-Way Transformer module for simultaneous attention to image and query points.</p>
 <p>This class extends the TwoWayTransformer, implementing a specialized transformer decoder that attends to an input
 image using queries with supplied positional embeddings. It is particularly useful for tasks like object detection,
@@ -3308,7 +3430,7 @@ designed for tasks like object detection, image segmentation, and point cloud pr
 <span></span><span class="go">  (norm_final_attn): LayerNorm(...)</span>
 <span></span><span class="go">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>346</span>
 <span>347</span>
@@ -3422,6 +3544,29 @@ designed for tasks like object detection, image segmentation, and point cloud pr
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../transformer/#ultralytics.models.sam.modules.transformer.Attention" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.transformer.Attention&lt;/span&gt;'>Attention</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.blocks.RoPEAttention" id="mermaid-link-ultralytics.models.sam.modules.blocks.RoPEAttention" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.blocks.RoPEAttention&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../transformer/#ultralytics.models.sam.modules.transformer.Attention" id="mermaid-link-ultralytics.models.sam.modules.transformer.Attention" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.transformer.Attention&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.sam.modules.blocks.RoPEAttention">
+              flowchart TD
+              ultralytics.models.sam.modules.blocks.RoPEAttention[RoPEAttention]
+              ultralytics.models.sam.modules.transformer.Attention[Attention]
+                              ultralytics.models.sam.modules.transformer.Attention --&gt; ultralytics.models.sam.modules.blocks.RoPEAttention
+              click ultralytics.models.sam.modules.blocks.RoPEAttention href "" "ultralytics.models.sam.modules.blocks.RoPEAttention"
+              click ultralytics.models.sam.modules.transformer.Attention href "" "ultralytics.models.sam.modules.transformer.Attention"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.sam.modules.blocks.RoPEAttention');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Implements rotary position encoding for attention mechanisms in transformer architectures.</p>
 <p>This class extends the base Attention class by incorporating Rotary Position Encoding (RoPE) to enhance the
 positional awareness of the attention mechanism.</p>
@@ -3498,7 +3643,7 @@ positional awareness of the attention mechanism.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span><span class="go">torch.Size([1, 1024, 256])</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>418</span>
 <span>419</span>
@@ -3542,7 +3687,7 @@ positional awareness of the attention mechanism.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Apply rotary position encoding and compute attention between query, key, and value tensors.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>434</span>
 <span>435</span>
@@ -3641,6 +3786,25 @@ positional awareness of the attention mechanism.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.blocks.MultiScaleAttention" id="mermaid-link-ultralytics.models.sam.modules.blocks.MultiScaleAttention" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.blocks.MultiScaleAttention&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.sam.modules.blocks.MultiScaleAttention">
+              flowchart TD
+              ultralytics.models.sam.modules.blocks.MultiScaleAttention[MultiScaleAttention]
+              click ultralytics.models.sam.modules.blocks.MultiScaleAttention href "" "ultralytics.models.sam.modules.blocks.MultiScaleAttention"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.sam.modules.blocks.MultiScaleAttention');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Implements multiscale self-attention with optional query pooling for efficient feature extraction.</p>
 <p>This class provides a flexible implementation of multiscale attention, allowing for optional downsampling of query
 features through pooling. It's designed to enhance the model's ability to capture multiscale information in visual
@@ -3762,7 +3926,7 @@ tasks.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span><span class="go">torch.Size([1, 64, 64, 256])</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>520</span>
 <span>521</span>
@@ -3814,7 +3978,7 @@ tasks.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Apply multiscale attention with optional query pooling to extract multiscale features.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>541</span>
 <span>542</span>
@@ -3895,6 +4059,25 @@ tasks.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.blocks.MultiScaleBlock" id="mermaid-link-ultralytics.models.sam.modules.blocks.MultiScaleBlock" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.blocks.MultiScaleBlock&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.sam.modules.blocks.MultiScaleBlock">
+              flowchart TD
+              ultralytics.models.sam.modules.blocks.MultiScaleBlock[MultiScaleBlock]
+              click ultralytics.models.sam.modules.blocks.MultiScaleBlock href "" "ultralytics.models.sam.modules.blocks.MultiScaleBlock"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.sam.modules.blocks.MultiScaleBlock');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>A multiscale attention block with window partitioning and query pooling for efficient vision transformers.</p>
 <p>This class implements a multiscale attention mechanism with optional window partitioning and downsampling, designed
 for use in vision transformer architectures.</p>
@@ -4057,7 +4240,7 @@ for use in vision transformer architectures.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span><span class="go">torch.Size([1, 28, 28, 512])</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>600</span>
 <span>601</span>
@@ -4163,7 +4346,7 @@ for use in vision transformer architectures.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Process input through multiscale attention and MLP, with optional windowing and downsampling.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>648</span>
 <span>649</span>
@@ -4253,6 +4436,25 @@ for use in vision transformer architectures.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.blocks.PositionEmbeddingSine" id="mermaid-link-ultralytics.models.sam.modules.blocks.PositionEmbeddingSine" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.blocks.PositionEmbeddingSine&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.sam.modules.blocks.PositionEmbeddingSine">
+              flowchart TD
+              ultralytics.models.sam.modules.blocks.PositionEmbeddingSine[PositionEmbeddingSine]
+              click ultralytics.models.sam.modules.blocks.PositionEmbeddingSine href "" "ultralytics.models.sam.modules.blocks.PositionEmbeddingSine"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.sam.modules.blocks.PositionEmbeddingSine');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>A module for generating sinusoidal positional embeddings for 2D inputs like images.</p>
 <p>This class implements sinusoidal position encoding for 2D spatial positions, which can be used in transformer-based
 models for computer vision tasks.</p>
@@ -4373,7 +4575,7 @@ models for computer vision tasks.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">embeddings</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span><span class="go">torch.Size([1, 256, 224, 224])</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>711</span>
 <span>712</span>
@@ -4425,7 +4627,7 @@ models for computer vision tasks.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Encode box coordinates and dimensions into positional embeddings for detection.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>747</span>
 <span>748</span>
@@ -4448,7 +4650,7 @@ models for computer vision tasks.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Encode 2D points with sinusoidal embeddings and append labels.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>755</span>
 <span>756</span>
@@ -4477,7 +4679,7 @@ models for computer vision tasks.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Generate sinusoidal position embeddings for 2D inputs like images.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>764</span>
 <span>765</span>
@@ -4558,6 +4760,25 @@ models for computer vision tasks.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.blocks.PositionEmbeddingRandom" id="mermaid-link-ultralytics.models.sam.modules.blocks.PositionEmbeddingRandom" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.blocks.PositionEmbeddingRandom&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.sam.modules.blocks.PositionEmbeddingRandom">
+              flowchart TD
+              ultralytics.models.sam.modules.blocks.PositionEmbeddingRandom[PositionEmbeddingRandom]
+              click ultralytics.models.sam.modules.blocks.PositionEmbeddingRandom href "" "ultralytics.models.sam.modules.blocks.PositionEmbeddingRandom"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.sam.modules.blocks.PositionEmbeddingRandom');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Positional encoding using random spatial frequencies.</p>
 <p>This class generates positional embeddings for input coordinates using random spatial frequencies. It is
 particularly useful for transformer-based models that require position information.</p>
@@ -4626,7 +4847,7 @@ particularly useful for transformer-based models that require position informati
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">encoding</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span><span class="go">torch.Size([128, 32, 32])</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>820</span>
 <span>821</span>
@@ -4658,7 +4879,7 @@ particularly useful for transformer-based models that require position informati
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Generate positional encoding for a grid using random spatial frequencies.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>840</span>
 <span>841</span>
@@ -4703,7 +4924,7 @@ particularly useful for transformer-based models that require position informati
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Positionally encode input coordinates, normalizing them to [0,1] based on the given image size.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>856</span>
 <span>857</span>
@@ -4743,6 +4964,25 @@ particularly useful for transformer-based models that require position informati
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.blocks.Block" id="mermaid-link-ultralytics.models.sam.modules.blocks.Block" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.blocks.Block&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.sam.modules.blocks.Block">
+              flowchart TD
+              ultralytics.models.sam.modules.blocks.Block[Block]
+              click ultralytics.models.sam.modules.blocks.Block href "" "ultralytics.models.sam.modules.blocks.Block"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.sam.modules.blocks.Block');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Transformer block with support for window attention and residual propagation.</p>
 <p>This class implements a transformer block that can use either global or windowed self-attention, followed by a
 feed-forward network. It supports relative positional embeddings and is designed for use in vision transformer
@@ -5024,7 +5264,7 @@ architectures.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span><span class="go">torch.Size([1, 56, 56, 256])</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>890</span>
 <span>891</span>
@@ -5142,7 +5382,7 @@ architectures.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Process input through transformer block with optional windowed self-attention and residual connection.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>944</span>
 <span>945</span>
@@ -5198,6 +5438,25 @@ architectures.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.blocks.REAttention" id="mermaid-link-ultralytics.models.sam.modules.blocks.REAttention" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.blocks.REAttention&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.sam.modules.blocks.REAttention">
+              flowchart TD
+              ultralytics.models.sam.modules.blocks.REAttention[REAttention]
+              click ultralytics.models.sam.modules.blocks.REAttention href "" "ultralytics.models.sam.modules.blocks.REAttention"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.sam.modules.blocks.REAttention');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Relative Position Attention module for efficient self-attention in transformer architectures.</p>
 <p>This class implements a multi-head attention mechanism with relative positional embeddings, designed for use in
 vision transformer models. It supports optional query pooling and window partitioning for efficient processing of
@@ -5436,7 +5695,7 @@ Required if use_rel_pos is True.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span><span class="go">torch.Size([1, 32, 32, 256])</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 989</span>
 <span> 990</span>
@@ -5536,7 +5795,7 @@ Required if use_rel_pos is True.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Apply multi-head attention with optional relative positional encoding to input tensor.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1034</span>
 <span>1035</span>
@@ -5591,6 +5850,25 @@ Required if use_rel_pos is True.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.blocks.PatchEmbed" id="mermaid-link-ultralytics.models.sam.modules.blocks.PatchEmbed" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.blocks.PatchEmbed&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.sam.modules.blocks.PatchEmbed">
+              flowchart TD
+              ultralytics.models.sam.modules.blocks.PatchEmbed[PatchEmbed]
+              click ultralytics.models.sam.modules.blocks.PatchEmbed href "" "ultralytics.models.sam.modules.blocks.PatchEmbed"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.sam.modules.blocks.PatchEmbed');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Image to Patch Embedding module for vision transformer architectures.</p>
 <p>This module converts an input image into a sequence of patch embeddings using a convolutional layer. It is commonly
 used as the first layer in vision transformer architectures to transform image data into a suitable format for
@@ -5746,7 +6024,7 @@ into a suitable format for subsequent transformer blocks.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span><span class="go">torch.Size([1, 768, 14, 14])</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1073</span>
 <span>1074</span>
@@ -5818,7 +6096,7 @@ into a suitable format for subsequent transformer blocks.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Compute patch embedding by applying convolution and transposing resulting tensor.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1104</span>
 <span>1105</span>
@@ -5840,7 +6118,7 @@ into a suitable format for subsequent transformer blocks.</p>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Apply pooling and optional normalization to a tensor, handling spatial dimension permutations.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>476</span>
 <span>477</span>
@@ -5986,7 +6264,7 @@ into a suitable format for subsequent transformer blocks.</p>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@main/js/chat.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
 <script src="../../../../../javascript/extra.js"></script>
 <script src="../../../../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

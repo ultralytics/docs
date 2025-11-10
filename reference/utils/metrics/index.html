@@ -2361,6 +2361,29 @@
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../__init__/#ultralytics.utils.DataExportMixin" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.DataExportMixin&lt;/span&gt;'>DataExportMixin</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.utils.metrics.ConfusionMatrix" id="mermaid-link-ultralytics.utils.metrics.ConfusionMatrix" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.metrics.ConfusionMatrix&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../__init__/#ultralytics.utils.DataExportMixin" id="mermaid-link-ultralytics.utils.DataExportMixin" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.DataExportMixin&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.utils.metrics.ConfusionMatrix">
+              flowchart TD
+              ultralytics.utils.metrics.ConfusionMatrix[ConfusionMatrix]
+              ultralytics.utils.DataExportMixin[DataExportMixin]
+                              ultralytics.utils.DataExportMixin --&gt; ultralytics.utils.metrics.ConfusionMatrix
+              click ultralytics.utils.metrics.ConfusionMatrix href "" "ultralytics.utils.metrics.ConfusionMatrix"
+              click ultralytics.utils.DataExportMixin href "" "ultralytics.utils.DataExportMixin"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.utils.metrics.ConfusionMatrix');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>A class for calculating and updating a confusion matrix for object detection and classification tasks.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
@@ -2490,7 +2513,7 @@
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>314</span>
 <span>315</span>
@@ -2528,7 +2551,7 @@
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return the confusion matrix.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>443</span>
 <span>444</span>
@@ -2608,7 +2631,7 @@
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>496</span>
 <span>497</span>
@@ -2826,7 +2849,7 @@
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>459</span>
 <span>460</span>
@@ -2911,7 +2934,7 @@
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Print the confusion matrix to the console.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>569</span>
 <span>570</span>
@@ -3017,7 +3040,7 @@ regular boxes or Array[N, 5] for OBB with angle.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>364</span>
 <span>365</span>
@@ -3231,7 +3254,7 @@ regular boxes or Array[N, 5] for OBB with angle.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>353</span>
 <span>354</span>
@@ -3338,7 +3361,7 @@ values for all actual classes.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cm_dict</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cm_dict</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>574</span>
 <span>575</span>
@@ -3454,7 +3477,7 @@ values for all actual classes.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>447</span>
 <span>448</span>
@@ -3493,6 +3516,29 @@ values for all actual classes.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../__init__/#ultralytics.utils.SimpleClass" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.SimpleClass&lt;/span&gt;'>SimpleClass</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.utils.metrics.Metric" id="mermaid-link-ultralytics.utils.metrics.Metric" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.metrics.Metric&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../__init__/#ultralytics.utils.SimpleClass" id="mermaid-link-ultralytics.utils.SimpleClass" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.SimpleClass&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.utils.metrics.Metric">
+              flowchart TD
+              ultralytics.utils.metrics.Metric[Metric]
+              ultralytics.utils.SimpleClass[SimpleClass]
+                              ultralytics.utils.SimpleClass --&gt; ultralytics.utils.metrics.Metric
+              click ultralytics.utils.metrics.Metric href "" "ultralytics.utils.metrics.Metric"
+              click ultralytics.utils.SimpleClass href "" "ultralytics.utils.SimpleClass"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.utils.metrics.Metric');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Class for computing evaluation metrics for Ultralytics YOLO models.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
@@ -3725,7 +3771,7 @@ values for all actual classes.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>864</span>
 <span>865</span>
@@ -4030,7 +4076,7 @@ values for all actual classes.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return class-aware result, p[i], r[i], ap50[i], ap[i].</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>940</span>
 <span>941</span>
@@ -4049,7 +4095,7 @@ values for all actual classes.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return model fitness as a weighted combination of metrics.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>952</span>
 <span>953</span>
@@ -4070,7 +4116,7 @@ values for all actual classes.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return mean of results, mp, mr, map50, map.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>936</span>
 <span>937</span>
@@ -4128,7 +4174,7 @@ values for all actual classes.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>957</span>
 <span>958</span>
@@ -4201,6 +4247,33 @@ values for all actual classes.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../__init__/#ultralytics.utils.SimpleClass" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.SimpleClass&lt;/span&gt;'>SimpleClass</a></code>, <code><a class="autorefs autorefs-internal" href="../__init__/#ultralytics.utils.DataExportMixin" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.DataExportMixin&lt;/span&gt;'>DataExportMixin</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.utils.metrics.DetMetrics" id="mermaid-link-ultralytics.utils.metrics.DetMetrics" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.metrics.DetMetrics&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../__init__/#ultralytics.utils.SimpleClass" id="mermaid-link-ultralytics.utils.SimpleClass" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.SimpleClass&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../__init__/#ultralytics.utils.DataExportMixin" id="mermaid-link-ultralytics.utils.DataExportMixin" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.DataExportMixin&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.utils.metrics.DetMetrics">
+              flowchart TD
+              ultralytics.utils.metrics.DetMetrics[DetMetrics]
+              ultralytics.utils.SimpleClass[SimpleClass]
+              ultralytics.utils.DataExportMixin[DataExportMixin]
+                              ultralytics.utils.SimpleClass --&gt; ultralytics.utils.metrics.DetMetrics
+                ultralytics.utils.DataExportMixin --&gt; ultralytics.utils.metrics.DetMetrics
+              click ultralytics.utils.metrics.DetMetrics href "" "ultralytics.utils.metrics.DetMetrics"
+              click ultralytics.utils.SimpleClass href "" "ultralytics.utils.SimpleClass"
+              click ultralytics.utils.DataExportMixin href "" "ultralytics.utils.DataExportMixin"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.utils.metrics.DetMetrics');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Utility class for computing detection metrics such as precision, recall, and mean average precision (mAP).</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
@@ -4455,7 +4528,7 @@ target classes, and target images.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1031</span>
 <span>1032</span>
@@ -4584,7 +4657,7 @@ target classes, and target images.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return the result of evaluating the performance of an object detection model on a specific class.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1100</span>
 <span>1101</span>
@@ -4603,7 +4676,7 @@ target classes, and target images.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Clear the stored statistics.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1086</span>
 <span>1087</span>
@@ -4624,7 +4697,7 @@ target classes, and target images.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Calculate mean of detected objects &amp; return precision, recall, mAP50, and mAP50-95.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1096</span>
 <span>1097</span>
@@ -4727,7 +4800,7 @@ target classes, and target images.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1055</span>
 <span>1056</span>
@@ -4873,7 +4946,7 @@ values.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">detection_summary</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">detection_summary</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1136</span>
 <span>1137</span>
@@ -4982,7 +5055,7 @@ keys in self.stats.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1045</span>
 <span>1046</span>
@@ -5017,6 +5090,37 @@ keys in self.stats.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.utils.metrics.DetMetrics" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.metrics.DetMetrics&lt;/span&gt;'>DetMetrics</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.utils.metrics.SegmentMetrics" id="mermaid-link-ultralytics.utils.metrics.SegmentMetrics" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.metrics.SegmentMetrics&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.utils.metrics.DetMetrics" id="mermaid-link-ultralytics.utils.metrics.DetMetrics" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.metrics.DetMetrics&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../__init__/#ultralytics.utils.SimpleClass" id="mermaid-link-ultralytics.utils.SimpleClass" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.SimpleClass&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../__init__/#ultralytics.utils.DataExportMixin" id="mermaid-link-ultralytics.utils.DataExportMixin" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.DataExportMixin&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.utils.metrics.SegmentMetrics">
+              flowchart TD
+              ultralytics.utils.metrics.SegmentMetrics[SegmentMetrics]
+              ultralytics.utils.metrics.DetMetrics[DetMetrics]
+              ultralytics.utils.SimpleClass[SimpleClass]
+              ultralytics.utils.DataExportMixin[DataExportMixin]
+                              ultralytics.utils.metrics.DetMetrics --&gt; ultralytics.utils.metrics.SegmentMetrics
+                                ultralytics.utils.SimpleClass --&gt; ultralytics.utils.metrics.DetMetrics
+                ultralytics.utils.DataExportMixin --&gt; ultralytics.utils.metrics.DetMetrics
+              click ultralytics.utils.metrics.SegmentMetrics href "" "ultralytics.utils.metrics.SegmentMetrics"
+              click ultralytics.utils.metrics.DetMetrics href "" "ultralytics.utils.metrics.DetMetrics"
+              click ultralytics.utils.SimpleClass href "" "ultralytics.utils.SimpleClass"
+              click ultralytics.utils.DataExportMixin href "" "ultralytics.utils.DataExportMixin"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.utils.metrics.SegmentMetrics');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Calculate and aggregate detection and segmentation metrics over a given set of classes.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
@@ -5244,7 +5348,7 @@ target classes, and target images.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1197</span>
 <span>1198</span>
@@ -5341,7 +5445,7 @@ target classes, and target images.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return classification results for a specified class index.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1250</span>
 <span>1251</span>
@@ -5360,7 +5464,7 @@ target classes, and target images.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return the mean metrics for bounding box and segmentation results.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1246</span>
 <span>1247</span>
@@ -5463,7 +5567,7 @@ target classes, and target images.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1208</span>
 <span>1209</span>
@@ -5602,7 +5706,7 @@ values.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">seg_summary</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">decimals</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">seg_summary</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1280</span>
 <span>1281</span>
@@ -5673,6 +5777,37 @@ values.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.utils.metrics.DetMetrics" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.metrics.DetMetrics&lt;/span&gt;'>DetMetrics</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.utils.metrics.PoseMetrics" id="mermaid-link-ultralytics.utils.metrics.PoseMetrics" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.metrics.PoseMetrics&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.utils.metrics.DetMetrics" id="mermaid-link-ultralytics.utils.metrics.DetMetrics" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.metrics.DetMetrics&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../__init__/#ultralytics.utils.SimpleClass" id="mermaid-link-ultralytics.utils.SimpleClass" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.SimpleClass&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../__init__/#ultralytics.utils.DataExportMixin" id="mermaid-link-ultralytics.utils.DataExportMixin" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.DataExportMixin&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.utils.metrics.PoseMetrics">
+              flowchart TD
+              ultralytics.utils.metrics.PoseMetrics[PoseMetrics]
+              ultralytics.utils.metrics.DetMetrics[DetMetrics]
+              ultralytics.utils.SimpleClass[SimpleClass]
+              ultralytics.utils.DataExportMixin[DataExportMixin]
+                              ultralytics.utils.metrics.DetMetrics --&gt; ultralytics.utils.metrics.PoseMetrics
+                                ultralytics.utils.SimpleClass --&gt; ultralytics.utils.metrics.DetMetrics
+                ultralytics.utils.DataExportMixin --&gt; ultralytics.utils.metrics.DetMetrics
+              click ultralytics.utils.metrics.PoseMetrics href "" "ultralytics.utils.metrics.PoseMetrics"
+              click ultralytics.utils.metrics.DetMetrics href "" "ultralytics.utils.metrics.DetMetrics"
+              click ultralytics.utils.SimpleClass href "" "ultralytics.utils.SimpleClass"
+              click ultralytics.utils.DataExportMixin href "" "ultralytics.utils.DataExportMixin"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.utils.metrics.PoseMetrics');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Calculate and aggregate detection and pose metrics over a given set of classes.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
@@ -5900,7 +6035,7 @@ target classes, and target images.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1335</span>
 <span>1336</span>
@@ -5997,7 +6132,7 @@ target classes, and target images.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return the class-wise detection results for a specific class i.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1388</span>
 <span>1389</span>
@@ -6016,7 +6151,7 @@ target classes, and target images.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return the mean results of box and pose.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1384</span>
 <span>1385</span>
@@ -6119,7 +6254,7 @@ target classes, and target images.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1346</span>
 <span>1347</span>
@@ -6257,7 +6392,7 @@ values.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pose_summary</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">decimals</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">pose_summary</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1422</span>
 <span>1423</span>
@@ -6326,6 +6461,33 @@ values.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../__init__/#ultralytics.utils.SimpleClass" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.SimpleClass&lt;/span&gt;'>SimpleClass</a></code>, <code><a class="autorefs autorefs-internal" href="../__init__/#ultralytics.utils.DataExportMixin" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.DataExportMixin&lt;/span&gt;'>DataExportMixin</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.utils.metrics.ClassifyMetrics" id="mermaid-link-ultralytics.utils.metrics.ClassifyMetrics" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.metrics.ClassifyMetrics&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../__init__/#ultralytics.utils.SimpleClass" id="mermaid-link-ultralytics.utils.SimpleClass" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.SimpleClass&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../__init__/#ultralytics.utils.DataExportMixin" id="mermaid-link-ultralytics.utils.DataExportMixin" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.DataExportMixin&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.utils.metrics.ClassifyMetrics">
+              flowchart TD
+              ultralytics.utils.metrics.ClassifyMetrics[ClassifyMetrics]
+              ultralytics.utils.SimpleClass[SimpleClass]
+              ultralytics.utils.DataExportMixin[DataExportMixin]
+                              ultralytics.utils.SimpleClass --&gt; ultralytics.utils.metrics.ClassifyMetrics
+                ultralytics.utils.DataExportMixin --&gt; ultralytics.utils.metrics.ClassifyMetrics
+              click ultralytics.utils.metrics.ClassifyMetrics href "" "ultralytics.utils.metrics.ClassifyMetrics"
+              click ultralytics.utils.SimpleClass href "" "ultralytics.utils.SimpleClass"
+              click ultralytics.utils.DataExportMixin href "" "ultralytics.utils.DataExportMixin"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.utils.metrics.ClassifyMetrics');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Class for computing classification metrics including top-1 and top-5 accuracy.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
@@ -6465,7 +6627,7 @@ values.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1469</span>
 <span>1470</span>
@@ -6599,7 +6761,7 @@ values.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1476</span>
 <span>1477</span>
@@ -6705,7 +6867,7 @@ values.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">classify_summary</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">decimals</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">classify_summary</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1513</span>
 <span>1514</span>
@@ -6754,6 +6916,37 @@ values.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.utils.metrics.DetMetrics" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.metrics.DetMetrics&lt;/span&gt;'>DetMetrics</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.utils.metrics.OBBMetrics" id="mermaid-link-ultralytics.utils.metrics.OBBMetrics" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.metrics.OBBMetrics&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.utils.metrics.DetMetrics" id="mermaid-link-ultralytics.utils.metrics.DetMetrics" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.metrics.DetMetrics&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../__init__/#ultralytics.utils.SimpleClass" id="mermaid-link-ultralytics.utils.SimpleClass" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.SimpleClass&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../__init__/#ultralytics.utils.DataExportMixin" id="mermaid-link-ultralytics.utils.DataExportMixin" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.DataExportMixin&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.utils.metrics.OBBMetrics">
+              flowchart TD
+              ultralytics.utils.metrics.OBBMetrics[OBBMetrics]
+              ultralytics.utils.metrics.DetMetrics[DetMetrics]
+              ultralytics.utils.SimpleClass[SimpleClass]
+              ultralytics.utils.DataExportMixin[DataExportMixin]
+                              ultralytics.utils.metrics.DetMetrics --&gt; ultralytics.utils.metrics.OBBMetrics
+                                ultralytics.utils.SimpleClass --&gt; ultralytics.utils.metrics.DetMetrics
+                ultralytics.utils.DataExportMixin --&gt; ultralytics.utils.metrics.DetMetrics
+              click ultralytics.utils.metrics.OBBMetrics href "" "ultralytics.utils.metrics.OBBMetrics"
+              click ultralytics.utils.metrics.DetMetrics href "" "ultralytics.utils.metrics.DetMetrics"
+              click ultralytics.utils.SimpleClass href "" "ultralytics.utils.SimpleClass"
+              click ultralytics.utils.DataExportMixin href "" "ultralytics.utils.DataExportMixin"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.utils.metrics.OBBMetrics');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Metrics for evaluating oriented bounding box (OBB) detection.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
@@ -6876,7 +7069,7 @@ target classes, and target images.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1548</span>
 <span>1549</span>
@@ -7009,7 +7202,7 @@ target classes, and target images.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>23</span>
 <span>24</span>
@@ -7166,7 +7359,7 @@ target classes, and target images.</p>
 <summary>References</summary>
 <p><a href="https://github.com/pytorch/vision/blob/main/torchvision/ops/boxes.py">https://github.com/pytorch/vision/blob/main/torchvision/ops/boxes.py</a></p>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>54</span>
 <span>55</span>
@@ -7379,7 +7572,7 @@ x2, y2) format.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 77</span>
 <span> 78</span>
@@ -7610,7 +7803,7 @@ of image width and height.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>146</span>
 <span>147</span>
@@ -7775,7 +7968,7 @@ of image width and height.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>164</span>
 <span>165</span>
@@ -7882,7 +8075,7 @@ of image width and height.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>187</span>
 <span>188</span>
@@ -8037,7 +8230,7 @@ of image width and height.</p>
 <summary>References</summary>
 <p><a href="https://arxiv.org/pdf/2106.06072v1.pdf">https://arxiv.org/pdf/2106.06072v1.pdf</a></p>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>206</span>
 <span>207</span>
@@ -8224,7 +8417,7 @@ of image width and height.</p>
 <summary>References</summary>
 <p><a href="https://arxiv.org/pdf/2106.06072v1.pdf">https://arxiv.org/pdf/2106.06072v1.pdf</a></p>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>251</span>
 <span>252</span>
@@ -8369,7 +8562,7 @@ of image width and height.</p>
 <summary>References</summary>
 <p><a href="https://github.com/ultralytics/yolov3/issues/238#issuecomment-598028441">https://github.com/ultralytics/yolov3/issues/238#issuecomment-598028441</a></p>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>287</span>
 <span>288</span>
@@ -8410,7 +8603,7 @@ of image width and height.</p>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Box filter of fraction f.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>612</span>
 <span>613</span>
@@ -8551,7 +8744,7 @@ of image width and height.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>620</span>
 <span>621</span>
@@ -8779,7 +8972,7 @@ of image width and height.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>663</span>
 <span>664</span>
@@ -8966,7 +9159,7 @@ of image width and height.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>708</span>
 <span>709</span>
@@ -9354,7 +9547,7 @@ of image width and height.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>740</span>
 <span>741</span>
@@ -9671,7 +9864,7 @@ of image width and height.</p>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@main/js/chat.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
 <script src="../../../javascript/extra.js"></script>
 <script src="../../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

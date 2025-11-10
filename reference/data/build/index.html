@@ -1439,6 +1439,25 @@
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.utils.data.dataloader.DataLoader">DataLoader</span></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.data.build.InfiniteDataLoader" id="mermaid-link-ultralytics.data.build.InfiniteDataLoader" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.data.build.InfiniteDataLoader&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.data.build.InfiniteDataLoader">
+              flowchart TD
+              ultralytics.data.build.InfiniteDataLoader[InfiniteDataLoader]
+              click ultralytics.data.build.InfiniteDataLoader href "" "ultralytics.data.build.InfiniteDataLoader"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.data.build.InfiniteDataLoader');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Dataloader that reuses workers for infinite iteration.</p>
 <p>This dataloader extends the PyTorch DataLoader to provide infinite recycling of workers, which improves efficiency
 for training loops that need to iterate through the dataset multiple times without recreating workers.</p>
@@ -1526,7 +1545,7 @@ for training loops that need to iterate through the dataset multiple times witho
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">dataloader</span><span class="p">:</span>  <span class="c1"># Infinite iteration</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span>    <span class="n">train_step</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>61</span>
 <span>62</span>
@@ -1552,7 +1571,7 @@ for training loops that need to iterate through the dataset multiple times witho
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Ensure that workers are properly terminated when the dataloader is deleted.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>78</span>
 <span>79</span>
@@ -1587,7 +1606,7 @@ for training loops that need to iterate through the dataset multiple times witho
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Create an iterator that yields indefinitely from the underlying iterator.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>73</span>
 <span>74</span>
@@ -1608,7 +1627,7 @@ for training loops that need to iterate through the dataset multiple times witho
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return the length of the batch sampler's sampler.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>69</span>
 <span>70</span>
@@ -1627,7 +1646,7 @@ for training loops that need to iterate through the dataset multiple times witho
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Reset the iterator to allow modifications to the dataset during training.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>90</span>
 <span>91</span>
@@ -1674,7 +1693,7 @@ dataset without recreating the sampler.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>105</span>
 <span>106</span>
@@ -1692,7 +1711,7 @@ dataset without recreating the sampler.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Iterate over the sampler indefinitely, yielding its contents.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>109</span>
 <span>110</span>
@@ -1723,6 +1742,25 @@ dataset without recreating the sampler.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.utils.data.Sampler">Sampler</span></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.data.build.ContiguousDistributedSampler" id="mermaid-link-ultralytics.data.build.ContiguousDistributedSampler" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.data.build.ContiguousDistributedSampler&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.data.build.ContiguousDistributedSampler">
+              flowchart TD
+              ultralytics.data.build.ContiguousDistributedSampler[ContiguousDistributedSampler]
+              click ultralytics.data.build.ContiguousDistributedSampler href "" "ultralytics.data.build.ContiguousDistributedSampler"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.data.build.ContiguousDistributedSampler');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Distributed sampler that assigns contiguous batch-aligned chunks of the dataset to each GPU.</p>
 <p>Unlike PyTorch's DistributedSampler which distributes samples in a round-robin fashion (GPU 0 gets indices
 [0,2,4,...], GPU 1 gets [1,3,5,...]), this sampler gives each GPU contiguous batches of the dataset (GPU 0 gets
@@ -1836,7 +1874,7 @@ shuffling is deterministic and controlled by set_epoch() for reproducibility.</p
 <span></span><span class="gp">... </span>    <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">loader</span><span class="p">:</span>
 <span></span><span class="gp">... </span>        <span class="o">...</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>147</span>
 <span>148</span>
@@ -1894,7 +1932,7 @@ shuffling is deterministic and controlled by set_epoch() for reproducibility.</p
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Generate indices for this rank's contiguous chunk of the dataset.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>190</span>
 <span>191</span>
@@ -1929,7 +1967,7 @@ shuffling is deterministic and controlled by set_epoch() for reproducibility.</p
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return the number of samples in this rank's chunk.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>202</span>
 <span>203</span>
@@ -1979,7 +2017,7 @@ shuffling is deterministic and controlled by set_epoch() for reproducibility.</p
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>207</span>
 <span>208</span>
@@ -2009,7 +2047,7 @@ shuffling is deterministic and controlled by set_epoch() for reproducibility.</p
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Set dataloader worker seed for reproducibility across worker processes.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>216</span>
 <span>217</span>
@@ -2041,7 +2079,7 @@ shuffling is deterministic and controlled by set_epoch() for reproducibility.</p
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Build and return a YOLO dataset based on configuration parameters.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>223</span>
 <span>224</span>
@@ -2121,7 +2159,7 @@ shuffling is deterministic and controlled by set_epoch() for reproducibility.</p
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Build and return a GroundingDataset based on configuration parameters.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>254</span>
 <span>255</span>
@@ -2351,7 +2389,7 @@ shuffling is deterministic and controlled by set_epoch() for reproducibility.</p
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">YOLODataset</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataloader</span> <span class="o">=</span> <span class="n">build_dataloader</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">workers</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>285</span>
 <span>286</span>
@@ -2579,7 +2617,7 @@ shuffling is deterministic and controlled by set_epoch() for reproducibility.</p
 <p>Check a webcam source</p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">source</span><span class="p">,</span> <span class="n">webcam</span><span class="p">,</span> <span class="n">screenshot</span><span class="p">,</span> <span class="n">from_img</span><span class="p">,</span> <span class="n">in_memory</span><span class="p">,</span> <span class="n">tensor</span> <span class="o">=</span> <span class="n">check_source</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>340</span>
 <span>341</span>
@@ -2815,7 +2853,7 @@ shuffling is deterministic and controlled by set_epoch() for reproducibility.</p
 <p>Load a video stream source</p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">load_inference_source</span><span class="p">(</span><span class="s2">"rtsp://example.com/stream"</span><span class="p">,</span> <span class="n">vid_stride</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>390</span>
 <span>391</span>
@@ -2921,7 +2959,7 @@ shuffling is deterministic and controlled by set_epoch() for reproducibility.</p
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
 <span class="date-item" title="This page was last updated on October 20, 2025">
-<span class="hover-item">✏️</span> Updated 20 days ago
+<span class="hover-item">✏️</span> Updated 21 days ago
     </span>
 </div>
 <div class="authors-container">
@@ -3038,7 +3076,7 @@ shuffling is deterministic and controlled by set_epoch() for reproducibility.</p
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@main/js/chat.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
 <script src="../../../javascript/extra.js"></script>
 <script src="../../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

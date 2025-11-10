@@ -1296,6 +1296,25 @@
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.utils.loss.DETRLoss" id="mermaid-link-ultralytics.models.utils.loss.DETRLoss" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.utils.loss.DETRLoss&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.utils.loss.DETRLoss">
+              flowchart TD
+              ultralytics.models.utils.loss.DETRLoss[DETRLoss]
+              click ultralytics.models.utils.loss.DETRLoss href "" "ultralytics.models.utils.loss.DETRLoss"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.utils.loss.DETRLoss');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>DETR (DEtection TRansformer) Loss class for calculating various loss components.</p>
 <p>This class computes classification loss, bounding box loss, GIoU loss, and optionally auxiliary losses for the DETR
 object detection model.</p>
@@ -1591,7 +1610,7 @@ losses and various loss types.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/utils/loss.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>37</span>
 <span>38</span>
@@ -1812,7 +1831,7 @@ losses and various loss types.</p>
 <p>Uses last elements of pred_bboxes and pred_scores for main loss, and the rest for auxiliary losses if
 self.aux_loss is True.</p>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/utils/loss.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>351</span>
 <span>352</span>
@@ -1919,10 +1938,33 @@ self.aux_loss is True.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.models.utils.loss.DETRLoss" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.utils.loss.DETRLoss&lt;/span&gt;'>DETRLoss</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.utils.loss.RTDETRDetectionLoss" id="mermaid-link-ultralytics.models.utils.loss.RTDETRDetectionLoss" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.utils.loss.RTDETRDetectionLoss&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.models.utils.loss.DETRLoss" id="mermaid-link-ultralytics.models.utils.loss.DETRLoss" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.utils.loss.DETRLoss&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.utils.loss.RTDETRDetectionLoss">
+              flowchart TD
+              ultralytics.models.utils.loss.RTDETRDetectionLoss[RTDETRDetectionLoss]
+              ultralytics.models.utils.loss.DETRLoss[DETRLoss]
+                              ultralytics.models.utils.loss.DETRLoss --&gt; ultralytics.models.utils.loss.RTDETRDetectionLoss
+              click ultralytics.models.utils.loss.RTDETRDetectionLoss href "" "ultralytics.models.utils.loss.RTDETRDetectionLoss"
+              click ultralytics.models.utils.loss.DETRLoss href "" "ultralytics.models.utils.loss.DETRLoss"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.utils.loss.RTDETRDetectionLoss');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Real-Time DeepTracker (RT-DETR) Detection Loss class that extends the DETRLoss.</p>
 <p>This class computes the detection loss for the RT-DETR model, which includes the standard detection loss as well as
 an additional denoising training loss when provided with denoising metadata.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/utils/loss.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>37</span>
 <span>38</span>
@@ -2138,7 +2180,7 @@ an additional denoising training loss when provided with denoising metadata.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/utils/loss.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>400</span>
 <span>401</span>
@@ -2316,7 +2358,7 @@ an additional denoising training loss when provided with denoising metadata.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/utils/loss.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>440</span>
 <span>441</span>
@@ -2499,7 +2541,7 @@ an additional denoising training loss when provided with denoising metadata.</p>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@main/js/chat.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
 <script src="../../../../javascript/extra.js"></script>
 <script src="../../../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

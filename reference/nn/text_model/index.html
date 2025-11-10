@@ -1405,6 +1405,25 @@
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.nn.text_model.TextModel" id="mermaid-link-ultralytics.nn.text_model.TextModel" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.text_model.TextModel&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.nn.text_model.TextModel">
+              flowchart TD
+              ultralytics.nn.text_model.TextModel[TextModel]
+              click ultralytics.nn.text_model.TextModel href "" "ultralytics.nn.text_model.TextModel"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.nn.text_model.TextModel');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Abstract base class for text encoding models.</p>
 <p>This class defines the interface for text encoding models used in vision-language tasks. Subclasses must implement
 the tokenize and encode_text methods to provide text tokenization and encoding functionality.</p>
@@ -1441,7 +1460,7 @@ the tokenize and encode_text methods to provide text tokenization and encoding f
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/text_model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>33</span>
 <span>34</span>
@@ -1462,7 +1481,7 @@ the tokenize and encode_text methods to provide text tokenization and encoding f
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Encode tokenized texts into normalized feature vectors.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/text_model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>42</span>
 <span>43</span>
@@ -1486,7 +1505,7 @@ the tokenize and encode_text methods to provide text tokenization and encoding f
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Convert input texts to tokens for model processing.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/text_model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>37</span>
 <span>38</span>
@@ -1511,6 +1530,29 @@ the tokenize and encode_text methods to provide text tokenization and encoding f
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.nn.text_model.TextModel" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.text_model.TextModel&lt;/span&gt;'>TextModel</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.nn.text_model.CLIP" id="mermaid-link-ultralytics.nn.text_model.CLIP" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.text_model.CLIP&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.nn.text_model.TextModel" id="mermaid-link-ultralytics.nn.text_model.TextModel" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.text_model.TextModel&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.nn.text_model.CLIP">
+              flowchart TD
+              ultralytics.nn.text_model.CLIP[CLIP]
+              ultralytics.nn.text_model.TextModel[TextModel]
+                              ultralytics.nn.text_model.TextModel --&gt; ultralytics.nn.text_model.CLIP
+              click ultralytics.nn.text_model.CLIP href "" "ultralytics.nn.text_model.CLIP"
+              click ultralytics.nn.text_model.TextModel href "" "ultralytics.nn.text_model.TextModel"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.nn.text_model.CLIP');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Implements OpenAI's CLIP (Contrastive Language-Image Pre-training) text encoder.</p>
 <p>This class provides a text encoder based on OpenAI's CLIP model, which can convert text into feature vectors that
 are aligned with corresponding image features in a shared embedding space.</p>
@@ -1635,7 +1677,7 @@ pre-trained CLIP model of the specified size and prepares it for text encoding t
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">clip_model</span> <span class="o">=</span> <span class="n">CLIP</span><span class="p">(</span><span class="s2">"ViT-B/32"</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">"cuda:0"</span><span class="p">))</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">text_features</span> <span class="o">=</span> <span class="n">clip_model</span><span class="o">.</span><span class="n">encode_text</span><span class="p">([</span><span class="s2">"a photo of a cat"</span><span class="p">,</span> <span class="s2">"a photo of a dog"</span><span class="p">])</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/text_model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>71</span>
 <span>72</span>
@@ -1768,7 +1810,7 @@ to a tensor using the model's image preprocessing function.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">features</span><span class="o">.</span><span class="n">shape</span>
 <span></span><span class="go">torch.Size([1, 512])</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/text_model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>133</span>
 <span>134</span>
@@ -1916,7 +1958,7 @@ normalized to unit length. These normalized vectors can be used for text-image s
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">features</span><span class="o">.</span><span class="n">shape</span>
 <span></span><span class="go">torch.Size([2, 512])</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/text_model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>108</span>
 <span>109</span>
@@ -2032,7 +2074,7 @@ normalized to unit length. These normalized vectors can be used for text-image s
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tokens</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="s2">"a photo of a cat"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># torch.Size([1, 77])</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/text_model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 92</span>
 <span> 93</span>
@@ -2079,6 +2121,29 @@ normalized to unit length. These normalized vectors can be used for text-image s
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.nn.text_model.TextModel" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.text_model.TextModel&lt;/span&gt;'>TextModel</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.nn.text_model.MobileCLIP" id="mermaid-link-ultralytics.nn.text_model.MobileCLIP" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.text_model.MobileCLIP&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.nn.text_model.TextModel" id="mermaid-link-ultralytics.nn.text_model.TextModel" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.text_model.TextModel&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.nn.text_model.MobileCLIP">
+              flowchart TD
+              ultralytics.nn.text_model.MobileCLIP[MobileCLIP]
+              ultralytics.nn.text_model.TextModel[TextModel]
+                              ultralytics.nn.text_model.TextModel --&gt; ultralytics.nn.text_model.MobileCLIP
+              click ultralytics.nn.text_model.MobileCLIP href "" "ultralytics.nn.text_model.MobileCLIP"
+              click ultralytics.nn.text_model.TextModel href "" "ultralytics.nn.text_model.TextModel"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.nn.text_model.MobileCLIP');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Implement Apple's MobileCLIP text encoder for efficient text encoding.</p>
 <p>This class implements the TextModel interface using Apple's MobileCLIP model, providing efficient text encoding
 capabilities for vision-language tasks with reduced computational requirements compared to standard CLIP models.</p>
@@ -2223,7 +2288,7 @@ capabilities for vision-language tasks with reduced computational requirements c
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tokens</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tokenize</span><span class="p">([</span><span class="s2">"a photo of a cat"</span><span class="p">,</span> <span class="s2">"a photo of a dog"</span><span class="p">])</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">features</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">encode_text</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/text_model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>190</span>
 <span>191</span>
@@ -2386,7 +2451,7 @@ capabilities for vision-language tasks with reduced computational requirements c
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">features</span><span class="o">.</span><span class="n">shape</span>
 <span></span><span class="go">torch.Size([2, 512])  # Actual dimension depends on model size</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/text_model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>245</span>
 <span>246</span>
@@ -2495,7 +2560,7 @@ capabilities for vision-language tasks with reduced computational requirements c
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">MobileCLIP</span><span class="p">(</span><span class="s2">"s0"</span><span class="p">,</span> <span class="s2">"cpu"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tokens</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tokenize</span><span class="p">([</span><span class="s2">"a photo of a cat"</span><span class="p">,</span> <span class="s2">"a photo of a dog"</span><span class="p">])</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/text_model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>230</span>
 <span>231</span>
@@ -2540,6 +2605,29 @@ capabilities for vision-language tasks with reduced computational requirements c
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.nn.text_model.TextModel" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.text_model.TextModel&lt;/span&gt;'>TextModel</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.nn.text_model.MobileCLIPTS" id="mermaid-link-ultralytics.nn.text_model.MobileCLIPTS" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.text_model.MobileCLIPTS&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.nn.text_model.TextModel" id="mermaid-link-ultralytics.nn.text_model.TextModel" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.nn.text_model.TextModel&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.nn.text_model.MobileCLIPTS">
+              flowchart TD
+              ultralytics.nn.text_model.MobileCLIPTS[MobileCLIPTS]
+              ultralytics.nn.text_model.TextModel[TextModel]
+                              ultralytics.nn.text_model.TextModel --&gt; ultralytics.nn.text_model.MobileCLIPTS
+              click ultralytics.nn.text_model.MobileCLIPTS href "" "ultralytics.nn.text_model.MobileCLIPTS"
+              click ultralytics.nn.text_model.TextModel href "" "ultralytics.nn.text_model.TextModel"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.nn.text_model.MobileCLIPTS');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Load a TorchScript traced version of MobileCLIP.</p>
 <p>This class implements the TextModel interface using Apple's MobileCLIP model in TorchScript format, providing
 efficient text encoding capabilities for vision-language tasks with optimized inference performance.</p>
@@ -2657,7 +2745,7 @@ text encoding with optimized inference performance.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tokens</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tokenize</span><span class="p">([</span><span class="s2">"a photo of a cat"</span><span class="p">,</span> <span class="s2">"a photo of a dog"</span><span class="p">])</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">features</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">encode_text</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/text_model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>290</span>
 <span>291</span>
@@ -2782,7 +2870,7 @@ text encoding with optimized inference performance.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">features</span><span class="o">.</span><span class="n">shape</span>
 <span></span><span class="go">torch.Size([2, 512])  # Actual dimension depends on model size</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/text_model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>326</span>
 <span>327</span>
@@ -2889,7 +2977,7 @@ text encoding with optimized inference performance.</p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">MobileCLIPTS</span><span class="p">(</span><span class="s2">"cpu"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tokens</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tokenize</span><span class="p">([</span><span class="s2">"a photo of a cat"</span><span class="p">,</span> <span class="s2">"a photo of a dog"</span><span class="p">])</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/text_model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>311</span>
 <span>312</span>
@@ -3003,7 +3091,7 @@ text encoding with optimized inference performance.</p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">build_text_model</span><span class="p">(</span><span class="s2">"clip:ViT-B/32"</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">"cuda"</span><span class="p">))</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">build_text_model</span><span class="p">(</span><span class="s2">"mobileclip:s0"</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">"cpu"</span><span class="p">))</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/text_model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>348</span>
 <span>349</span>
@@ -3165,7 +3253,7 @@ text encoding with optimized inference performance.</p>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@main/js/chat.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
 <script src="../../../javascript/extra.js"></script>
 <script src="../../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

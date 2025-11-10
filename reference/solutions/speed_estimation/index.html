@@ -1213,6 +1213,29 @@
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../solutions/#ultralytics.solutions.solutions.BaseSolution" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.solutions.solutions.BaseSolution&lt;/span&gt;'>BaseSolution</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.solutions.speed_estimation.SpeedEstimator" id="mermaid-link-ultralytics.solutions.speed_estimation.SpeedEstimator" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.solutions.speed_estimation.SpeedEstimator&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../solutions/#ultralytics.solutions.solutions.BaseSolution" id="mermaid-link-ultralytics.solutions.solutions.BaseSolution" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.solutions.solutions.BaseSolution&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.solutions.speed_estimation.SpeedEstimator">
+              flowchart TD
+              ultralytics.solutions.speed_estimation.SpeedEstimator[SpeedEstimator]
+              ultralytics.solutions.solutions.BaseSolution[BaseSolution]
+                              ultralytics.solutions.solutions.BaseSolution --&gt; ultralytics.solutions.speed_estimation.SpeedEstimator
+              click ultralytics.solutions.speed_estimation.SpeedEstimator href "" "ultralytics.solutions.speed_estimation.SpeedEstimator"
+              click ultralytics.solutions.solutions.BaseSolution href "" "ultralytics.solutions.solutions.BaseSolution"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.solutions.speed_estimation.SpeedEstimator');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>A class to estimate the speed of objects in a real-time video stream based on their tracks.</p>
 <p>This class extends the BaseSolution class and provides functionality for estimating object speeds using tracking
 data in video streams. Speed is calculated based on pixel displacement over time and converted to real-world units
@@ -1407,7 +1430,7 @@ using a configurable meters-per-pixel scale factor.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/solutions/speed_estimation.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>43</span>
 <span>44</span>
@@ -1509,7 +1532,7 @@ using a configurable meters-per-pixel scale factor.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="p">(</span><span class="mi">480</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">estimator</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/solutions/speed_estimation.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 61</span>
 <span> 62</span>
@@ -1749,7 +1772,7 @@ using a configurable meters-per-pixel scale factor.</p>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@main/js/chat.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
 <script src="../../../javascript/extra.js"></script>
 <script src="../../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

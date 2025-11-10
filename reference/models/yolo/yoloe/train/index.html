@@ -1536,6 +1536,33 @@
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../detect/train/#ultralytics.models.yolo.detect.train.DetectionTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.detect.train.DetectionTrainer&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.detect.DetectionTrainer&lt;/code&gt;)'>DetectionTrainer</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOETrainer" id="mermaid-link-ultralytics.models.yolo.yoloe.train.YOLOETrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.yoloe.train.YOLOETrainer&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../detect/train/#ultralytics.models.yolo.detect.train.DetectionTrainer" id="mermaid-link-ultralytics.models.yolo.detect.train.DetectionTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.detect.train.DetectionTrainer&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../../../engine/trainer/#ultralytics.engine.trainer.BaseTrainer" id="mermaid-link-ultralytics.engine.trainer.BaseTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.trainer.BaseTrainer&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.yolo.yoloe.train.YOLOETrainer">
+              flowchart TD
+              ultralytics.models.yolo.yoloe.train.YOLOETrainer[YOLOETrainer]
+              ultralytics.models.yolo.detect.train.DetectionTrainer[DetectionTrainer]
+              ultralytics.engine.trainer.BaseTrainer[BaseTrainer]
+                              ultralytics.models.yolo.detect.train.DetectionTrainer --&gt; ultralytics.models.yolo.yoloe.train.YOLOETrainer
+                                ultralytics.engine.trainer.BaseTrainer --&gt; ultralytics.models.yolo.detect.train.DetectionTrainer
+              click ultralytics.models.yolo.yoloe.train.YOLOETrainer href "" "ultralytics.models.yolo.yoloe.train.YOLOETrainer"
+              click ultralytics.models.yolo.detect.train.DetectionTrainer href "" "ultralytics.models.yolo.detect.train.DetectionTrainer"
+              click ultralytics.engine.trainer.BaseTrainer href "" "ultralytics.engine.trainer.BaseTrainer"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.yolo.yoloe.train.YOLOETrainer');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>A trainer class for YOLOE object detection models.</p>
 <p>This class extends DetectionTrainer to provide specialized training functionality for YOLOE models, including custom
 model initialization, validation, and dataset building with multi-modal support.</p>
@@ -1658,7 +1685,7 @@ model initialization, validation, and dataset building with multi-modal support.
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>36</span>
 <span>37</span>
@@ -1778,7 +1805,7 @@ model initialization, validation, and dataset building with multi-modal support.
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 87</span>
 <span> 88</span>
@@ -1912,7 +1939,7 @@ path to a YAML file, or None to use default configuration.</p>
   rather than the actual number of classes.</li>
 </ul>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>50</span>
 <span>51</span>
@@ -1983,7 +2010,7 @@ path to a YAML file, or None to use default configuration.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return a YOLOEDetectValidator for YOLOE model validation.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>80</span>
 <span>81</span>
@@ -2014,6 +2041,33 @@ path to a YAML file, or None to use default configuration.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../detect/train/#ultralytics.models.yolo.detect.train.DetectionTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.detect.train.DetectionTrainer&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.detect.DetectionTrainer&lt;/code&gt;)'>DetectionTrainer</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOEPETrainer" id="mermaid-link-ultralytics.models.yolo.yoloe.train.YOLOEPETrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.yoloe.train.YOLOEPETrainer&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../detect/train/#ultralytics.models.yolo.detect.train.DetectionTrainer" id="mermaid-link-ultralytics.models.yolo.detect.train.DetectionTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.detect.train.DetectionTrainer&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../../../engine/trainer/#ultralytics.engine.trainer.BaseTrainer" id="mermaid-link-ultralytics.engine.trainer.BaseTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.trainer.BaseTrainer&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.yolo.yoloe.train.YOLOEPETrainer">
+              flowchart TD
+              ultralytics.models.yolo.yoloe.train.YOLOEPETrainer[YOLOEPETrainer]
+              ultralytics.models.yolo.detect.train.DetectionTrainer[DetectionTrainer]
+              ultralytics.engine.trainer.BaseTrainer[BaseTrainer]
+                              ultralytics.models.yolo.detect.train.DetectionTrainer --&gt; ultralytics.models.yolo.yoloe.train.YOLOEPETrainer
+                                ultralytics.engine.trainer.BaseTrainer --&gt; ultralytics.models.yolo.detect.train.DetectionTrainer
+              click ultralytics.models.yolo.yoloe.train.YOLOEPETrainer href "" "ultralytics.models.yolo.yoloe.train.YOLOEPETrainer"
+              click ultralytics.models.yolo.detect.train.DetectionTrainer href "" "ultralytics.models.yolo.detect.train.DetectionTrainer"
+              click ultralytics.engine.trainer.BaseTrainer href "" "ultralytics.engine.trainer.BaseTrainer"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.yolo.yoloe.train.YOLOEPETrainer');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Fine-tune YOLOE model using linear probing approach.</p>
 <p>This trainer freezes most model layers and only trains specific projection layers for efficient fine-tuning on new
 datasets while preserving pretrained features.</p>
@@ -2036,7 +2090,7 @@ datasets while preserving pretrained features.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/detect/train.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>55</span>
 <span>56</span>
@@ -2148,7 +2202,7 @@ datasets while preserving pretrained features.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>114</span>
 <span>115</span>
@@ -2247,6 +2301,47 @@ datasets while preserving pretrained features.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOETrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.yoloe.train.YOLOETrainer&lt;/span&gt;'>YOLOETrainer</a></code>, <code><a class="autorefs autorefs-internal" href="../../world/train_world/#ultralytics.models.yolo.world.train_world.WorldTrainerFromScratch" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.world.train_world.WorldTrainerFromScratch&lt;/span&gt;'>WorldTrainerFromScratch</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch" id="mermaid-link-ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOETrainer" id="mermaid-link-ultralytics.models.yolo.yoloe.train.YOLOETrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.yoloe.train.YOLOETrainer&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../world/train_world/#ultralytics.models.yolo.world.train_world.WorldTrainerFromScratch" id="mermaid-link-ultralytics.models.yolo.world.train_world.WorldTrainerFromScratch" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.world.train_world.WorldTrainerFromScratch&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../world/train/#ultralytics.models.yolo.world.train.WorldTrainer" id="mermaid-link-ultralytics.models.yolo.world.train.WorldTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.world.train.WorldTrainer&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../detect/train/#ultralytics.models.yolo.detect.train.DetectionTrainer" id="mermaid-link-ultralytics.models.yolo.detect.train.DetectionTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.detect.train.DetectionTrainer&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../../../engine/trainer/#ultralytics.engine.trainer.BaseTrainer" id="mermaid-link-ultralytics.engine.trainer.BaseTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.trainer.BaseTrainer&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch">
+              flowchart TD
+              ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch[YOLOETrainerFromScratch]
+              ultralytics.models.yolo.yoloe.train.YOLOETrainer[YOLOETrainer]
+              ultralytics.models.yolo.world.train_world.WorldTrainerFromScratch[WorldTrainerFromScratch]
+              ultralytics.models.yolo.world.train.WorldTrainer[WorldTrainer]
+              ultralytics.models.yolo.detect.train.DetectionTrainer[DetectionTrainer]
+              ultralytics.engine.trainer.BaseTrainer[BaseTrainer]
+                              ultralytics.models.yolo.yoloe.train.YOLOETrainer --&gt; ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch
+                                ultralytics.models.yolo.detect.train.DetectionTrainer --&gt; ultralytics.models.yolo.yoloe.train.YOLOETrainer
+                                ultralytics.engine.trainer.BaseTrainer --&gt; ultralytics.models.yolo.detect.train.DetectionTrainer
+                ultralytics.models.yolo.world.train_world.WorldTrainerFromScratch --&gt; ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch
+                                ultralytics.models.yolo.world.train.WorldTrainer --&gt; ultralytics.models.yolo.world.train_world.WorldTrainerFromScratch
+                                ultralytics.models.yolo.detect.train.DetectionTrainer --&gt; ultralytics.models.yolo.world.train.WorldTrainer
+                                ultralytics.engine.trainer.BaseTrainer --&gt; ultralytics.models.yolo.detect.train.DetectionTrainer
+              click ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch href "" "ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch"
+              click ultralytics.models.yolo.yoloe.train.YOLOETrainer href "" "ultralytics.models.yolo.yoloe.train.YOLOETrainer"
+              click ultralytics.models.yolo.world.train_world.WorldTrainerFromScratch href "" "ultralytics.models.yolo.world.train_world.WorldTrainerFromScratch"
+              click ultralytics.models.yolo.world.train.WorldTrainer href "" "ultralytics.models.yolo.world.train.WorldTrainer"
+              click ultralytics.models.yolo.detect.train.DetectionTrainer href "" "ultralytics.models.yolo.detect.train.DetectionTrainer"
+              click ultralytics.engine.trainer.BaseTrainer href "" "ultralytics.engine.trainer.BaseTrainer"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Train YOLOE models from scratch with text embedding support.</p>
 <p>This trainer combines YOLOE training capabilities with world training features, enabling training from scratch with
 text embeddings and grounding datasets.</p>
@@ -2277,7 +2372,7 @@ text embeddings and grounding datasets.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>36</span>
 <span>37</span>
@@ -2401,7 +2496,7 @@ datasets and grounding datasets with different formats.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>167</span>
 <span>168</span>
@@ -2526,7 +2621,7 @@ datasets and grounding datasets with different formats.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>183</span>
 <span>184</span>
@@ -2593,6 +2688,57 @@ datasets and grounding datasets with different formats.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOEPETrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.yoloe.train.YOLOEPETrainer&lt;/span&gt;'>YOLOEPETrainer</a></code>, <code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch&lt;/span&gt;'>YOLOETrainerFromScratch</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOEPEFreeTrainer" id="mermaid-link-ultralytics.models.yolo.yoloe.train.YOLOEPEFreeTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.yoloe.train.YOLOEPEFreeTrainer&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOEPETrainer" id="mermaid-link-ultralytics.models.yolo.yoloe.train.YOLOEPETrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.yoloe.train.YOLOEPETrainer&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch" id="mermaid-link-ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOETrainer" id="mermaid-link-ultralytics.models.yolo.yoloe.train.YOLOETrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.yoloe.train.YOLOETrainer&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../world/train_world/#ultralytics.models.yolo.world.train_world.WorldTrainerFromScratch" id="mermaid-link-ultralytics.models.yolo.world.train_world.WorldTrainerFromScratch" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.world.train_world.WorldTrainerFromScratch&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../world/train/#ultralytics.models.yolo.world.train.WorldTrainer" id="mermaid-link-ultralytics.models.yolo.world.train.WorldTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.world.train.WorldTrainer&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../detect/train/#ultralytics.models.yolo.detect.train.DetectionTrainer" id="mermaid-link-ultralytics.models.yolo.detect.train.DetectionTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.detect.train.DetectionTrainer&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../../../engine/trainer/#ultralytics.engine.trainer.BaseTrainer" id="mermaid-link-ultralytics.engine.trainer.BaseTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.trainer.BaseTrainer&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.yolo.yoloe.train.YOLOEPEFreeTrainer">
+              flowchart TD
+              ultralytics.models.yolo.yoloe.train.YOLOEPEFreeTrainer[YOLOEPEFreeTrainer]
+              ultralytics.models.yolo.yoloe.train.YOLOEPETrainer[YOLOEPETrainer]
+              ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch[YOLOETrainerFromScratch]
+              ultralytics.models.yolo.yoloe.train.YOLOETrainer[YOLOETrainer]
+              ultralytics.models.yolo.world.train_world.WorldTrainerFromScratch[WorldTrainerFromScratch]
+              ultralytics.models.yolo.world.train.WorldTrainer[WorldTrainer]
+              ultralytics.models.yolo.detect.train.DetectionTrainer[DetectionTrainer]
+              ultralytics.engine.trainer.BaseTrainer[BaseTrainer]
+                              ultralytics.models.yolo.yoloe.train.YOLOEPETrainer --&gt; ultralytics.models.yolo.yoloe.train.YOLOEPEFreeTrainer
+                                ultralytics.models.yolo.detect.train.DetectionTrainer --&gt; ultralytics.models.yolo.yoloe.train.YOLOEPETrainer
+                                ultralytics.engine.trainer.BaseTrainer --&gt; ultralytics.models.yolo.detect.train.DetectionTrainer
+                ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch --&gt; ultralytics.models.yolo.yoloe.train.YOLOEPEFreeTrainer
+                                ultralytics.models.yolo.yoloe.train.YOLOETrainer --&gt; ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch
+                                ultralytics.models.yolo.detect.train.DetectionTrainer --&gt; ultralytics.models.yolo.yoloe.train.YOLOETrainer
+                                ultralytics.engine.trainer.BaseTrainer --&gt; ultralytics.models.yolo.detect.train.DetectionTrainer
+                ultralytics.models.yolo.world.train_world.WorldTrainerFromScratch --&gt; ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch
+                                ultralytics.models.yolo.world.train.WorldTrainer --&gt; ultralytics.models.yolo.world.train_world.WorldTrainerFromScratch
+                                ultralytics.models.yolo.detect.train.DetectionTrainer --&gt; ultralytics.models.yolo.world.train.WorldTrainer
+                                ultralytics.engine.trainer.BaseTrainer --&gt; ultralytics.models.yolo.detect.train.DetectionTrainer
+              click ultralytics.models.yolo.yoloe.train.YOLOEPEFreeTrainer href "" "ultralytics.models.yolo.yoloe.train.YOLOEPEFreeTrainer"
+              click ultralytics.models.yolo.yoloe.train.YOLOEPETrainer href "" "ultralytics.models.yolo.yoloe.train.YOLOEPETrainer"
+              click ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch href "" "ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch"
+              click ultralytics.models.yolo.yoloe.train.YOLOETrainer href "" "ultralytics.models.yolo.yoloe.train.YOLOETrainer"
+              click ultralytics.models.yolo.world.train_world.WorldTrainerFromScratch href "" "ultralytics.models.yolo.world.train_world.WorldTrainerFromScratch"
+              click ultralytics.models.yolo.world.train.WorldTrainer href "" "ultralytics.models.yolo.world.train.WorldTrainer"
+              click ultralytics.models.yolo.detect.train.DetectionTrainer href "" "ultralytics.models.yolo.detect.train.DetectionTrainer"
+              click ultralytics.engine.trainer.BaseTrainer href "" "ultralytics.engine.trainer.BaseTrainer"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.yolo.yoloe.train.YOLOEPEFreeTrainer');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Train prompt-free YOLOE model.</p>
 <p>This trainer combines linear probing capabilities with from-scratch training for prompt-free YOLOE models that don't
 require text prompts during inference.</p>
@@ -2631,7 +2777,7 @@ require text prompts during inference.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>36</span>
 <span>37</span>
@@ -2669,7 +2815,7 @@ require text prompts during inference.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return a DetectionValidator for YOLO model validation.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>221</span>
 <span>222</span>
@@ -2694,7 +2840,7 @@ require text prompts during inference.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Preprocess a batch of images for YOLOE training, adjusting formatting and dimensions as needed.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>228</span>
 <span>229</span>
@@ -2767,7 +2913,7 @@ the first dataset's image path.</p>
 at the path specified by 'cache_path'. If the cache file already exists, it will be loaded
 instead of regenerating the embeddings.</p>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>232</span>
 <span>233</span>
@@ -2818,6 +2964,51 @@ instead of regenerating the embeddings.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch&lt;/span&gt;'>YOLOETrainerFromScratch</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOEVPTrainer" id="mermaid-link-ultralytics.models.yolo.yoloe.train.YOLOEVPTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.yoloe.train.YOLOEVPTrainer&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch" id="mermaid-link-ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOETrainer" id="mermaid-link-ultralytics.models.yolo.yoloe.train.YOLOETrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.yoloe.train.YOLOETrainer&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../world/train_world/#ultralytics.models.yolo.world.train_world.WorldTrainerFromScratch" id="mermaid-link-ultralytics.models.yolo.world.train_world.WorldTrainerFromScratch" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.world.train_world.WorldTrainerFromScratch&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../world/train/#ultralytics.models.yolo.world.train.WorldTrainer" id="mermaid-link-ultralytics.models.yolo.world.train.WorldTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.world.train.WorldTrainer&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../detect/train/#ultralytics.models.yolo.detect.train.DetectionTrainer" id="mermaid-link-ultralytics.models.yolo.detect.train.DetectionTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.detect.train.DetectionTrainer&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../../../engine/trainer/#ultralytics.engine.trainer.BaseTrainer" id="mermaid-link-ultralytics.engine.trainer.BaseTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.trainer.BaseTrainer&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.yolo.yoloe.train.YOLOEVPTrainer">
+              flowchart TD
+              ultralytics.models.yolo.yoloe.train.YOLOEVPTrainer[YOLOEVPTrainer]
+              ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch[YOLOETrainerFromScratch]
+              ultralytics.models.yolo.yoloe.train.YOLOETrainer[YOLOETrainer]
+              ultralytics.models.yolo.world.train_world.WorldTrainerFromScratch[WorldTrainerFromScratch]
+              ultralytics.models.yolo.world.train.WorldTrainer[WorldTrainer]
+              ultralytics.models.yolo.detect.train.DetectionTrainer[DetectionTrainer]
+              ultralytics.engine.trainer.BaseTrainer[BaseTrainer]
+                              ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch --&gt; ultralytics.models.yolo.yoloe.train.YOLOEVPTrainer
+                                ultralytics.models.yolo.yoloe.train.YOLOETrainer --&gt; ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch
+                                ultralytics.models.yolo.detect.train.DetectionTrainer --&gt; ultralytics.models.yolo.yoloe.train.YOLOETrainer
+                                ultralytics.engine.trainer.BaseTrainer --&gt; ultralytics.models.yolo.detect.train.DetectionTrainer
+                ultralytics.models.yolo.world.train_world.WorldTrainerFromScratch --&gt; ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch
+                                ultralytics.models.yolo.world.train.WorldTrainer --&gt; ultralytics.models.yolo.world.train_world.WorldTrainerFromScratch
+                                ultralytics.models.yolo.detect.train.DetectionTrainer --&gt; ultralytics.models.yolo.world.train.WorldTrainer
+                                ultralytics.engine.trainer.BaseTrainer --&gt; ultralytics.models.yolo.detect.train.DetectionTrainer
+              click ultralytics.models.yolo.yoloe.train.YOLOEVPTrainer href "" "ultralytics.models.yolo.yoloe.train.YOLOEVPTrainer"
+              click ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch href "" "ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch"
+              click ultralytics.models.yolo.yoloe.train.YOLOETrainer href "" "ultralytics.models.yolo.yoloe.train.YOLOETrainer"
+              click ultralytics.models.yolo.world.train_world.WorldTrainerFromScratch href "" "ultralytics.models.yolo.world.train_world.WorldTrainerFromScratch"
+              click ultralytics.models.yolo.world.train.WorldTrainer href "" "ultralytics.models.yolo.world.train.WorldTrainer"
+              click ultralytics.models.yolo.detect.train.DetectionTrainer href "" "ultralytics.models.yolo.detect.train.DetectionTrainer"
+              click ultralytics.engine.trainer.BaseTrainer href "" "ultralytics.engine.trainer.BaseTrainer"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.yolo.yoloe.train.YOLOEVPTrainer');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Train YOLOE model with visual prompts.</p>
 <p>This trainer extends YOLOETrainerFromScratch to support visual prompt-based training, where visual cues are provided
 alongside images to guide the detection process.</p>
@@ -2840,7 +3031,7 @@ alongside images to guide the detection process.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>36</span>
 <span>37</span>
@@ -2962,7 +3153,7 @@ alongside images to guide the detection process.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>261</span>
 <span>262</span>
@@ -3118,7 +3309,7 @@ alongside images to guide the detection process.</p>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@main/js/chat.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
 <script src="../../../../../javascript/extra.js"></script>
 <script src="../../../../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

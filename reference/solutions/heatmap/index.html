@@ -1227,6 +1227,33 @@
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../object_counter/#ultralytics.solutions.object_counter.ObjectCounter" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.solutions.object_counter.ObjectCounter&lt;/span&gt;'>ObjectCounter</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.solutions.heatmap.Heatmap" id="mermaid-link-ultralytics.solutions.heatmap.Heatmap" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.solutions.heatmap.Heatmap&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../object_counter/#ultralytics.solutions.object_counter.ObjectCounter" id="mermaid-link-ultralytics.solutions.object_counter.ObjectCounter" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.solutions.object_counter.ObjectCounter&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../solutions/#ultralytics.solutions.solutions.BaseSolution" id="mermaid-link-ultralytics.solutions.solutions.BaseSolution" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.solutions.solutions.BaseSolution&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.solutions.heatmap.Heatmap">
+              flowchart TD
+              ultralytics.solutions.heatmap.Heatmap[Heatmap]
+              ultralytics.solutions.object_counter.ObjectCounter[ObjectCounter]
+              ultralytics.solutions.solutions.BaseSolution[BaseSolution]
+                              ultralytics.solutions.object_counter.ObjectCounter --&gt; ultralytics.solutions.heatmap.Heatmap
+                                ultralytics.solutions.solutions.BaseSolution --&gt; ultralytics.solutions.object_counter.ObjectCounter
+              click ultralytics.solutions.heatmap.Heatmap href "" "ultralytics.solutions.heatmap.Heatmap"
+              click ultralytics.solutions.object_counter.ObjectCounter href "" "ultralytics.solutions.object_counter.ObjectCounter"
+              click ultralytics.solutions.solutions.BaseSolution href "" "ultralytics.solutions.solutions.BaseSolution"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.solutions.heatmap.Heatmap');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>A class to draw heatmaps in real-time video streams based on object tracks.</p>
 <p>This class extends the ObjectCounter class to generate and visualize heatmaps of object movements in video
 streams. It uses tracked object positions to create a cumulative heatmap effect over time.</p>
@@ -1348,7 +1375,7 @@ streams. It uses tracked object positions to create a cumulative heatmap effect 
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/solutions/heatmap.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>37</span>
 <span>38</span>
@@ -1419,7 +1446,7 @@ streams. It uses tracked object positions to create a cumulative heatmap effect 
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/solutions/heatmap.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>53</span>
 <span>54</span>
@@ -1524,7 +1551,7 @@ object count), and 'total_tracks' (int, total number of tracked objects).</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/solutions/heatmap.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 74</span>
 <span> 75</span>
@@ -1754,7 +1781,7 @@ object count), and 'total_tracks' (int, total number of tracked objects).</p>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@main/js/chat.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
 <script src="../../../javascript/extra.js"></script>
 <script src="../../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

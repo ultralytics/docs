@@ -1961,6 +1961,29 @@
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../utils/__init__/#ultralytics.utils.SimpleClass" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.SimpleClass&lt;/span&gt;'>SimpleClass</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor" id="mermaid-link-ultralytics.engine.results.BaseTensor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.BaseTensor&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../utils/__init__/#ultralytics.utils.SimpleClass" id="mermaid-link-ultralytics.utils.SimpleClass" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.SimpleClass&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.engine.results.BaseTensor">
+              flowchart TD
+              ultralytics.engine.results.BaseTensor[BaseTensor]
+              ultralytics.utils.SimpleClass[SimpleClass]
+                              ultralytics.utils.SimpleClass --&gt; ultralytics.engine.results.BaseTensor
+              click ultralytics.engine.results.BaseTensor href "" "ultralytics.engine.results.BaseTensor"
+              click ultralytics.utils.SimpleClass href "" "ultralytics.utils.SimpleClass"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.engine.results.BaseTensor');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Base tensor class with additional methods for easy manipulation and device handling.</p>
 <p>This class provides a foundation for tensor-like objects with device management capabilities, supporting both
 PyTorch tensors and NumPy arrays. It includes methods for moving data between devices and converting between tensor
@@ -2102,7 +2125,7 @@ types.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">orig_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">720</span><span class="p">,</span> <span class="mi">1280</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">base_tensor</span> <span class="o">=</span> <span class="n">BaseTensor</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>50</span>
 <span>51</span>
@@ -2243,7 +2266,7 @@ types.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 <span></span><span class="go">tensor([1, 2, 3])</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>164</span>
 <span>165</span>
@@ -2317,7 +2340,7 @@ types.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">base_tensor</span><span class="p">)</span>
 <span></span><span class="go">2</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>150</span>
 <span>151</span>
@@ -2386,7 +2409,7 @@ types.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cpu_tensor</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">device</span>
 <span></span><span class="go">device(type='cpu')</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>82</span>
 <span>83</span>
@@ -2462,7 +2485,7 @@ otherwise returns self.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">gpu_tensor</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 <span></span><span class="go">cuda:0</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>115</span>
 <span>116</span>
@@ -2538,7 +2561,7 @@ otherwise returns self.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">numpy_array</span><span class="p">))</span>
 <span></span><span class="go">&lt;class 'numpy.ndarray'&gt;</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 99</span>
 <span>100</span>
@@ -2652,7 +2675,7 @@ otherwise returns self.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cuda_tensor</span> <span class="o">=</span> <span class="n">base_tensor</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">"cuda"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">float16_tensor</span> <span class="o">=</span> <span class="n">base_tensor</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float16</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>133</span>
 <span>134</span>
@@ -2711,6 +2734,33 @@ otherwise returns self.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../utils/__init__/#ultralytics.utils.SimpleClass" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.SimpleClass&lt;/span&gt;'>SimpleClass</a></code>, <code><a class="autorefs autorefs-internal" href="../../utils/__init__/#ultralytics.utils.DataExportMixin" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.DataExportMixin&lt;/span&gt;'>DataExportMixin</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.engine.results.Results" id="mermaid-link-ultralytics.engine.results.Results" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.Results&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../utils/__init__/#ultralytics.utils.SimpleClass" id="mermaid-link-ultralytics.utils.SimpleClass" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.SimpleClass&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../utils/__init__/#ultralytics.utils.DataExportMixin" id="mermaid-link-ultralytics.utils.DataExportMixin" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.DataExportMixin&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.engine.results.Results">
+              flowchart TD
+              ultralytics.engine.results.Results[Results]
+              ultralytics.utils.SimpleClass[SimpleClass]
+              ultralytics.utils.DataExportMixin[DataExportMixin]
+                              ultralytics.utils.SimpleClass --&gt; ultralytics.engine.results.Results
+                ultralytics.utils.DataExportMixin --&gt; ultralytics.engine.results.Results
+              click ultralytics.engine.results.Results href "" "ultralytics.engine.results.Results"
+              click ultralytics.utils.SimpleClass href "" "ultralytics.utils.SimpleClass"
+              click ultralytics.utils.DataExportMixin href "" "ultralytics.utils.DataExportMixin"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.engine.results.Results');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>A class for storing and manipulating inference results.</p>
 <p>This class provides comprehensive functionality for handling inference results from various Ultralytics models,
 including detection, segmentation, classification, and pose estimation. It supports visualization, data export, and
@@ -3166,7 +3216,7 @@ various coordinate transformations.</p>
 9: Left Wrist, 10: Right Wrist, 11: Left Hip, 12: Right Hip
 13: Left Knee, 14: Right Knee, 15: Left Ankle, 16: Right Ankle</p>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>230</span>
 <span>231</span>
@@ -3333,7 +3383,7 @@ various coordinate transformations.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">single_result</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Get the first result</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">subset_results</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>  <span class="c1"># Get a slice of results</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>281</span>
 <span>282</span>
@@ -3403,7 +3453,7 @@ keypoints, or obb).</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 <span></span><span class="go">5</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>297</span>
 <span>298</span>
@@ -3476,7 +3526,7 @@ transferred to CPU memory. It's useful for moving data from GPU to CPU for furth
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cpu_result</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>  <span class="c1"># Move the first result to CPU</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cpu_result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>  <span class="c1"># Output: cpu</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>377</span>
 <span>378</span>
@@ -3546,7 +3596,7 @@ transferred to CPU memory. It's useful for moving data from GPU to CPU for furth
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
 <span></span><span class="gp">... </span>    <span class="n">result_cuda</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>  <span class="c1"># Move each result to GPU</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>411</span>
 <span>412</span>
@@ -3610,7 +3660,7 @@ transferred to CPU memory. It's useful for moving data from GPU to CPU for furth
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">new_result</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>443</span>
 <span>444</span>
@@ -3677,7 +3727,7 @@ transferred to CPU memory. It's useful for moving data from GPU to CPU for furth
 <p>This method creates a new Results object, leaving the original unchanged. It's useful for
 interoperability with numpy-based libraries or when CPU-based operations are required.</p>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>393</span>
 <span>394</span>
@@ -4071,7 +4121,7 @@ interoperability with numpy-based libraries or when CPU-based operations are req
 <span></span><span class="gp">&gt;&gt;&gt; </span>    <span class="n">im</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span>    <span class="n">im</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>455</span>
 <span>456</span>
@@ -4453,7 +4503,7 @@ generated based on the original image path.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span>    <span class="n">result</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"annotated_image.jpg"</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>612</span>
 <span>613</span>
@@ -4581,7 +4631,7 @@ subdirectory named after the object's class, with the filename based on the inpu
 <li>Original image is copied before cropping to avoid modifying the original.</li>
 </ul>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>727</span>
 <span>728</span>
@@ -4747,7 +4797,7 @@ subdirectory named after the object's class, with the filename based on the inpu
 <li>Existing contents of the file will not be overwritten; new results will be appended.</li>
 </ul>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>671</span>
 <span>672</span>
@@ -4923,7 +4973,7 @@ visualize the model's predictions directly.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span>    <span class="n">result</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># Display all results</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>594</span>
 <span>595</span>
@@ -5048,7 +5098,7 @@ detection or classification result. The structure of each dictionary varies base
 <span></span><span class="gp">&gt;&gt;&gt; </span>    <span class="n">summary</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="n">summary</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>762</span>
 <span>763</span>
@@ -5261,7 +5311,7 @@ detection or classification result. The structure of each dictionary varies base
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result_cpu</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">"cpu"</span><span class="p">)</span>  <span class="c1"># Move first result to CPU</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result_half</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float16</span><span class="p">)</span>  <span class="c1"># Convert first result to half precision</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>425</span>
 <span>426</span>
@@ -5415,7 +5465,7 @@ scores. The format is (x1, y1, x2, y2, conf, class).</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">new_boxes</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">boxes</span><span class="o">=</span><span class="n">new_boxes</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>314</span>
 <span>315</span>
@@ -5539,7 +5589,7 @@ of detections per class. For classification tasks, it includes the top 5 class p
 <li>The returned string is comma-separated and ends with a comma and a space.</li>
 </ul>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>640</span>
 <span>641</span>
@@ -5616,6 +5666,33 @@ of detections per class. For classification tasks, it includes the top 5 class p
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.BaseTensor&lt;/span&gt;'>BaseTensor</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.engine.results.Boxes" id="mermaid-link-ultralytics.engine.results.Boxes" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.Boxes&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor" id="mermaid-link-ultralytics.engine.results.BaseTensor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.BaseTensor&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../utils/__init__/#ultralytics.utils.SimpleClass" id="mermaid-link-ultralytics.utils.SimpleClass" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.SimpleClass&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.engine.results.Boxes">
+              flowchart TD
+              ultralytics.engine.results.Boxes[Boxes]
+              ultralytics.engine.results.BaseTensor[BaseTensor]
+              ultralytics.utils.SimpleClass[SimpleClass]
+                              ultralytics.engine.results.BaseTensor --&gt; ultralytics.engine.results.Boxes
+                                ultralytics.utils.SimpleClass --&gt; ultralytics.engine.results.BaseTensor
+              click ultralytics.engine.results.Boxes href "" "ultralytics.engine.results.Boxes"
+              click ultralytics.engine.results.BaseTensor href "" "ultralytics.engine.results.BaseTensor"
+              click ultralytics.utils.SimpleClass href "" "ultralytics.utils.SimpleClass"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.engine.results.Boxes');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>A class for managing and manipulating detection boxes.</p>
 <p>This class provides comprehensive functionality for handling detection boxes, including their coordinates,
 confidence scores, class labels, and optional tracking IDs. It supports various box formats and offers methods for
@@ -5921,7 +5998,7 @@ including both absolute and normalized forms.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">detection_boxes</span><span class="o">.</span><span class="n">xyxy</span><span class="p">)</span>
 <span></span><span class="go">tensor([[100.,  50., 150., 100.]])</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>864</span>
 <span>865</span>
@@ -6309,6 +6386,33 @@ boxes. Each row contains [x1, y1, x2, y2] values normalized to [0, 1].</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.BaseTensor&lt;/span&gt;'>BaseTensor</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.engine.results.Masks" id="mermaid-link-ultralytics.engine.results.Masks" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.Masks&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor" id="mermaid-link-ultralytics.engine.results.BaseTensor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.BaseTensor&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../utils/__init__/#ultralytics.utils.SimpleClass" id="mermaid-link-ultralytics.utils.SimpleClass" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.SimpleClass&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.engine.results.Masks">
+              flowchart TD
+              ultralytics.engine.results.Masks[Masks]
+              ultralytics.engine.results.BaseTensor[BaseTensor]
+              ultralytics.utils.SimpleClass[SimpleClass]
+                              ultralytics.engine.results.BaseTensor --&gt; ultralytics.engine.results.Masks
+                                ultralytics.utils.SimpleClass --&gt; ultralytics.engine.results.BaseTensor
+              click ultralytics.engine.results.Masks href "" "ultralytics.engine.results.Masks"
+              click ultralytics.engine.results.BaseTensor href "" "ultralytics.engine.results.BaseTensor"
+              click ultralytics.utils.SimpleClass href "" "ultralytics.utils.SimpleClass"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.engine.results.Masks');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>A class for storing and manipulating detection masks.</p>
 <p>This class extends BaseTensor and provides functionality for handling segmentation masks, including methods for
 converting between pixel and normalized coordinates.</p>
@@ -6478,7 +6582,7 @@ converting between pixel and normalized coordinates.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">orig_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">720</span><span class="p">,</span> <span class="mi">1280</span><span class="p">)</span>  <span class="c1"># Original image shape</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mask_obj</span> <span class="o">=</span> <span class="n">Masks</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1062</span>
 <span>1063</span>
@@ -6618,6 +6722,33 @@ mask contour.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.BaseTensor&lt;/span&gt;'>BaseTensor</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.engine.results.Keypoints" id="mermaid-link-ultralytics.engine.results.Keypoints" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.Keypoints&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor" id="mermaid-link-ultralytics.engine.results.BaseTensor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.BaseTensor&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../utils/__init__/#ultralytics.utils.SimpleClass" id="mermaid-link-ultralytics.utils.SimpleClass" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.SimpleClass&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.engine.results.Keypoints">
+              flowchart TD
+              ultralytics.engine.results.Keypoints[Keypoints]
+              ultralytics.engine.results.BaseTensor[BaseTensor]
+              ultralytics.utils.SimpleClass[SimpleClass]
+                              ultralytics.engine.results.BaseTensor --&gt; ultralytics.engine.results.Keypoints
+                                ultralytics.utils.SimpleClass --&gt; ultralytics.engine.results.BaseTensor
+              click ultralytics.engine.results.Keypoints href "" "ultralytics.engine.results.Keypoints"
+              click ultralytics.engine.results.BaseTensor href "" "ultralytics.engine.results.BaseTensor"
+              click ultralytics.utils.SimpleClass href "" "ultralytics.utils.SimpleClass"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.engine.results.Keypoints');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>A class for storing and manipulating detection keypoints.</p>
 <p>This class encapsulates functionality for handling keypoint data, including coordinate manipulation, normalization,
 and confidence values. It supports keypoint detection results with optional visibility information.</p>
@@ -6818,7 +6949,7 @@ confidence), it masks out low-confidence keypoints by setting their coordinates 
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">orig_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">720</span><span class="p">,</span> <span class="mi">1280</span><span class="p">)</span>  <span class="c1"># Original image height, width</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">keypoints</span> <span class="o">=</span> <span class="n">Keypoints</span><span class="p">(</span><span class="n">kpts</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1160</span>
 <span>1161</span>
@@ -7011,6 +7142,33 @@ contains [x, y] values in the range [0, 1].</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.BaseTensor&lt;/span&gt;'>BaseTensor</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.engine.results.Probs" id="mermaid-link-ultralytics.engine.results.Probs" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.Probs&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor" id="mermaid-link-ultralytics.engine.results.BaseTensor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.BaseTensor&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../utils/__init__/#ultralytics.utils.SimpleClass" id="mermaid-link-ultralytics.utils.SimpleClass" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.SimpleClass&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.engine.results.Probs">
+              flowchart TD
+              ultralytics.engine.results.Probs[Probs]
+              ultralytics.engine.results.BaseTensor[BaseTensor]
+              ultralytics.utils.SimpleClass[SimpleClass]
+                              ultralytics.engine.results.BaseTensor --&gt; ultralytics.engine.results.Probs
+                                ultralytics.utils.SimpleClass --&gt; ultralytics.engine.results.BaseTensor
+              click ultralytics.engine.results.Probs href "" "ultralytics.engine.results.Probs"
+              click ultralytics.engine.results.BaseTensor href "" "ultralytics.engine.results.BaseTensor"
+              click ultralytics.utils.SimpleClass href "" "ultralytics.utils.SimpleClass"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.engine.results.Probs');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>A class for storing and manipulating classification probabilities.</p>
 <p>This class extends BaseTensor and provides methods for accessing and manipulating classification probabilities,
 including top-1 and top-5 predictions.</p>
@@ -7289,7 +7447,7 @@ consistency with other result classes.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">top5</span><span class="p">)</span>
 <span></span><span class="go">[3, 1, 2, 0]</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1276</span>
 <span>1277</span>
@@ -7533,6 +7691,33 @@ classes, sorted in descending order of probability.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.BaseTensor&lt;/span&gt;'>BaseTensor</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.engine.results.OBB" id="mermaid-link-ultralytics.engine.results.OBB" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.OBB&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor" id="mermaid-link-ultralytics.engine.results.BaseTensor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.BaseTensor&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../utils/__init__/#ultralytics.utils.SimpleClass" id="mermaid-link-ultralytics.utils.SimpleClass" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.SimpleClass&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.engine.results.OBB">
+              flowchart TD
+              ultralytics.engine.results.OBB[OBB]
+              ultralytics.engine.results.BaseTensor[BaseTensor]
+              ultralytics.utils.SimpleClass[SimpleClass]
+                              ultralytics.engine.results.BaseTensor --&gt; ultralytics.engine.results.OBB
+                                ultralytics.utils.SimpleClass --&gt; ultralytics.engine.results.BaseTensor
+              click ultralytics.engine.results.OBB href "" "ultralytics.engine.results.OBB"
+              click ultralytics.engine.results.BaseTensor href "" "ultralytics.engine.results.BaseTensor"
+              click ultralytics.utils.SimpleClass href "" "ultralytics.utils.SimpleClass"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.engine.results.OBB');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>A class for storing and manipulating Oriented Bounding Boxes (OBB).</p>
 <p>This class provides functionality to handle oriented bounding boxes, including conversion between different formats,
 normalization, and access to various properties of the boxes. It supports both tracking and non-tracking scenarios.</p>
@@ -7854,7 +8039,7 @@ the third last column contains track IDs, and the fifth column contains rotation
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">obb</span> <span class="o">=</span> <span class="n">OBB</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">obb</span><span class="o">.</span><span class="n">xywhr</span><span class="p">)</span>  <span class="c1"># Access the boxes in xywhr format</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1410</span>
 <span>1411</span>
@@ -8364,7 +8549,7 @@ original image dimensions.</p>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@main/js/chat.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
 <script src="../../../javascript/extra.js"></script>
 <script src="../../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

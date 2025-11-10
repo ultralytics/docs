@@ -1539,7 +1539,7 @@ observation model for bounding box location.</p>
 <p>Initialize a Kalman filter for tracking:</p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">kf</span> <span class="o">=</span> <span class="n">KalmanFilterXYAH</span><span class="p">()</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>38</span>
 <span>39</span>
@@ -1731,7 +1731,7 @@ squared Euclidean distance and 'maha' for the squared Mahalanobis distance.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">measurements</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">distances</span> <span class="o">=</span> <span class="n">kf</span><span class="o">.</span><span class="n">gating_distance</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">,</span> <span class="n">measurements</span><span class="p">,</span> <span class="n">only_position</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">"maha"</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>233</span>
 <span>234</span>
@@ -1909,7 +1909,7 @@ mean.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">measurement</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">200</span><span class="p">])</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span> <span class="o">=</span> <span class="n">kf</span><span class="o">.</span><span class="n">initiate</span><span class="p">(</span><span class="n">measurement</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>62</span>
 <span>63</span>
@@ -2069,7 +2069,7 @@ mean.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">covariance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>  <span class="c1"># Covariance matrices for 10 object states</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">predicted_mean</span><span class="p">,</span> <span class="n">predicted_covariance</span> <span class="o">=</span> <span class="n">kalman_filter</span><span class="o">.</span><span class="n">multi_predict</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>162</span>
 <span>163</span>
@@ -2241,7 +2241,7 @@ step.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">covariance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">predicted_mean</span><span class="p">,</span> <span class="n">predicted_covariance</span> <span class="o">=</span> <span class="n">kf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 96</span>
 <span> 97</span>
@@ -2408,7 +2408,7 @@ step.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">covariance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">projected_mean</span><span class="p">,</span> <span class="n">projected_covariance</span> <span class="o">=</span> <span class="n">kf</span><span class="o">.</span><span class="n">project</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>133</span>
 <span>134</span>
@@ -2577,7 +2577,7 @@ position, a the aspect ratio, and h the height of the bounding box.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">measurement</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">new_mean</span><span class="p">,</span> <span class="n">new_covariance</span> <span class="o">=</span> <span class="n">kf</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">,</span> <span class="n">measurement</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>201</span>
 <span>202</span>
@@ -2656,6 +2656,29 @@ position, a the aspect ratio, and h the height of the bounding box.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH&lt;/span&gt;'>KalmanFilterXYAH</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH" id="mermaid-link-ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH" id="mermaid-link-ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH">
+              flowchart TD
+              ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH[KalmanFilterXYWH]
+              ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH[KalmanFilterXYAH]
+                              ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH --&gt; ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH
+              click ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH href "" "ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH"
+              click ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH href "" "ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>A KalmanFilterXYWH class for tracking bounding boxes in image space using a Kalman filter.</p>
 <p>Implements a Kalman filter for tracking bounding boxes with state space (x, y, w, h, vx, vy, vw, vh), where (x, y)
 is the center position, w is the width, h is the height, and vx, vy, vw, vh are their respective velocities. The
@@ -2776,7 +2799,7 @@ observation of the state space (linear observation model).</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mean</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">covariance</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>38</span>
 <span>39</span>
@@ -2912,7 +2935,7 @@ mean.</p>
 <span></span><span class="go"> [ 0.  0.  0.  0.  0.  0.  0.25  0.]</span>
 <span></span><span class="go"> [ 0.  0.  0.  0.  0.  0.  0.  0.25]]</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>314</span>
 <span>315</span>
@@ -3095,7 +3118,7 @@ mean.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">kf</span> <span class="o">=</span> <span class="n">KalmanFilterXYWH</span><span class="p">()</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">predicted_mean</span><span class="p">,</span> <span class="n">predicted_covariance</span> <span class="o">=</span> <span class="n">kf</span><span class="o">.</span><span class="n">multi_predict</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>425</span>
 <span>426</span>
@@ -3269,7 +3292,7 @@ step.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">covariance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">predicted_mean</span><span class="p">,</span> <span class="n">predicted_covariance</span> <span class="o">=</span> <span class="n">kf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>359</span>
 <span>360</span>
@@ -3436,7 +3459,7 @@ step.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">covariance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">projected_mean</span><span class="p">,</span> <span class="n">projected_cov</span> <span class="o">=</span> <span class="n">kf</span><span class="o">.</span><span class="n">project</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>396</span>
 <span>397</span>
@@ -3605,7 +3628,7 @@ position, w the width, and h the height of the bounding box.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">measurement</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">])</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">new_mean</span><span class="p">,</span> <span class="n">new_covariance</span> <span class="o">=</span> <span class="n">kf</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">,</span> <span class="n">measurement</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>465</span>
 <span>466</span>
@@ -3773,7 +3796,7 @@ position, w the width, and h the height of the bounding box.</p>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@main/js/chat.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
 <script src="../../../../javascript/extra.js"></script>
 <script src="../../../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

@@ -1241,6 +1241,29 @@
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../solutions/#ultralytics.solutions.solutions.BaseSolution" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.solutions.solutions.BaseSolution&lt;/span&gt;'>BaseSolution</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.solutions.security_alarm.SecurityAlarm" id="mermaid-link-ultralytics.solutions.security_alarm.SecurityAlarm" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.solutions.security_alarm.SecurityAlarm&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../solutions/#ultralytics.solutions.solutions.BaseSolution" id="mermaid-link-ultralytics.solutions.solutions.BaseSolution" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.solutions.solutions.BaseSolution&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.solutions.security_alarm.SecurityAlarm">
+              flowchart TD
+              ultralytics.solutions.security_alarm.SecurityAlarm[SecurityAlarm]
+              ultralytics.solutions.solutions.BaseSolution[BaseSolution]
+                              ultralytics.solutions.solutions.BaseSolution --&gt; ultralytics.solutions.security_alarm.SecurityAlarm
+              click ultralytics.solutions.security_alarm.SecurityAlarm href "" "ultralytics.solutions.security_alarm.SecurityAlarm"
+              click ultralytics.solutions.solutions.BaseSolution href "" "ultralytics.solutions.solutions.BaseSolution"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.solutions.security_alarm.SecurityAlarm');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>A class to manage security alarm functionalities for real-time monitoring.</p>
 <p>This class extends the BaseSolution class and provides features to monitor objects in a frame, send email
 notifications when specific thresholds are exceeded for total detections, and annotate the output frame for
@@ -1382,7 +1405,7 @@ visualization.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/solutions/security_alarm.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>36</span>
 <span>37</span>
@@ -1484,7 +1507,7 @@ visualization.</p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">alarm</span> <span class="o">=</span> <span class="n">SecurityAlarm</span><span class="p">()</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">alarm</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="s2">"sender@example.com"</span><span class="p">,</span> <span class="s2">"password123"</span><span class="p">,</span> <span class="s2">"recipient@example.com"</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/solutions/security_alarm.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>49</span>
 <span>50</span>
@@ -1598,7 +1621,7 @@ already been sent.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">frame</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">alarm</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/solutions/security_alarm.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>115</span>
 <span>116</span>
@@ -1737,7 +1760,7 @@ to the specified recipient.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">frame</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">alarm</span><span class="o">.</span><span class="n">send_email</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">records</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/solutions/security_alarm.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 71</span>
 <span> 72</span>
@@ -1943,7 +1966,7 @@ to the specified recipient.</p>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@main/js/chat.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
 <script src="../../../javascript/extra.js"></script>
 <script src="../../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

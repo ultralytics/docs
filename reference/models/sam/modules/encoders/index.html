@@ -1534,6 +1534,25 @@
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.encoders.ImageEncoderViT" id="mermaid-link-ultralytics.models.sam.modules.encoders.ImageEncoderViT" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.encoders.ImageEncoderViT&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.sam.modules.encoders.ImageEncoderViT">
+              flowchart TD
+              ultralytics.models.sam.modules.encoders.ImageEncoderViT[ImageEncoderViT]
+              click ultralytics.models.sam.modules.encoders.ImageEncoderViT href "" "ultralytics.models.sam.modules.encoders.ImageEncoderViT"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.sam.modules.encoders.ImageEncoderViT');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>An image encoder using Vision Transformer (ViT) architecture for encoding images into a compact latent space.</p>
 <p>This class processes images by splitting them into patches, applying transformer blocks, and generating a final
 encoded representation through a neck module.</p>
@@ -1905,7 +1924,7 @@ encoded representation through a neck module.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">output</span> <span class="o">=</span> <span class="n">encoder</span><span class="p">(</span><span class="n">input_image</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 47</span>
 <span> 48</span>
@@ -2103,7 +2122,7 @@ encoded representation through a neck module.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Process input through patch embedding, positional embedding, transformer blocks, and neck module.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>141</span>
 <span>142</span>
@@ -2152,6 +2171,25 @@ encoded representation through a neck module.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.encoders.PromptEncoder" id="mermaid-link-ultralytics.models.sam.modules.encoders.PromptEncoder" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.encoders.PromptEncoder&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.sam.modules.encoders.PromptEncoder">
+              flowchart TD
+              ultralytics.models.sam.modules.encoders.PromptEncoder[PromptEncoder]
+              click ultralytics.models.sam.modules.encoders.PromptEncoder href "" "ultralytics.models.sam.modules.encoders.PromptEncoder"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.sam.modules.encoders.PromptEncoder');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Encode different types of prompts for input to SAM's mask decoder, producing sparse and dense embeddings.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
@@ -2413,7 +2451,7 @@ encoded representation through a neck module.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">sparse_embeddings</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dense_embeddings</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span><span class="go">torch.Size([1, 7, 256]) torch.Size([1, 256, 64, 64])</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>185</span>
 <span>186</span>
@@ -2627,7 +2665,7 @@ contains coordinates of shape (B, N, 2), and the second tensor contains labels o
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">sparse_emb</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dense_emb</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span><span class="go">torch.Size([1, 7, 256]) torch.Size([1, 256, 64, 64])</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>298</span>
 <span>299</span>
@@ -2768,7 +2806,7 @@ width of the image embedding size, respectively.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">dense_pe</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span><span class="go">torch.Size([1, 256, 64, 64])</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>234</span>
 <span>235</span>
@@ -2819,6 +2857,25 @@ width of the image embedding size, respectively.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.encoders.MemoryEncoder" id="mermaid-link-ultralytics.models.sam.modules.encoders.MemoryEncoder" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.encoders.MemoryEncoder&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.sam.modules.encoders.MemoryEncoder">
+              flowchart TD
+              ultralytics.models.sam.modules.encoders.MemoryEncoder[MemoryEncoder]
+              click ultralytics.models.sam.modules.encoders.MemoryEncoder href "" "ultralytics.models.sam.modules.encoders.MemoryEncoder"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.sam.modules.encoders.MemoryEncoder');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Encode pixel features and masks into a memory representation for efficient image segmentation.</p>
 <p>This class processes pixel-level features and masks, fusing them to generate encoded memory representations suitable
 for downstream tasks in image segmentation models like SAM (Segment Anything Model).</p>
@@ -2972,7 +3029,7 @@ suitable for downstream tasks in image segmentation models like SAM (Segment Any
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">encoded_feat</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">pos</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span><span class="go">torch.Size([1, 256, 64, 64]) torch.Size([1, 128, 64, 64])</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>375</span>
 <span>376</span>
@@ -3050,7 +3107,7 @@ suitable for downstream tasks in image segmentation models like SAM (Segment Any
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Process pixel features and masks to generate encoded memory representations for segmentation.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>408</span>
 <span>409</span>
@@ -3111,6 +3168,25 @@ suitable for downstream tasks in image segmentation models like SAM (Segment Any
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.encoders.ImageEncoder" id="mermaid-link-ultralytics.models.sam.modules.encoders.ImageEncoder" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.encoders.ImageEncoder&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.sam.modules.encoders.ImageEncoder">
+              flowchart TD
+              ultralytics.models.sam.modules.encoders.ImageEncoder[ImageEncoder]
+              click ultralytics.models.sam.modules.encoders.ImageEncoder href "" "ultralytics.models.sam.modules.encoders.ImageEncoder"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.sam.modules.encoders.ImageEncoder');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Encode images using a trunk-neck architecture, producing multiscale features and positional encodings.</p>
 <p>This class combines a trunk network for feature extraction with a neck network for feature refinement and positional
 encoding generation. It can optionally discard the lowest resolution features.</p>
@@ -3259,7 +3335,7 @@ positional encoding generation. It can optionally discard the lowest resolution 
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 <span></span><span class="go">dict_keys(['vision_features', 'vision_pos_enc', 'backbone_fpn'])</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>456</span>
 <span>457</span>
@@ -3335,7 +3411,7 @@ positional encoding generation. It can optionally discard the lowest resolution 
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Encode input through trunk and neck networks, returning multiscale features and positional encodings.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>489</span>
 <span>490</span>
@@ -3387,6 +3463,25 @@ positional encoding generation. It can optionally discard the lowest resolution 
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.encoders.FpnNeck" id="mermaid-link-ultralytics.models.sam.modules.encoders.FpnNeck" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.encoders.FpnNeck&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.sam.modules.encoders.FpnNeck">
+              flowchart TD
+              ultralytics.models.sam.modules.encoders.FpnNeck[FpnNeck]
+              click ultralytics.models.sam.modules.encoders.FpnNeck href "" "ultralytics.models.sam.modules.encoders.FpnNeck"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.sam.modules.encoders.FpnNeck');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>A Feature Pyramid Network (FPN) neck variant for multiscale feature fusion in object detection models.</p>
 <p>This FPN variant removes the output convolution and uses bicubic interpolation for feature resizing, similar to ViT
 positional embedding interpolation.</p>
@@ -3643,7 +3738,7 @@ ViT positional embedding interpolation.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fpn_neck</span> <span class="o">=</span> <span class="n">FpnNeck</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="n">backbone_channels</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">fpn_neck</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>530</span>
 <span>531</span>
@@ -3847,7 +3942,7 @@ W).</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">outputs</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">positions</span><span class="p">))</span>
 <span></span><span class="go">4 4</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>592</span>
 <span>593</span>
@@ -3977,6 +4072,25 @@ W).</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.encoders.Hiera" id="mermaid-link-ultralytics.models.sam.modules.encoders.Hiera" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.modules.encoders.Hiera&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.sam.modules.encoders.Hiera">
+              flowchart TD
+              ultralytics.models.sam.modules.encoders.Hiera[Hiera]
+              click ultralytics.models.sam.modules.encoders.Hiera href "" "ultralytics.models.sam.modules.encoders.Hiera"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.sam.modules.encoders.Hiera');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Hierarchical vision transformer for efficient multiscale feature extraction in image processing tasks.</p>
 <p>This class implements a Hiera model, which is a hierarchical vision transformer architecture designed for efficient
 multiscale feature extraction. It uses a series of transformer blocks organized into stages, with optional pooling
@@ -4375,7 +4489,7 @@ background.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">feat</span> <span class="ow">in</span> <span class="n">output_features</span><span class="p">:</span>
 <span></span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">feat</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>677</span>
 <span>678</span>
@@ -4679,7 +4793,7 @@ is True, otherwise contains only the final output.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">feat</span> <span class="ow">in</span> <span class="n">output_features</span><span class="p">:</span>
 <span></span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">feat</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>803</span>
 <span>804</span>
@@ -4874,7 +4988,7 @@ is True, otherwise contains only the final output.</p>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@main/js/chat.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
 <script src="../../../../../javascript/extra.js"></script>
 <script src="../../../../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

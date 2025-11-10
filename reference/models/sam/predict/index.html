@@ -1730,6 +1730,29 @@
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../../engine/predictor/#ultralytics.engine.predictor.BasePredictor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.predictor.BasePredictor&lt;/span&gt;'>BasePredictor</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.predict.Predictor" id="mermaid-link-ultralytics.models.sam.predict.Predictor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.predict.Predictor&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../../engine/predictor/#ultralytics.engine.predictor.BasePredictor" id="mermaid-link-ultralytics.engine.predictor.BasePredictor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.predictor.BasePredictor&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.sam.predict.Predictor">
+              flowchart TD
+              ultralytics.models.sam.predict.Predictor[Predictor]
+              ultralytics.engine.predictor.BasePredictor[BasePredictor]
+                              ultralytics.engine.predictor.BasePredictor --&gt; ultralytics.models.sam.predict.Predictor
+              click ultralytics.models.sam.predict.Predictor href "" "ultralytics.models.sam.predict.Predictor"
+              click ultralytics.engine.predictor.BasePredictor href "" "ultralytics.engine.predictor.BasePredictor"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.sam.predict.Predictor');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>Predictor class for SAM, enabling real-time image segmentation with promptable capabilities.</p>
 <p>This class extends BasePredictor and implements the Segment Anything Model (SAM) for advanced image segmentation
 tasks. It supports various input prompts like points, bounding boxes, and masks for fine-grained control over
@@ -2047,7 +2070,7 @@ optimal results.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">predictor_example_with_imgsz</span> <span class="o">=</span> <span class="n">Predictor</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="p">{</span><span class="s2">"imgsz"</span><span class="p">:</span> <span class="mi">640</span><span class="p">})</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">predictor_example_with_callback</span> <span class="o">=</span> <span class="n">Predictor</span><span class="p">(</span><span class="n">_callbacks</span><span class="o">=</span><span class="p">{</span><span class="s2">"on_predict_start"</span><span class="p">:</span> <span class="n">custom_callback</span><span class="p">})</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 82</span>
 <span> 83</span>
@@ -2360,7 +2383,7 @@ real-time performance capabilities. It can optionally work on image crops for fi
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">im</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1024</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span>  <span class="c1"># Example input image</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">masks</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">boxes</span> <span class="o">=</span> <span class="n">predictor</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>327</span>
 <span>328</span>
@@ -2593,7 +2616,7 @@ real-time performance capabilities. It can optionally work on image crops for fi
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Extract image features using the SAM model's image encoder for subsequent mask prediction.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>584</span>
 <span>585</span>
@@ -2620,7 +2643,7 @@ real-time performance capabilities. It can optionally work on image crops for fi
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Retrieve or build the Segment Anything Model (SAM) for image segmentation tasks.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>470</span>
 <span>471</span>
@@ -2833,7 +2856,7 @@ mask.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">predictor</span><span class="o">.</span><span class="n">set_image</span><span class="p">(</span><span class="s2">"image.jpg"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">predictor</span><span class="p">(</span><span class="n">bboxes</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">]])</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>167</span>
 <span>168</span>
@@ -3110,7 +3133,7 @@ Each box is in xyxy format with additional columns for score and class.</p>
 <li>The input features is a torch.Tensor of shape (B, C, H, W) if performing on SAM, or a dict[str, Any] if performing on SAM2.</li>
 </ul>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>652</span>
 <span>653</span>
@@ -3310,7 +3333,7 @@ each processed image.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">preds</span> <span class="o">=</span> <span class="n">predictor</span><span class="o">.</span><span class="n">inference</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">predictor</span><span class="o">.</span><span class="n">postprocess</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>476</span>
 <span>477</span>
@@ -3505,7 +3528,7 @@ batched inference is not supported; hence the list length should be 1.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">transformed</span><span class="p">))</span>
 <span></span><span class="go">1</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>141</span>
 <span>142</span>
@@ -3625,7 +3648,7 @@ torch.Tensor and list of np.ndarray as input formats.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">image</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">preprocessed_image</span> <span class="o">=</span> <span class="n">predictor</span><span class="o">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>109</span>
 <span>110</span>
@@ -3857,7 +3880,7 @@ processes various input prompts such as bounding boxes, points, and masks to gen
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bboxes</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">]]</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">masks</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">logits</span> <span class="o">=</span> <span class="n">predictor</span><span class="o">.</span><span class="n">prompt_inference</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="n">bboxes</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>205</span>
 <span>206</span>
@@ -4036,7 +4059,7 @@ this will be removed.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Original masks: </span><span class="si">{</span><span class="n">masks</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">, Processed masks: </span><span class="si">{</span><span class="n">new_masks</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Indices of kept masks: </span><span class="si">{</span><span class="n">keep</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>601</span>
 <span>602</span>
@@ -4149,7 +4172,7 @@ this will be removed.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Reset the current image and its features, clearing them for subsequent inference.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>596</span>
 <span>597</span>
@@ -4236,7 +4259,7 @@ cv2.</p>
 <li>The extracted features are stored in the <code>self.features</code> attribute for later use.</li>
 </ul>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>552</span>
 <span>553</span>
@@ -4311,7 +4334,7 @@ cv2.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Set prompts for subsequent inference operations.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>592</span>
 <span>593</span>
@@ -4381,7 +4404,7 @@ parameters for image normalization and other Ultralytics compatibility settings.
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">predictor</span> <span class="o">=</span> <span class="n">Predictor</span><span class="p">()</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">predictor</span><span class="o">.</span><span class="n">setup_model</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">sam_model</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>438</span>
 <span>439</span>
@@ -4502,7 +4525,7 @@ path, URL, or other supported source types.</p>
 <li>Supported source types may include local files, directories, URLs, and video streams.</li>
 </ul>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>528</span>
 <span>529</span>
@@ -4565,6 +4588,33 @@ path, URL, or other supported source types.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.models.sam.predict.Predictor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.predict.Predictor&lt;/span&gt;'>Predictor</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.predict.SAM2Predictor" id="mermaid-link-ultralytics.models.sam.predict.SAM2Predictor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.predict.SAM2Predictor&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.predict.Predictor" id="mermaid-link-ultralytics.models.sam.predict.Predictor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.predict.Predictor&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../../engine/predictor/#ultralytics.engine.predictor.BasePredictor" id="mermaid-link-ultralytics.engine.predictor.BasePredictor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.predictor.BasePredictor&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.sam.predict.SAM2Predictor">
+              flowchart TD
+              ultralytics.models.sam.predict.SAM2Predictor[SAM2Predictor]
+              ultralytics.models.sam.predict.Predictor[Predictor]
+              ultralytics.engine.predictor.BasePredictor[BasePredictor]
+                              ultralytics.models.sam.predict.Predictor --&gt; ultralytics.models.sam.predict.SAM2Predictor
+                                ultralytics.engine.predictor.BasePredictor --&gt; ultralytics.models.sam.predict.Predictor
+              click ultralytics.models.sam.predict.SAM2Predictor href "" "ultralytics.models.sam.predict.SAM2Predictor"
+              click ultralytics.models.sam.predict.Predictor href "" "ultralytics.models.sam.predict.Predictor"
+              click ultralytics.engine.predictor.BasePredictor href "" "ultralytics.engine.predictor.BasePredictor"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.sam.predict.SAM2Predictor');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>SAM2Predictor class for advanced image segmentation using Segment Anything Model 2 architecture.</p>
 <p>This class extends the base Predictor class to implement SAM2-specific functionality for image segmentation tasks.
 It provides methods for model initialization, feature extraction, and prompt-based inference.</p>
@@ -4696,7 +4746,7 @@ It provides methods for model initialization, feature extraction, and prompt-bas
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">predictor</span><span class="p">(</span><span class="n">bboxes</span><span class="o">=</span><span class="n">bboxes</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Predicted </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">masks</span><span class="p">)</span><span class="si">}</span><span class="s2"> masks with average score </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 82</span>
 <span> 83</span>
@@ -4760,7 +4810,7 @@ It provides methods for model initialization, feature extraction, and prompt-bas
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Extract image features from the SAM image encoder for subsequent processing.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>806</span>
 <span>807</span>
@@ -4805,7 +4855,7 @@ It provides methods for model initialization, feature extraction, and prompt-bas
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Retrieve and initialize the Segment Anything Model 2 (SAM2) for image segmentation tasks.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>735</span>
 <span>736</span>
@@ -4893,7 +4943,7 @@ preprocesses the image for feature extraction. It supports setting only one imag
 <li>Only one image can be set at a time. To process multiple images, call this method for each new image.</li>
 </ul>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>775</span>
 <span>776</span>
@@ -4970,6 +5020,37 @@ preprocesses the image for feature extraction. It supports setting only one imag
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.models.sam.predict.SAM2Predictor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.predict.SAM2Predictor&lt;/span&gt;'>SAM2Predictor</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.predict.SAM2VideoPredictor" id="mermaid-link-ultralytics.models.sam.predict.SAM2VideoPredictor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.predict.SAM2VideoPredictor&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.predict.SAM2Predictor" id="mermaid-link-ultralytics.models.sam.predict.SAM2Predictor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.predict.SAM2Predictor&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.predict.Predictor" id="mermaid-link-ultralytics.models.sam.predict.Predictor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.predict.Predictor&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../../engine/predictor/#ultralytics.engine.predictor.BasePredictor" id="mermaid-link-ultralytics.engine.predictor.BasePredictor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.predictor.BasePredictor&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.sam.predict.SAM2VideoPredictor">
+              flowchart TD
+              ultralytics.models.sam.predict.SAM2VideoPredictor[SAM2VideoPredictor]
+              ultralytics.models.sam.predict.SAM2Predictor[SAM2Predictor]
+              ultralytics.models.sam.predict.Predictor[Predictor]
+              ultralytics.engine.predictor.BasePredictor[BasePredictor]
+                              ultralytics.models.sam.predict.SAM2Predictor --&gt; ultralytics.models.sam.predict.SAM2VideoPredictor
+                                ultralytics.models.sam.predict.Predictor --&gt; ultralytics.models.sam.predict.SAM2Predictor
+                                ultralytics.engine.predictor.BasePredictor --&gt; ultralytics.models.sam.predict.Predictor
+              click ultralytics.models.sam.predict.SAM2VideoPredictor href "" "ultralytics.models.sam.predict.SAM2VideoPredictor"
+              click ultralytics.models.sam.predict.SAM2Predictor href "" "ultralytics.models.sam.predict.SAM2Predictor"
+              click ultralytics.models.sam.predict.Predictor href "" "ultralytics.models.sam.predict.Predictor"
+              click ultralytics.engine.predictor.BasePredictor href "" "ultralytics.engine.predictor.BasePredictor"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.sam.predict.SAM2VideoPredictor');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>SAM2VideoPredictor to handle user interactions with videos and manage inference states.</p>
 <p>This class extends the functionality of SAM2Predictor to support video processing and maintains the state of
 inference operations. It includes configurations for managing non-overlapping masks, clearing memory for
@@ -5190,7 +5271,7 @@ and sets up the inference state along with certain flags that control the behavi
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">predictor_example_with_imgsz</span> <span class="o">=</span> <span class="n">SAM2VideoPredictor</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="p">{</span><span class="s2">"imgsz"</span><span class="p">:</span> <span class="mi">640</span><span class="p">})</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">predictor_example_with_callback</span> <span class="o">=</span> <span class="n">SAM2VideoPredictor</span><span class="p">(</span><span class="n">_callbacks</span><span class="o">=</span><span class="p">{</span><span class="s2">"on_predict_start"</span><span class="p">:</span> <span class="n">custom_callback</span><span class="p">})</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>911</span>
 <span>912</span>
@@ -5403,7 +5484,7 @@ state.</p>
 <li>The method handles the consolidation of outputs and resizing of masks to the original video resolution.</li>
 </ul>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1042</span>
 <span>1043</span>
@@ -5713,7 +5794,7 @@ state.</p>
 <li>The method leverages the model's <code>_prepare_backbone_features</code> method to prepare the backbone features.</li>
 </ul>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1262</span>
 <span>1263</span>
@@ -5782,7 +5863,7 @@ state.</p>
 <summary>Notes</summary>
 <p>This method overrides the base class implementation to set the binarize flag to True.</p>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>934</span>
 <span>935</span>
@@ -5939,7 +6020,7 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 944</span>
 <span> 945</span>
@@ -6129,7 +6210,7 @@ relevant to the tracking process.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1215</span>
 <span>1216</span>
@@ -6323,7 +6404,7 @@ useful for certain applications.</p>
 <summary>Notes</summary>
 <p>If <code>non_overlap_masks</code> is True, the method applies constraints to ensure non-overlapping masks.</p>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1016</span>
 <span>1017</span>
@@ -6390,7 +6471,7 @@ useful for certain applications.</p>
 consolidates temporary outputs from <code>temp_output_dict_per_obj</code> and merges them into <code>output_dict</code>. Additionally,
 it clears non-conditioning memory around input frames and ensures that the state is consistent with the provided
 inputs.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1145</span>
 <span>1146</span>
@@ -6550,6 +6631,37 @@ inputs.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.models.sam.predict.SAM2Predictor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.predict.SAM2Predictor&lt;/span&gt;'>SAM2Predictor</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.predict.SAM2DynamicInteractivePredictor" id="mermaid-link-ultralytics.models.sam.predict.SAM2DynamicInteractivePredictor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.predict.SAM2DynamicInteractivePredictor&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.predict.SAM2Predictor" id="mermaid-link-ultralytics.models.sam.predict.SAM2Predictor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.predict.SAM2Predictor&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="#ultralytics.models.sam.predict.Predictor" id="mermaid-link-ultralytics.models.sam.predict.Predictor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.sam.predict.Predictor&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../../engine/predictor/#ultralytics.engine.predictor.BasePredictor" id="mermaid-link-ultralytics.engine.predictor.BasePredictor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.predictor.BasePredictor&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.sam.predict.SAM2DynamicInteractivePredictor">
+              flowchart TD
+              ultralytics.models.sam.predict.SAM2DynamicInteractivePredictor[SAM2DynamicInteractivePredictor]
+              ultralytics.models.sam.predict.SAM2Predictor[SAM2Predictor]
+              ultralytics.models.sam.predict.Predictor[Predictor]
+              ultralytics.engine.predictor.BasePredictor[BasePredictor]
+                              ultralytics.models.sam.predict.SAM2Predictor --&gt; ultralytics.models.sam.predict.SAM2DynamicInteractivePredictor
+                                ultralytics.models.sam.predict.Predictor --&gt; ultralytics.models.sam.predict.SAM2Predictor
+                                ultralytics.engine.predictor.BasePredictor --&gt; ultralytics.models.sam.predict.Predictor
+              click ultralytics.models.sam.predict.SAM2DynamicInteractivePredictor href "" "ultralytics.models.sam.predict.SAM2DynamicInteractivePredictor"
+              click ultralytics.models.sam.predict.SAM2Predictor href "" "ultralytics.models.sam.predict.SAM2Predictor"
+              click ultralytics.models.sam.predict.Predictor href "" "ultralytics.models.sam.predict.Predictor"
+              click ultralytics.engine.predictor.BasePredictor href "" "ultralytics.engine.predictor.BasePredictor"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.sam.predict.SAM2DynamicInteractivePredictor');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>SAM2DynamicInteractivePredictor extends SAM2Predictor to support dynamic interactions with video frames or a
 sequence of images.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
@@ -6761,7 +6873,7 @@ for the model.</p>
 <span></span><span class="gp">... </span>    <span class="n">_callbacks</span><span class="o">=</span><span class="p">{</span><span class="s2">"on_predict_start"</span><span class="p">:</span> <span class="n">custom_callback</span><span class="p">}</span>
 <span></span><span class="gp">... </span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1695</span>
 <span>1696</span>
@@ -6876,7 +6988,7 @@ for the model.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1801</span>
 <span>1802</span>
@@ -6919,7 +7031,7 @@ for the model.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Get memory and positional encoding from memory, which is used to condition the current image features.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1932</span>
 <span>1933</span>
@@ -7125,7 +7237,7 @@ negative).</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1733</span>
 <span>1734</span>
@@ -7382,7 +7494,7 @@ pointers. Keys include 'point_inputs', 'mask_inputs', 'pred_masks', 'pred_masks_
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1956</span>
 <span>1957</span>
@@ -7577,7 +7689,7 @@ pointers. Keys include 'point_inputs', 'mask_inputs', 'pred_masks', 'pred_masks_
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1817</span>
 <span>1818</span>
@@ -7869,7 +7981,7 @@ pointers. Keys include 'point_inputs', 'mask_inputs', 'pred_masks', 'pred_masks_
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@main/js/chat.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
 <script src="../../../../javascript/extra.js"></script>
 <script src="../../../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

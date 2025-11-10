@@ -1380,6 +1380,33 @@
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../detect/train/#ultralytics.models.yolo.detect.train.DetectionTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.detect.train.DetectionTrainer&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.detect.DetectionTrainer&lt;/code&gt;)'>DetectionTrainer</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.world.train.WorldTrainer" id="mermaid-link-ultralytics.models.yolo.world.train.WorldTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.world.train.WorldTrainer&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../detect/train/#ultralytics.models.yolo.detect.train.DetectionTrainer" id="mermaid-link-ultralytics.models.yolo.detect.train.DetectionTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.detect.train.DetectionTrainer&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../../../engine/trainer/#ultralytics.engine.trainer.BaseTrainer" id="mermaid-link-ultralytics.engine.trainer.BaseTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.trainer.BaseTrainer&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.yolo.world.train.WorldTrainer">
+              flowchart TD
+              ultralytics.models.yolo.world.train.WorldTrainer[WorldTrainer]
+              ultralytics.models.yolo.detect.train.DetectionTrainer[DetectionTrainer]
+              ultralytics.engine.trainer.BaseTrainer[BaseTrainer]
+                              ultralytics.models.yolo.detect.train.DetectionTrainer --&gt; ultralytics.models.yolo.world.train.WorldTrainer
+                                ultralytics.engine.trainer.BaseTrainer --&gt; ultralytics.models.yolo.detect.train.DetectionTrainer
+              click ultralytics.models.yolo.world.train.WorldTrainer href "" "ultralytics.models.yolo.world.train.WorldTrainer"
+              click ultralytics.models.yolo.detect.train.DetectionTrainer href "" "ultralytics.models.yolo.detect.train.DetectionTrainer"
+              click ultralytics.engine.trainer.BaseTrainer href "" "ultralytics.engine.trainer.BaseTrainer"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.yolo.world.train.WorldTrainer');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>A trainer class for fine-tuning YOLO World models on close-set datasets.</p>
 <p>This trainer extends the DetectionTrainer to support training YOLO World models, which combine visual and textual
 features for improved object detection and understanding. It handles text embedding generation and caching to
@@ -1560,7 +1587,7 @@ training.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/world/train.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>55</span>
 <span>56</span>
@@ -1680,7 +1707,7 @@ training.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/world/train.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 94</span>
 <span> 95</span>
@@ -1813,7 +1840,7 @@ training.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/world/train.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>138</span>
 <span>139</span>
@@ -1958,7 +1985,7 @@ training.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/world/train.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>69</span>
 <span>70</span>
@@ -2019,7 +2046,7 @@ training.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Preprocess a batch of images and text for YOLOWorld training.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/world/train.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>163</span>
 <span>164</span>
@@ -2106,7 +2133,7 @@ these categories to improve training efficiency.</p>
 <p>This method collects category names from datasets that have the 'category_names' attribute,
 then uses the first dataset's image path to determine where to cache the generated text embeddings.</p>
 </details>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/world/train.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>113</span>
 <span>114</span>
@@ -2170,7 +2197,7 @@ then uses the first dataset's image path to determine where to cache the generat
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Set up model classes and text encoder at the end of the pretrain routine.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/world/train.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>18</span>
 <span>19</span>
@@ -2308,7 +2335,7 @@ then uses the first dataset's image path to determine where to cache the generat
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@main/js/chat.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
 <script src="../../../../../javascript/extra.js"></script>
 <script src="../../../../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

@@ -1331,6 +1331,33 @@
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../detect/train/#ultralytics.models.yolo.detect.train.DetectionTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.detect.train.DetectionTrainer&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.detect.DetectionTrainer&lt;/code&gt;)'>DetectionTrainer</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.segment.train.SegmentationTrainer" id="mermaid-link-ultralytics.models.yolo.segment.train.SegmentationTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.segment.train.SegmentationTrainer&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../detect/train/#ultralytics.models.yolo.detect.train.DetectionTrainer" id="mermaid-link-ultralytics.models.yolo.detect.train.DetectionTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.detect.train.DetectionTrainer&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../../../engine/trainer/#ultralytics.engine.trainer.BaseTrainer" id="mermaid-link-ultralytics.engine.trainer.BaseTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.trainer.BaseTrainer&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.yolo.segment.train.SegmentationTrainer">
+              flowchart TD
+              ultralytics.models.yolo.segment.train.SegmentationTrainer[SegmentationTrainer]
+              ultralytics.models.yolo.detect.train.DetectionTrainer[DetectionTrainer]
+              ultralytics.engine.trainer.BaseTrainer[BaseTrainer]
+                              ultralytics.models.yolo.detect.train.DetectionTrainer --&gt; ultralytics.models.yolo.segment.train.SegmentationTrainer
+                                ultralytics.engine.trainer.BaseTrainer --&gt; ultralytics.models.yolo.detect.train.DetectionTrainer
+              click ultralytics.models.yolo.segment.train.SegmentationTrainer href "" "ultralytics.models.yolo.segment.train.SegmentationTrainer"
+              click ultralytics.models.yolo.detect.train.DetectionTrainer href "" "ultralytics.models.yolo.detect.train.DetectionTrainer"
+              click ultralytics.engine.trainer.BaseTrainer href "" "ultralytics.engine.trainer.BaseTrainer"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.yolo.segment.train.SegmentationTrainer');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>A class extending the DetectionTrainer class for training based on a segmentation model.</p>
 <p>This trainer specializes in handling segmentation tasks, extending the detection trainer with segmentation-specific
 functionality including model initialization, validation, and visualization.</p>
@@ -1424,7 +1451,7 @@ functionality including model initialization, validation, and visualization.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/segment/train.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>29</span>
 <span>30</span>
@@ -1551,7 +1578,7 @@ functionality including model initialization, validation, and visualization.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="s2">"yolo11n-seg.yaml"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">get_model</span><span class="p">(</span><span class="n">weights</span><span class="o">=</span><span class="s2">"yolo11n-seg.pt"</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/segment/train.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>42</span>
 <span>43</span>
@@ -1606,7 +1633,7 @@ functionality including model initialization, validation, and visualization.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return an instance of SegmentationValidator for validation of YOLO model.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/segment/train.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>64</span>
 <span>65</span>
@@ -1744,7 +1771,7 @@ functionality including model initialization, validation, and visualization.</p>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@main/js/chat.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
 <script src="../../../../../javascript/extra.js"></script>
 <script src="../../../../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

@@ -1369,7 +1369,7 @@
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">thresh</span> <span class="o">=</span> <span class="mf">5.0</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">matched_indices</span><span class="p">,</span> <span class="n">unmatched_a</span><span class="p">,</span> <span class="n">unmatched_b</span> <span class="o">=</span> <span class="n">linear_assignment</span><span class="p">(</span><span class="n">cost_matrix</span><span class="p">,</span> <span class="n">thresh</span><span class="p">,</span> <span class="n">use_lap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/utils/matching.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>20</span>
 <span>21</span>
@@ -1536,7 +1536,7 @@
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">btracks</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">35</span><span class="p">])]</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cost_matrix</span> <span class="o">=</span> <span class="n">iou_distance</span><span class="p">(</span><span class="n">atracks</span><span class="p">,</span> <span class="n">btracks</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/utils/matching.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>63</span>
 <span>64</span>
@@ -1714,7 +1714,7 @@ is the number of detections.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">detections</span> <span class="o">=</span> <span class="p">[</span><span class="n">BaseTrack</span><span class="p">(</span><span class="o">...</span><span class="p">),</span> <span class="n">BaseTrack</span><span class="p">(</span><span class="o">...</span><span class="p">)]</span>  <span class="c1"># List of detection objects with embedding features</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cost_matrix</span> <span class="o">=</span> <span class="n">embedding_distance</span><span class="p">(</span><span class="n">tracks</span><span class="p">,</span> <span class="n">detections</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">"cosine"</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/utils/matching.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>102</span>
 <span>103</span>
@@ -1853,7 +1853,7 @@ is the number of detections.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">detections</span> <span class="o">=</span> <span class="p">[</span><span class="n">BaseTrack</span><span class="p">(</span><span class="n">score</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">())</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fused_matrix</span> <span class="o">=</span> <span class="n">fuse_score</span><span class="p">(</span><span class="n">cost_matrix</span><span class="p">,</span> <span class="n">detections</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/trackers/utils/matching.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>131</span>
 <span>132</span>
@@ -2025,7 +2025,7 @@ is the number of detections.</p>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@main/js/chat.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
 <script src="../../../../javascript/extra.js"></script>
 <script src="../../../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

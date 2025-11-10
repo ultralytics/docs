@@ -1473,6 +1473,29 @@
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../../engine/model/#ultralytics.engine.model.Model" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.model.Model&lt;/span&gt;'>Model</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.model.YOLO" id="mermaid-link-ultralytics.models.yolo.model.YOLO" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.model.YOLO&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../../engine/model/#ultralytics.engine.model.Model" id="mermaid-link-ultralytics.engine.model.Model" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.model.Model&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.yolo.model.YOLO">
+              flowchart TD
+              ultralytics.models.yolo.model.YOLO[YOLO]
+              ultralytics.engine.model.Model[Model]
+                              ultralytics.engine.model.Model --&gt; ultralytics.models.yolo.model.YOLO
+              click ultralytics.models.yolo.model.YOLO href "" "ultralytics.models.yolo.model.YOLO"
+              click ultralytics.engine.model.Model href "" "ultralytics.engine.model.Model"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.yolo.model.YOLO');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>YOLO (You Only Look Once) object detection model.</p>
 <p>This class provides a unified interface for YOLO models, automatically switching to specialized model types
 (YOLOWorld or YOLOE) based on the model filename. It supports various computer vision tasks including object
@@ -1620,7 +1643,7 @@ to auto-detection based on model.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained YOLOv11n detection model</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-seg.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained YOLO11n segmentation model</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>53</span>
 <span>54</span>
@@ -1719,6 +1742,29 @@ to auto-detection based on model.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../../engine/model/#ultralytics.engine.model.Model" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.model.Model&lt;/span&gt;'>Model</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.model.YOLOWorld" id="mermaid-link-ultralytics.models.yolo.model.YOLOWorld" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.model.YOLOWorld&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../../engine/model/#ultralytics.engine.model.Model" id="mermaid-link-ultralytics.engine.model.Model" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.model.Model&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.yolo.model.YOLOWorld">
+              flowchart TD
+              ultralytics.models.yolo.model.YOLOWorld[YOLOWorld]
+              ultralytics.engine.model.Model[Model]
+                              ultralytics.engine.model.Model --&gt; ultralytics.models.yolo.model.YOLOWorld
+              click ultralytics.models.yolo.model.YOLOWorld href "" "ultralytics.models.yolo.model.YOLOWorld"
+              click ultralytics.engine.model.Model href "" "ultralytics.engine.model.Model"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.yolo.model.YOLOWorld');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>YOLO-World object detection model.</p>
 <p>YOLO-World is an open-vocabulary object detection model that can detect objects based on text descriptions without
 requiring training on specific classes. It extends the YOLO architecture to support real-time open-vocabulary
@@ -1849,7 +1895,7 @@ class names.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>151</span>
 <span>152</span>
@@ -1933,7 +1979,7 @@ class names.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>179</span>
 <span>180</span>
@@ -1986,6 +2032,29 @@ class names.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../../engine/model/#ultralytics.engine.model.Model" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.model.Model&lt;/span&gt;'>Model</a></code></p>
+<div style="display: none">
+<a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.model.YOLOE" id="mermaid-link-ultralytics.models.yolo.model.YOLOE" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.model.YOLOE&lt;/span&gt;'></a>
+<a class="autorefs autorefs-internal" href="../../../engine/model/#ultralytics.engine.model.Model" id="mermaid-link-ultralytics.engine.model.Model" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.model.Model&lt;/span&gt;'></a>
+</div>
+<pre class="mermaid"><code id="mermaid-diagram-ultralytics.models.yolo.model.YOLOE">
+              flowchart TD
+              ultralytics.models.yolo.model.YOLOE[YOLOE]
+              ultralytics.engine.model.Model[Model]
+                              ultralytics.engine.model.Model --&gt; ultralytics.models.yolo.model.YOLOE
+              click ultralytics.models.yolo.model.YOLOE href "" "ultralytics.models.yolo.model.YOLOE"
+              click ultralytics.engine.model.Model href "" "ultralytics.engine.model.Model"
+            </code></pre>
+<script>
+              var diagram = document.getElementById('mermaid-diagram-ultralytics.models.yolo.model.YOLOE');
+              diagram.innerHTML = diagram.innerHTML.replace(/click ([\w.]+) href "" "\1"/g, function(match, nodeID, offset) {
+                try {
+                  const link = document.getElementById("mermaid-link-" + nodeID).href;
+                  return `click ${nodeID} href "${link}" "${nodeID}"`
+                } catch (e) {
+                  return '';
+                }
+              });
+            </script>
 <p>YOLOE object detection and segmentation model.</p>
 <p>YOLOE is an enhanced YOLO model that supports both object detection and instance segmentation tasks with improved
 performance and additional features like visual and text positional embeddings.</p>
@@ -2181,7 +2250,7 @@ performance and additional features like visual and text positional embeddings.<
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>231</span>
 <span>232</span>
@@ -2224,7 +2293,7 @@ performance and additional features like visual and text positional embeddings.<
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Get text positional embeddings for the given texts.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>259</span>
 <span>260</span>
@@ -2319,7 +2388,7 @@ model is an instance of YOLOEModel.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">visual_features</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pe</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_visual_pe</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">visual_features</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>264</span>
 <span>265</span>
@@ -2374,7 +2443,7 @@ model is an instance of YOLOEModel.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Get vocabulary for the given class names.</p>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>306</span>
 <span>307</span>
@@ -2543,7 +2612,7 @@ based on the task.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">prompts</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"bboxes"</span><span class="p">:</span> <span class="p">[[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">]],</span> <span class="s2">"cls"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"person"</span><span class="p">]}</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">,</span> <span class="n">visual_prompts</span><span class="o">=</span><span class="n">prompts</span><span class="p">)</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>356</span>
 <span>357</span>
@@ -2761,7 +2830,7 @@ based on the task.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>311</span>
 <span>312</span>
@@ -2882,7 +2951,7 @@ tasks. The model must be an instance of YOLOEModel.</p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11s-seg.pt"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">set_vocab</span><span class="p">([</span><span class="s2">"person"</span><span class="p">,</span> <span class="s2">"car"</span><span class="p">,</span> <span class="s2">"dog"</span><span class="p">],</span> <span class="p">[</span><span class="s2">"person"</span><span class="p">,</span> <span class="s2">"car"</span><span class="p">,</span> <span class="s2">"dog"</span><span class="p">])</span>
 </code></pre></div>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>286</span>
 <span>287</span>
@@ -3036,7 +3105,7 @@ tasks. The model must be an instance of YOLOEModel.</p>
 </tr>
 </tbody>
 </table>
-<details class="quote">
+<details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>330</span>
 <span>331</span>
@@ -3218,7 +3287,7 @@ tasks. The model must be an instance of YOLOEModel.</p>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
 <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@main/js/chat.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
 <script src="../../../../javascript/extra.js"></script>
 <script src="../../../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
