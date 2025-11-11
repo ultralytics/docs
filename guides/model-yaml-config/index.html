@@ -8,11 +8,24 @@
 <link href="https://docs.ultralytics.com/guides/model-yaml-config/" rel="canonical"/>
 <link href="../model-deployment-options/" rel="prev"/>
 <link href="../kfold-cross-validation/" rel="next"/>
+<link href="/" hreflang="en" rel="alternate"/>
+<link href="/zh/" hreflang="zh" rel="alternate"/>
+<link href="/ko/" hreflang="ko" rel="alternate"/>
+<link href="/ja/" hreflang="ja" rel="alternate"/>
+<link href="/ru/" hreflang="ru" rel="alternate"/>
+<link href="/de/" hreflang="de" rel="alternate"/>
+<link href="/fr/" hreflang="fr" rel="alternate"/>
+<link href="/es/" hreflang="es" rel="alternate"/>
+<link href="/pt/" hreflang="pt" rel="alternate"/>
+<link href="/it/" hreflang="it" rel="alternate"/>
+<link href="/tr/" hreflang="tr" rel="alternate"/>
+<link href="/vi/" hreflang="vi" rel="alternate"/>
+<link href="/ar/" hreflang="ar" rel="alternate"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.23" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.0" name="generator"/>
 <title>Model YAML Configuration Guide - Ultralytics YOLO Docs</title>
-<link href="../../assets/stylesheets/main.84d31ad4.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.618322db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -330,7 +343,7 @@
 <nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_8">
 <span class="md-nav__icon md-icon"></span>
-            Guides
+    Guides
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -390,7 +403,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#configuration-structure">
 <span class="md-ellipsis">
-      Configuration Structure
+        Configuration Structure
     </span>
 </a>
 <nav aria-label="Configuration Structure" class="md-nav">
@@ -398,14 +411,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#parameters-section">
 <span class="md-ellipsis">
-      Parameters Section
+        Parameters Section
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#backbone-and-head-architecture">
 <span class="md-ellipsis">
-      Backbone and Head Architecture
+        Backbone and Head Architecture
     </span>
 </a>
 </li>
@@ -415,7 +428,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#layer-specification-format">
 <span class="md-ellipsis">
-      Layer Specification Format
+        Layer Specification Format
     </span>
 </a>
 <nav aria-label="Layer Specification Format" class="md-nav">
@@ -423,14 +436,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#connection-patterns">
 <span class="md-ellipsis">
-      Connection Patterns
+        Connection Patterns
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#module-repetition">
 <span class="md-ellipsis">
-      Module Repetition
+        Module Repetition
     </span>
 </a>
 </li>
@@ -440,7 +453,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#available-modules">
 <span class="md-ellipsis">
-      Available Modules
+        Available Modules
     </span>
 </a>
 <nav aria-label="Available Modules" class="md-nav">
@@ -448,21 +461,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#basic-operations">
 <span class="md-ellipsis">
-      Basic Operations
+        Basic Operations
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#composite-blocks">
 <span class="md-ellipsis">
-      Composite Blocks
+        Composite Blocks
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#specialized-modules">
 <span class="md-ellipsis">
-      Specialized Modules
+        Specialized Modules
     </span>
 </a>
 </li>
@@ -472,7 +485,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#advanced-features">
 <span class="md-ellipsis">
-      Advanced Features
+        Advanced Features
     </span>
 </a>
 <nav aria-label="Advanced Features" class="md-nav">
@@ -480,14 +493,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#torchvision-integration">
 <span class="md-ellipsis">
-      TorchVision Integration
+        TorchVision Integration
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#index-module-for-feature-selection">
 <span class="md-ellipsis">
-      Index Module for Feature Selection
+        Index Module for Feature Selection
     </span>
 </a>
 </li>
@@ -497,7 +510,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#module-resolution-system">
 <span class="md-ellipsis">
-      Module Resolution System
+        Module Resolution System
     </span>
 </a>
 <nav aria-label="Module Resolution System" class="md-nav">
@@ -505,14 +518,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#module-lookup-process">
 <span class="md-ellipsis">
-      Module Lookup Process
+        Module Lookup Process
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#module-import-chain">
 <span class="md-ellipsis">
-      Module Import Chain
+        Module Import Chain
     </span>
 </a>
 </li>
@@ -522,7 +535,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#custom-module-integration">
 <span class="md-ellipsis">
-      Custom Module Integration
+        Custom Module Integration
     </span>
 </a>
 <nav aria-label="Custom Module Integration" class="md-nav">
@@ -530,7 +543,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#source-code-modification">
 <span class="md-ellipsis">
-      Source Code Modification
+        Source Code Modification
     </span>
 </a>
 </li>
@@ -540,7 +553,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#example-configurations">
 <span class="md-ellipsis">
-      Example Configurations
+        Example Configurations
     </span>
 </a>
 <nav aria-label="Example Configurations" class="md-nav">
@@ -548,21 +561,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#basic-detection-model">
 <span class="md-ellipsis">
-      Basic Detection Model
+        Basic Detection Model
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#torchvision-backbone-model">
 <span class="md-ellipsis">
-      TorchVision Backbone Model
+        TorchVision Backbone Model
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#classification-model">
 <span class="md-ellipsis">
-      Classification Model
+        Classification Model
     </span>
 </a>
 </li>
@@ -572,7 +585,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#best-practices">
 <span class="md-ellipsis">
-      Best Practices
+        Best Practices
     </span>
 </a>
 <nav aria-label="Best Practices" class="md-nav">
@@ -580,14 +593,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#architecture-design-tips">
 <span class="md-ellipsis">
-      Architecture Design Tips
+        Architecture Design Tips
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#performance-considerations">
 <span class="md-ellipsis">
-      Performance Considerations
+        Performance Considerations
     </span>
 </a>
 </li>
@@ -597,7 +610,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#troubleshooting">
 <span class="md-ellipsis">
-      Troubleshooting
+        Troubleshooting
     </span>
 </a>
 <nav aria-label="Troubleshooting" class="md-nav">
@@ -605,14 +618,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#common-issues">
 <span class="md-ellipsis">
-      Common Issues
+        Common Issues
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#debugging-tips">
 <span class="md-ellipsis">
-      Debugging Tips
+        Debugging Tips
     </span>
 </a>
 </li>
@@ -622,7 +635,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -630,63 +643,63 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-change-the-number-of-classes-in-my-model">
 <span class="md-ellipsis">
-      How do I change the number of classes in my model?
+        How do I change the number of classes in my model?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#can-i-use-a-custom-backbone-in-my-model-yaml">
 <span class="md-ellipsis">
-      Can I use a custom backbone in my model YAML?
+        Can I use a custom backbone in my model YAML?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-scale-my-model-for-different-sizes-nano-small-medium-etc">
 <span class="md-ellipsis">
-      How do I scale my model for different sizes (nano, small, medium, etc.)?
+        How do I scale my model for different sizes (nano, small, medium, etc.)?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-does-the-from-repeats-module-args-format-mean">
 <span class="md-ellipsis">
-      What does the [from, repeats, module, args] format mean?
+        What does the [from, repeats, module, args] format mean?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-troubleshoot-channel-mismatch-errors">
 <span class="md-ellipsis">
-      How do I troubleshoot channel mismatch errors?
+        How do I troubleshoot channel mismatch errors?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#where-can-i-find-a-list-of-available-modules-and-their-arguments">
 <span class="md-ellipsis">
-      Where can I find a list of available modules and their arguments?
+        Where can I find a list of available modules and their arguments?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-add-a-custom-module-to-my-yaml-configuration">
 <span class="md-ellipsis">
-      How do I add a custom module to my YAML configuration?
+        How do I add a custom module to my YAML configuration?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#can-i-use-pretrained-weights-with-a-custom-yaml">
 <span class="md-ellipsis">
-      Can I use pretrained weights with a custom YAML?
+        Can I use pretrained weights with a custom YAML?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-validate-my-model-configuration">
 <span class="md-ellipsis">
-      How do I validate my model configuration?
+        How do I validate my model configuration?
     </span>
 </a>
 </li>
@@ -886,7 +899,7 @@
 <nav aria-expanded="false" aria-labelledby="__nav_8_33_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_8_33">
 <span class="md-nav__icon md-icon"></span>
-            Explorer
+    Explorer
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -928,7 +941,7 @@
 <nav aria-expanded="false" aria-labelledby="__nav_8_34_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_8_34">
 <span class="md-nav__icon md-icon"></span>
-            YOLOv5
+    YOLOv5
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -1009,7 +1022,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#configuration-structure">
 <span class="md-ellipsis">
-      Configuration Structure
+        Configuration Structure
     </span>
 </a>
 <nav aria-label="Configuration Structure" class="md-nav">
@@ -1017,14 +1030,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#parameters-section">
 <span class="md-ellipsis">
-      Parameters Section
+        Parameters Section
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#backbone-and-head-architecture">
 <span class="md-ellipsis">
-      Backbone and Head Architecture
+        Backbone and Head Architecture
     </span>
 </a>
 </li>
@@ -1034,7 +1047,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#layer-specification-format">
 <span class="md-ellipsis">
-      Layer Specification Format
+        Layer Specification Format
     </span>
 </a>
 <nav aria-label="Layer Specification Format" class="md-nav">
@@ -1042,14 +1055,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#connection-patterns">
 <span class="md-ellipsis">
-      Connection Patterns
+        Connection Patterns
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#module-repetition">
 <span class="md-ellipsis">
-      Module Repetition
+        Module Repetition
     </span>
 </a>
 </li>
@@ -1059,7 +1072,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#available-modules">
 <span class="md-ellipsis">
-      Available Modules
+        Available Modules
     </span>
 </a>
 <nav aria-label="Available Modules" class="md-nav">
@@ -1067,21 +1080,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#basic-operations">
 <span class="md-ellipsis">
-      Basic Operations
+        Basic Operations
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#composite-blocks">
 <span class="md-ellipsis">
-      Composite Blocks
+        Composite Blocks
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#specialized-modules">
 <span class="md-ellipsis">
-      Specialized Modules
+        Specialized Modules
     </span>
 </a>
 </li>
@@ -1091,7 +1104,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#advanced-features">
 <span class="md-ellipsis">
-      Advanced Features
+        Advanced Features
     </span>
 </a>
 <nav aria-label="Advanced Features" class="md-nav">
@@ -1099,14 +1112,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#torchvision-integration">
 <span class="md-ellipsis">
-      TorchVision Integration
+        TorchVision Integration
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#index-module-for-feature-selection">
 <span class="md-ellipsis">
-      Index Module for Feature Selection
+        Index Module for Feature Selection
     </span>
 </a>
 </li>
@@ -1116,7 +1129,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#module-resolution-system">
 <span class="md-ellipsis">
-      Module Resolution System
+        Module Resolution System
     </span>
 </a>
 <nav aria-label="Module Resolution System" class="md-nav">
@@ -1124,14 +1137,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#module-lookup-process">
 <span class="md-ellipsis">
-      Module Lookup Process
+        Module Lookup Process
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#module-import-chain">
 <span class="md-ellipsis">
-      Module Import Chain
+        Module Import Chain
     </span>
 </a>
 </li>
@@ -1141,7 +1154,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#custom-module-integration">
 <span class="md-ellipsis">
-      Custom Module Integration
+        Custom Module Integration
     </span>
 </a>
 <nav aria-label="Custom Module Integration" class="md-nav">
@@ -1149,7 +1162,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#source-code-modification">
 <span class="md-ellipsis">
-      Source Code Modification
+        Source Code Modification
     </span>
 </a>
 </li>
@@ -1159,7 +1172,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#example-configurations">
 <span class="md-ellipsis">
-      Example Configurations
+        Example Configurations
     </span>
 </a>
 <nav aria-label="Example Configurations" class="md-nav">
@@ -1167,21 +1180,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#basic-detection-model">
 <span class="md-ellipsis">
-      Basic Detection Model
+        Basic Detection Model
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#torchvision-backbone-model">
 <span class="md-ellipsis">
-      TorchVision Backbone Model
+        TorchVision Backbone Model
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#classification-model">
 <span class="md-ellipsis">
-      Classification Model
+        Classification Model
     </span>
 </a>
 </li>
@@ -1191,7 +1204,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#best-practices">
 <span class="md-ellipsis">
-      Best Practices
+        Best Practices
     </span>
 </a>
 <nav aria-label="Best Practices" class="md-nav">
@@ -1199,14 +1212,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#architecture-design-tips">
 <span class="md-ellipsis">
-      Architecture Design Tips
+        Architecture Design Tips
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#performance-considerations">
 <span class="md-ellipsis">
-      Performance Considerations
+        Performance Considerations
     </span>
 </a>
 </li>
@@ -1216,7 +1229,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#troubleshooting">
 <span class="md-ellipsis">
-      Troubleshooting
+        Troubleshooting
     </span>
 </a>
 <nav aria-label="Troubleshooting" class="md-nav">
@@ -1224,14 +1237,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#common-issues">
 <span class="md-ellipsis">
-      Common Issues
+        Common Issues
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#debugging-tips">
 <span class="md-ellipsis">
-      Debugging Tips
+        Debugging Tips
     </span>
 </a>
 </li>
@@ -1241,7 +1254,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -1249,63 +1262,63 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-change-the-number-of-classes-in-my-model">
 <span class="md-ellipsis">
-      How do I change the number of classes in my model?
+        How do I change the number of classes in my model?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#can-i-use-a-custom-backbone-in-my-model-yaml">
 <span class="md-ellipsis">
-      Can I use a custom backbone in my model YAML?
+        Can I use a custom backbone in my model YAML?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-scale-my-model-for-different-sizes-nano-small-medium-etc">
 <span class="md-ellipsis">
-      How do I scale my model for different sizes (nano, small, medium, etc.)?
+        How do I scale my model for different sizes (nano, small, medium, etc.)?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-does-the-from-repeats-module-args-format-mean">
 <span class="md-ellipsis">
-      What does the [from, repeats, module, args] format mean?
+        What does the [from, repeats, module, args] format mean?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-troubleshoot-channel-mismatch-errors">
 <span class="md-ellipsis">
-      How do I troubleshoot channel mismatch errors?
+        How do I troubleshoot channel mismatch errors?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#where-can-i-find-a-list-of-available-modules-and-their-arguments">
 <span class="md-ellipsis">
-      Where can I find a list of available modules and their arguments?
+        Where can I find a list of available modules and their arguments?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-add-a-custom-module-to-my-yaml-configuration">
 <span class="md-ellipsis">
-      How do I add a custom module to my YAML configuration?
+        How do I add a custom module to my YAML configuration?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#can-i-use-pretrained-weights-with-a-custom-yaml">
 <span class="md-ellipsis">
-      Can I use pretrained weights with a custom YAML?
+        Can I use pretrained weights with a custom YAML?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-validate-my-model-configuration">
 <span class="md-ellipsis">
-      How do I validate my model configuration?
+        How do I validate my model configuration?
     </span>
 </a>
 </li>
@@ -1820,7 +1833,7 @@
 <span class="hover-item">📅</span> Created 1 month ago
     </span>
 <span class="date-item" title="This page was last updated on November 07, 2025">
-<span class="hover-item">✏️</span> Updated 2 days ago
+<span class="hover-item">✏️</span> Updated 3 days ago
     </span>
 </div>
 <div class="authors-container">
@@ -1931,9 +1944,9 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@latest/js/chat.min.js"></script>
 <script src="../../javascript/extra.js"></script>
 <script src="../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

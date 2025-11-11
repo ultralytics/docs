@@ -8,11 +8,24 @@
 <link href="https://docs.ultralytics.com/guides/model-training-tips/" rel="canonical"/>
 <link href="../preprocessing_annotated_data/" rel="prev"/>
 <link href="../model-evaluation-insights/" rel="next"/>
+<link href="/" hreflang="en" rel="alternate"/>
+<link href="/zh/" hreflang="zh" rel="alternate"/>
+<link href="/ko/" hreflang="ko" rel="alternate"/>
+<link href="/ja/" hreflang="ja" rel="alternate"/>
+<link href="/ru/" hreflang="ru" rel="alternate"/>
+<link href="/de/" hreflang="de" rel="alternate"/>
+<link href="/fr/" hreflang="fr" rel="alternate"/>
+<link href="/es/" hreflang="es" rel="alternate"/>
+<link href="/pt/" hreflang="pt" rel="alternate"/>
+<link href="/it/" hreflang="it" rel="alternate"/>
+<link href="/tr/" hreflang="tr" rel="alternate"/>
+<link href="/vi/" hreflang="vi" rel="alternate"/>
+<link href="/ar/" hreflang="ar" rel="alternate"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.23" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.0" name="generator"/>
 <title>Machine Learning Best Practices and Tips for Model Training</title>
-<link href="../../assets/stylesheets/main.84d31ad4.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.618322db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -330,7 +343,7 @@
 <nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_8">
 <span class="md-nav__icon md-icon"></span>
-            Guides
+    Guides
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -530,21 +543,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#introduction">
 <span class="md-ellipsis">
-      Introduction
+        Introduction
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-to-train-a-machine-learning-model">
 <span class="md-ellipsis">
-      How to Train a Machine Learning Model
+        How to Train a Machine Learning Model
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#training-on-large-datasets">
 <span class="md-ellipsis">
-      Training on Large Datasets
+        Training on Large Datasets
     </span>
 </a>
 <nav aria-label="Training on Large Datasets" class="md-nav">
@@ -552,49 +565,49 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#batch-size-and-gpu-utilization">
 <span class="md-ellipsis">
-      Batch Size and GPU Utilization
+        Batch Size and GPU Utilization
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#subset-training">
 <span class="md-ellipsis">
-      Subset Training
+        Subset Training
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#multi-scale-training">
 <span class="md-ellipsis">
-      Multi-scale Training
+        Multi-scale Training
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#caching">
 <span class="md-ellipsis">
-      Caching
+        Caching
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#mixed-precision-training">
 <span class="md-ellipsis">
-      Mixed Precision Training
+        Mixed Precision Training
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#pre-trained-weights">
 <span class="md-ellipsis">
-      Pre-trained Weights
+        Pre-trained Weights
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#other-techniques-to-consider-when-handling-a-large-dataset">
 <span class="md-ellipsis">
-      Other Techniques to Consider When Handling a Large Dataset
+        Other Techniques to Consider When Handling a Large Dataset
     </span>
 </a>
 </li>
@@ -604,28 +617,28 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#the-number-of-epochs-to-train-for">
 <span class="md-ellipsis">
-      The Number of Epochs To Train For
+        The Number of Epochs To Train For
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#early-stopping">
 <span class="md-ellipsis">
-      Early Stopping
+        Early Stopping
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#choosing-between-cloud-and-local-training">
 <span class="md-ellipsis">
-      Choosing Between Cloud and Local Training
+        Choosing Between Cloud and Local Training
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#selecting-an-optimizer">
 <span class="md-ellipsis">
-      Selecting an Optimizer
+        Selecting an Optimizer
     </span>
 </a>
 <nav aria-label="Selecting an Optimizer" class="md-nav">
@@ -633,7 +646,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#common-optimizers">
 <span class="md-ellipsis">
-      Common Optimizers
+        Common Optimizers
     </span>
 </a>
 </li>
@@ -643,7 +656,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#connecting-with-the-community">
 <span class="md-ellipsis">
-      Connecting with the Community
+        Connecting with the Community
     </span>
 </a>
 <nav aria-label="Connecting with the Community" class="md-nav">
@@ -651,14 +664,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#community-resources">
 <span class="md-ellipsis">
-      Community Resources
+        Community Resources
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#official-documentation">
 <span class="md-ellipsis">
-      Official Documentation
+        Official Documentation
     </span>
 </a>
 </li>
@@ -668,14 +681,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#key-takeaways">
 <span class="md-ellipsis">
-      Key Takeaways
+        Key Takeaways
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -683,35 +696,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-can-i-improve-gpu-utilization-when-training-a-large-dataset-with-ultralytics-yolo">
 <span class="md-ellipsis">
-      How can I improve GPU utilization when training a large dataset with Ultralytics YOLO?
+        How can I improve GPU utilization when training a large dataset with Ultralytics YOLO?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-is-mixed-precision-training-and-how-do-i-enable-it-in-yolo11">
 <span class="md-ellipsis">
-      What is mixed precision training, and how do I enable it in YOLO11?
+        What is mixed precision training, and how do I enable it in YOLO11?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-does-multiscale-training-enhance-yolo11-model-performance">
 <span class="md-ellipsis">
-      How does multiscale training enhance YOLO11 model performance?
+        How does multiscale training enhance YOLO11 model performance?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-can-i-use-pre-trained-weights-to-speed-up-training-in-yolo11">
 <span class="md-ellipsis">
-      How can I use pre-trained weights to speed up training in YOLO11?
+        How can I use pre-trained weights to speed up training in YOLO11?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-is-the-recommended-number-of-epochs-for-training-a-model-and-how-do-i-set-this-in-yolo11">
 <span class="md-ellipsis">
-      What is the recommended number of epochs for training a model, and how do I set this in YOLO11?
+        What is the recommended number of epochs for training a model, and how do I set this in YOLO11?
     </span>
 </a>
 </li>
@@ -771,7 +784,7 @@
 <nav aria-expanded="false" aria-labelledby="__nav_8_33_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_8_33">
 <span class="md-nav__icon md-icon"></span>
-            Explorer
+    Explorer
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -813,7 +826,7 @@
 <nav aria-expanded="false" aria-labelledby="__nav_8_34_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_8_34">
 <span class="md-nav__icon md-icon"></span>
-            YOLOv5
+    YOLOv5
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -894,21 +907,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#introduction">
 <span class="md-ellipsis">
-      Introduction
+        Introduction
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-to-train-a-machine-learning-model">
 <span class="md-ellipsis">
-      How to Train a Machine Learning Model
+        How to Train a Machine Learning Model
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#training-on-large-datasets">
 <span class="md-ellipsis">
-      Training on Large Datasets
+        Training on Large Datasets
     </span>
 </a>
 <nav aria-label="Training on Large Datasets" class="md-nav">
@@ -916,49 +929,49 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#batch-size-and-gpu-utilization">
 <span class="md-ellipsis">
-      Batch Size and GPU Utilization
+        Batch Size and GPU Utilization
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#subset-training">
 <span class="md-ellipsis">
-      Subset Training
+        Subset Training
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#multi-scale-training">
 <span class="md-ellipsis">
-      Multi-scale Training
+        Multi-scale Training
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#caching">
 <span class="md-ellipsis">
-      Caching
+        Caching
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#mixed-precision-training">
 <span class="md-ellipsis">
-      Mixed Precision Training
+        Mixed Precision Training
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#pre-trained-weights">
 <span class="md-ellipsis">
-      Pre-trained Weights
+        Pre-trained Weights
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#other-techniques-to-consider-when-handling-a-large-dataset">
 <span class="md-ellipsis">
-      Other Techniques to Consider When Handling a Large Dataset
+        Other Techniques to Consider When Handling a Large Dataset
     </span>
 </a>
 </li>
@@ -968,28 +981,28 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#the-number-of-epochs-to-train-for">
 <span class="md-ellipsis">
-      The Number of Epochs To Train For
+        The Number of Epochs To Train For
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#early-stopping">
 <span class="md-ellipsis">
-      Early Stopping
+        Early Stopping
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#choosing-between-cloud-and-local-training">
 <span class="md-ellipsis">
-      Choosing Between Cloud and Local Training
+        Choosing Between Cloud and Local Training
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#selecting-an-optimizer">
 <span class="md-ellipsis">
-      Selecting an Optimizer
+        Selecting an Optimizer
     </span>
 </a>
 <nav aria-label="Selecting an Optimizer" class="md-nav">
@@ -997,7 +1010,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#common-optimizers">
 <span class="md-ellipsis">
-      Common Optimizers
+        Common Optimizers
     </span>
 </a>
 </li>
@@ -1007,7 +1020,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#connecting-with-the-community">
 <span class="md-ellipsis">
-      Connecting with the Community
+        Connecting with the Community
     </span>
 </a>
 <nav aria-label="Connecting with the Community" class="md-nav">
@@ -1015,14 +1028,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#community-resources">
 <span class="md-ellipsis">
-      Community Resources
+        Community Resources
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#official-documentation">
 <span class="md-ellipsis">
-      Official Documentation
+        Official Documentation
     </span>
 </a>
 </li>
@@ -1032,14 +1045,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#key-takeaways">
 <span class="md-ellipsis">
-      Key Takeaways
+        Key Takeaways
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -1047,35 +1060,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-can-i-improve-gpu-utilization-when-training-a-large-dataset-with-ultralytics-yolo">
 <span class="md-ellipsis">
-      How can I improve GPU utilization when training a large dataset with Ultralytics YOLO?
+        How can I improve GPU utilization when training a large dataset with Ultralytics YOLO?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-is-mixed-precision-training-and-how-do-i-enable-it-in-yolo11">
 <span class="md-ellipsis">
-      What is mixed precision training, and how do I enable it in YOLO11?
+        What is mixed precision training, and how do I enable it in YOLO11?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-does-multiscale-training-enhance-yolo11-model-performance">
 <span class="md-ellipsis">
-      How does multiscale training enhance YOLO11 model performance?
+        How does multiscale training enhance YOLO11 model performance?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-can-i-use-pre-trained-weights-to-speed-up-training-in-yolo11">
 <span class="md-ellipsis">
-      How can I use pre-trained weights to speed up training in YOLO11?
+        How can I use pre-trained weights to speed up training in YOLO11?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-is-the-recommended-number-of-epochs-for-training-a-model-and-how-do-i-set-this-in-yolo11">
 <span class="md-ellipsis">
-      What is the recommended number of epochs for training a model, and how do I set this in YOLO11?
+        What is the recommended number of epochs for training a model, and how do I set this in YOLO11?
     </span>
 </a>
 </li>
@@ -1358,9 +1371,9 @@ Using the maximum batch size supported by your GPU, you can fully take advantage
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@latest/js/chat.min.js"></script>
 <script src="../../javascript/extra.js"></script>
 <script src="../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

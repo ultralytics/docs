@@ -8,11 +8,24 @@
 <link href="https://docs.ultralytics.com/models/yolo12/" rel="canonical"/>
 <link href="../yolo11/" rel="prev"/>
 <link href="../yolo26/" rel="next"/>
+<link href="/" hreflang="en" rel="alternate"/>
+<link href="/zh/" hreflang="zh" rel="alternate"/>
+<link href="/ko/" hreflang="ko" rel="alternate"/>
+<link href="/ja/" hreflang="ja" rel="alternate"/>
+<link href="/ru/" hreflang="ru" rel="alternate"/>
+<link href="/de/" hreflang="de" rel="alternate"/>
+<link href="/fr/" hreflang="fr" rel="alternate"/>
+<link href="/es/" hreflang="es" rel="alternate"/>
+<link href="/pt/" hreflang="pt" rel="alternate"/>
+<link href="/it/" hreflang="it" rel="alternate"/>
+<link href="/tr/" hreflang="tr" rel="alternate"/>
+<link href="/vi/" hreflang="vi" rel="alternate"/>
+<link href="/ar/" hreflang="ar" rel="alternate"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.23" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.0" name="generator"/>
 <title>YOLO12: Attention-Centric Object Detection - Ultralytics YOLO Docs</title>
-<link href="../../assets/stylesheets/main.84d31ad4.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.618322db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -306,7 +319,7 @@
 <nav aria-expanded="true" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
-            Models
+    Models
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -394,28 +407,28 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#overview">
 <span class="md-ellipsis">
-      Overview
+        Overview
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#key-features">
 <span class="md-ellipsis">
-      Key Features
+        Key Features
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#supported-tasks-and-modes">
 <span class="md-ellipsis">
-      Supported Tasks and Modes
+        Supported Tasks and Modes
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#performance-metrics">
 <span class="md-ellipsis">
-      Performance Metrics
+        Performance Metrics
     </span>
 </a>
 <nav aria-label="Performance Metrics" class="md-nav">
@@ -423,7 +436,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#detection-performance-coco-val2017">
 <span class="md-ellipsis">
-      Detection Performance (COCO val2017)
+        Detection Performance (COCO val2017)
     </span>
 </a>
 </li>
@@ -433,35 +446,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#usage-examples">
 <span class="md-ellipsis">
-      Usage Examples
+        Usage Examples
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#key-improvements">
 <span class="md-ellipsis">
-      Key Improvements
+        Key Improvements
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#requirements">
 <span class="md-ellipsis">
-      Requirements
+        Requirements
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#citations-and-acknowledgments">
 <span class="md-ellipsis">
-      Citations and Acknowledgments
+        Citations and Acknowledgments
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -469,35 +482,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-does-yolo12-achieve-real-time-object-detection-while-maintaining-high-accuracy">
 <span class="md-ellipsis">
-      How does YOLO12 achieve real-time object detection while maintaining high accuracy?
+        How does YOLO12 achieve real-time object detection while maintaining high accuracy?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-computer-vision-tasks-does-yolo12-support">
 <span class="md-ellipsis">
-      What computer vision tasks does YOLO12 support?
+        What computer vision tasks does YOLO12 support?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-does-yolo12-compare-to-other-yolo-models-and-competitors-like-rt-detr">
 <span class="md-ellipsis">
-      How does YOLO12 compare to other YOLO models and competitors like RT-DETR?
+        How does YOLO12 compare to other YOLO models and competitors like RT-DETR?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-are-the-hardware-requirements-for-running-yolo12-especially-for-using-flashattention">
 <span class="md-ellipsis">
-      What are the hardware requirements for running YOLO12, especially for using FlashAttention?
+        What are the hardware requirements for running YOLO12, especially for using FlashAttention?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#where-can-i-find-usage-examples-and-more-detailed-documentation-for-yolo12">
 <span class="md-ellipsis">
-      Where can I find usage examples and more detailed documentation for YOLO12?
+        Where can I find usage examples and more detailed documentation for YOLO12?
     </span>
 </a>
 </li>
@@ -653,28 +666,28 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#overview">
 <span class="md-ellipsis">
-      Overview
+        Overview
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#key-features">
 <span class="md-ellipsis">
-      Key Features
+        Key Features
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#supported-tasks-and-modes">
 <span class="md-ellipsis">
-      Supported Tasks and Modes
+        Supported Tasks and Modes
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#performance-metrics">
 <span class="md-ellipsis">
-      Performance Metrics
+        Performance Metrics
     </span>
 </a>
 <nav aria-label="Performance Metrics" class="md-nav">
@@ -682,7 +695,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#detection-performance-coco-val2017">
 <span class="md-ellipsis">
-      Detection Performance (COCO val2017)
+        Detection Performance (COCO val2017)
     </span>
 </a>
 </li>
@@ -692,35 +705,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#usage-examples">
 <span class="md-ellipsis">
-      Usage Examples
+        Usage Examples
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#key-improvements">
 <span class="md-ellipsis">
-      Key Improvements
+        Key Improvements
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#requirements">
 <span class="md-ellipsis">
-      Requirements
+        Requirements
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#citations-and-acknowledgments">
 <span class="md-ellipsis">
-      Citations and Acknowledgments
+        Citations and Acknowledgments
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -728,35 +741,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-does-yolo12-achieve-real-time-object-detection-while-maintaining-high-accuracy">
 <span class="md-ellipsis">
-      How does YOLO12 achieve real-time object detection while maintaining high accuracy?
+        How does YOLO12 achieve real-time object detection while maintaining high accuracy?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-computer-vision-tasks-does-yolo12-support">
 <span class="md-ellipsis">
-      What computer vision tasks does YOLO12 support?
+        What computer vision tasks does YOLO12 support?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-does-yolo12-compare-to-other-yolo-models-and-competitors-like-rt-detr">
 <span class="md-ellipsis">
-      How does YOLO12 compare to other YOLO models and competitors like RT-DETR?
+        How does YOLO12 compare to other YOLO models and competitors like RT-DETR?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-are-the-hardware-requirements-for-running-yolo12-especially-for-using-flashattention">
 <span class="md-ellipsis">
-      What are the hardware requirements for running YOLO12, especially for using FlashAttention?
+        What are the hardware requirements for running YOLO12, especially for using FlashAttention?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#where-can-i-find-usage-examples-and-more-detailed-documentation-for-yolo12">
 <span class="md-ellipsis">
-      Where can I find usage examples and more detailed documentation for YOLO12?
+        Where can I find usage examples and more detailed documentation for YOLO12?
     </span>
 </a>
 </li>
@@ -1171,9 +1184,9 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@latest/js/chat.min.js"></script>
 <script src="../../javascript/extra.js"></script>
 <script src="../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

@@ -8,11 +8,24 @@
 <link href="https://docs.ultralytics.com/integrations/tflite/" rel="canonical"/>
 <link href="../tf-graphdef/" rel="prev"/>
 <link href="../edge-tpu/" rel="next"/>
+<link href="/" hreflang="en" rel="alternate"/>
+<link href="/zh/" hreflang="zh" rel="alternate"/>
+<link href="/ko/" hreflang="ko" rel="alternate"/>
+<link href="/ja/" hreflang="ja" rel="alternate"/>
+<link href="/ru/" hreflang="ru" rel="alternate"/>
+<link href="/de/" hreflang="de" rel="alternate"/>
+<link href="/fr/" hreflang="fr" rel="alternate"/>
+<link href="/es/" hreflang="es" rel="alternate"/>
+<link href="/pt/" hreflang="pt" rel="alternate"/>
+<link href="/it/" hreflang="it" rel="alternate"/>
+<link href="/tr/" hreflang="tr" rel="alternate"/>
+<link href="/vi/" hreflang="vi" rel="alternate"/>
+<link href="/ar/" hreflang="ar" rel="alternate"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.23" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.0" name="generator"/>
 <title>A Guide on YOLO11 Model Export to TFLite for Deployment</title>
-<link href="../../assets/stylesheets/main.84d31ad4.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.618322db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -338,7 +351,7 @@
 <nav aria-expanded="true" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_9">
 <span class="md-nav__icon md-icon"></span>
-            Integrations
+    Integrations
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -524,28 +537,28 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#why-should-you-export-to-tflite">
 <span class="md-ellipsis">
-      Why Should You Export to TFLite?
+        Why Should You Export to TFLite?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#key-features-of-tflite-models">
 <span class="md-ellipsis">
-      Key Features of TFLite Models
+        Key Features of TFLite Models
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#deployment-options-in-tflite">
 <span class="md-ellipsis">
-      Deployment Options in TFLite
+        Deployment Options in TFLite
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#export-to-tflite-converting-your-yolo11-model">
 <span class="md-ellipsis">
-      Export to TFLite: Converting Your YOLO11 Model
+        Export to TFLite: Converting Your YOLO11 Model
     </span>
 </a>
 <nav aria-label="Export to TFLite: Converting Your YOLO11 Model" class="md-nav">
@@ -553,21 +566,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#installation">
 <span class="md-ellipsis">
-      Installation
+        Installation
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#usage">
 <span class="md-ellipsis">
-      Usage
+        Usage
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#export-arguments">
 <span class="md-ellipsis">
-      Export Arguments
+        Export Arguments
     </span>
 </a>
 </li>
@@ -577,21 +590,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#deploying-exported-yolo11-tflite-models">
 <span class="md-ellipsis">
-      Deploying Exported YOLO11 TFLite Models
+        Deploying Exported YOLO11 TFLite Models
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#summary">
 <span class="md-ellipsis">
-      Summary
+        Summary
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -599,42 +612,42 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-export-a-yolo11-model-to-tflite-format">
 <span class="md-ellipsis">
-      How do I export a YOLO11 model to TFLite format?
+        How do I export a YOLO11 model to TFLite format?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-are-the-benefits-of-using-tensorflow-lite-for-yolo11-model-deployment">
 <span class="md-ellipsis">
-      What are the benefits of using TensorFlow Lite for YOLO11 model deployment?
+        What are the benefits of using TensorFlow Lite for YOLO11 model deployment?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#is-it-possible-to-run-yolo11-tflite-models-on-raspberry-pi">
 <span class="md-ellipsis">
-      Is it possible to run YOLO11 TFLite models on Raspberry Pi?
+        Is it possible to run YOLO11 TFLite models on Raspberry Pi?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#can-i-use-tflite-models-on-microcontrollers-for-yolo11-predictions">
 <span class="md-ellipsis">
-      Can I use TFLite models on microcontrollers for YOLO11 predictions?
+        Can I use TFLite models on microcontrollers for YOLO11 predictions?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-platforms-are-compatible-with-tflite-exported-yolo11-models">
 <span class="md-ellipsis">
-      What platforms are compatible with TFLite exported YOLO11 models?
+        What platforms are compatible with TFLite exported YOLO11 models?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-troubleshoot-common-issues-during-yolo11-model-export-to-tflite">
 <span class="md-ellipsis">
-      How do I troubleshoot common issues during YOLO11 model export to TFLite?
+        How do I troubleshoot common issues during YOLO11 model export to TFLite?
     </span>
 </a>
 </li>
@@ -765,28 +778,28 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#why-should-you-export-to-tflite">
 <span class="md-ellipsis">
-      Why Should You Export to TFLite?
+        Why Should You Export to TFLite?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#key-features-of-tflite-models">
 <span class="md-ellipsis">
-      Key Features of TFLite Models
+        Key Features of TFLite Models
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#deployment-options-in-tflite">
 <span class="md-ellipsis">
-      Deployment Options in TFLite
+        Deployment Options in TFLite
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#export-to-tflite-converting-your-yolo11-model">
 <span class="md-ellipsis">
-      Export to TFLite: Converting Your YOLO11 Model
+        Export to TFLite: Converting Your YOLO11 Model
     </span>
 </a>
 <nav aria-label="Export to TFLite: Converting Your YOLO11 Model" class="md-nav">
@@ -794,21 +807,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#installation">
 <span class="md-ellipsis">
-      Installation
+        Installation
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#usage">
 <span class="md-ellipsis">
-      Usage
+        Usage
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#export-arguments">
 <span class="md-ellipsis">
-      Export Arguments
+        Export Arguments
     </span>
 </a>
 </li>
@@ -818,21 +831,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#deploying-exported-yolo11-tflite-models">
 <span class="md-ellipsis">
-      Deploying Exported YOLO11 TFLite Models
+        Deploying Exported YOLO11 TFLite Models
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#summary">
 <span class="md-ellipsis">
-      Summary
+        Summary
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -840,42 +853,42 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-export-a-yolo11-model-to-tflite-format">
 <span class="md-ellipsis">
-      How do I export a YOLO11 model to TFLite format?
+        How do I export a YOLO11 model to TFLite format?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-are-the-benefits-of-using-tensorflow-lite-for-yolo11-model-deployment">
 <span class="md-ellipsis">
-      What are the benefits of using TensorFlow Lite for YOLO11 model deployment?
+        What are the benefits of using TensorFlow Lite for YOLO11 model deployment?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#is-it-possible-to-run-yolo11-tflite-models-on-raspberry-pi">
 <span class="md-ellipsis">
-      Is it possible to run YOLO11 TFLite models on Raspberry Pi?
+        Is it possible to run YOLO11 TFLite models on Raspberry Pi?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#can-i-use-tflite-models-on-microcontrollers-for-yolo11-predictions">
 <span class="md-ellipsis">
-      Can I use TFLite models on microcontrollers for YOLO11 predictions?
+        Can I use TFLite models on microcontrollers for YOLO11 predictions?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-platforms-are-compatible-with-tflite-exported-yolo11-models">
 <span class="md-ellipsis">
-      What platforms are compatible with TFLite exported YOLO11 models?
+        What platforms are compatible with TFLite exported YOLO11 models?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-troubleshoot-common-issues-during-yolo11-model-export-to-tflite">
 <span class="md-ellipsis">
-      How do I troubleshoot common issues during YOLO11 model export to TFLite?
+        How do I troubleshoot common issues during YOLO11 model export to TFLite?
     </span>
 </a>
 </li>
@@ -1124,7 +1137,7 @@
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
 <span class="date-item" title="This page was last updated on November 07, 2025">
-<span class="hover-item">✏️</span> Updated 2 days ago
+<span class="hover-item">✏️</span> Updated 3 days ago
     </span>
 </div>
 <div class="authors-container">
@@ -1247,9 +1260,9 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@latest/js/chat.min.js"></script>
 <script src="../../javascript/extra.js"></script>
 <script src="../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

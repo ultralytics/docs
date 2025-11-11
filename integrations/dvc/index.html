@@ -8,11 +8,24 @@
 <link href="https://docs.ultralytics.com/integrations/dvc/" rel="canonical"/>
 <link href="../comet/" rel="prev"/>
 <link href="../google-colab/" rel="next"/>
+<link href="/" hreflang="en" rel="alternate"/>
+<link href="/zh/" hreflang="zh" rel="alternate"/>
+<link href="/ko/" hreflang="ko" rel="alternate"/>
+<link href="/ja/" hreflang="ja" rel="alternate"/>
+<link href="/ru/" hreflang="ru" rel="alternate"/>
+<link href="/de/" hreflang="de" rel="alternate"/>
+<link href="/fr/" hreflang="fr" rel="alternate"/>
+<link href="/es/" hreflang="es" rel="alternate"/>
+<link href="/pt/" hreflang="pt" rel="alternate"/>
+<link href="/it/" hreflang="it" rel="alternate"/>
+<link href="/tr/" hreflang="tr" rel="alternate"/>
+<link href="/vi/" hreflang="vi" rel="alternate"/>
+<link href="/ar/" hreflang="ar" rel="alternate"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.23" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.0" name="generator"/>
 <title>Advanced YOLO11 Experiment Tracking with DVCLive</title>
-<link href="../../assets/stylesheets/main.84d31ad4.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.618322db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -338,7 +351,7 @@
 <nav aria-expanded="true" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_9">
 <span class="md-nav__icon md-icon"></span>
-            Integrations
+    Integrations
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -391,35 +404,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#dvclive">
 <span class="md-ellipsis">
-      DVCLive
+        DVCLive
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yolo11-training-with-dvclive">
 <span class="md-ellipsis">
-      YOLO11 Training with DVCLive
+        YOLO11 Training with DVCLive
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#installation">
 <span class="md-ellipsis">
-      Installation
+        Installation
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#configuring-dvclive">
 <span class="md-ellipsis">
-      Configuring DVCLive
+        Configuring DVCLive
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#usage">
 <span class="md-ellipsis">
-      Usage
+        Usage
     </span>
 </a>
 <nav aria-label="Usage" class="md-nav">
@@ -427,21 +440,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#training-yolo11-models-with-dvclive">
 <span class="md-ellipsis">
-      Training YOLO11 Models with DVCLive
+        Training YOLO11 Models with DVCLive
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#monitoring-experiments-with-dvclive">
 <span class="md-ellipsis">
-      Monitoring Experiments with DVCLive
+        Monitoring Experiments with DVCLive
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#analyzing-results">
 <span class="md-ellipsis">
-      Analyzing Results
+        Analyzing Results
     </span>
 </a>
 <nav aria-label="Analyzing Results" class="md-nav">
@@ -449,14 +462,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#visualizing-results-with-plotly">
 <span class="md-ellipsis">
-      Visualizing Results with Plotly
+        Visualizing Results with Plotly
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#generating-comparative-visualizations-with-dvc">
 <span class="md-ellipsis">
-      Generating Comparative Visualizations with DVC
+        Generating Comparative Visualizations with DVC
     </span>
 </a>
 </li>
@@ -466,21 +479,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#displaying-dvc-plots">
 <span class="md-ellipsis">
-      Displaying DVC Plots
+        Displaying DVC Plots
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#making-data-driven-decisions">
 <span class="md-ellipsis">
-      Making Data-Driven Decisions
+        Making Data-Driven Decisions
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#iterating-on-experiments">
 <span class="md-ellipsis">
-      Iterating on Experiments
+        Iterating on Experiments
     </span>
 </a>
 </li>
@@ -490,14 +503,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#summary">
 <span class="md-ellipsis">
-      Summary
+        Summary
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -505,35 +518,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-integrate-dvclive-with-ultralytics-yolo11-for-experiment-tracking">
 <span class="md-ellipsis">
-      How do I integrate DVCLive with Ultralytics YOLO11 for experiment tracking?
+        How do I integrate DVCLive with Ultralytics YOLO11 for experiment tracking?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#why-should-i-use-dvclive-for-tracking-yolo11-experiments">
 <span class="md-ellipsis">
-      Why should I use DVCLive for tracking YOLO11 experiments?
+        Why should I use DVCLive for tracking YOLO11 experiments?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-can-dvclive-improve-my-results-analysis-for-yolo11-training-sessions">
 <span class="md-ellipsis">
-      How can DVCLive improve my results analysis for YOLO11 training sessions?
+        How can DVCLive improve my results analysis for YOLO11 training sessions?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-are-the-steps-to-configure-my-environment-for-dvclive-and-yolo11-integration">
 <span class="md-ellipsis">
-      What are the steps to configure my environment for DVCLive and YOLO11 integration?
+        What are the steps to configure my environment for DVCLive and YOLO11 integration?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-visualize-yolo11-experiment-results-using-dvclive">
 <span class="md-ellipsis">
-      How do I visualize YOLO11 experiment results using DVCLive?
+        How do I visualize YOLO11 experiment results using DVCLive?
     </span>
 </a>
 </li>
@@ -797,35 +810,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#dvclive">
 <span class="md-ellipsis">
-      DVCLive
+        DVCLive
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yolo11-training-with-dvclive">
 <span class="md-ellipsis">
-      YOLO11 Training with DVCLive
+        YOLO11 Training with DVCLive
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#installation">
 <span class="md-ellipsis">
-      Installation
+        Installation
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#configuring-dvclive">
 <span class="md-ellipsis">
-      Configuring DVCLive
+        Configuring DVCLive
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#usage">
 <span class="md-ellipsis">
-      Usage
+        Usage
     </span>
 </a>
 <nav aria-label="Usage" class="md-nav">
@@ -833,21 +846,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#training-yolo11-models-with-dvclive">
 <span class="md-ellipsis">
-      Training YOLO11 Models with DVCLive
+        Training YOLO11 Models with DVCLive
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#monitoring-experiments-with-dvclive">
 <span class="md-ellipsis">
-      Monitoring Experiments with DVCLive
+        Monitoring Experiments with DVCLive
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#analyzing-results">
 <span class="md-ellipsis">
-      Analyzing Results
+        Analyzing Results
     </span>
 </a>
 <nav aria-label="Analyzing Results" class="md-nav">
@@ -855,14 +868,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#visualizing-results-with-plotly">
 <span class="md-ellipsis">
-      Visualizing Results with Plotly
+        Visualizing Results with Plotly
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#generating-comparative-visualizations-with-dvc">
 <span class="md-ellipsis">
-      Generating Comparative Visualizations with DVC
+        Generating Comparative Visualizations with DVC
     </span>
 </a>
 </li>
@@ -872,21 +885,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#displaying-dvc-plots">
 <span class="md-ellipsis">
-      Displaying DVC Plots
+        Displaying DVC Plots
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#making-data-driven-decisions">
 <span class="md-ellipsis">
-      Making Data-Driven Decisions
+        Making Data-Driven Decisions
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#iterating-on-experiments">
 <span class="md-ellipsis">
-      Iterating on Experiments
+        Iterating on Experiments
     </span>
 </a>
 </li>
@@ -896,14 +909,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#summary">
 <span class="md-ellipsis">
-      Summary
+        Summary
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -911,35 +924,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-integrate-dvclive-with-ultralytics-yolo11-for-experiment-tracking">
 <span class="md-ellipsis">
-      How do I integrate DVCLive with Ultralytics YOLO11 for experiment tracking?
+        How do I integrate DVCLive with Ultralytics YOLO11 for experiment tracking?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#why-should-i-use-dvclive-for-tracking-yolo11-experiments">
 <span class="md-ellipsis">
-      Why should I use DVCLive for tracking YOLO11 experiments?
+        Why should I use DVCLive for tracking YOLO11 experiments?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-can-dvclive-improve-my-results-analysis-for-yolo11-training-sessions">
 <span class="md-ellipsis">
-      How can DVCLive improve my results analysis for YOLO11 training sessions?
+        How can DVCLive improve my results analysis for YOLO11 training sessions?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-are-the-steps-to-configure-my-environment-for-dvclive-and-yolo11-integration">
 <span class="md-ellipsis">
-      What are the steps to configure my environment for DVCLive and YOLO11 integration?
+        What are the steps to configure my environment for DVCLive and YOLO11 integration?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-visualize-yolo11-experiment-results-using-dvclive">
 <span class="md-ellipsis">
-      How do I visualize YOLO11 experiment results using DVCLive?
+        How do I visualize YOLO11 experiment results using DVCLive?
     </span>
 </a>
 </li>
@@ -1294,9 +1307,9 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@latest/js/chat.min.js"></script>
 <script src="../../javascript/extra.js"></script>
 <script src="../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

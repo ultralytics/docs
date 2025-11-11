@@ -8,11 +8,24 @@
 <link href="https://docs.ultralytics.com/guides/model-testing/" rel="canonical"/>
 <link href="../model-evaluation-insights/" rel="prev"/>
 <link href="../model-deployment-practices/" rel="next"/>
+<link href="/" hreflang="en" rel="alternate"/>
+<link href="/zh/" hreflang="zh" rel="alternate"/>
+<link href="/ko/" hreflang="ko" rel="alternate"/>
+<link href="/ja/" hreflang="ja" rel="alternate"/>
+<link href="/ru/" hreflang="ru" rel="alternate"/>
+<link href="/de/" hreflang="de" rel="alternate"/>
+<link href="/fr/" hreflang="fr" rel="alternate"/>
+<link href="/es/" hreflang="es" rel="alternate"/>
+<link href="/pt/" hreflang="pt" rel="alternate"/>
+<link href="/it/" hreflang="it" rel="alternate"/>
+<link href="/tr/" hreflang="tr" rel="alternate"/>
+<link href="/vi/" hreflang="vi" rel="alternate"/>
+<link href="/ar/" hreflang="ar" rel="alternate"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.23" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.0" name="generator"/>
 <title>A Guide on Model Testing - Ultralytics YOLO Docs</title>
-<link href="../../assets/stylesheets/main.84d31ad4.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.618322db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -330,7 +343,7 @@
 <nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_8">
 <span class="md-nav__icon md-icon"></span>
-            Guides
+    Guides
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -544,42 +557,42 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#introduction">
 <span class="md-ellipsis">
-      Introduction
+        Introduction
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#model-testing-vs-model-evaluation">
 <span class="md-ellipsis">
-      Model Testing Vs. Model Evaluation
+        Model Testing Vs. Model Evaluation
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#preparing-for-model-testing">
 <span class="md-ellipsis">
-      Preparing for Model Testing
+        Preparing for Model Testing
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#testing-your-computer-vision-model">
 <span class="md-ellipsis">
-      Testing Your Computer Vision Model
+        Testing Your Computer Vision Model
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#testing-your-yolo11-model">
 <span class="md-ellipsis">
-      Testing Your YOLO11 Model
+        Testing Your YOLO11 Model
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#using-yolo11-to-predict-on-multiple-test-images">
 <span class="md-ellipsis">
-      Using YOLO11 to Predict on Multiple Test Images
+        Using YOLO11 to Predict on Multiple Test Images
     </span>
 </a>
 <nav aria-label="Using YOLO11 to Predict on Multiple Test Images" class="md-nav">
@@ -587,7 +600,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#difference-between-validation-and-prediction-modes">
 <span class="md-ellipsis">
-      Difference Between Validation and Prediction Modes
+        Difference Between Validation and Prediction Modes
     </span>
 </a>
 </li>
@@ -597,14 +610,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#running-yolo11-predictions-without-custom-training">
 <span class="md-ellipsis">
-      Running YOLO11 Predictions Without Custom Training
+        Running YOLO11 Predictions Without Custom Training
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#overfitting-and-underfitting-in-machine-learning">
 <span class="md-ellipsis">
-      Overfitting and Underfitting in Machine Learning
+        Overfitting and Underfitting in Machine Learning
     </span>
 </a>
 <nav aria-label="Overfitting and Underfitting in Machine Learning" class="md-nav">
@@ -612,7 +625,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#overfitting">
 <span class="md-ellipsis">
-      Overfitting
+        Overfitting
     </span>
 </a>
 <nav aria-label="Overfitting" class="md-nav">
@@ -620,7 +633,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#signs-of-overfitting">
 <span class="md-ellipsis">
-      Signs of Overfitting
+        Signs of Overfitting
     </span>
 </a>
 </li>
@@ -630,7 +643,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#underfitting">
 <span class="md-ellipsis">
-      Underfitting
+        Underfitting
     </span>
 </a>
 <nav aria-label="Underfitting" class="md-nav">
@@ -638,7 +651,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#signs-of-underfitting">
 <span class="md-ellipsis">
-      Signs of Underfitting
+        Signs of Underfitting
     </span>
 </a>
 </li>
@@ -648,7 +661,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#balancing-overfitting-and-underfitting">
 <span class="md-ellipsis">
-      Balancing Overfitting and Underfitting
+        Balancing Overfitting and Underfitting
     </span>
 </a>
 </li>
@@ -658,7 +671,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#data-leakage-in-computer-vision-and-how-to-avoid-it">
 <span class="md-ellipsis">
-      Data Leakage in Computer Vision and How to Avoid It
+        Data Leakage in Computer Vision and How to Avoid It
     </span>
 </a>
 <nav aria-label="Data Leakage in Computer Vision and How to Avoid It" class="md-nav">
@@ -666,21 +679,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#why-data-leakage-happens">
 <span class="md-ellipsis">
-      Why Data Leakage Happens
+        Why Data Leakage Happens
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#detecting-data-leakage">
 <span class="md-ellipsis">
-      Detecting Data Leakage
+        Detecting Data Leakage
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#avoiding-data-leakage">
 <span class="md-ellipsis">
-      Avoiding Data Leakage
+        Avoiding Data Leakage
     </span>
 </a>
 </li>
@@ -690,14 +703,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-comes-after-model-testing">
 <span class="md-ellipsis">
-      What Comes After Model Testing
+        What Comes After Model Testing
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#join-the-ai-conversation">
 <span class="md-ellipsis">
-      Join the AI Conversation
+        Join the AI Conversation
     </span>
 </a>
 <nav aria-label="Join the AI Conversation" class="md-nav">
@@ -705,14 +718,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#community-resources">
 <span class="md-ellipsis">
-      Community Resources
+        Community Resources
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#official-documentation">
 <span class="md-ellipsis">
-      Official Documentation
+        Official Documentation
     </span>
 </a>
 </li>
@@ -722,14 +735,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#in-summary">
 <span class="md-ellipsis">
-      In Summary
+        In Summary
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -737,42 +750,42 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-are-the-key-differences-between-model-evaluation-and-model-testing-in-computer-vision">
 <span class="md-ellipsis">
-      What are the key differences between model evaluation and model testing in computer vision?
+        What are the key differences between model evaluation and model testing in computer vision?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-can-i-test-my-ultralytics-yolo11-model-on-multiple-images">
 <span class="md-ellipsis">
-      How can I test my Ultralytics YOLO11 model on multiple images?
+        How can I test my Ultralytics YOLO11 model on multiple images?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-should-i-do-if-my-computer-vision-model-shows-signs-of-overfitting-or-underfitting">
 <span class="md-ellipsis">
-      What should I do if my computer vision model shows signs of overfitting or underfitting?
+        What should I do if my computer vision model shows signs of overfitting or underfitting?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-can-i-detect-and-avoid-data-leakage-in-computer-vision">
 <span class="md-ellipsis">
-      How can I detect and avoid data leakage in computer vision?
+        How can I detect and avoid data leakage in computer vision?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-steps-should-i-take-after-testing-my-computer-vision-model">
 <span class="md-ellipsis">
-      What steps should I take after testing my computer vision model?
+        What steps should I take after testing my computer vision model?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-run-yolo11-predictions-without-custom-training">
 <span class="md-ellipsis">
-      How do I run YOLO11 predictions without custom training?
+        How do I run YOLO11 predictions without custom training?
     </span>
 </a>
 </li>
@@ -818,7 +831,7 @@
 <nav aria-expanded="false" aria-labelledby="__nav_8_33_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_8_33">
 <span class="md-nav__icon md-icon"></span>
-            Explorer
+    Explorer
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -860,7 +873,7 @@
 <nav aria-expanded="false" aria-labelledby="__nav_8_34_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_8_34">
 <span class="md-nav__icon md-icon"></span>
-            YOLOv5
+    YOLOv5
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -941,42 +954,42 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#introduction">
 <span class="md-ellipsis">
-      Introduction
+        Introduction
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#model-testing-vs-model-evaluation">
 <span class="md-ellipsis">
-      Model Testing Vs. Model Evaluation
+        Model Testing Vs. Model Evaluation
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#preparing-for-model-testing">
 <span class="md-ellipsis">
-      Preparing for Model Testing
+        Preparing for Model Testing
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#testing-your-computer-vision-model">
 <span class="md-ellipsis">
-      Testing Your Computer Vision Model
+        Testing Your Computer Vision Model
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#testing-your-yolo11-model">
 <span class="md-ellipsis">
-      Testing Your YOLO11 Model
+        Testing Your YOLO11 Model
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#using-yolo11-to-predict-on-multiple-test-images">
 <span class="md-ellipsis">
-      Using YOLO11 to Predict on Multiple Test Images
+        Using YOLO11 to Predict on Multiple Test Images
     </span>
 </a>
 <nav aria-label="Using YOLO11 to Predict on Multiple Test Images" class="md-nav">
@@ -984,7 +997,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#difference-between-validation-and-prediction-modes">
 <span class="md-ellipsis">
-      Difference Between Validation and Prediction Modes
+        Difference Between Validation and Prediction Modes
     </span>
 </a>
 </li>
@@ -994,14 +1007,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#running-yolo11-predictions-without-custom-training">
 <span class="md-ellipsis">
-      Running YOLO11 Predictions Without Custom Training
+        Running YOLO11 Predictions Without Custom Training
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#overfitting-and-underfitting-in-machine-learning">
 <span class="md-ellipsis">
-      Overfitting and Underfitting in Machine Learning
+        Overfitting and Underfitting in Machine Learning
     </span>
 </a>
 <nav aria-label="Overfitting and Underfitting in Machine Learning" class="md-nav">
@@ -1009,7 +1022,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#overfitting">
 <span class="md-ellipsis">
-      Overfitting
+        Overfitting
     </span>
 </a>
 <nav aria-label="Overfitting" class="md-nav">
@@ -1017,7 +1030,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#signs-of-overfitting">
 <span class="md-ellipsis">
-      Signs of Overfitting
+        Signs of Overfitting
     </span>
 </a>
 </li>
@@ -1027,7 +1040,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#underfitting">
 <span class="md-ellipsis">
-      Underfitting
+        Underfitting
     </span>
 </a>
 <nav aria-label="Underfitting" class="md-nav">
@@ -1035,7 +1048,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#signs-of-underfitting">
 <span class="md-ellipsis">
-      Signs of Underfitting
+        Signs of Underfitting
     </span>
 </a>
 </li>
@@ -1045,7 +1058,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#balancing-overfitting-and-underfitting">
 <span class="md-ellipsis">
-      Balancing Overfitting and Underfitting
+        Balancing Overfitting and Underfitting
     </span>
 </a>
 </li>
@@ -1055,7 +1068,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#data-leakage-in-computer-vision-and-how-to-avoid-it">
 <span class="md-ellipsis">
-      Data Leakage in Computer Vision and How to Avoid It
+        Data Leakage in Computer Vision and How to Avoid It
     </span>
 </a>
 <nav aria-label="Data Leakage in Computer Vision and How to Avoid It" class="md-nav">
@@ -1063,21 +1076,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#why-data-leakage-happens">
 <span class="md-ellipsis">
-      Why Data Leakage Happens
+        Why Data Leakage Happens
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#detecting-data-leakage">
 <span class="md-ellipsis">
-      Detecting Data Leakage
+        Detecting Data Leakage
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#avoiding-data-leakage">
 <span class="md-ellipsis">
-      Avoiding Data Leakage
+        Avoiding Data Leakage
     </span>
 </a>
 </li>
@@ -1087,14 +1100,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-comes-after-model-testing">
 <span class="md-ellipsis">
-      What Comes After Model Testing
+        What Comes After Model Testing
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#join-the-ai-conversation">
 <span class="md-ellipsis">
-      Join the AI Conversation
+        Join the AI Conversation
     </span>
 </a>
 <nav aria-label="Join the AI Conversation" class="md-nav">
@@ -1102,14 +1115,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#community-resources">
 <span class="md-ellipsis">
-      Community Resources
+        Community Resources
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#official-documentation">
 <span class="md-ellipsis">
-      Official Documentation
+        Official Documentation
     </span>
 </a>
 </li>
@@ -1119,14 +1132,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#in-summary">
 <span class="md-ellipsis">
-      In Summary
+        In Summary
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -1134,42 +1147,42 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-are-the-key-differences-between-model-evaluation-and-model-testing-in-computer-vision">
 <span class="md-ellipsis">
-      What are the key differences between model evaluation and model testing in computer vision?
+        What are the key differences between model evaluation and model testing in computer vision?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-can-i-test-my-ultralytics-yolo11-model-on-multiple-images">
 <span class="md-ellipsis">
-      How can I test my Ultralytics YOLO11 model on multiple images?
+        How can I test my Ultralytics YOLO11 model on multiple images?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-should-i-do-if-my-computer-vision-model-shows-signs-of-overfitting-or-underfitting">
 <span class="md-ellipsis">
-      What should I do if my computer vision model shows signs of overfitting or underfitting?
+        What should I do if my computer vision model shows signs of overfitting or underfitting?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-can-i-detect-and-avoid-data-leakage-in-computer-vision">
 <span class="md-ellipsis">
-      How can I detect and avoid data leakage in computer vision?
+        How can I detect and avoid data leakage in computer vision?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-steps-should-i-take-after-testing-my-computer-vision-model">
 <span class="md-ellipsis">
-      What steps should I take after testing my computer vision model?
+        What steps should I take after testing my computer vision model?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-run-yolo11-predictions-without-custom-training">
 <span class="md-ellipsis">
-      How do I run YOLO11 predictions without custom training?
+        How do I run YOLO11 predictions without custom training?
     </span>
 </a>
 </li>
@@ -1457,9 +1470,9 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@latest/js/chat.min.js"></script>
 <script src="../../javascript/extra.js"></script>
 <script src="../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

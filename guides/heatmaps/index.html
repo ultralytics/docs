@@ -8,11 +8,24 @@
 <link href="https://docs.ultralytics.com/guides/heatmaps/" rel="canonical"/>
 <link href="../security-alarm-system/" rel="prev"/>
 <link href="../instance-segmentation-and-tracking/" rel="next"/>
+<link href="/" hreflang="en" rel="alternate"/>
+<link href="/zh/" hreflang="zh" rel="alternate"/>
+<link href="/ko/" hreflang="ko" rel="alternate"/>
+<link href="/ja/" hreflang="ja" rel="alternate"/>
+<link href="/ru/" hreflang="ru" rel="alternate"/>
+<link href="/de/" hreflang="de" rel="alternate"/>
+<link href="/fr/" hreflang="fr" rel="alternate"/>
+<link href="/es/" hreflang="es" rel="alternate"/>
+<link href="/pt/" hreflang="pt" rel="alternate"/>
+<link href="/it/" hreflang="it" rel="alternate"/>
+<link href="/tr/" hreflang="tr" rel="alternate"/>
+<link href="/vi/" hreflang="vi" rel="alternate"/>
+<link href="/ar/" hreflang="ar" rel="alternate"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.23" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.0" name="generator"/>
 <title>Advanced Data Visualization: Heatmaps using Ultralytics YOLO11 🚀</title>
-<link href="../../assets/stylesheets/main.84d31ad4.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.618322db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -322,7 +335,7 @@
 <nav aria-expanded="true" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_7">
 <span class="md-nav__icon md-icon"></span>
-            Solutions 🚀
+    Solutions 🚀
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -389,21 +402,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#introduction-to-heatmaps">
 <span class="md-ellipsis">
-      Introduction to Heatmaps
+        Introduction to Heatmaps
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#why-choose-heatmaps-for-data-analysis">
 <span class="md-ellipsis">
-      Why Choose Heatmaps for Data Analysis?
+        Why Choose Heatmaps for Data Analysis?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#real-world-applications">
 <span class="md-ellipsis">
-      Real World Applications
+        Real World Applications
     </span>
 </a>
 <nav aria-label="Real World Applications" class="md-nav">
@@ -411,7 +424,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#heatmap-arguments">
 <span class="md-ellipsis">
-      Heatmap() Arguments
+        Heatmap() Arguments
     </span>
 </a>
 <nav aria-label="Heatmap() Arguments" class="md-nav">
@@ -419,7 +432,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#heatmap-colormaps">
 <span class="md-ellipsis">
-      Heatmap COLORMAPs
+        Heatmap COLORMAPs
     </span>
 </a>
 </li>
@@ -432,14 +445,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-heatmaps-work-in-ultralytics-yolo11">
 <span class="md-ellipsis">
-      How Heatmaps Work in Ultralytics YOLO11
+        How Heatmaps Work in Ultralytics YOLO11
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -447,35 +460,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-does-ultralytics-yolo11-generate-heatmaps-and-what-are-their-benefits">
 <span class="md-ellipsis">
-      How does Ultralytics YOLO11 generate heatmaps and what are their benefits?
+        How does Ultralytics YOLO11 generate heatmaps and what are their benefits?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#can-i-use-ultralytics-yolo11-to-perform-object-tracking-and-generate-a-heatmap-simultaneously">
 <span class="md-ellipsis">
-      Can I use Ultralytics YOLO11 to perform object tracking and generate a heatmap simultaneously?
+        Can I use Ultralytics YOLO11 to perform object tracking and generate a heatmap simultaneously?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-makes-ultralytics-yolo11-heatmaps-different-from-other-data-visualization-tools-like-those-from-opencv-or-matplotlib">
 <span class="md-ellipsis">
-      What makes Ultralytics YOLO11 heatmaps different from other data visualization tools like those from OpenCV or Matplotlib?
+        What makes Ultralytics YOLO11 heatmaps different from other data visualization tools like those from OpenCV or Matplotlib?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-can-i-visualize-only-specific-object-classes-in-heatmaps-using-ultralytics-yolo11">
 <span class="md-ellipsis">
-      How can I visualize only specific object classes in heatmaps using Ultralytics YOLO11?
+        How can I visualize only specific object classes in heatmaps using Ultralytics YOLO11?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#why-should-businesses-choose-ultralytics-yolo11-for-heatmap-generation-in-data-analysis">
 <span class="md-ellipsis">
-      Why should businesses choose Ultralytics YOLO11 for heatmap generation in data analysis?
+        Why should businesses choose Ultralytics YOLO11 for heatmap generation in data analysis?
     </span>
 </a>
 </li>
@@ -615,21 +628,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#introduction-to-heatmaps">
 <span class="md-ellipsis">
-      Introduction to Heatmaps
+        Introduction to Heatmaps
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#why-choose-heatmaps-for-data-analysis">
 <span class="md-ellipsis">
-      Why Choose Heatmaps for Data Analysis?
+        Why Choose Heatmaps for Data Analysis?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#real-world-applications">
 <span class="md-ellipsis">
-      Real World Applications
+        Real World Applications
     </span>
 </a>
 <nav aria-label="Real World Applications" class="md-nav">
@@ -637,7 +650,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#heatmap-arguments">
 <span class="md-ellipsis">
-      Heatmap() Arguments
+        Heatmap() Arguments
     </span>
 </a>
 <nav aria-label="Heatmap() Arguments" class="md-nav">
@@ -645,7 +658,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#heatmap-colormaps">
 <span class="md-ellipsis">
-      Heatmap COLORMAPs
+        Heatmap COLORMAPs
     </span>
 </a>
 </li>
@@ -658,14 +671,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-heatmaps-work-in-ultralytics-yolo11">
 <span class="md-ellipsis">
-      How Heatmaps Work in Ultralytics YOLO11
+        How Heatmaps Work in Ultralytics YOLO11
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -673,35 +686,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-does-ultralytics-yolo11-generate-heatmaps-and-what-are-their-benefits">
 <span class="md-ellipsis">
-      How does Ultralytics YOLO11 generate heatmaps and what are their benefits?
+        How does Ultralytics YOLO11 generate heatmaps and what are their benefits?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#can-i-use-ultralytics-yolo11-to-perform-object-tracking-and-generate-a-heatmap-simultaneously">
 <span class="md-ellipsis">
-      Can I use Ultralytics YOLO11 to perform object tracking and generate a heatmap simultaneously?
+        Can I use Ultralytics YOLO11 to perform object tracking and generate a heatmap simultaneously?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-makes-ultralytics-yolo11-heatmaps-different-from-other-data-visualization-tools-like-those-from-opencv-or-matplotlib">
 <span class="md-ellipsis">
-      What makes Ultralytics YOLO11 heatmaps different from other data visualization tools like those from OpenCV or Matplotlib?
+        What makes Ultralytics YOLO11 heatmaps different from other data visualization tools like those from OpenCV or Matplotlib?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-can-i-visualize-only-specific-object-classes-in-heatmaps-using-ultralytics-yolo11">
 <span class="md-ellipsis">
-      How can I visualize only specific object classes in heatmaps using Ultralytics YOLO11?
+        How can I visualize only specific object classes in heatmaps using Ultralytics YOLO11?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#why-should-businesses-choose-ultralytics-yolo11-for-heatmap-generation-in-data-analysis">
 <span class="md-ellipsis">
-      Why should businesses choose Ultralytics YOLO11 for heatmap generation in data analysis?
+        Why should businesses choose Ultralytics YOLO11 for heatmap generation in data analysis?
     </span>
 </a>
 </li>
@@ -1232,9 +1245,9 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@latest/js/chat.min.js"></script>
 <script src="../../javascript/extra.js"></script>
 <script src="../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

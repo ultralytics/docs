@@ -8,11 +8,24 @@
 <link href="https://docs.ultralytics.com/guides/triton-inference-server/" rel="canonical"/>
 <link href="../deepstream-nvidia-jetson/" rel="prev"/>
 <link href="../isolating-segmentation-objects/" rel="next"/>
+<link href="/" hreflang="en" rel="alternate"/>
+<link href="/zh/" hreflang="zh" rel="alternate"/>
+<link href="/ko/" hreflang="ko" rel="alternate"/>
+<link href="/ja/" hreflang="ja" rel="alternate"/>
+<link href="/ru/" hreflang="ru" rel="alternate"/>
+<link href="/de/" hreflang="de" rel="alternate"/>
+<link href="/fr/" hreflang="fr" rel="alternate"/>
+<link href="/es/" hreflang="es" rel="alternate"/>
+<link href="/pt/" hreflang="pt" rel="alternate"/>
+<link href="/it/" hreflang="it" rel="alternate"/>
+<link href="/tr/" hreflang="tr" rel="alternate"/>
+<link href="/vi/" hreflang="vi" rel="alternate"/>
+<link href="/ar/" hreflang="ar" rel="alternate"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.23" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.0" name="generator"/>
 <title>Triton Inference Server with Ultralytics YOLO11</title>
-<link href="../../assets/stylesheets/main.84d31ad4.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.618322db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -330,7 +343,7 @@
 <nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_8">
 <span class="md-nav__icon md-icon"></span>
-            Guides
+    Guides
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -460,56 +473,56 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-is-triton-inference-server">
 <span class="md-ellipsis">
-      What is Triton Inference Server?
+        What is Triton Inference Server?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#key-benefits-of-triton-inference-server">
 <span class="md-ellipsis">
-      Key Benefits of Triton Inference Server
+        Key Benefits of Triton Inference Server
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#prerequisites">
 <span class="md-ellipsis">
-      Prerequisites
+        Prerequisites
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#exporting-yolo11-to-onnx-format">
 <span class="md-ellipsis">
-      Exporting YOLO11 to ONNX Format
+        Exporting YOLO11 to ONNX Format
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#setting-up-triton-model-repository">
 <span class="md-ellipsis">
-      Setting Up Triton Model Repository
+        Setting Up Triton Model Repository
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#running-triton-inference-server">
 <span class="md-ellipsis">
-      Running Triton Inference Server
+        Running Triton Inference Server
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#tensorrt-optimization-optional">
 <span class="md-ellipsis">
-      TensorRT Optimization (Optional)
+        TensorRT Optimization (Optional)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -517,35 +530,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-set-up-ultralytics-yolo11-with-nvidia-triton-inference-server">
 <span class="md-ellipsis">
-      How do I set up Ultralytics YOLO11 with NVIDIA Triton Inference Server?
+        How do I set up Ultralytics YOLO11 with NVIDIA Triton Inference Server?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-benefits-does-using-ultralytics-yolo11-with-nvidia-triton-inference-server-offer">
 <span class="md-ellipsis">
-      What benefits does using Ultralytics YOLO11 with NVIDIA Triton Inference Server offer?
+        What benefits does using Ultralytics YOLO11 with NVIDIA Triton Inference Server offer?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#why-should-i-export-my-yolo11-model-to-onnx-format-before-using-triton-inference-server">
 <span class="md-ellipsis">
-      Why should I export my YOLO11 model to ONNX format before using Triton Inference Server?
+        Why should I export my YOLO11 model to ONNX format before using Triton Inference Server?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#can-i-run-inference-using-the-ultralytics-yolo11-model-on-triton-inference-server">
 <span class="md-ellipsis">
-      Can I run inference using the Ultralytics YOLO11 model on Triton Inference Server?
+        Can I run inference using the Ultralytics YOLO11 model on Triton Inference Server?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-does-ultralytics-yolo11-compare-to-tensorflow-and-pytorch-models-for-deployment">
 <span class="md-ellipsis">
-      How does Ultralytics YOLO11 compare to TensorFlow and PyTorch models for deployment?
+        How does Ultralytics YOLO11 compare to TensorFlow and PyTorch models for deployment?
     </span>
 </a>
 </li>
@@ -675,7 +688,7 @@
 <nav aria-expanded="false" aria-labelledby="__nav_8_33_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_8_33">
 <span class="md-nav__icon md-icon"></span>
-            Explorer
+    Explorer
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -717,7 +730,7 @@
 <nav aria-expanded="false" aria-labelledby="__nav_8_34_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_8_34">
 <span class="md-nav__icon md-icon"></span>
-            YOLOv5
+    YOLOv5
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -798,56 +811,56 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-is-triton-inference-server">
 <span class="md-ellipsis">
-      What is Triton Inference Server?
+        What is Triton Inference Server?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#key-benefits-of-triton-inference-server">
 <span class="md-ellipsis">
-      Key Benefits of Triton Inference Server
+        Key Benefits of Triton Inference Server
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#prerequisites">
 <span class="md-ellipsis">
-      Prerequisites
+        Prerequisites
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#exporting-yolo11-to-onnx-format">
 <span class="md-ellipsis">
-      Exporting YOLO11 to ONNX Format
+        Exporting YOLO11 to ONNX Format
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#setting-up-triton-model-repository">
 <span class="md-ellipsis">
-      Setting Up Triton Model Repository
+        Setting Up Triton Model Repository
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#running-triton-inference-server">
 <span class="md-ellipsis">
-      Running Triton Inference Server
+        Running Triton Inference Server
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#tensorrt-optimization-optional">
 <span class="md-ellipsis">
-      TensorRT Optimization (Optional)
+        TensorRT Optimization (Optional)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -855,35 +868,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-set-up-ultralytics-yolo11-with-nvidia-triton-inference-server">
 <span class="md-ellipsis">
-      How do I set up Ultralytics YOLO11 with NVIDIA Triton Inference Server?
+        How do I set up Ultralytics YOLO11 with NVIDIA Triton Inference Server?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-benefits-does-using-ultralytics-yolo11-with-nvidia-triton-inference-server-offer">
 <span class="md-ellipsis">
-      What benefits does using Ultralytics YOLO11 with NVIDIA Triton Inference Server offer?
+        What benefits does using Ultralytics YOLO11 with NVIDIA Triton Inference Server offer?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#why-should-i-export-my-yolo11-model-to-onnx-format-before-using-triton-inference-server">
 <span class="md-ellipsis">
-      Why should I export my YOLO11 model to ONNX format before using Triton Inference Server?
+        Why should I export my YOLO11 model to ONNX format before using Triton Inference Server?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#can-i-run-inference-using-the-ultralytics-yolo11-model-on-triton-inference-server">
 <span class="md-ellipsis">
-      Can I run inference using the Ultralytics YOLO11 model on Triton Inference Server?
+        Can I run inference using the Ultralytics YOLO11 model on Triton Inference Server?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-does-ultralytics-yolo11-compare-to-tensorflow-and-pytorch-models-for-deployment">
 <span class="md-ellipsis">
-      How does Ultralytics YOLO11 compare to TensorFlow and PyTorch models for deployment?
+        How does Ultralytics YOLO11 compare to TensorFlow and PyTorch models for deployment?
     </span>
 </a>
 </li>
@@ -1203,10 +1216,10 @@
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on November 12, 2023">
-<span class="hover-item">📅</span> Created 1 year ago
+<span class="hover-item">📅</span> Created 2 years ago
     </span>
 <span class="date-item" title="This page was last updated on September 12, 2025">
-<span class="hover-item">✏️</span> Updated 1 month ago
+<span class="hover-item">✏️</span> Updated 2 months ago
     </span>
 </div>
 <div class="authors-container">
@@ -1323,9 +1336,9 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@latest/js/chat.min.js"></script>
 <script src="../../javascript/extra.js"></script>
 <script src="../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

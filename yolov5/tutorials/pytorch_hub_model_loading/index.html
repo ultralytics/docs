@@ -8,11 +8,24 @@
 <link href="https://docs.ultralytics.com/yolov5/tutorials/pytorch_hub_model_loading/" rel="canonical"/>
 <link href="../multi_gpu_training/" rel="prev"/>
 <link href="../model_export/" rel="next"/>
+<link href="/" hreflang="en" rel="alternate"/>
+<link href="/zh/" hreflang="zh" rel="alternate"/>
+<link href="/ko/" hreflang="ko" rel="alternate"/>
+<link href="/ja/" hreflang="ja" rel="alternate"/>
+<link href="/ru/" hreflang="ru" rel="alternate"/>
+<link href="/de/" hreflang="de" rel="alternate"/>
+<link href="/fr/" hreflang="fr" rel="alternate"/>
+<link href="/es/" hreflang="es" rel="alternate"/>
+<link href="/pt/" hreflang="pt" rel="alternate"/>
+<link href="/it/" hreflang="it" rel="alternate"/>
+<link href="/tr/" hreflang="tr" rel="alternate"/>
+<link href="/vi/" hreflang="vi" rel="alternate"/>
+<link href="/ar/" hreflang="ar" rel="alternate"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.23" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.0" name="generator"/>
 <title>Loading YOLOv5 from PyTorch Hub - Ultralytics YOLO Docs</title>
-<link href="../../../assets/stylesheets/main.84d31ad4.min.css" rel="stylesheet"/>
-<link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/main.618322db.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -330,7 +343,7 @@
 <nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_8">
 <span class="md-nav__icon md-icon"></span>
-            Guides
+    Guides
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -565,7 +578,7 @@
 <nav aria-expanded="false" aria-labelledby="__nav_8_33_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_8_33">
 <span class="md-nav__icon md-icon"></span>
-            Explorer
+    Explorer
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -607,7 +620,7 @@
 <nav aria-expanded="true" aria-labelledby="__nav_8_34_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_8_34">
 <span class="md-nav__icon md-icon"></span>
-            YOLOv5
+    YOLOv5
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -636,7 +649,7 @@
 <nav aria-expanded="true" aria-labelledby="__nav_8_34_4_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_8_34_4">
 <span class="md-nav__icon md-icon"></span>
-            Tutorials
+    Tutorials
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -682,14 +695,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#before-you-start">
 <span class="md-ellipsis">
-      Before You Start
+        Before You Start
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#load-yolov5-with-pytorch-hub">
 <span class="md-ellipsis">
-      Load YOLOv5 with PyTorch Hub
+        Load YOLOv5 with PyTorch Hub
     </span>
 </a>
 <nav aria-label="Load YOLOv5 with PyTorch Hub" class="md-nav">
@@ -697,119 +710,119 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#simple-example">
 <span class="md-ellipsis">
-      Simple Example
+        Simple Example
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#detailed-example">
 <span class="md-ellipsis">
-      Detailed Example
+        Detailed Example
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#inference-settings">
 <span class="md-ellipsis">
-      Inference Settings
+        Inference Settings
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#device">
 <span class="md-ellipsis">
-      Device
+        Device
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#silence-outputs">
 <span class="md-ellipsis">
-      Silence Outputs
+        Silence Outputs
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#input-channels">
 <span class="md-ellipsis">
-      Input Channels
+        Input Channels
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#number-of-classes">
 <span class="md-ellipsis">
-      Number of Classes
+        Number of Classes
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#force-reload">
 <span class="md-ellipsis">
-      Force Reload
+        Force Reload
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#screenshot-inference">
 <span class="md-ellipsis">
-      Screenshot Inference
+        Screenshot Inference
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#multi-gpu-inference">
 <span class="md-ellipsis">
-      Multi-GPU Inference
+        Multi-GPU Inference
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#training">
 <span class="md-ellipsis">
-      Training
+        Training
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#base64-results">
 <span class="md-ellipsis">
-      Base64 Results
+        Base64 Results
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#cropped-results">
 <span class="md-ellipsis">
-      Cropped Results
+        Cropped Results
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#pandas-results">
 <span class="md-ellipsis">
-      Pandas Results
+        Pandas Results
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#sorted-results">
 <span class="md-ellipsis">
-      Sorted Results
+        Sorted Results
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#box-cropped-results">
 <span class="md-ellipsis">
-      Box-Cropped Results
+        Box-Cropped Results
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#json-results">
 <span class="md-ellipsis">
-      JSON Results
+        JSON Results
     </span>
 </a>
 </li>
@@ -819,28 +832,28 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#custom-models">
 <span class="md-ellipsis">
-      Custom Models
+        Custom Models
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#tensorrt-onnx-and-openvino-models">
 <span class="md-ellipsis">
-      TensorRT, ONNX and OpenVINO Models
+        TensorRT, ONNX and OpenVINO Models
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#supported-environments">
 <span class="md-ellipsis">
-      Supported Environments
+        Supported Environments
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#project-status">
 <span class="md-ellipsis">
-      Project Status
+        Project Status
     </span>
 </a>
 </li>
@@ -975,14 +988,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#before-you-start">
 <span class="md-ellipsis">
-      Before You Start
+        Before You Start
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#load-yolov5-with-pytorch-hub">
 <span class="md-ellipsis">
-      Load YOLOv5 with PyTorch Hub
+        Load YOLOv5 with PyTorch Hub
     </span>
 </a>
 <nav aria-label="Load YOLOv5 with PyTorch Hub" class="md-nav">
@@ -990,119 +1003,119 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#simple-example">
 <span class="md-ellipsis">
-      Simple Example
+        Simple Example
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#detailed-example">
 <span class="md-ellipsis">
-      Detailed Example
+        Detailed Example
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#inference-settings">
 <span class="md-ellipsis">
-      Inference Settings
+        Inference Settings
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#device">
 <span class="md-ellipsis">
-      Device
+        Device
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#silence-outputs">
 <span class="md-ellipsis">
-      Silence Outputs
+        Silence Outputs
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#input-channels">
 <span class="md-ellipsis">
-      Input Channels
+        Input Channels
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#number-of-classes">
 <span class="md-ellipsis">
-      Number of Classes
+        Number of Classes
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#force-reload">
 <span class="md-ellipsis">
-      Force Reload
+        Force Reload
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#screenshot-inference">
 <span class="md-ellipsis">
-      Screenshot Inference
+        Screenshot Inference
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#multi-gpu-inference">
 <span class="md-ellipsis">
-      Multi-GPU Inference
+        Multi-GPU Inference
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#training">
 <span class="md-ellipsis">
-      Training
+        Training
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#base64-results">
 <span class="md-ellipsis">
-      Base64 Results
+        Base64 Results
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#cropped-results">
 <span class="md-ellipsis">
-      Cropped Results
+        Cropped Results
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#pandas-results">
 <span class="md-ellipsis">
-      Pandas Results
+        Pandas Results
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#sorted-results">
 <span class="md-ellipsis">
-      Sorted Results
+        Sorted Results
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#box-cropped-results">
 <span class="md-ellipsis">
-      Box-Cropped Results
+        Box-Cropped Results
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#json-results">
 <span class="md-ellipsis">
-      JSON Results
+        JSON Results
     </span>
 </a>
 </li>
@@ -1112,28 +1125,28 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#custom-models">
 <span class="md-ellipsis">
-      Custom Models
+        Custom Models
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#tensorrt-onnx-and-openvino-models">
 <span class="md-ellipsis">
-      TensorRT, ONNX and OpenVINO Models
+        TensorRT, ONNX and OpenVINO Models
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#supported-environments">
 <span class="md-ellipsis">
-      Supported Environments
+        Supported Environments
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#project-status">
 <span class="md-ellipsis">
-      Project Status
+        Project Status
     </span>
 </a>
 </li>
@@ -1422,7 +1435,7 @@
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on November 12, 2023">
-<span class="hover-item">📅</span> Created 1 year ago
+<span class="hover-item">📅</span> Created 2 years ago
     </span>
 <span class="date-item" title="This page was last updated on March 17, 2025">
 <span class="hover-item">✏️</span> Updated 7 months ago
@@ -1539,9 +1552,9 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@latest/js/chat.min.js"></script>
 <script src="../../../javascript/extra.js"></script>
 <script src="../../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

@@ -8,11 +8,24 @@
 <link href="https://docs.ultralytics.com/guides/preprocessing_annotated_data/" rel="canonical"/>
 <link href="../data-collection-and-annotation/" rel="prev"/>
 <link href="../model-training-tips/" rel="next"/>
+<link href="/" hreflang="en" rel="alternate"/>
+<link href="/zh/" hreflang="zh" rel="alternate"/>
+<link href="/ko/" hreflang="ko" rel="alternate"/>
+<link href="/ja/" hreflang="ja" rel="alternate"/>
+<link href="/ru/" hreflang="ru" rel="alternate"/>
+<link href="/de/" hreflang="de" rel="alternate"/>
+<link href="/fr/" hreflang="fr" rel="alternate"/>
+<link href="/es/" hreflang="es" rel="alternate"/>
+<link href="/pt/" hreflang="pt" rel="alternate"/>
+<link href="/it/" hreflang="it" rel="alternate"/>
+<link href="/tr/" hreflang="tr" rel="alternate"/>
+<link href="/vi/" hreflang="vi" rel="alternate"/>
+<link href="/ar/" hreflang="ar" rel="alternate"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.23" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.0" name="generator"/>
 <title>Data Preprocessing Techniques for Annotated Computer Vision Data</title>
-<link href="../../assets/stylesheets/main.84d31ad4.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.618322db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -330,7 +343,7 @@
 <nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_8">
 <span class="md-nav__icon md-icon"></span>
-            Guides
+    Guides
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -523,21 +536,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#introduction">
 <span class="md-ellipsis">
-      Introduction
+        Introduction
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#importance-of-data-preprocessing">
 <span class="md-ellipsis">
-      Importance of Data Preprocessing
+        Importance of Data Preprocessing
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#data-preprocessing-techniques">
 <span class="md-ellipsis">
-      Data Preprocessing Techniques
+        Data Preprocessing Techniques
     </span>
 </a>
 <nav aria-label="Data Preprocessing Techniques" class="md-nav">
@@ -545,28 +558,28 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#resizing-images">
 <span class="md-ellipsis">
-      Resizing Images
+        Resizing Images
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#normalizing-pixel-values">
 <span class="md-ellipsis">
-      Normalizing Pixel Values
+        Normalizing Pixel Values
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#splitting-the-dataset">
 <span class="md-ellipsis">
-      Splitting the Dataset
+        Splitting the Dataset
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-is-data-augmentation">
 <span class="md-ellipsis">
-      What is Data Augmentation?
+        What is Data Augmentation?
     </span>
 </a>
 <nav aria-label="What is Data Augmentation?" class="md-nav">
@@ -574,7 +587,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#data-augmentation-methods">
 <span class="md-ellipsis">
-      Data Augmentation Methods
+        Data Augmentation Methods
     </span>
 </a>
 </li>
@@ -587,14 +600,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#a-case-study-of-preprocessing">
 <span class="md-ellipsis">
-      A Case Study of Preprocessing
+        A Case Study of Preprocessing
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#exploratory-data-analysis-techniques">
 <span class="md-ellipsis">
-      Exploratory Data Analysis Techniques
+        Exploratory Data Analysis Techniques
     </span>
 </a>
 <nav aria-label="Exploratory Data Analysis Techniques" class="md-nav">
@@ -602,21 +615,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#statistical-eda-techniques">
 <span class="md-ellipsis">
-      Statistical EDA Techniques
+        Statistical EDA Techniques
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#visual-eda-techniques">
 <span class="md-ellipsis">
-      Visual EDA Techniques
+        Visual EDA Techniques
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#using-ultralytics-explorer-for-eda">
 <span class="md-ellipsis">
-      Using Ultralytics Explorer for EDA
+        Using Ultralytics Explorer for EDA
     </span>
 </a>
 </li>
@@ -626,7 +639,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#reach-out-and-connect">
 <span class="md-ellipsis">
-      Reach Out and Connect
+        Reach Out and Connect
     </span>
 </a>
 <nav aria-label="Reach Out and Connect" class="md-nav">
@@ -634,14 +647,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#channels-to-connect-with-the-community">
 <span class="md-ellipsis">
-      Channels to Connect with the Community
+        Channels to Connect with the Community
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#official-documentation">
 <span class="md-ellipsis">
-      Official Documentation
+        Official Documentation
     </span>
 </a>
 </li>
@@ -651,14 +664,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#your-dataset-is-ready">
 <span class="md-ellipsis">
-      Your Dataset Is Ready!
+        Your Dataset Is Ready!
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -666,35 +679,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-is-the-importance-of-data-preprocessing-in-computer-vision-projects">
 <span class="md-ellipsis">
-      What is the importance of data preprocessing in computer vision projects?
+        What is the importance of data preprocessing in computer vision projects?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-can-i-use-ultralytics-yolo-for-data-augmentation">
 <span class="md-ellipsis">
-      How can I use Ultralytics YOLO for data augmentation?
+        How can I use Ultralytics YOLO for data augmentation?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-are-the-best-data-normalization-techniques-for-computer-vision-data">
 <span class="md-ellipsis">
-      What are the best data normalization techniques for computer vision data?
+        What are the best data normalization techniques for computer vision data?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-should-i-split-my-annotated-dataset-for-training">
 <span class="md-ellipsis">
-      How should I split my annotated dataset for training?
+        How should I split my annotated dataset for training?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#can-i-handle-varying-image-sizes-in-yolo11-without-manual-resizing">
 <span class="md-ellipsis">
-      Can I handle varying image sizes in YOLO11 without manual resizing?
+        Can I handle varying image sizes in YOLO11 without manual resizing?
     </span>
 </a>
 </li>
@@ -761,7 +774,7 @@
 <nav aria-expanded="false" aria-labelledby="__nav_8_33_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_8_33">
 <span class="md-nav__icon md-icon"></span>
-            Explorer
+    Explorer
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -803,7 +816,7 @@
 <nav aria-expanded="false" aria-labelledby="__nav_8_34_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_8_34">
 <span class="md-nav__icon md-icon"></span>
-            YOLOv5
+    YOLOv5
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -884,21 +897,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#introduction">
 <span class="md-ellipsis">
-      Introduction
+        Introduction
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#importance-of-data-preprocessing">
 <span class="md-ellipsis">
-      Importance of Data Preprocessing
+        Importance of Data Preprocessing
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#data-preprocessing-techniques">
 <span class="md-ellipsis">
-      Data Preprocessing Techniques
+        Data Preprocessing Techniques
     </span>
 </a>
 <nav aria-label="Data Preprocessing Techniques" class="md-nav">
@@ -906,28 +919,28 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#resizing-images">
 <span class="md-ellipsis">
-      Resizing Images
+        Resizing Images
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#normalizing-pixel-values">
 <span class="md-ellipsis">
-      Normalizing Pixel Values
+        Normalizing Pixel Values
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#splitting-the-dataset">
 <span class="md-ellipsis">
-      Splitting the Dataset
+        Splitting the Dataset
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-is-data-augmentation">
 <span class="md-ellipsis">
-      What is Data Augmentation?
+        What is Data Augmentation?
     </span>
 </a>
 <nav aria-label="What is Data Augmentation?" class="md-nav">
@@ -935,7 +948,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#data-augmentation-methods">
 <span class="md-ellipsis">
-      Data Augmentation Methods
+        Data Augmentation Methods
     </span>
 </a>
 </li>
@@ -948,14 +961,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#a-case-study-of-preprocessing">
 <span class="md-ellipsis">
-      A Case Study of Preprocessing
+        A Case Study of Preprocessing
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#exploratory-data-analysis-techniques">
 <span class="md-ellipsis">
-      Exploratory Data Analysis Techniques
+        Exploratory Data Analysis Techniques
     </span>
 </a>
 <nav aria-label="Exploratory Data Analysis Techniques" class="md-nav">
@@ -963,21 +976,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#statistical-eda-techniques">
 <span class="md-ellipsis">
-      Statistical EDA Techniques
+        Statistical EDA Techniques
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#visual-eda-techniques">
 <span class="md-ellipsis">
-      Visual EDA Techniques
+        Visual EDA Techniques
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#using-ultralytics-explorer-for-eda">
 <span class="md-ellipsis">
-      Using Ultralytics Explorer for EDA
+        Using Ultralytics Explorer for EDA
     </span>
 </a>
 </li>
@@ -987,7 +1000,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#reach-out-and-connect">
 <span class="md-ellipsis">
-      Reach Out and Connect
+        Reach Out and Connect
     </span>
 </a>
 <nav aria-label="Reach Out and Connect" class="md-nav">
@@ -995,14 +1008,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#channels-to-connect-with-the-community">
 <span class="md-ellipsis">
-      Channels to Connect with the Community
+        Channels to Connect with the Community
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#official-documentation">
 <span class="md-ellipsis">
-      Official Documentation
+        Official Documentation
     </span>
 </a>
 </li>
@@ -1012,14 +1025,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#your-dataset-is-ready">
 <span class="md-ellipsis">
-      Your Dataset Is Ready!
+        Your Dataset Is Ready!
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -1027,35 +1040,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-is-the-importance-of-data-preprocessing-in-computer-vision-projects">
 <span class="md-ellipsis">
-      What is the importance of data preprocessing in computer vision projects?
+        What is the importance of data preprocessing in computer vision projects?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-can-i-use-ultralytics-yolo-for-data-augmentation">
 <span class="md-ellipsis">
-      How can I use Ultralytics YOLO for data augmentation?
+        How can I use Ultralytics YOLO for data augmentation?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-are-the-best-data-normalization-techniques-for-computer-vision-data">
 <span class="md-ellipsis">
-      What are the best data normalization techniques for computer vision data?
+        What are the best data normalization techniques for computer vision data?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-should-i-split-my-annotated-dataset-for-training">
 <span class="md-ellipsis">
-      How should I split my annotated dataset for training?
+        How should I split my annotated dataset for training?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#can-i-handle-varying-image-sizes-in-yolo11-without-manual-resizing">
 <span class="md-ellipsis">
-      Can I handle varying image sizes in YOLO11 without manual resizing?
+        Can I handle varying image sizes in YOLO11 without manual resizing?
     </span>
 </a>
 </li>
@@ -1323,9 +1336,9 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@latest/js/chat.min.js"></script>
 <script src="../../javascript/extra.js"></script>
 <script src="../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

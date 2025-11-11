@@ -8,11 +8,24 @@
 <link href="https://docs.ultralytics.com/guides/sahi-tiled-inference/" rel="canonical"/>
 <link href="../hyperparameter-tuning/" rel="prev"/>
 <link href="../azureml-quickstart/" rel="next"/>
+<link href="/" hreflang="en" rel="alternate"/>
+<link href="/zh/" hreflang="zh" rel="alternate"/>
+<link href="/ko/" hreflang="ko" rel="alternate"/>
+<link href="/ja/" hreflang="ja" rel="alternate"/>
+<link href="/ru/" hreflang="ru" rel="alternate"/>
+<link href="/de/" hreflang="de" rel="alternate"/>
+<link href="/fr/" hreflang="fr" rel="alternate"/>
+<link href="/es/" hreflang="es" rel="alternate"/>
+<link href="/pt/" hreflang="pt" rel="alternate"/>
+<link href="/it/" hreflang="it" rel="alternate"/>
+<link href="/tr/" hreflang="tr" rel="alternate"/>
+<link href="/vi/" hreflang="vi" rel="alternate"/>
+<link href="/ar/" hreflang="ar" rel="alternate"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.23" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.0" name="generator"/>
 <title>Ultralytics Docs: Using YOLO11 with SAHI for Sliced Inference</title>
-<link href="../../assets/stylesheets/main.84d31ad4.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.618322db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -330,7 +343,7 @@
 <nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_8">
 <span class="md-nav__icon md-icon"></span>
-            Guides
+    Guides
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -411,7 +424,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#introduction-to-sahi">
 <span class="md-ellipsis">
-      Introduction to SAHI
+        Introduction to SAHI
     </span>
 </a>
 <nav aria-label="Introduction to SAHI" class="md-nav">
@@ -419,7 +432,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#key-features-of-sahi">
 <span class="md-ellipsis">
-      Key Features of SAHI
+        Key Features of SAHI
     </span>
 </a>
 </li>
@@ -429,7 +442,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-is-sliced-inference">
 <span class="md-ellipsis">
-      What is Sliced Inference?
+        What is Sliced Inference?
     </span>
 </a>
 <nav aria-label="What is Sliced Inference?" class="md-nav">
@@ -437,7 +450,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#benefits-of-sliced-inference">
 <span class="md-ellipsis">
-      Benefits of Sliced Inference
+        Benefits of Sliced Inference
     </span>
 </a>
 </li>
@@ -447,7 +460,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#installation-and-preparation">
 <span class="md-ellipsis">
-      Installation and Preparation
+        Installation and Preparation
     </span>
 </a>
 <nav aria-label="Installation and Preparation" class="md-nav">
@@ -455,14 +468,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#installation">
 <span class="md-ellipsis">
-      Installation
+        Installation
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#import-modules-and-download-resources">
 <span class="md-ellipsis">
-      Import Modules and Download Resources
+        Import Modules and Download Resources
     </span>
 </a>
 </li>
@@ -472,7 +485,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#standard-inference-with-yolo11">
 <span class="md-ellipsis">
-      Standard Inference with YOLO11
+        Standard Inference with YOLO11
     </span>
 </a>
 <nav aria-label="Standard Inference with YOLO11" class="md-nav">
@@ -480,21 +493,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#instantiate-the-model">
 <span class="md-ellipsis">
-      Instantiate the Model
+        Instantiate the Model
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#perform-standard-prediction">
 <span class="md-ellipsis">
-      Perform Standard Prediction
+        Perform Standard Prediction
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#visualize-results">
 <span class="md-ellipsis">
-      Visualize Results
+        Visualize Results
     </span>
 </a>
 </li>
@@ -504,35 +517,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#sliced-inference-with-yolo11">
 <span class="md-ellipsis">
-      Sliced Inference with YOLO11
+        Sliced Inference with YOLO11
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#handling-prediction-results">
 <span class="md-ellipsis">
-      Handling Prediction Results
+        Handling Prediction Results
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#batch-prediction">
 <span class="md-ellipsis">
-      Batch Prediction
+        Batch Prediction
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#citations-and-acknowledgments">
 <span class="md-ellipsis">
-      Citations and Acknowledgments
+        Citations and Acknowledgments
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -540,35 +553,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-can-i-integrate-yolo11-with-sahi-for-sliced-inference-in-object-detection">
 <span class="md-ellipsis">
-      How can I integrate YOLO11 with SAHI for sliced inference in object detection?
+        How can I integrate YOLO11 with SAHI for sliced inference in object detection?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#why-should-i-use-sahi-with-yolo11-for-object-detection-on-large-images">
 <span class="md-ellipsis">
-      Why should I use SAHI with YOLO11 for object detection on large images?
+        Why should I use SAHI with YOLO11 for object detection on large images?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#can-i-visualize-prediction-results-when-using-yolo11-with-sahi">
 <span class="md-ellipsis">
-      Can I visualize prediction results when using YOLO11 with SAHI?
+        Can I visualize prediction results when using YOLO11 with SAHI?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-features-does-sahi-offer-for-improving-yolo11-object-detection">
 <span class="md-ellipsis">
-      What features does SAHI offer for improving YOLO11 object detection?
+        What features does SAHI offer for improving YOLO11 object detection?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-handle-large-scale-inference-projects-using-yolo11-and-sahi">
 <span class="md-ellipsis">
-      How do I handle large-scale inference projects using YOLO11 and SAHI?
+        How do I handle large-scale inference projects using YOLO11 and SAHI?
     </span>
 </a>
 </li>
@@ -747,7 +760,7 @@
 <nav aria-expanded="false" aria-labelledby="__nav_8_33_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_8_33">
 <span class="md-nav__icon md-icon"></span>
-            Explorer
+    Explorer
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -789,7 +802,7 @@
 <nav aria-expanded="false" aria-labelledby="__nav_8_34_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_8_34">
 <span class="md-nav__icon md-icon"></span>
-            YOLOv5
+    YOLOv5
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -870,7 +883,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#introduction-to-sahi">
 <span class="md-ellipsis">
-      Introduction to SAHI
+        Introduction to SAHI
     </span>
 </a>
 <nav aria-label="Introduction to SAHI" class="md-nav">
@@ -878,7 +891,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#key-features-of-sahi">
 <span class="md-ellipsis">
-      Key Features of SAHI
+        Key Features of SAHI
     </span>
 </a>
 </li>
@@ -888,7 +901,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-is-sliced-inference">
 <span class="md-ellipsis">
-      What is Sliced Inference?
+        What is Sliced Inference?
     </span>
 </a>
 <nav aria-label="What is Sliced Inference?" class="md-nav">
@@ -896,7 +909,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#benefits-of-sliced-inference">
 <span class="md-ellipsis">
-      Benefits of Sliced Inference
+        Benefits of Sliced Inference
     </span>
 </a>
 </li>
@@ -906,7 +919,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#installation-and-preparation">
 <span class="md-ellipsis">
-      Installation and Preparation
+        Installation and Preparation
     </span>
 </a>
 <nav aria-label="Installation and Preparation" class="md-nav">
@@ -914,14 +927,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#installation">
 <span class="md-ellipsis">
-      Installation
+        Installation
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#import-modules-and-download-resources">
 <span class="md-ellipsis">
-      Import Modules and Download Resources
+        Import Modules and Download Resources
     </span>
 </a>
 </li>
@@ -931,7 +944,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#standard-inference-with-yolo11">
 <span class="md-ellipsis">
-      Standard Inference with YOLO11
+        Standard Inference with YOLO11
     </span>
 </a>
 <nav aria-label="Standard Inference with YOLO11" class="md-nav">
@@ -939,21 +952,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#instantiate-the-model">
 <span class="md-ellipsis">
-      Instantiate the Model
+        Instantiate the Model
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#perform-standard-prediction">
 <span class="md-ellipsis">
-      Perform Standard Prediction
+        Perform Standard Prediction
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#visualize-results">
 <span class="md-ellipsis">
-      Visualize Results
+        Visualize Results
     </span>
 </a>
 </li>
@@ -963,35 +976,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#sliced-inference-with-yolo11">
 <span class="md-ellipsis">
-      Sliced Inference with YOLO11
+        Sliced Inference with YOLO11
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#handling-prediction-results">
 <span class="md-ellipsis">
-      Handling Prediction Results
+        Handling Prediction Results
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#batch-prediction">
 <span class="md-ellipsis">
-      Batch Prediction
+        Batch Prediction
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#citations-and-acknowledgments">
 <span class="md-ellipsis">
-      Citations and Acknowledgments
+        Citations and Acknowledgments
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -999,35 +1012,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-can-i-integrate-yolo11-with-sahi-for-sliced-inference-in-object-detection">
 <span class="md-ellipsis">
-      How can I integrate YOLO11 with SAHI for sliced inference in object detection?
+        How can I integrate YOLO11 with SAHI for sliced inference in object detection?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#why-should-i-use-sahi-with-yolo11-for-object-detection-on-large-images">
 <span class="md-ellipsis">
-      Why should I use SAHI with YOLO11 for object detection on large images?
+        Why should I use SAHI with YOLO11 for object detection on large images?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#can-i-visualize-prediction-results-when-using-yolo11-with-sahi">
 <span class="md-ellipsis">
-      Can I visualize prediction results when using YOLO11 with SAHI?
+        Can I visualize prediction results when using YOLO11 with SAHI?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-features-does-sahi-offer-for-improving-yolo11-object-detection">
 <span class="md-ellipsis">
-      What features does SAHI offer for improving YOLO11 object detection?
+        What features does SAHI offer for improving YOLO11 object detection?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-handle-large-scale-inference-projects-using-yolo11-and-sahi">
 <span class="md-ellipsis">
-      How do I handle large-scale inference projects using YOLO11 and SAHI?
+        How do I handle large-scale inference projects using YOLO11 and SAHI?
     </span>
 </a>
 </li>
@@ -1275,7 +1288,7 @@
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on November 12, 2023">
-<span class="hover-item">📅</span> Created 1 year ago
+<span class="hover-item">📅</span> Created 2 years ago
     </span>
 <span class="date-item" title="This page was last updated on August 08, 2025">
 <span class="hover-item">✏️</span> Updated 3 months ago
@@ -1395,9 +1408,9 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@latest/js/chat.min.js"></script>
 <script src="../../javascript/extra.js"></script>
 <script src="../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

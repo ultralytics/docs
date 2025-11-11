@@ -8,11 +8,24 @@
 <link href="https://docs.ultralytics.com/guides/data-collection-and-annotation/" rel="canonical"/>
 <link href="../defining-project-goals/" rel="prev"/>
 <link href="../preprocessing_annotated_data/" rel="next"/>
+<link href="/" hreflang="en" rel="alternate"/>
+<link href="/zh/" hreflang="zh" rel="alternate"/>
+<link href="/ko/" hreflang="ko" rel="alternate"/>
+<link href="/ja/" hreflang="ja" rel="alternate"/>
+<link href="/ru/" hreflang="ru" rel="alternate"/>
+<link href="/de/" hreflang="de" rel="alternate"/>
+<link href="/fr/" hreflang="fr" rel="alternate"/>
+<link href="/es/" hreflang="es" rel="alternate"/>
+<link href="/pt/" hreflang="pt" rel="alternate"/>
+<link href="/it/" hreflang="it" rel="alternate"/>
+<link href="/tr/" hreflang="tr" rel="alternate"/>
+<link href="/vi/" hreflang="vi" rel="alternate"/>
+<link href="/ar/" hreflang="ar" rel="alternate"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.23" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.0" name="generator"/>
 <title>Data Collection and Annotation Strategies for Computer Vision</title>
-<link href="../../assets/stylesheets/main.84d31ad4.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.618322db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -330,7 +343,7 @@
 <nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_8">
 <span class="md-nav__icon md-icon"></span>
-            Guides
+    Guides
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -516,14 +529,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#introduction">
 <span class="md-ellipsis">
-      Introduction
+        Introduction
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#setting-up-classes-and-collecting-data">
 <span class="md-ellipsis">
-      Setting Up Classes and Collecting Data
+        Setting Up Classes and Collecting Data
     </span>
 </a>
 <nav aria-label="Setting Up Classes and Collecting Data" class="md-nav">
@@ -531,21 +544,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#choosing-the-right-classes-for-your-project">
 <span class="md-ellipsis">
-      Choosing the Right Classes for Your Project
+        Choosing the Right Classes for Your Project
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#sources-of-data">
 <span class="md-ellipsis">
-      Sources of Data
+        Sources of Data
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#avoiding-bias-in-data-collection">
 <span class="md-ellipsis">
-      Avoiding Bias in Data Collection
+        Avoiding Bias in Data Collection
     </span>
 </a>
 </li>
@@ -555,7 +568,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-is-data-annotation">
 <span class="md-ellipsis">
-      What is Data Annotation?
+        What is Data Annotation?
     </span>
 </a>
 <nav aria-label="What is Data Annotation?" class="md-nav">
@@ -563,35 +576,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#types-of-data-annotation">
 <span class="md-ellipsis">
-      Types of Data Annotation
+        Types of Data Annotation
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#common-annotation-formats">
 <span class="md-ellipsis">
-      Common Annotation Formats
+        Common Annotation Formats
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#techniques-of-annotation">
 <span class="md-ellipsis">
-      Techniques of Annotation
+        Techniques of Annotation
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#popular-annotation-tools">
 <span class="md-ellipsis">
-      Popular Annotation Tools
+        Popular Annotation Tools
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#some-more-things-to-consider-before-annotating-data">
 <span class="md-ellipsis">
-      Some More Things to Consider Before Annotating Data
+        Some More Things to Consider Before Annotating Data
     </span>
 </a>
 <nav aria-label="Some More Things to Consider Before Annotating Data" class="md-nav">
@@ -599,21 +612,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#understanding-accuracy-and-precision">
 <span class="md-ellipsis">
-      Understanding Accuracy and Precision
+        Understanding Accuracy and Precision
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#identifying-outliers">
 <span class="md-ellipsis">
-      Identifying Outliers
+        Identifying Outliers
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#quality-control-of-annotated-data">
 <span class="md-ellipsis">
-      Quality Control of Annotated Data
+        Quality Control of Annotated Data
     </span>
 </a>
 </li>
@@ -626,14 +639,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#efficient-data-labeling-strategies">
 <span class="md-ellipsis">
-      Efficient Data Labeling Strategies
+        Efficient Data Labeling Strategies
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#share-your-thoughts-with-the-community">
 <span class="md-ellipsis">
-      Share Your Thoughts with the Community
+        Share Your Thoughts with the Community
     </span>
 </a>
 <nav aria-label="Share Your Thoughts with the Community" class="md-nav">
@@ -641,14 +654,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#where-to-find-help-and-support">
 <span class="md-ellipsis">
-      Where to Find Help and Support
+        Where to Find Help and Support
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#official-documentation">
 <span class="md-ellipsis">
-      Official Documentation
+        Official Documentation
     </span>
 </a>
 </li>
@@ -658,14 +671,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#conclusion">
 <span class="md-ellipsis">
-      Conclusion
+        Conclusion
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -673,35 +686,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-is-the-best-way-to-avoid-bias-in-data-collection-for-computer-vision-projects">
 <span class="md-ellipsis">
-      What is the best way to avoid bias in data collection for computer vision projects?
+        What is the best way to avoid bias in data collection for computer vision projects?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-can-i-ensure-high-consistency-and-accuracy-in-data-annotation">
 <span class="md-ellipsis">
-      How can I ensure high consistency and accuracy in data annotation?
+        How can I ensure high consistency and accuracy in data annotation?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-many-images-do-i-need-for-training-ultralytics-yolo-models">
 <span class="md-ellipsis">
-      How many images do I need for training Ultralytics YOLO models?
+        How many images do I need for training Ultralytics YOLO models?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-are-some-popular-tools-for-data-annotation">
 <span class="md-ellipsis">
-      What are some popular tools for data annotation?
+        What are some popular tools for data annotation?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-types-of-data-annotation-are-commonly-used-in-computer-vision">
 <span class="md-ellipsis">
-      What types of data annotation are commonly used in computer vision?
+        What types of data annotation are commonly used in computer vision?
     </span>
 </a>
 </li>
@@ -775,7 +788,7 @@
 <nav aria-expanded="false" aria-labelledby="__nav_8_33_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_8_33">
 <span class="md-nav__icon md-icon"></span>
-            Explorer
+    Explorer
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -817,7 +830,7 @@
 <nav aria-expanded="false" aria-labelledby="__nav_8_34_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_8_34">
 <span class="md-nav__icon md-icon"></span>
-            YOLOv5
+    YOLOv5
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -898,14 +911,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#introduction">
 <span class="md-ellipsis">
-      Introduction
+        Introduction
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#setting-up-classes-and-collecting-data">
 <span class="md-ellipsis">
-      Setting Up Classes and Collecting Data
+        Setting Up Classes and Collecting Data
     </span>
 </a>
 <nav aria-label="Setting Up Classes and Collecting Data" class="md-nav">
@@ -913,21 +926,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#choosing-the-right-classes-for-your-project">
 <span class="md-ellipsis">
-      Choosing the Right Classes for Your Project
+        Choosing the Right Classes for Your Project
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#sources-of-data">
 <span class="md-ellipsis">
-      Sources of Data
+        Sources of Data
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#avoiding-bias-in-data-collection">
 <span class="md-ellipsis">
-      Avoiding Bias in Data Collection
+        Avoiding Bias in Data Collection
     </span>
 </a>
 </li>
@@ -937,7 +950,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-is-data-annotation">
 <span class="md-ellipsis">
-      What is Data Annotation?
+        What is Data Annotation?
     </span>
 </a>
 <nav aria-label="What is Data Annotation?" class="md-nav">
@@ -945,35 +958,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#types-of-data-annotation">
 <span class="md-ellipsis">
-      Types of Data Annotation
+        Types of Data Annotation
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#common-annotation-formats">
 <span class="md-ellipsis">
-      Common Annotation Formats
+        Common Annotation Formats
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#techniques-of-annotation">
 <span class="md-ellipsis">
-      Techniques of Annotation
+        Techniques of Annotation
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#popular-annotation-tools">
 <span class="md-ellipsis">
-      Popular Annotation Tools
+        Popular Annotation Tools
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#some-more-things-to-consider-before-annotating-data">
 <span class="md-ellipsis">
-      Some More Things to Consider Before Annotating Data
+        Some More Things to Consider Before Annotating Data
     </span>
 </a>
 <nav aria-label="Some More Things to Consider Before Annotating Data" class="md-nav">
@@ -981,21 +994,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#understanding-accuracy-and-precision">
 <span class="md-ellipsis">
-      Understanding Accuracy and Precision
+        Understanding Accuracy and Precision
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#identifying-outliers">
 <span class="md-ellipsis">
-      Identifying Outliers
+        Identifying Outliers
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#quality-control-of-annotated-data">
 <span class="md-ellipsis">
-      Quality Control of Annotated Data
+        Quality Control of Annotated Data
     </span>
 </a>
 </li>
@@ -1008,14 +1021,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#efficient-data-labeling-strategies">
 <span class="md-ellipsis">
-      Efficient Data Labeling Strategies
+        Efficient Data Labeling Strategies
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#share-your-thoughts-with-the-community">
 <span class="md-ellipsis">
-      Share Your Thoughts with the Community
+        Share Your Thoughts with the Community
     </span>
 </a>
 <nav aria-label="Share Your Thoughts with the Community" class="md-nav">
@@ -1023,14 +1036,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#where-to-find-help-and-support">
 <span class="md-ellipsis">
-      Where to Find Help and Support
+        Where to Find Help and Support
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#official-documentation">
 <span class="md-ellipsis">
-      Official Documentation
+        Official Documentation
     </span>
 </a>
 </li>
@@ -1040,14 +1053,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#conclusion">
 <span class="md-ellipsis">
-      Conclusion
+        Conclusion
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -1055,35 +1068,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-is-the-best-way-to-avoid-bias-in-data-collection-for-computer-vision-projects">
 <span class="md-ellipsis">
-      What is the best way to avoid bias in data collection for computer vision projects?
+        What is the best way to avoid bias in data collection for computer vision projects?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-can-i-ensure-high-consistency-and-accuracy-in-data-annotation">
 <span class="md-ellipsis">
-      How can I ensure high consistency and accuracy in data annotation?
+        How can I ensure high consistency and accuracy in data annotation?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-many-images-do-i-need-for-training-ultralytics-yolo-models">
 <span class="md-ellipsis">
-      How many images do I need for training Ultralytics YOLO models?
+        How many images do I need for training Ultralytics YOLO models?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-are-some-popular-tools-for-data-annotation">
 <span class="md-ellipsis">
-      What are some popular tools for data annotation?
+        What are some popular tools for data annotation?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-types-of-data-annotation-are-commonly-used-in-computer-vision">
 <span class="md-ellipsis">
-      What types of data annotation are commonly used in computer vision?
+        What types of data annotation are commonly used in computer vision?
     </span>
 </a>
 </li>
@@ -1365,9 +1378,9 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@latest/js/chat.min.js"></script>
 <script src="../../javascript/extra.js"></script>
 <script src="../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

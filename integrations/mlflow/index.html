@@ -8,11 +8,24 @@
 <link href="https://docs.ultralytics.com/integrations/mlflow/" rel="canonical"/>
 <link href="../kaggle/" rel="prev"/>
 <link href="../paperspace/" rel="next"/>
+<link href="/" hreflang="en" rel="alternate"/>
+<link href="/zh/" hreflang="zh" rel="alternate"/>
+<link href="/ko/" hreflang="ko" rel="alternate"/>
+<link href="/ja/" hreflang="ja" rel="alternate"/>
+<link href="/ru/" hreflang="ru" rel="alternate"/>
+<link href="/de/" hreflang="de" rel="alternate"/>
+<link href="/fr/" hreflang="fr" rel="alternate"/>
+<link href="/es/" hreflang="es" rel="alternate"/>
+<link href="/pt/" hreflang="pt" rel="alternate"/>
+<link href="/it/" hreflang="it" rel="alternate"/>
+<link href="/tr/" hreflang="tr" rel="alternate"/>
+<link href="/vi/" hreflang="vi" rel="alternate"/>
+<link href="/ar/" hreflang="ar" rel="alternate"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.23" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.0" name="generator"/>
 <title>MLflow Integration for Ultralytics YOLO - Ultralytics YOLO Docs</title>
-<link href="../../assets/stylesheets/main.84d31ad4.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.618322db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -338,7 +351,7 @@
 <nav aria-expanded="true" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_9">
 <span class="md-nav__icon md-icon"></span>
-            Integrations
+    Integrations
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -426,35 +439,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#introduction">
 <span class="md-ellipsis">
-      Introduction
+        Introduction
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-is-mlflow">
 <span class="md-ellipsis">
-      What is MLflow?
+        What is MLflow?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#features">
 <span class="md-ellipsis">
-      Features
+        Features
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#setup-and-prerequisites">
 <span class="md-ellipsis">
-      Setup and Prerequisites
+        Setup and Prerequisites
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-to-use">
 <span class="md-ellipsis">
-      How to Use
+        How to Use
     </span>
 </a>
 <nav aria-label="How to Use" class="md-nav">
@@ -462,14 +475,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#commands">
 <span class="md-ellipsis">
-      Commands
+        Commands
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#logging">
 <span class="md-ellipsis">
-      Logging
+        Logging
     </span>
 </a>
 </li>
@@ -479,28 +492,28 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#examples">
 <span class="md-ellipsis">
-      Examples
+        Examples
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#disabling-mlflow">
 <span class="md-ellipsis">
-      Disabling MLflow
+        Disabling MLflow
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#conclusion">
 <span class="md-ellipsis">
-      Conclusion
+        Conclusion
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -508,35 +521,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-set-up-mlflow-logging-with-ultralytics-yolo">
 <span class="md-ellipsis">
-      How do I set up MLflow logging with Ultralytics YOLO?
+        How do I set up MLflow logging with Ultralytics YOLO?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-metrics-and-parameters-can-i-log-using-mlflow-with-ultralytics-yolo">
 <span class="md-ellipsis">
-      What metrics and parameters can I log using MLflow with Ultralytics YOLO?
+        What metrics and parameters can I log using MLflow with Ultralytics YOLO?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#can-i-disable-mlflow-logging-once-it-is-enabled">
 <span class="md-ellipsis">
-      Can I disable MLflow logging once it is enabled?
+        Can I disable MLflow logging once it is enabled?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-can-i-start-and-stop-an-mlflow-server-for-ultralytics-yolo-tracking">
 <span class="md-ellipsis">
-      How can I start and stop an MLflow server for Ultralytics YOLO tracking?
+        How can I start and stop an MLflow server for Ultralytics YOLO tracking?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-are-the-benefits-of-integrating-mlflow-with-ultralytics-yolo-for-experiment-tracking">
 <span class="md-ellipsis">
-      What are the benefits of integrating MLflow with Ultralytics YOLO for experiment tracking?
+        What are the benefits of integrating MLflow with Ultralytics YOLO for experiment tracking?
     </span>
 </a>
 </li>
@@ -765,35 +778,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#introduction">
 <span class="md-ellipsis">
-      Introduction
+        Introduction
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-is-mlflow">
 <span class="md-ellipsis">
-      What is MLflow?
+        What is MLflow?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#features">
 <span class="md-ellipsis">
-      Features
+        Features
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#setup-and-prerequisites">
 <span class="md-ellipsis">
-      Setup and Prerequisites
+        Setup and Prerequisites
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-to-use">
 <span class="md-ellipsis">
-      How to Use
+        How to Use
     </span>
 </a>
 <nav aria-label="How to Use" class="md-nav">
@@ -801,14 +814,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#commands">
 <span class="md-ellipsis">
-      Commands
+        Commands
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#logging">
 <span class="md-ellipsis">
-      Logging
+        Logging
     </span>
 </a>
 </li>
@@ -818,28 +831,28 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#examples">
 <span class="md-ellipsis">
-      Examples
+        Examples
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#disabling-mlflow">
 <span class="md-ellipsis">
-      Disabling MLflow
+        Disabling MLflow
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#conclusion">
 <span class="md-ellipsis">
-      Conclusion
+        Conclusion
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -847,35 +860,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-set-up-mlflow-logging-with-ultralytics-yolo">
 <span class="md-ellipsis">
-      How do I set up MLflow logging with Ultralytics YOLO?
+        How do I set up MLflow logging with Ultralytics YOLO?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-metrics-and-parameters-can-i-log-using-mlflow-with-ultralytics-yolo">
 <span class="md-ellipsis">
-      What metrics and parameters can I log using MLflow with Ultralytics YOLO?
+        What metrics and parameters can I log using MLflow with Ultralytics YOLO?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#can-i-disable-mlflow-logging-once-it-is-enabled">
 <span class="md-ellipsis">
-      Can I disable MLflow logging once it is enabled?
+        Can I disable MLflow logging once it is enabled?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-can-i-start-and-stop-an-mlflow-server-for-ultralytics-yolo-tracking">
 <span class="md-ellipsis">
-      How can I start and stop an MLflow server for Ultralytics YOLO tracking?
+        How can I start and stop an MLflow server for Ultralytics YOLO tracking?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-are-the-benefits-of-integrating-mlflow-with-ultralytics-yolo-for-experiment-tracking">
 <span class="md-ellipsis">
-      What are the benefits of integrating MLflow with Ultralytics YOLO for experiment tracking?
+        What are the benefits of integrating MLflow with Ultralytics YOLO for experiment tracking?
     </span>
 </a>
 </li>
@@ -1053,7 +1066,7 @@
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on November 12, 2023">
-<span class="hover-item">📅</span> Created 1 year ago
+<span class="hover-item">📅</span> Created 2 years ago
     </span>
 <span class="date-item" title="This page was last updated on April 05, 2025">
 <span class="hover-item">✏️</span> Updated 7 months ago
@@ -1176,9 +1189,9 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@latest/js/chat.min.js"></script>
 <script src="../../javascript/extra.js"></script>
 <script src="../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

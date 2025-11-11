@@ -8,11 +8,24 @@
 <link href="https://docs.ultralytics.com/guides/yolo-data-augmentation/" rel="canonical"/>
 <link href="../yolo-thread-safe-inference/" rel="prev"/>
 <link href="../model-deployment-options/" rel="next"/>
+<link href="/" hreflang="en" rel="alternate"/>
+<link href="/zh/" hreflang="zh" rel="alternate"/>
+<link href="/ko/" hreflang="ko" rel="alternate"/>
+<link href="/ja/" hreflang="ja" rel="alternate"/>
+<link href="/ru/" hreflang="ru" rel="alternate"/>
+<link href="/de/" hreflang="de" rel="alternate"/>
+<link href="/fr/" hreflang="fr" rel="alternate"/>
+<link href="/es/" hreflang="es" rel="alternate"/>
+<link href="/pt/" hreflang="pt" rel="alternate"/>
+<link href="/it/" hreflang="it" rel="alternate"/>
+<link href="/tr/" hreflang="tr" rel="alternate"/>
+<link href="/vi/" hreflang="vi" rel="alternate"/>
+<link href="/ar/" hreflang="ar" rel="alternate"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.23" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.0" name="generator"/>
 <title>Data Augmentation using Ultralytics YOLO - Ultralytics YOLO Docs</title>
-<link href="../../assets/stylesheets/main.84d31ad4.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.618322db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -330,7 +343,7 @@
 <nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_8">
 <span class="md-nav__icon md-icon"></span>
-            Guides
+    Guides
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -376,7 +389,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#introduction">
 <span class="md-ellipsis">
-      Introduction
+        Introduction
     </span>
 </a>
 <nav aria-label="Introduction" class="md-nav">
@@ -384,14 +397,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#why-data-augmentation-matters">
 <span class="md-ellipsis">
-      Why Data Augmentation Matters
+        Why Data Augmentation Matters
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#example-configurations">
 <span class="md-ellipsis">
-      Example Configurations
+        Example Configurations
     </span>
 </a>
 <nav aria-label="Example Configurations" class="md-nav">
@@ -399,7 +412,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#using-a-configuration-file">
 <span class="md-ellipsis">
-      Using a configuration file
+        Using a configuration file
     </span>
 </a>
 </li>
@@ -412,7 +425,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#color-space-augmentations">
 <span class="md-ellipsis">
-      Color Space Augmentations
+        Color Space Augmentations
     </span>
 </a>
 <nav aria-label="Color Space Augmentations" class="md-nav">
@@ -420,21 +433,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#hue-adjustment-hsv_h">
 <span class="md-ellipsis">
-      Hue Adjustment (hsv_h)
+        Hue Adjustment (hsv_h)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#saturation-adjustment-hsv_s">
 <span class="md-ellipsis">
-      Saturation Adjustment (hsv_s)
+        Saturation Adjustment (hsv_s)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#brightness-adjustment-hsv_v">
 <span class="md-ellipsis">
-      Brightness Adjustment (hsv_v)
+        Brightness Adjustment (hsv_v)
     </span>
 </a>
 </li>
@@ -444,7 +457,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#geometric-transformations">
 <span class="md-ellipsis">
-      Geometric Transformations
+        Geometric Transformations
     </span>
 </a>
 <nav aria-label="Geometric Transformations" class="md-nav">
@@ -452,77 +465,77 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#rotation-degrees">
 <span class="md-ellipsis">
-      Rotation (degrees)
+        Rotation (degrees)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#translation-translate">
 <span class="md-ellipsis">
-      Translation (translate)
+        Translation (translate)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#scale-scale">
 <span class="md-ellipsis">
-      Scale (scale)
+        Scale (scale)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#shear-shear">
 <span class="md-ellipsis">
-      Shear (shear)
+        Shear (shear)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#perspective-perspective">
 <span class="md-ellipsis">
-      Perspective (perspective)
+        Perspective (perspective)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#flip-up-down-flipud">
 <span class="md-ellipsis">
-      Flip Up-Down (flipud)
+        Flip Up-Down (flipud)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#flip-left-right-fliplr">
 <span class="md-ellipsis">
-      Flip Left-Right (fliplr)
+        Flip Left-Right (fliplr)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#bgr-channel-swap-bgr">
 <span class="md-ellipsis">
-      BGR Channel Swap (bgr)
+        BGR Channel Swap (bgr)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#mosaic-mosaic">
 <span class="md-ellipsis">
-      Mosaic (mosaic)
+        Mosaic (mosaic)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#mixup-mixup">
 <span class="md-ellipsis">
-      Mixup (mixup)
+        Mixup (mixup)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#cutmix-cutmix">
 <span class="md-ellipsis">
-      CutMix (cutmix)
+        CutMix (cutmix)
     </span>
 </a>
 </li>
@@ -532,7 +545,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#segmentation-specific-augmentations">
 <span class="md-ellipsis">
-      Segmentation-Specific Augmentations
+        Segmentation-Specific Augmentations
     </span>
 </a>
 <nav aria-label="Segmentation-Specific Augmentations" class="md-nav">
@@ -540,14 +553,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#copy-paste-copy_paste">
 <span class="md-ellipsis">
-      Copy-Paste (copy_paste)
+        Copy-Paste (copy_paste)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#copy-paste-mode-copy_paste_mode">
 <span class="md-ellipsis">
-      Copy-Paste Mode (copy_paste_mode)
+        Copy-Paste Mode (copy_paste_mode)
     </span>
 </a>
 </li>
@@ -557,7 +570,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#classification-specific-augmentations">
 <span class="md-ellipsis">
-      Classification-Specific Augmentations
+        Classification-Specific Augmentations
     </span>
 </a>
 <nav aria-label="Classification-Specific Augmentations" class="md-nav">
@@ -565,14 +578,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#auto-augment-auto_augment">
 <span class="md-ellipsis">
-      Auto Augment (auto_augment)
+        Auto Augment (auto_augment)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#random-erasing-erasing">
 <span class="md-ellipsis">
-      Random Erasing (erasing)
+        Random Erasing (erasing)
     </span>
 </a>
 </li>
@@ -582,7 +595,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#advanced-augmentation-features">
 <span class="md-ellipsis">
-      Advanced Augmentation Features
+        Advanced Augmentation Features
     </span>
 </a>
 <nav aria-label="Advanced Augmentation Features" class="md-nav">
@@ -590,7 +603,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#custom-albumentations-transforms-augmentations">
 <span class="md-ellipsis">
-      Custom Albumentations Transforms (augmentations)
+        Custom Albumentations Transforms (augmentations)
     </span>
 </a>
 </li>
@@ -600,7 +613,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -608,28 +621,28 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#there-are-too-many-augmentations-to-choose-from-how-do-i-know-which-ones-to-use">
 <span class="md-ellipsis">
-      There are too many augmentations to choose from. How do I know which ones to use?
+        There are too many augmentations to choose from. How do I know which ones to use?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#when-starting-a-training-a-see-a-albumentations-blur-reference-does-that-mean-ultralytics-yolo-runs-additional-augmentation-like-blurring">
 <span class="md-ellipsis">
-      When starting a training, a see a albumentations: Blur[...] reference. Does that mean Ultralytics YOLO runs additional augmentation like blurring?
+        When starting a training, a see a albumentations: Blur[...] reference. Does that mean Ultralytics YOLO runs additional augmentation like blurring?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#when-starting-a-training-i-dont-see-any-reference-to-albumentations-why">
 <span class="md-ellipsis">
-      When starting a training, I don't see any reference to albumentations. Why?
+        When starting a training, I don't see any reference to albumentations. Why?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-customize-my-augmentations">
 <span class="md-ellipsis">
-      How do I customize my augmentations?
+        How do I customize my augmentations?
     </span>
 </a>
 </li>
@@ -843,7 +856,7 @@
 <nav aria-expanded="false" aria-labelledby="__nav_8_33_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_8_33">
 <span class="md-nav__icon md-icon"></span>
-            Explorer
+    Explorer
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -885,7 +898,7 @@
 <nav aria-expanded="false" aria-labelledby="__nav_8_34_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_8_34">
 <span class="md-nav__icon md-icon"></span>
-            YOLOv5
+    YOLOv5
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -966,7 +979,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#introduction">
 <span class="md-ellipsis">
-      Introduction
+        Introduction
     </span>
 </a>
 <nav aria-label="Introduction" class="md-nav">
@@ -974,14 +987,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#why-data-augmentation-matters">
 <span class="md-ellipsis">
-      Why Data Augmentation Matters
+        Why Data Augmentation Matters
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#example-configurations">
 <span class="md-ellipsis">
-      Example Configurations
+        Example Configurations
     </span>
 </a>
 <nav aria-label="Example Configurations" class="md-nav">
@@ -989,7 +1002,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#using-a-configuration-file">
 <span class="md-ellipsis">
-      Using a configuration file
+        Using a configuration file
     </span>
 </a>
 </li>
@@ -1002,7 +1015,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#color-space-augmentations">
 <span class="md-ellipsis">
-      Color Space Augmentations
+        Color Space Augmentations
     </span>
 </a>
 <nav aria-label="Color Space Augmentations" class="md-nav">
@@ -1010,21 +1023,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#hue-adjustment-hsv_h">
 <span class="md-ellipsis">
-      Hue Adjustment (hsv_h)
+        Hue Adjustment (hsv_h)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#saturation-adjustment-hsv_s">
 <span class="md-ellipsis">
-      Saturation Adjustment (hsv_s)
+        Saturation Adjustment (hsv_s)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#brightness-adjustment-hsv_v">
 <span class="md-ellipsis">
-      Brightness Adjustment (hsv_v)
+        Brightness Adjustment (hsv_v)
     </span>
 </a>
 </li>
@@ -1034,7 +1047,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#geometric-transformations">
 <span class="md-ellipsis">
-      Geometric Transformations
+        Geometric Transformations
     </span>
 </a>
 <nav aria-label="Geometric Transformations" class="md-nav">
@@ -1042,77 +1055,77 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#rotation-degrees">
 <span class="md-ellipsis">
-      Rotation (degrees)
+        Rotation (degrees)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#translation-translate">
 <span class="md-ellipsis">
-      Translation (translate)
+        Translation (translate)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#scale-scale">
 <span class="md-ellipsis">
-      Scale (scale)
+        Scale (scale)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#shear-shear">
 <span class="md-ellipsis">
-      Shear (shear)
+        Shear (shear)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#perspective-perspective">
 <span class="md-ellipsis">
-      Perspective (perspective)
+        Perspective (perspective)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#flip-up-down-flipud">
 <span class="md-ellipsis">
-      Flip Up-Down (flipud)
+        Flip Up-Down (flipud)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#flip-left-right-fliplr">
 <span class="md-ellipsis">
-      Flip Left-Right (fliplr)
+        Flip Left-Right (fliplr)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#bgr-channel-swap-bgr">
 <span class="md-ellipsis">
-      BGR Channel Swap (bgr)
+        BGR Channel Swap (bgr)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#mosaic-mosaic">
 <span class="md-ellipsis">
-      Mosaic (mosaic)
+        Mosaic (mosaic)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#mixup-mixup">
 <span class="md-ellipsis">
-      Mixup (mixup)
+        Mixup (mixup)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#cutmix-cutmix">
 <span class="md-ellipsis">
-      CutMix (cutmix)
+        CutMix (cutmix)
     </span>
 </a>
 </li>
@@ -1122,7 +1135,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#segmentation-specific-augmentations">
 <span class="md-ellipsis">
-      Segmentation-Specific Augmentations
+        Segmentation-Specific Augmentations
     </span>
 </a>
 <nav aria-label="Segmentation-Specific Augmentations" class="md-nav">
@@ -1130,14 +1143,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#copy-paste-copy_paste">
 <span class="md-ellipsis">
-      Copy-Paste (copy_paste)
+        Copy-Paste (copy_paste)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#copy-paste-mode-copy_paste_mode">
 <span class="md-ellipsis">
-      Copy-Paste Mode (copy_paste_mode)
+        Copy-Paste Mode (copy_paste_mode)
     </span>
 </a>
 </li>
@@ -1147,7 +1160,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#classification-specific-augmentations">
 <span class="md-ellipsis">
-      Classification-Specific Augmentations
+        Classification-Specific Augmentations
     </span>
 </a>
 <nav aria-label="Classification-Specific Augmentations" class="md-nav">
@@ -1155,14 +1168,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#auto-augment-auto_augment">
 <span class="md-ellipsis">
-      Auto Augment (auto_augment)
+        Auto Augment (auto_augment)
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#random-erasing-erasing">
 <span class="md-ellipsis">
-      Random Erasing (erasing)
+        Random Erasing (erasing)
     </span>
 </a>
 </li>
@@ -1172,7 +1185,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#advanced-augmentation-features">
 <span class="md-ellipsis">
-      Advanced Augmentation Features
+        Advanced Augmentation Features
     </span>
 </a>
 <nav aria-label="Advanced Augmentation Features" class="md-nav">
@@ -1180,7 +1193,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#custom-albumentations-transforms-augmentations">
 <span class="md-ellipsis">
-      Custom Albumentations Transforms (augmentations)
+        Custom Albumentations Transforms (augmentations)
     </span>
 </a>
 </li>
@@ -1190,7 +1203,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -1198,28 +1211,28 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#there-are-too-many-augmentations-to-choose-from-how-do-i-know-which-ones-to-use">
 <span class="md-ellipsis">
-      There are too many augmentations to choose from. How do I know which ones to use?
+        There are too many augmentations to choose from. How do I know which ones to use?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#when-starting-a-training-a-see-a-albumentations-blur-reference-does-that-mean-ultralytics-yolo-runs-additional-augmentation-like-blurring">
 <span class="md-ellipsis">
-      When starting a training, a see a albumentations: Blur[...] reference. Does that mean Ultralytics YOLO runs additional augmentation like blurring?
+        When starting a training, a see a albumentations: Blur[...] reference. Does that mean Ultralytics YOLO runs additional augmentation like blurring?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#when-starting-a-training-i-dont-see-any-reference-to-albumentations-why">
 <span class="md-ellipsis">
-      When starting a training, I don't see any reference to albumentations. Why?
+        When starting a training, I don't see any reference to albumentations. Why?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-customize-my-augmentations">
 <span class="md-ellipsis">
-      How do I customize my augmentations?
+        How do I customize my augmentations?
     </span>
 </a>
 </li>
@@ -1974,7 +1987,7 @@
 <span class="hover-item">📅</span> Created 7 months ago
     </span>
 <span class="date-item" title="This page was last updated on November 10, 2025">
-<span class="hover-item">✏️</span> Updated 0 days ago
+<span class="hover-item">✏️</span> Updated 1 day ago
     </span>
 </div>
 <div class="authors-container">
@@ -2097,9 +2110,9 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@latest/js/chat.min.js"></script>
 <script src="../../javascript/extra.js"></script>
 <script src="../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

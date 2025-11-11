@@ -8,11 +8,24 @@
 <link href="https://docs.ultralytics.com/guides/hyperparameter-tuning/" rel="canonical"/>
 <link href="../kfold-cross-validation/" rel="prev"/>
 <link href="../sahi-tiled-inference/" rel="next"/>
+<link href="/" hreflang="en" rel="alternate"/>
+<link href="/zh/" hreflang="zh" rel="alternate"/>
+<link href="/ko/" hreflang="ko" rel="alternate"/>
+<link href="/ja/" hreflang="ja" rel="alternate"/>
+<link href="/ru/" hreflang="ru" rel="alternate"/>
+<link href="/de/" hreflang="de" rel="alternate"/>
+<link href="/fr/" hreflang="fr" rel="alternate"/>
+<link href="/es/" hreflang="es" rel="alternate"/>
+<link href="/pt/" hreflang="pt" rel="alternate"/>
+<link href="/it/" hreflang="it" rel="alternate"/>
+<link href="/tr/" hreflang="tr" rel="alternate"/>
+<link href="/vi/" hreflang="vi" rel="alternate"/>
+<link href="/ar/" hreflang="ar" rel="alternate"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.23" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.0" name="generator"/>
 <title>Ultralytics YOLO Hyperparameter Tuning Guide - Ultralytics YOLO Docs</title>
-<link href="../../assets/stylesheets/main.84d31ad4.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.618322db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -330,7 +343,7 @@
 <nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_8">
 <span class="md-nav__icon md-icon"></span>
-            Guides
+    Guides
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -404,7 +417,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#introduction">
 <span class="md-ellipsis">
-      Introduction
+        Introduction
     </span>
 </a>
 <nav aria-label="Introduction" class="md-nav">
@@ -412,14 +425,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-are-hyperparameters">
 <span class="md-ellipsis">
-      What are Hyperparameters?
+        What are Hyperparameters?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#genetic-evolution-and-mutation">
 <span class="md-ellipsis">
-      Genetic Evolution and Mutation
+        Genetic Evolution and Mutation
     </span>
 </a>
 </li>
@@ -429,14 +442,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#preparing-for-hyperparameter-tuning">
 <span class="md-ellipsis">
-      Preparing for Hyperparameter Tuning
+        Preparing for Hyperparameter Tuning
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#steps-involved">
 <span class="md-ellipsis">
-      Steps Involved
+        Steps Involved
     </span>
 </a>
 <nav aria-label="Steps Involved" class="md-nav">
@@ -444,42 +457,42 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#initialize-hyperparameters">
 <span class="md-ellipsis">
-      Initialize Hyperparameters
+        Initialize Hyperparameters
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#mutate-hyperparameters">
 <span class="md-ellipsis">
-      Mutate Hyperparameters
+        Mutate Hyperparameters
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#train-model">
 <span class="md-ellipsis">
-      Train Model
+        Train Model
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#evaluate-model">
 <span class="md-ellipsis">
-      Evaluate Model
+        Evaluate Model
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#log-results">
 <span class="md-ellipsis">
-      Log Results
+        Log Results
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#repeat">
 <span class="md-ellipsis">
-      Repeat
+        Repeat
     </span>
 </a>
 </li>
@@ -489,28 +502,28 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#default-search-space-description">
 <span class="md-ellipsis">
-      Default Search Space Description
+        Default Search Space Description
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#custom-search-space-example">
 <span class="md-ellipsis">
-      Custom Search Space Example
+        Custom Search Space Example
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#resuming-an-interrupted-hyperparameter-tuning-session">
 <span class="md-ellipsis">
-      Resuming An Interrupted Hyperparameter Tuning Session
+        Resuming An Interrupted Hyperparameter Tuning Session
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#results">
 <span class="md-ellipsis">
-      Results
+        Results
     </span>
 </a>
 <nav aria-label="Results" class="md-nav">
@@ -518,14 +531,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#file-structure">
 <span class="md-ellipsis">
-      File Structure
+        File Structure
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#file-descriptions">
 <span class="md-ellipsis">
-      File Descriptions
+        File Descriptions
     </span>
 </a>
 <nav aria-label="File Descriptions" class="md-nav">
@@ -533,35 +546,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#best_hyperparametersyaml">
 <span class="md-ellipsis">
-      best_hyperparameters.yaml
+        best_hyperparameters.yaml
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#best_fitnesspng">
 <span class="md-ellipsis">
-      best_fitness.png
+        best_fitness.png
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#tune_resultscsv">
 <span class="md-ellipsis">
-      tune_results.csv
+        tune_results.csv
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#tune_scatter_plotspng">
 <span class="md-ellipsis">
-      tune_scatter_plots.png
+        tune_scatter_plots.png
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#weights">
 <span class="md-ellipsis">
-      weights/
+        weights/
     </span>
 </a>
 </li>
@@ -574,7 +587,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#conclusion">
 <span class="md-ellipsis">
-      Conclusion
+        Conclusion
     </span>
 </a>
 <nav aria-label="Conclusion" class="md-nav">
@@ -582,7 +595,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#further-reading">
 <span class="md-ellipsis">
-      Further Reading
+        Further Reading
     </span>
 </a>
 </li>
@@ -592,7 +605,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -600,35 +613,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-optimize-the-learning-rate-for-ultralytics-yolo-during-hyperparameter-tuning">
 <span class="md-ellipsis">
-      How do I optimize the learning rate for Ultralytics YOLO during hyperparameter tuning?
+        How do I optimize the learning rate for Ultralytics YOLO during hyperparameter tuning?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-are-the-benefits-of-using-genetic-algorithms-for-hyperparameter-tuning-in-yolo11">
 <span class="md-ellipsis">
-      What are the benefits of using genetic algorithms for hyperparameter tuning in YOLO11?
+        What are the benefits of using genetic algorithms for hyperparameter tuning in YOLO11?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-long-does-the-hyperparameter-tuning-process-take-for-ultralytics-yolo">
 <span class="md-ellipsis">
-      How long does the hyperparameter tuning process take for Ultralytics YOLO?
+        How long does the hyperparameter tuning process take for Ultralytics YOLO?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-metrics-should-i-use-to-evaluate-model-performance-during-hyperparameter-tuning-in-yolo">
 <span class="md-ellipsis">
-      What metrics should I use to evaluate model performance during hyperparameter tuning in YOLO?
+        What metrics should I use to evaluate model performance during hyperparameter tuning in YOLO?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#can-i-use-ray-tune-for-advanced-hyperparameter-optimization-with-yolo11">
 <span class="md-ellipsis">
-      Can I use Ray Tune for advanced hyperparameter optimization with YOLO11?
+        Can I use Ray Tune for advanced hyperparameter optimization with YOLO11?
     </span>
 </a>
 </li>
@@ -814,7 +827,7 @@
 <nav aria-expanded="false" aria-labelledby="__nav_8_33_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_8_33">
 <span class="md-nav__icon md-icon"></span>
-            Explorer
+    Explorer
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -856,7 +869,7 @@
 <nav aria-expanded="false" aria-labelledby="__nav_8_34_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_8_34">
 <span class="md-nav__icon md-icon"></span>
-            YOLOv5
+    YOLOv5
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -937,7 +950,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#introduction">
 <span class="md-ellipsis">
-      Introduction
+        Introduction
     </span>
 </a>
 <nav aria-label="Introduction" class="md-nav">
@@ -945,14 +958,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-are-hyperparameters">
 <span class="md-ellipsis">
-      What are Hyperparameters?
+        What are Hyperparameters?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#genetic-evolution-and-mutation">
 <span class="md-ellipsis">
-      Genetic Evolution and Mutation
+        Genetic Evolution and Mutation
     </span>
 </a>
 </li>
@@ -962,14 +975,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#preparing-for-hyperparameter-tuning">
 <span class="md-ellipsis">
-      Preparing for Hyperparameter Tuning
+        Preparing for Hyperparameter Tuning
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#steps-involved">
 <span class="md-ellipsis">
-      Steps Involved
+        Steps Involved
     </span>
 </a>
 <nav aria-label="Steps Involved" class="md-nav">
@@ -977,42 +990,42 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#initialize-hyperparameters">
 <span class="md-ellipsis">
-      Initialize Hyperparameters
+        Initialize Hyperparameters
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#mutate-hyperparameters">
 <span class="md-ellipsis">
-      Mutate Hyperparameters
+        Mutate Hyperparameters
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#train-model">
 <span class="md-ellipsis">
-      Train Model
+        Train Model
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#evaluate-model">
 <span class="md-ellipsis">
-      Evaluate Model
+        Evaluate Model
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#log-results">
 <span class="md-ellipsis">
-      Log Results
+        Log Results
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#repeat">
 <span class="md-ellipsis">
-      Repeat
+        Repeat
     </span>
 </a>
 </li>
@@ -1022,28 +1035,28 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#default-search-space-description">
 <span class="md-ellipsis">
-      Default Search Space Description
+        Default Search Space Description
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#custom-search-space-example">
 <span class="md-ellipsis">
-      Custom Search Space Example
+        Custom Search Space Example
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#resuming-an-interrupted-hyperparameter-tuning-session">
 <span class="md-ellipsis">
-      Resuming An Interrupted Hyperparameter Tuning Session
+        Resuming An Interrupted Hyperparameter Tuning Session
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#results">
 <span class="md-ellipsis">
-      Results
+        Results
     </span>
 </a>
 <nav aria-label="Results" class="md-nav">
@@ -1051,14 +1064,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#file-structure">
 <span class="md-ellipsis">
-      File Structure
+        File Structure
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#file-descriptions">
 <span class="md-ellipsis">
-      File Descriptions
+        File Descriptions
     </span>
 </a>
 <nav aria-label="File Descriptions" class="md-nav">
@@ -1066,35 +1079,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#best_hyperparametersyaml">
 <span class="md-ellipsis">
-      best_hyperparameters.yaml
+        best_hyperparameters.yaml
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#best_fitnesspng">
 <span class="md-ellipsis">
-      best_fitness.png
+        best_fitness.png
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#tune_resultscsv">
 <span class="md-ellipsis">
-      tune_results.csv
+        tune_results.csv
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#tune_scatter_plotspng">
 <span class="md-ellipsis">
-      tune_scatter_plots.png
+        tune_scatter_plots.png
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#weights">
 <span class="md-ellipsis">
-      weights/
+        weights/
     </span>
 </a>
 </li>
@@ -1107,7 +1120,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#conclusion">
 <span class="md-ellipsis">
-      Conclusion
+        Conclusion
     </span>
 </a>
 <nav aria-label="Conclusion" class="md-nav">
@@ -1115,7 +1128,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#further-reading">
 <span class="md-ellipsis">
-      Further Reading
+        Further Reading
     </span>
 </a>
 </li>
@@ -1125,7 +1138,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -1133,35 +1146,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-optimize-the-learning-rate-for-ultralytics-yolo-during-hyperparameter-tuning">
 <span class="md-ellipsis">
-      How do I optimize the learning rate for Ultralytics YOLO during hyperparameter tuning?
+        How do I optimize the learning rate for Ultralytics YOLO during hyperparameter tuning?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-are-the-benefits-of-using-genetic-algorithms-for-hyperparameter-tuning-in-yolo11">
 <span class="md-ellipsis">
-      What are the benefits of using genetic algorithms for hyperparameter tuning in YOLO11?
+        What are the benefits of using genetic algorithms for hyperparameter tuning in YOLO11?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-long-does-the-hyperparameter-tuning-process-take-for-ultralytics-yolo">
 <span class="md-ellipsis">
-      How long does the hyperparameter tuning process take for Ultralytics YOLO?
+        How long does the hyperparameter tuning process take for Ultralytics YOLO?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-metrics-should-i-use-to-evaluate-model-performance-during-hyperparameter-tuning-in-yolo">
 <span class="md-ellipsis">
-      What metrics should I use to evaluate model performance during hyperparameter tuning in YOLO?
+        What metrics should I use to evaluate model performance during hyperparameter tuning in YOLO?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#can-i-use-ray-tune-for-advanced-hyperparameter-optimization-with-yolo11">
 <span class="md-ellipsis">
-      Can I use Ray Tune for advanced hyperparameter optimization with YOLO11?
+        Can I use Ray Tune for advanced hyperparameter optimization with YOLO11?
     </span>
 </a>
 </li>
@@ -1576,10 +1589,10 @@
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on November 12, 2023">
-<span class="hover-item">📅</span> Created 1 year ago
+<span class="hover-item">📅</span> Created 2 years ago
     </span>
 <span class="date-item" title="This page was last updated on October 29, 2025">
-<span class="hover-item">✏️</span> Updated 12 days ago
+<span class="hover-item">✏️</span> Updated 13 days ago
     </span>
 </div>
 <div class="authors-container">
@@ -1699,9 +1712,9 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@latest/js/chat.min.js"></script>
 <script src="../../javascript/extra.js"></script>
 <script src="../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

@@ -8,11 +8,24 @@
 <link href="https://docs.ultralytics.com/models/mobile-sam/" rel="canonical"/>
 <link href="../sam-3/" rel="prev"/>
 <link href="../fast-sam/" rel="next"/>
+<link href="/" hreflang="en" rel="alternate"/>
+<link href="/zh/" hreflang="zh" rel="alternate"/>
+<link href="/ko/" hreflang="ko" rel="alternate"/>
+<link href="/ja/" hreflang="ja" rel="alternate"/>
+<link href="/ru/" hreflang="ru" rel="alternate"/>
+<link href="/de/" hreflang="de" rel="alternate"/>
+<link href="/fr/" hreflang="fr" rel="alternate"/>
+<link href="/es/" hreflang="es" rel="alternate"/>
+<link href="/pt/" hreflang="pt" rel="alternate"/>
+<link href="/it/" hreflang="it" rel="alternate"/>
+<link href="/tr/" hreflang="tr" rel="alternate"/>
+<link href="/vi/" hreflang="vi" rel="alternate"/>
+<link href="/ar/" hreflang="ar" rel="alternate"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.23" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.0" name="generator"/>
 <title>Mobile Segment Anything (MobileSAM) - Ultralytics YOLO Docs</title>
-<link href="../../assets/stylesheets/main.84d31ad4.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.618322db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -306,7 +319,7 @@
 <nav aria-expanded="true" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
-            Models
+    Models
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -429,21 +442,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#available-models-supported-tasks-and-operating-modes">
 <span class="md-ellipsis">
-      Available Models, Supported Tasks, and Operating Modes
+        Available Models, Supported Tasks, and Operating Modes
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#mobilesam-comparison-vs-yolo">
 <span class="md-ellipsis">
-      MobileSAM Comparison vs YOLO
+        MobileSAM Comparison vs YOLO
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#adapting-from-sam-to-mobilesam">
 <span class="md-ellipsis">
-      Adapting from SAM to MobileSAM
+        Adapting from SAM to MobileSAM
     </span>
 </a>
 <nav aria-label="Adapting from SAM to MobileSAM" class="md-nav">
@@ -451,21 +464,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#vit-based-image-encoder-comparison">
 <span class="md-ellipsis">
-      ViT-Based Image Encoder Comparison
+        ViT-Based Image Encoder Comparison
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#prompt-guided-mask-decoder">
 <span class="md-ellipsis">
-      Prompt-Guided Mask Decoder
+        Prompt-Guided Mask Decoder
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#whole-pipeline-comparison">
 <span class="md-ellipsis">
-      Whole Pipeline Comparison
+        Whole Pipeline Comparison
     </span>
 </a>
 </li>
@@ -475,7 +488,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#testing-mobilesam-in-ultralytics">
 <span class="md-ellipsis">
-      Testing MobileSAM in Ultralytics
+        Testing MobileSAM in Ultralytics
     </span>
 </a>
 <nav aria-label="Testing MobileSAM in Ultralytics" class="md-nav">
@@ -483,28 +496,28 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#model-download">
 <span class="md-ellipsis">
-      Model Download
+        Model Download
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#point-prompt">
 <span class="md-ellipsis">
-      Point Prompt
+        Point Prompt
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#box-prompt">
 <span class="md-ellipsis">
-      Box Prompt
+        Box Prompt
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#automatically-build-segmentation-datasets-using-a-detection-model">
 <span class="md-ellipsis">
-      Automatically Build Segmentation Datasets Using a Detection Model
+        Automatically Build Segmentation Datasets Using a Detection Model
     </span>
 </a>
 </li>
@@ -514,14 +527,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#citations-and-acknowledgments">
 <span class="md-ellipsis">
-      Citations and Acknowledgments
+        Citations and Acknowledgments
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -529,35 +542,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-is-mobilesam-and-how-does-it-differ-from-the-original-sam-model">
 <span class="md-ellipsis">
-      What Is MobileSAM and How Does It Differ from the Original SAM Model?
+        What Is MobileSAM and How Does It Differ from the Original SAM Model?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-can-i-test-mobilesam-using-ultralytics">
 <span class="md-ellipsis">
-      How Can I Test MobileSAM Using Ultralytics?
+        How Can I Test MobileSAM Using Ultralytics?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#why-should-i-use-mobilesam-for-my-mobile-application">
 <span class="md-ellipsis">
-      Why Should I Use MobileSAM for My Mobile Application?
+        Why Should I Use MobileSAM for My Mobile Application?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-was-mobilesam-trained-and-is-the-training-code-available">
 <span class="md-ellipsis">
-      How Was MobileSAM Trained, and Is the Training Code Available?
+        How Was MobileSAM Trained, and Is the Training Code Available?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-are-the-primary-use-cases-for-mobilesam">
 <span class="md-ellipsis">
-      What Are the Primary Use Cases for MobileSAM?
+        What Are the Primary Use Cases for MobileSAM?
     </span>
 </a>
 </li>
@@ -678,21 +691,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#available-models-supported-tasks-and-operating-modes">
 <span class="md-ellipsis">
-      Available Models, Supported Tasks, and Operating Modes
+        Available Models, Supported Tasks, and Operating Modes
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#mobilesam-comparison-vs-yolo">
 <span class="md-ellipsis">
-      MobileSAM Comparison vs YOLO
+        MobileSAM Comparison vs YOLO
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#adapting-from-sam-to-mobilesam">
 <span class="md-ellipsis">
-      Adapting from SAM to MobileSAM
+        Adapting from SAM to MobileSAM
     </span>
 </a>
 <nav aria-label="Adapting from SAM to MobileSAM" class="md-nav">
@@ -700,21 +713,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#vit-based-image-encoder-comparison">
 <span class="md-ellipsis">
-      ViT-Based Image Encoder Comparison
+        ViT-Based Image Encoder Comparison
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#prompt-guided-mask-decoder">
 <span class="md-ellipsis">
-      Prompt-Guided Mask Decoder
+        Prompt-Guided Mask Decoder
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#whole-pipeline-comparison">
 <span class="md-ellipsis">
-      Whole Pipeline Comparison
+        Whole Pipeline Comparison
     </span>
 </a>
 </li>
@@ -724,7 +737,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#testing-mobilesam-in-ultralytics">
 <span class="md-ellipsis">
-      Testing MobileSAM in Ultralytics
+        Testing MobileSAM in Ultralytics
     </span>
 </a>
 <nav aria-label="Testing MobileSAM in Ultralytics" class="md-nav">
@@ -732,28 +745,28 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#model-download">
 <span class="md-ellipsis">
-      Model Download
+        Model Download
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#point-prompt">
 <span class="md-ellipsis">
-      Point Prompt
+        Point Prompt
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#box-prompt">
 <span class="md-ellipsis">
-      Box Prompt
+        Box Prompt
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#automatically-build-segmentation-datasets-using-a-detection-model">
 <span class="md-ellipsis">
-      Automatically Build Segmentation Datasets Using a Detection Model
+        Automatically Build Segmentation Datasets Using a Detection Model
     </span>
 </a>
 </li>
@@ -763,14 +776,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#citations-and-acknowledgments">
 <span class="md-ellipsis">
-      Citations and Acknowledgments
+        Citations and Acknowledgments
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -778,35 +791,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-is-mobilesam-and-how-does-it-differ-from-the-original-sam-model">
 <span class="md-ellipsis">
-      What Is MobileSAM and How Does It Differ from the Original SAM Model?
+        What Is MobileSAM and How Does It Differ from the Original SAM Model?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-can-i-test-mobilesam-using-ultralytics">
 <span class="md-ellipsis">
-      How Can I Test MobileSAM Using Ultralytics?
+        How Can I Test MobileSAM Using Ultralytics?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#why-should-i-use-mobilesam-for-my-mobile-application">
 <span class="md-ellipsis">
-      Why Should I Use MobileSAM for My Mobile Application?
+        Why Should I Use MobileSAM for My Mobile Application?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-was-mobilesam-trained-and-is-the-training-code-available">
 <span class="md-ellipsis">
-      How Was MobileSAM Trained, and Is the Training Code Available?
+        How Was MobileSAM Trained, and Is the Training Code Available?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-are-the-primary-use-cases-for-mobilesam">
 <span class="md-ellipsis">
-      What Are the Primary Use Cases for MobileSAM?
+        What Are the Primary Use Cases for MobileSAM?
     </span>
 </a>
 </li>
@@ -1214,7 +1227,7 @@
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on November 12, 2023">
-<span class="hover-item">📅</span> Created 1 year ago
+<span class="hover-item">📅</span> Created 2 years ago
     </span>
 <span class="date-item" title="This page was last updated on October 28, 2025">
 <span class="hover-item">✏️</span> Updated 13 days ago
@@ -1340,9 +1353,9 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@latest/js/chat.min.js"></script>
 <script src="../../javascript/extra.js"></script>
 <script src="../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

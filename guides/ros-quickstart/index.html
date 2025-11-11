@@ -8,11 +8,24 @@
 <link href="https://docs.ultralytics.com/guides/ros-quickstart/" rel="canonical"/>
 <link href="../optimizing-openvino-latency-vs-throughput-modes/" rel="prev"/>
 <link href="../steps-of-a-cv-project/" rel="next"/>
+<link href="/" hreflang="en" rel="alternate"/>
+<link href="/zh/" hreflang="zh" rel="alternate"/>
+<link href="/ko/" hreflang="ko" rel="alternate"/>
+<link href="/ja/" hreflang="ja" rel="alternate"/>
+<link href="/ru/" hreflang="ru" rel="alternate"/>
+<link href="/de/" hreflang="de" rel="alternate"/>
+<link href="/fr/" hreflang="fr" rel="alternate"/>
+<link href="/es/" hreflang="es" rel="alternate"/>
+<link href="/pt/" hreflang="pt" rel="alternate"/>
+<link href="/it/" hreflang="it" rel="alternate"/>
+<link href="/tr/" hreflang="tr" rel="alternate"/>
+<link href="/vi/" hreflang="vi" rel="alternate"/>
+<link href="/ar/" hreflang="ar" rel="alternate"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.23" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.0" name="generator"/>
 <title>ROS (Robot Operating System) quickstart guide - Ultralytics YOLO Docs</title>
-<link href="../../assets/stylesheets/main.84d31ad4.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.618322db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -330,7 +343,7 @@
 <nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_8">
 <span class="md-nav__icon md-icon"></span>
-            Guides
+    Guides
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -495,7 +508,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-is-ros">
 <span class="md-ellipsis">
-      What is ROS?
+        What is ROS?
     </span>
 </a>
 <nav aria-label="What is ROS?" class="md-nav">
@@ -503,21 +516,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#key-features-of-ros">
 <span class="md-ellipsis">
-      Key Features of ROS
+        Key Features of ROS
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ros-1-vs-ros-2">
 <span class="md-ellipsis">
-      ROS 1 vs. ROS 2
+        ROS 1 vs. ROS 2
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ros-messages-and-topics">
 <span class="md-ellipsis">
-      ROS Messages and Topics
+        ROS Messages and Topics
     </span>
 </a>
 </li>
@@ -527,7 +540,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#setting-up-ultralytics-yolo-with-ros">
 <span class="md-ellipsis">
-      Setting Up Ultralytics YOLO with ROS
+        Setting Up Ultralytics YOLO with ROS
     </span>
 </a>
 <nav aria-label="Setting Up Ultralytics YOLO with ROS" class="md-nav">
@@ -535,7 +548,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#dependencies-installation">
 <span class="md-ellipsis">
-      Dependencies Installation
+        Dependencies Installation
     </span>
 </a>
 </li>
@@ -545,7 +558,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#use-ultralytics-with-ros-sensor_msgsimage">
 <span class="md-ellipsis">
-      Use Ultralytics with ROS sensor_msgs/Image
+        Use Ultralytics with ROS sensor_msgs/Image
     </span>
 </a>
 <nav aria-label="Use Ultralytics with ROS sensor_msgs/Image" class="md-nav">
@@ -553,14 +566,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#image-step-by-step-usage">
 <span class="md-ellipsis">
-      Image Step-by-Step Usage
+        Image Step-by-Step Usage
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#publish-detected-classes-with-std_msgsstring">
 <span class="md-ellipsis">
-      Publish Detected Classes with std_msgs/String
+        Publish Detected Classes with std_msgs/String
     </span>
 </a>
 <nav aria-label="Publish Detected Classes with std_msgs/String" class="md-nav">
@@ -568,7 +581,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#example-use-case">
 <span class="md-ellipsis">
-      Example Use Case
+        Example Use Case
     </span>
 </a>
 </li>
@@ -578,7 +591,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#string-step-by-step-usage">
 <span class="md-ellipsis">
-      String Step-by-Step Usage
+        String Step-by-Step Usage
     </span>
 </a>
 </li>
@@ -588,7 +601,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#use-ultralytics-with-ros-depth-images">
 <span class="md-ellipsis">
-      Use Ultralytics with ROS Depth Images
+        Use Ultralytics with ROS Depth Images
     </span>
 </a>
 <nav aria-label="Use Ultralytics with ROS Depth Images" class="md-nav">
@@ -596,7 +609,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#using-yolo-with-depth-images">
 <span class="md-ellipsis">
-      Using YOLO with Depth Images
+        Using YOLO with Depth Images
     </span>
 </a>
 <nav aria-label="Using YOLO with Depth Images" class="md-nav">
@@ -604,7 +617,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#depth-step-by-step-usage">
 <span class="md-ellipsis">
-      Depth Step-by-Step Usage
+        Depth Step-by-Step Usage
     </span>
 </a>
 </li>
@@ -617,7 +630,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#use-ultralytics-with-ros-sensor_msgspointcloud2">
 <span class="md-ellipsis">
-      Use Ultralytics with ROS sensor_msgs/PointCloud2
+        Use Ultralytics with ROS sensor_msgs/PointCloud2
     </span>
 </a>
 <nav aria-label="Use Ultralytics with ROS sensor_msgs/PointCloud2" class="md-nav">
@@ -625,7 +638,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#using-yolo-with-point-clouds">
 <span class="md-ellipsis">
-      Using YOLO with Point Clouds
+        Using YOLO with Point Clouds
     </span>
 </a>
 <nav aria-label="Using YOLO with Point Clouds" class="md-nav">
@@ -633,7 +646,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#point-clouds-step-by-step-usage">
 <span class="md-ellipsis">
-      Point Clouds Step-by-Step Usage
+        Point Clouds Step-by-Step Usage
     </span>
 </a>
 </li>
@@ -646,7 +659,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -654,35 +667,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-is-the-robot-operating-system-ros">
 <span class="md-ellipsis">
-      What is the Robot Operating System (ROS)?
+        What is the Robot Operating System (ROS)?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-integrate-ultralytics-yolo-with-ros-for-real-time-object-detection">
 <span class="md-ellipsis">
-      How do I integrate Ultralytics YOLO with ROS for real-time object detection?
+        How do I integrate Ultralytics YOLO with ROS for real-time object detection?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-are-ros-topics-and-how-are-they-used-in-ultralytics-yolo">
 <span class="md-ellipsis">
-      What are ROS topics and how are they used in Ultralytics YOLO?
+        What are ROS topics and how are they used in Ultralytics YOLO?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#why-use-depth-images-with-ultralytics-yolo-in-ros">
 <span class="md-ellipsis">
-      Why use depth images with Ultralytics YOLO in ROS?
+        Why use depth images with Ultralytics YOLO in ROS?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-can-i-visualize-3d-point-clouds-with-yolo-in-ros">
 <span class="md-ellipsis">
-      How can I visualize 3D point clouds with YOLO in ROS?
+        How can I visualize 3D point clouds with YOLO in ROS?
     </span>
 </a>
 </li>
@@ -777,7 +790,7 @@
 <nav aria-expanded="false" aria-labelledby="__nav_8_33_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_8_33">
 <span class="md-nav__icon md-icon"></span>
-            Explorer
+    Explorer
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -819,7 +832,7 @@
 <nav aria-expanded="false" aria-labelledby="__nav_8_34_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_8_34">
 <span class="md-nav__icon md-icon"></span>
-            YOLOv5
+    YOLOv5
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -900,7 +913,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-is-ros">
 <span class="md-ellipsis">
-      What is ROS?
+        What is ROS?
     </span>
 </a>
 <nav aria-label="What is ROS?" class="md-nav">
@@ -908,21 +921,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#key-features-of-ros">
 <span class="md-ellipsis">
-      Key Features of ROS
+        Key Features of ROS
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ros-1-vs-ros-2">
 <span class="md-ellipsis">
-      ROS 1 vs. ROS 2
+        ROS 1 vs. ROS 2
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ros-messages-and-topics">
 <span class="md-ellipsis">
-      ROS Messages and Topics
+        ROS Messages and Topics
     </span>
 </a>
 </li>
@@ -932,7 +945,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#setting-up-ultralytics-yolo-with-ros">
 <span class="md-ellipsis">
-      Setting Up Ultralytics YOLO with ROS
+        Setting Up Ultralytics YOLO with ROS
     </span>
 </a>
 <nav aria-label="Setting Up Ultralytics YOLO with ROS" class="md-nav">
@@ -940,7 +953,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#dependencies-installation">
 <span class="md-ellipsis">
-      Dependencies Installation
+        Dependencies Installation
     </span>
 </a>
 </li>
@@ -950,7 +963,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#use-ultralytics-with-ros-sensor_msgsimage">
 <span class="md-ellipsis">
-      Use Ultralytics with ROS sensor_msgs/Image
+        Use Ultralytics with ROS sensor_msgs/Image
     </span>
 </a>
 <nav aria-label="Use Ultralytics with ROS sensor_msgs/Image" class="md-nav">
@@ -958,14 +971,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#image-step-by-step-usage">
 <span class="md-ellipsis">
-      Image Step-by-Step Usage
+        Image Step-by-Step Usage
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#publish-detected-classes-with-std_msgsstring">
 <span class="md-ellipsis">
-      Publish Detected Classes with std_msgs/String
+        Publish Detected Classes with std_msgs/String
     </span>
 </a>
 <nav aria-label="Publish Detected Classes with std_msgs/String" class="md-nav">
@@ -973,7 +986,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#example-use-case">
 <span class="md-ellipsis">
-      Example Use Case
+        Example Use Case
     </span>
 </a>
 </li>
@@ -983,7 +996,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#string-step-by-step-usage">
 <span class="md-ellipsis">
-      String Step-by-Step Usage
+        String Step-by-Step Usage
     </span>
 </a>
 </li>
@@ -993,7 +1006,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#use-ultralytics-with-ros-depth-images">
 <span class="md-ellipsis">
-      Use Ultralytics with ROS Depth Images
+        Use Ultralytics with ROS Depth Images
     </span>
 </a>
 <nav aria-label="Use Ultralytics with ROS Depth Images" class="md-nav">
@@ -1001,7 +1014,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#using-yolo-with-depth-images">
 <span class="md-ellipsis">
-      Using YOLO with Depth Images
+        Using YOLO with Depth Images
     </span>
 </a>
 <nav aria-label="Using YOLO with Depth Images" class="md-nav">
@@ -1009,7 +1022,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#depth-step-by-step-usage">
 <span class="md-ellipsis">
-      Depth Step-by-Step Usage
+        Depth Step-by-Step Usage
     </span>
 </a>
 </li>
@@ -1022,7 +1035,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#use-ultralytics-with-ros-sensor_msgspointcloud2">
 <span class="md-ellipsis">
-      Use Ultralytics with ROS sensor_msgs/PointCloud2
+        Use Ultralytics with ROS sensor_msgs/PointCloud2
     </span>
 </a>
 <nav aria-label="Use Ultralytics with ROS sensor_msgs/PointCloud2" class="md-nav">
@@ -1030,7 +1043,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#using-yolo-with-point-clouds">
 <span class="md-ellipsis">
-      Using YOLO with Point Clouds
+        Using YOLO with Point Clouds
     </span>
 </a>
 <nav aria-label="Using YOLO with Point Clouds" class="md-nav">
@@ -1038,7 +1051,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#point-clouds-step-by-step-usage">
 <span class="md-ellipsis">
-      Point Clouds Step-by-Step Usage
+        Point Clouds Step-by-Step Usage
     </span>
 </a>
 </li>
@@ -1051,7 +1064,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -1059,35 +1072,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-is-the-robot-operating-system-ros">
 <span class="md-ellipsis">
-      What is the Robot Operating System (ROS)?
+        What is the Robot Operating System (ROS)?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-integrate-ultralytics-yolo-with-ros-for-real-time-object-detection">
 <span class="md-ellipsis">
-      How do I integrate Ultralytics YOLO with ROS for real-time object detection?
+        How do I integrate Ultralytics YOLO with ROS for real-time object detection?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-are-ros-topics-and-how-are-they-used-in-ultralytics-yolo">
 <span class="md-ellipsis">
-      What are ROS topics and how are they used in Ultralytics YOLO?
+        What are ROS topics and how are they used in Ultralytics YOLO?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#why-use-depth-images-with-ultralytics-yolo-in-ros">
 <span class="md-ellipsis">
-      Why use depth images with Ultralytics YOLO in ROS?
+        Why use depth images with Ultralytics YOLO in ROS?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-can-i-visualize-3d-point-clouds-with-yolo-in-ros">
 <span class="md-ellipsis">
-      How can I visualize 3D point clouds with YOLO in ROS?
+        How can I visualize 3D point clouds with YOLO in ROS?
     </span>
 </a>
 </li>
@@ -1651,7 +1664,7 @@
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
 <span class="date-item" title="This page was last updated on November 03, 2025">
-<span class="hover-item">✏️</span> Updated 7 days ago
+<span class="hover-item">✏️</span> Updated 8 days ago
     </span>
 </div>
 <div class="authors-container">
@@ -1768,9 +1781,9 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@latest/js/chat.min.js"></script>
 <script src="../../javascript/extra.js"></script>
 <script src="../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>

@@ -8,11 +8,24 @@
 <link href="https://docs.ultralytics.com/integrations/amazon-sagemaker/" rel="canonical"/>
 <link href="../sony-imx500/" rel="prev"/>
 <link href="../clearml/" rel="next"/>
+<link href="/" hreflang="en" rel="alternate"/>
+<link href="/zh/" hreflang="zh" rel="alternate"/>
+<link href="/ko/" hreflang="ko" rel="alternate"/>
+<link href="/ja/" hreflang="ja" rel="alternate"/>
+<link href="/ru/" hreflang="ru" rel="alternate"/>
+<link href="/de/" hreflang="de" rel="alternate"/>
+<link href="/fr/" hreflang="fr" rel="alternate"/>
+<link href="/es/" hreflang="es" rel="alternate"/>
+<link href="/pt/" hreflang="pt" rel="alternate"/>
+<link href="/it/" hreflang="it" rel="alternate"/>
+<link href="/tr/" hreflang="tr" rel="alternate"/>
+<link href="/vi/" hreflang="vi" rel="alternate"/>
+<link href="/ar/" hreflang="ar" rel="alternate"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.23" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.0" name="generator"/>
 <title>A Guide to Deploying YOLO11 on Amazon SageMaker Endpoints</title>
-<link href="../../assets/stylesheets/main.84d31ad4.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.618322db.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -338,7 +351,7 @@
 <nav aria-expanded="true" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_9">
 <span class="md-nav__icon md-icon"></span>
-            Integrations
+    Integrations
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -370,14 +383,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#amazon-sagemaker">
 <span class="md-ellipsis">
-      Amazon SageMaker
+        Amazon SageMaker
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#deploying-yolo11-on-amazon-sagemaker-endpoints">
 <span class="md-ellipsis">
-      Deploying YOLO11 on Amazon SageMaker Endpoints
+        Deploying YOLO11 on Amazon SageMaker Endpoints
     </span>
 </a>
 <nav aria-label="Deploying YOLO11 on Amazon SageMaker Endpoints" class="md-nav">
@@ -385,49 +398,49 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#step-1-setup-your-aws-environment">
 <span class="md-ellipsis">
-      Step 1: Setup Your AWS Environment
+        Step 1: Setup Your AWS Environment
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#step-2-clone-the-yolo11-sagemaker-repository">
 <span class="md-ellipsis">
-      Step 2: Clone the YOLO11 SageMaker Repository
+        Step 2: Clone the YOLO11 SageMaker Repository
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#step-3-set-up-the-cdk-environment">
 <span class="md-ellipsis">
-      Step 3: Set Up the CDK Environment
+        Step 3: Set Up the CDK Environment
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#step-4-create-the-aws-cloudformation-stack">
 <span class="md-ellipsis">
-      Step 4: Create the AWS CloudFormation Stack
+        Step 4: Create the AWS CloudFormation Stack
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#step-5-deploy-the-yolo-model">
 <span class="md-ellipsis">
-      Step 5: Deploy the YOLO Model
+        Step 5: Deploy the YOLO Model
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#step-6-testing-your-deployment">
 <span class="md-ellipsis">
-      Step 6: Testing Your Deployment
+        Step 6: Testing Your Deployment
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#step-7-monitoring-and-management">
 <span class="md-ellipsis">
-      Step 7: Monitoring and Management
+        Step 7: Monitoring and Management
     </span>
 </a>
 </li>
@@ -437,14 +450,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#summary">
 <span class="md-ellipsis">
-      Summary
+        Summary
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -452,35 +465,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-deploy-the-ultralytics-yolo11-model-on-amazon-sagemaker-endpoints">
 <span class="md-ellipsis">
-      How do I deploy the Ultralytics YOLO11 model on Amazon SageMaker Endpoints?
+        How do I deploy the Ultralytics YOLO11 model on Amazon SageMaker Endpoints?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-are-the-prerequisites-for-deploying-yolo11-on-amazon-sagemaker">
 <span class="md-ellipsis">
-      What are the prerequisites for deploying YOLO11 on Amazon SageMaker?
+        What are the prerequisites for deploying YOLO11 on Amazon SageMaker?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#why-should-i-use-ultralytics-yolo11-on-amazon-sagemaker">
 <span class="md-ellipsis">
-      Why should I use Ultralytics YOLO11 on Amazon SageMaker?
+        Why should I use Ultralytics YOLO11 on Amazon SageMaker?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#can-i-customize-the-inference-logic-for-yolo11-on-amazon-sagemaker">
 <span class="md-ellipsis">
-      Can I customize the inference logic for YOLO11 on Amazon SageMaker?
+        Can I customize the inference logic for YOLO11 on Amazon SageMaker?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-can-i-test-the-deployed-yolo11-model-on-amazon-sagemaker">
 <span class="md-ellipsis">
-      How can I test the deployed YOLO11 model on Amazon SageMaker?
+        How can I test the deployed YOLO11 model on Amazon SageMaker?
     </span>
 </a>
 </li>
@@ -765,14 +778,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#amazon-sagemaker">
 <span class="md-ellipsis">
-      Amazon SageMaker
+        Amazon SageMaker
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#deploying-yolo11-on-amazon-sagemaker-endpoints">
 <span class="md-ellipsis">
-      Deploying YOLO11 on Amazon SageMaker Endpoints
+        Deploying YOLO11 on Amazon SageMaker Endpoints
     </span>
 </a>
 <nav aria-label="Deploying YOLO11 on Amazon SageMaker Endpoints" class="md-nav">
@@ -780,49 +793,49 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#step-1-setup-your-aws-environment">
 <span class="md-ellipsis">
-      Step 1: Setup Your AWS Environment
+        Step 1: Setup Your AWS Environment
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#step-2-clone-the-yolo11-sagemaker-repository">
 <span class="md-ellipsis">
-      Step 2: Clone the YOLO11 SageMaker Repository
+        Step 2: Clone the YOLO11 SageMaker Repository
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#step-3-set-up-the-cdk-environment">
 <span class="md-ellipsis">
-      Step 3: Set Up the CDK Environment
+        Step 3: Set Up the CDK Environment
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#step-4-create-the-aws-cloudformation-stack">
 <span class="md-ellipsis">
-      Step 4: Create the AWS CloudFormation Stack
+        Step 4: Create the AWS CloudFormation Stack
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#step-5-deploy-the-yolo-model">
 <span class="md-ellipsis">
-      Step 5: Deploy the YOLO Model
+        Step 5: Deploy the YOLO Model
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#step-6-testing-your-deployment">
 <span class="md-ellipsis">
-      Step 6: Testing Your Deployment
+        Step 6: Testing Your Deployment
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#step-7-monitoring-and-management">
 <span class="md-ellipsis">
-      Step 7: Monitoring and Management
+        Step 7: Monitoring and Management
     </span>
 </a>
 </li>
@@ -832,14 +845,14 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#summary">
 <span class="md-ellipsis">
-      Summary
+        Summary
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#faq">
 <span class="md-ellipsis">
-      FAQ
+        FAQ
     </span>
 </a>
 <nav aria-label="FAQ" class="md-nav">
@@ -847,35 +860,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-deploy-the-ultralytics-yolo11-model-on-amazon-sagemaker-endpoints">
 <span class="md-ellipsis">
-      How do I deploy the Ultralytics YOLO11 model on Amazon SageMaker Endpoints?
+        How do I deploy the Ultralytics YOLO11 model on Amazon SageMaker Endpoints?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-are-the-prerequisites-for-deploying-yolo11-on-amazon-sagemaker">
 <span class="md-ellipsis">
-      What are the prerequisites for deploying YOLO11 on Amazon SageMaker?
+        What are the prerequisites for deploying YOLO11 on Amazon SageMaker?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#why-should-i-use-ultralytics-yolo11-on-amazon-sagemaker">
 <span class="md-ellipsis">
-      Why should I use Ultralytics YOLO11 on Amazon SageMaker?
+        Why should I use Ultralytics YOLO11 on Amazon SageMaker?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#can-i-customize-the-inference-logic-for-yolo11-on-amazon-sagemaker">
 <span class="md-ellipsis">
-      Can I customize the inference logic for YOLO11 on Amazon SageMaker?
+        Can I customize the inference logic for YOLO11 on Amazon SageMaker?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-can-i-test-the-deployed-yolo11-model-on-amazon-sagemaker">
 <span class="md-ellipsis">
-      How can I test the deployed YOLO11 model on Amazon SageMaker?
+        How can I test the deployed YOLO11 model on Amazon SageMaker?
     </span>
 </a>
 </li>
@@ -1247,9 +1260,9 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@master/js/chat.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/ultralytics/llm@latest/js/chat.min.js"></script>
 <script src="../../javascript/extra.js"></script>
 <script src="../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
