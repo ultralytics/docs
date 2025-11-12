@@ -1825,11 +1825,7 @@ to a tensor using the model's image preprocessing function.</p>
 </code></pre></div>
 <details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/text_model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>133</span>
-<span>134</span>
-<span>135</span>
-<span>136</span>
-<span>137</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>137</span>
 <span>138</span>
 <span>139</span>
 <span>140</span>
@@ -1854,7 +1850,11 @@ to a tensor using the model's image preprocessing function.</p>
 <span>159</span>
 <span>160</span>
 <span>161</span>
-<span>162</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
+<span>162</span>
+<span>163</span>
+<span>164</span>
+<span>165</span>
+<span>166</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">encode_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">:</span> <span class="n">Image</span><span class="o">.</span><span class="n">Image</span> <span class="o">|</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Encode preprocessed images into normalized feature vectors.</span>
 <span></span>
@@ -1973,11 +1973,7 @@ normalized to unit length. These normalized vectors can be used for text-image s
 </code></pre></div>
 <details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/text_model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>108</span>
-<span>109</span>
-<span>110</span>
-<span>111</span>
-<span>112</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>112</span>
 <span>113</span>
 <span>114</span>
 <span>115</span>
@@ -1996,7 +1992,11 @@ normalized to unit length. These normalized vectors can be used for text-image s
 <span>128</span>
 <span>129</span>
 <span>130</span>
-<span>131</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
+<span>131</span>
+<span>132</span>
+<span>133</span>
+<span>134</span>
+<span>135</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">encode_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texts</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Encode tokenized texts into normalized feature vectors.</span>
 <span></span>
@@ -2028,7 +2028,7 @@ normalized to unit length. These normalized vectors can be used for text-image s
 <h3 class="doc doc-heading" id="ultralytics.nn.text_model.CLIP.tokenize">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">tokenize</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">tokenize</span><span class="p">(</span><span class="n">texts</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">tokenize</span><span class="p">(</span><span class="n">texts</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">truncate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Convert input texts to CLIP tokens.</p>
@@ -2059,6 +2059,23 @@ normalized to unit length. These normalized vectors can be used for text-image s
 <em>required</em>
 </td>
 </tr>
+<tr class="doc-section-item">
+<td>
+<code>truncate</code>
+</td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to trim texts that exceed CLIP's context length. Defaults to True to
+avoid RuntimeError from overly long inputs while still allowing explicit opt-out.</p>
+</div>
+</td>
+<td>
+<code>True</code>
+</td>
+</tr>
 </tbody>
 </table>
 <p><span class="doc-section-title">Returns:</span></p>
@@ -2086,6 +2103,8 @@ normalized to unit length. These normalized vectors can be used for text-image s
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">CLIP</span><span class="p">(</span><span class="s2">"ViT-B/32"</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s2">"cpu"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tokens</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="s2">"a photo of a cat"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># torch.Size([1, 77])</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">strict_tokens</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="s2">"a photo of a cat"</span><span class="p">,</span> <span class="n">truncate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># Enforce strict length checks</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">strict_tokens</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># Same shape/content as tokens since prompt less than 77 tokens</span>
 </code></pre></div>
 <details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/text_model.py</code></summary>
@@ -2103,11 +2122,17 @@ normalized to unit length. These normalized vectors can be used for text-image s
 <span>103</span>
 <span>104</span>
 <span>105</span>
-<span>106</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tokenize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texts</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>106</span>
+<span>107</span>
+<span>108</span>
+<span>109</span>
+<span>110</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tokenize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texts</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">truncate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Convert input texts to CLIP tokens.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        texts (str | list[str]): Input text or list of texts to tokenize.</span>
+<span></span><span class="sd">        truncate (bool, optional): Whether to trim texts that exceed CLIP's context length. Defaults to True to</span>
+<span></span><span class="sd">            avoid RuntimeError from overly long inputs while still allowing explicit opt-out.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (torch.Tensor): Tokenized text tensor with shape (batch_size, context_length) ready for model processing.</span>
@@ -2116,8 +2141,10 @@ normalized to unit length. These normalized vectors can be used for text-image s
 <span></span><span class="sd">        &gt;&gt;&gt; model = CLIP("ViT-B/32", device="cpu")</span>
 <span></span><span class="sd">        &gt;&gt;&gt; tokens = model.tokenize("a photo of a cat")</span>
 <span></span><span class="sd">        &gt;&gt;&gt; print(tokens.shape)  # torch.Size([1, 77])</span>
+<span></span><span class="sd">        &gt;&gt;&gt; strict_tokens = model.tokenize("a photo of a cat", truncate=False)  # Enforce strict length checks</span>
+<span></span><span class="sd">        &gt;&gt;&gt; print(strict_tokens.shape)  # Same shape/content as tokens since prompt less than 77 tokens</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="k">return</span> <span class="n">clip</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+<span></span>    <span class="k">return</span> <span class="n">clip</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">texts</span><span class="p">,</span> <span class="n">truncate</span><span class="o">=</span><span class="n">truncate</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2303,11 +2330,7 @@ capabilities for vision-language tasks with reduced computational requirements c
 </code></pre></div>
 <details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/text_model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>190</span>
-<span>191</span>
-<span>192</span>
-<span>193</span>
-<span>194</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>194</span>
 <span>195</span>
 <span>196</span>
 <span>197</span>
@@ -2341,7 +2364,11 @@ capabilities for vision-language tasks with reduced computational requirements c
 <span>225</span>
 <span>226</span>
 <span>227</span>
-<span>228</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>228</span>
+<span>229</span>
+<span>230</span>
+<span>231</span>
+<span>232</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the MobileCLIP text encoder.</span>
 <span></span>
 <span></span><span class="sd">    This class implements the TextModel interface using Apple's MobileCLIP model for efficient text encoding.</span>
@@ -2466,11 +2493,7 @@ capabilities for vision-language tasks with reduced computational requirements c
 </code></pre></div>
 <details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/text_model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>245</span>
-<span>246</span>
-<span>247</span>
-<span>248</span>
-<span>249</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>249</span>
 <span>250</span>
 <span>251</span>
 <span>252</span>
@@ -2486,7 +2509,11 @@ capabilities for vision-language tasks with reduced computational requirements c
 <span>262</span>
 <span>263</span>
 <span>264</span>
-<span>265</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
+<span>265</span>
+<span>266</span>
+<span>267</span>
+<span>268</span>
+<span>269</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">encode_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texts</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Encode tokenized texts into normalized feature vectors.</span>
 <span></span>
@@ -2575,11 +2602,7 @@ capabilities for vision-language tasks with reduced computational requirements c
 </code></pre></div>
 <details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/text_model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>230</span>
-<span>231</span>
-<span>232</span>
-<span>233</span>
-<span>234</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>234</span>
 <span>235</span>
 <span>236</span>
 <span>237</span>
@@ -2588,7 +2611,11 @@ capabilities for vision-language tasks with reduced computational requirements c
 <span>240</span>
 <span>241</span>
 <span>242</span>
-<span>243</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tokenize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texts</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>243</span>
+<span>244</span>
+<span>245</span>
+<span>246</span>
+<span>247</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tokenize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texts</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Convert input texts to MobileCLIP tokens.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
@@ -2760,11 +2787,7 @@ text encoding with optimized inference performance.</p>
 </code></pre></div>
 <details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/text_model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>290</span>
-<span>291</span>
-<span>292</span>
-<span>293</span>
-<span>294</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>294</span>
 <span>295</span>
 <span>296</span>
 <span>297</span>
@@ -2779,7 +2802,11 @@ text encoding with optimized inference performance.</p>
 <span>306</span>
 <span>307</span>
 <span>308</span>
-<span>309</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">):</span>
+<span>309</span>
+<span>310</span>
+<span>311</span>
+<span>312</span>
+<span>313</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the MobileCLIP TorchScript text encoder.</span>
 <span></span>
 <span></span><span class="sd">    This class implements the TextModel interface using Apple's MobileCLIP model in TorchScript format for efficient</span>
@@ -2885,16 +2912,7 @@ text encoding with optimized inference performance.</p>
 </code></pre></div>
 <details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/text_model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>326</span>
-<span>327</span>
-<span>328</span>
-<span>329</span>
-<span>330</span>
-<span>331</span>
-<span>332</span>
-<span>333</span>
-<span>334</span>
-<span>335</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>335</span>
 <span>336</span>
 <span>337</span>
 <span>338</span>
@@ -2904,7 +2922,16 @@ text encoding with optimized inference performance.</p>
 <span>342</span>
 <span>343</span>
 <span>344</span>
-<span>345</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
+<span>345</span>
+<span>346</span>
+<span>347</span>
+<span>348</span>
+<span>349</span>
+<span>350</span>
+<span>351</span>
+<span>352</span>
+<span>353</span>
+<span>354</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">encode_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texts</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Encode tokenized texts into normalized feature vectors.</span>
 <span></span>
@@ -2932,7 +2959,7 @@ text encoding with optimized inference performance.</p>
 <h3 class="doc doc-heading" id="ultralytics.nn.text_model.MobileCLIPTS.tokenize">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">tokenize</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">tokenize</span><span class="p">(</span><span class="n">texts</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">tokenize</span><span class="p">(</span><span class="n">texts</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">truncate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Convert input texts to MobileCLIP tokens.</p>
@@ -2963,6 +2990,23 @@ text encoding with optimized inference performance.</p>
 <em>required</em>
 </td>
 </tr>
+<tr class="doc-section-item">
+<td>
+<code>truncate</code>
+</td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to trim texts that exceed the tokenizer context length. Defaults to True,
+matching CLIP's behavior to prevent runtime failures on long captions.</p>
+</div>
+</td>
+<td>
+<code>True</code>
+</td>
+</tr>
 </tbody>
 </table>
 <p><span class="doc-section-title">Returns:</span></p>
@@ -2989,14 +3033,13 @@ text encoding with optimized inference performance.</p>
 <p><span class="doc-section-title">Examples:</span></p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">MobileCLIPTS</span><span class="p">(</span><span class="s2">"cpu"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tokens</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tokenize</span><span class="p">([</span><span class="s2">"a photo of a cat"</span><span class="p">,</span> <span class="s2">"a photo of a dog"</span><span class="p">])</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">strict_tokens</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span>
+<span></span><span class="gp">... </span>    <span class="p">[</span><span class="s2">"a very long caption"</span><span class="p">],</span> <span class="n">truncate</span><span class="o">=</span><span class="kc">False</span>
+<span></span><span class="gp">... </span><span class="p">)</span>  <span class="c1"># RuntimeError if exceeds 77-token</span>
 </code></pre></div>
 <details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/text_model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>311</span>
-<span>312</span>
-<span>313</span>
-<span>314</span>
-<span>315</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>315</span>
 <span>316</span>
 <span>317</span>
 <span>318</span>
@@ -3005,11 +3048,22 @@ text encoding with optimized inference performance.</p>
 <span>321</span>
 <span>322</span>
 <span>323</span>
-<span>324</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tokenize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texts</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>324</span>
+<span>325</span>
+<span>326</span>
+<span>327</span>
+<span>328</span>
+<span>329</span>
+<span>330</span>
+<span>331</span>
+<span>332</span>
+<span>333</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tokenize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texts</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">truncate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Convert input texts to MobileCLIP tokens.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        texts (list[str]): List of text strings to tokenize.</span>
+<span></span><span class="sd">        truncate (bool, optional): Whether to trim texts that exceed the tokenizer context length. Defaults to True,</span>
+<span></span><span class="sd">            matching CLIP's behavior to prevent runtime failures on long captions.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (torch.Tensor): Tokenized text inputs with shape (batch_size, sequence_length).</span>
@@ -3017,8 +3071,11 @@ text encoding with optimized inference performance.</p>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; model = MobileCLIPTS("cpu")</span>
 <span></span><span class="sd">        &gt;&gt;&gt; tokens = model.tokenize(["a photo of a cat", "a photo of a dog"])</span>
+<span></span><span class="sd">        &gt;&gt;&gt; strict_tokens = model.tokenize(</span>
+<span></span><span class="sd">        ...     ["a very long caption"], truncate=False</span>
+<span></span><span class="sd">        ... )  # RuntimeError if exceeds 77-token</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+<span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="p">(</span><span class="n">texts</span><span class="p">,</span> <span class="n">truncate</span><span class="o">=</span><span class="n">truncate</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3106,16 +3163,7 @@ text encoding with optimized inference performance.</p>
 </code></pre></div>
 <details class="mkdocstrings-source">
 <summary>Source code in <code>ultralytics/nn/text_model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>348</span>
-<span>349</span>
-<span>350</span>
-<span>351</span>
-<span>352</span>
-<span>353</span>
-<span>354</span>
-<span>355</span>
-<span>356</span>
-<span>357</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>357</span>
 <span>358</span>
 <span>359</span>
 <span>360</span>
@@ -3126,7 +3174,16 @@ text encoding with optimized inference performance.</p>
 <span>365</span>
 <span>366</span>
 <span>367</span>
-<span>368</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_text_model</span><span class="p">(</span><span class="n">variant</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TextModel</span><span class="p">:</span>
+<span>368</span>
+<span>369</span>
+<span>370</span>
+<span>371</span>
+<span>372</span>
+<span>373</span>
+<span>374</span>
+<span>375</span>
+<span>376</span>
+<span>377</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_text_model</span><span class="p">(</span><span class="n">variant</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TextModel</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Build a text encoding model based on the specified variant.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
