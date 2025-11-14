@@ -4,12 +4,14 @@
 
 Welcome to Ultralytics Docs, your comprehensive resource for understanding and utilizing our state-of-the-art [machine learning](https://www.ultralytics.com/glossary/machine-learning-ml) tools and models, including [Ultralytics YOLO](https://docs.ultralytics.com/models/yolov8/). These documents are actively maintained and deployed to [https://docs.ultralytics.com](https://docs.ultralytics.com/) for easy access.
 
+[![Ultralytics Actions](https://github.com/ultralytics/docs/actions/workflows/format.yml/badge.svg)](https://github.com/ultralytics/docs/actions/workflows/format.yml)
+[![jsDelivr hits](https://data.jsdelivr.com/v1/package/gh/ultralytics/llm/badge?style=rounded)](https://www.jsdelivr.com/package/gh/ultralytics/llm)
+
 [![pages-build-deployment](https://github.com/ultralytics/docs/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/ultralytics/docs/actions/workflows/pages/pages-build-deployment)
 [![Check Broken links](https://github.com/ultralytics/docs/actions/workflows/links.yml/badge.svg)](https://github.com/ultralytics/docs/actions/workflows/links.yml)
 [![Check Domains](https://github.com/ultralytics/docs/actions/workflows/check_domains.yml/badge.svg)](https://github.com/ultralytics/docs/actions/workflows/check_domains.yml)
 [![Download Websites](https://github.com/ultralytics/docs/actions/workflows/download_websites.yml/badge.svg)](https://github.com/ultralytics/docs/actions/workflows/download_websites.yml)
 
-[![Ultralytics Actions](https://github.com/ultralytics/docs/actions/workflows/format.yml/badge.svg)](https://github.com/ultralytics/docs/actions/workflows/format.yml)
 [![Ultralytics Discord](https://img.shields.io/discord/1089800235347353640?logo=discord&logoColor=white&label=Discord&color=blue)](https://discord.com/invite/ultralytics)
 [![Ultralytics Forums](https://img.shields.io/discourse/users?server=https%3A%2F%2Fcommunity.ultralytics.com&logo=discourse&label=Forums&color=blue)](https://community.ultralytics.com/)
 [![Ultralytics Reddit](https://img.shields.io/reddit/subreddit-subscribers/ultralytics?style=flat&logo=reddit&logoColor=white&label=Reddit&color=blue)](https://reddit.com/r/ultralytics)
@@ -41,6 +43,13 @@ To install the `ultralytics` package in developer mode, which allows you to modi
     ```
 
     This command installs the `ultralytics` package such that changes to the source code are immediately reflected in your environment, ideal for development and contributing.
+
+## 🧰 Technology Stack
+
+- **[MkDocs](https://www.mkdocs.org/)** - Static site generator for project documentation
+- **[Ultralytics Chat](https://github.com/ultralytics/llm)** - Realtime conversational AI with open-source [chat.js](https://github.com/ultralytics/llm) implementation
+- **[GitHub Pages](https://pages.github.com/)** - Hosting and deployment
+- **[GitHub Actions](https://github.com/features/actions)** - CI/CD automation
 
 ## 🚀 Building and Serving Locally
 
