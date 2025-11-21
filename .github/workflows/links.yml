@@ -86,6 +86,7 @@ jobs:
           echo "Total URLs to be downloaded: $total_urls"
 
       - name: Download Website
+        continue-on-error: true
         run: |
           # Set higher wait seconds for discourse community to avoid 429 rate limit errors
           if [ "${{ matrix.website }}" = "community.ultralytics.com" ]; then
