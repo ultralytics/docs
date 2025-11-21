@@ -60,7 +60,7 @@ jobs:
         run: |
           # Function to parse sitemap URLs
           parse_sitemap() {
-            cat - | tr '\n' ' ' | sed 's/<loc>/\n<loc>/g' | grep -oP '(?<=<loc>).*?(?=</loc>)' || true
+            cat - | tr '\n' ' ' | sed 's/<loc>/\n<loc>/g' | grep -oP '(?<=<loc>).*?(?=</loc>)' | sed 's/:$//' || true
           }
 
           # Download initial sitemap and process
