@@ -628,7 +628,7 @@ exception if the requested device(s) are not available.</p><p><span class="doc-s
 <span></span>    <span class="n">cpu</span> <span class="o">=</span> <span class="n">device</span> <span class="o">==</span> <span class="s2">"cpu"</span>
 <span></span>    <span class="n">mps</span> <span class="o">=</span> <span class="n">device</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"mps"</span><span class="p">,</span> <span class="s2">"mps:0"</span><span class="p">}</span>  <span class="c1"># Apple Metal Performance Shaders (MPS)</span>
 <span></span>    <span class="k">if</span> <span class="n">cpu</span> <span class="ow">or</span> <span class="n">mps</span><span class="p">:</span>
-<span></span>        <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"CUDA_VISIBLE_DEVICES"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"-1"</span>  <span class="c1"># force torch.cuda.is_available() = False</span>
+<span></span>        <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"CUDA_VISIBLE_DEVICES"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">""</span>  <span class="c1"># force torch.cuda.is_available() = False</span>
 <span></span>    <span class="k">elif</span> <span class="n">device</span><span class="p">:</span>  <span class="c1"># non-cpu device requested</span>
 <span></span>        <span class="k">if</span> <span class="n">device</span> <span class="o">==</span> <span class="s2">"cuda"</span><span class="p">:</span>
 <span></span>            <span class="n">device</span> <span class="o">=</span> <span class="s2">"0"</span>
