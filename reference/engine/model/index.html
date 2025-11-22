@@ -141,10 +141,7 @@ name from Ultralytics HUB, a Triton Server model, or an already initialized Mode
 <code><span title="ValueError">ValueError</span></code>
 </td><td><div class="doc-md-description"><p>If the model file or configuration is invalid or unsupported.</p></div></td></tr><tr class="doc-section-item"><td>
 <code><span title="ImportError">ImportError</span></code>
-</td><td><div class="doc-md-description"><p>If required dependencies for specific model types (like HUB SDK) are not installed.</p></div></td></tr></tbody></table><p><span class="doc-section-title">Examples:</span></p><div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="s2">"path/to/model.yaml"</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="s2">"hub_model"</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 81</span>
+</td><td><div class="doc-md-description"><p>If required dependencies for specific model types (like HUB SDK) are not installed.</p></div></td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 81</span>
 <span> 82</span>
 <span> 83</span>
 <span> 84</span>
@@ -210,12 +207,7 @@ name from Ultralytics HUB, a Triton Server model, or an already initialized Mode
 <span>144</span>
 <span>145</span>
 <span>146</span>
-<span>147</span>
-<span>148</span>
-<span>149</span>
-<span>150</span>
-<span>151</span>
-<span>152</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>147</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="n">Model</span> <span class="o">=</span> <span class="s2">"yolo11n.pt"</span><span class="p">,</span>
 <span></span>    <span class="n">task</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -237,11 +229,6 @@ name from Ultralytics HUB, a Triton Server model, or an already initialized Mode
 <span></span><span class="sd">        FileNotFoundError: If the specified model file does not exist or is inaccessible.</span>
 <span></span><span class="sd">        ValueError: If the model file or configuration is invalid or unsupported.</span>
 <span></span><span class="sd">        ImportError: If required dependencies for specific model types (like HUB SDK) are not installed.</span>
-<span></span>
-<span></span><span class="sd">    Examples:</span>
-<span></span><span class="sd">        &gt;&gt;&gt; model = Model("yolo11n.pt")</span>
-<span></span><span class="sd">        &gt;&gt;&gt; model = Model("path/to/model.yaml", task="detect")</span>
-<span></span><span class="sd">        &gt;&gt;&gt; model = Model("hub_model", verbose=True)</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">Model</span><span class="p">):</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="vm">__dict__</span>  <span class="c1"># accepts an already initialized Model</span>
@@ -372,7 +359,12 @@ object.</p></div></td></tr></tbody></table><p><span class="doc-section-title">Ex
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
 <span></span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Detected </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="si">}</span><span class="s2"> objects in image"</span><span class="p">)</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>154</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>149</span>
+<span>150</span>
+<span>151</span>
+<span>152</span>
+<span>153</span>
+<span>154</span>
 <span>155</span>
 <span>156</span>
 <span>157</span>
@@ -395,12 +387,7 @@ object.</p></div></td></tr></tbody></table><p><span class="doc-section-title">Ex
 <span>174</span>
 <span>175</span>
 <span>176</span>
-<span>177</span>
-<span>178</span>
-<span>179</span>
-<span>180</span>
-<span>181</span>
-<span>182</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span>
+<span>177</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">source</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">Image</span><span class="o">.</span><span class="n">Image</span> <span class="o">|</span> <span class="nb">list</span> <span class="o">|</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">stream</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -444,7 +431,12 @@ the module dictionary. Otherwise, it delegates the attribute lookup to the under
 </td><td><div class="doc-md-description"><p>If the requested attribute does not exist in the model.</p></div></td></tr></tbody></table><p><span class="doc-section-title">Examples:</span></p><div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">stride</span><span class="p">)</span>  <span class="c1"># Access model.stride attribute</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>  <span class="c1"># Access model.names attribute</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1108</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1103</span>
+<span>1104</span>
+<span>1105</span>
+<span>1106</span>
+<span>1107</span>
+<span>1108</span>
 <span>1109</span>
 <span>1110</span>
 <span>1111</span>
@@ -460,12 +452,7 @@ the module dictionary. Otherwise, it delegates the attribute lookup to the under
 <span>1121</span>
 <span>1122</span>
 <span>1123</span>
-<span>1124</span>
-<span>1125</span>
-<span>1126</span>
-<span>1127</span>
-<span>1128</span>
-<span>1129</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span>1124</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Enable accessing model attributes directly through the Model class.</span>
 <span></span>
 <span></span><span class="sd">    This method provides a way to access attributes of the underlying model directly through the Model class</span>
@@ -508,7 +495,12 @@ event occurs.</p></div></td><td><em>required</em></td></tr></tbody></table><p><s
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_train_start"</span><span class="p">,</span> <span class="n">on_train_start</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>935</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>930</span>
+<span>931</span>
+<span>932</span>
+<span>933</span>
+<span>934</span>
+<span>935</span>
 <span>936</span>
 <span>937</span>
 <span>938</span>
@@ -526,12 +518,7 @@ event occurs.</p></div></td><td><em>required</em></td></tr></tbody></table><p><s
 <span>950</span>
 <span>951</span>
 <span>952</span>
-<span>953</span>
-<span>954</span>
-<span>955</span>
-<span>956</span>
-<span>957</span>
-<span>958</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>953</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Add a callback function for a specified event.</span>
 <span></span>
 <span></span><span class="sd">    This method allows registering custom callback functions that are triggered on specific events during model</span>
@@ -596,7 +583,12 @@ export formats.</p></div></td></tr></tbody></table><p><span class="doc-section-t
 </td><td><div class="doc-md-description"><p>If the model is not a PyTorch model.</p></div></td></tr></tbody></table><p><span class="doc-section-title">Examples:</span></p><div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">benchmark</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">half</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>620</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>615</span>
+<span>616</span>
+<span>617</span>
+<span>618</span>
+<span>619</span>
+<span>620</span>
 <span>621</span>
 <span>622</span>
 <span>623</span>
@@ -639,12 +631,7 @@ export formats.</p></div></td></tr></tbody></table><p><span class="doc-section-t
 <span>660</span>
 <span>661</span>
 <span>662</span>
-<span>663</span>
-<span>664</span>
-<span>665</span>
-<span>666</span>
-<span>667</span>
-<span>668</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">benchmark</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+<span>663</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">benchmark</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Benchmark the model across various export formats to evaluate performance.</span>
 <span></span>
 <span></span><span class="sd">    This method assesses the model's performance in different export formats, such as ONNX, TorchScript, etc. It</span>
@@ -706,7 +693,12 @@ recognized by the Ultralytics callback system.</p></div></td><td><em>required</e
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_train_start"</span><span class="p">,</span> <span class="k">lambda</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"Training started"</span><span class="p">))</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">clear_callback</span><span class="p">(</span><span class="s2">"on_train_start"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># All callbacks for 'on_train_start' are now removed</span>
-</code></pre></div><details class="notes" open=""><summary>Notes</summary><ul><li>This method affects both custom callbacks added by the user and default callbacks provided by the Ultralytics framework.</li><li>After calling this method, no callbacks will be executed for the specified event until new ones are added.</li><li>Use with caution as it removes all callbacks, including essential ones that might be required for proper functioning of certain operations.</li></ul></details><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>960</span>
+</code></pre></div><details class="notes" open=""><summary>Notes</summary><ul><li>This method affects both custom callbacks added by the user and default callbacks provided by the Ultralytics framework.</li><li>After calling this method, no callbacks will be executed for the specified event until new ones are added.</li><li>Use with caution as it removes all callbacks, including essential ones that might be required for proper functioning of certain operations.</li></ul></details><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>955</span>
+<span>956</span>
+<span>957</span>
+<span>958</span>
+<span>959</span>
+<span>960</span>
 <span>961</span>
 <span>962</span>
 <span>963</span>
@@ -726,12 +718,7 @@ recognized by the Ultralytics callback system.</p></div></td><td><em>required</e
 <span>977</span>
 <span>978</span>
 <span>979</span>
-<span>980</span>
-<span>981</span>
-<span>982</span>
-<span>983</span>
-<span>984</span>
-<span>985</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clear_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>980</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clear_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Clear all callback functions registered for a specified event.</span>
 <span></span>
 <span></span><span class="sd">    This method removes all custom and default callback functions associated with the given event. It resets the</span>
@@ -789,7 +776,12 @@ embeddings. Can be a file path, URL, PIL image, numpy array, etc.</p></div></td>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">image</span> <span class="o">=</span> <span class="s2">"https://ultralytics.com/images/bus.jpg"</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">embeddings</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">embed</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">embeddings</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>452</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>447</span>
+<span>448</span>
+<span>449</span>
+<span>450</span>
+<span>451</span>
+<span>452</span>
 <span>453</span>
 <span>454</span>
 <span>455</span>
@@ -812,12 +804,7 @@ embeddings. Can be a file path, URL, PIL image, numpy array, etc.</p></div></td>
 <span>472</span>
 <span>473</span>
 <span>474</span>
-<span>475</span>
-<span>476</span>
-<span>477</span>
-<span>478</span>
-<span>479</span>
-<span>480</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">embed</span><span class="p">(</span>
+<span>475</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">embed</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">source</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">list</span> <span class="o">|</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">stream</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -855,7 +842,12 @@ rather than computing batch statistics, and dropout layers are disabled.</p><p><
 </td><td><div class="doc-md-description"><p>The model instance with evaluation mode set.</p></div></td></tr></tbody></table><p><span class="doc-section-title">Examples:</span></p><div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Model is now in evaluation mode for inference</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1090</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1085</span>
+<span>1086</span>
+<span>1087</span>
+<span>1088</span>
+<span>1089</span>
+<span>1090</span>
 <span>1091</span>
 <span>1092</span>
 <span>1093</span>
@@ -866,12 +858,7 @@ rather than computing batch statistics, and dropout layers are disabled.</p><p><
 <span>1098</span>
 <span>1099</span>
 <span>1100</span>
-<span>1101</span>
-<span>1102</span>
-<span>1103</span>
-<span>1104</span>
-<span>1105</span>
-<span>1106</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">eval</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>1101</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">eval</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Sets the model to evaluation mode.</span>
 <span></span>
 <span></span><span class="sd">    This method changes the model's mode to evaluation, which affects layers like dropout and batch normalization</span>
@@ -916,7 +903,12 @@ defaults, and any additional arguments provided.</p><p><span class="doc-section-
 </td><td><div class="doc-md-description"><p>If the export process fails due to errors.</p></div></td></tr></tbody></table><p><span class="doc-section-title">Examples:</span></p><div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"onnx"</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">simplify</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span></span><span class="go">'path/to/exported/model.onnx'</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>670</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>665</span>
+<span>666</span>
+<span>667</span>
+<span>668</span>
+<span>669</span>
+<span>670</span>
 <span>671</span>
 <span>672</span>
 <span>673</span>
@@ -955,12 +947,7 @@ defaults, and any additional arguments provided.</p><p><span class="doc-section-
 <span>706</span>
 <span>707</span>
 <span>708</span>
-<span>709</span>
-<span>710</span>
-<span>711</span>
-<span>712</span>
-<span>713</span>
-<span>714</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">export</span><span class="p">(</span>
+<span>709</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">export</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
@@ -1014,7 +1001,12 @@ bias) into the preceding Conv2d layer's weights and biases. This results in a si
 performs both convolution and normalization in one step.</p><p><span class="doc-section-title">Examples:</span></p><div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">fuse</span><span class="p">()</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Model is now fused and ready for optimized inference</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>433</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>428</span>
+<span>429</span>
+<span>430</span>
+<span>431</span>
+<span>432</span>
+<span>433</span>
 <span>434</span>
 <span>435</span>
 <span>436</span>
@@ -1026,12 +1018,7 @@ performs both convolution and normalization in one step.</p><p><span class="doc-
 <span>442</span>
 <span>443</span>
 <span>444</span>
-<span>445</span>
-<span>446</span>
-<span>447</span>
-<span>448</span>
-<span>449</span>
-<span>450</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fuse</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>445</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fuse</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Fuse Conv2d and BatchNorm2d layers in the model for optimized inference.</span>
 <span></span>
 <span></span><span class="sd">    This method iterates through the model's modules and fuses consecutive Conv2d and BatchNorm2d layers into a</span>
@@ -1070,7 +1057,12 @@ passed. It can control the verbosity of the output and return the information as
 summary, layer details, and parameter counts. Empty if verbose is True.</p></div></td></tr></tbody></table><p><span class="doc-section-title">Examples:</span></p><div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>  <span class="c1"># Prints model summary</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">info_list</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">detailed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># Returns detailed info as a list</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>411</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>406</span>
+<span>407</span>
+<span>408</span>
+<span>409</span>
+<span>410</span>
+<span>411</span>
 <span>412</span>
 <span>413</span>
 <span>414</span>
@@ -1085,12 +1077,7 @@ summary, layer details, and parameter counts. Empty if verbose is True.</p></div
 <span>423</span>
 <span>424</span>
 <span>425</span>
-<span>426</span>
-<span>427</span>
-<span>428</span>
-<span>429</span>
-<span>430</span>
-<span>431</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">detailed</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span>426</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">detailed</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Display model information.</span>
 <span></span>
 <span></span><span class="sd">    This method provides an overview or detailed information about the model, depending on the arguments</span>
@@ -1124,7 +1111,12 @@ identifier.</p><p><span class="doc-section-title">Parameters:</span></p><table><
 <span></span><span class="go">True</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Model</span><span class="o">.</span><span class="n">is_hub_model</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
 <span></span><span class="go">False</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>208</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>203</span>
+<span>204</span>
+<span>205</span>
+<span>206</span>
+<span>207</span>
+<span>208</span>
 <span>209</span>
 <span>210</span>
 <span>211</span>
@@ -1140,12 +1132,7 @@ identifier.</p><p><span class="doc-section-title">Parameters:</span></p><table><
 <span>221</span>
 <span>222</span>
 <span>223</span>
-<span>224</span>
-<span>225</span>
-<span>226</span>
-<span>227</span>
-<span>228</span>
-<span>229</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span>224</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_hub_model</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Check if the provided model is an Ultralytics HUB model.</span>
 <span></span>
@@ -1180,7 +1167,12 @@ its components using urllib.parse.urlsplit().</p><p><span class="doc-section-tit
 <span></span><span class="go">True</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Model</span><span class="o">.</span><span class="n">is_triton_model</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
 <span></span><span class="go">False</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>184</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>179</span>
+<span>180</span>
+<span>181</span>
+<span>182</span>
+<span>183</span>
+<span>184</span>
 <span>185</span>
 <span>186</span>
 <span>187</span>
@@ -1197,12 +1189,7 @@ its components using urllib.parse.urlsplit().</p><p><span class="doc-section-tit
 <span>198</span>
 <span>199</span>
 <span>200</span>
-<span>201</span>
-<span>202</span>
-<span>203</span>
-<span>204</span>
-<span>205</span>
-<span>206</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span>201</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_triton_model</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Check if the given model string is a Triton Server URL.</span>
 <span></span>
@@ -1241,7 +1228,12 @@ name and shape and transfers them to the model.</p><p><span class="doc-section-t
 </td><td><div class="doc-md-description"><p>If the model is not a PyTorch model.</p></div></td></tr></tbody></table><p><span class="doc-section-title">Examples:</span></p><div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">()</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">"path/to/weights.pt"</span><span class="p">))</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>353</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>348</span>
+<span>349</span>
+<span>350</span>
+<span>351</span>
+<span>352</span>
+<span>353</span>
 <span>354</span>
 <span>355</span>
 <span>356</span>
@@ -1261,12 +1253,7 @@ name and shape and transfers them to the model.</p><p><span class="doc-section-t
 <span>370</span>
 <span>371</span>
 <span>372</span>
-<span>373</span>
-<span>374</span>
-<span>375</span>
-<span>376</span>
-<span>377</span>
-<span>378</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">=</span> <span class="s2">"yolo11n.pt"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Model</span><span class="p">:</span>
+<span>373</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">=</span> <span class="s2">"yolo11n.pt"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Model</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Load parameters from the specified weights file into the model.</span>
 <span></span>
 <span></span><span class="sd">    This method supports loading weights from a file or directly from a weights object. It matches parameters by</span>
@@ -1335,7 +1322,12 @@ object.</p></div></td></tr></tbody></table><p><span class="doc-section-title">Ex
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"path/to/image.jpg"</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
 <span></span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># print detection bounding boxes</span>
-</code></pre></div><details class="notes" open=""><summary>Notes</summary><ul><li>If 'source' is not provided, it defaults to the ASSETS constant with a warning.</li><li>The method sets up a new predictor if not already present and updates its arguments with each call.</li><li>For SAM-type models, 'prompts' can be passed as a keyword argument.</li></ul></details><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>482</span>
+</code></pre></div><details class="notes" open=""><summary>Notes</summary><ul><li>If 'source' is not provided, it defaults to the ASSETS constant with a warning.</li><li>The method sets up a new predictor if not already present and updates its arguments with each call.</li><li>For SAM-type models, 'prompts' can be passed as a keyword argument.</li></ul></details><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>477</span>
+<span>478</span>
+<span>479</span>
+<span>480</span>
+<span>481</span>
+<span>482</span>
 <span>483</span>
 <span>484</span>
 <span>485</span>
@@ -1388,12 +1380,7 @@ object.</p></div></td></tr></tbody></table><p><span class="doc-section-title">Ex
 <span>532</span>
 <span>533</span>
 <span>534</span>
-<span>535</span>
-<span>536</span>
-<span>537</span>
-<span>538</span>
-<span>539</span>
-<span>540</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span>
+<span>535</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">source</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">Image</span><span class="o">.</span><span class="n">Image</span> <span class="o">|</span> <span class="nb">list</span> <span class="o">|</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">stream</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -1462,7 +1449,12 @@ modifications, ensuring consistent behavior across different runs or experiments
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_train_start"</span><span class="p">,</span> <span class="n">custom_function</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">reset_callbacks</span><span class="p">()</span>
 <span></span><span class="go"># All callbacks are now reset to their default functions</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 987</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 982</span>
+<span> 983</span>
+<span> 984</span>
+<span> 985</span>
+<span> 986</span>
+<span> 987</span>
 <span> 988</span>
 <span> 989</span>
 <span> 990</span>
@@ -1477,12 +1469,7 @@ modifications, ensuring consistent behavior across different runs or experiments
 <span> 999</span>
 <span>1000</span>
 <span>1001</span>
-<span>1002</span>
-<span>1003</span>
-<span>1004</span>
-<span>1005</span>
-<span>1006</span>
-<span>1007</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>1002</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Reset all callbacks to their default functions.</span>
 <span></span>
 <span></span><span class="sd">    This method reinstates the default callback functions for all events, removing any custom callbacks that were</span>
@@ -1513,7 +1500,12 @@ to be updated during training.</p><p><span class="doc-section-title">Returns:</s
 <code><span title="AssertionError">AssertionError</span></code>
 </td><td><div class="doc-md-description"><p>If the model is not a PyTorch model.</p></div></td></tr></tbody></table><p><span class="doc-section-title">Examples:</span></p><div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">reset_weights</span><span class="p">()</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>328</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>323</span>
+<span>324</span>
+<span>325</span>
+<span>326</span>
+<span>327</span>
+<span>328</span>
 <span>329</span>
 <span>330</span>
 <span>331</span>
@@ -1531,12 +1523,7 @@ to be updated during training.</p><p><span class="doc-section-title">Returns:</s
 <span>343</span>
 <span>344</span>
 <span>345</span>
-<span>346</span>
-<span>347</span>
-<span>348</span>
-<span>349</span>
-<span>350</span>
-<span>351</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Model</span><span class="p">:</span>
+<span>346</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Model</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Reset the model's weights to their initial state.</span>
 <span></span>
 <span></span><span class="sd">    This method iterates through all modules in the model and resets their parameters if they have a</span>
@@ -1573,7 +1560,12 @@ date, Ultralytics version, license information, and a link to the documentation.
 <code><span title="AssertionError">AssertionError</span></code>
 </td><td><div class="doc-md-description"><p>If the model is not a PyTorch model.</p></div></td></tr></tbody></table><p><span class="doc-section-title">Examples:</span></p><div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"my_model.pt"</span><span class="p">)</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>380</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>375</span>
+<span>376</span>
+<span>377</span>
+<span>378</span>
+<span>379</span>
+<span>380</span>
 <span>381</span>
 <span>382</span>
 <span>383</span>
@@ -1597,12 +1589,7 @@ date, Ultralytics version, license information, and a link to the documentation.
 <span>401</span>
 <span>402</span>
 <span>403</span>
-<span>404</span>
-<span>405</span>
-<span>406</span>
-<span>407</span>
-<span>408</span>
-<span>409</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">=</span> <span class="s2">"saved_model.pt"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>404</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">=</span> <span class="s2">"saved_model.pt"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Save the current model state to a file.</span>
 <span></span>
 <span></span><span class="sd">    This method exports the model's checkpoint (ckpt) to the specified filename. It includes metadata such as the</span>
@@ -1672,7 +1659,12 @@ tracking. Can be a file path, URL, or video stream.</p></div></td><td>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"path/to/video.mp4"</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
 <span></span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>  <span class="c1"># print tracking IDs</span>
-</code></pre></div><details class="notes" open=""><summary>Notes</summary><ul><li>This method sets a default confidence threshold of 0.1 for ByteTrack-based tracking.</li><li>The tracking mode is explicitly set in the keyword arguments.</li><li>Batch size is set to 1 for tracking in videos.</li></ul></details><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>542</span>
+</code></pre></div><details class="notes" open=""><summary>Notes</summary><ul><li>This method sets a default confidence threshold of 0.1 for ByteTrack-based tracking.</li><li>The tracking mode is explicitly set in the keyword arguments.</li><li>Batch size is set to 1 for tracking in videos.</li></ul></details><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>537</span>
+<span>538</span>
+<span>539</span>
+<span>540</span>
+<span>541</span>
+<span>542</span>
 <span>543</span>
 <span>544</span>
 <span>545</span>
@@ -1708,12 +1700,7 @@ tracking. Can be a file path, URL, or video stream.</p></div></td><td>
 <span>575</span>
 <span>576</span>
 <span>577</span>
-<span>578</span>
-<span>579</span>
-<span>580</span>
-<span>581</span>
-<span>582</span>
-<span>583</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">track</span><span class="p">(</span>
+<span>578</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">track</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">source</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">list</span> <span class="o">|</span> <span class="nb">tuple</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">stream</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -1787,7 +1774,12 @@ method-specific defaults, and user-provided arguments to configure the training 
 <code><span title="dict">dict</span> | None</code>
 </td><td><div class="doc-md-description"><p>Training metrics if available and training is successful; otherwise, None.</p></div></td></tr></tbody></table><p><span class="doc-section-title">Examples:</span></p><div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>716</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>711</span>
+<span>712</span>
+<span>713</span>
+<span>714</span>
+<span>715</span>
+<span>716</span>
 <span>717</span>
 <span>718</span>
 <span>719</span>
@@ -1851,12 +1843,7 @@ method-specific defaults, and user-provided arguments to configure the training 
 <span>777</span>
 <span>778</span>
 <span>779</span>
-<span>780</span>
-<span>781</span>
-<span>782</span>
-<span>783</span>
-<span>784</span>
-<span>785</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span>
+<span>780</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">trainer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
@@ -1964,7 +1951,12 @@ overrides and defaults to configure the tuning process.</p></div></td><td>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 </code></pre></div><h4 id="ultralytics.engine.model.Model.tune--use-ray-tune-for-more-advanced-hyperparameter-search">Use Ray Tune for more advanced hyperparameter search</h4><div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">use_ray</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">)</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>787</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>782</span>
+<span>783</span>
+<span>784</span>
+<span>785</span>
+<span>786</span>
+<span>787</span>
 <span>788</span>
 <span>789</span>
 <span>790</span>
@@ -2004,12 +1996,7 @@ overrides and defaults to configure the tuning process.</p></div></td><td>
 <span>824</span>
 <span>825</span>
 <span>826</span>
-<span>827</span>
-<span>828</span>
-<span>829</span>
-<span>830</span>
-<span>831</span>
-<span>832</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tune</span><span class="p">(</span>
+<span>827</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tune</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">use_ray</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">iterations</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
@@ -2079,7 +2066,12 @@ for validating the model.</p></div></td><td>
 </td><td><div class="doc-md-description"><p>If the model is not a PyTorch model.</p></div></td></tr></tbody></table><p><span class="doc-section-title">Examples:</span></p><div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map</span><span class="p">)</span>  <span class="c1"># Print mAP50-95</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>585</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/engine/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>580</span>
+<span>581</span>
+<span>582</span>
+<span>583</span>
+<span>584</span>
+<span>585</span>
 <span>586</span>
 <span>587</span>
 <span>588</span>
@@ -2107,12 +2099,7 @@ for validating the model.</p></div></td><td>
 <span>610</span>
 <span>611</span>
 <span>612</span>
-<span>613</span>
-<span>614</span>
-<span>615</span>
-<span>616</span>
-<span>617</span>
-<span>618</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">val</span><span class="p">(</span>
+<span>613</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">val</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">validator</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>

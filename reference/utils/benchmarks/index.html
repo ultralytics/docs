@@ -427,10 +427,7 @@
 <code><span title="torch.device">device</span> | <span title="str">str</span> | None</code>
 </td><td><div class="doc-md-description"><p>Device used for profiling. If None, it is determined automatically.</p></div></td><td>
 <code>None</code>
-</td></tr></tbody></table><p><span class="doc-section-title">Examples:</span></p><p>Initialize and profile models</p><div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.benchmarks</span><span class="w"> </span><span class="kn">import</span> <span class="n">ProfileModels</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">profiler</span> <span class="o">=</span> <span class="n">ProfileModels</span><span class="p">([</span><span class="s2">"yolo11n.yaml"</span><span class="p">,</span> <span class="s2">"yolov8s.yaml"</span><span class="p">],</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">profiler</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</code></pre></div><details class="notes" open=""><summary>Notes</summary><p>FP16 'half' argument option removed for ONNX as slower on CPU than FP32.</p></details><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>403</span>
+</td></tr></tbody></table><details class="notes" open=""><summary>Notes</summary><p>FP16 'half' argument option removed for ONNX as slower on CPU than FP32.</p></details><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>403</span>
 <span>404</span>
 <span>405</span>
 <span>406</span>
@@ -463,13 +460,7 @@
 <span>433</span>
 <span>434</span>
 <span>435</span>
-<span>436</span>
-<span>437</span>
-<span>438</span>
-<span>439</span>
-<span>440</span>
-<span>441</span>
-<span>442</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>436</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">paths</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
 <span></span>    <span class="n">num_timed_runs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
@@ -492,12 +483,6 @@
 <span></span><span class="sd">        trt (bool): Flag to indicate whether to profile using TensorRT.</span>
 <span></span><span class="sd">        device (torch.device | str | None): Device used for profiling. If None, it is determined automatically.</span>
 <span></span>
-<span></span><span class="sd">    Examples:</span>
-<span></span><span class="sd">        Initialize and profile models</span>
-<span></span><span class="sd">        &gt;&gt;&gt; from ultralytics.utils.benchmarks import ProfileModels</span>
-<span></span><span class="sd">        &gt;&gt;&gt; profiler = ProfileModels(["yolo11n.yaml", "yolov8s.yaml"], imgsz=640)</span>
-<span></span><span class="sd">        &gt;&gt;&gt; profiler.run()</span>
-<span></span>
 <span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        FP16 'half' argument option removed for ONNX as slower on CPU than FP32.</span>
 <span></span><span class="sd">    """</span>
@@ -511,10 +496,10 @@
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">device</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">)</span> <span class="k">else</span> <span class="n">select_device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div></details><div class="doc doc-children"><div class="doc doc-object doc-function"><h3 class="doc doc-heading" id="ultralytics.utils.benchmarks.ProfileModels.check_dynamic">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">check_dynamic</span><span class="doc doc-labels"><small class="doc doc-label doc-label-staticmethod"><code>staticmethod</code></small></span></h3><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">check_dynamic</span><span class="p">(</span><span class="n">tensor_shape</span><span class="p">)</span>
-</code></pre></div><div class="doc doc-contents"><p>Check whether the tensor shape in the ONNX model is dynamic.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>582</span>
-<span>583</span>
-<span>584</span>
-<span>585</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+</code></pre></div><div class="doc doc-contents"><p>Check whether the tensor shape in the ONNX model is dynamic.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>576</span>
+<span>577</span>
+<span>578</span>
+<span>579</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_dynamic</span><span class="p">(</span><span class="n">tensor_shape</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Check whether the tensor shape in the ONNX model is dynamic."""</span>
 <span></span>    <span class="k">return</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="n">dim</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">tensor_shape</span><span class="p">)</span>
@@ -543,7 +528,13 @@
 <code><span title="tuple">tuple</span></code>
 </td><td><div class="doc-md-description"><p>Model information (layers, params, gradients, flops).</p></div></td><td><em>required</em></td></tr></tbody></table><p><span class="doc-section-title">Returns:</span></p><table><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr class="doc-section-item"><td>
 <code><span title="dict">dict</span></code>
-</td><td><div class="doc-md-description"><p>Dictionary containing profiling results.</p></div></td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>684</span>
+</td><td><div class="doc-md-description"><p>Dictionary containing profiling results.</p></div></td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>678</span>
+<span>679</span>
+<span>680</span>
+<span>681</span>
+<span>682</span>
+<span>683</span>
+<span>684</span>
 <span>685</span>
 <span>686</span>
 <span>687</span>
@@ -562,13 +553,7 @@
 <span>700</span>
 <span>701</span>
 <span>702</span>
-<span>703</span>
-<span>704</span>
-<span>705</span>
-<span>706</span>
-<span>707</span>
-<span>708</span>
-<span>709</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span>703</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_results_dict</span><span class="p">(</span>
 <span></span>    <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span></span>    <span class="n">t_onnx</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
@@ -619,7 +604,13 @@
 <code><span title="tuple">tuple</span></code>
 </td><td><div class="doc-md-description"><p>Model information (layers, params, gradients, flops).</p></div></td><td><em>required</em></td></tr></tbody></table><p><span class="doc-section-title">Returns:</span></p><table><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr class="doc-section-item"><td>
 <code><span title="str">str</span></code>
-</td><td><div class="doc-md-description"><p>Formatted table row string with model metrics.</p></div></td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>660</span>
+</td><td><div class="doc-md-description"><p>Formatted table row string with model metrics.</p></div></td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>654</span>
+<span>655</span>
+<span>656</span>
+<span>657</span>
+<span>658</span>
+<span>659</span>
+<span>660</span>
 <span>661</span>
 <span>662</span>
 <span>663</span>
@@ -635,13 +626,7 @@
 <span>673</span>
 <span>674</span>
 <span>675</span>
-<span>676</span>
-<span>677</span>
-<span>678</span>
-<span>679</span>
-<span>680</span>
-<span>681</span>
-<span>682</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_table_row</span><span class="p">(</span>
+<span>676</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_table_row</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">model_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span></span>    <span class="n">t_onnx</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
@@ -668,7 +653,13 @@
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">get_files</span></h3><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_files</span><span class="p">()</span>
 </code></pre></div><div class="doc doc-contents"><p>Return a list of paths for all relevant model files given by the user.</p><p><span class="doc-section-title">Returns:</span></p><table><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr class="doc-section-item"><td>
 <code><span title="list">list</span>[<span title="pathlib.Path">Path</span>]</code>
-</td><td><div class="doc-md-description"><p>List of Path objects for the model files.</p></div></td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>498</span>
+</td><td><div class="doc-md-description"><p>List of Path objects for the model files.</p></div></td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>492</span>
+<span>493</span>
+<span>494</span>
+<span>495</span>
+<span>496</span>
+<span>497</span>
+<span>498</span>
 <span>499</span>
 <span>500</span>
 <span>501</span>
@@ -680,13 +671,7 @@
 <span>507</span>
 <span>508</span>
 <span>509</span>
-<span>510</span>
-<span>511</span>
-<span>512</span>
-<span>513</span>
-<span>514</span>
-<span>515</span>
-<span>516</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_files</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>510</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_files</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return a list of paths for all relevant model files given by the user.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
@@ -707,10 +692,10 @@
 <span></span>    <span class="k">return</span> <span class="p">[</span><span class="n">Path</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">files</span><span class="p">)]</span>
 </code></pre></div></td></tr></table></div></details></div></div><div class="doc doc-object doc-function"><h3 class="doc doc-heading" id="ultralytics.utils.benchmarks.ProfileModels.get_onnx_model_info">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">get_onnx_model_info</span><span class="doc doc-labels"><small class="doc doc-label doc-label-staticmethod"><code>staticmethod</code></small></span></h3><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_onnx_model_info</span><span class="p">(</span><span class="n">onnx_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span>
-</code></pre></div><div class="doc doc-contents"><p>Extract metadata from an ONNX model file including parameters, GFLOPs, and input shape.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>518</span>
-<span>519</span>
-<span>520</span>
-<span>521</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+</code></pre></div><div class="doc doc-contents"><p>Extract metadata from an ONNX model file including parameters, GFLOPs, and input shape.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>512</span>
+<span>513</span>
+<span>514</span>
+<span>515</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_onnx_model_info</span><span class="p">(</span><span class="n">onnx_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Extract metadata from an ONNX model file including parameters, GFLOPs, and input shape."""</span>
 <span></span>    <span class="k">return</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span>  <span class="c1"># return (num_layers, num_params, num_gradients, num_flops)</span>
@@ -734,7 +719,13 @@
 <code>3</code>
 </td></tr></tbody></table><p><span class="doc-section-title">Returns:</span></p><table><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr class="doc-section-item"><td>
 <code><span title="numpy.ndarray">ndarray</span></code>
-</td><td><div class="doc-md-description"><p>Clipped data array with outliers removed.</p></div></td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>523</span>
+</td><td><div class="doc-md-description"><p>Clipped data array with outliers removed.</p></div></td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>517</span>
+<span>518</span>
+<span>519</span>
+<span>520</span>
+<span>521</span>
+<span>522</span>
+<span>523</span>
 <span>524</span>
 <span>525</span>
 <span>526</span>
@@ -747,13 +738,7 @@
 <span>533</span>
 <span>534</span>
 <span>535</span>
-<span>536</span>
-<span>537</span>
-<span>538</span>
-<span>539</span>
-<span>540</span>
-<span>541</span>
-<span>542</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span>536</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">iterative_sigma_clipping</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">sigma</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">max_iters</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Apply iterative sigma clipping to data to remove outliers.</span>
 <span></span>
@@ -779,7 +764,13 @@
 <code>table_rows</code>
 </td><td>
 <code><span title="list">list</span>[<span title="str">str</span>]</code>
-</td><td><div class="doc-md-description"><p>List of formatted table row strings.</p></div></td><td><em>required</em></td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>711</span>
+</td><td><div class="doc-md-description"><p>List of formatted table row strings.</p></div></td><td><em>required</em></td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>705</span>
+<span>706</span>
+<span>707</span>
+<span>708</span>
+<span>709</span>
+<span>710</span>
+<span>711</span>
 <span>712</span>
 <span>713</span>
 <span>714</span>
@@ -796,13 +787,7 @@
 <span>725</span>
 <span>726</span>
 <span>727</span>
-<span>728</span>
-<span>729</span>
-<span>730</span>
-<span>731</span>
-<span>732</span>
-<span>733</span>
-<span>734</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span>728</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_table</span><span class="p">(</span><span class="n">table_rows</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
 <span></span><span class="w">    </span><span class="sd">"""Print a formatted table of model profiling results.</span>
 <span></span>
@@ -842,7 +827,13 @@
 <code><span title="float">float</span></code>
 </td><td><div class="doc-md-description"><p>Mean inference time in milliseconds.</p></div></td></tr><tr class="doc-section-item"><td><code>std_time</code></td><td>
 <code><span title="float">float</span></code>
-</td><td><div class="doc-md-description"><p>Standard deviation of inference time in milliseconds.</p></div></td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>587</span>
+</td><td><div class="doc-md-description"><p>Standard deviation of inference time in milliseconds.</p></div></td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>581</span>
+<span>582</span>
+<span>583</span>
+<span>584</span>
+<span>585</span>
+<span>586</span>
+<span>587</span>
 <span>588</span>
 <span>589</span>
 <span>590</span>
@@ -907,13 +898,7 @@
 <span>649</span>
 <span>650</span>
 <span>651</span>
-<span>652</span>
-<span>653</span>
-<span>654</span>
-<span>655</span>
-<span>656</span>
-<span>657</span>
-<span>658</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">profile_onnx_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">onnx_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-3</span><span class="p">):</span>
+<span>652</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">profile_onnx_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">onnx_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-3</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Profile an ONNX model, measuring average inference time and standard deviation across multiple runs.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
@@ -1001,7 +986,13 @@
 <code><span title="float">float</span></code>
 </td><td><div class="doc-md-description"><p>Mean inference time in milliseconds.</p></div></td></tr><tr class="doc-section-item"><td><code>std_time</code></td><td>
 <code><span title="float">float</span></code>
-</td><td><div class="doc-md-description"><p>Standard deviation of inference time in milliseconds.</p></div></td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>544</span>
+</td><td><div class="doc-md-description"><p>Standard deviation of inference time in milliseconds.</p></div></td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>538</span>
+<span>539</span>
+<span>540</span>
+<span>541</span>
+<span>542</span>
+<span>543</span>
+<span>544</span>
 <span>545</span>
 <span>546</span>
 <span>547</span>
@@ -1031,13 +1022,7 @@
 <span>571</span>
 <span>572</span>
 <span>573</span>
-<span>574</span>
-<span>575</span>
-<span>576</span>
-<span>577</span>
-<span>578</span>
-<span>579</span>
-<span>580</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">profile_tensorrt_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-3</span><span class="p">):</span>
+<span>574</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">profile_tensorrt_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-3</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Profile YOLO model performance with TensorRT, measuring average run time and standard deviation.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
@@ -1081,7 +1066,13 @@
 </td><td><div class="doc-md-description"><p>List of dictionaries containing profiling results for each model.</p></div></td></tr></tbody></table><p><span class="doc-section-title">Examples:</span></p><p>Profile models and print results</p><div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.benchmarks</span><span class="w"> </span><span class="kn">import</span> <span class="n">ProfileModels</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">profiler</span> <span class="o">=</span> <span class="n">ProfileModels</span><span class="p">([</span><span class="s2">"yolo11n.yaml"</span><span class="p">,</span> <span class="s2">"yolov8s.yaml"</span><span class="p">])</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">profiler</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>444</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>438</span>
+<span>439</span>
+<span>440</span>
+<span>441</span>
+<span>442</span>
+<span>443</span>
+<span>444</span>
 <span>445</span>
 <span>446</span>
 <span>447</span>
@@ -1127,13 +1118,7 @@
 <span>487</span>
 <span>488</span>
 <span>489</span>
-<span>490</span>
-<span>491</span>
-<span>492</span>
-<span>493</span>
-<span>494</span>
-<span>495</span>
-<span>496</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>490</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Profile YOLO models for speed and accuracy across various formats including ONNX and TensorRT.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>

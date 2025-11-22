@@ -92,10 +92,7 @@ to auto-detection based on model.</p></div></td><td>
 <code><span title="bool">bool</span></code>
 </td><td><div class="doc-md-description"><p>Display model info on load.</p></div></td><td>
 <code>False</code>
-</td></tr></tbody></table><p><span class="doc-section-title">Examples:</span></p><div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained YOLO11n detection model</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-seg.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained YOLO11n segmentation model</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>53</span>
+</td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>53</span>
 <span>54</span>
 <span>55</span>
 <span>56</span>
@@ -124,12 +121,7 @@ to auto-detection based on model.</p></div></td><td>
 <span>79</span>
 <span>80</span>
 <span>81</span>
-<span>82</span>
-<span>83</span>
-<span>84</span>
-<span>85</span>
-<span>86</span>
-<span>87</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">=</span> <span class="s2">"yolo11n.pt"</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span>82</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">=</span> <span class="s2">"yolo11n.pt"</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize a YOLO model.</span>
 <span></span>
 <span></span><span class="sd">    This constructor initializes a YOLO model, automatically switching to specialized model types (YOLOWorld or</span>
@@ -140,11 +132,6 @@ to auto-detection based on model.</p></div></td><td>
 <span></span><span class="sd">        task (str, optional): YOLO task specification, i.e. 'detect', 'segment', 'classify', 'pose', 'obb'. Defaults</span>
 <span></span><span class="sd">            to auto-detection based on model.</span>
 <span></span><span class="sd">        verbose (bool): Display model info on load.</span>
-<span></span>
-<span></span><span class="sd">    Examples:</span>
-<span></span><span class="sd">        &gt;&gt;&gt; from ultralytics import YOLO</span>
-<span></span><span class="sd">        &gt;&gt;&gt; model = YOLO("yolo11n.pt")  # load a pretrained YOLO11n detection model</span>
-<span></span><span class="sd">        &gt;&gt;&gt; model = YOLO("yolo11n-seg.pt")  # load a pretrained YOLO11n segmentation model</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">model</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">))</span> <span class="k">else</span> <span class="s2">""</span><span class="p">)</span>
 <span></span>    <span class="k">if</span> <span class="s2">"-world"</span> <span class="ow">in</span> <span class="n">path</span><span class="o">.</span><span class="n">stem</span> <span class="ow">and</span> <span class="n">path</span><span class="o">.</span><span class="n">suffix</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">".pt"</span><span class="p">,</span> <span class="s2">".yaml"</span><span class="p">,</span> <span class="s2">".yml"</span><span class="p">}:</span>  <span class="c1"># if YOLOWorld PyTorch model</span>
@@ -214,7 +201,12 @@ class names.</p><p><span class="doc-section-title">Parameters:</span></p><table>
 <code><span title="bool">bool</span></code>
 </td><td><div class="doc-md-description"><p>If True, prints additional information during initialization.</p></div></td><td>
 <code>False</code>
-</td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>151</span>
+</td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>146</span>
+<span>147</span>
+<span>148</span>
+<span>149</span>
+<span>150</span>
+<span>151</span>
 <span>152</span>
 <span>153</span>
 <span>154</span>
@@ -223,12 +215,7 @@ class names.</p><p><span class="doc-section-title">Parameters:</span></p><table>
 <span>157</span>
 <span>158</span>
 <span>159</span>
-<span>160</span>
-<span>161</span>
-<span>162</span>
-<span>163</span>
-<span>164</span>
-<span>165</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">=</span> <span class="s2">"yolov8s-world.pt"</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>160</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">=</span> <span class="s2">"yolov8s-world.pt"</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize YOLOv8-World model with a pre-trained model file.</span>
 <span></span>
 <span></span><span class="sd">    Loads a YOLOv8-World model for object detection. If no custom class names are provided, it assigns default COCO</span>
@@ -251,7 +238,12 @@ class names.</p><p><span class="doc-section-title">Parameters:</span></p><table>
 <code>classes</code>
 </td><td>
 <code><span title="list">list</span>[<span title="str">str</span>]</code>
-</td><td><div class="doc-md-description"><p>A list of categories i.e. ["person"].</p></div></td><td><em>required</em></td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>179</span>
+</td><td><div class="doc-md-description"><p>A list of categories i.e. ["person"].</p></div></td><td><em>required</em></td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>174</span>
+<span>175</span>
+<span>176</span>
+<span>177</span>
+<span>178</span>
+<span>179</span>
 <span>180</span>
 <span>181</span>
 <span>182</span>
@@ -261,12 +253,7 @@ class names.</p><p><span class="doc-section-title">Parameters:</span></p><table>
 <span>186</span>
 <span>187</span>
 <span>188</span>
-<span>189</span>
-<span>190</span>
-<span>191</span>
-<span>192</span>
-<span>193</span>
-<span>194</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_classes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">classes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>189</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_classes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">classes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Set the model's class names for detection.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
@@ -340,15 +327,15 @@ performance and additional features like visual and text positional embeddings.<
 <code><span title="bool">bool</span></code>
 </td><td><div class="doc-md-description"><p>If True, prints additional information during initialization.</p></div></td><td>
 <code>False</code>
-</td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>231</span>
+</td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>226</span>
+<span>227</span>
+<span>228</span>
+<span>229</span>
+<span>230</span>
+<span>231</span>
 <span>232</span>
 <span>233</span>
-<span>234</span>
-<span>235</span>
-<span>236</span>
-<span>237</span>
-<span>238</span>
-<span>239</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">=</span> <span class="s2">"yoloe-11s-seg.pt"</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>234</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">=</span> <span class="s2">"yoloe-11s-seg.pt"</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize YOLOE model with a pre-trained model file.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
@@ -361,10 +348,10 @@ performance and additional features like visual and text positional embeddings.<
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code> <span class="doc doc-object-name doc-attribute-name">task_map</span><span class="doc doc-labels"><small class="doc doc-label doc-label-property"><code>property</code></small></span></h3><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">task_map</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span>
 </code></pre></div><div class="doc doc-contents"><p>Map head to model, validator, and predictor classes.</p></div></div><div class="doc doc-object doc-function"><h3 class="doc doc-heading" id="ultralytics.models.yolo.model.YOLOE.get_text_pe">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">get_text_pe</span></h3><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_text_pe</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span>
-</code></pre></div><div class="doc doc-contents"><p>Get text positional embeddings for the given texts.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>259</span>
-<span>260</span>
-<span>261</span>
-<span>262</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_text_pe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texts</span><span class="p">):</span>
+</code></pre></div><div class="doc doc-contents"><p>Get text positional embeddings for the given texts.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>254</span>
+<span>255</span>
+<span>256</span>
+<span>257</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_text_pe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texts</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Get text positional embeddings for the given texts."""</span>
 <span></span>    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">YOLOEModel</span><span class="p">)</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">get_text_pe</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span>
@@ -385,7 +372,12 @@ model is an instance of YOLOEModel.</p><p><span class="doc-section-title">Parame
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">img</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">visual_features</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pe</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_visual_pe</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">visual_features</span><span class="p">)</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>264</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>259</span>
+<span>260</span>
+<span>261</span>
+<span>262</span>
+<span>263</span>
+<span>264</span>
 <span>265</span>
 <span>266</span>
 <span>267</span>
@@ -400,12 +392,7 @@ model is an instance of YOLOEModel.</p><p><span class="doc-section-title">Parame
 <span>276</span>
 <span>277</span>
 <span>278</span>
-<span>279</span>
-<span>280</span>
-<span>281</span>
-<span>282</span>
-<span>283</span>
-<span>284</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_visual_pe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">visual</span><span class="p">):</span>
+<span>279</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_visual_pe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">visual</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Get visual positional embeddings for the given image and visual features.</span>
 <span></span>
 <span></span><span class="sd">    This method extracts positional embeddings from visual features based on the input image. It requires that the</span>
@@ -428,10 +415,10 @@ model is an instance of YOLOEModel.</p><p><span class="doc-section-title">Parame
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">get_visual_pe</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">visual</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div></details></div></div><div class="doc doc-object doc-function"><h3 class="doc doc-heading" id="ultralytics.models.yolo.model.YOLOE.get_vocab">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">get_vocab</span></h3><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_vocab</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
-</code></pre></div><div class="doc doc-contents"><p>Get vocabulary for the given class names.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>306</span>
-<span>307</span>
-<span>308</span>
-<span>309</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_vocab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">):</span>
+</code></pre></div><div class="doc doc-contents"><p>Get vocabulary for the given class names.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>301</span>
+<span>302</span>
+<span>303</span>
+<span>304</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_vocab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Get vocabulary for the given class names."""</span>
 <span></span>    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">YOLOEModel</span><span class="p">)</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">get_vocab</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
@@ -491,7 +478,12 @@ based on the task.</p></div></td><td>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># With visual prompts</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">prompts</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"bboxes"</span><span class="p">:</span> <span class="p">[[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">]],</span> <span class="s2">"cls"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"person"</span><span class="p">]}</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">,</span> <span class="n">visual_prompts</span><span class="o">=</span><span class="n">prompts</span><span class="p">)</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>356</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>351</span>
+<span>352</span>
+<span>353</span>
+<span>354</span>
+<span>355</span>
+<span>356</span>
 <span>357</span>
 <span>358</span>
 <span>359</span>
@@ -565,12 +557,7 @@ based on the task.</p></div></td><td>
 <span>427</span>
 <span>428</span>
 <span>429</span>
-<span>430</span>
-<span>431</span>
-<span>432</span>
-<span>433</span>
-<span>434</span>
-<span>435</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span>
+<span>430</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">stream</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -662,7 +649,12 @@ based on the task.</p></div></td><td>
 <code><span title="torch.Tensor">Tensor</span></code>
 </td><td><div class="doc-md-description"><p>Embeddings corresponding to the classes.</p></div></td><td>
 <code>None</code>
-</td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>311</span>
+</td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>306</span>
+<span>307</span>
+<span>308</span>
+<span>309</span>
+<span>310</span>
+<span>311</span>
 <span>312</span>
 <span>313</span>
 <span>314</span>
@@ -674,12 +666,7 @@ based on the task.</p></div></td><td>
 <span>320</span>
 <span>321</span>
 <span>322</span>
-<span>323</span>
-<span>324</span>
-<span>325</span>
-<span>326</span>
-<span>327</span>
-<span>328</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_classes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">classes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">embeddings</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>323</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_classes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">classes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">embeddings</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Set the model's class names and embeddings for detection.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
@@ -712,7 +699,12 @@ tasks. The model must be an instance of YOLOEModel.</p><p><span class="doc-secti
 <code><span title="AssertionError">AssertionError</span></code>
 </td><td><div class="doc-md-description"><p>If the model is not an instance of YOLOEModel.</p></div></td></tr></tbody></table><p><span class="doc-section-title">Examples:</span></p><div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11s-seg.pt"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">set_vocab</span><span class="p">([</span><span class="s2">"person"</span><span class="p">,</span> <span class="s2">"car"</span><span class="p">,</span> <span class="s2">"dog"</span><span class="p">],</span> <span class="p">[</span><span class="s2">"person"</span><span class="p">,</span> <span class="s2">"car"</span><span class="p">,</span> <span class="s2">"dog"</span><span class="p">])</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>286</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>281</span>
+<span>282</span>
+<span>283</span>
+<span>284</span>
+<span>285</span>
+<span>286</span>
 <span>287</span>
 <span>288</span>
 <span>289</span>
@@ -725,12 +717,7 @@ tasks. The model must be an instance of YOLOEModel.</p><p><span class="doc-secti
 <span>296</span>
 <span>297</span>
 <span>298</span>
-<span>299</span>
-<span>300</span>
-<span>301</span>
-<span>302</span>
-<span>303</span>
-<span>304</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_vocab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vocab</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">names</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>299</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_vocab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vocab</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">names</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Set vocabulary and class names for the YOLOE model.</span>
 <span></span>
 <span></span><span class="sd">    This method configures the vocabulary and class names used by the model for text processing and classification</span>
@@ -782,7 +769,12 @@ tasks. The model must be an instance of YOLOEModel.</p><p><span class="doc-secti
 <code>{}</code>
 </td></tr></tbody></table><p><span class="doc-section-title">Returns:</span></p><table><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr class="doc-section-item"><td>
 <code><span title="dict">dict</span></code>
-</td><td><div class="doc-md-description"><p>Validation statistics containing metrics computed during validation.</p></div></td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>330</span>
+</td><td><div class="doc-md-description"><p>Validation statistics containing metrics computed during validation.</p></div></td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>325</span>
+<span>326</span>
+<span>327</span>
+<span>328</span>
+<span>329</span>
+<span>330</span>
 <span>331</span>
 <span>332</span>
 <span>333</span>
@@ -801,12 +793,7 @@ tasks. The model must be an instance of YOLOEModel.</p><p><span class="doc-secti
 <span>346</span>
 <span>347</span>
 <span>348</span>
-<span>349</span>
-<span>350</span>
-<span>351</span>
-<span>352</span>
-<span>353</span>
-<span>354</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">val</span><span class="p">(</span>
+<span>349</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">val</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">validator</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">load_vp</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>

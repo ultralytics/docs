@@ -51,8 +51,7 @@ taken as a direct observation of the state space (linear observation model).</p>
 </code></pre></div><p>The Kalman filter is initialized with an 8-dimensional state space (x, y, a, h, vx, vy, va, vh), where (x, y)
 represents the bounding box center position, 'a' is the aspect ratio, 'h' is the height, and their respective
 velocities are (vx, vy, va, vh). The filter uses a constant velocity model for object motion and a linear
-observation model for bounding box location.</p><p><span class="doc-section-title">Examples:</span></p><p>Initialize a Kalman filter for tracking:</p><div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">kf</span> <span class="o">=</span> <span class="n">KalmanFilterXYAH</span><span class="p">()</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>38</span>
+observation model for bounding box location.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>38</span>
 <span>39</span>
 <span>40</span>
 <span>41</span>
@@ -70,21 +69,13 @@ observation model for bounding box location.</p><p><span class="doc-section-titl
 <span>53</span>
 <span>54</span>
 <span>55</span>
-<span>56</span>
-<span>57</span>
-<span>58</span>
-<span>59</span>
-<span>60</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>56</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize Kalman filter model matrices with motion and observation uncertainty weights.</span>
 <span></span>
 <span></span><span class="sd">    The Kalman filter is initialized with an 8-dimensional state space (x, y, a, h, vx, vy, va, vh), where (x, y)</span>
 <span></span><span class="sd">    represents the bounding box center position, 'a' is the aspect ratio, 'h' is the height, and their respective</span>
 <span></span><span class="sd">    velocities are (vx, vy, va, vh). The filter uses a constant velocity model for object motion and a linear</span>
 <span></span><span class="sd">    observation model for bounding box location.</span>
-<span></span>
-<span></span><span class="sd">    Examples:</span>
-<span></span><span class="sd">        Initialize a Kalman filter for tracking:</span>
-<span></span><span class="sd">        &gt;&gt;&gt; kf = KalmanFilterXYAH()</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">ndim</span><span class="p">,</span> <span class="n">dt</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">1.0</span>
 <span></span>
@@ -141,7 +132,11 @@ squared Euclidean distance and 'maha' for the squared Mahalanobis distance.</p><
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">covariance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">measurements</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">distances</span> <span class="o">=</span> <span class="n">kf</span><span class="o">.</span><span class="n">gating_distance</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">,</span> <span class="n">measurements</span><span class="p">,</span> <span class="n">only_position</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s2">"maha"</span><span class="p">)</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>233</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>229</span>
+<span>230</span>
+<span>231</span>
+<span>232</span>
+<span>233</span>
 <span>234</span>
 <span>235</span>
 <span>236</span>
@@ -185,11 +180,7 @@ squared Euclidean distance and 'maha' for the squared Mahalanobis distance.</p><
 <span>274</span>
 <span>275</span>
 <span>276</span>
-<span>277</span>
-<span>278</span>
-<span>279</span>
-<span>280</span>
-<span>281</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">gating_distance</span><span class="p">(</span>
+<span>277</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">gating_distance</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">mean</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
 <span></span>    <span class="n">covariance</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
@@ -253,7 +244,11 @@ mean.</p></div></td></tr><tr class="doc-section-item"><td><code>covariance</code
 </td><td><div class="doc-md-description"><p>Covariance matrix (8x8 dimensional) of the new track.</p></div></td></tr></tbody></table><p><span class="doc-section-title">Examples:</span></p><div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">kf</span> <span class="o">=</span> <span class="n">KalmanFilterXYAH</span><span class="p">()</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">measurement</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">200</span><span class="p">])</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span> <span class="o">=</span> <span class="n">kf</span><span class="o">.</span><span class="n">initiate</span><span class="p">(</span><span class="n">measurement</span><span class="p">)</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>62</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>58</span>
+<span>59</span>
+<span>60</span>
+<span>61</span>
+<span>62</span>
 <span>63</span>
 <span>64</span>
 <span>65</span>
@@ -281,11 +276,7 @@ mean.</p></div></td></tr><tr class="doc-section-item"><td><code>covariance</code
 <span>87</span>
 <span>88</span>
 <span>89</span>
-<span>90</span>
-<span>91</span>
-<span>92</span>
-<span>93</span>
-<span>94</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">initiate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">measurement</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span>90</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">initiate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">measurement</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Create a track from an unassociated measurement.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
@@ -335,7 +326,11 @@ mean.</p></div></td></tr><tr class="doc-section-item"><td><code>covariance</code
 </td><td><div class="doc-md-description"><p>Covariance matrix of the predicted states with shape (N, 8, 8).</p></div></td></tr></tbody></table><p><span class="doc-section-title">Examples:</span></p><div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>  <span class="c1"># 10 object states</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">covariance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>  <span class="c1"># Covariance matrices for 10 object states</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">predicted_mean</span><span class="p">,</span> <span class="n">predicted_covariance</span> <span class="o">=</span> <span class="n">kalman_filter</span><span class="o">.</span><span class="n">multi_predict</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">)</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>162</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>158</span>
+<span>159</span>
+<span>160</span>
+<span>161</span>
+<span>162</span>
 <span>163</span>
 <span>164</span>
 <span>165</span>
@@ -368,11 +363,7 @@ mean.</p></div></td></tr><tr class="doc-section-item"><td><code>covariance</code
 <span>192</span>
 <span>193</span>
 <span>194</span>
-<span>195</span>
-<span>196</span>
-<span>197</span>
-<span>198</span>
-<span>199</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">multi_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mean</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">covariance</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span>195</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">multi_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mean</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">covariance</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Run Kalman filter prediction step for multiple object states (Vectorized version).</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
@@ -429,7 +420,11 @@ step.</p></div></td><td><em>required</em></td></tr></tbody></table><p><span clas
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">covariance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">predicted_mean</span><span class="p">,</span> <span class="n">predicted_covariance</span> <span class="o">=</span> <span class="n">kf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">)</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 96</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 92</span>
+<span> 93</span>
+<span> 94</span>
+<span> 95</span>
+<span> 96</span>
 <span> 97</span>
 <span> 98</span>
 <span> 99</span>
@@ -460,11 +455,7 @@ step.</p></div></td><td><em>required</em></td></tr></tbody></table><p><span clas
 <span>124</span>
 <span>125</span>
 <span>126</span>
-<span>127</span>
-<span>128</span>
-<span>129</span>
-<span>130</span>
-<span>131</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mean</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">covariance</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span>127</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mean</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">covariance</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Run Kalman filter prediction step.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
@@ -518,7 +509,11 @@ step.</p></div></td><td><em>required</em></td></tr></tbody></table><p><span clas
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">covariance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">projected_mean</span><span class="p">,</span> <span class="n">projected_covariance</span> <span class="o">=</span> <span class="n">kf</span><span class="o">.</span><span class="n">project</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">)</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>133</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>129</span>
+<span>130</span>
+<span>131</span>
+<span>132</span>
+<span>133</span>
 <span>134</span>
 <span>135</span>
 <span>136</span>
@@ -541,11 +536,7 @@ step.</p></div></td><td><em>required</em></td></tr></tbody></table><p><span clas
 <span>153</span>
 <span>154</span>
 <span>155</span>
-<span>156</span>
-<span>157</span>
-<span>158</span>
-<span>159</span>
-<span>160</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">project</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mean</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">covariance</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span>156</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">project</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mean</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">covariance</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Project state distribution to measurement space.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
@@ -597,7 +588,11 @@ position, a the aspect ratio, and h the height of the bounding box.</p></div></t
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">covariance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">measurement</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">new_mean</span><span class="p">,</span> <span class="n">new_covariance</span> <span class="o">=</span> <span class="n">kf</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">,</span> <span class="n">measurement</span><span class="p">)</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>201</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>197</span>
+<span>198</span>
+<span>199</span>
+<span>200</span>
+<span>201</span>
 <span>202</span>
 <span>203</span>
 <span>204</span>
@@ -623,11 +618,7 @@ position, a the aspect ratio, and h the height of the bounding box.</p></div></t
 <span>224</span>
 <span>225</span>
 <span>226</span>
-<span>227</span>
-<span>228</span>
-<span>229</span>
-<span>230</span>
-<span>231</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mean</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">covariance</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">measurement</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span>227</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mean</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">covariance</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">measurement</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Run Kalman filter correction step.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
@@ -718,21 +709,13 @@ observation of the state space (linear observation model).</p><p><span class="do
 <span>53</span>
 <span>54</span>
 <span>55</span>
-<span>56</span>
-<span>57</span>
-<span>58</span>
-<span>59</span>
-<span>60</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>56</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize Kalman filter model matrices with motion and observation uncertainty weights.</span>
 <span></span>
 <span></span><span class="sd">    The Kalman filter is initialized with an 8-dimensional state space (x, y, a, h, vx, vy, va, vh), where (x, y)</span>
 <span></span><span class="sd">    represents the bounding box center position, 'a' is the aspect ratio, 'h' is the height, and their respective</span>
 <span></span><span class="sd">    velocities are (vx, vy, va, vh). The filter uses a constant velocity model for object motion and a linear</span>
 <span></span><span class="sd">    observation model for bounding box location.</span>
-<span></span>
-<span></span><span class="sd">    Examples:</span>
-<span></span><span class="sd">        Initialize a Kalman filter for tracking:</span>
-<span></span><span class="sd">        &gt;&gt;&gt; kf = KalmanFilterXYAH()</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">ndim</span><span class="p">,</span> <span class="n">dt</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">1.0</span>
 <span></span>
@@ -771,7 +754,11 @@ mean.</p></div></td></tr><tr class="doc-section-item"><td><code>covariance</code
 <span></span><span class="go"> [ 0.  0.  0.  0.  0.  0.25  0.  0.]</span>
 <span></span><span class="go"> [ 0.  0.  0.  0.  0.  0.  0.25  0.]</span>
 <span></span><span class="go"> [ 0.  0.  0.  0.  0.  0.  0.  0.25]]</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>314</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>310</span>
+<span>311</span>
+<span>312</span>
+<span>313</span>
+<span>314</span>
 <span>315</span>
 <span>316</span>
 <span>317</span>
@@ -810,11 +797,7 @@ mean.</p></div></td></tr><tr class="doc-section-item"><td><code>covariance</code
 <span>350</span>
 <span>351</span>
 <span>352</span>
-<span>353</span>
-<span>354</span>
-<span>355</span>
-<span>356</span>
-<span>357</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">initiate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">measurement</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span>353</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">initiate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">measurement</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Create track from unassociated measurement.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
@@ -876,7 +859,11 @@ mean.</p></div></td></tr><tr class="doc-section-item"><td><code>covariance</code
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">covariance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>  <span class="c1"># 5 objects with 8x8 covariance matrices</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">kf</span> <span class="o">=</span> <span class="n">KalmanFilterXYWH</span><span class="p">()</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">predicted_mean</span><span class="p">,</span> <span class="n">predicted_covariance</span> <span class="o">=</span> <span class="n">kf</span><span class="o">.</span><span class="n">multi_predict</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">)</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>425</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>421</span>
+<span>422</span>
+<span>423</span>
+<span>424</span>
+<span>425</span>
 <span>426</span>
 <span>427</span>
 <span>428</span>
@@ -910,11 +897,7 @@ mean.</p></div></td></tr><tr class="doc-section-item"><td><code>covariance</code
 <span>456</span>
 <span>457</span>
 <span>458</span>
-<span>459</span>
-<span>460</span>
-<span>461</span>
-<span>462</span>
-<span>463</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">multi_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mean</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">covariance</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span>459</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">multi_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mean</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">covariance</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Run Kalman filter prediction step (Vectorized version).</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
@@ -972,7 +955,11 @@ step.</p></div></td><td><em>required</em></td></tr></tbody></table><p><span clas
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">covariance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">predicted_mean</span><span class="p">,</span> <span class="n">predicted_covariance</span> <span class="o">=</span> <span class="n">kf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">)</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>359</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>355</span>
+<span>356</span>
+<span>357</span>
+<span>358</span>
+<span>359</span>
 <span>360</span>
 <span>361</span>
 <span>362</span>
@@ -1003,11 +990,7 @@ step.</p></div></td><td><em>required</em></td></tr></tbody></table><p><span clas
 <span>387</span>
 <span>388</span>
 <span>389</span>
-<span>390</span>
-<span>391</span>
-<span>392</span>
-<span>393</span>
-<span>394</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mean</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">covariance</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span>390</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mean</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">covariance</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Run Kalman filter prediction step.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
@@ -1061,7 +1044,11 @@ step.</p></div></td><td><em>required</em></td></tr></tbody></table><p><span clas
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">covariance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">projected_mean</span><span class="p">,</span> <span class="n">projected_cov</span> <span class="o">=</span> <span class="n">kf</span><span class="o">.</span><span class="n">project</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">)</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>396</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>392</span>
+<span>393</span>
+<span>394</span>
+<span>395</span>
+<span>396</span>
 <span>397</span>
 <span>398</span>
 <span>399</span>
@@ -1084,11 +1071,7 @@ step.</p></div></td><td><em>required</em></td></tr></tbody></table><p><span clas
 <span>416</span>
 <span>417</span>
 <span>418</span>
-<span>419</span>
-<span>420</span>
-<span>421</span>
-<span>422</span>
-<span>423</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">project</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mean</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">covariance</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span>419</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">project</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mean</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">covariance</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Project state distribution to measurement space.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
@@ -1140,7 +1123,11 @@ position, w the width, and h the height of the bounding box.</p></div></td><td><
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">covariance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">measurement</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">])</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">new_mean</span><span class="p">,</span> <span class="n">new_covariance</span> <span class="o">=</span> <span class="n">kf</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">,</span> <span class="n">measurement</span><span class="p">)</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>465</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/trackers/utils/kalman_filter.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>461</span>
+<span>462</span>
+<span>463</span>
+<span>464</span>
+<span>465</span>
 <span>466</span>
 <span>467</span>
 <span>468</span>
@@ -1156,11 +1143,7 @@ position, w the width, and h the height of the bounding box.</p></div></td><td><
 <span>478</span>
 <span>479</span>
 <span>480</span>
-<span>481</span>
-<span>482</span>
-<span>483</span>
-<span>484</span>
-<span>485</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mean</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">covariance</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">measurement</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span>481</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mean</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">covariance</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">measurement</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Run Kalman filter correction step.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>

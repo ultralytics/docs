@@ -42,9 +42,7 @@ processing the responses. Supports both HTTP and gRPC communication protocols.</
 <code><span title="str">str</span></code>
 </td><td><div class="doc-md-description"><p>The communication scheme ('http' or 'grpc').</p></div></td><td>
 <code>''</code>
-</td></tr></tbody></table><p><span class="doc-section-title">Examples:</span></p><div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">TritonRemoteModel</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">"localhost:8000"</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="s2">"yolov8"</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s2">"http"</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">TritonRemoteModel</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">"http://localhost:8000/yolov8"</span><span class="p">)</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/triton.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>40</span>
+</td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/triton.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>40</span>
 <span>41</span>
 <span>42</span>
 <span>43</span>
@@ -87,11 +85,7 @@ processing the responses. Supports both HTTP and gRPC communication protocols.</
 <span>80</span>
 <span>81</span>
 <span>82</span>
-<span>83</span>
-<span>84</span>
-<span>85</span>
-<span>86</span>
-<span>87</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="n">scheme</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">):</span>
+<span>83</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="n">scheme</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the TritonRemoteModel for interacting with a remote Triton Inference Server.</span>
 <span></span>
 <span></span><span class="sd">    Arguments may be provided individually or parsed from a collective 'url' argument of the form</span>
@@ -101,10 +95,6 @@ processing the responses. Supports both HTTP and gRPC communication protocols.</
 <span></span><span class="sd">        url (str): The URL of the Triton server.</span>
 <span></span><span class="sd">        endpoint (str, optional): The name of the model on the Triton server.</span>
 <span></span><span class="sd">        scheme (str, optional): The communication scheme ('http' or 'grpc').</span>
-<span></span>
-<span></span><span class="sd">    Examples:</span>
-<span></span><span class="sd">        &gt;&gt;&gt; model = TritonRemoteModel(url="localhost:8000", endpoint="yolov8", scheme="http")</span>
-<span></span><span class="sd">        &gt;&gt;&gt; model = TritonRemoteModel(url="http://localhost:8000/yolov8")</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">endpoint</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">scheme</span><span class="p">:</span>  <span class="c1"># Parse all args from URL string</span>
 <span></span>        <span class="n">splits</span> <span class="o">=</span> <span class="n">urlsplit</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
@@ -153,7 +143,11 @@ corresponding model input.</p></div></td><td>
 </td><td><div class="doc-md-description"><p>Model outputs with the same dtype as the input. Each element in the list corresponds to
 one of the model's output tensors.</p></div></td></tr></tbody></table><p><span class="doc-section-title">Examples:</span></p><div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">TritonRemoteModel</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">"localhost:8000"</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="s2">"yolov8"</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s2">"http"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/triton.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 89</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/triton.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 85</span>
+<span> 86</span>
+<span> 87</span>
+<span> 88</span>
+<span> 89</span>
 <span> 90</span>
 <span> 91</span>
 <span> 92</span>
@@ -176,11 +170,7 @@ one of the model's output tensors.</p></div></td></tr></tbody></table><p><span c
 <span>109</span>
 <span>110</span>
 <span>111</span>
-<span>112</span>
-<span>113</span>
-<span>114</span>
-<span>115</span>
-<span>116</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">inputs</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span>112</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">inputs</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Call the model with the given inputs and return inference results.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>

@@ -92,12 +92,7 @@ prompts.</p><p><span class="doc-section-title">Attributes:</span></p><table><the
 <code><span title="list">list</span>[<span title="float">float</span>]</code>
 </td><td><div class="doc-md-description"><p>Standard deviation values for normalizing pixels in the input image.</p></div></td><td>
 <code>(58.395, 57.12, 57.375)</code>
-</td></tr></tbody></table><p><span class="doc-section-title">Examples:</span></p><div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">image_encoder</span> <span class="o">=</span> <span class="n">ImageEncoderViT</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">prompt_encoder</span> <span class="o">=</span> <span class="n">PromptEncoder</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mask_decoder</span> <span class="o">=</span> <span class="n">MaskDecoder</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sam_model</span> <span class="o">=</span> <span class="n">SAMModel</span><span class="p">(</span><span class="n">image_encoder</span><span class="p">,</span> <span class="n">prompt_encoder</span><span class="p">,</span> <span class="n">mask_decoder</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Further usage depends on SAMPredictor class</span>
-</code></pre></div><details class="notes" open=""><summary>Notes</summary><p>All forward() operations moved to SAMPredictor.</p></details><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>55</span>
+</td></tr></tbody></table><details class="notes" open=""><summary>Notes</summary><p>All forward() operations moved to SAMPredictor.</p></details><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>55</span>
 <span>56</span>
 <span>57</span>
 <span>58</span>
@@ -122,14 +117,7 @@ prompts.</p><p><span class="doc-section-title">Attributes:</span></p><table><the
 <span>77</span>
 <span>78</span>
 <span>79</span>
-<span>80</span>
-<span>81</span>
-<span>82</span>
-<span>83</span>
-<span>84</span>
-<span>85</span>
-<span>86</span>
-<span>87</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>80</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">image_encoder</span><span class="p">:</span> <span class="n">ImageEncoderViT</span><span class="p">,</span>
 <span></span>    <span class="n">prompt_encoder</span><span class="p">:</span> <span class="n">PromptEncoder</span><span class="p">,</span>
@@ -146,13 +134,6 @@ prompts.</p><p><span class="doc-section-title">Attributes:</span></p><table><the
 <span></span><span class="sd">        pixel_mean (list[float]): Mean values for normalizing pixels in the input image.</span>
 <span></span><span class="sd">        pixel_std (list[float]): Standard deviation values for normalizing pixels in the input image.</span>
 <span></span>
-<span></span><span class="sd">    Examples:</span>
-<span></span><span class="sd">        &gt;&gt;&gt; image_encoder = ImageEncoderViT(...)</span>
-<span></span><span class="sd">        &gt;&gt;&gt; prompt_encoder = PromptEncoder(...)</span>
-<span></span><span class="sd">        &gt;&gt;&gt; mask_decoder = MaskDecoder(...)</span>
-<span></span><span class="sd">        &gt;&gt;&gt; sam_model = SAMModel(image_encoder, prompt_encoder, mask_decoder)</span>
-<span></span><span class="sd">        &gt;&gt;&gt; # Further usage depends on SAMPredictor class</span>
-<span></span>
 <span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        All forward() operations moved to SAMPredictor.</span>
 <span></span><span class="sd">    """</span>
@@ -164,13 +145,13 @@ prompts.</p><p><span class="doc-section-title">Attributes:</span></p><table><the
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">"pixel_std"</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="n">pixel_std</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="kc">False</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div></details><div class="doc doc-children"><div class="doc doc-object doc-function"><h3 class="doc doc-heading" id="ultralytics.models.sam.modules.sam.SAMModel.set_imgsz">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">set_imgsz</span></h3><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">set_imgsz</span><span class="p">(</span><span class="n">imgsz</span><span class="p">)</span>
-</code></pre></div><div class="doc doc-contents"><p>Set image size to make model compatible with different image sizes.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>89</span>
-<span>90</span>
-<span>91</span>
-<span>92</span>
-<span>93</span>
-<span>94</span>
-<span>95</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">):</span>
+</code></pre></div><div class="doc doc-contents"><p>Set image size to make model compatible with different image sizes.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>82</span>
+<span>83</span>
+<span>84</span>
+<span>85</span>
+<span>86</span>
+<span>87</span>
+<span>88</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Set image size to make model compatible with different image sizes."""</span>
 <span></span>    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image_encoder</span><span class="p">,</span> <span class="s2">"set_imgsz"</span><span class="p">):</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">image_encoder</span><span class="o">.</span><span class="n">set_imgsz</span><span class="p">(</span><span class="n">imgsz</span><span class="p">)</span>
@@ -545,14 +526,14 @@ evaluation.</p></div></td><td>
 <code><span title="bool">bool</span></code>
 </td><td><div class="doc-md-description"><p>Whether to compile the image encoder for faster inference.</p></div></td><td>
 <code>False</code>
-</td></tr></tbody></table><p><span class="doc-section-title">Examples:</span></p><div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">image_encoder</span> <span class="o">=</span> <span class="n">ImageEncoderViT</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">memory_attention</span> <span class="o">=</span> <span class="n">SAM2TwoWayTransformer</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">memory_encoder</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">SAM2Model</span><span class="p">(</span><span class="n">image_encoder</span><span class="p">,</span> <span class="n">memory_attention</span><span class="p">,</span> <span class="n">memory_encoder</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">image_batch</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">features</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">forward_image</span><span class="p">(</span><span class="n">image_batch</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">track_results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track_step</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">{})</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>170</span>
+</td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>163</span>
+<span>164</span>
+<span>165</span>
+<span>166</span>
+<span>167</span>
+<span>168</span>
+<span>169</span>
+<span>170</span>
 <span>171</span>
 <span>172</span>
 <span>173</span>
@@ -724,23 +705,7 @@ evaluation.</p></div></td><td>
 <span>339</span>
 <span>340</span>
 <span>341</span>
-<span>342</span>
-<span>343</span>
-<span>344</span>
-<span>345</span>
-<span>346</span>
-<span>347</span>
-<span>348</span>
-<span>349</span>
-<span>350</span>
-<span>351</span>
-<span>352</span>
-<span>353</span>
-<span>354</span>
-<span>355</span>
-<span>356</span>
-<span>357</span>
-<span>358</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>342</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">image_encoder</span><span class="p">,</span>
 <span></span>    <span class="n">memory_attention</span><span class="p">,</span>
@@ -826,15 +791,6 @@ evaluation.</p></div></td><td>
 <span></span><span class="sd">        no_obj_embed_spatial (bool): Whether add no obj embedding to spatial frames.</span>
 <span></span><span class="sd">        sam_mask_decoder_extra_args (dict | None): Extra arguments for constructing the SAM mask decoder.</span>
 <span></span><span class="sd">        compile_image_encoder (bool): Whether to compile the image encoder for faster inference.</span>
-<span></span>
-<span></span><span class="sd">    Examples:</span>
-<span></span><span class="sd">        &gt;&gt;&gt; image_encoder = ImageEncoderViT(...)</span>
-<span></span><span class="sd">        &gt;&gt;&gt; memory_attention = SAM2TwoWayTransformer(...)</span>
-<span></span><span class="sd">        &gt;&gt;&gt; memory_encoder = nn.Sequential(...)</span>
-<span></span><span class="sd">        &gt;&gt;&gt; model = SAM2Model(image_encoder, memory_attention, memory_encoder)</span>
-<span></span><span class="sd">        &gt;&gt;&gt; image_batch = torch.rand(1, 3, 512, 512)</span>
-<span></span><span class="sd">        &gt;&gt;&gt; features = model.forward_image(image_batch)</span>
-<span></span><span class="sd">        &gt;&gt;&gt; track_results = model.track_step(0, True, features, None, None, None, {})</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span></span>
@@ -933,12 +889,12 @@ evaluation.</p></div></td><td>
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code> <span class="doc doc-object-name doc-attribute-name">device</span><span class="doc doc-labels"><small class="doc doc-label doc-label-property"><code>property</code></small></span></h3><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">device</span>
 </code></pre></div><div class="doc doc-contents"><p>Return the device on which the model's parameters are stored.</p></div></div><div class="doc doc-object doc-function"><h3 class="doc doc-heading" id="ultralytics.models.sam.modules.sam.SAM2Model.forward">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">forward</span></h3><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">forward</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</code></pre></div><div class="doc doc-contents"><p>Process image and prompt inputs to generate object masks and scores in video sequences.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>365</span>
-<span>366</span>
-<span>367</span>
-<span>368</span>
-<span>369</span>
-<span>370</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</code></pre></div><div class="doc doc-contents"><p>Process image and prompt inputs to generate object masks and scores in video sequences.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>349</span>
+<span>350</span>
+<span>351</span>
+<span>352</span>
+<span>353</span>
+<span>354</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Process image and prompt inputs to generate object masks and scores in video sequences."""</span>
 <span></span>    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
 <span></span>        <span class="s2">"Please use the corresponding methods in SAM2VideoPredictor for inference."</span>
@@ -946,15 +902,15 @@ evaluation.</p></div></td><td>
 <span></span>    <span class="p">)</span>
 </code></pre></div></td></tr></table></div></details></div></div><div class="doc doc-object doc-function"><h3 class="doc doc-heading" id="ultralytics.models.sam.modules.sam.SAM2Model.forward_image">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">forward_image</span></h3><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">forward_image</span><span class="p">(</span><span class="n">img_batch</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span>
-</code></pre></div><div class="doc doc-contents"><p>Process image batch through encoder to extract multi-level features for SAM model.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>615</span>
-<span>616</span>
-<span>617</span>
-<span>618</span>
-<span>619</span>
-<span>620</span>
-<span>621</span>
-<span>622</span>
-<span>623</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_batch</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+</code></pre></div><div class="doc doc-contents"><p>Process image batch through encoder to extract multi-level features for SAM model.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>599</span>
+<span>600</span>
+<span>601</span>
+<span>602</span>
+<span>603</span>
+<span>604</span>
+<span>605</span>
+<span>606</span>
+<span>607</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_batch</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Process image batch through encoder to extract multi-level features for SAM model."""</span>
 <span></span>    <span class="n">backbone_out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_encoder</span><span class="p">(</span><span class="n">img_batch</span><span class="p">)</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_high_res_features_in_sam</span><span class="p">:</span>
@@ -965,19 +921,19 @@ evaluation.</p></div></td><td>
 <span></span>    <span class="k">return</span> <span class="n">backbone_out</span>
 </code></pre></div></td></tr></table></div></details></div></div><div class="doc doc-object doc-function"><h3 class="doc doc-heading" id="ultralytics.models.sam.modules.sam.SAM2Model.set_binarize">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">set_binarize</span></h3><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">set_binarize</span><span class="p">(</span><span class="n">binarize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</code></pre></div><div class="doc doc-contents"><p>Set binarize for VideoPredictor.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1018</span>
-<span>1019</span>
-<span>1020</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_binarize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">binarize</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+</code></pre></div><div class="doc doc-contents"><p>Set binarize for VideoPredictor.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1002</span>
+<span>1003</span>
+<span>1004</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_binarize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">binarize</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Set binarize for VideoPredictor."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">binarize_mask_from_pts_for_mem_enc</span> <span class="o">=</span> <span class="n">binarize</span>
 </code></pre></div></td></tr></table></div></details></div></div><div class="doc doc-object doc-function"><h3 class="doc doc-heading" id="ultralytics.models.sam.modules.sam.SAM2Model.set_imgsz">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">set_imgsz</span></h3><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">set_imgsz</span><span class="p">(</span><span class="n">imgsz</span><span class="p">)</span>
-</code></pre></div><div class="doc doc-contents"><p>Set image size to make model compatible with different image sizes.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1022</span>
-<span>1023</span>
-<span>1024</span>
-<span>1025</span>
-<span>1026</span>
-<span>1027</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">):</span>
+</code></pre></div><div class="doc doc-contents"><p>Set image size to make model compatible with different image sizes.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1006</span>
+<span>1007</span>
+<span>1008</span>
+<span>1009</span>
+<span>1010</span>
+<span>1011</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Set image size to make model compatible with different image sizes."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">image_size</span> <span class="o">=</span> <span class="n">imgsz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">sam_prompt_encoder</span><span class="o">.</span><span class="n">input_image_size</span> <span class="o">=</span> <span class="n">imgsz</span>
@@ -998,7 +954,23 @@ evaluation.</p></div></td><td>
 <span></span>    <span class="n">run_mem_encoder</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span></span>    <span class="n">prev_sam_mask_logits</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span></span><span class="p">)</span>
-</code></pre></div><div class="doc doc-contents"><p>Perform a single tracking step, updating object masks and memory features based on current frame inputs.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>931</span>
+</code></pre></div><div class="doc doc-contents"><p>Perform a single tracking step, updating object masks and memory features based on current frame inputs.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>915</span>
+<span>916</span>
+<span>917</span>
+<span>918</span>
+<span>919</span>
+<span>920</span>
+<span>921</span>
+<span>922</span>
+<span>923</span>
+<span>924</span>
+<span>925</span>
+<span>926</span>
+<span>927</span>
+<span>928</span>
+<span>929</span>
+<span>930</span>
+<span>931</span>
 <span>932</span>
 <span>933</span>
 <span>934</span>
@@ -1040,23 +1012,7 @@ evaluation.</p></div></td><td>
 <span>970</span>
 <span>971</span>
 <span>972</span>
-<span>973</span>
-<span>974</span>
-<span>975</span>
-<span>976</span>
-<span>977</span>
-<span>978</span>
-<span>979</span>
-<span>980</span>
-<span>981</span>
-<span>982</span>
-<span>983</span>
-<span>984</span>
-<span>985</span>
-<span>986</span>
-<span>987</span>
-<span>988</span>
-<span>989</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">track_step</span><span class="p">(</span>
+<span>973</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">track_step</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">frame_idx</span><span class="p">,</span>
 <span></span>    <span class="n">is_init_cond_frame</span><span class="p">,</span>

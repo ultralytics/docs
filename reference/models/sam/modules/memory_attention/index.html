@@ -382,17 +382,7 @@ processing sequential data, particularly useful in transformer-like architecture
 <code><span title="bool">bool</span></code>
 </td><td><div class="doc-md-description"><p>Whether the input tensors are in batch-first format.</p></div></td><td>
 <code>True</code>
-</td></tr></tbody></table><p><span class="doc-section-title">Examples:</span></p><div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d_model</span> <span class="o">=</span> <span class="mi">256</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">layer</span> <span class="o">=</span> <span class="n">MemoryAttentionLayer</span><span class="p">(</span><span class="n">d_model</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">attention</span> <span class="o">=</span> <span class="n">MemoryAttention</span><span class="p">(</span><span class="n">d_model</span><span class="p">,</span> <span class="n">pos_enc_at_input</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="n">layer</span><span class="p">,</span> <span class="n">num_layers</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">curr</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">d_model</span><span class="p">)</span>  <span class="c1"># (seq_len, batch_size, d_model)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">memory</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">d_model</span><span class="p">)</span>  <span class="c1"># (mem_len, batch_size, d_model)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">curr_pos</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">d_model</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">memory_pos</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">d_model</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">output</span> <span class="o">=</span> <span class="n">attention</span><span class="p">(</span><span class="n">curr</span><span class="p">,</span> <span class="n">memory</span><span class="p">,</span> <span class="n">curr_pos</span><span class="p">,</span> <span class="n">memory_pos</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span></span><span class="go">torch.Size([10, 32, 256])</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/sam/modules/memory_attention.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>197</span>
+</td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/sam/modules/memory_attention.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>197</span>
 <span>198</span>
 <span>199</span>
 <span>200</span>
@@ -418,19 +408,7 @@ processing sequential data, particularly useful in transformer-like architecture
 <span>220</span>
 <span>221</span>
 <span>222</span>
-<span>223</span>
-<span>224</span>
-<span>225</span>
-<span>226</span>
-<span>227</span>
-<span>228</span>
-<span>229</span>
-<span>230</span>
-<span>231</span>
-<span>232</span>
-<span>233</span>
-<span>234</span>
-<span>235</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>223</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">d_model</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">pos_enc_at_input</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
@@ -449,18 +427,6 @@ processing sequential data, particularly useful in transformer-like architecture
 <span></span><span class="sd">        layer (nn.Module): The attention layer to be used in the module.</span>
 <span></span><span class="sd">        num_layers (int): The number of attention layers.</span>
 <span></span><span class="sd">        batch_first (bool): Whether the input tensors are in batch-first format.</span>
-<span></span>
-<span></span><span class="sd">    Examples:</span>
-<span></span><span class="sd">        &gt;&gt;&gt; d_model = 256</span>
-<span></span><span class="sd">        &gt;&gt;&gt; layer = MemoryAttentionLayer(d_model)</span>
-<span></span><span class="sd">        &gt;&gt;&gt; attention = MemoryAttention(d_model, pos_enc_at_input=True, layer=layer, num_layers=3)</span>
-<span></span><span class="sd">        &gt;&gt;&gt; curr = torch.randn(10, 32, d_model)  # (seq_len, batch_size, d_model)</span>
-<span></span><span class="sd">        &gt;&gt;&gt; memory = torch.randn(20, 32, d_model)  # (mem_len, batch_size, d_model)</span>
-<span></span><span class="sd">        &gt;&gt;&gt; curr_pos = torch.randn(10, 32, d_model)</span>
-<span></span><span class="sd">        &gt;&gt;&gt; memory_pos = torch.randn(20, 32, d_model)</span>
-<span></span><span class="sd">        &gt;&gt;&gt; output = attention(curr, memory, curr_pos, memory_pos)</span>
-<span></span><span class="sd">        &gt;&gt;&gt; print(output.shape)</span>
-<span></span><span class="sd">        torch.Size([10, 32, 256])</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">d_model</span> <span class="o">=</span> <span class="n">d_model</span>
@@ -515,7 +481,19 @@ processing sequential data, particularly useful in transformer-like architecture
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">output</span> <span class="o">=</span> <span class="n">attention</span><span class="p">(</span><span class="n">curr</span><span class="p">,</span> <span class="n">memory</span><span class="p">,</span> <span class="n">curr_pos</span><span class="p">,</span> <span class="n">memory_pos</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span><span class="go">torch.Size([10, 32, 256])</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/sam/modules/memory_attention.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>237</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/sam/modules/memory_attention.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>225</span>
+<span>226</span>
+<span>227</span>
+<span>228</span>
+<span>229</span>
+<span>230</span>
+<span>231</span>
+<span>232</span>
+<span>233</span>
+<span>234</span>
+<span>235</span>
+<span>236</span>
+<span>237</span>
 <span>238</span>
 <span>239</span>
 <span>240</span>
@@ -572,19 +550,7 @@ processing sequential data, particularly useful in transformer-like architecture
 <span>291</span>
 <span>292</span>
 <span>293</span>
-<span>294</span>
-<span>295</span>
-<span>296</span>
-<span>297</span>
-<span>298</span>
-<span>299</span>
-<span>300</span>
-<span>301</span>
-<span>302</span>
-<span>303</span>
-<span>304</span>
-<span>305</span>
-<span>306</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
+<span>294</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">curr</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>  <span class="c1"># self-attention inputs</span>
 <span></span>    <span class="n">memory</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>  <span class="c1"># cross-attention inputs</span>

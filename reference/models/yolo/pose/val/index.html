@@ -67,7 +67,9 @@ and ground truth.</p></div></td></tr><tr class="doc-section-item"><td><code><a c
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n-pose.pt"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s2">"coco8-pose.yaml"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">validator</span> <span class="o">=</span> <span class="n">PoseValidator</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">validator</span><span class="p">()</span>
-</code></pre></div><p>This validator is specifically designed for pose estimation tasks, handling keypoints and implementing
+</code></pre></div><details class="notes" open=""><summary>Notes</summary><p>This class extends DetectionValidator with pose-specific functionality. It initializes with sigma values
+for OKS calculation and sets up PoseMetrics for evaluation. A warning is displayed when using Apple MPS
+due to a known bug with pose models.</p></details><p>This validator is specifically designed for pose estimation tasks, handling keypoints and implementing
 specialized metrics for pose evaluation.</p><p><span class="doc-section-title">Parameters:</span></p><table><thead><tr><th>Name</th><th>Type</th><th>Description</th><th>Default</th></tr></thead><tbody><tr class="doc-section-item"><td>
 <code>dataloader</code>
 </td><td>
@@ -92,18 +94,7 @@ specialized metrics for pose evaluation.</p><p><span class="doc-section-title">P
 <code><span title="list">list</span></code>
 </td><td><div class="doc-md-description"><p>List of callback functions to be executed during validation.</p></div></td><td>
 <code>None</code>
-</td></tr></tbody></table><p><span class="doc-section-title">Examples:</span></p><div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.pose</span><span class="w"> </span><span class="kn">import</span> <span class="n">PoseValidator</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n-pose.pt"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s2">"coco8-pose.yaml"</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">validator</span> <span class="o">=</span> <span class="n">PoseValidator</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">validator</span><span class="p">()</span>
-</code></pre></div><details class="notes" open=""><summary>Notes</summary><p>This class extends DetectionValidator with pose-specific functionality. It initializes with sigma values
-for OKS calculation and sets up PoseMetrics for evaluation. A warning is displayed when using Apple MPS
-due to a known bug with pose models.</p></details><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>50</span>
-<span>51</span>
-<span>52</span>
-<span>53</span>
-<span>54</span>
-<span>55</span>
+</td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>55</span>
 <span>56</span>
 <span>57</span>
 <span>58</span>
@@ -124,13 +115,7 @@ due to a known bug with pose models.</p></details><details class="mkdocstrings-s
 <span>73</span>
 <span>74</span>
 <span>75</span>
-<span>76</span>
-<span>77</span>
-<span>78</span>
-<span>79</span>
-<span>80</span>
-<span>81</span>
-<span>82</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataloader</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>76</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataloader</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize a PoseValidator object for pose estimation validation.</span>
 <span></span>
 <span></span><span class="sd">    This validator is specifically designed for pose estimation tasks, handling keypoints and implementing</span>
@@ -141,17 +126,6 @@ due to a known bug with pose models.</p></details><details class="mkdocstrings-s
 <span></span><span class="sd">        save_dir (Path | str, optional): Directory to save results.</span>
 <span></span><span class="sd">        args (dict, optional): Arguments for the validator including task set to "pose".</span>
 <span></span><span class="sd">        _callbacks (list, optional): List of callback functions to be executed during validation.</span>
-<span></span>
-<span></span><span class="sd">    Examples:</span>
-<span></span><span class="sd">        &gt;&gt;&gt; from ultralytics.models.yolo.pose import PoseValidator</span>
-<span></span><span class="sd">        &gt;&gt;&gt; args = dict(model="yolo11n-pose.pt", data="coco8-pose.yaml")</span>
-<span></span><span class="sd">        &gt;&gt;&gt; validator = PoseValidator(args=args)</span>
-<span></span><span class="sd">        &gt;&gt;&gt; validator()</span>
-<span></span>
-<span></span><span class="sd">    Notes:</span>
-<span></span><span class="sd">        This class extends DetectionValidator with pose-specific functionality. It initializes with sigma values</span>
-<span></span><span class="sd">        for OKS calculation and sets up PoseMetrics for evaluation. A warning is displayed when using Apple MPS</span>
-<span></span><span class="sd">        due to a known bug with pose models.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span> <span class="o">=</span> <span class="kc">None</span>
@@ -165,32 +139,32 @@ due to a known bug with pose models.</p></details><details class="mkdocstrings-s
 <span></span>        <span class="p">)</span>
 </code></pre></div></td></tr></table></div></details><div class="doc doc-children"><div class="doc doc-object doc-function"><h3 class="doc doc-heading" id="ultralytics.models.yolo.pose.val.PoseValidator.eval_json">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">eval_json</span></h3><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">eval_json</span><span class="p">(</span><span class="n">stats</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
-</code></pre></div><div class="doc doc-contents"><p>Evaluate object detection model using COCO JSON format.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>255</span>
-<span>256</span>
-<span>257</span>
-<span>258</span>
-<span>259</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">eval_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stats</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+</code></pre></div><div class="doc doc-contents"><p>Evaluate object detection model using COCO JSON format.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>249</span>
+<span>250</span>
+<span>251</span>
+<span>252</span>
+<span>253</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">eval_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stats</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Evaluate object detection model using COCO JSON format."""</span>
 <span></span>    <span class="n">anno_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"path"</span><span class="p">]</span> <span class="o">/</span> <span class="s2">"annotations/person_keypoints_val2017.json"</span>  <span class="c1"># annotations</span>
 <span></span>    <span class="n">pred_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="s2">"predictions.json"</span>  <span class="c1"># predictions</span>
 <span></span>    <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">coco_evaluate</span><span class="p">(</span><span class="n">stats</span><span class="p">,</span> <span class="n">pred_json</span><span class="p">,</span> <span class="n">anno_json</span><span class="p">,</span> <span class="p">[</span><span class="s2">"bbox"</span><span class="p">,</span> <span class="s2">"keypoints"</span><span class="p">],</span> <span class="n">suffix</span><span class="o">=</span><span class="p">[</span><span class="s2">"Box"</span><span class="p">,</span> <span class="s2">"Pose"</span><span class="p">])</span>
 </code></pre></div></td></tr></table></div></details></div></div><div class="doc doc-object doc-function"><h3 class="doc doc-heading" id="ultralytics.models.yolo.pose.val.PoseValidator.get_desc">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">get_desc</span></h3><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_desc</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span>
-</code></pre></div><div class="doc doc-contents"><p>Return description of evaluation metrics in string format.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 90</span>
-<span> 91</span>
-<span> 92</span>
-<span> 93</span>
-<span> 94</span>
-<span> 95</span>
-<span> 96</span>
-<span> 97</span>
-<span> 98</span>
-<span> 99</span>
-<span>100</span>
-<span>101</span>
-<span>102</span>
-<span>103</span>
-<span>104</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_desc</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</code></pre></div><div class="doc doc-contents"><p>Return description of evaluation metrics in string format.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>84</span>
+<span>85</span>
+<span>86</span>
+<span>87</span>
+<span>88</span>
+<span>89</span>
+<span>90</span>
+<span>91</span>
+<span>92</span>
+<span>93</span>
+<span>94</span>
+<span>95</span>
+<span>96</span>
+<span>97</span>
+<span>98</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_desc</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return description of evaluation metrics in string format."""</span>
 <span></span>    <span class="k">return</span> <span class="p">(</span><span class="s2">"</span><span class="si">%22s</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"</span><span class="si">%11s</span><span class="s2">"</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span>
 <span></span>        <span class="s2">"Class"</span><span class="p">,</span>
@@ -211,17 +185,17 @@ due to a known bug with pose models.</p></details><details class="mkdocstrings-s
 <code>model</code>
 </td><td>
 <code><span title="torch.nn.Module">Module</span></code>
-</td><td><div class="doc-md-description"><p>Model to validate.</p></div></td><td><em>required</em></td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>106</span>
+</td><td><div class="doc-md-description"><p>Model to validate.</p></div></td><td><em>required</em></td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>100</span>
+<span>101</span>
+<span>102</span>
+<span>103</span>
+<span>104</span>
+<span>105</span>
+<span>106</span>
 <span>107</span>
 <span>108</span>
 <span>109</span>
-<span>110</span>
-<span>111</span>
-<span>112</span>
-<span>113</span>
-<span>114</span>
-<span>115</span>
-<span>116</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">init_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>110</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">init_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize evaluation metrics for YOLO pose validation.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
@@ -249,7 +223,13 @@ scores, class predictions, and keypoint data.</p></div></td><td><em>required</em
 - 'cls': Class predictions
 - 'keypoints': Reshaped keypoint coordinates with shape (-1, *self.kpt_shape)</p></div></td></tr></tbody></table><details class="notes" open=""><summary>Notes</summary><p>If no keypoints are present in a prediction (empty keypoints), that prediction is skipped and continues
 to the next one. The keypoints are extracted from the 'extra' field which contains additional
-task-specific data beyond basic detection.</p></details><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>118</span>
+task-specific data beyond basic detection.</p></details><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>112</span>
+<span>113</span>
+<span>114</span>
+<span>115</span>
+<span>116</span>
+<span>117</span>
+<span>118</span>
 <span>119</span>
 <span>120</span>
 <span>121</span>
@@ -269,13 +249,7 @@ task-specific data beyond basic detection.</p></details><details class="mkdocstr
 <span>135</span>
 <span>136</span>
 <span>137</span>
-<span>138</span>
-<span>139</span>
-<span>140</span>
-<span>141</span>
-<span>142</span>
-<span>143</span>
-<span>144</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+<span>138</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Postprocess YOLO predictions to extract and reshape keypoints for pose estimation.</span>
 <span></span>
 <span></span><span class="sd">    This method extends the parent class postprocessing by extracting keypoints from the 'extra' field of</span>
@@ -316,7 +290,13 @@ tensors.</p></div></td><td><em>required</em></td></tr><tr class="doc-section-ite
 <code><span title="dict">dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td><td><div class="doc-md-description"><p>Batch dictionary containing 'imgsz', 'ori_shape', 'ratio_pad', and 'im_file'.</p></div></td><td><em>required</em></td></tr></tbody></table><details class="notes" open=""><summary>Notes</summary><p>The method extracts the image ID from the filename stem (either as an integer if numeric, or as a string),
 converts bounding boxes from xyxy to xywh format, and adjusts coordinates from center to top-left corner
-before saving to the JSON dictionary.</p></details><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>222</span>
+before saving to the JSON dictionary.</p></details><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>216</span>
+<span>217</span>
+<span>218</span>
+<span>219</span>
+<span>220</span>
+<span>221</span>
+<span>222</span>
 <span>223</span>
 <span>224</span>
 <span>225</span>
@@ -329,13 +309,7 @@ before saving to the JSON dictionary.</p></details><details class="mkdocstrings-
 <span>232</span>
 <span>233</span>
 <span>234</span>
-<span>235</span>
-<span>236</span>
-<span>237</span>
-<span>238</span>
-<span>239</span>
-<span>240</span>
-<span>241</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pred_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">pbatch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>235</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pred_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">pbatch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Convert YOLO predictions to COCO JSON format.</span>
 <span></span>
 <span></span><span class="sd">    This method takes prediction tensors and a filename, converts the bounding boxes from YOLO format to COCO</span>
@@ -357,11 +331,11 @@ before saving to the JSON dictionary.</p></details><details class="mkdocstrings-
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">jdict</span><span class="p">[</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">kpts</span><span class="p">)</span> <span class="o">+</span> <span class="n">i</span><span class="p">][</span><span class="s2">"keypoints"</span><span class="p">]</span> <span class="o">=</span> <span class="n">k</span>  <span class="c1"># keypoints</span>
 </code></pre></div></td></tr></table></div></details></div></div><div class="doc doc-object doc-function"><h3 class="doc doc-heading" id="ultralytics.models.yolo.pose.val.PoseValidator.preprocess">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">preprocess</span></h3><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">preprocess</span><span class="p">(</span><span class="n">batch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
-</code></pre></div><div class="doc doc-contents"><p>Preprocess batch by converting keypoints data to float and moving it to the device.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>84</span>
-<span>85</span>
-<span>86</span>
-<span>87</span>
-<span>88</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+</code></pre></div><div class="doc doc-contents"><p>Preprocess batch by converting keypoints data to float and moving it to the device.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>78</span>
+<span>79</span>
+<span>80</span>
+<span>81</span>
+<span>82</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Preprocess batch by converting keypoints data to float and moving it to the device."""</span>
 <span></span>    <span class="n">batch</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
 <span></span>    <span class="n">batch</span><span class="p">[</span><span class="s2">"keypoints"</span><span class="p">]</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"keypoints"</span><span class="p">]</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
@@ -390,7 +364,13 @@ before saving to the JSON dictionary.</p></details><details class="mkdocstrings-
 </td><td>
 <code><span title="pathlib.Path">Path</span></code>
 </td><td><div class="doc-md-description"><p>Output file path to save detections.</p></div></td><td><em>required</em></td></tr></tbody></table><details class="notes" open=""><summary>Notes</summary><p>The output format is: class_id x_center y_center width height confidence keypoints where keypoints are
-normalized (x, y, visibility) values for each point.</p></details><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>199</span>
+normalized (x, y, visibility) values for each point.</p></details><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>193</span>
+<span>194</span>
+<span>195</span>
+<span>196</span>
+<span>197</span>
+<span>198</span>
+<span>199</span>
 <span>200</span>
 <span>201</span>
 <span>202</span>
@@ -405,13 +385,7 @@ normalized (x, y, visibility) values for each point.</p></details><details class
 <span>211</span>
 <span>212</span>
 <span>213</span>
-<span>214</span>
-<span>215</span>
-<span>216</span>
-<span>217</span>
-<span>218</span>
-<span>219</span>
-<span>220</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_one_txt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">save_conf</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">shape</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>214</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_one_txt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">save_conf</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">shape</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Save YOLO pose detections to a text file in normalized coordinates.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
@@ -437,17 +411,17 @@ normalized (x, y, visibility) values for each point.</p></details><details class
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">scale_preds</span></h3><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">scale_preds</span><span class="p">(</span>
 <span></span>    <span class="n">predn</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">],</span> <span class="n">pbatch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
-</code></pre></div><div class="doc doc-contents"><p>Scales predictions to the original image size.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>243</span>
+</code></pre></div><div class="doc doc-contents"><p>Scales predictions to the original image size.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>237</span>
+<span>238</span>
+<span>239</span>
+<span>240</span>
+<span>241</span>
+<span>242</span>
+<span>243</span>
 <span>244</span>
 <span>245</span>
 <span>246</span>
-<span>247</span>
-<span>248</span>
-<span>249</span>
-<span>250</span>
-<span>251</span>
-<span>252</span>
-<span>253</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_preds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">pbatch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+<span>247</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_preds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">pbatch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Scales predictions to the original image size."""</span>
 <span></span>    <span class="k">return</span> <span class="p">{</span>
 <span></span>        <span class="o">**</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">scale_preds</span><span class="p">(</span><span class="n">predn</span><span class="p">,</span> <span class="n">pbatch</span><span class="p">),</span>
