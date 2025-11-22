@@ -868,53 +868,53 @@ modified. It ensures thread-safe operations using a lock and handles JSON serial
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">_load</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div></details><div class="doc doc-children"><div class="doc doc-object doc-function"><h3 class="doc doc-heading" id="ultralytics.utils.JSONDict.__delitem__">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">__delitem__</span></h3><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">__delitem__</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-</code></pre></div><div class="doc doc-contents"><p>Remove an item and update the persistent storage.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/__init__.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1212</span>
-<span>1213</span>
+</code></pre></div><div class="doc doc-contents"><p>Remove an item and update the persistent storage.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/__init__.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1213</span>
 <span>1214</span>
 <span>1215</span>
-<span>1216</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span>1216</span>
+<span>1217</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Remove an item and update the persistent storage."""</span>
 <span></span>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
 <span></span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__delitem__</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">_save</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div></details></div></div><div class="doc doc-object doc-function"><h3 class="doc doc-heading" id="ultralytics.utils.JSONDict.__setitem__">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">__setitem__</span></h3><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">__setitem__</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-</code></pre></div><div class="doc doc-contents"><p>Store a key-value pair and persist to disk.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/__init__.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1206</span>
-<span>1207</span>
+</code></pre></div><div class="doc doc-contents"><p>Store a key-value pair and persist to disk.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/__init__.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1207</span>
 <span>1208</span>
 <span>1209</span>
-<span>1210</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span>1210</span>
+<span>1211</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Store a key-value pair and persist to disk."""</span>
 <span></span>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
 <span></span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">_save</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div></details></div></div><div class="doc doc-object doc-function"><h3 class="doc doc-heading" id="ultralytics.utils.JSONDict.__str__">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">__str__</span></h3><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">__str__</span><span class="p">()</span>
-</code></pre></div><div class="doc doc-contents"><p>Return a pretty-printed JSON string representation of the dictionary.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/__init__.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1218</span>
-<span>1219</span>
+</code></pre></div><div class="doc doc-contents"><p>Return a pretty-printed JSON string representation of the dictionary.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/__init__.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1219</span>
 <span>1220</span>
-<span>1221</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>1221</span>
+<span>1222</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return a pretty-printed JSON string representation of the dictionary."""</span>
 <span></span>    <span class="n">contents</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_json_default</span><span class="p">)</span>
 <span></span>    <span class="k">return</span> <span class="sa">f</span><span class="s1">'JSONDict("</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">file_path</span><span class="si">}</span><span class="s1">"):</span><span class="se">\n</span><span class="si">{</span><span class="n">contents</span><span class="si">}</span><span class="s1">'</span>
 </code></pre></div></td></tr></table></div></details></div></div><div class="doc doc-object doc-function"><h3 class="doc doc-heading" id="ultralytics.utils.JSONDict.clear">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">clear</span></h3><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">clear</span><span class="p">()</span>
-</code></pre></div><div class="doc doc-contents"><p>Clear all entries and update the persistent storage.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/__init__.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1229</span>
-<span>1230</span>
+</code></pre></div><div class="doc doc-contents"><p>Clear all entries and update the persistent storage.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/__init__.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1230</span>
 <span>1231</span>
 <span>1232</span>
-<span>1233</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>1233</span>
+<span>1234</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Clear all entries and update the persistent storage."""</span>
 <span></span>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
 <span></span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">_save</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div></details></div></div><div class="doc doc-object doc-function"><h3 class="doc doc-heading" id="ultralytics.utils.JSONDict.update">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">update</span></h3><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">update</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</code></pre></div><div class="doc doc-contents"><p>Update the dictionary and persist changes.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/__init__.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1223</span>
-<span>1224</span>
+</code></pre></div><div class="doc doc-contents"><p>Update the dictionary and persist changes.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/__init__.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1224</span>
 <span>1225</span>
 <span>1226</span>
-<span>1227</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>1227</span>
+<span>1228</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Update the dictionary and persist changes."""</span>
 <span></span>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
 <span></span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -959,8 +959,7 @@ include directories for datasets, weights, and runs, as well as various integrat
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">settings</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">runs_dir</span><span class="o">=</span><span class="s2">"/new/runs/dir"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">settings</span><span class="p">[</span><span class="s2">"runs_dir"</span><span class="p">])</span>
 <span></span><span class="go">/new/runs/dir</span>
-</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/__init__.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1262</span>
-<span>1263</span>
+</code></pre></div><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/__init__.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1263</span>
 <span>1264</span>
 <span>1265</span>
 <span>1266</span>
@@ -1006,7 +1005,8 @@ include directories for datasets, weights, and runs, as well as various integrat
 <span>1306</span>
 <span>1307</span>
 <span>1308</span>
-<span>1309</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">SETTINGS_FILE</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s2">"0.0.6"</span><span class="p">):</span>
+<span>1309</span>
+<span>1310</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">SETTINGS_FILE</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s2">"0.0.6"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the SettingsManager with default settings and load user settings."""</span>
 <span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
 <span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">uuid</span>
@@ -1056,24 +1056,23 @@ include directories for datasets, weights, and runs, as well as various integrat
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">_validate_settings</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div></details><div class="doc doc-children"><div class="doc doc-object doc-function"><h3 class="doc doc-heading" id="ultralytics.utils.SettingsManager.__setitem__">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">__setitem__</span></h3><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">__setitem__</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-</code></pre></div><div class="doc doc-contents"><p>Update one key: value pair.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/__init__.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1331</span>
-<span>1332</span>
-<span>1333</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+</code></pre></div><div class="doc doc-contents"><p>Update one key: value pair.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/__init__.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1332</span>
+<span>1333</span>
+<span>1334</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Update one key: value pair."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span><span class="p">})</span>
 </code></pre></div></td></tr></table></div></details></div></div><div class="doc doc-object doc-function"><h3 class="doc doc-heading" id="ultralytics.utils.SettingsManager.reset">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">reset</span></h3><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">reset</span><span class="p">()</span>
-</code></pre></div><div class="doc doc-contents"><p>Reset the settings to default and save them.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/__init__.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1350</span>
-<span>1351</span>
+</code></pre></div><div class="doc doc-contents"><p>Reset the settings to default and save them.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/__init__.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1351</span>
 <span>1352</span>
-<span>1353</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>1353</span>
+<span>1354</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Reset the settings to default and save them."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">defaults</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div></details></div></div><div class="doc doc-object doc-function"><h3 class="doc doc-heading" id="ultralytics.utils.SettingsManager.update">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">update</span></h3><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">update</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</code></pre></div><div class="doc doc-contents"><p>Update settings, validating keys and types.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/__init__.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1335</span>
-<span>1336</span>
+</code></pre></div><div class="doc doc-contents"><p>Update settings, validating keys and types.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/__init__.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1336</span>
 <span>1337</span>
 <span>1338</span>
 <span>1339</span>
@@ -1085,7 +1084,8 @@ include directories for datasets, weights, and runs, as well as various integrat
 <span>1345</span>
 <span>1346</span>
 <span>1347</span>
-<span>1348</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>1348</span>
+<span>1349</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Update settings, validating keys and types."""</span>
 <span></span>    <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
 <span></span>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
@@ -2250,12 +2250,12 @@ settings.</p><p>Conditions required to send errors (ALL conditions must be met o
 <span></span>    <span class="n">sentry_sdk</span><span class="o">.</span><span class="n">set_user</span><span class="p">({</span><span class="s2">"id"</span><span class="p">:</span> <span class="n">SETTINGS</span><span class="p">[</span><span class="s2">"uuid"</span><span class="p">]})</span>  <span class="c1"># SHA-256 anonymized UUID hash</span>
 </code></pre></div></td></tr></table></div></details></div></div><p><br/><br/><hr/><br/></p><div class="doc doc-object doc-function"><h2 class="doc doc-heading" id="ultralytics.utils.deprecation_warn">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.deprecation_warn</span></h2><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">deprecation_warn</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">new_arg</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-</code></pre></div><div class="doc doc-contents first"><p>Issue a deprecation warning when a deprecated argument is used, suggesting an updated argument.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/__init__.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1356</span>
-<span>1357</span>
+</code></pre></div><div class="doc doc-contents first"><p>Issue a deprecation warning when a deprecated argument is used, suggesting an updated argument.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/__init__.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1357</span>
 <span>1358</span>
 <span>1359</span>
 <span>1360</span>
-<span>1361</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">deprecation_warn</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">new_arg</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>1361</span>
+<span>1362</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">deprecation_warn</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">new_arg</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Issue a deprecation warning when a deprecated argument is used, suggesting an updated argument."""</span>
 <span></span>    <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="n">arg</span><span class="si">}</span><span class="s2">' is deprecated and will be removed in the future."</span>
 <span></span>    <span class="k">if</span> <span class="n">new_arg</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -2263,29 +2263,29 @@ settings.</p><p>Conditions required to send errors (ALL conditions must be met o
 <span></span>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div></details></div></div><p><br/><br/><hr/><br/></p><div class="doc doc-object doc-function"><h2 class="doc doc-heading" id="ultralytics.utils.clean_url">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.clean_url</span></h2><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">clean_url</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-</code></pre></div><div class="doc doc-contents first"><p>Strip auth from URL, i.e. <a href="https://url.com/file.txt?auth">https://url.com/file.txt?auth</a> -&gt; <a href="https://url.com/file.txt">https://url.com/file.txt</a>.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/__init__.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1364</span>
-<span>1365</span>
+</code></pre></div><div class="doc doc-contents first"><p>Strip auth from URL, i.e. <a href="https://url.com/file.txt?auth">https://url.com/file.txt?auth</a> -&gt; <a href="https://url.com/file.txt">https://url.com/file.txt</a>.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/__init__.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1365</span>
 <span>1366</span>
-<span>1367</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clean_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<span>1367</span>
+<span>1368</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clean_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Strip auth from URL, i.e. https://url.com/file.txt?auth -&gt; https://url.com/file.txt."""</span>
 <span></span>    <span class="n">url</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">as_posix</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">":/"</span><span class="p">,</span> <span class="s2">"://"</span><span class="p">)</span>  <span class="c1"># Pathlib turns :// -&gt; :/, as_posix() for Windows</span>
 <span></span>    <span class="k">return</span> <span class="n">unquote</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"?"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># '%2F' to '/', split https://url.com/file.txt?auth</span>
 </code></pre></div></td></tr></table></div></details></div></div><p><br/><br/><hr/><br/></p><div class="doc doc-object doc-function"><h2 class="doc doc-heading" id="ultralytics.utils.url2file">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.url2file</span></h2><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">url2file</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-</code></pre></div><div class="doc doc-contents first"><p>Convert URL to filename, i.e. <a href="https://url.com/file.txt?auth">https://url.com/file.txt?auth</a> -&gt; file.txt.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/__init__.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1370</span>
-<span>1371</span>
-<span>1372</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">url2file</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+</code></pre></div><div class="doc doc-contents first"><p>Convert URL to filename, i.e. <a href="https://url.com/file.txt?auth">https://url.com/file.txt?auth</a> -&gt; file.txt.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/__init__.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1371</span>
+<span>1372</span>
+<span>1373</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">url2file</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Convert URL to filename, i.e. https://url.com/file.txt?auth -&gt; file.txt."""</span>
 <span></span>    <span class="k">return</span> <span class="n">Path</span><span class="p">(</span><span class="n">clean_url</span><span class="p">(</span><span class="n">url</span><span class="p">))</span><span class="o">.</span><span class="n">name</span>
 </code></pre></div></td></tr></table></div></details></div></div><p><br/><br/><hr/><br/></p><div class="doc doc-object doc-function"><h2 class="doc doc-heading" id="ultralytics.utils.vscode_msg">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.vscode_msg</span></h2><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">vscode_msg</span><span class="p">(</span><span class="n">ext</span><span class="o">=</span><span class="s1">'ultralytics.ultralytics-snippets'</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
-</code></pre></div><div class="doc doc-contents first"><p>Display a message to install Ultralytics-Snippets for VS Code if not already installed.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/__init__.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1375</span>
-<span>1376</span>
+</code></pre></div><div class="doc doc-contents first"><p>Display a message to install Ultralytics-Snippets for VS Code if not already installed.</p><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/utils/__init__.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1376</span>
 <span>1377</span>
 <span>1378</span>
 <span>1379</span>
 <span>1380</span>
-<span>1381</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">vscode_msg</span><span class="p">(</span><span class="n">ext</span><span class="o">=</span><span class="s2">"ultralytics.ultralytics-snippets"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span>1381</span>
+<span>1382</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">vscode_msg</span><span class="p">(</span><span class="n">ext</span><span class="o">=</span><span class="s2">"ultralytics.ultralytics-snippets"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Display a message to install Ultralytics-Snippets for VS Code if not already installed."""</span>
 <span></span>    <span class="n">path</span> <span class="o">=</span> <span class="p">(</span><span class="n">USER_CONFIG_DIR</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="n">WINDOWS</span> <span class="k">else</span> <span class="n">USER_CONFIG_DIR</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="s2">".vscode/extensions"</span>
 <span></span>    <span class="n">obs_file</span> <span class="o">=</span> <span class="n">path</span> <span class="o">/</span> <span class="s2">".obsolete"</span>  <span class="c1"># file tracks uninstalled extensions, while source directory remains</span>
