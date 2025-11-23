@@ -55,7 +55,7 @@ The core innovations of YOLOv9 are **Programmable Gradient Information (PGI)** a
 - **GELAN:** This architecture optimizes parameter efficiency by combining the strengths of CSPNet and ELAN, allowing for flexible computational scaling.
 
 !!! info "Academic Focus"
-    YOLOv9 serves as an excellent case study for researchers interested in deep learning theory, specifically regarding gradient flow and information preservation in [convolutional neural networks](https://www.ultralytics.com/glossary/convolutional-neural-network-cnn).
+YOLOv9 serves as an excellent case study for researchers interested in deep learning theory, specifically regarding gradient flow and information preservation in [convolutional neural networks](https://www.ultralytics.com/glossary/convolutional-neural-network-cnn).
 
 [Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9/){ .md-button }
 
@@ -103,7 +103,7 @@ While YOLOv9 is primarily recognized for its achievements in [object detection](
 - **Oriented Bounding Boxes (OBB):** Detecting rotated objects, vital for aerial imagery.
 
 !!! tip "Unified API"
-    Switching between tasks in YOLO11 is as simple as changing the model weight file (e.g., from `yolo11n.pt` for detection to `yolo11n-seg.pt` for segmentation).
+Switching between tasks in YOLO11 is as simple as changing the model weight file (e.g., from `yolo11n.pt` for detection to `yolo11n-seg.pt` for segmentation).
 
 ## Code Example: Comparison in Action
 

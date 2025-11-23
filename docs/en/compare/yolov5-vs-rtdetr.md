@@ -68,7 +68,7 @@ The table below provides a direct comparison of key performance metrics. While R
 | RTDETRv2-x | 640                   | **54.3**             | -                              | 15.03                               | 76                 | 259               |
 
 !!! note "Interpreting the Data"
-    While RTDETRv2 achieves higher mAP numbers, notice the **Speed** and **FLOPs** columns. YOLOv5n runs at **73.6 ms** on a CPU, making it feasible for real-time applications on non-accelerated hardware. RTDETRv2 models are significantly heavier, requiring powerful GPUs to maintain real-time frame rates.
+While RTDETRv2 achieves higher mAP numbers, notice the **Speed** and **FLOPs** columns. YOLOv5n runs at **73.6 ms** on a CPU, making it feasible for real-time applications on non-accelerated hardware. RTDETRv2 models are significantly heavier, requiring powerful GPUs to maintain real-time frame rates.
 
 ### Training Efficiency and Memory Usage
 
@@ -87,7 +87,7 @@ For most developers and commercial applications, YOLOv5 offers a more balanced a
 4.  **Task Versatility:** Unlike RTDETRv2, which is primarily an object detector, YOLOv5 supports classification and segmentation, reducing the need to maintain multiple codebases for different vision tasks.
 
 !!! tip "Upgrade Path"
-    If you need even higher accuracy than YOLOv5 while maintaining these ecosystem benefits, consider the new **[YOLO11](https://docs.ultralytics.com/models/yolo11/)**. It incorporates modern architectural improvements to rival or beat transformer accuracy with the efficiency you expect from YOLO.
+If you need even higher accuracy than YOLOv5 while maintaining these ecosystem benefits, consider the new **[YOLO11](https://docs.ultralytics.com/models/yolo11/)**. It incorporates modern architectural improvements to rival or beat transformer accuracy with the efficiency you expect from YOLO.
 
 ## Code Comparison: ease of use
 

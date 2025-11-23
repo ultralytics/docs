@@ -36,7 +36,7 @@ The success of EfficientDet lies in two main architectural contributions that wo
 2.  **Compound Scaling:** Inspired by EfficientNet, this method creates a family of models (D0 to D7) by uniformly scaling the resolution, depth, and width of the backbone, feature network, and prediction networks. This ensures that as the model grows, it maintains a balance between its various components, optimizing [FLOPs](https://www.ultralytics.com/glossary/flops) and parameter count.
 
 !!! info "The EfficientNet Backbone"
-    EfficientDet utilizes **EfficientNet** as its backbone, a classification network also developed by Google. EfficientNet was optimized using [Neural Architecture Search (NAS)](https://www.ultralytics.com/glossary/neural-architecture-search-nas) to find the most efficient network structure, heavily utilizing depth-wise separable convolutions to reduce computation.
+EfficientDet utilizes **EfficientNet** as its backbone, a classification network also developed by Google. EfficientNet was optimized using [Neural Architecture Search (NAS)](https://www.ultralytics.com/glossary/neural-architecture-search-nas) to find the most efficient network structure, heavily utilizing depth-wise separable convolutions to reduce computation.
 
 ### Strengths and Weaknesses
 
@@ -71,7 +71,7 @@ YOLO11 employs a state-of-the-art **anchor-free** detection head, eliminating th
 Unlike EfficientDet's primary focus on FLOP reduction, YOLO11 is engineered for **hardware-aware efficiency**. This means its layers and operations are selected to maximize throughput on GPUs and [NPU](https://www.insight.com/en_US/content-and-resources/glossary/n/neural-processing-unit.html) accelerators.
 
 !!! tip "Versatility Unleashed"
-    A single YOLO11 model architecture supports a wide array of vision tasks. Within the same framework, you can perform **[Object Detection](https://docs.ultralytics.com/tasks/detect/)**, **[Instance Segmentation](https://docs.ultralytics.com/tasks/segment/)**, **[Image Classification](https://docs.ultralytics.com/tasks/classify/)**, **[Pose Estimation](https://docs.ultralytics.com/tasks/pose/)**, and **[Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/)** detection.
+A single YOLO11 model architecture supports a wide array of vision tasks. Within the same framework, you can perform **[Object Detection](https://docs.ultralytics.com/tasks/detect/)**, **[Instance Segmentation](https://docs.ultralytics.com/tasks/segment/)**, **[Image Classification](https://docs.ultralytics.com/tasks/classify/)**, **[Pose Estimation](https://docs.ultralytics.com/tasks/pose/)**, and **[Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/)** detection.
 
 ### Strengths and Weaknesses
 

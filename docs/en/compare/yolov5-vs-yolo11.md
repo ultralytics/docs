@@ -80,7 +80,7 @@ YOLO11 consistently achieves higher [Mean Average Precision (mAP)](https://www.u
 Thanks to optimized architectural choices, YOLO11 shines in CPU inference speeds. The **YOLO11n** model creates a new benchmark for real-time applications, clocking in at just 56.1ms on CPU with ONNX, significantly faster than its predecessor.
 
 !!! tip "Memory Efficiency"
-    Ultralytics YOLO11 models are designed for optimal memory usage. Compared to transformer-based detectors like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/), YOLO11 requires significantly less CUDA memory during training, making it accessible to developers with standard consumer GPUs.
+Ultralytics YOLO11 models are designed for optimal memory usage. Compared to transformer-based detectors like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/), YOLO11 requires significantly less CUDA memory during training, making it accessible to developers with standard consumer GPUs.
 
 | Model   | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
 | ------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |

@@ -73,7 +73,7 @@ Performance is often the deciding factor for engineers. The table below provides
 - **CPU Performance:** Ultralytics provides transparent CPU benchmarks, whereas DAMO-YOLO lacks official CPU data. For many businesses without access to dedicated GPUs, YOLOv8's proven CPU performance is a significant advantage.
 
 !!! tip "Deployment Flexibility"
-    YOLOv8 models can be easily exported to various formats including ONNX, TensorRT, CoreML, and TFLite using the `yolo export` command. This [model deployment](https://docs.ultralytics.com/guides/model-deployment-options/) capability ensures seamless integration into diverse production environments.
+YOLOv8 models can be easily exported to various formats including ONNX, TensorRT, CoreML, and TFLite using the `yolo export` command. This [model deployment](https://docs.ultralytics.com/guides/model-deployment-options/) capability ensures seamless integration into diverse production environments.
 
 ## Usability and Ecosystem
 

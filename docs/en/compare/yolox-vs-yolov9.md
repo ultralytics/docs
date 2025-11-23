@@ -80,7 +80,7 @@ The following table contrasts the performance of YOLOX and YOLOv9 on the [COCO d
 YOLOv9 provides a substantial upgrade in performance density. For example, **YOLOv9c** achieves **53.0% mAP** with only **25.3M parameters**, whereas **YOLOX-L** requires **54.2M parameters** to achieve a lower score of **49.7% mAP**. This indicates that YOLOv9 is roughly twice as efficient in terms of parameter usage for this accuracy tier.
 
 !!! tip "Efficiency Matters"
-    When deploying to [edge devices](https://www.ultralytics.com/glossary/edge-ai), looking at FLOPs and Parameters is just as important as mAP. YOLOv9's GELAN architecture significantly reduces computational overhead, leading to cooler running devices and longer battery life in mobile deployments.
+When deploying to [edge devices](https://www.ultralytics.com/glossary/edge-ai), looking at FLOPs and Parameters is just as important as mAP. YOLOv9's GELAN architecture significantly reduces computational overhead, leading to cooler running devices and longer battery life in mobile deployments.
 
 ## The Ultralytics Advantage
 

@@ -110,7 +110,7 @@ The data highlights YOLOv8's superior efficiency. The **YOLOv8n** (nano) model i
 While **PP-YOLOE+x** achieves a slightly higher mAP of 54.7, it does so at a substantial cost: nearly 100 million parameters. In contrast, **YOLOv8x** delivers a competitive 53.9 mAP with roughly 30% fewer parameters (68.2M). For most practical applications, YOLOv8 offers a more balanced [performance profile](https://docs.ultralytics.com/guides/yolo-performance-metrics/), delivering SOTA accuracy without the massive computational overhead.
 
 !!! tip "Memory Efficiency"
-    Ultralytics YOLO models are renowned for their low memory footprint during both training and inference. Unlike some transformer-based models or heavy architectures, YOLOv8 is optimized to run efficiently on consumer-grade hardware, reducing the need for expensive [cloud computing](https://www.ultralytics.com/glossary/cloud-computing) resources.
+Ultralytics YOLO models are renowned for their low memory footprint during both training and inference. Unlike some transformer-based models or heavy architectures, YOLOv8 is optimized to run efficiently on consumer-grade hardware, reducing the need for expensive [cloud computing](https://www.ultralytics.com/glossary/cloud-computing) resources.
 
 ## Ideal Use Cases and Applications
 

@@ -58,7 +58,7 @@ RTDETRv2 utilizes a **hybrid encoder** that processes multi-scale features effic
 The standout feature of RTDETRv2 is its **accuracy in complex scenes**, particularly where objects are occluded or lack clear visual distinctiveness. The [self-attention mechanism](https://www.ultralytics.com/glossary/self-attention) allows the model to "reason" about the scene globally.
 
 !!! warning "Resource Intensity"
-    While "Real-Time" is in the name, Transformer-based models like RTDETRv2 are generally more resource-hungry than CNNs. They typically require significantly more **CUDA memory** during training and have higher [FLOPs](https://www.ultralytics.com/glossary/flops), which can complicate deployment on memory-constrained edge devices compared to efficient CNNs like YOLO.
+While "Real-Time" is in the name, Transformer-based models like RTDETRv2 are generally more resource-hungry than CNNs. They typically require significantly more **CUDA memory** during training and have higher [FLOPs](https://www.ultralytics.com/glossary/flops), which can complicate deployment on memory-constrained edge devices compared to efficient CNNs like YOLO.
 
 [Learn more about RTDETRv2](https://docs.ultralytics.com/models/rtdetr/){ .md-button }
 
