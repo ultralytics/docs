@@ -130,7 +130,7 @@ The choice between these models often dictates the feasibility of deployment in 
 
 EfficientDet remains a significant contribution to the field of [Deep Learning](https://www.ultralytics.com/glossary/deep-learning-dl), proving that intelligent scaling can produce compact models. However, for the vast majority of practical applications today, **Ultralytics YOLOv8** (and the newer **YOLO11**) offers a superior solution.
 
-The combination of blazing-fast inference speeds on modern hardware, a comprehensive Python SDK, and the ability to handle multiple vision tasks makes Ultralytics models the recommended choice for developers. Whether you are building a [security alarm system](https://docs.ultralytics.com/guides/security-alarm-system/) or analyzing [satellite imagery](https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery), the Ultralytics ecosystem provides the tools to take your project from concept to production efficiently.
+The combination of blazing-fast inference speeds on modern hardware, a comprehensive Python SDK, and the ability to handle multiple vision tasks makes Ultralytics models the recommended choice for developers. Whether you are building a [security alarm system](https://docs.ultralytics.com/guides/security-alarm-system/) or analyzing [satellite imagery](https://www.ultralytics.com/blog/using-computer-vision-to-analyze-satellite-imagery), the Ultralytics ecosystem provides the tools to take your project from concept to production efficiently.
 
 ## Explore Other Models
 
