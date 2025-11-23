@@ -83,7 +83,7 @@ From the data, we can observe distinct strengths for each model family:
 
 EfficientDet is built upon the **EfficientNet** backbone, which utilizes mobile inverted bottleneck convolutions (MBConv). Its defining feature is the **BiFPN**, a weighted bi-directional feature pyramid network. Unlike traditional FPNs that only sum features top-down, BiFPN allows information to flow both top-down and bottom-up, treating each feature layer with learnable weights. This allows the network to understand the importance of different input features.
 
-The model scales using a **compound coefficient**, $\phi$, which uniformly increases network width, depth, and resolution. This ensures that larger models (`d7`) are not just deeper but also wider and process higher resolution images, maintaining a balance between accuracy and efficiency.
+The model scales using a compound coefficient, phi, which uniformly increases network width, depth, and resolution so larger models (like `d7`) remain balanced across accuracy and efficiency.
 
 ### DAMO-YOLO: Speed-Oriented Innovation
 
