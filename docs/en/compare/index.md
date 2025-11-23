@@ -254,7 +254,7 @@ YOLOX, developed by Megvii, is an anchor-free evolution known for its decoupled 
 - [YOLOX vs YOLOv9](yolox-vs-yolov9.md)
 - [YOLOX vs YOLOv8](yolox-vs-yolov8.md)
 - [YOLOX vs YOLOv7](yolox-vs-yolov7.md)
-- [YOLOX vs YOLOv6-3.0](yolov6-vs-yolox.md)
+- [YOLOX vs YOLOv6-3.0](yolox-vs-yolov6.md)
 - [YOLOX vs YOLOv5](yolox-vs-yolov5.md)
 - [YOLOX vs RT-DETR](yolox-vs-rtdetr.md)
 - [YOLOX vs PP-YOLOE+](yolox-vs-pp-yoloe.md)
