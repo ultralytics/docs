@@ -44,7 +44,7 @@ However, earlier versions of YOLOv6 were primarily limited to [object detection]
 
 YOLOv6-3.0 excels in scenarios such as:
 
-- **Manufacturing lines:** Where high-speed defect detection is required on conveyer belts.
+- **Manufacturing lines:** Where high-speed defect detection is required on conveyor belts.
 - **Retail analytics:** For [queue management](https://docs.ultralytics.com/guides/queue-management/) and inventory tracking where computational resources are limited.
 - **Embedded systems:** deploying onto devices like the NVIDIA Jetson series.
 

@@ -40,14 +40,14 @@ DAMO-YOLO introduces a "Tiny-to-Large" scaling strategy supported by a unique ar
 DAMO-YOLO shines in scenarios where squeezing every percentage point of [mAP](https://www.ultralytics.com/glossary/mean-average-precision-map) is critical.
 
 - **Pros:**
-  - **High Accuracy:** Often outperforms comparable models in mAP for small and medium sizes due to its NAS-optimized backbone.
-  - **Innovative Design:** The ZeroHead concept reduces the heavy computational load typically found in detection heads.
-  - **Strong Distillation:** Includes a robust distillation mechanism (Knowledge Distillation) that improves the performance of smaller student models using larger teacher networks.
+    - **High Accuracy:** Often outperforms comparable models in mAP for small and medium sizes due to its NAS-optimized backbone.
+    - **Innovative Design:** The ZeroHead concept reduces the heavy computational load typically found in detection heads.
+    - **Strong Distillation:** Includes a robust distillation mechanism (Knowledge Distillation) that improves the performance of smaller student models using larger teacher networks.
 
 - **Cons:**
-  - **Complex Architecture:** The use of NAS-generated backbones can make the architecture harder to customize or debug compared to standard CSP-based designs.
-  - **Limited Ecosystem:** As a research-focused release, it lacks the extensive third-party tool integration found in broader ecosystems.
-  - **Latency Variability:** While optimized, the NAS structures may not always map perfectly to specific hardware accelerators like standard CNNs do.
+    - **Complex Architecture:** The use of NAS-generated backbones can make the architecture harder to customize or debug compared to standard CSP-based designs.
+    - **Limited Ecosystem:** As a research-focused release, it lacks the extensive third-party tool integration found in broader ecosystems.
+    - **Latency Variability:** While optimized, the NAS structures may not always map perfectly to specific hardware accelerators like standard CNNs do.
 
 ### Ideal Use Cases
 
@@ -81,13 +81,13 @@ YOLOv6-3.0 focuses on hardware-friendly designs that maximize [GPU](https://www.
 YOLOv6-3.0 is a powerhouse for industrial environments requiring standard GPU deployment.
 
 - **Pros:**
-  - **Inference Speed:** The `nano` variant is exceptionally fast, making it ideal for high-FPS requirements.
-  - **Hardware Optimization:** Explicitly designed for GPU throughput, performing well with TensorRT [quantization](https://www.ultralytics.com/glossary/model-quantization).
-  - **Simplified Deployment:** The re-parameterization simplifies the final graph, reducing compatibility issues during export.
+    - **Inference Speed:** The `nano` variant is exceptionally fast, making it ideal for high-FPS requirements.
+    - **Hardware Optimization:** Explicitly designed for GPU throughput, performing well with TensorRT [quantization](https://www.ultralytics.com/glossary/model-quantization).
+    - **Simplified Deployment:** The re-parameterization simplifies the final graph, reducing compatibility issues during export.
 
 - **Cons:**
-  - **Single-Task Focus:** Primarily capable of [object detection](https://docs.ultralytics.com/tasks/detect/), lacking native support for segmentation or pose estimation in the core repository compared to multi-task frameworks.
-  - **Parameter Efficiency:** Larger variants can be heavier in terms of parameters compared to some competitors for similar accuracy gains.
+    - **Single-Task Focus:** Primarily capable of [object detection](https://docs.ultralytics.com/tasks/detect/), lacking native support for segmentation or pose estimation in the core repository compared to multi-task frameworks.
+    - **Parameter Efficiency:** Larger variants can be heavier in terms of parameters compared to some competitors for similar accuracy gains.
 
 ### Ideal Use Cases
 

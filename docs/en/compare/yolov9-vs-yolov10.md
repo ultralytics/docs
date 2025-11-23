@@ -101,14 +101,14 @@ Both models benefit immensely from being part of the **Ultralytics ecosystem**. 
 ### Ideal Use Cases
 
 - **Choose YOLOv9 when:**
-  - Your application demands the **highest possible accuracy** (e.g., medical imaging, defect detection in manufacturing).
-  - You are working with difficult-to-detect objects where information retention is crucial.
-  - Latency is a secondary concern compared to precision.
+    - Your application demands the **highest possible accuracy** (e.g., medical imaging, defect detection in manufacturing).
+    - You are working with difficult-to-detect objects where information retention is crucial.
+    - Latency is a secondary concern compared to precision.
 
 - **Choose YOLOv10 when:**
-  - **Speed is critical**. Applications like autonomous driving, robotics navigation, or high-FPS video analytics benefit from the NMS-free design.
-  - Deploying on **edge devices** (like NVIDIA Jetson or Raspberry Pi) where CPU/GPU resources are limited.
-  - You need a deterministic inference time without the variability introduced by NMS processing.
+    - **Speed is critical**. Applications like autonomous driving, robotics navigation, or high-FPS video analytics benefit from the NMS-free design.
+    - Deploying on **edge devices** (like NVIDIA Jetson or Raspberry Pi) where CPU/GPU resources are limited.
+    - You need a deterministic inference time without the variability introduced by NMS processing.
 
 ## Code Example: Running Both Models
 

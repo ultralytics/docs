@@ -95,21 +95,21 @@ The data reveals a clear advantage for **YOLOv10** in terms of **Performance Bal
 ### YOLOv10: The Modern Choice
 
 - **Strengths:**
-  - **Ease of Use:** Seamlessly integrated into the Ultralytics ecosystem, offering a standardized API for training and deployment.
-  - **Deployment Speed:** True end-to-end architecture removes post-processing bottlenecks.
-  - **Resource Efficiency:** Lower memory usage and fewer parameters make it ideal for resource-constrained environments like [robotics](https://www.ultralytics.com/glossary/robotics) and mobile apps.
-  - **Training Efficiency:** Supports fast training with readily available pre-trained weights and optimized data loaders.
+    - **Ease of Use:** Seamlessly integrated into the Ultralytics ecosystem, offering a standardized API for training and deployment.
+    - **Deployment Speed:** True end-to-end architecture removes post-processing bottlenecks.
+    - **Resource Efficiency:** Lower memory usage and fewer parameters make it ideal for resource-constrained environments like [robotics](https://www.ultralytics.com/glossary/robotics) and mobile apps.
+    - **Training Efficiency:** Supports fast training with readily available pre-trained weights and optimized data loaders.
 - **Weaknesses:**
-  - As a newer architecture, the ecosystem of third-party tutorials is rapidly growing but may be smaller than older YOLO versions like YOLOv5 or YOLOv8.
+    - As a newer architecture, the ecosystem of third-party tutorials is rapidly growing but may be smaller than older YOLO versions like YOLOv5 or YOLOv8.
 
 ### PP-YOLOE+: The PaddlePaddle Specialist
 
 - **Strengths:**
-  - **High Accuracy:** Delivers excellent precision, particularly in the largest model variants (PP-YOLOE+x).
-  - **Framework Optimization:** Highly tuned for users already deeply invested in the PaddlePaddle infrastructure.
+    - **High Accuracy:** Delivers excellent precision, particularly in the largest model variants (PP-YOLOE+x).
+    - **Framework Optimization:** Highly tuned for users already deeply invested in the PaddlePaddle infrastructure.
 - **Weaknesses:**
-  - **Ecosystem Lock-in:** Primary support is limited to the PaddlePaddle framework, which can be a barrier for teams using [PyTorch](https://www.ultralytics.com/glossary/pytorch) or TensorFlow.
-  - **Heavyweight:** Requires significantly more computational resources (FLOPs and Params) to match the accuracy of newer YOLO models.
+    - **Ecosystem Lock-in:** Primary support is limited to the PaddlePaddle framework, which can be a barrier for teams using [PyTorch](https://www.ultralytics.com/glossary/pytorch) or TensorFlow.
+    - **Heavyweight:** Requires significantly more computational resources (FLOPs and Params) to match the accuracy of newer YOLO models.
 
 ## Use Case Recommendations
 

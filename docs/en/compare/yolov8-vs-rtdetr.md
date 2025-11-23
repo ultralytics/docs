@@ -74,13 +74,13 @@ RTDETRv2 employs a hybrid approach, using a CNN backbone (typically ResNet) to e
 ### Strengths and Weaknesses
 
 - **Strengths:**
-  - **Global Context:** Excellent at handling complex object relationships and occlusions due to its transformer nature.
-  - **High Accuracy:** The largest models achieve slightly higher [mAP scores](https://docs.ultralytics.com/guides/yolo-performance-metrics/) on the COCO dataset compared to YOLOv8x.
-  - **Anchor-Free:** Like YOLOv8, it eliminates the need for manual anchor box tuning.
+    - **Global Context:** Excellent at handling complex object relationships and occlusions due to its transformer nature.
+    - **High Accuracy:** The largest models achieve slightly higher [mAP scores](https://docs.ultralytics.com/guides/yolo-performance-metrics/) on the COCO dataset compared to YOLOv8x.
+    - **Anchor-Free:** Like YOLOv8, it eliminates the need for manual anchor box tuning.
 - **Weaknesses:**
-  - **Resource Intensive:** High FLOPs and parameter counts make it slower on CPUs and require expensive GPUs for training.
-  - **Limited Task Support:** Primarily focused on object detection, lacking the native multi-task versatility (segmentation, pose, etc.) of the Ultralytics framework.
-  - **Complex Deployment:** The transformer architecture can be more challenging to optimize for [mobile](https://docs.ultralytics.com/hub/) and embedded targets compared to pure CNNs.
+    - **Resource Intensive:** High FLOPs and parameter counts make it slower on CPUs and require expensive GPUs for training.
+    - **Limited Task Support:** Primarily focused on object detection, lacking the native multi-task versatility (segmentation, pose, etc.) of the Ultralytics framework.
+    - **Complex Deployment:** The transformer architecture can be more challenging to optimize for [mobile](https://docs.ultralytics.com/hub/) and embedded targets compared to pure CNNs.
 
 [Learn more about RTDETRv2](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme){ .md-button }
 

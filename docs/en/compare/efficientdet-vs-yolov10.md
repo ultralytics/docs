@@ -148,21 +148,21 @@ EfficientDet remains relevant in specific contexts:
 ### YOLOv10
 
 - **Strengths:**
-  - **NMS-Free:** True end-to-end [deployment](https://docs.ultralytics.com/guides/model-deployment-options/) simplifies integration.
-  - **Performance Balance:** unmatched speed-accuracy trade-off on GPUs.
-  - **Versatility:** Capable of handling diverse detection tasks efficiently.
-  - **Well-Maintained:** Backed by the Ultralytics ecosystem with frequent updates.
+    - **NMS-Free:** True end-to-end [deployment](https://docs.ultralytics.com/guides/model-deployment-options/) simplifies integration.
+    - **Performance Balance:** unmatched speed-accuracy trade-off on GPUs.
+    - **Versatility:** Capable of handling diverse detection tasks efficiently.
+    - **Well-Maintained:** Backed by the Ultralytics ecosystem with frequent updates.
 - **Weaknesses:**
-  - As a newer architecture, it may have fewer years of long-term stability testing compared to 2019-era models, though rapid adoption mitigates this.
+    - As a newer architecture, it may have fewer years of long-term stability testing compared to 2019-era models, though rapid adoption mitigates this.
 
 ### EfficientDet
 
 - **Strengths:**
-  - **Scalability:** The compound scaling method is theoretically elegant and effective.
-  - **Parameter Efficiency:** Good accuracy-to-parameter ratio for its time.
+    - **Scalability:** The compound scaling method is theoretically elegant and effective.
+    - **Parameter Efficiency:** Good accuracy-to-parameter ratio for its time.
 - **Weaknesses:**
-  - **Slow Inference:** Heavy use of depth-wise convolutions is often slower on GPUs than YOLO's standard convolutions.
-  - **Complexity:** BiFPN adds architectural complexity that can be harder to debug or optimize for custom hardware accelerators.
+    - **Slow Inference:** Heavy use of depth-wise convolutions is often slower on GPUs than YOLO's standard convolutions.
+    - **Complexity:** BiFPN adds architectural complexity that can be harder to debug or optimize for custom hardware accelerators.
 
 ## Conclusion
 

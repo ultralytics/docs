@@ -113,15 +113,15 @@ While DAMO-YOLO and EfficientDet are capable models, the **Ultralytics** ecosyst
 - **Performance Balance:** Ultralytics models are engineered to provide the best trade-off between speed and accuracy. YOLO11, for instance, offers superior mAP compared to previous generations while maintaining exceptional inference speeds on both [CPUs](https://www.ultralytics.com/glossary/cpu) and [GPUs](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit).
 - **Ease of Use:** With a "batteries included" philosophy, Ultralytics provides a simple Python API and a powerful [Command Line Interface (CLI)](https://docs.ultralytics.com/usage/cli/). Developers can go from installation to training in minutes.
 
-  ```python
-  from ultralytics import YOLO
+    ```python
+    from ultralytics import YOLO
 
-  # Load a pre-trained YOLO11 model
-  model = YOLO("yolo11n.pt")
+    # Load a pre-trained YOLO11 model
+    model = YOLO("yolo11n.pt")
 
-  # Run inference on an image
-  results = model("path/to/image.jpg")
-  ```
+    # Run inference on an image
+    results = model("path/to/image.jpg")
+    ```
 
 - **Well-Maintained Ecosystem:** Unlike many research models that are abandoned after publication, Ultralytics maintains an active repository with frequent updates, bug fixes, and community support via [GitHub issues](https://github.com/ultralytics/ultralytics/issues) and discussions.
 - **Versatility:** Ultralytics models are not limited to bounding boxes. They natively support [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), [image classification](https://docs.ultralytics.com/tasks/classify/), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb/), all within a single unified framework.

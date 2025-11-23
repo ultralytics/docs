@@ -52,11 +52,11 @@ Complementing PGI is the **Generalized Efficient Layer Aggregation Network (GELA
 ### Strengths and Weaknesses
 
 - **Strengths:**
-  - **Superior Accuracy:** Achieves state-of-the-art results on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/), with the YOLOv9-E model reaching 55.6% mAP.
-  - **Parameter Efficiency:** Delivers comparable performance to older models using significantly fewer parameters, reducing [memory requirements](https://www.ultralytics.com/glossary/model-quantization) during inference.
-  - **Information Preservation:** Theoretical improvements in gradient flow lead to better convergence and feature representation.
+    - **Superior Accuracy:** Achieves state-of-the-art results on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/), with the YOLOv9-E model reaching 55.6% mAP.
+    - **Parameter Efficiency:** Delivers comparable performance to older models using significantly fewer parameters, reducing [memory requirements](https://www.ultralytics.com/glossary/model-quantization) during inference.
+    - **Information Preservation:** Theoretical improvements in gradient flow lead to better convergence and feature representation.
 - **Weaknesses:**
-  - **Training Complexity:** The auxiliary branches used during training (and removed for inference) can increase [GPU memory](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) usage during the training phase compared to simpler architectures.
+    - **Training Complexity:** The auxiliary branches used during training (and removed for inference) can increase [GPU memory](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) usage during the training phase compared to simpler architectures.
 
 [Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9/){ .md-button }
 
@@ -78,11 +78,11 @@ YOLOv7 introduced **E-ELAN (Extended Efficient Layer Aggregation Network)**, whi
 ### Strengths and Weaknesses
 
 - **Strengths:**
-  - **Proven Reliability:** Extensive community usage and validation over several years make it a stable choice for legacy systems.
-  - **High Speed:** Optimized specifically for [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) on standard GPU hardware.
+    - **Proven Reliability:** Extensive community usage and validation over several years make it a stable choice for legacy systems.
+    - **High Speed:** Optimized specifically for [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) on standard GPU hardware.
 - **Weaknesses:**
-  - **Lower Efficiency:** Requires more parameters and FLOPs to match the accuracy levels that newer models like YOLOv9 or [YOLO11](https://docs.ultralytics.com/models/yolo11/) can achieve with lighter architectures.
-  - **Older Tooling:** Lacks some of the native integrations and ease-of-use features found in the modern Ultralytics ecosystem.
+    - **Lower Efficiency:** Requires more parameters and FLOPs to match the accuracy levels that newer models like YOLOv9 or [YOLO11](https://docs.ultralytics.com/models/yolo11/) can achieve with lighter architectures.
+    - **Older Tooling:** Lacks some of the native integrations and ease-of-use features found in the modern Ultralytics ecosystem.
 
 [Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7/){ .md-button }
 

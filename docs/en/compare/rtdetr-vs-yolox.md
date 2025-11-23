@@ -91,22 +91,22 @@ YOLOX moves away from the anchor-based paradigm used in YOLOv4 and YOLOv5.
 ### RTDETRv2
 
 - **Strengths:**
-  - **High Accuracy:** achieves state-of-the-art mAP on COCO benchmarks.
-  - **Global Context:** Transformer attention mechanisms capture long-range dependencies effectively.
-  - **Adaptability:** Adjustable query selection allows for flexibility at inference time.
+    - **High Accuracy:** achieves state-of-the-art mAP on COCO benchmarks.
+    - **Global Context:** Transformer attention mechanisms capture long-range dependencies effectively.
+    - **Adaptability:** Adjustable query selection allows for flexibility at inference time.
 - **Weaknesses:**
-  - **Resource Intensive:** Requires significant GPU memory for training and inference compared to CNNs.
-  - **Slower Training:** Transformers generally take longer to converge than CNN-based architectures.
+    - **Resource Intensive:** Requires significant GPU memory for training and inference compared to CNNs.
+    - **Slower Training:** Transformers generally take longer to converge than CNN-based architectures.
 
 ### YOLOX
 
 - **Strengths:**
-  - **Inference Speed:** Extremely fast, especially the smaller variants (Nano, Tiny, S).
-  - **Deployment Friendly:** Easier to deploy on [edge devices](https://docs.ultralytics.com/guides/nvidia-jetson/) and CPUS due to lower FLOPs and parameter counts.
-  - **Simplicity:** Anchor-free design reduces engineering complexity.
+    - **Inference Speed:** Extremely fast, especially the smaller variants (Nano, Tiny, S).
+    - **Deployment Friendly:** Easier to deploy on [edge devices](https://docs.ultralytics.com/guides/nvidia-jetson/) and CPUS due to lower FLOPs and parameter counts.
+    - **Simplicity:** Anchor-free design reduces engineering complexity.
 - **Weaknesses:**
-  - **Lower Peak Accuracy:** Struggles to match the top-tier accuracy of large transformer models like RTDETRv2-x.
-  - **Feature Evolution:** Lacks some of the multi-modal capabilities found in newer frameworks.
+    - **Lower Peak Accuracy:** Struggles to match the top-tier accuracy of large transformer models like RTDETRv2-x.
+    - **Feature Evolution:** Lacks some of the multi-modal capabilities found in newer frameworks.
 
 ## The Ultralytics Advantage: Why Choose YOLO11?
 

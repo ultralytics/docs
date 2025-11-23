@@ -120,9 +120,9 @@ The choice between these models often dictates the feasibility of deployment in 
 
 - **EfficientDet Use Cases:** Its high parameter efficiency makes it interesting for academic research on scaling laws or strictly CPU-bound legacy systems where FLOPs are the hard constraint, though latency might still be higher than YOLOv8n.
 - **YOLOv8 Use Cases:**
-  - **Autonomous Systems:** The high FPS (Frames Per Second) on [Edge AI](https://www.ultralytics.com/blog/edge-ai-and-edge-computing-powering-real-time-intelligence) devices like NVIDIA Jetson makes YOLOv8 ideal for drones and robotics.
-  - **Manufacturing:** Used for real-time defect detection on assembly lines where milliseconds count.
-  - **Smart Retail:** Capabilities like [Object Counting](https://docs.ultralytics.com/guides/object-counting/) and tracking enable advanced analytics for store layouts and queue management.
+    - **Autonomous Systems:** The high FPS (Frames Per Second) on [Edge AI](https://www.ultralytics.com/blog/edge-ai-and-edge-computing-powering-real-time-intelligence) devices like NVIDIA Jetson makes YOLOv8 ideal for drones and robotics.
+    - **Manufacturing:** Used for real-time defect detection on assembly lines where milliseconds count.
+    - **Smart Retail:** Capabilities like [Object Counting](https://docs.ultralytics.com/guides/object-counting/) and tracking enable advanced analytics for store layouts and queue management.
 
 ## Conclusion
 

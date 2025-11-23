@@ -90,21 +90,21 @@ As observed in the table, YOLOv10x achieves a superior mAP of **54.4%** compared
 ### YOLOv10
 
 - **Strengths:**
-  - **Low Latency:** The NMS-free design allows for extremely fast inference, crucial for [real-time applications](https://www.ultralytics.com/glossary/real-time-inference).
-  - **Resource Efficiency:** Requires fewer parameters and FLOPs, making it suitable for deployment on [edge AI](https://www.ultralytics.com/glossary/edge-ai) devices like NVIDIA Jetson or mobile platforms.
-  - **Ecosystem Integration:** Fully integrated into the Ultralytics ecosystem, facilitating easy [export](https://docs.ultralytics.com/modes/export/) to formats like ONNX, TensorRT, and CoreML.
+    - **Low Latency:** The NMS-free design allows for extremely fast inference, crucial for [real-time applications](https://www.ultralytics.com/glossary/real-time-inference).
+    - **Resource Efficiency:** Requires fewer parameters and FLOPs, making it suitable for deployment on [edge AI](https://www.ultralytics.com/glossary/edge-ai) devices like NVIDIA Jetson or mobile platforms.
+    - **Ecosystem Integration:** Fully integrated into the Ultralytics ecosystem, facilitating easy [export](https://docs.ultralytics.com/modes/export/) to formats like ONNX, TensorRT, and CoreML.
 - **Weaknesses:**
-  - **Small Object Detection:** Extremely small versions (like YOLOv10n) may trade off some fine-grained accuracy for raw speed compared to larger transformer models.
+    - **Small Object Detection:** Extremely small versions (like YOLOv10n) may trade off some fine-grained accuracy for raw speed compared to larger transformer models.
 
 ### RT-DETRv2
 
 - **Strengths:**
-  - **Global Context:** The transformer architecture excels at understanding complex scenes and relationships between objects.
-  - **NMS-Free Native:** Transformers naturally avoid NMS, simplifying the post-processing pipeline similar to YOLOv10.
+    - **Global Context:** The transformer architecture excels at understanding complex scenes and relationships between objects.
+    - **NMS-Free Native:** Transformers naturally avoid NMS, simplifying the post-processing pipeline similar to YOLOv10.
 - **Weaknesses:**
-  - **High Compute Cost:** Training and inference require significantly more CUDA memory and computational power.
-  - **Slower Speeds:** The self-attention mechanism, while accurate, is computationally expensive, resulting in higher latency.
-  - **Deployment Complexity:** Transformer models can sometimes be more challenging to optimize for certain embedded hardware compared to CNNs.
+    - **High Compute Cost:** Training and inference require significantly more CUDA memory and computational power.
+    - **Slower Speeds:** The self-attention mechanism, while accurate, is computationally expensive, resulting in higher latency.
+    - **Deployment Complexity:** Transformer models can sometimes be more challenging to optimize for certain embedded hardware compared to CNNs.
 
 ## Ideal Use Cases
 

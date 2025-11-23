@@ -117,15 +117,15 @@ Ultralytics models are not just about detection. The framework supports [image c
 ## Ideal Use Cases
 
 - **Choose Ultralytics YOLOv5 if:**
-  - You need **real-time performance** on edge devices (Raspberry Pi, mobile phones).
-  - You prioritize **ease of deployment** and need built-in support for exporting to TensorRT, CoreML, or TFLite.
-  - You prefer a **stable, well-documented** framework with active community support.
-  - Your application involves [security surveillance](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8) or autonomous navigation where low latency is critical.
+    - You need **real-time performance** on edge devices (Raspberry Pi, mobile phones).
+    - You prioritize **ease of deployment** and need built-in support for exporting to TensorRT, CoreML, or TFLite.
+    - You prefer a **stable, well-documented** framework with active community support.
+    - Your application involves [security surveillance](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8) or autonomous navigation where low latency is critical.
 
 - **Choose YOLOX if:**
-  - You are conducting academic research specifically on **anchor-free** architectures.
-  - You require the absolute maximum mAP for a competition or benchmark, regardless of inference speed.
-  - You have a specialized dataset where anchor-based methods have demonstrably failed (e.g., extreme aspect ratios), and AutoAnchor did not resolve the issue.
+    - You are conducting academic research specifically on **anchor-free** architectures.
+    - You require the absolute maximum mAP for a competition or benchmark, regardless of inference speed.
+    - You have a specialized dataset where anchor-based methods have demonstrably failed (e.g., extreme aspect ratios), and AutoAnchor did not resolve the issue.
 
 ## Conclusion
 

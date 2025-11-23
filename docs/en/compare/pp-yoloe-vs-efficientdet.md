@@ -83,22 +83,22 @@ Understanding the pros and cons of each model helps in selecting the right tool 
 ### PP-YOLOE+
 
 - **Strengths:**
-  - **High Accuracy-Speed Ratio:** Delivers state-of-the-art mAP with real-time inference capabilities on GPUs.
-  - **Anchor-Free:** Removes the need for complex anchor box tuning, simplifying the training setup.
-  - **Dynamic Label Assignment:** Uses TAL for better alignment between classification and localization.
+    - **High Accuracy-Speed Ratio:** Delivers state-of-the-art mAP with real-time inference capabilities on GPUs.
+    - **Anchor-Free:** Removes the need for complex anchor box tuning, simplifying the training setup.
+    - **Dynamic Label Assignment:** Uses TAL for better alignment between classification and localization.
 - **Weaknesses:**
-  - **Ecosystem Specificity:** Heavily optimized for the PaddlePaddle framework, which may present a learning curve for users accustomed to PyTorch.
-  - **Resource Intensity:** Larger variants (L and X) require significant memory, potentially limiting deployment on edge devices with strict RAM limits.
+    - **Ecosystem Specificity:** Heavily optimized for the PaddlePaddle framework, which may present a learning curve for users accustomed to PyTorch.
+    - **Resource Intensity:** Larger variants (L and X) require significant memory, potentially limiting deployment on edge devices with strict RAM limits.
 
 ### EfficientDet
 
 - **Strengths:**
-  - **Parameter Efficiency:** Achieving high accuracy with relatively fewer parameters compared to older detectors.
-  - **Scalability:** The compound scaling method allows users to easily switch between model sizes (d0-d7) based on available compute.
-  - **BiFPN:** Innovative feature fusion that efficiently handles objects at various scales.
+    - **Parameter Efficiency:** Achieving high accuracy with relatively fewer parameters compared to older detectors.
+    - **Scalability:** The compound scaling method allows users to easily switch between model sizes (d0-d7) based on available compute.
+    - **BiFPN:** Innovative feature fusion that efficiently handles objects at various scales.
 - **Weaknesses:**
-  - **Slow Inference:** Despite low FLOP counts, the complex graph structure often leads to slower real-world inference times, especially on GPUs.
-  - **Training Speed:** Can be slower to train compared to modern one-stage detectors due to the complexity of the architecture.
+    - **Slow Inference:** Despite low FLOP counts, the complex graph structure often leads to slower real-world inference times, especially on GPUs.
+    - **Training Speed:** Can be slower to train compared to modern one-stage detectors due to the complexity of the architecture.
 
 ## Real-World Use Cases
 

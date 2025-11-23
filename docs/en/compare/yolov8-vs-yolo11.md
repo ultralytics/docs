@@ -34,12 +34,12 @@ YOLOv8 replaced the C3 modules found in [YOLOv5](https://docs.ultralytics.com/mo
 ### Strengths and Weaknesses
 
 - **Strengths:**
-  - **Mature Ecosystem:** Supported by a vast array of community tutorials, [integrations](https://docs.ultralytics.com/integrations/), and deployment guides.
-  - **Versatility:** Natively supports OBB (Oriented Bounding Box) and classification alongside standard detection.
-  - **Proven Stability:** A safe choice for production environments requiring a model with a long track record.
+    - **Mature Ecosystem:** Supported by a vast array of community tutorials, [integrations](https://docs.ultralytics.com/integrations/), and deployment guides.
+    - **Versatility:** Natively supports OBB (Oriented Bounding Box) and classification alongside standard detection.
+    - **Proven Stability:** A safe choice for production environments requiring a model with a long track record.
 - **Weaknesses:**
-  - **Speed Efficiency:** While fast, it is outperformed by YOLO11 in CPU inference speeds and parameter efficiency.
-  - **Compute Requirements:** Larger variants (L, X) demand more VRAM and FLOPs compared to the optimized YOLO11 equivalents.
+    - **Speed Efficiency:** While fast, it is outperformed by YOLO11 in CPU inference speeds and parameter efficiency.
+    - **Compute Requirements:** Larger variants (L, X) demand more VRAM and FLOPs compared to the optimized YOLO11 equivalents.
 
 ```python
 from ultralytics import YOLO
@@ -72,12 +72,12 @@ The model maintains the unified interface characteristic of Ultralytics, ensurin
 ### Strengths and Weaknesses
 
 - **Strengths:**
-  - **Superior Efficiency:** Achieves higher mAP with up to **22% fewer parameters** than YOLOv8, reducing model size and storage needs.
-  - **Faster Inference:** Optimized specifically for modern hardware, offering faster speeds on both CPU and GPU backends.
-  - **Enhanced Feature Extraction:** The new backbone improves detection of small objects and performance in cluttered scenes.
-  - **Lower Memory Usage:** Requires less CUDA memory during training compared to transformer-based models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/), enabling training on more accessible hardware.
+    - **Superior Efficiency:** Achieves higher mAP with up to **22% fewer parameters** than YOLOv8, reducing model size and storage needs.
+    - **Faster Inference:** Optimized specifically for modern hardware, offering faster speeds on both CPU and GPU backends.
+    - **Enhanced Feature Extraction:** The new backbone improves detection of small objects and performance in cluttered scenes.
+    - **Lower Memory Usage:** Requires less CUDA memory during training compared to transformer-based models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/), enabling training on more accessible hardware.
 - **Weaknesses:**
-  - **Newer Release:** As a recent model, specific niche third-party tools may take time to fully update support, though the core Ultralytics ecosystem supports it day-one.
+    - **Newer Release:** As a recent model, specific niche third-party tools may take time to fully update support, though the core Ultralytics ecosystem supports it day-one.
 
 ```python
 from ultralytics import YOLO
