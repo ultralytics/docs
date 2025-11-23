@@ -148,10 +148,10 @@ results.show()
 YOLOv10 can be integrated using the `ultralytics` Python package, benefiting from the same powerful API.
 
 ```python
-from ultralytics import YOLOv10
+from ultralytics import YOLO
 
 # Load a pre-trained YOLOv10n model
-model = YOLOv10("yolov10n.pt")
+model = YOLO("yolov10n.pt")
 
 # Train the model on COCO data
 model.train(data="coco8.yaml", epochs=100, imgsz=640)

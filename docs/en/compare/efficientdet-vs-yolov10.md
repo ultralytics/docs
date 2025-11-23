@@ -107,10 +107,10 @@ YOLOv10 is integrated into the Ultralytics ecosystem, which provides a significa
 Training YOLOv10 with Ultralytics is straightforward. The framework handles data augmentation, hyperparameter tuning, and logging automatically.
 
 ```python
-from ultralytics import YOLOv10
+from ultralytics import YOLO
 
 # Load a pre-trained YOLOv10n model
-model = YOLOv10("yolov10n.pt")
+model = YOLO("yolov10n.pt")
 
 # Train the model on your custom dataset
 # efficiently using available GPU resources

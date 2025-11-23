@@ -115,10 +115,10 @@ While both models are impressive, Ultralytics models like YOLOv10 and the flagsh
 Running YOLOv10 is straightforward using the Ultralytics Python package. Here is how you can load a pre-trained model and run prediction on an image:
 
 ```python
-from ultralytics import YOLOv10
+from ultralytics import YOLO
 
 # Load a pre-trained YOLOv10n model
-model = YOLOv10("yolov10n.pt")
+model = YOLO("yolov10n.pt")
 
 # Perform object detection on an image
 results = model("path/to/image.jpg")

@@ -123,10 +123,10 @@ One of the most significant advantages of YOLOv10 is its ease of use. The Ultral
 Below is an example of how to run predictions and train a YOLOv10 model:
 
 ```python
-from ultralytics import YOLOv10
+from ultralytics import YOLO
 
 # Load a pre-trained YOLOv10n model
-model = YOLOv10("yolov10n.pt")
+model = YOLO("yolov10n.pt")
 
 # Run inference on an image
 results = model.predict("path/to/image.jpg")

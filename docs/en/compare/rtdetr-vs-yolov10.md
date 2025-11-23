@@ -90,10 +90,10 @@ A critical differentiator for developers is the ease of training and deployment.
 Training RT-DETRv2 often involves complex configuration files and specific environment setups tailored to transformer architectures. In contrast, YOLOv10 is integrated directly into the Ultralytics [Python API](https://docs.ultralytics.com/usage/python/), allowing users to start training, validation, or inference with just a few lines of code.
 
 ```python
-from ultralytics import YOLOv10
+from ultralytics import YOLO
 
 # Load a pre-trained YOLOv10 model
-model = YOLOv10("yolov10n.pt")
+model = YOLO("yolov10n.pt")
 
 # Train the model on a custom dataset
 model.train(data="coco8.yaml", epochs=100, imgsz=640)

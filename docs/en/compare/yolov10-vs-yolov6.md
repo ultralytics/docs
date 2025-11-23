@@ -93,10 +93,10 @@ One of the most significant differences lies in the ecosystem and ease of use. W
 Using Ultralytics models ensures you have access to a standardized, simple Python API. You can switch between models like [YOLOv8](https://docs.ultralytics.com/models/yolov8/) and YOLOv10 with minimal code changes, a flexibility not easily available when switching between disparate frameworks.
 
 ```python
-from ultralytics import YOLOv10
+from ultralytics import YOLO
 
 # Load a pre-trained YOLOv10 model
-model = YOLOv10("yolov10n.pt")
+model = YOLO("yolov10n.pt")
 
 # Train the model on your custom data
 model.train(data="coco8.yaml", epochs=100, imgsz=640)

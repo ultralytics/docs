@@ -122,10 +122,10 @@ results = model("path/to/image.jpg")
 For YOLOv10, the Ultralytics package also facilitates access, allowing researchers to experiment with the architecture within a familiar environment:
 
 ```python
-from ultralytics import YOLOv10
+from ultralytics import YOLO
 
 # Load a pre-trained YOLOv10 model
-model = YOLOv10("yolov10n.pt")
+model = YOLO("yolov10n.pt")
 
 # Train the model using the same simple API
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)

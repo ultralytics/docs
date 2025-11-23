@@ -35,10 +35,10 @@ YOLOv10 adopts a holistic efficiency-accuracy driven design. It utilizes **consi
 The model scales effectively across various sizes, from the nano (n) version for extremely constrained environments to the extra-large (x) version for higher accuracy requirements.
 
 ```python
-from ultralytics import YOLOv10
+from ultralytics import YOLO
 
 # Load a pre-trained YOLOv10n model
-model = YOLOv10("yolov10n.pt")
+model = YOLO("yolov10n.pt")
 
 # Run inference on an image
 results = model.predict("path/to/image.jpg")

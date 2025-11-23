@@ -116,10 +116,10 @@ Running these models is straightforward. Below are examples of how to load and p
 **Using YOLOv10:**
 
 ```python
-from ultralytics import YOLOv10
+from ultralytics import YOLO
 
 # Load a pre-trained YOLOv10n model
-model = YOLOv10("yolov10n.pt")
+model = YOLO("yolov10n.pt")
 
 # Perform inference on an image
 results = model("path/to/image.jpg")

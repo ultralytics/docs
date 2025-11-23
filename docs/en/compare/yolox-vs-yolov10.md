@@ -122,10 +122,10 @@ While YOLOX introduced advanced augmentation techniques that are now standard, Y
 The following example demonstrates how easily developers can load a pre-trained YOLOv10 model and run inference on an image using the Ultralytics library.
 
 ```python
-from ultralytics import YOLOv10
+from ultralytics import YOLO
 
 # Load a pre-trained YOLOv10n model
-model = YOLOv10("yolov10n.pt")
+model = YOLO("yolov10n.pt")
 
 # Run inference on a local image
 results = model("path/to/image.jpg")

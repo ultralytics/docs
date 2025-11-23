@@ -127,10 +127,10 @@ While both models are capable, choosing a model within the **Ultralytics ecosyst
 Integrating YOLOv10 into your workflow is straightforward with the Ultralytics library:
 
 ```python
-from ultralytics import YOLOv10
+from ultralytics import YOLO
 
 # Load a pre-trained YOLOv10n model
-model = YOLOv10("yolov10n.pt")
+model = YOLO("yolov10n.pt")
 
 # Run inference on an image
 results = model.predict("path/to/image.jpg")

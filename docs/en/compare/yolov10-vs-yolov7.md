@@ -95,10 +95,10 @@ One of the primary barriers in deep learning is the complexity of training pipel
 The following example demonstrates the simplicity of using the Ultralytics API to load a pre-trained YOLOv10 model and run inference. This ease of use contrasts with the more manual setup often required for older architectures like YOLOv7.
 
 ```python
-from ultralytics import YOLOv10
+from ultralytics import YOLO
 
 # Load a pre-trained YOLOv10n model
-model = YOLOv10("yolov10n.pt")
+model = YOLO("yolov10n.pt")
 
 # Run inference on an image
 results = model("path/to/image.jpg")
