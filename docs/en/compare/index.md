@@ -30,13 +30,13 @@ graph TD
     A[Start: Define Project Needs] --> B{Deployment Hardware?}
     B -- "Edge / Mobile (CPU/NPU)" --> C{Latency Priority?}
     B -- "Cloud / GPU" --> D{Accuracy vs Speed?}
-    
+
     C -- "Extreme Speed (Real-time)" --> E[YOLO11n / YOLO11s]
     C -- "Balanced Legacy" --> F[YOLOv5s / YOLOv8s]
-    
+
     D -- "Max Accuracy (SOTA)" --> G[YOLO11x / RT-DETR-X]
     D -- "Balanced Performance" --> H[YOLO11m / YOLO11l]
-    
+
     A --> I{Specialized Features?}
     I -- "NMS-Free Inference" --> J[YOLOv10]
     I -- "Multitask (Seg/Pose/OBB)" --> K[YOLO11 / YOLOv8]
@@ -62,7 +62,7 @@ You may encounter references to **YOLO12** or **YOLO13** in community discussion
 !!! warning "Production Caution"
 
     We currently **do not recommend** YOLO12 or YOLO13 for production use.
-    
+
     *   **YOLO12:** Utilizes attention layers that often cause training instability, excessive memory consumption, and significantly slower CPU inference speeds.
     *   **YOLO13:** Benchmarks indicate only marginal accuracy gains over YOLO11 while being larger and slower. Reported results have shown issues with reproducibility.
 
