@@ -18,7 +18,7 @@ In the evolving landscape of computer vision, selecting the right object detecti
 The following benchmarks on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/) illustrate the trade-off between architectural efficiency and inference latency. YOLOv6-3.0 demonstrates superior speed on GPU hardware, leveraging reparameterization techniques, whereas EfficientDet maintains competitive accuracy at higher computational costs.
 
 | Model           | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| --------------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|-----------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | EfficientDet-d0 | 640                   | 34.6                 | 10.2                           | 3.92                                | 3.9                | 2.54              |
 | EfficientDet-d1 | 640                   | 40.5                 | 13.5                           | 7.31                                | 6.6                | 6.1               |
 | EfficientDet-d2 | 640                   | 43.0                 | 17.7                           | 10.92                               | 8.1                | 11.0              |
@@ -101,10 +101,10 @@ While YOLOv6-3.0 and EfficientDet are capable models, **[Ultralytics YOLO11](htt
 
 ### Why Choose Ultralytics YOLO11?
 
-1.  **Ease of Use & Ecosystem**: Unlike the fragmented repositories of research models, Ultralytics provides a seamless experience. A consistent [Python API](https://docs.ultralytics.com/usage/python/) allows you to train, validate, and deploy models in just a few lines of code.
-2.  **Unmatched Versatility**: YOLO11 is not limited to bounding boxes. It natively supports **[Image Classification](https://docs.ultralytics.com/tasks/classify/)**, **[Instance Segmentation](https://docs.ultralytics.com/tasks/segment/)**, **[Pose Estimation](https://docs.ultralytics.com/tasks/pose/)**, and **[Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/)**, making it a one-stop solution for complex AI pipelines.
-3.  **Training Efficiency**: Ultralytics models are optimized for [memory requirements](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit), often converging faster and using less VRAM than transformer-heavy or older architectures. This accessibility democratizes high-end AI development for those without massive compute clusters.
-4.  **Well-Maintained Ecosystem**: Supported by an active community and frequent updates, the Ultralytics ecosystem ensures your projects remain future-proof, with easy integrations into tools for [data annotation](https://docs.ultralytics.com/integrations/roboflow/), logging, and deployment.
+1. **Ease of Use & Ecosystem**: Unlike the fragmented repositories of research models, Ultralytics provides a seamless experience. A consistent [Python API](https://docs.ultralytics.com/usage/python/) allows you to train, validate, and deploy models in just a few lines of code.
+2. **Unmatched Versatility**: YOLO11 is not limited to bounding boxes. It natively supports **[Image Classification](https://docs.ultralytics.com/tasks/classify/)**, **[Instance Segmentation](https://docs.ultralytics.com/tasks/segment/)**, **[Pose Estimation](https://docs.ultralytics.com/tasks/pose/)**, and **[Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/)**, making it a one-stop solution for complex AI pipelines.
+3. **Training Efficiency**: Ultralytics models are optimized for [memory requirements](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit), often converging faster and using less VRAM than transformer-heavy or older architectures. This accessibility democratizes high-end AI development for those without massive compute clusters.
+4. **Well-Maintained Ecosystem**: Supported by an active community and frequent updates, the Ultralytics ecosystem ensures your projects remain future-proof, with easy integrations into tools for [data annotation](https://docs.ultralytics.com/integrations/roboflow/), logging, and deployment.
 
 !!! tip "Streamlined Development"
 

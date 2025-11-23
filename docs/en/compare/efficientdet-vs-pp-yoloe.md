@@ -20,7 +20,7 @@ This analysis delves into their architectures, performance metrics, and practica
 The performance landscape has shifted significantly between the release of these two models. EfficientDet focuses on minimizing [FLOPs](https://www.ultralytics.com/glossary/flops) (floating-point operations) and parameter count, making it theoretically efficient. However, PP-YOLOE+ is engineered for practical inference speed on hardware accelerators like GPUs, leveraging TensorRT optimizations.
 
 | Model           | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| --------------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|-----------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | EfficientDet-d0 | 640                   | 34.6                 | **10.2**                       | 3.92                                | **3.9**            | **2.54**          |
 | EfficientDet-d1 | 640                   | 40.5                 | 13.5                           | 7.31                                | 6.6                | 6.1               |
 | EfficientDet-d2 | 640                   | 43.0                 | 17.7                           | 10.92                               | 8.1                | 11.0              |
@@ -51,8 +51,8 @@ EfficientDet was introduced by the Google Brain AutoML team with the goal of bre
 
 ### Key Architectural Features
 
-1.  **BiFPN (Bidirectional Feature Pyramid Network):** Unlike traditional FPNs, BiFPN allows for easy multi-scale feature fusion. It introduces learnable weights to learn the importance of different input features, applying top-down and bottom-up multi-scale feature fusion repeatedly.
-2.  **Compound Scaling:** A single compound coefficient $\phi$ controls the network width, depth, and resolution, allowing for a family of models (D0 to D7) that target different resource constraints.
+1. **BiFPN (Bidirectional Feature Pyramid Network):** Unlike traditional FPNs, BiFPN allows for easy multi-scale feature fusion. It introduces learnable weights to learn the importance of different input features, applying top-down and bottom-up multi-scale feature fusion repeatedly.
+2. **Compound Scaling:** A single compound coefficient $\phi$ controls the network width, depth, and resolution, allowing for a family of models (D0 to D7) that target different resource constraints.
 
 ### Strengths and Weaknesses
 
@@ -77,9 +77,9 @@ Released by Baidu as part of the PaddlePaddle ecosystem, PP-YOLOE+ is an evoluti
 
 ### Key Architectural Features
 
-1.  **Anchor-Free Design:** By eliminating predefined [anchor boxes](https://www.ultralytics.com/glossary/anchor-boxes), PP-YOLOE+ simplifies the detection head and reduces the hyperparameter tuning burden.
-2.  **CSPRepResNet:** The backbone utilizes RepResBlock, which combines the benefits of residual connections during training and re-parameterizes them into a streamlined structure for inference.
-3.  **TAL (Task Alignment Learning):** An advanced label assignment strategy that dynamically aligns the classification score and localization quality.
+1. **Anchor-Free Design:** By eliminating predefined [anchor boxes](https://www.ultralytics.com/glossary/anchor-boxes), PP-YOLOE+ simplifies the detection head and reduces the hyperparameter tuning burden.
+2. **CSPRepResNet:** The backbone utilizes RepResBlock, which combines the benefits of residual connections during training and re-parameterizes them into a streamlined structure for inference.
+3. **TAL (Task Alignment Learning):** An advanced label assignment strategy that dynamically aligns the classification score and localization quality.
 
 ### Strengths and Weaknesses
 

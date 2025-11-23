@@ -85,7 +85,7 @@ When comparing YOLOv10 and YOLO11, it is essential to look beyond parameter coun
 The data reveals that YOLO11 offers a better trade-off for most applications. For instance, **YOLO11n** achieves the same accuracy (39.5 mAP) as YOLOv10n but with a more robust architecture supported by the Ultralytics API. As model size increases, YOLO11's advantages in accuracy become more pronounced, with **YOLO11x** reaching **54.7 mAP**, setting a high bar for detection precision.
 
 | Model    | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| -------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|----------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv10n | 640                   | 39.5                 | -                              | 1.56                                | **2.3**            | 6.7               |
 | YOLOv10s | 640                   | 46.7                 | -                              | 2.66                                | **7.2**            | 21.6              |
 | YOLOv10m | 640                   | 51.3                 | -                              | 5.48                                | **15.4**           | **59.1**          |

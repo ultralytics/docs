@@ -20,7 +20,7 @@ While RTDETRv2 leverages [Vision Transformers (ViT)](https://www.ultralytics.com
 Before diving into performance metrics, it is essential to understand the background and architectural philosophy of each model.
 
 | Feature           | Ultralytics YOLOv5                          | RTDETRv2                            |
-| :---------------- | :------------------------------------------ | :---------------------------------- |
+|:------------------|:--------------------------------------------|:------------------------------------|
 | **Architecture**  | CNN-based (Anchor-based)                    | Hybrid (CNN Backbone + Transformer) |
 | **Primary Focus** | Real-time Speed, Versatility, Ease of Use   | High Accuracy, Global Context       |
 | **Authors**       | Glenn Jocher                                | Wenyu Lv, Yian Zhao, et al.         |
@@ -55,7 +55,7 @@ RTDETRv2 (Real-Time Detection Transformer v2) represents a shift towards transfo
 The table below provides a direct comparison of key performance metrics. While RTDETRv2 shows impressive accuracy (mAP) on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/), YOLOv5 demonstrates superior inference speeds, particularly on CPU hardware where transformers often struggle.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv5n    | 640                   | 28.0                 | **73.6**                       | **1.12**                            | **2.6**            | **7.7**           |
 | YOLOv5s    | 640                   | 37.4                 | 120.7                          | 1.92                                | 9.1                | 24.0              |
 | YOLOv5m    | 640                   | 45.4                 | 233.9                          | 4.03                                | 25.1               | 64.2              |
@@ -81,10 +81,10 @@ A crucial advantage of **YOLOv5** is its training efficiency. Transformer-based 
 
 For most developers and commercial applications, YOLOv5 offers a more balanced and practical set of advantages:
 
-1.  **Unmatched Ease of Use:** The Ultralytics [Python API](https://docs.ultralytics.com/usage/python/) is the industry standard for simplicity. Loading a model, running inference, and training on custom data can be done with just a few lines of code.
-2.  **Rich Ecosystem:** Backed by a massive open-source community, YOLOv5 integrates seamlessly with [Ultralytics HUB](https://www.ultralytics.com/hub) for no-code training, [MLOps tools](https://www.ultralytics.com/glossary/machine-learning-operations-mlops) for tracking, and diverse export formats like [ONNX](https://docs.ultralytics.com/integrations/onnx/) and TensorRT.
-3.  **Deployment Flexibility:** From iOS and Android mobile apps to [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) and cloud servers, YOLOv5's lightweight architecture allows it to run where heavier transformer models cannot.
-4.  **Task Versatility:** Unlike RTDETRv2, which is primarily an object detector, YOLOv5 supports classification and segmentation, reducing the need to maintain multiple codebases for different vision tasks.
+1. **Unmatched Ease of Use:** The Ultralytics [Python API](https://docs.ultralytics.com/usage/python/) is the industry standard for simplicity. Loading a model, running inference, and training on custom data can be done with just a few lines of code.
+2. **Rich Ecosystem:** Backed by a massive open-source community, YOLOv5 integrates seamlessly with [Ultralytics HUB](https://www.ultralytics.com/hub) for no-code training, [MLOps tools](https://www.ultralytics.com/glossary/machine-learning-operations-mlops) for tracking, and diverse export formats like [ONNX](https://docs.ultralytics.com/integrations/onnx/) and TensorRT.
+3. **Deployment Flexibility:** From iOS and Android mobile apps to [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) and cloud servers, YOLOv5's lightweight architecture allows it to run where heavier transformer models cannot.
+4. **Task Versatility:** Unlike RTDETRv2, which is primarily an object detector, YOLOv5 supports classification and segmentation, reducing the need to maintain multiple codebases for different vision tasks.
 
 !!! tip "Upgrade Path"
 If you need even higher accuracy than YOLOv5 while maintaining these ecosystem benefits, consider the new **[YOLO11](https://docs.ultralytics.com/models/yolo11/)**. It incorporates modern architectural improvements to rival or beat transformer accuracy with the efficiency you expect from YOLO.

@@ -60,7 +60,7 @@ When comparing the two models directly, **YOLOv10** demonstrates a superior abil
 The table below highlights the performance metrics on the COCO dataset. Notably, **YOLOv10x** outperforms **RT-DETRv2-x** in accuracy (54.4% vs 54.3%) while being significantly faster (12.2ms vs 15.03ms) and requiring far fewer parameters (56.9M vs 76M).
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | RTDETRv2-s | 640                   | 48.1                 | -                              | 5.03                                | 20                 | 60                |
 | RTDETRv2-m | 640                   | 51.9                 | -                              | 7.51                                | 36                 | 100               |
 | RTDETRv2-l | 640                   | 53.4                 | -                              | 9.76                                | 42                 | 136               |

@@ -34,9 +34,9 @@ Developed by Megvii, YOLOX represented a significant shift in the YOLO lineage w
 
 YOLOX integrates several advanced techniques to achieve its performance:
 
-1.  **Anchor-Free Mechanism:** By predicting object centers directly, YOLOX reduces the number of design parameters and heuristic tuning steps associated with anchor-based methods.
-2.  **Decoupled Head:** Unlike coupled heads that handle classification and regression together, YOLOX separates these tasks. This decoupling improves convergence speed and overall accuracy.
-3.  **SimOTA:** An advanced label assignment strategy called Simplified Optimal Transport Assignment (SimOTA) dynamically assigns positive samples to ground truths, optimizing the training objective more effectively than static matching.
+1. **Anchor-Free Mechanism:** By predicting object centers directly, YOLOX reduces the number of design parameters and heuristic tuning steps associated with anchor-based methods.
+2. **Decoupled Head:** Unlike coupled heads that handle classification and regression together, YOLOX separates these tasks. This decoupling improves convergence speed and overall accuracy.
+3. **SimOTA:** An advanced label assignment strategy called Simplified Optimal Transport Assignment (SimOTA) dynamically assigns positive samples to ground truths, optimizing the training objective more effectively than static matching.
 
 !!! tip "Why Anchor-Free?"
 
@@ -61,17 +61,17 @@ Released by the Alibaba Group in late 2022, DAMO-YOLO focuses on bridging the ga
 
 DAMO-YOLO introduces several "new techs" to the YOLO ecosystem:
 
-1.  **MAE-NAS Backbone:** The model uses a backbone generated via [Neural Architecture Search (NAS)](https://www.ultralytics.com/glossary/neural-architecture-search-nas) based on the Mean Absolute Error (MAE) metric. This ensures the feature extractor is perfectly tailored for the detection task.
-2.  **RepGFPN:** A heavy neck design based on the Generalized Feature Pyramid Network (GFPN) that uses re-parameterization to maximize feature fusion efficiency while keeping inference latency low.
-3.  **ZeroHead:** A simplified detection head that reduces computational overhead without sacrificing the precision of the predictions.
-4.  **AlignedOTA:** An evolution of label assignment that better aligns classification scores with regression accuracy, ensuring high-quality predictions are prioritized.
+1. **MAE-NAS Backbone:** The model uses a backbone generated via [Neural Architecture Search (NAS)](https://www.ultralytics.com/glossary/neural-architecture-search-nas) based on the Mean Absolute Error (MAE) metric. This ensures the feature extractor is perfectly tailored for the detection task.
+2. **RepGFPN:** A heavy neck design based on the Generalized Feature Pyramid Network (GFPN) that uses re-parameterization to maximize feature fusion efficiency while keeping inference latency low.
+3. **ZeroHead:** A simplified detection head that reduces computational overhead without sacrificing the precision of the predictions.
+4. **AlignedOTA:** An evolution of label assignment that better aligns classification scores with regression accuracy, ensuring high-quality predictions are prioritized.
 
 ## Performance Analysis
 
 When comparing these two models, it is crucial to look at the trade-offs between [accuracy](https://www.ultralytics.com/glossary/accuracy) (mAP) and inference speed (latency). The table below highlights that while YOLOX remains competitive, DAMO-YOLO's newer architecture generally provides superior speed on GPU hardware for similar accuracy levels.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOXnano  | 416                   | 25.8                 | -                              | -                                   | **0.91**           | **1.08**          |
 | YOLOXtiny  | 416                   | 32.8                 | -                              | -                                   | 5.06               | 6.45              |
 | YOLOXs     | 640                   | 40.5                 | -                              | 2.56                                | 9.0                | 26.8              |
@@ -107,11 +107,11 @@ Ultralytics models are designed not just as architectures, but as complete devel
 
 ### Why Choose Ultralytics YOLO11?
 
-1.  **Versatility Across Tasks:** Unlike YOLOX and DAMO-YOLO, which focus primarily on bounding box detection, YOLO11 natively supports a wide array of computer vision tasks. This includes [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), [oriented object detection (OBB)](https://docs.ultralytics.com/tasks/obb/), and [image classification](https://docs.ultralytics.com/tasks/classify/).
-2.  **Unmatched Ease of Use:** The Ultralytics Python API allows you to train, validate, and deploy models with just a few lines of code. There is no need to clone complex repositories or manually configure environment paths.
-3.  **Well-Maintained Ecosystem:** Ultralytics provides frequent updates, ensuring compatibility with the latest versions of PyTorch, [ONNX](https://docs.ultralytics.com/integrations/onnx/), and [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/). The active community and extensive [documentation](https://docs.ultralytics.com/) mean you are never stuck without support.
-4.  **Training Efficiency and Memory:** YOLO11 is engineered for efficiency. It typically requires less GPU memory during training compared to older architectures or heavy transformer-based models, allowing for faster iterations and reduced cloud compute costs.
-5.  **Performance Balance:** YOLO11 builds upon the legacy of previous YOLO versions to deliver an optimal balance of speed and accuracy, making it suitable for deployment on everything from [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/) edge devices to enterprise-grade cloud servers.
+1. **Versatility Across Tasks:** Unlike YOLOX and DAMO-YOLO, which focus primarily on bounding box detection, YOLO11 natively supports a wide array of computer vision tasks. This includes [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), [oriented object detection (OBB)](https://docs.ultralytics.com/tasks/obb/), and [image classification](https://docs.ultralytics.com/tasks/classify/).
+2. **Unmatched Ease of Use:** The Ultralytics Python API allows you to train, validate, and deploy models with just a few lines of code. There is no need to clone complex repositories or manually configure environment paths.
+3. **Well-Maintained Ecosystem:** Ultralytics provides frequent updates, ensuring compatibility with the latest versions of PyTorch, [ONNX](https://docs.ultralytics.com/integrations/onnx/), and [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/). The active community and extensive [documentation](https://docs.ultralytics.com/) mean you are never stuck without support.
+4. **Training Efficiency and Memory:** YOLO11 is engineered for efficiency. It typically requires less GPU memory during training compared to older architectures or heavy transformer-based models, allowing for faster iterations and reduced cloud compute costs.
+5. **Performance Balance:** YOLO11 builds upon the legacy of previous YOLO versions to deliver an optimal balance of speed and accuracy, making it suitable for deployment on everything from [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/) edge devices to enterprise-grade cloud servers.
 
 !!! example "Ease of Use with Ultralytics"
 

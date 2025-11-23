@@ -88,7 +88,7 @@ Beyond the code, the **Well-Maintained Ecosystem** sets YOLOv5 apart. Users bene
 When comparing the two models, it is essential to look at metrics that impact real-world utility, such as inference speed and parameter count, alongside standard accuracy metrics like mAP.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | PP-YOLOE+t | 640                   | 39.9                 | -                              | 2.84                                | 4.85               | 19.15             |
 | PP-YOLOE+s | 640                   | 43.7                 | -                              | 2.62                                | 7.93               | 17.36             |
 | PP-YOLOE+m | 640                   | 49.8                 | -                              | 5.56                                | 23.43              | 49.91             |

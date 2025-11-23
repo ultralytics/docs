@@ -69,7 +69,7 @@ The decoupled head in YOLOv8 processes objectness, classification, and regressio
 The following table presents a detailed comparison of performance metrics on the COCO val2017 dataset. Highlights indicate the best performance in each category.
 
 | Model       | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ----------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|-------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv6-3.0n | 640                   | 37.5                 | -                              | **1.17**                            | 4.7                | 11.4              |
 | YOLOv6-3.0s | 640                   | 45.0                 | -                              | 2.66                                | 18.5               | 45.3              |
 | YOLOv6-3.0m | 640                   | 50.0                 | -                              | **5.28**                            | 34.9               | 85.8              |
@@ -85,9 +85,9 @@ The following table presents a detailed comparison of performance metrics on the
 
 The data reveals distinct advantages for the Ultralytics architecture:
 
-1.  **Efficiency and Resource Usage**: YOLOv8 consistently utilizes significantly fewer parameters and FLOPs to achieve comparable or superior accuracy. For instance, **YOLOv8s** matches the accuracy of YOLOv6-3.0s (approx. 45 mAP) but requires **~40% fewer parameters** and **~37% fewer FLOPs**. This reduction directly translates to lower memory consumption and faster training times.
-2.  **Accuracy Leadership**: At the higher end of the spectrum, YOLOv8 models (M, L, X) push the boundaries of accuracy, with YOLOv8x reaching **53.9 mAP**, outperforming the largest YOLOv6 variants listed.
-3.  **CPU Inference**: YOLOv8 provides transparent benchmarks for CPU inference via [ONNX](https://docs.ultralytics.com/integrations/onnx/), demonstrating its viability for deployment on standard hardware without specialized accelerators. This is crucial for scalable applications in logistics or retail where GPUs may not always be available.
+1. **Efficiency and Resource Usage**: YOLOv8 consistently utilizes significantly fewer parameters and FLOPs to achieve comparable or superior accuracy. For instance, **YOLOv8s** matches the accuracy of YOLOv6-3.0s (approx. 45 mAP) but requires **~40% fewer parameters** and **~37% fewer FLOPs**. This reduction directly translates to lower memory consumption and faster training times.
+2. **Accuracy Leadership**: At the higher end of the spectrum, YOLOv8 models (M, L, X) push the boundaries of accuracy, with YOLOv8x reaching **53.9 mAP**, outperforming the largest YOLOv6 variants listed.
+3. **CPU Inference**: YOLOv8 provides transparent benchmarks for CPU inference via [ONNX](https://docs.ultralytics.com/integrations/onnx/), demonstrating its viability for deployment on standard hardware without specialized accelerators. This is crucial for scalable applications in logistics or retail where GPUs may not always be available.
 
 !!! tip "Memory Efficiency"
 

@@ -69,7 +69,7 @@ When comparing YOLO11 and RTDETRv2, the distinction lies in the architectural tr
 The table below illustrates the performance metrics on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/). While RTDETRv2 shows strong mAP scores, YOLO11 provides competitive accuracy with significantly faster inference speeds, especially on CPU.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLO11n    | 640                   | 39.5                 | **56.1**                       | **1.5**                             | **2.6**            | **6.5**           |
 | YOLO11s    | 640                   | 47.0                 | **90.0**                       | **2.5**                             | **9.4**            | **21.5**          |
 | YOLO11m    | 640                   | 51.5                 | **183.2**                      | **4.7**                             | 20.1               | 68.0              |
@@ -83,9 +83,9 @@ The table below illustrates the performance metrics on the [COCO dataset](https:
 
 ### Analysis of Results
 
-1.  **Inference Speed:** YOLO11 dominates in speed. For instance, **YOLO11x** achieves higher accuracy (54.7 mAP) than RTDETRv2-x (54.3 mAP) while running roughly **25% faster** on a T4 GPU (11.3ms vs 15.03ms).
-2.  **Parameter Efficiency:** YOLO11 models generally require fewer parameters and FLOPs to achieve similar accuracy levels. YOLO11l achieves the same 53.4 mAP as RTDETRv2-l but does so with nearly half the FLOPs (86.9B vs 136B).
-3.  **CPU Performance:** The transformer operations in RTDETRv2 are computationally expensive on CPUs. YOLO11 remains the preferred choice for non-GPU deployments, offering viable frame rates on standard processors.
+1. **Inference Speed:** YOLO11 dominates in speed. For instance, **YOLO11x** achieves higher accuracy (54.7 mAP) than RTDETRv2-x (54.3 mAP) while running roughly **25% faster** on a T4 GPU (11.3ms vs 15.03ms).
+2. **Parameter Efficiency:** YOLO11 models generally require fewer parameters and FLOPs to achieve similar accuracy levels. YOLO11l achieves the same 53.4 mAP as RTDETRv2-l but does so with nearly half the FLOPs (86.9B vs 136B).
+3. **CPU Performance:** The transformer operations in RTDETRv2 are computationally expensive on CPUs. YOLO11 remains the preferred choice for non-GPU deployments, offering viable frame rates on standard processors.
 
 ## Workflow and Usability
 

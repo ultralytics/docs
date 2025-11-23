@@ -69,7 +69,7 @@ YOLOX distinguishes itself with a **decoupled head**, separating the classificat
 The following table presents a direct comparison of key performance metrics on the COCO dataset. YOLO11 demonstrates a clear advantage in efficiency, delivering significantly higher accuracy (mAP) with comparable or reduced computational requirements.
 
 | Model     | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| --------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|-----------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLO11n   | 640                   | 39.5                 | **56.1**                       | **1.5**                             | 2.6                | 6.5               |
 | YOLO11s   | 640                   | 47.0                 | 90.0                           | 2.5                                 | 9.4                | 21.5              |
 | YOLO11m   | 640                   | 51.5                 | 183.2                          | 4.7                                 | **20.1**           | **68.0**          |
@@ -85,9 +85,9 @@ The following table presents a direct comparison of key performance metrics on t
 
 ### Metric Breakdown
 
-1.  **Accuracy (mAP):** YOLO11 outperforms YOLOX across all model scales. For example, **YOLO11s achieves 47.0 mAP**, surpassing **YOLOX-m (46.9 mAP)** despite YOLOX-m being a larger model class with nearly 3x the FLOPs.
-2.  **Inference Speed:** YOLO11 is optimized for modern hardware acceleration. On a T4 GPU using [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), YOLO11n clocks in at an impressive **1.5 ms**, making it ideal for high-speed [real-time inference](https://www.ultralytics.com/glossary/real-time-inference).
-3.  **Efficiency:** YOLO11m achieves a high accuracy of 51.5 mAP with only 20.1M parameters. In contrast, the largest YOLOX-x model requires 99.1M parameters to reach a lower 51.1 mAP, highlighting the architectural superiority of YOLO11 in [parameter efficiency](https://www.ultralytics.com/glossary/model-pruning).
+1. **Accuracy (mAP):** YOLO11 outperforms YOLOX across all model scales. For example, **YOLO11s achieves 47.0 mAP**, surpassing **YOLOX-m (46.9 mAP)** despite YOLOX-m being a larger model class with nearly 3x the FLOPs.
+2. **Inference Speed:** YOLO11 is optimized for modern hardware acceleration. On a T4 GPU using [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), YOLO11n clocks in at an impressive **1.5 ms**, making it ideal for high-speed [real-time inference](https://www.ultralytics.com/glossary/real-time-inference).
+3. **Efficiency:** YOLO11m achieves a high accuracy of 51.5 mAP with only 20.1M parameters. In contrast, the largest YOLOX-x model requires 99.1M parameters to reach a lower 51.1 mAP, highlighting the architectural superiority of YOLO11 in [parameter efficiency](https://www.ultralytics.com/glossary/model-pruning).
 
 ## Technical Deep Dive
 

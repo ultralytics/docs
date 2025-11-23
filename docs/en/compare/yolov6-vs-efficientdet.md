@@ -20,7 +20,7 @@ The fundamental difference between these two architectures lies in their design 
 The table below illustrates this trade-off. While EfficientDet-d7 achieves a high mAP, its latency is substantial. In contrast, YOLOv6-3.0l offers comparable accuracy with drastically reduced inference times, making it far more suitable for [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) scenarios.
 
 | Model           | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| --------------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|-----------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv6-3.0n     | 640                   | 37.5                 | -                              | **1.17**                            | 4.7                | 11.4              |
 | YOLOv6-3.0s     | 640                   | 45.0                 | -                              | 2.66                                | 18.5               | 45.3              |
 | YOLOv6-3.0m     | 640                   | 50.0                 | -                              | 5.28                                | 34.9               | 85.8              |
@@ -104,11 +104,11 @@ While YOLOv6-3.0 and EfficientDet are capable models, the [Ultralytics YOLO11](h
 
 ### Key Advantages of YOLO11
 
-1.  **Ease of Use:** Ultralytics prioritizes developer experience. With a Pythonic API, you can train, validate, and deploy models in just a few lines of code, unlike the complex configuration files often required for EfficientDet.
-2.  **Versatility:** Unlike YOLOv6 and EfficientDet which are primarily [object detection](https://www.ultralytics.com/glossary/object-detection) models, YOLO11 natively supports multiple tasks including [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb/), and classification.
-3.  **Performance Balance:** YOLO11 achieves a state-of-the-art trade-off between speed and accuracy. It consistently outperforms older architectures on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/) while maintaining low latency.
-4.  **Well-Maintained Ecosystem:** Ultralytics models are backed by an active community and frequent updates. You gain access to extensive [documentation](https://docs.ultralytics.com/), tutorials, and seamless integrations with tools like [Ultralytics HUB](https://www.ultralytics.com/hub) for cloud training and dataset management.
-5.  **Training Efficiency:** YOLO11 is designed to be resource-efficient during training, often converging faster and requiring less [GPU memory](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) than complex transformer-based models or older architectures.
+1. **Ease of Use:** Ultralytics prioritizes developer experience. With a Pythonic API, you can train, validate, and deploy models in just a few lines of code, unlike the complex configuration files often required for EfficientDet.
+2. **Versatility:** Unlike YOLOv6 and EfficientDet which are primarily [object detection](https://www.ultralytics.com/glossary/object-detection) models, YOLO11 natively supports multiple tasks including [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb/), and classification.
+3. **Performance Balance:** YOLO11 achieves a state-of-the-art trade-off between speed and accuracy. It consistently outperforms older architectures on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/) while maintaining low latency.
+4. **Well-Maintained Ecosystem:** Ultralytics models are backed by an active community and frequent updates. You gain access to extensive [documentation](https://docs.ultralytics.com/), tutorials, and seamless integrations with tools like [Ultralytics HUB](https://www.ultralytics.com/hub) for cloud training and dataset management.
+5. **Training Efficiency:** YOLO11 is designed to be resource-efficient during training, often converging faster and requiring less [GPU memory](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) than complex transformer-based models or older architectures.
 
 ```python
 from ultralytics import YOLO

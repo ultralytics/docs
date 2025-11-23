@@ -20,7 +20,7 @@ While RTDETRv2 pushes the boundaries of transformer-based detection, YOLOv9 intr
 The following table presents a head-to-head comparison of key performance metrics evaluated on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/). It highlights how YOLOv9 achieves competitive or superior accuracy (mAP) with significantly lower computational costs (FLOPs) and faster inference speeds compared to RTDETRv2.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | RTDETRv2-s | 640                   | 48.1                 | -                              | 5.03                                | 20                 | 60                |
 | RTDETRv2-m | 640                   | 51.9                 | -                              | 7.51                                | 36                 | 100               |
 | RTDETRv2-l | 640                   | 53.4                 | -                              | 9.76                                | 42                 | 136               |
@@ -90,8 +90,8 @@ RTDETRv2 is well-suited for high-end server deployments where [precision](https:
 
 YOLOv9 introduces two groundbreaking concepts:
 
-1.  **Programmable Gradient Information (PGI):** An auxiliary supervision framework that generates reliable gradients for updating network weights, ensuring that deep layers retain crucial feature information. This mimics the benefits of [re-parameterization](https://docs.ultralytics.com/models/yolov7/) without the inference cost.
-2.  **Generalized Efficient Layer Aggregation Network (GELAN):** A lightweight network architecture that optimizes parameter usage and computational throughput (FLOPs). GELAN allows YOLOv9 to run faster while using less memory than its predecessors and competitors.
+1. **Programmable Gradient Information (PGI):** An auxiliary supervision framework that generates reliable gradients for updating network weights, ensuring that deep layers retain crucial feature information. This mimics the benefits of [re-parameterization](https://docs.ultralytics.com/models/yolov7/) without the inference cost.
+2. **Generalized Efficient Layer Aggregation Network (GELAN):** A lightweight network architecture that optimizes parameter usage and computational throughput (FLOPs). GELAN allows YOLOv9 to run faster while using less memory than its predecessors and competitors.
 
 ### Why Choose YOLOv9?
 

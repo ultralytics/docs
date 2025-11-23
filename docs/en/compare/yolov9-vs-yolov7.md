@@ -22,7 +22,7 @@ The evolution from YOLOv7 to YOLOv9 is most visible in the trade-off between com
 For example, the **YOLOv9m** model achieves the same 51.4% mAP<sup>val</sup> as **YOLOv7l** but utilizes nearly half the parameters (20.0M vs. 36.9M) and significantly fewer [FLOPs](https://www.ultralytics.com/glossary/flops). This efficiency makes YOLOv9 particularly attractive for [edge AI](https://www.ultralytics.com/glossary/edge-ai) applications where hardware resources are constrained.
 
 | Model   | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|---------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv9t | 640                   | 38.3                 | -                              | **2.3**                             | **2.0**            | **7.7**           |
 | YOLOv9s | 640                   | 46.8                 | -                              | 3.54                                | 7.1                | 26.4              |
 | YOLOv9m | 640                   | 51.4                 | -                              | 6.43                                | 20.0               | 76.3              |
@@ -113,10 +113,10 @@ YOLOv7 remains relevant for existing pipelines that are already optimized for it
 
 Using these models within the **Ultralytics ecosystem** provides distinct advantages over using raw research repositories. The Ultralytics Python API abstracts complex boilerplate code, allowing researchers and engineers to focus on data and results.
 
-1.  **Ease of Use:** A unified interface allows you to swap between YOLOv8, YOLOv9, and YOLO11 with a single line of code.
-2.  **Training Efficiency:** Ultralytics models are optimized for faster convergence, often requiring less [training data](https://www.ultralytics.com/glossary/training-data) to reach high accuracy.
-3.  **Memory Requirements:** The framework is engineered to minimize [CUDA memory](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) usage, enabling the training of larger batch sizes on consumer-grade hardware compared to memory-heavy [Transformer](https://www.ultralytics.com/glossary/transformer) models.
-4.  **Versatility:** Beyond simple bounding boxes, the ecosystem supports [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) tasks, making it a comprehensive tool for diverse AI challenges.
+1. **Ease of Use:** A unified interface allows you to swap between YOLOv8, YOLOv9, and YOLO11 with a single line of code.
+2. **Training Efficiency:** Ultralytics models are optimized for faster convergence, often requiring less [training data](https://www.ultralytics.com/glossary/training-data) to reach high accuracy.
+3. **Memory Requirements:** The framework is engineered to minimize [CUDA memory](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) usage, enabling the training of larger batch sizes on consumer-grade hardware compared to memory-heavy [Transformer](https://www.ultralytics.com/glossary/transformer) models.
+4. **Versatility:** Beyond simple bounding boxes, the ecosystem supports [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) tasks, making it a comprehensive tool for diverse AI challenges.
 
 ### Implementation Example
 

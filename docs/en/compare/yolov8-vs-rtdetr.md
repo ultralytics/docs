@@ -22,7 +22,7 @@ The chart below illustrates the trade-offs between speed and accuracy for variou
 The following table presents a direct comparison of key metrics. While RTDETRv2 achieves high accuracy with its largest models, YOLOv8 demonstrates a significant advantage in inference speed and parameter efficiency, particularly on CPU hardware where transformer models often face latency bottlenecks.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv8n    | 640                   | 37.3                 | **80.4**                       | **1.47**                            | **3.2**            | **8.7**           |
 | YOLOv8s    | 640                   | 44.9                 | 128.4                          | 2.66                                | 11.2               | 28.6              |
 | YOLOv8m    | 640                   | 50.2                 | 234.7                          | 5.86                                | 25.9               | 78.9              |

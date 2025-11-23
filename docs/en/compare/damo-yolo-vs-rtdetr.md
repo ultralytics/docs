@@ -66,7 +66,7 @@ The core distinction between these two models lies in their architectural rootsâ
 The table below outlines key metrics on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/). While RTDETRv2 dominates in terms of Mean Average Precision (mAP), DAMO-YOLO demonstrates superior throughput (FPS) and lower parameter counts for its smaller variants.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | DAMO-YOLOt | 640                   | 42.0                 | -                              | **2.32**                            | **8.5**            | **18.1**          |
 | DAMO-YOLOs | 640                   | 46.0                 | -                              | 3.45                                | 16.3               | 37.8              |
 | DAMO-YOLOm | 640                   | 49.2                 | -                              | 5.09                                | 28.2               | 61.8              |
@@ -83,11 +83,11 @@ The table below outlines key metrics on the [COCO dataset](https://docs.ultralyt
 
 ### Architecture vs. Real-World Application
 
-1.  **Global Context vs. Local Features:**
-    RTDETRv2's transformer attention mechanism allows it to understand global context better than the CNN-based DAMO-YOLO. This results in better performance in crowded scenes or when objects are occluded. However, this global attention comes at the cost of higher memory consumption and slower training times.
+1. **Global Context vs. Local Features:**
+   RTDETRv2's transformer attention mechanism allows it to understand global context better than the CNN-based DAMO-YOLO. This results in better performance in crowded scenes or when objects are occluded. However, this global attention comes at the cost of higher memory consumption and slower training times.
 
-2.  **Hardware Optimization:**
-    DAMO-YOLO's NAS-based backbone is highly optimized for GPU inference, achieving very low latency. RTDETRv2, while real-time, generally requires more powerful hardware to match the frame rates of YOLO-style detectors.
+2. **Hardware Optimization:**
+   DAMO-YOLO's NAS-based backbone is highly optimized for GPU inference, achieving very low latency. RTDETRv2, while real-time, generally requires more powerful hardware to match the frame rates of YOLO-style detectors.
 
 ## The Ultralytics Advantage: Why Choose YOLO11?
 

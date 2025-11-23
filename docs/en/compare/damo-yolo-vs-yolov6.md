@@ -106,7 +106,7 @@ The comparison below highlights the performance of both models on the [COCO data
     **YOLOv6-3.0n** stands out as the speed champion, offering sub-2ms inference, making it perfect for extremely latency-sensitive applications. However, **DAMO-YOLO** models (specifically the Small and Medium variants) often achieve higher mAP scores than their YOLOv6 counterparts, demonstrating a strong architectural efficiency derived from their NAS backbones.
 
 | Model       | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ----------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|-------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | DAMO-YOLOt  | 640                   | 42.0                 | -                              | 2.32                                | 8.5                | 18.1              |
 | DAMO-YOLOs  | 640                   | 46.0                 | -                              | 3.45                                | 16.3               | 37.8              |
 | DAMO-YOLOm  | 640                   | 49.2                 | -                              | 5.09                                | 28.2               | 61.8              |

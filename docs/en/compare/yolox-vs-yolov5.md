@@ -22,7 +22,7 @@ Conversely, Ultralytics **YOLOv5** was engineered with a focus on "real-world" p
 The table below provides a detailed side-by-side comparison of the models across various sizes. Note how YOLOv5 maintains competitive accuracy while offering significantly faster inference times, especially when optimized with [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/).
 
 | Model     | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| --------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|-----------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOXnano | 416                   | 25.8                 | -                              | -                                   | **0.91**           | **1.08**          |
 | YOLOXtiny | 416                   | 32.8                 | -                              | -                                   | 5.06               | 6.45              |
 | YOLOXs    | 640                   | 40.5                 | -                              | 2.56                                | 9.0                | 26.8              |

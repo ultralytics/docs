@@ -57,8 +57,8 @@ YOLOv9 represents a paradigm shift in real-time object detection by addressing t
 
 YOLOv9 introduces two groundbreaking technologies that set it apart:
 
-1.  **Programmable Gradient Information (PGI):** Deep networks often suffer from an information bottleneck where input data is lost as it passes through layers. PGI provides an auxiliary supervision branch that generates reliable gradients, ensuring deep layers receive complete information for accurate weight updates.
-2.  **Generalized Efficient Layer Aggregation Network (GELAN):** This novel architecture combines the strengths of CSPNet and ELAN. GELAN is designed to maximize parameter utilization, delivering a model that is both lightweight and incredibly powerful.
+1. **Programmable Gradient Information (PGI):** Deep networks often suffer from an information bottleneck where input data is lost as it passes through layers. PGI provides an auxiliary supervision branch that generates reliable gradients, ensuring deep layers receive complete information for accurate weight updates.
+2. **Generalized Efficient Layer Aggregation Network (GELAN):** This novel architecture combines the strengths of CSPNet and ELAN. GELAN is designed to maximize parameter utilization, delivering a model that is both lightweight and incredibly powerful.
 
 !!! tip "Why PGI Matters"
 
@@ -79,7 +79,7 @@ When using YOLOv9 within the **Ultralytics ecosystem**, developers gain signific
 The comparison below highlights the trade-offs between DAMO-YOLO and YOLOv9. While DAMO-YOLO offers competitive speeds on specific hardware, YOLOv9 consistently delivers higher [Mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) with fewer parameters, showcasing superior architectural efficiency.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | DAMO-YOLOt | 640                   | 42.0                 | -                              | 2.32                                | 8.5                | 18.1              |
 | DAMO-YOLOs | 640                   | 46.0                 | -                              | **3.45**                            | 16.3               | 37.8              |
 | DAMO-YOLOm | 640                   | 49.2                 | -                              | **5.09**                            | 28.2               | **61.8**          |

@@ -20,7 +20,7 @@ This guide provides an in-depth technical analysis of these two models, comparin
 The following benchmarks illustrate the distinct trade-offs between EfficientDet and DAMO-YOLO. EfficientDet is renowned for its low parameter count and FLOPs, making it theoretically efficient, whereas DAMO-YOLO is optimized for real-world inference speed on GPUs.
 
 | Model           | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| --------------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|-----------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | EfficientDet-d0 | 640                   | 34.6                 | **10.2**                       | 3.92                                | **3.9**            | **2.54**          |
 | EfficientDet-d1 | 640                   | 40.5                 | 13.5                           | 7.31                                | 6.6                | 6.1               |
 | EfficientDet-d2 | 640                   | 43.0                 | 17.7                           | 10.92                               | 8.1                | 11.0              |
@@ -59,8 +59,8 @@ EfficientDet revolutionized [object detection](https://docs.ultralytics.com/task
 
 EfficientDet's core innovation lies in two main components:
 
-1.  **BiFPN (Bidirectional Feature Pyramid Network):** Unlike traditional FPNs that sum features from different scales, BiFPN introduces learnable weights to different input features and allows information to flow both top-down and bottom-up repeatedly. This improves feature fusion but adds computational complexity.
-2.  **Compound Scaling:** EfficientDet proposes a compound coefficient that jointly scales up the backbone, BiFPN, class/box network, and input resolution. This ensures that all parts of the network grow in balance, rather than scaling just one dimension (like depth or width) arbitrarily.
+1. **BiFPN (Bidirectional Feature Pyramid Network):** Unlike traditional FPNs that sum features from different scales, BiFPN introduces learnable weights to different input features and allows information to flow both top-down and bottom-up repeatedly. This improves feature fusion but adds computational complexity.
+2. **Compound Scaling:** EfficientDet proposes a compound coefficient that jointly scales up the backbone, BiFPN, class/box network, and input resolution. This ensures that all parts of the network grow in balance, rather than scaling just one dimension (like depth or width) arbitrarily.
 
 ### Strengths and Weaknesses
 
@@ -86,9 +86,9 @@ DAMO-YOLO was designed with a specific goal: to bridge the gap between high perf
 
 DAMO-YOLO introduces several "new tech" components to the YOLO family:
 
-1.  **MAE-NAS Backbone:** It utilizes Neural Architecture Search (NAS) driven by Maximum Entropy to discover efficient backbones that handle varying input resolutions effectively.
-2.  **RepGFPN:** This is an improvement over the standard Generalized FPN, incorporating [reparameterization](https://github.com/orgs/ultralytics/discussions/8505) to streamline the fusion block, maximizing hardware utilization.
-3.  **ZeroHead & AlignedOTA:** The "ZeroHead" design significantly reduces the complexity of the detection head, while AlignedOTA (Optimal Transport Assignment) provides a robust label assignment strategy during training to solve the misalignment between classification and regression.
+1. **MAE-NAS Backbone:** It utilizes Neural Architecture Search (NAS) driven by Maximum Entropy to discover efficient backbones that handle varying input resolutions effectively.
+2. **RepGFPN:** This is an improvement over the standard Generalized FPN, incorporating [reparameterization](https://github.com/orgs/ultralytics/discussions/8505) to streamline the fusion block, maximizing hardware utilization.
+3. **ZeroHead & AlignedOTA:** The "ZeroHead" design significantly reduces the complexity of the detection head, while AlignedOTA (Optimal Transport Assignment) provides a robust label assignment strategy during training to solve the misalignment between classification and regression.
 
 ### Strengths and Weaknesses
 
@@ -102,11 +102,11 @@ While EfficientDet offers parameter efficiency and DAMO-YOLO offers GPU speed, *
 
 ### Why Choose Ultralytics Models?
 
-1.  **Unmatched Versatility:** Unlike EfficientDet and DAMO-YOLO, which are primarily object detectors, Ultralytics YOLO11 natively supports a wide array of computer vision tasks including [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb/), and [image classification](https://docs.ultralytics.com/tasks/classify/). This allows you to use a single framework for diverse project requirements.
-2.  **Performance Balance:** YOLO11 pushes the envelope on the accuracy-latency frontier. It often matches or exceeds the accuracy of heavier models while maintaining inference speeds competitive with specialized real-time models.
-3.  **Ease of Use & Ecosystem:** The Ultralytics API is designed for simplicity. With extensive [documentation](https://docs.ultralytics.com/) and community support, developers can go from installation to training in minutes. The ecosystem includes seamless integrations for [data annotation](https://docs.ultralytics.com/integrations/roboflow/), experiment tracking, and one-click export to formats like ONNX, TensorRT, CoreML, and TFLite.
-4.  **Training Efficiency:** Ultralytics models are optimized for fast convergence. They employ advanced [data augmentation](https://docs.ultralytics.com/guides/yolo-data-augmentation/) strategies and efficient data loaders, reducing the time and cost associated with training high-performance models.
-5.  **Memory Efficiency:** Compared to Transformer-based models or older architectures, YOLO11 requires significantly less CUDA memory for training, making it accessible on consumer-grade GPUs.
+1. **Unmatched Versatility:** Unlike EfficientDet and DAMO-YOLO, which are primarily object detectors, Ultralytics YOLO11 natively supports a wide array of computer vision tasks including [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb/), and [image classification](https://docs.ultralytics.com/tasks/classify/). This allows you to use a single framework for diverse project requirements.
+2. **Performance Balance:** YOLO11 pushes the envelope on the accuracy-latency frontier. It often matches or exceeds the accuracy of heavier models while maintaining inference speeds competitive with specialized real-time models.
+3. **Ease of Use & Ecosystem:** The Ultralytics API is designed for simplicity. With extensive [documentation](https://docs.ultralytics.com/) and community support, developers can go from installation to training in minutes. The ecosystem includes seamless integrations for [data annotation](https://docs.ultralytics.com/integrations/roboflow/), experiment tracking, and one-click export to formats like ONNX, TensorRT, CoreML, and TFLite.
+4. **Training Efficiency:** Ultralytics models are optimized for fast convergence. They employ advanced [data augmentation](https://docs.ultralytics.com/guides/yolo-data-augmentation/) strategies and efficient data loaders, reducing the time and cost associated with training high-performance models.
+5. **Memory Efficiency:** Compared to Transformer-based models or older architectures, YOLO11 requires significantly less CUDA memory for training, making it accessible on consumer-grade GPUs.
 
 ### Code Example: Getting Started with YOLO11
 

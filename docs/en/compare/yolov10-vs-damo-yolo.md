@@ -67,7 +67,7 @@ DAMO-YOLO explores advanced techniques to improve the speed-accuracy trade-off. 
 The following table compares the performance of various YOLOv10 and DAMO-YOLO model sizes on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/). YOLOv10 consistently demonstrates superior performance, offering higher accuracy with lower latency and fewer parameters.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv10n   | 640                   | 39.5                 | -                              | **1.56**                            | **2.3**            | **6.7**           |
 | YOLOv10s   | 640                   | 46.7                 | -                              | 2.66                                | 7.2                | 21.6              |
 | YOLOv10m   | 640                   | 51.3                 | -                              | 5.48                                | 15.4               | 59.1              |
@@ -105,10 +105,10 @@ As the data shows, YOLOv10 models generally outperform their DAMO-YOLO counterpa
 
 While both models are impressive, Ultralytics models like YOLOv10 and the flagship [YOLO11](https://docs.ultralytics.com/models/yolo11/) offer a distinct advantage for developers and researchers:
 
-1.  **Unified Ecosystem:** Ultralytics provides a cohesive platform where [data annotation](https://docs.ultralytics.com/guides/data-collection-and-annotation/), training, and deployment happen seamlessly.
-2.  **Ease of Use:** With a simple Python API, you can load a model and run inference in just a few lines of code.
-3.  **Versatility:** Ultralytics supports a wide array of tasks including [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [image classification](https://docs.ultralytics.com/tasks/classify/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/).
-4.  **Community Support:** A vibrant community and extensive documentation ensure you are never stuck on a problem for long.
+1. **Unified Ecosystem:** Ultralytics provides a cohesive platform where [data annotation](https://docs.ultralytics.com/guides/data-collection-and-annotation/), training, and deployment happen seamlessly.
+2. **Ease of Use:** With a simple Python API, you can load a model and run inference in just a few lines of code.
+3. **Versatility:** Ultralytics supports a wide array of tasks including [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [image classification](https://docs.ultralytics.com/tasks/classify/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/).
+4. **Community Support:** A vibrant community and extensive documentation ensure you are never stuck on a problem for long.
 
 ### Usage Example: YOLOv10 with Ultralytics
 

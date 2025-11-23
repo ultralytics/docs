@@ -20,7 +20,7 @@ To understand how these models compare in real-world scenarios, we analyze their
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "YOLOv8"]'></canvas>
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | DAMO-YOLOt | 640                   | 42.0                 | -                              | 2.32                                | 8.5                | 18.1              |
 | DAMO-YOLOs | 640                   | 46.0                 | -                              | 3.45                                | 16.3               | 37.8              |
 | DAMO-YOLOm | 640                   | 49.2                 | -                              | 5.09                                | 28.2               | 61.8              |
@@ -54,10 +54,10 @@ DAMO-YOLO is a product of the Alibaba Group's research initiatives. The name sta
 
 DAMO-YOLO integrates several advanced technologies to optimize the trade-off between latency and accuracy:
 
-1.  **MAE-NAS Backbone:** It utilizes Neural Architecture Search (NAS) to automatically discover efficient network structures, specifically utilizing a method called MAE-NAS.
-2.  **RepGFPN Neck:** A heavily parameterized Generalized Feature Pyramid Network (GFPN) is used to maximize information flow between different scale levels, improving detection of objects at varying distances.
-3.  **ZeroHead:** To counterbalance the heavy neck, the model employs a lightweight "ZeroHead," reducing the computational burden at the final detection stage.
-4.  **AlignedOTA:** A dynamic label assignment strategy that aligns the classification and regression tasks during training, helping the model converge more effectively.
+1. **MAE-NAS Backbone:** It utilizes Neural Architecture Search (NAS) to automatically discover efficient network structures, specifically utilizing a method called MAE-NAS.
+2. **RepGFPN Neck:** A heavily parameterized Generalized Feature Pyramid Network (GFPN) is used to maximize information flow between different scale levels, improving detection of objects at varying distances.
+3. **ZeroHead:** To counterbalance the heavy neck, the model employs a lightweight "ZeroHead," reducing the computational burden at the final detection stage.
+4. **AlignedOTA:** A dynamic label assignment strategy that aligns the classification and regression tasks during training, helping the model converge more effectively.
 
 [Learn more about DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO){ .md-button }
 
@@ -118,10 +118,10 @@ Both DAMO-YOLO and YOLOv8 are exceptional achievements in computer vision.
 
 However, for most developers, researchers, and enterprises, **Ultralytics YOLOv8** (and the newer **[YOLO11](https://docs.ultralytics.com/models/yolo11/)**) offers a superior value proposition:
 
-1.  **Versatility:** Capable of handling Detection, Segmentation, Pose, and OBB in one framework.
-2.  **Ease of Use:** Unmatched documentation, simple API, and robust [community support](https://community.ultralytics.com/).
-3.  **Deployment:** Extensive support for [export modes](https://docs.ultralytics.com/modes/export/) covers everything from mobile phones to cloud servers.
-4.  **Performance Balance:** Excellent accuracy-to-speed ratio, particularly on CPU and Edge devices.
+1. **Versatility:** Capable of handling Detection, Segmentation, Pose, and OBB in one framework.
+2. **Ease of Use:** Unmatched documentation, simple API, and robust [community support](https://community.ultralytics.com/).
+3. **Deployment:** Extensive support for [export modes](https://docs.ultralytics.com/modes/export/) covers everything from mobile phones to cloud servers.
+4. **Performance Balance:** Excellent accuracy-to-speed ratio, particularly on CPU and Edge devices.
 
 For those looking to stay on the absolute cutting edge, we also recommend checking out **[YOLO11](https://docs.ultralytics.com/models/yolo11/)**, which builds upon the strengths of YOLOv8 with even greater efficiency and accuracy.
 

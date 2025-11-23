@@ -62,7 +62,7 @@ As illustrated in the table below, YOLOv10 demonstrates superior efficiency. For
     The "Speed" metrics highlight the impact of YOLOv10's NMS-free design. By removing the NMS step, YOLOv10 reduces the computational overhead during inference, which is particularly beneficial on hardware accelerators like TensorRT where post-processing can otherwise become a bottleneck.
 
 | Model    | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| -------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|----------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv7l  | 640                   | 51.4                 | -                              | 6.84                                | 36.9               | 104.7             |
 | YOLOv7x  | 640                   | 53.1                 | -                              | 11.57                               | 71.3               | 189.9             |
 |          |                       |                      |                                |                                     |                    |                   |

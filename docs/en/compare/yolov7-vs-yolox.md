@@ -20,7 +20,7 @@ This guide provides an in-depth technical comparison to help researchers and eng
 When evaluating object detectors, the trade-off between inference latency and Mean Average Precision (mAP) is paramount. The table below presents a direct comparison between YOLOv7 and YOLOX variants on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/).
 
 | Model     | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| --------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|-----------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv7l   | 640                   | 51.4                 | -                              | 6.84                                | 36.9               | 104.7             |
 | YOLOv7x   | 640                   | 53.1                 | -                              | 11.57                               | 71.3               | 189.9             |
 |           |                       |                      |                                |                                     |                    |                   |
@@ -53,9 +53,9 @@ Released in July 2022, YOLOv7 introduced several architectural innovations desig
 
 YOLOv7 focuses on "trainable bag-of-freebies"—optimization methods that improve accuracy during training but are removed or merged during inference. Key features include:
 
-1.  **E-ELAN (Extended Efficient Layer Aggregation Network):** An improved backbone structure that enhances the model's ability to learn diverse features by controlling the shortest and longest gradient paths.
-2.  **Model Scaling:** Instead of simply scaling depth or width, YOLOv7 uses a compound scaling method for concatenation-based models, maintaining optimal structure during upscaling.
-3.  **Auxiliary Head Coarse-to-Fine:** An auxiliary loss head is used during training to assist supervision, which is then re-parameterized into the main head for inference.
+1. **E-ELAN (Extended Efficient Layer Aggregation Network):** An improved backbone structure that enhances the model's ability to learn diverse features by controlling the shortest and longest gradient paths.
+2. **Model Scaling:** Instead of simply scaling depth or width, YOLOv7 uses a compound scaling method for concatenation-based models, maintaining optimal structure during upscaling.
+3. **Auxiliary Head Coarse-to-Fine:** An auxiliary loss head is used during training to assist supervision, which is then re-parameterized into the main head for inference.
 
 !!! tip "Re-parameterization"
 
@@ -77,9 +77,9 @@ YOLOX, released in 2021, represented a shift in the YOLO paradigm by moving away
 
 YOLOX simplified the detection pipeline by removing the need for manual anchor box tuning, which was a common pain point in previous versions like YOLOv4 and YOLOv5.
 
-1.  **Anchor-Free Mechanism:** By predicting the center of objects directly, YOLOX eliminates the complex hyperparameters associated with anchors, improving generalization on diverse datasets.
-2.  **Decoupled Head:** Unlike earlier YOLO versions that coupled classification and localization in one head, YOLOX separates them. This leads to faster convergence and better accuracy.
-3.  **SimOTA:** An advanced label assignment strategy that dynamically assigns positive samples to the ground truth with the lowest cost, balancing classification and regression losses effectively.
+1. **Anchor-Free Mechanism:** By predicting the center of objects directly, YOLOX eliminates the complex hyperparameters associated with anchors, improving generalization on diverse datasets.
+2. **Decoupled Head:** Unlike earlier YOLO versions that coupled classification and localization in one head, YOLOX separates them. This leads to faster convergence and better accuracy.
+3. **SimOTA:** An advanced label assignment strategy that dynamically assigns positive samples to the ground truth with the lowest cost, balancing classification and regression losses effectively.
 
 ## Why Ultralytics Models Are the Preferred Choice
 

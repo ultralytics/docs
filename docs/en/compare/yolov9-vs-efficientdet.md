@@ -18,7 +18,7 @@ Selecting the right object detection model is a pivotal decision in computer vis
 The evolution of object detection has been rapid, with newer architectures significantly outperforming their predecessors. The table below presents a direct comparison of key metrics, highlighting the advancements in **YOLOv9** regarding inference speed and parameter efficiency compared to the older **EfficientDet** family.
 
 | Model           | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| --------------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|-----------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv9t         | 640                   | 38.3                 | -                              | 2.3                                 | 2.0                | 7.7               |
 | YOLOv9s         | 640                   | 46.8                 | -                              | 3.54                                | 7.1                | 26.4              |
 | YOLOv9m         | 640                   | 51.4                 | -                              | 6.43                                | 20.0               | 76.3              |
@@ -57,8 +57,8 @@ YOLOv9, introduced in early 2024, represents a significant leap forward in the Y
 
 YOLOv9 introduces two core concepts to address the "information bottleneck" problem:
 
-1.  **Programmable Gradient Information (PGI):** An auxiliary supervision framework that generates reliable gradients for updating network weights, ensuring the model retains critical information throughout deep layers.
-2.  **Generalized Efficient Layer Aggregation Network (GELAN):** A novel lightweight architecture that combines the strengths of CSPNet and ELAN. It prioritizes **gradient path planning**, allowing for higher parameter efficiency and faster inference speeds without sacrificing accuracy.
+1. **Programmable Gradient Information (PGI):** An auxiliary supervision framework that generates reliable gradients for updating network weights, ensuring the model retains critical information throughout deep layers.
+2. **Generalized Efficient Layer Aggregation Network (GELAN):** A novel lightweight architecture that combines the strengths of CSPNet and ELAN. It prioritizes **gradient path planning**, allowing for higher parameter efficiency and faster inference speeds without sacrificing accuracy.
 
 !!! info "Did You Know?"
 The GELAN architecture is designed to be hardware-agnostic, optimizing inference not just for high-end GPUs but also for edge devices where computational resources are limited.
@@ -104,8 +104,8 @@ EfficientDet, released by Google Research in late 2019, was a groundbreaking mod
 
 EfficientDet is built upon the **EfficientNet** backbone and introduces several key features:
 
-1.  **Bi-directional Feature Pyramid Network (BiFPN):** Unlike traditional FPNs, BiFPN allows for easy multi-scale feature fusion by introducing learnable weights to different input features.
-2.  **Compound Scaling:** This method uniformly scales the resolution, depth, and width of the backbone, feature network, and box/class prediction networks, allowing for a family of models (D0 to D7) tailored to different resource budgets.
+1. **Bi-directional Feature Pyramid Network (BiFPN):** Unlike traditional FPNs, BiFPN allows for easy multi-scale feature fusion by introducing learnable weights to different input features.
+2. **Compound Scaling:** This method uniformly scales the resolution, depth, and width of the backbone, feature network, and box/class prediction networks, allowing for a family of models (D0 to D7) tailored to different resource budgets.
 
 ### Strengths and Weaknesses
 

@@ -24,7 +24,7 @@ The performance gap between YOLO11 and YOLOv5 highlights the rapid advancements 
 The table below presents a head-to-head comparison on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/). A critical observation is the **efficiency of YOLO11n**, which achieves a **39.5 mAP**, significantly surpassing YOLOv5n's 28.0 mAP, while also running faster on CPU hardware.
 
 | Model   | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|---------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLO11n | 640                   | **39.5**             | **56.1**                       | 1.5                                 | **2.6**            | **6.5**           |
 | YOLO11s | 640                   | **47.0**             | **90.0**                       | 2.5                                 | 9.4                | **21.5**          |
 | YOLO11m | 640                   | **51.5**             | **183.2**                      | 4.7                                 | **20.1**           | 68.0              |
@@ -77,7 +77,7 @@ The architectural differences between these two models reflect the progression o
 ### Comparison Table: Technical Specifications
 
 | Feature            | YOLOv5                                          | YOLO11                                          |
-| :----------------- | :---------------------------------------------- | :---------------------------------------------- |
+|:-------------------|:------------------------------------------------|:------------------------------------------------|
 | **Architecture**   | CSPDarknet Backbone                             | Refined Backbone with C3k2 & C2PSA              |
 | **Detection Head** | Anchor-Based                                    | Anchor-Free                                     |
 | **Tasks**          | Detect, Segment, Classify                       | Detect, Segment, Classify, Pose, OBB, Track     |
@@ -127,18 +127,18 @@ Choosing the right model depends on your project's specific constraints and requ
 
 YOLO11 is the **recommended choice for 95% of new projects**.
 
-1.  **New Developments:** If you are starting from scratch, YOLO11 offers the best future-proofing, accuracy, and speed.
-2.  **CPU Deployment:** For edge devices running on CPU (e.g., Raspberry Pi, mobile phones), YOLO11n is significantly faster and more accurate than YOLOv5n.
-3.  **Complex Tasks:** Projects requiring [Pose Estimation](https://docs.ultralytics.com/tasks/pose/) or [OBB](https://docs.ultralytics.com/tasks/obb/) (e.g., aerial imagery, document analysis) are natively supported by YOLO11.
-4.  **Cloud & Server:** The high throughput of YOLO11 makes it ideal for processing massive video streams in real-time.
+1. **New Developments:** If you are starting from scratch, YOLO11 offers the best future-proofing, accuracy, and speed.
+2. **CPU Deployment:** For edge devices running on CPU (e.g., Raspberry Pi, mobile phones), YOLO11n is significantly faster and more accurate than YOLOv5n.
+3. **Complex Tasks:** Projects requiring [Pose Estimation](https://docs.ultralytics.com/tasks/pose/) or [OBB](https://docs.ultralytics.com/tasks/obb/) (e.g., aerial imagery, document analysis) are natively supported by YOLO11.
+4. **Cloud & Server:** The high throughput of YOLO11 makes it ideal for processing massive video streams in real-time.
 
 ### When to Stick with YOLOv5
 
 YOLOv5 remains a viable option for specific legacy scenarios.
 
-1.  **Legacy Maintenance:** If you have a production system heavily coupled with the specific YOLOv5 codebase or output format.
-2.  **Specific Hardware Tuning:** Some older embedded accelerators may have highly optimized firmware specifically validated for YOLOv5 layers (though most modern runtimes like OpenVINO now favor newer architectures).
-3.  **Academic Baseline:** Researchers comparing against historical baselines often cite YOLOv5 due to its long-standing presence in literature.
+1. **Legacy Maintenance:** If you have a production system heavily coupled with the specific YOLOv5 codebase or output format.
+2. **Specific Hardware Tuning:** Some older embedded accelerators may have highly optimized firmware specifically validated for YOLOv5 layers (though most modern runtimes like OpenVINO now favor newer architectures).
+3. **Academic Baseline:** Researchers comparing against historical baselines often cite YOLOv5 due to its long-standing presence in literature.
 
 !!! tip "Migration to YOLO11"
 

@@ -83,7 +83,7 @@ YOLOv9 introduces two groundbreaking concepts: **Programmable Gradient Informati
 The following comparison highlights the dramatic improvements in inference speed and efficiency that YOLOv9 brings to the table compared to the EfficientDet family.
 
 | Model           | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| --------------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|-----------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | EfficientDet-d0 | 640                   | 34.6                 | 10.2                           | 3.92                                | 3.9                | 2.54              |
 | EfficientDet-d1 | 640                   | 40.5                 | 13.5                           | 7.31                                | 6.6                | 6.1               |
 | EfficientDet-d2 | 640                   | 43.0                 | 17.7                           | 10.92                               | 8.1                | 11.0              |
@@ -101,9 +101,9 @@ The following comparison highlights the dramatic improvements in inference speed
 
 ### Critical Benchmark Insights
 
-1.  **Massive Speed Advantage:** The **YOLOv9c** model achieves a competitive **53.0 mAP** with an inference speed of just **7.16 ms** on a T4 GPU. In contrast, the comparable **EfficientDet-d6** (52.6 mAP) crawls at **89.29 ms**. This makes YOLOv9 over **12x faster** for similar accuracy, a critical factor for real-time applications like [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-automotive) or traffic monitoring.
-2.  **Parameter Efficiency:** At the lower end of the spectrum, **YOLOv9t** offers a strong 38.3 mAP with only **2.0 million parameters**, surpassing the EfficientDet-d0 baseline in accuracy while using nearly half the parameters and running significantly faster.
-3.  **High-End Precision:** For tasks requiring maximum precision, **YOLOv9e** pushes the boundary with **55.6 mAP**, outperforming the largest EfficientDet-d7 model while maintaining a latency (16.77 ms) that is still suitable for video processing, unlike the prohibitive 128 ms of D7.
+1. **Massive Speed Advantage:** The **YOLOv9c** model achieves a competitive **53.0 mAP** with an inference speed of just **7.16 ms** on a T4 GPU. In contrast, the comparable **EfficientDet-d6** (52.6 mAP) crawls at **89.29 ms**. This makes YOLOv9 over **12x faster** for similar accuracy, a critical factor for real-time applications like [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-automotive) or traffic monitoring.
+2. **Parameter Efficiency:** At the lower end of the spectrum, **YOLOv9t** offers a strong 38.3 mAP with only **2.0 million parameters**, surpassing the EfficientDet-d0 baseline in accuracy while using nearly half the parameters and running significantly faster.
+3. **High-End Precision:** For tasks requiring maximum precision, **YOLOv9e** pushes the boundary with **55.6 mAP**, outperforming the largest EfficientDet-d7 model while maintaining a latency (16.77 ms) that is still suitable for video processing, unlike the prohibitive 128 ms of D7.
 
 ## Integration and Ease of Use
 

@@ -54,7 +54,7 @@ The core innovation of EfficientDet is the **BiFPN**, which allows for easy and 
 When evaluating these models, the trade-off between [inference speed](https://www.ultralytics.com/glossary/inference-latency) and mean Average Precision (mAP) becomes clear. While EfficientDet set high standards upon its release, newer architectures like PP-YOLOE+ have leveraged hardware-aware designs to achieve superior performance on modern GPUs.
 
 | Model           | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| --------------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|-----------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | PP-YOLOE+t      | 640                   | 39.9                 | -                              | 2.84                                | 4.85               | 19.15             |
 | PP-YOLOE+s      | 640                   | 43.7                 | -                              | 2.62                                | 7.93               | 17.36             |
 | PP-YOLOE+m      | 640                   | 49.8                 | -                              | 5.56                                | 23.43              | 49.91             |
@@ -124,12 +124,12 @@ While PP-YOLOE+ and EfficientDet offer robust solutions, the **Ultralytics YOLO1
 
 ### Why YOLO11 Stands Out
 
-1.  **Ease of Use:** Ultralytics models are renowned for their "out-of-the-box" usability. With a simple [Python API](https://docs.ultralytics.com/usage/python/) and intuitive CLI, you can train, validate, and deploy models in minutes, contrasting with the often complex configuration files required by other frameworks.
-2.  **Well-Maintained Ecosystem:** The Ultralytics community is active and growing. Regular updates ensure compatibility with the latest versions of PyTorch, ONNX, and CUDA, providing a stable foundation for long-term projects.
-3.  **Performance Balance:** YOLO11 achieves a remarkable balance, often surpassing PP-YOLOE+ in speed while matching or exceeding accuracy. It is designed to be hardware-agnostic, performing exceptionally well on CPUs, GPUs, and NPUs.
-4.  **Memory Efficiency:** Compared to transformer-based models or older architectures, Ultralytics YOLO models are optimized for lower memory consumption during training. This allows for larger batch sizes and faster convergence on standard hardware.
-5.  **Versatility:** Unlike EfficientDet which is primarily an object detector, YOLO11 supports a wide array of tasks including [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), [oriented object detection (OBB)](https://docs.ultralytics.com/tasks/obb/), and classification within a single unified framework.
-6.  **Training Efficiency:** With advanced augmentations and optimized data loaders, training a YOLO11 model is fast and efficient. Extensive [pre-trained weights](https://docs.ultralytics.com/models/) are available, enabling powerful transfer learning results with minimal data.
+1. **Ease of Use:** Ultralytics models are renowned for their "out-of-the-box" usability. With a simple [Python API](https://docs.ultralytics.com/usage/python/) and intuitive CLI, you can train, validate, and deploy models in minutes, contrasting with the often complex configuration files required by other frameworks.
+2. **Well-Maintained Ecosystem:** The Ultralytics community is active and growing. Regular updates ensure compatibility with the latest versions of PyTorch, ONNX, and CUDA, providing a stable foundation for long-term projects.
+3. **Performance Balance:** YOLO11 achieves a remarkable balance, often surpassing PP-YOLOE+ in speed while matching or exceeding accuracy. It is designed to be hardware-agnostic, performing exceptionally well on CPUs, GPUs, and NPUs.
+4. **Memory Efficiency:** Compared to transformer-based models or older architectures, Ultralytics YOLO models are optimized for lower memory consumption during training. This allows for larger batch sizes and faster convergence on standard hardware.
+5. **Versatility:** Unlike EfficientDet which is primarily an object detector, YOLO11 supports a wide array of tasks including [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), [oriented object detection (OBB)](https://docs.ultralytics.com/tasks/obb/), and classification within a single unified framework.
+6. **Training Efficiency:** With advanced augmentations and optimized data loaders, training a YOLO11 model is fast and efficient. Extensive [pre-trained weights](https://docs.ultralytics.com/models/) are available, enabling powerful transfer learning results with minimal data.
 
 ### Example: Running YOLO11 in Python
 

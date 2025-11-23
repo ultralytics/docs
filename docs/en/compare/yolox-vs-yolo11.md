@@ -77,7 +77,7 @@ YOLO11 employs a highly optimized, anchor-free architecture that enhances featur
 The table below highlights the performance differences between YOLOX and YOLO11. YOLO11 consistently demonstrates higher accuracy (mAP) with fewer parameters and FLOPs, translating to faster inference speeds.
 
 | Model     | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| --------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|-----------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOXnano | 416                   | 25.8                 | -                              | -                                   | **0.91**           | **1.08**          |
 | YOLOXtiny | 416                   | 32.8                 | -                              | -                                   | 5.06               | 6.45              |
 | YOLOXs    | 640                   | 40.5                 | -                              | 2.56                                | 9.0                | 26.8              |
@@ -93,10 +93,10 @@ The table below highlights the performance differences between YOLOX and YOLO11.
 
 ### Key Takeaways
 
-1.  **Efficiency Dominance:** YOLO11 models provide a significantly better trade-off between speed and accuracy. For instance, **YOLO11m** achieves **51.5 mAP** with only **20.1M parameters**, outperforming the massive **YOLOX-x** (51.1 mAP, 99.1M parameters) while being roughly **5x smaller**.
-2.  **Inference Speed:** On a T4 GPU using [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), YOLO11n clocks in at **1.5 ms**, making it an exceptional choice for [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) applications where latency is critical.
-3.  **CPU Performance:** Ultralytics provides transparent CPU benchmarks, showcasing YOLO11's viability for deployment on devices without dedicated accelerators.
-4.  **Training Efficiency:** YOLO11's architecture allows for faster convergence during training, saving valuable compute time and resources.
+1. **Efficiency Dominance:** YOLO11 models provide a significantly better trade-off between speed and accuracy. For instance, **YOLO11m** achieves **51.5 mAP** with only **20.1M parameters**, outperforming the massive **YOLOX-x** (51.1 mAP, 99.1M parameters) while being roughly **5x smaller**.
+2. **Inference Speed:** On a T4 GPU using [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), YOLO11n clocks in at **1.5 ms**, making it an exceptional choice for [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) applications where latency is critical.
+3. **CPU Performance:** Ultralytics provides transparent CPU benchmarks, showcasing YOLO11's viability for deployment on devices without dedicated accelerators.
+4. **Training Efficiency:** YOLO11's architecture allows for faster convergence during training, saving valuable compute time and resources.
 
 ## Real-World Applications
 

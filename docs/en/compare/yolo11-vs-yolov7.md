@@ -63,7 +63,7 @@ While YOLOv7 set impressive benchmarks upon its release, it is primarily an obje
 When comparing the technical metrics, the advancements in YOLO11's architecture become evident. The newer model achieves comparable or superior accuracy with significantly fewer parameters and faster inference speeds.
 
 | Model   | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|---------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLO11n | 640                   | 39.5                 | **56.1**                       | **1.5**                             | **2.6**            | **6.5**           |
 | YOLO11s | 640                   | 47.0                 | 90.0                           | 2.5                                 | 9.4                | 21.5              |
 | YOLO11m | 640                   | 51.5                 | 183.2                          | 4.7                                 | 20.1               | 68.0              |
@@ -75,9 +75,9 @@ When comparing the technical metrics, the advancements in YOLO11's architecture 
 
 ### Key Takeaways
 
-1.  **Parameter Efficiency:** YOLO11 provides a drastic reduction in model size. For example, **YOLO11l** surpasses the accuracy of **YOLOv7x** (53.4% vs 53.1% mAP) while using nearly **65% fewer parameters** (25.3M vs 71.3M). This reduction is critical for deploying models on devices with limited storage and memory.
-2.  **Inference Speed:** The architectural optimizations in YOLO11 translate directly to speed. On a T4 GPU using [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), YOLO11l is almost **2x faster** than YOLOv7x. For CPU-based applications, the lightweight YOLO11n offers incredible speeds (56.1 ms), enabling real-time detection on edge hardware where YOLOv7 variants would struggle.
-3.  **Compute Requirements:** The **FLOPs** (Floating Point Operations) count is significantly lower for YOLO11 models. This lower computational load results in less power consumption and heat generation, making YOLO11 highly suitable for battery-powered [edge AI](https://www.ultralytics.com/glossary/edge-ai) devices.
+1. **Parameter Efficiency:** YOLO11 provides a drastic reduction in model size. For example, **YOLO11l** surpasses the accuracy of **YOLOv7x** (53.4% vs 53.1% mAP) while using nearly **65% fewer parameters** (25.3M vs 71.3M). This reduction is critical for deploying models on devices with limited storage and memory.
+2. **Inference Speed:** The architectural optimizations in YOLO11 translate directly to speed. On a T4 GPU using [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), YOLO11l is almost **2x faster** than YOLOv7x. For CPU-based applications, the lightweight YOLO11n offers incredible speeds (56.1 ms), enabling real-time detection on edge hardware where YOLOv7 variants would struggle.
+3. **Compute Requirements:** The **FLOPs** (Floating Point Operations) count is significantly lower for YOLO11 models. This lower computational load results in less power consumption and heat generation, making YOLO11 highly suitable for battery-powered [edge AI](https://www.ultralytics.com/glossary/edge-ai) devices.
 
 ## Ecosystem and Developer Experience
 

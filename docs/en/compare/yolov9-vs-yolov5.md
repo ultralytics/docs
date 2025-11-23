@@ -66,7 +66,7 @@ The comparison below highlights the distinct roles of these models. YOLOv9 gener
 Conversely, YOLOv5 offers unbeatable inference speeds, particularly with its Nano (n) and Small (s) variants. For [real-time applications](https://www.ultralytics.com/glossary/real-time-inference) on edge hardware like the [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/) or [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/), YOLOv5 remains a top contender due to its lightweight nature and TensorRT optimization maturity.
 
 | Model   | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|---------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv9t | 640                   | 38.3                 | -                              | 2.3                                 | **2.0**            | 7.7               |
 | YOLOv9s | 640                   | 46.8                 | -                              | 3.54                                | 7.1                | 26.4              |
 | YOLOv9m | 640                   | 51.4                 | -                              | 6.43                                | **20.0**           | 76.3              |

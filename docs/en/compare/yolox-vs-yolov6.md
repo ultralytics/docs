@@ -100,7 +100,7 @@ YOLOv6-3.0 shines in environments where [real-time inference](https://www.ultral
 Comparing the performance metrics on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/) reveals distinct design philosophies. YOLOX offers a simplified architecture with respectable accuracy, while YOLOv6-3.0 pushes the boundaries of inference speed through structural optimization.
 
 | Model       | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ----------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|-------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOXnano   | 416                   | 25.8                 | -                              | -                                   | **0.91**           | **1.08**          |
 | YOLOXtiny   | 416                   | 32.8                 | -                              | -                                   | 5.06               | 6.45              |
 | YOLOXs      | 640                   | 40.5                 | -                              | 2.56                                | 9.0                | 26.8              |

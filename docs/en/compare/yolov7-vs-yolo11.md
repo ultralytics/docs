@@ -87,7 +87,7 @@ A defining characteristic of YOLO11 is its **native multi-task support**. Within
 The following table illustrates the performance differences between YOLOv7 and YOLO11. The data highlights how modern optimizations allow YOLO11 to achieve superior accuracy with a fraction of the computational cost.
 
 | Model   | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|---------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv7l | 640                   | 51.4                 | -                              | 6.84                                | 36.9               | 104.7             |
 | YOLOv7x | 640                   | 53.1                 | -                              | 11.57                               | 71.3               | 189.9             |
 |         |                       |                      |                                |                                     |                    |                   |
@@ -157,10 +157,10 @@ In contrast, older repositories often require cloning the repo, manually adjusti
 
 While **YOLOv7** remains a respectable model in the history of computer vision, **Ultralytics YOLO11** represents the future. For developers and researchers, YOLO11 offers a compelling package:
 
-1.  **Superior Metrics:** Higher mAP and faster inference speeds.
-2.  **Rich Ecosystem:** Access to [Ultralytics HUB](https://www.ultralytics.com/hub), extensive docs, and community support.
-3.  **Versatility:** A single framework for detection, segmentation, pose, classification, and OBB.
-4.  **Future-Proofing:** Continuous updates and maintenance ensure compatibility with new hardware and software libraries.
+1. **Superior Metrics:** Higher mAP and faster inference speeds.
+2. **Rich Ecosystem:** Access to [Ultralytics HUB](https://www.ultralytics.com/hub), extensive docs, and community support.
+3. **Versatility:** A single framework for detection, segmentation, pose, classification, and OBB.
+4. **Future-Proofing:** Continuous updates and maintenance ensure compatibility with new hardware and software libraries.
 
 For any new project, leveraging the efficiency and ease of use of **YOLO11** is the recommended path to achieving state-of-the-art results with minimal friction.
 

@@ -31,8 +31,8 @@ Released in May 2024 by researchers at Tsinghua University, [YOLOv10](https://do
 
 YOLOv10 achieves its efficiency through a combination of **Consistent Dual Assignments** and a **Holistic Efficiency-Accuracy Driven Model Design**.
 
-1.  **NMS-Free Training:** Traditional YOLO models rely on NMS to filter out duplicate bounding boxes. YOLOv10 utilizes a dual assignment strategy during [model training](https://docs.ultralytics.com/modes/train/). A one-to-many branch provides rich supervisory signals for learning, while a one-to-one branch ensures that the model generates a single best prediction per object during inference. This allows the model to be deployed without NMS, significantly reducing [inference latency](https://www.ultralytics.com/glossary/inference-latency).
-2.  **Model Optimization:** The architecture includes lightweight classification heads, spatial-channel decoupled downsampling, and rank-guided block design. These features reduce computational redundancy and memory usage, making the model highly efficient on hardware with limited resources.
+1. **NMS-Free Training:** Traditional YOLO models rely on NMS to filter out duplicate bounding boxes. YOLOv10 utilizes a dual assignment strategy during [model training](https://docs.ultralytics.com/modes/train/). A one-to-many branch provides rich supervisory signals for learning, while a one-to-one branch ensures that the model generates a single best prediction per object during inference. This allows the model to be deployed without NMS, significantly reducing [inference latency](https://www.ultralytics.com/glossary/inference-latency).
+2. **Model Optimization:** The architecture includes lightweight classification heads, spatial-channel decoupled downsampling, and rank-guided block design. These features reduce computational redundancy and memory usage, making the model highly efficient on hardware with limited resources.
 
 !!! tip "Efficiency Advantage"
 The removal of NMS in YOLOv10 is particularly beneficial for edge deployment. On devices where CPU resources are scarce, avoiding the computational cost of sorting and filtering thousands of candidate boxes can result in substantial speedups.
@@ -55,8 +55,8 @@ Introduced in February 2024 by Chien-Yao Wang and Hong-Yuan Mark Liao, [YOLOv9](
 
 YOLOv9 introduces novel concepts to ensure that the network retains and utilizes as much input information as possible.
 
-1.  **Programmable Gradient Information (PGI):** PGI provides an auxiliary supervision framework that generates reliable gradients for updating network weights. This ensures that deep layers receive complete input information, mitigating the vanishing gradient problem and improving convergence.
-2.  **Generalized Efficient Layer Aggregation Network (GELAN):** This new architecture replaces the conventional ELAN used in previous versions. GELAN optimizes parameter utilization and computational efficiency (FLOPs), allowing YOLOv9 to achieve higher accuracy with a model size comparable to its predecessors.
+1. **Programmable Gradient Information (PGI):** PGI provides an auxiliary supervision framework that generates reliable gradients for updating network weights. This ensures that deep layers receive complete input information, mitigating the vanishing gradient problem and improving convergence.
+2. **Generalized Efficient Layer Aggregation Network (GELAN):** This new architecture replaces the conventional ELAN used in previous versions. GELAN optimizes parameter utilization and computational efficiency (FLOPs), allowing YOLOv9 to achieve higher accuracy with a model size comparable to its predecessors.
 
 !!! note "Deep Learning Insight"
 YOLOv9's focus on information retention makes it exceptionally strong at detecting objects in complex scenes where feature details might otherwise be lost during downsampling operations in the [backbone](https://www.ultralytics.com/glossary/backbone).
@@ -74,7 +74,7 @@ The choice between these two models often comes down to a trade-off between raw 
 - **Efficiency:** YOLOv10 offers excellent accuracy-per-parameter. **YOLOv10b** achieves 52.7% mAP with lower latency than **YOLOv9c**, demonstrating the effectiveness of its holistic design.
 
 | Model    | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| -------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|----------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv10n | 640                   | 39.5                 | -                              | **1.56**                            | 2.3                | **6.7**           |
 | YOLOv10s | 640                   | 46.7                 | -                              | 2.66                                | 7.2                | 21.6              |
 | YOLOv10m | 640                   | 51.3                 | -                              | 5.48                                | 15.4               | 59.1              |

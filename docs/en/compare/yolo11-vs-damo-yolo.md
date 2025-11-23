@@ -68,7 +68,7 @@ While DAMO-YOLO excels in specific metrics, it is primarily a research repositor
 The following table compares the performance of YOLO11 and DAMO-YOLO on the [COCO val2017 dataset](https://docs.ultralytics.com/datasets/detect/coco/). Key metrics include Mean Average Precision (mAP) and inference speed on CPU and GPU hardware.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLO11n    | 640                   | 39.5                 | **56.1**                       | **1.5**                             | **2.6**            | **6.5**           |
 | YOLO11s    | 640                   | 47.0                 | 90.0                           | 2.5                                 | 9.4                | 21.5              |
 | YOLO11m    | 640                   | 51.5                 | 183.2                          | 4.7                                 | 20.1               | 68.0              |
@@ -82,10 +82,10 @@ The following table compares the performance of YOLO11 and DAMO-YOLO on the [COC
 
 ### Analysis of Results
 
-1.  **Efficiency Dominance:** YOLO11 demonstrates superior parameter efficiency. For instance, the **YOLO11m** model achieves **51.5 mAP** with only 20.1 million parameters, whereas the comparable DAMO-YOLOm lags behind at 49.2 mAP with a larger footprint of 28.2 million parameters.
-2.  **Ultimate Accuracy:** The largest variant, **YOLO11x**, reaches a remarkable **54.7 mAP**, surpassing the largest DAMO-YOLO model listed. This makes YOLO11 the preferable choice for high-precision tasks like [medical imaging](https://www.ultralytics.com/glossary/medical-image-analysis) or flaw detection.
-3.  **Edge Deployment:** The **YOLO11n** (Nano) model is exceptionally lightweight (2.6M params) and fast (1.5 ms on T4), making it perfect for embedded systems where memory is scarce. In contrast, the smallest DAMO-YOLO model is significantly heavier (8.5M params).
-4.  **CPU Performance:** Ultralytics provides transparent CPU benchmarks, highlighting YOLO11's viability for deployments without dedicated accelerators. DAMO-YOLO does not officially report CPU speeds, which limits its assessment for low-power IoT applications.
+1. **Efficiency Dominance:** YOLO11 demonstrates superior parameter efficiency. For instance, the **YOLO11m** model achieves **51.5 mAP** with only 20.1 million parameters, whereas the comparable DAMO-YOLOm lags behind at 49.2 mAP with a larger footprint of 28.2 million parameters.
+2. **Ultimate Accuracy:** The largest variant, **YOLO11x**, reaches a remarkable **54.7 mAP**, surpassing the largest DAMO-YOLO model listed. This makes YOLO11 the preferable choice for high-precision tasks like [medical imaging](https://www.ultralytics.com/glossary/medical-image-analysis) or flaw detection.
+3. **Edge Deployment:** The **YOLO11n** (Nano) model is exceptionally lightweight (2.6M params) and fast (1.5 ms on T4), making it perfect for embedded systems where memory is scarce. In contrast, the smallest DAMO-YOLO model is significantly heavier (8.5M params).
+4. **CPU Performance:** Ultralytics provides transparent CPU benchmarks, highlighting YOLO11's viability for deployments without dedicated accelerators. DAMO-YOLO does not officially report CPU speeds, which limits its assessment for low-power IoT applications.
 
 ## Technical Deep Dive
 

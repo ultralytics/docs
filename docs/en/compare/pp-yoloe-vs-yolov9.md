@@ -71,7 +71,7 @@ A potential consideration is that the largest variants (YOLOv9-E) require signif
 In a direct comparison, YOLOv9 demonstrates superior efficiency. For example, the YOLOv9-C model achieves a higher mAP (53.0%) than the PP-YOLOE+l (52.9%) while utilizing approximately **half the parameters** (25.3M vs 52.2M). This drastic reduction in model size without compromising accuracy highlights the effectiveness of the GELAN architecture.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | PP-YOLOE+t | 640                   | 39.9                 | -                              | 2.84                                | 4.85               | 19.15             |
 | PP-YOLOE+s | 640                   | 43.7                 | -                              | **2.62**                            | 7.93               | 17.36             |
 | PP-YOLOE+m | 640                   | 49.8                 | -                              | 5.56                                | 23.43              | 49.91             |

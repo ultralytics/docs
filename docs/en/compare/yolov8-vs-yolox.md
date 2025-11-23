@@ -87,7 +87,7 @@ When evaluating these models for production, the trade-off between speed and acc
 YOLOv8 demonstrates superior [Mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map), particularly in the larger variants. For example, **YOLOv8x** achieves a mAP of **53.9**, surpassing YOLOX-x at 51.1. Furthermore, Ultralytics provides transparent CPU inference benchmarks using [ONNX](https://docs.ultralytics.com/integrations/onnx/), highlighting YOLOv8's optimization for non-GPU environments.
 
 | Model     | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| --------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|-----------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv8n   | 640                   | 37.3                 | 80.4                           | 1.47                                | 3.2                | 8.7               |
 | YOLOv8s   | 640                   | **44.9**             | 128.4                          | 2.66                                | 11.2               | 28.6              |
 | YOLOv8m   | 640                   | **50.2**             | 234.7                          | 5.86                                | 25.9               | 78.9              |

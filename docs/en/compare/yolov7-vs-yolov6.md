@@ -70,7 +70,7 @@ YOLOv6-3.0 excels in raw throughput. For industrial automation lines or [robotic
 The following table illustrates the trade-offs between the two models. YOLOv6-3.0 generally offers superior speed for similar accuracy tiers, while YOLOv7 pushes the ceiling of detection precision.
 
 | Model       | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ----------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|-------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv7l     | 640                   | 51.4                 | -                              | 6.84                                | 36.9               | 104.7             |
 | YOLOv7x     | 640                   | 53.1                 | -                              | 11.57                               | 71.3               | 189.9             |
 |             |                       |                      |                                |                                     |                    |                   |
@@ -94,11 +94,11 @@ While YOLOv7 and YOLOv6-3.0 represent significant achievements in computer visio
 
 ### Why Choose Ultralytics YOLO11?
 
-1.  **Unmatched Ease of Use:** Unlike many open-source models that require complex repository cloning and environment setup, Ultralytics models are accessible via a simple pip install. The [Python API](https://docs.ultralytics.com/usage/python/) design is intuitive, allowing for training and inference in just a few lines of code.
-2.  **Performance Balance:** YOLO11 builds upon the architectural lessons of both YOLOv6 and YOLOv7. It employs a refined architecture that achieves state-of-the-art accuracy while maintaining the inference speeds required for [real-time applications](https://www.ultralytics.com/glossary/real-time-inference).
-3.  **Versatility:** One of the strongest advantages of the Ultralytics ecosystem is support for multiple tasks. While YOLOv6 and YOLOv7 focus primarily on detection, YOLO11 natively supports [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), [Classification](https://docs.ultralytics.com/tasks/classify/), and [Oriented Object Detection (OBB)](https://docs.ultralytics.com/tasks/obb/).
-4.  **Training Efficiency:** Ultralytics models are optimized for faster convergence and lower memory usage during training. This efficient resource management allows for training on consumer-grade GPUs without the massive CUDA memory overhead often associated with older transformer or concatenation-heavy architectures.
-5.  **Well-Maintained Ecosystem:** With frequent updates, extensive [documentation](https://docs.ultralytics.com/), and a vibrant community, Ultralytics ensures that your projects remain compatible with the latest PyTorch versions and export formats like [ONNX](https://docs.ultralytics.com/integrations/onnx/), TensorRT, and CoreML.
+1. **Unmatched Ease of Use:** Unlike many open-source models that require complex repository cloning and environment setup, Ultralytics models are accessible via a simple pip install. The [Python API](https://docs.ultralytics.com/usage/python/) design is intuitive, allowing for training and inference in just a few lines of code.
+2. **Performance Balance:** YOLO11 builds upon the architectural lessons of both YOLOv6 and YOLOv7. It employs a refined architecture that achieves state-of-the-art accuracy while maintaining the inference speeds required for [real-time applications](https://www.ultralytics.com/glossary/real-time-inference).
+3. **Versatility:** One of the strongest advantages of the Ultralytics ecosystem is support for multiple tasks. While YOLOv6 and YOLOv7 focus primarily on detection, YOLO11 natively supports [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), [Classification](https://docs.ultralytics.com/tasks/classify/), and [Oriented Object Detection (OBB)](https://docs.ultralytics.com/tasks/obb/).
+4. **Training Efficiency:** Ultralytics models are optimized for faster convergence and lower memory usage during training. This efficient resource management allows for training on consumer-grade GPUs without the massive CUDA memory overhead often associated with older transformer or concatenation-heavy architectures.
+5. **Well-Maintained Ecosystem:** With frequent updates, extensive [documentation](https://docs.ultralytics.com/), and a vibrant community, Ultralytics ensures that your projects remain compatible with the latest PyTorch versions and export formats like [ONNX](https://docs.ultralytics.com/integrations/onnx/), TensorRT, and CoreML.
 
 ### Implementation Example
 

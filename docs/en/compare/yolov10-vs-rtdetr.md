@@ -70,7 +70,7 @@ RT-DETRv2 is designed to be adaptable, offering varying model scales to fit diff
 The comparison below highlights the distinct advantages of each architecture. **YOLOv10** excels in speed and efficiency, offering remarkably low latency and parameter counts. For instance, the YOLOv10n model runs at **1.56ms** on a T4 GPU, making it ideal for high-speed video processing. **RT-DETRv2**, while slower, provides robust accuracy, particularly in the larger model sizes, but at the cost of significantly higher [FLOPs](https://www.ultralytics.com/glossary/flops) and memory usage.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv10n   | 640                   | 39.5                 | -                              | **1.56**                            | **2.3**            | **6.7**           |
 | YOLOv10s   | 640                   | 46.7                 | -                              | 2.66                                | 7.2                | 21.6              |
 | YOLOv10m   | 640                   | 51.3                 | -                              | 5.48                                | 15.4               | 59.1              |
@@ -117,10 +117,10 @@ The choice between these models largely depends on your specific operational con
 
 While both models offer compelling features, leveraging **Ultralytics YOLO** models—including YOLOv10 and the state-of-the-art [YOLO11](https://docs.ultralytics.com/models/yolo11/)—provides a distinct advantage in the development lifecycle.
 
-1.  **Ease of Use:** Ultralytics provides a unified [Python API](https://docs.ultralytics.com/usage/python/) and CLI that standardize training, validation, and deployment. This allows developers to swap between YOLOv8, YOLOv10, YOLO11, and RT-DETR with a single line of code.
-2.  **Training Efficiency:** Ultralytics models are optimized for efficient training, often converging faster and requiring less memory than standard implementations. This reduces cloud compute costs and accelerates time-to-market.
-3.  **Versatility:** Beyond detection, the Ultralytics framework supports [segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [OBB](https://docs.ultralytics.com/tasks/obb/), allowing you to scale your project's capabilities without changing tools.
-4.  **Well-Maintained Ecosystem:** With frequent updates, extensive [guides](https://docs.ultralytics.com/guides/), and a thriving community, users benefit from continuous improvements and support.
+1. **Ease of Use:** Ultralytics provides a unified [Python API](https://docs.ultralytics.com/usage/python/) and CLI that standardize training, validation, and deployment. This allows developers to swap between YOLOv8, YOLOv10, YOLO11, and RT-DETR with a single line of code.
+2. **Training Efficiency:** Ultralytics models are optimized for efficient training, often converging faster and requiring less memory than standard implementations. This reduces cloud compute costs and accelerates time-to-market.
+3. **Versatility:** Beyond detection, the Ultralytics framework supports [segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [OBB](https://docs.ultralytics.com/tasks/obb/), allowing you to scale your project's capabilities without changing tools.
+4. **Well-Maintained Ecosystem:** With frequent updates, extensive [guides](https://docs.ultralytics.com/guides/), and a thriving community, users benefit from continuous improvements and support.
 
 !!! example "Running Different Models"
 

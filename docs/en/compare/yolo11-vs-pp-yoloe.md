@@ -68,7 +68,7 @@ While PP-YOLOE+ delivers competitive accuracy on benchmarks like [COCO](https://
 A direct comparison of performance metrics reveals that YOLO11 consistently outperforms PP-YOLOE+ in terms of efficiency and speed while maintaining state-of-the-art accuracy.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLO11n    | 640                   | 39.5                 | **56.1**                       | **1.5**                             | **2.6**            | **6.5**           |
 | YOLO11s    | 640                   | **47.0**             | **90.0**                       | **2.5**                             | **9.4**            | **21.5**          |
 | YOLO11m    | 640                   | **51.5**             | **183.2**                      | **4.7**                             | **20.1**           | **68.0**          |
@@ -83,9 +83,9 @@ A direct comparison of performance metrics reveals that YOLO11 consistently outp
 
 ### Critical Observations
 
-1.  **Efficiency Dominance:** The parameter efficiency of YOLO11 is stark. For instance, **YOLO11x** achieves a matching 54.7 mAP compared to PP-YOLOE+x but does so with only **56.9M parameters** versus 98.42M. This implies that YOLO11x is roughly 42% smaller, facilitating easier deployment on storage-constrained devices.
-2.  **Inference Speed:** In real-world deployment scenarios, speed is critical. YOLO11n provides an incredible **1.5 ms** inference time on T4 GPU, significantly faster than the 2.84 ms of the comparable PP-YOLOE+t. This speed advantage allows for higher frame-rate processing in applications like [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-automotive) and robotics.
-3.  **CPU Performance:** The availability of optimized CPU benchmarks for YOLO11 highlights its flexibility. Achieving 56.1 ms on CPU with YOLO11n enables viable real-time applications even without dedicated GPU acceleration, a metric often missing or less optimized in competitor frameworks.
+1. **Efficiency Dominance:** The parameter efficiency of YOLO11 is stark. For instance, **YOLO11x** achieves a matching 54.7 mAP compared to PP-YOLOE+x but does so with only **56.9M parameters** versus 98.42M. This implies that YOLO11x is roughly 42% smaller, facilitating easier deployment on storage-constrained devices.
+2. **Inference Speed:** In real-world deployment scenarios, speed is critical. YOLO11n provides an incredible **1.5 ms** inference time on T4 GPU, significantly faster than the 2.84 ms of the comparable PP-YOLOE+t. This speed advantage allows for higher frame-rate processing in applications like [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-automotive) and robotics.
+3. **CPU Performance:** The availability of optimized CPU benchmarks for YOLO11 highlights its flexibility. Achieving 56.1 ms on CPU with YOLO11n enables viable real-time applications even without dedicated GPU acceleration, a metric often missing or less optimized in competitor frameworks.
 
 ## Real-World Use Cases
 

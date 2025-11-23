@@ -64,7 +64,7 @@ EfficientDet is built on the **EfficientNet** backbone and introduces the **BiFP
 The performance benchmarks highlight a clear distinction in design philosophy. RTDETRv2 aims for peak accuracy on powerful hardware, whereas EfficientDet offers a granular gradient of efficiency.
 
 | Model           | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| --------------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|-----------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | RTDETRv2-s      | 640                   | 48.1                 | -                              | 5.03                                | 20                 | 60                |
 | RTDETRv2-m      | 640                   | 51.9                 | -                              | 7.51                                | 36                 | 100               |
 | RTDETRv2-l      | 640                   | 53.4                 | -                              | 9.76                                | 42                 | 136               |
@@ -115,11 +115,11 @@ While both RTDETRv2 and EfficientDet have their merits, **Ultralytics YOLO11** o
 
 Ultralytics models are designed not just for benchmarks, but for real-world usability.
 
-1.  **Ease of Use:** The Ultralytics [Python API](https://docs.ultralytics.com/usage/python/) and [CLI](https://docs.ultralytics.com/usage/cli/) drastically reduce the complexity of training and deployment. Users can go from installation to training on a custom dataset in minutes.
-2.  **Well-Maintained Ecosystem:** Backed by a thriving community and frequent updates, the Ultralytics framework integrates seamlessly with MLOps tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases/), [MLFlow](https://docs.ultralytics.com/integrations/mlflow/), and [Ultralytics HUB](https://www.ultralytics.com/hub) for data management.
-3.  **Performance Balance:** YOLO11 achieves state-of-the-art speed/accuracy trade-offs. It often matches or exceeds the accuracy of transformer models like RTDETRv2 while maintaining the inference speed characteristic of CNNs.
-4.  **Memory Efficiency:** Unlike the heavy memory requirements of transformer-based training, YOLO models are optimized for efficient GPU utilization, allowing for larger [batch sizes](https://www.ultralytics.com/glossary/batch-size) on consumer-grade hardware.
-5.  **Versatility:** A single framework supports [Object Detection](https://docs.ultralytics.com/tasks/detect/), [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), [Classification](https://docs.ultralytics.com/tasks/classify/), and [Oriented Object Detection (OBB)](https://docs.ultralytics.com/tasks/obb/).
+1. **Ease of Use:** The Ultralytics [Python API](https://docs.ultralytics.com/usage/python/) and [CLI](https://docs.ultralytics.com/usage/cli/) drastically reduce the complexity of training and deployment. Users can go from installation to training on a custom dataset in minutes.
+2. **Well-Maintained Ecosystem:** Backed by a thriving community and frequent updates, the Ultralytics framework integrates seamlessly with MLOps tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases/), [MLFlow](https://docs.ultralytics.com/integrations/mlflow/), and [Ultralytics HUB](https://www.ultralytics.com/hub) for data management.
+3. **Performance Balance:** YOLO11 achieves state-of-the-art speed/accuracy trade-offs. It often matches or exceeds the accuracy of transformer models like RTDETRv2 while maintaining the inference speed characteristic of CNNs.
+4. **Memory Efficiency:** Unlike the heavy memory requirements of transformer-based training, YOLO models are optimized for efficient GPU utilization, allowing for larger [batch sizes](https://www.ultralytics.com/glossary/batch-size) on consumer-grade hardware.
+5. **Versatility:** A single framework supports [Object Detection](https://docs.ultralytics.com/tasks/detect/), [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), [Classification](https://docs.ultralytics.com/tasks/classify/), and [Oriented Object Detection (OBB)](https://docs.ultralytics.com/tasks/obb/).
 
 ### Training Efficiency
 

@@ -20,7 +20,7 @@ The primary distinction between these two architectures lies in their design phi
 The table below illustrates this trade-off on the [COCO val2017 dataset](https://docs.ultralytics.com/datasets/detect/coco/). While EfficientDet models achieve high [mAP](https://www.ultralytics.com/glossary/mean-average-precision-map) with fewer parameters, YOLOv5 demonstrates drastically faster inference times on NVIDIA T4 GPUs using [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/).
 
 | Model           | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| --------------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|-----------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv5n         | 640                   | 28.0                 | 73.6                           | **1.12**                            | **2.6**            | 7.7               |
 | YOLOv5s         | 640                   | 37.4                 | 120.7                          | 1.92                                | 9.1                | 24.0              |
 | YOLOv5m         | 640                   | 45.4                 | 233.9                          | 4.03                                | 25.1               | 64.2              |

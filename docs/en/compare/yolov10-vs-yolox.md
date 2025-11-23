@@ -78,7 +78,7 @@ YOLOX remains a strong baseline in the research community due to its clean ancho
 The comparison below highlights the significant advancements made in efficiency and accuracy over the three years separating these models. The metrics focus on model size (parameters), computational cost (FLOPs), and accuracy (mAP) on the COCO dataset.
 
 | Model     | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| --------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|-----------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv10n  | 640                   | 39.5                 | -                              | 1.56                                | 2.3                | 6.7               |
 | YOLOv10s  | 640                   | 46.7                 | -                              | 2.66                                | 7.2                | 21.6              |
 | YOLOv10m  | 640                   | 51.3                 | -                              | 5.48                                | 15.4               | 59.1              |
@@ -95,9 +95,9 @@ The comparison below highlights the significant advancements made in efficiency 
 
 ### Critical Observations
 
-1.  **Accuracy vs. Size:** YOLOv10 consistently delivers higher mAP with fewer parameters. For instance, **YOLOv10s** achieves **46.7 mAP** with only **7.2M** parameters, whereas **YOLOXs** achieves **40.5 mAP** with **9.0M** parameters. This demonstrates YOLOv10's superior architectural efficiency.
-2.  **Compute Efficiency:** The FLOPs count for YOLOv10 models is significantly lower. **YOLOv10x** operates at **160.4B FLOPs** compared to the massive **281.9B FLOPs** of **YOLOXx**, while still outperforming it in accuracy (54.4 vs 51.1 mAP).
-3.  **Inference Speed:** The removal of NMS and optimized architecture allows YOLOv10 to achieve lower latency. The T4 TensorRT benchmarks show YOLOv10x running at **12.2ms**, significantly faster than YOLOXx at **16.1ms**.
+1. **Accuracy vs. Size:** YOLOv10 consistently delivers higher mAP with fewer parameters. For instance, **YOLOv10s** achieves **46.7 mAP** with only **7.2M** parameters, whereas **YOLOXs** achieves **40.5 mAP** with **9.0M** parameters. This demonstrates YOLOv10's superior architectural efficiency.
+2. **Compute Efficiency:** The FLOPs count for YOLOv10 models is significantly lower. **YOLOv10x** operates at **160.4B FLOPs** compared to the massive **281.9B FLOPs** of **YOLOXx**, while still outperforming it in accuracy (54.4 vs 51.1 mAP).
+3. **Inference Speed:** The removal of NMS and optimized architecture allows YOLOv10 to achieve lower latency. The T4 TensorRT benchmarks show YOLOv10x running at **12.2ms**, significantly faster than YOLOXx at **16.1ms**.
 
 ## Ideal Use Cases
 

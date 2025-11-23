@@ -73,7 +73,7 @@ The architecture of YOLOv9 relies on two main components: **Programmable Gradien
 When comparing YOLOv8 and YOLOv9, the choice often comes down to the specific constraints of your deployment environment. YOLOv8 dominates in inference speed and deployment flexibility, while YOLOv9 pushes the ceiling of detection metrics.
 
 | Model   | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|---------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv8n | 640                   | 37.3                 | **80.4**                       | **1.47**                            | 3.2                | 8.7               |
 | YOLOv8s | 640                   | 44.9                 | 128.4                          | **2.66**                            | 11.2               | 28.6              |
 | YOLOv8m | 640                   | 50.2                 | 234.7                          | **5.86**                            | 25.9               | 78.9              |

@@ -72,7 +72,7 @@ When comparing RTDETRv2 and YOLO11, the metrics highlight distinct design philos
 For instance, **YOLO11x** achieves a higher mAP (54.7) than the largest RTDETRv2-x model (54.3) while maintaining a significantly lower inference latency (11.3 ms vs 15.03 ms on T4 GPU). Furthermore, smaller variants like **YOLO11m** offer competitive accuracy with drastically reduced computational overhead, making them far more viable for real-time applications.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | RTDETRv2-s | 640                   | 48.1                 | -                              | 5.03                                | 20                 | 60                |
 | RTDETRv2-m | 640                   | 51.9                 | -                              | 7.51                                | 36                 | 100               |
 | RTDETRv2-l | 640                   | 53.4                 | -                              | 9.76                                | 42                 | 136               |

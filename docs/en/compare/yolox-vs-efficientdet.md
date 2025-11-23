@@ -62,7 +62,7 @@ The fundamental difference between these two models lies in their optimization t
 The table below illustrates this trade-off. While EfficientDet-d0 is extremely lightweight in terms of parameters, YOLOX-s offers significantly faster inference speeds on [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) optimized hardware despite having more parameters.
 
 | Model           | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| --------------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|-----------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOXnano       | 416                   | 25.8                 | -                              | -                                   | **0.91**           | **1.08**          |
 | YOLOXtiny       | 416                   | 32.8                 | -                              | -                                   | 5.06               | 6.45              |
 | YOLOXs          | 640                   | 40.5                 | -                              | **2.56**                            | 9.0                | 26.8              |
@@ -81,9 +81,9 @@ The table below illustrates this trade-off. While EfficientDet-d0 is extremely l
 
 ### Critical Observations
 
-1.  **GPU Latency:** YOLOX demonstrates superior performance on accelerators. YOLOX-l achieves the same accuracy (49.7 mAP) as EfficientDet-d4 but runs nearly **3.7x faster** on a T4 GPU (9.04ms vs 33.55ms).
-2.  **Parameter Efficiency:** EfficientDet excels when storage is the primary constraint. EfficientDet-d3 provides strong accuracy (47.5 mAP) with only 12 million parameters, whereas achieving similar accuracy with YOLOX requires the Medium model with over double the parameters.
-3.  **Training Complexity:** YOLOX incorporates strong [data augmentation](https://docs.ultralytics.com/guides/yolo-data-augmentation/) techniques like Mosaic and MixUp natively, which helps in training robust models from scratch, whereas EfficientDet relies heavily on the specific properties of the EfficientNet backbone and compound scaling rules.
+1. **GPU Latency:** YOLOX demonstrates superior performance on accelerators. YOLOX-l achieves the same accuracy (49.7 mAP) as EfficientDet-d4 but runs nearly **3.7x faster** on a T4 GPU (9.04ms vs 33.55ms).
+2. **Parameter Efficiency:** EfficientDet excels when storage is the primary constraint. EfficientDet-d3 provides strong accuracy (47.5 mAP) with only 12 million parameters, whereas achieving similar accuracy with YOLOX requires the Medium model with over double the parameters.
+3. **Training Complexity:** YOLOX incorporates strong [data augmentation](https://docs.ultralytics.com/guides/yolo-data-augmentation/) techniques like Mosaic and MixUp natively, which helps in training robust models from scratch, whereas EfficientDet relies heavily on the specific properties of the EfficientNet backbone and compound scaling rules.
 
 ## Ultralytics YOLO11: The Superior Alternative
 

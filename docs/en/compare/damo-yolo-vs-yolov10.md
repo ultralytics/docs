@@ -20,7 +20,7 @@ While both models aim to optimize the trade-off between speed and accuracy, they
 The table below provides a direct comparison of efficiency and accuracy on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/). Key takeaways include the parameter efficiency and inference speeds, where **YOLOv10** demonstrates significant advantages due to its NMS-free design.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | DAMO-YOLOt | 640                   | 42.0                 | -                              | 2.32                                | 8.5                | 18.1              |
 | DAMO-YOLOs | 640                   | 46.0                 | -                              | 3.45                                | 16.3               | 37.8              |
 | DAMO-YOLOm | 640                   | 49.2                 | -                              | 5.09                                | 28.2               | 61.8              |
@@ -48,9 +48,9 @@ Released in late 2022, DAMO-YOLO represents a significant effort by Alibaba Grou
 
 DAMO-YOLO integrates several cutting-edge concepts to achieve its performance:
 
-1.  **Neural Architecture Search (NAS):** Unlike models with manually designed backbones, DAMO-YOLO utilizes MAE-NAS to automatically discover efficient network structures, optimizing the depth and width of the network for specific hardware constraints.
-2.  **RepGFPN Neck:** This feature pyramid network employs re-parameterization to manage feature fusion efficiently. It allows for complex training-time structures that collapse into simpler inference-time blocks, maintaining accuracy while boosting speed.
-3.  **ZeroHead & AlignedOTA:** The model uses a "ZeroHead" design to reduce the complexity of the detection head and employs AlignedOTA (Optimal Transport Assignment) to handle label assignment during training, solving issues with misalignment between classification and regression tasks.
+1. **Neural Architecture Search (NAS):** Unlike models with manually designed backbones, DAMO-YOLO utilizes MAE-NAS to automatically discover efficient network structures, optimizing the depth and width of the network for specific hardware constraints.
+2. **RepGFPN Neck:** This feature pyramid network employs re-parameterization to manage feature fusion efficiently. It allows for complex training-time structures that collapse into simpler inference-time blocks, maintaining accuracy while boosting speed.
+3. **ZeroHead & AlignedOTA:** The model uses a "ZeroHead" design to reduce the complexity of the detection head and employs AlignedOTA (Optimal Transport Assignment) to handle label assignment during training, solving issues with misalignment between classification and regression tasks.
 
 !!! warning "Complexity Consideration"
 While DAMO-YOLO introduces impressive innovations, its reliance on NAS and specialized components can make the training pipeline more complex and less accessible for developers who require quick customization or deployment on varied hardware without extensive tuning.
@@ -78,9 +78,9 @@ YOLOv10, released in May 2024 by researchers at Tsinghua University, represents 
 
 YOLOv10 focuses on holistic efficiency, targeting both the architecture and the post-processing pipeline:
 
-1.  **NMS-Free Design:** Through a strategy called **Consistent Dual Assignments**, YOLOv10 trains with both one-to-many and one-to-one label assignments. This allows the model to predict a single best box for each object during inference, rendering NMS obsolete. This is a critical advantage for [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) where post-processing can often become a bottleneck.
-2.  **Holistic Efficiency-Accuracy Design:** The architecture features a lightweight classification head and spatial-channel decoupled downsampling. These optimizations reduce computational redundancy, leading to lower [FLOPs](https://www.ultralytics.com/glossary/flops) and parameter counts compared to previous generations.
-3.  **Rank-Guided Block Design:** The model adapts its internal block design based on the redundancy of different stages, using compact inverted blocks (CIB) where efficiency is needed and partial self-attention (PSA) where feature enhancement is critical.
+1. **NMS-Free Design:** Through a strategy called **Consistent Dual Assignments**, YOLOv10 trains with both one-to-many and one-to-one label assignments. This allows the model to predict a single best box for each object during inference, rendering NMS obsolete. This is a critical advantage for [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) where post-processing can often become a bottleneck.
+2. **Holistic Efficiency-Accuracy Design:** The architecture features a lightweight classification head and spatial-channel decoupled downsampling. These optimizations reduce computational redundancy, leading to lower [FLOPs](https://www.ultralytics.com/glossary/flops) and parameter counts compared to previous generations.
+3. **Rank-Guided Block Design:** The model adapts its internal block design based on the redundancy of different stages, using compact inverted blocks (CIB) where efficiency is needed and partial self-attention (PSA) where feature enhancement is critical.
 
 ### Ease of Use with Ultralytics
 

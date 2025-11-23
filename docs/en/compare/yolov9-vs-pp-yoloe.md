@@ -54,7 +54,7 @@ PP-YOLOE+ employs an **anchor-free** mechanism, removing the need for predefined
 When comparing these two architectures, **YOLOv9** demonstrates a clear advantage in both parameter efficiency and peak accuracy. The integration of GELAN allows YOLOv9 to process visual data more effectively, resulting in higher [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) scores on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/) while often maintaining lower latency.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv9t    | 640                   | 38.3                 | -                              | 2.3                                 | **2.0**            | **7.7**           |
 | YOLOv9s    | 640                   | 46.8                 | -                              | 3.54                                | 7.1                | 26.4              |
 | YOLOv9m    | 640                   | 51.4                 | -                              | 6.43                                | **20.0**           | 76.3              |

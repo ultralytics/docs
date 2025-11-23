@@ -69,7 +69,7 @@ When comparing these two models, it is essential to look beyond just pure accura
 The table below highlights the performance on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/). YOLOv10 achieves higher mAP with fewer parameters in some cases, but YOLOv8 remains highly competitive in inference speed, particularly on standard CPU and GPU benchmarks.
 
 | Model    | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| -------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|----------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv8n  | 640                   | 37.3                 | **80.4**                       | **1.47**                            | 3.2                | 8.7               |
 | YOLOv8s  | 640                   | 44.9                 | **128.4**                      | **2.66**                            | 11.2               | 28.6              |
 | YOLOv8m  | 640                   | 50.2                 | **234.7**                      | 5.86                                | 25.9               | 78.9              |
@@ -85,9 +85,9 @@ The table below highlights the performance on the [COCO dataset](https://docs.ul
 
 ### Critical Analysis
 
-1.  **Performance Balance:** YOLOv8 provides an excellent trade-off between speed and accuracy. Its speeds on CPU (via ONNX) are well-documented and optimized, making it a reliable choice for deployments lacking specialized GPU hardware.
-2.  **Training Efficiency:** Ultralytics models are known for their efficient training processes. Users can often achieve convergence faster with YOLOv8's optimized hyperparameters and readily available pre-trained weights.
-3.  **Ecosystem Maturity:** While YOLOv10 offers theoretical efficiency gains, YOLOv8 benefits from years of refinement in the Ultralytics ecosystem. This includes extensive support for [data augmentation](https://docs.ultralytics.com/guides/yolo-data-augmentation/), active community debugging, and integrations with tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases/) and [Comet](https://docs.ultralytics.com/integrations/comet/).
+1. **Performance Balance:** YOLOv8 provides an excellent trade-off between speed and accuracy. Its speeds on CPU (via ONNX) are well-documented and optimized, making it a reliable choice for deployments lacking specialized GPU hardware.
+2. **Training Efficiency:** Ultralytics models are known for their efficient training processes. Users can often achieve convergence faster with YOLOv8's optimized hyperparameters and readily available pre-trained weights.
+3. **Ecosystem Maturity:** While YOLOv10 offers theoretical efficiency gains, YOLOv8 benefits from years of refinement in the Ultralytics ecosystem. This includes extensive support for [data augmentation](https://docs.ultralytics.com/guides/yolo-data-augmentation/), active community debugging, and integrations with tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases/) and [Comet](https://docs.ultralytics.com/integrations/comet/).
 
 !!! note "Versatility Matters"
 

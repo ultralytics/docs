@@ -28,9 +28,9 @@ YOLOv10 represents a paradigm shift in the YOLO lineage, focusing on removing bo
 
 YOLOv10 optimizes the [inference latency](https://www.ultralytics.com/glossary/inference-latency) and model performance through several key mechanisms:
 
-1.  **NMS-Free Training:** By utilizing **Consistent Dual Assignments**, YOLOv10 trains the model to yield rich supervisory signals during training while predicting single high-quality detections during inference. This removes the computational overhead of NMS, simplifying the [model deployment](https://www.ultralytics.com/glossary/model-deployment) pipeline.
-2.  **Holistic Efficiency-Accuracy Design:** The architecture features a lightweight classification head and spatial-channel decoupled downsampling. These components reduce the computational cost (FLOPs) while preserving essential feature information.
-3.  **Large-Kernel Convolution:** Selective use of large-kernel convolutions in deep stages enhances the [receptive field](https://www.ultralytics.com/glossary/receptive-field), allowing the model to better understand global context without a significant speed penalty.
+1. **NMS-Free Training:** By utilizing **Consistent Dual Assignments**, YOLOv10 trains the model to yield rich supervisory signals during training while predicting single high-quality detections during inference. This removes the computational overhead of NMS, simplifying the [model deployment](https://www.ultralytics.com/glossary/model-deployment) pipeline.
+2. **Holistic Efficiency-Accuracy Design:** The architecture features a lightweight classification head and spatial-channel decoupled downsampling. These components reduce the computational cost (FLOPs) while preserving essential feature information.
+3. **Large-Kernel Convolution:** Selective use of large-kernel convolutions in deep stages enhances the [receptive field](https://www.ultralytics.com/glossary/receptive-field), allowing the model to better understand global context without a significant speed penalty.
 
 [Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10/){ .md-button }
 
@@ -49,9 +49,9 @@ Released in early 2023, YOLOv6-3.0 (often referred to simply as YOLOv6) was engi
 
 YOLOv6-3.0 focuses on optimizing the trade-off between speed and accuracy through aggressive structural tuning:
 
-1.  **Reparameterizable Backbone:** It employs an EfficientRep backbone that allows for complex structures during training which collapse into simpler, faster blocks during inference.
-2.  **Hybrid Channels Strategy:** This approach balances the memory access cost and computing power, optimizing the network for varying hardware constraints.
-3.  **Self-Distillation:** A training strategy where the student network learns from itself (or a teacher version) to improve convergence and final [accuracy](https://www.ultralytics.com/glossary/accuracy) without adding inference cost.
+1. **Reparameterizable Backbone:** It employs an EfficientRep backbone that allows for complex structures during training which collapse into simpler, faster blocks during inference.
+2. **Hybrid Channels Strategy:** This approach balances the memory access cost and computing power, optimizing the network for varying hardware constraints.
+3. **Self-Distillation:** A training strategy where the student network learns from itself (or a teacher version) to improve convergence and final [accuracy](https://www.ultralytics.com/glossary/accuracy) without adding inference cost.
 
 [Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6/){ .md-button }
 
@@ -64,7 +64,7 @@ YOLOv6-3.0 focuses on optimizing the trade-off between speed and accuracy throug
 The following comparison utilizes metrics from the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/), a standard benchmark for object detection. The table highlights how YOLOv10 pushes the envelope in terms of parameter efficiency and accuracy.
 
 | Model       | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ----------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|-------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv10n    | 640                   | 39.5                 | -                              | 1.56                                | **2.3**            | **6.7**           |
 | YOLOv10s    | 640                   | 46.7                 | -                              | 2.66                                | **7.2**            | **21.6**          |
 | YOLOv10m    | 640                   | 51.3                 | -                              | 5.48                                | **15.4**           | **59.1**          |

@@ -50,7 +50,7 @@ The following chart and table provide a quantitative comparison of EfficientDet 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "EfficientDet"]'></canvas>
 
 | Model           | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| --------------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|-----------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | DAMO-YOLOt      | 640                   | 42.0                 | -                              | **2.32**                            | 8.5                | 18.1              |
 | DAMO-YOLOs      | 640                   | 46.0                 | -                              | 3.45                                | 16.3               | 37.8              |
 | DAMO-YOLOm      | 640                   | 49.2                 | -                              | 5.09                                | 28.2               | 61.8              |
@@ -69,9 +69,9 @@ The following chart and table provide a quantitative comparison of EfficientDet 
 
 From the data, we can observe distinct strengths for each model family:
 
-1.  **GPU Latency:** DAMO-YOLO dominates in GPU inference speed. For example, `DAMO-YOLOm` achieves a [mean Average Precision (mAP)](https://docs.ultralytics.com/guides/yolo-performance-metrics/) of 49.2 with a latency of just 5.09 ms on a T4 GPU. In contrast, `EfficientDet-d4`, with a similar mAP of 49.7, is significantly slower at 33.55 ms.
-2.  **Parameter Efficiency:** EfficientDet is extremely lightweight in terms of parameters and [floating point operations (FLOPs)](https://www.ultralytics.com/glossary/flops). `EfficientDet-d0` uses only 3.9M parameters, making it highly storage-efficient, though this does not always translate to faster inference on modern GPUs compared to architecture-optimized models like DAMO-YOLO.
-3.  **CPU Performance:** EfficientDet provides reliable CPU benchmarks, suggesting it remains a viable option for legacy hardware where GPU acceleration is unavailable.
+1. **GPU Latency:** DAMO-YOLO dominates in GPU inference speed. For example, `DAMO-YOLOm` achieves a [mean Average Precision (mAP)](https://docs.ultralytics.com/guides/yolo-performance-metrics/) of 49.2 with a latency of just 5.09 ms on a T4 GPU. In contrast, `EfficientDet-d4`, with a similar mAP of 49.7, is significantly slower at 33.55 ms.
+2. **Parameter Efficiency:** EfficientDet is extremely lightweight in terms of parameters and [floating point operations (FLOPs)](https://www.ultralytics.com/glossary/flops). `EfficientDet-d0` uses only 3.9M parameters, making it highly storage-efficient, though this does not always translate to faster inference on modern GPUs compared to architecture-optimized models like DAMO-YOLO.
+3. **CPU Performance:** EfficientDet provides reliable CPU benchmarks, suggesting it remains a viable option for legacy hardware where GPU acceleration is unavailable.
 
 !!! info "Architecture Note"
 

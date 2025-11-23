@@ -28,8 +28,8 @@ YOLOv9 marks a significant evolution in the You Only Look Once (YOLO) series, fo
 
 The architecture of YOLOv9 is built upon two groundbreaking concepts designed to optimize [deep learning](https://www.ultralytics.com/glossary/deep-learning-dl) efficiency:
 
-1.  **Programmable Gradient Information (PGI):** PGI is an auxiliary supervision framework that addresses the issue of information loss as data propagates through deep layers. It ensures that the [loss function](https://www.ultralytics.com/glossary/loss-function) receives reliable gradients, allowing the model to learn more effective features without adding inference cost.
-2.  **Generalized Efficient Layer Aggregation Network (GELAN):** This novel architecture combines the strengths of CSPNet and ELAN. GELAN is designed to maximize parameter utilization and [computational efficiency](https://www.ultralytics.com/glossary/flops), providing a lightweight yet powerful backbone that supports various computational blocks.
+1. **Programmable Gradient Information (PGI):** PGI is an auxiliary supervision framework that addresses the issue of information loss as data propagates through deep layers. It ensures that the [loss function](https://www.ultralytics.com/glossary/loss-function) receives reliable gradients, allowing the model to learn more effective features without adding inference cost.
+2. **Generalized Efficient Layer Aggregation Network (GELAN):** This novel architecture combines the strengths of CSPNet and ELAN. GELAN is designed to maximize parameter utilization and [computational efficiency](https://www.ultralytics.com/glossary/flops), providing a lightweight yet powerful backbone that supports various computational blocks.
 
 ### Strengths and Ecosystem
 
@@ -88,7 +88,7 @@ However, the efficiency of YOLOv9's GELAN architecture allows it to remain highl
     When evaluating models, consider the **FLOPs** (Floating Point Operations) alongside parameter count. A lower FLOPs count generally indicates a model that is computationally lighter and potentially faster on mobile or [edge AI](https://www.ultralytics.com/glossary/edge-ai) hardware.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv9t    | 640                   | 38.3                 | -                              | **2.3**                             | **2.0**            | **7.7**           |
 | YOLOv9s    | 640                   | 46.8                 | -                              | 3.54                                | **7.1**            | **26.4**          |
 | YOLOv9m    | 640                   | 51.4                 | -                              | 6.43                                | **20.0**           | 76.3              |

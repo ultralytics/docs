@@ -28,10 +28,10 @@ DAMO-YOLO was developed by the Alibaba Group with a specific focus on maximizing
 
 DAMO-YOLO introduces several cutting-edge technologies aimed at reducing computational overhead while maintaining high precision:
 
-1.  **MAE-NAS Backbone (GiraffeNet):** Unlike traditional manually designed backbones, DAMO-YOLO utilizes a Method-Aware Efficiency (MAE) NAS approach. This results in a backbone series named GiraffeNet, which provides a superior trade-off between floating-point operations (FLOPs) and latency under various hardware constraints.
-2.  **Efficient RepGFPN:** The model features a Generalized Feature Pyramid Network (GFPN) optimized with re-parameterization. This "RepGFPN" allows for efficient multi-scale feature fusion, essential for detecting objects of varying sizes without the heavy computational cost associated with standard FPNs.
-3.  **ZeroHead:** A novel "ZeroHead" design significantly simplifies the detection head. By decoupling the classification and regression tasks and removing the complex specific layer, it reduces the parameter count of the head to zero during inference, saving memory and boosting speed.
-4.  **AlignedOTA:** To improve training stability and accuracy, DAMO-YOLO employs AlignedOTA, a dynamic label assignment strategy that solves the misalignment problem between classification confidence and regression accuracy.
+1. **MAE-NAS Backbone (GiraffeNet):** Unlike traditional manually designed backbones, DAMO-YOLO utilizes a Method-Aware Efficiency (MAE) NAS approach. This results in a backbone series named GiraffeNet, which provides a superior trade-off between floating-point operations (FLOPs) and latency under various hardware constraints.
+2. **Efficient RepGFPN:** The model features a Generalized Feature Pyramid Network (GFPN) optimized with re-parameterization. This "RepGFPN" allows for efficient multi-scale feature fusion, essential for detecting objects of varying sizes without the heavy computational cost associated with standard FPNs.
+3. **ZeroHead:** A novel "ZeroHead" design significantly simplifies the detection head. By decoupling the classification and regression tasks and removing the complex specific layer, it reduces the parameter count of the head to zero during inference, saving memory and boosting speed.
+4. **AlignedOTA:** To improve training stability and accuracy, DAMO-YOLO employs AlignedOTA, a dynamic label assignment strategy that solves the misalignment problem between classification confidence and regression accuracy.
 
 ### Strengths and Use Cases
 
@@ -57,9 +57,9 @@ YOLOv7, released shortly before DAMO-YOLO, set a new benchmark for state-of-the-
 
 YOLOv7 introduced "bag-of-freebies" methods that improve accuracy during training without affecting the inference model structure:
 
-1.  **E-ELAN (Extended Efficient Layer Aggregation Network):** This architecture controls the shortest and longest gradient paths, allowing the network to learn more diverse features. It improves the learning capability of the "cardinality" without destroying the original gradient path state.
-2.  **Model Scaling for Concatenation-Based Models:** YOLOv7 proposes a compound scaling method that scales depth and width simultaneously for concatenation-based architectures, ensuring optimal utilization of parameters.
-3.  **Trainable Bag-of-Freebies:** Techniques such as planned re-parameterization and auxiliary head supervision (coarse-to-fine) are used. These improve the model's robustness and accuracy during training but are merged or discarded during inference, keeping the model fast.
+1. **E-ELAN (Extended Efficient Layer Aggregation Network):** This architecture controls the shortest and longest gradient paths, allowing the network to learn more diverse features. It improves the learning capability of the "cardinality" without destroying the original gradient path state.
+2. **Model Scaling for Concatenation-Based Models:** YOLOv7 proposes a compound scaling method that scales depth and width simultaneously for concatenation-based architectures, ensuring optimal utilization of parameters.
+3. **Trainable Bag-of-Freebies:** Techniques such as planned re-parameterization and auxiliary head supervision (coarse-to-fine) are used. These improve the model's robustness and accuracy during training but are merged or discarded during inference, keeping the model fast.
 
 ### Strengths and Use Cases
 
@@ -75,7 +75,7 @@ YOLOv7 is a powerhouse for general-purpose object detection, offering excellent 
 The following table contrasts the performance of DAMO-YOLO and YOLOv7. While DAMO-YOLO often achieves lower latency (higher speed) for its size, YOLOv7 generally maintains a strong reputation for accuracy, particularly in its larger configurations.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | DAMO-YOLOt | 640                   | 42.0                 | -                              | **2.32**                            | **8.5**            | **18.1**          |
 | DAMO-YOLOs | 640                   | 46.0                 | -                              | 3.45                                | 16.3               | 37.8              |
 | DAMO-YOLOm | 640                   | 49.2                 | -                              | 5.09                                | 28.2               | 61.8              |

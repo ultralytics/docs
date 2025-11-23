@@ -28,8 +28,8 @@ Released in early 2024, YOLOv9 targets the fundamental issue of information loss
 
 YOLOv9 introduces two primary architectural advancements to combat information bottlenecks:
 
-1.  **Programmable Gradient Information (PGI):** An auxiliary supervision framework that generates reliable gradients for updating network weights, ensuring that key input correlations are preserved throughout the layers. This is particularly effective for training very deep models.
-2.  **Generalized Efficient Layer Aggregation Network (GELAN):** A lightweight network architecture that prioritizes [parameter efficiency](https://www.ultralytics.com/glossary/model-pruning) and computational speed (FLOPs). GELAN allows YOLOv9 to achieve high accuracy with a respectable inference speed.
+1. **Programmable Gradient Information (PGI):** An auxiliary supervision framework that generates reliable gradients for updating network weights, ensuring that key input correlations are preserved throughout the layers. This is particularly effective for training very deep models.
+2. **Generalized Efficient Layer Aggregation Network (GELAN):** A lightweight network architecture that prioritizes [parameter efficiency](https://www.ultralytics.com/glossary/model-pruning) and computational speed (FLOPs). GELAN allows YOLOv9 to achieve high accuracy with a respectable inference speed.
 
 ### Strengths and Limitations
 
@@ -67,7 +67,7 @@ YOLOv8 utilizes an anchor-free detection head and a C2f (Cross-Stage Partial bot
 The choice between models often comes down to specific project requirements regarding speed versus pure accuracy. The table below compares standard variants on the COCO validation set.
 
 | Model   | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|---------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv9t | 640                   | 38.3                 | -                              | 2.3                                 | 2.0                | 7.7               |
 | YOLOv9s | 640                   | 46.8                 | -                              | 3.54                                | 7.1                | 26.4              |
 | YOLOv9m | 640                   | 51.4                 | -                              | 6.43                                | 20.0               | 76.3              |
@@ -82,9 +82,9 @@ The choice between models often comes down to specific project requirements rega
 
 ### Key Takeaways
 
-1.  **High-End Accuracy:** The `YOLOv9e` model achieves a remarkable 55.6% mAP, surpassing `YOLOv8x`. If your application requires detecting the most difficult objects and latency is secondary, YOLOv9e is a strong contender.
-2.  **Real-Time Speed:** For applications dependent on speed, `YOLOv8n` and `YOLOv8s` show superior performance. `YOLOv8n` is particularly effective for [mobile deployment](https://docs.ultralytics.com/guides/model-deployment-options/), offering a lightweight solution that is incredibly fast on both CPU and GPU.
-3.  **Deployment Readiness:** The table highlights CPU ONNX speeds for YOLOv8, a critical metric for non-GPU environments. This data transparency reflects YOLOv8's design for broad [deployment scenarios](https://docs.ultralytics.com/guides/model-deployment-practices/), whereas YOLOv9 is often benchmarked primarily on high-end GPUs like the V100 or T4 in research contexts.
+1. **High-End Accuracy:** The `YOLOv9e` model achieves a remarkable 55.6% mAP, surpassing `YOLOv8x`. If your application requires detecting the most difficult objects and latency is secondary, YOLOv9e is a strong contender.
+2. **Real-Time Speed:** For applications dependent on speed, `YOLOv8n` and `YOLOv8s` show superior performance. `YOLOv8n` is particularly effective for [mobile deployment](https://docs.ultralytics.com/guides/model-deployment-options/), offering a lightweight solution that is incredibly fast on both CPU and GPU.
+3. **Deployment Readiness:** The table highlights CPU ONNX speeds for YOLOv8, a critical metric for non-GPU environments. This data transparency reflects YOLOv8's design for broad [deployment scenarios](https://docs.ultralytics.com/guides/model-deployment-practices/), whereas YOLOv9 is often benchmarked primarily on high-end GPUs like the V100 or T4 in research contexts.
 
 ## Training and Usability
 

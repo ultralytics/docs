@@ -22,7 +22,7 @@ The performance trade-offs between these two models are distinct. YOLOv9 general
 The table below illustrates these differences using the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/). Notably, **YOLOv10n** achieves incredible speeds on T4 GPUs, while **YOLOv9e** dominates in detection accuracy.
 
 | Model    | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| -------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|----------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv9t  | 640                   | 38.3                 | -                              | 2.3                                 | **2.0**            | 7.7               |
 | YOLOv9s  | 640                   | 46.8                 | -                              | 3.54                                | 7.1                | 26.4              |
 | YOLOv9m  | 640                   | 51.4                 | -                              | 6.43                                | 20.0               | 76.3              |
@@ -52,8 +52,8 @@ Released in February 2024, [YOLOv9](https://docs.ultralytics.com/models/yolov9/)
 
 YOLOv9 introduces two groundbreaking concepts:
 
-1.  **Programmable Gradient Information (PGI):** An auxiliary supervision framework that prevents information loss during training. It ensures that reliable gradients are generated for updating network weights, solving deep supervision issues found in previous architectures.
-2.  **Generalized Efficient Layer Aggregation Network (GELAN):** A novel architecture that maximizes parameter efficiency. GELAN allows the model to achieve higher accuracy with fewer parameters compared to conventional designs by optimizing how features are aggregated across layers.
+1. **Programmable Gradient Information (PGI):** An auxiliary supervision framework that prevents information loss during training. It ensures that reliable gradients are generated for updating network weights, solving deep supervision issues found in previous architectures.
+2. **Generalized Efficient Layer Aggregation Network (GELAN):** A novel architecture that maximizes parameter efficiency. GELAN allows the model to achieve higher accuracy with fewer parameters compared to conventional designs by optimizing how features are aggregated across layers.
 
 ### Strengths and Weaknesses
 

@@ -55,7 +55,7 @@ Unlike CNNs that process images in local patches, RTDETRv2 utilizes a transforme
 The following data highlights the performance metrics of various model sizes on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/). The comparison focuses on Mean Average Precision (mAP), inference speed, and computational complexity.
 
 | Model       | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ----------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|-------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv9t     | 640                   | 38.3                 | -                              | 2.3                                 | 2.0                | 7.7               |
 | YOLOv9s     | 640                   | 46.8                 | -                              | 3.54                                | 7.1                | 26.4              |
 | YOLOv9m     | 640                   | 51.4                 | -                              | 6.43                                | 20.0               | 76.3              |
@@ -85,9 +85,9 @@ Transformer-based models like RTDETRv2 are notorious for their high memory consu
 
 Choosing a model within the [Ultralytics ecosystem](https://www.ultralytics.com/) provides distinct advantages beyond raw performance metrics:
 
-1.  **Ease of Use:** The Ultralytics Python API abstracts complex training loops into a few lines of code.
-2.  **Well-Maintained Ecosystem:** Frequent updates ensure compatibility with the latest PyTorch versions, export formats (ONNX, TensorRT, CoreML), and hardware drivers.
-3.  **Versatility:** While RTDETRv2 is primarily an object detector, the Ultralytics framework supports a wide array of tasks including [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [oriented bounding box (OBB)](https://docs.ultralytics.com/tasks/obb/) detection across its model families.
+1. **Ease of Use:** The Ultralytics Python API abstracts complex training loops into a few lines of code.
+2. **Well-Maintained Ecosystem:** Frequent updates ensure compatibility with the latest PyTorch versions, export formats (ONNX, TensorRT, CoreML), and hardware drivers.
+3. **Versatility:** While RTDETRv2 is primarily an object detector, the Ultralytics framework supports a wide array of tasks including [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [oriented bounding box (OBB)](https://docs.ultralytics.com/tasks/obb/) detection across its model families.
 
 ### Code Example
 

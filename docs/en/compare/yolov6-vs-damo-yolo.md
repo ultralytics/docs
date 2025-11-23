@@ -69,7 +69,7 @@ DAMO-YOLO moves away from purely hand-crafted architectures, relying partly on a
 The following comparison utilizes data from the [COCO val2017 dataset](https://docs.ultralytics.com/datasets/detect/coco/). The metrics highlight the trade-offs between the two models across different scales.
 
 | Model       | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ----------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|-------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv6-3.0n | 640                   | 37.5                 | -                              | **1.17**                            | **4.7**            | **11.4**          |
 | YOLOv6-3.0s | 640                   | 45.0                 | -                              | 2.66                                | 18.5               | 45.3              |
 | YOLOv6-3.0m | 640                   | 50.0                 | -                              | 5.28                                | 34.9               | 85.8              |
@@ -82,10 +82,10 @@ The following comparison utilizes data from the [COCO val2017 dataset](https://d
 
 ### Key Takeaways
 
-1.  **Latency Leader:** **YOLOv6-3.0n** is the fastest model in this comparison, clocking in at 1.17 ms on a T4 GPU. This makes it exceptionally well-suited for high-FPS requirements in [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) scenarios.
-2.  **Accuracy Peak:** **YOLOv6-3.0l** achieves the highest accuracy with a [mAP](https://www.ultralytics.com/glossary/mean-average-precision-map) of 52.8, demonstrating the effectiveness of its heavy backbone and self-distillation strategy, although at the cost of higher parameters and FLOPs compared to DAMO-YOLO.
-3.  **Efficiency Sweet Spot:** **DAMO-YOLOs** outperforms YOLOv6-3.0s in accuracy (46.0 vs 45.0 mAP) while having fewer parameters (16.3M vs 18.5M). This highlights the efficiency of the NAS-searched backbone in the small-model regime.
-4.  **Parameter Efficiency:** Generally, DAMO-YOLO models exhibit lower FLOPs and parameter counts for comparable accuracy in the medium-to-large range, validating the effectiveness of the ZeroHead design.
+1. **Latency Leader:** **YOLOv6-3.0n** is the fastest model in this comparison, clocking in at 1.17 ms on a T4 GPU. This makes it exceptionally well-suited for high-FPS requirements in [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) scenarios.
+2. **Accuracy Peak:** **YOLOv6-3.0l** achieves the highest accuracy with a [mAP](https://www.ultralytics.com/glossary/mean-average-precision-map) of 52.8, demonstrating the effectiveness of its heavy backbone and self-distillation strategy, although at the cost of higher parameters and FLOPs compared to DAMO-YOLO.
+3. **Efficiency Sweet Spot:** **DAMO-YOLOs** outperforms YOLOv6-3.0s in accuracy (46.0 vs 45.0 mAP) while having fewer parameters (16.3M vs 18.5M). This highlights the efficiency of the NAS-searched backbone in the small-model regime.
+4. **Parameter Efficiency:** Generally, DAMO-YOLO models exhibit lower FLOPs and parameter counts for comparable accuracy in the medium-to-large range, validating the effectiveness of the ZeroHead design.
 
 ## The Ultralytics Advantage
 

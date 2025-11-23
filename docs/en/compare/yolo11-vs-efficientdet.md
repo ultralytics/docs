@@ -69,8 +69,8 @@ Introduced by the Google Brain team in late 2019, **EfficientDet** was designed 
 
 EfficientDet is built on the **EfficientNet** backbone and introduces two key concepts:
 
-1.  **BiFPN (Bi-directional Feature Pyramid Network):** A feature fusion layer that allows easy multi-scale feature integration, weighing input features differently to learn their importance.
-2.  **Compound Scaling:** A method to uniformly scale the resolution, depth, and width of the network, creating a family of models from D0 (smallest) to D7 (largest).
+1. **BiFPN (Bi-directional Feature Pyramid Network):** A feature fusion layer that allows easy multi-scale feature integration, weighing input features differently to learn their importance.
+2. **Compound Scaling:** A method to uniformly scale the resolution, depth, and width of the network, creating a family of models from D0 (smallest) to D7 (largest).
 
 ### Strengths and Weaknesses
 
@@ -91,7 +91,7 @@ When comparing **YOLO11 vs. EfficientDet**, the most striking difference lies in
 The table below illustrates this gap. For instance, **YOLO11n** outperforms **EfficientDet-d0** in both accuracy (+4.9 mAP) and speed (2.6x faster on T4 GPU). As we scale up, the difference becomes even more pronounced; **YOLO11x** offers superior accuracy to **EfficientDet-d7** while being over **11x faster**.
 
 | Model           | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| --------------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|-----------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | **YOLO11n**     | 640                   | 39.5                 | 56.1                           | **1.5**                             | **2.6**            | 6.5               |
 | **YOLO11s**     | 640                   | 47.0                 | 90.0                           | 2.5                                 | 9.4                | 21.5              |
 | **YOLO11m**     | 640                   | 51.5                 | 183.2                          | 4.7                                 | 20.1               | 68.0              |
@@ -109,9 +109,9 @@ The table below illustrates this gap. For instance, **YOLO11n** outperforms **Ef
 
 ### Analysis of Results
 
-1.  **Real-Time Capabilities:** YOLO11 provides true [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) capabilities across all model sizes on GPU, whereas EfficientDet struggle to maintain real-time framerates (30 FPS or ~33ms) with its larger variants (d4-d7).
-2.  **Accuracy vs. Speed:** At every comparable accuracy point (e.g., 47.0 mAP), the YOLO11 variant (YOLO11s) is drastically faster than the EfficientDet equivalent (EfficientDet-d3).
-3.  **Training Efficiency:** Ultralytics models typically converge faster and utilize hardware acceleration more effectively, reducing the cost and time required for training on custom datasets.
+1. **Real-Time Capabilities:** YOLO11 provides true [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) capabilities across all model sizes on GPU, whereas EfficientDet struggle to maintain real-time framerates (30 FPS or ~33ms) with its larger variants (d4-d7).
+2. **Accuracy vs. Speed:** At every comparable accuracy point (e.g., 47.0 mAP), the YOLO11 variant (YOLO11s) is drastically faster than the EfficientDet equivalent (EfficientDet-d3).
+3. **Training Efficiency:** Ultralytics models typically converge faster and utilize hardware acceleration more effectively, reducing the cost and time required for training on custom datasets.
 
 ## Ideal Use Cases
 

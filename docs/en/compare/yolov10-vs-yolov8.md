@@ -20,7 +20,7 @@ This guide provides a detailed technical comparison to help you select the right
 The performance metrics on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/) illustrate the distinct design philosophies behind these models. YOLOv10 focuses heavily on reducing parameter count and floating-point operations (FLOPs), often achieving higher mAP (mean Average Precision) for a given model size. However, **YOLOv8** maintains highly competitive inference speeds, particularly on CPUs and when exported to optimized formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), balancing raw speed with practical deployment capabilities.
 
 | Model    | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| -------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|----------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv10n | 640                   | **39.5**             | -                              | 1.56                                | **2.3**            | **6.7**           |
 | YOLOv10s | 640                   | **46.7**             | -                              | 2.66                                | **7.2**            | **21.6**          |
 | YOLOv10m | 640                   | **51.3**             | -                              | **5.48**                            | **15.4**           | **59.1**          |
@@ -93,11 +93,11 @@ The fundamental difference lies in the post-processing and assignment strategies
 
 Choosing between the two often comes down to the specific constraints of your project:
 
-1.  **High-Performance Edge AI (YOLOv10):**
-    If your application runs on severely resource-constrained hardware where every megabyte of storage counts, or if the NMS operation creates a specific bottleneck on your target chip, YOLOv10 is an excellent candidate. Examples include embedded sensors in [agriculture](https://www.ultralytics.com/blog/sowing-success-ai-in-agriculture) or lightweight drones.
+1. **High-Performance Edge AI (YOLOv10):**
+   If your application runs on severely resource-constrained hardware where every megabyte of storage counts, or if the NMS operation creates a specific bottleneck on your target chip, YOLOv10 is an excellent candidate. Examples include embedded sensors in [agriculture](https://www.ultralytics.com/blog/sowing-success-ai-in-agriculture) or lightweight drones.
 
-2.  **General Purpose and Multi-Task AI (YOLOv8):**
-    For the vast majority of commercial and research applications, **YOLOv8** is the superior choice. Its ability to perform [segmentation](https://docs.ultralytics.com/tasks/segment/) (e.g., precise medical imaging) and pose estimation (e.g., [sports analytics](https://www.ultralytics.com/blog/exploring-the-applications-of-computer-vision-in-sports)) makes it incredibly versatile. Furthermore, its extensive documentation and support ensure that developers can resolve issues quickly and deploy faster.
+2. **General Purpose and Multi-Task AI (YOLOv8):**
+   For the vast majority of commercial and research applications, **YOLOv8** is the superior choice. Its ability to perform [segmentation](https://docs.ultralytics.com/tasks/segment/) (e.g., precise medical imaging) and pose estimation (e.g., [sports analytics](https://www.ultralytics.com/blog/exploring-the-applications-of-computer-vision-in-sports)) makes it incredibly versatile. Furthermore, its extensive documentation and support ensure that developers can resolve issues quickly and deploy faster.
 
 ## Code Implementation
 

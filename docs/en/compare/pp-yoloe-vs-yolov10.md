@@ -64,7 +64,7 @@ YOLOv10 is not just an architectural update; it is a holistic efficiency-driven 
 The following metrics highlight the performance differences between the two models. YOLOv10 consistently demonstrates superior efficiency, offering higher accuracy with fewer parameters and lower latency.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | PP-YOLOE+t | 640                   | 39.9                 | -                              | 2.84                                | 4.85               | 19.15             |
 | PP-YOLOE+s | 640                   | 43.7                 | -                              | 2.62                                | 7.93               | 17.36             |
 | PP-YOLOE+m | 640                   | 49.8                 | -                              | 5.56                                | 23.43              | 49.91             |

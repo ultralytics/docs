@@ -33,9 +33,9 @@ YOLOv10 represents a significant leap in the YOLO (You Only Look Once) series, f
 
 YOLOv10 introduces a holistic efficiency-accuracy driven model design. The core innovation lies in its **dual assignment strategy**. During training, the model uses both one-to-many assignments (common in YOLOv8) for rich supervision and one-to-one assignments to ensure end-to-end deployment without NMS.
 
-1.  **NMS-Free Training:** Traditional detectors require NMS to filter duplicate bounding boxes, which introduces inference latency. YOLOv10's architecture allows the model to predict exactly one box per object during inference, effectively removing this overhead.
-2.  **Efficiency-Driven Design:** The model utilizes lightweight classification heads and spatial-channel decoupled downsampling to reduce computational cost (FLOPs) and parameter count.
-3.  **Large-Kernel Convolutions:** By selectively using large-kernel depth-wise convolutions, YOLOv10 enhances its receptive field and capability to detect small objects without a massive increase in computation.
+1. **NMS-Free Training:** Traditional detectors require NMS to filter duplicate bounding boxes, which introduces inference latency. YOLOv10's architecture allows the model to predict exactly one box per object during inference, effectively removing this overhead.
+2. **Efficiency-Driven Design:** The model utilizes lightweight classification heads and spatial-channel decoupled downsampling to reduce computational cost (FLOPs) and parameter count.
+3. **Large-Kernel Convolutions:** By selectively using large-kernel depth-wise convolutions, YOLOv10 enhances its receptive field and capability to detect small objects without a massive increase in computation.
 
 !!! tip "Why NMS-Free Matters"
 
@@ -65,8 +65,8 @@ EfficientDet, developed by the Google Brain team, was designed to optimize both 
 
 EfficientDet is built upon the **EfficientNet** backbone and introduces the **BiFPN** (Bi-directional Feature Pyramid Network).
 
-1.  **BiFPN:** Unlike standard FPNs, BiFPN allows for bidirectional information flow and uses learnable weights to fuse features from different scales. This results in better multi-scale feature representation with fewer parameters.
-2.  **Compound Scaling:** This method ensures that the backbone, feature network, and box/class prediction networks scale up together efficiently. A D0 model is small and fast for mobile, while a D7 model pushes [state-of-the-art](https://theresanaiforthat.com/glossary/machine-learning/sota-state-of-the-art/) accuracy for high-resource environments.
+1. **BiFPN:** Unlike standard FPNs, BiFPN allows for bidirectional information flow and uses learnable weights to fuse features from different scales. This results in better multi-scale feature representation with fewer parameters.
+2. **Compound Scaling:** This method ensures that the backbone, feature network, and box/class prediction networks scale up together efficiently. A D0 model is small and fast for mobile, while a D7 model pushes [state-of-the-art](https://theresanaiforthat.com/glossary/machine-learning/sota-state-of-the-art/) accuracy for high-resource environments.
 
 ### Strengths and Weaknesses
 
@@ -82,7 +82,7 @@ When comparing these two models, the distinction between _theoretical efficiency
 The table below demonstrates that while EfficientDet models are compact, YOLOv10 provides a much better trade-off for real-time applications. For instance, **YOLOv10-S** delivers a competitive 46.7% mAP with a latency of just 2.66ms on a T4 GPU, whereas **EfficientDet-d3** (47.5% mAP) is nearly 7x slower at 19.59ms.
 
 | Model           | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| --------------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|-----------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv10n        | 640                   | 39.5                 | -                              | **1.56**                            | **2.3**            | 6.7               |
 | YOLOv10s        | 640                   | 46.7                 | -                              | **2.66**                            | 7.2                | 21.6              |
 | YOLOv10m        | 640                   | 51.3                 | -                              | **5.48**                            | 15.4               | 59.1              |

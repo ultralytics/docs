@@ -93,7 +93,7 @@ YOLOv6-3.0 is well-suited for high-throughput environments:
 The comparison below highlights the performance metrics of both models. While YOLOv6-3.0 offers impressive speed for its smallest variants, YOLOv9 demonstrates superior efficiency, delivering higher accuracy with fewer parameters in comparable brackets.
 
 | Model       | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ----------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|-------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv9t     | 640                   | 38.3                 | -                              | 2.3                                 | 2.0                | 7.7               |
 | YOLOv9s     | 640                   | 46.8                 | -                              | 3.54                                | 7.1                | 26.4              |
 | YOLOv9m     | 640                   | 51.4                 | -                              | 6.43                                | 20.0               | 76.3              |
@@ -107,9 +107,9 @@ The comparison below highlights the performance metrics of both models. While YO
 
 **Key Takeaways:**
 
-1.  **Efficiency King:** YOLOv9-C achieves a 53.0% mAP with only 25.3M parameters. In contrast, the YOLOv6-3.0l requires 59.6M parameters to reach a lower mAP of 52.8%. This illustrates YOLOv9's superior architectural design, which does "more with less."
-2.  **Peak Performance:** The **YOLOv9-E** model sets a high bar with 55.6% mAP, offering a level of precision that the YOLOv6 series does not reach in this comparison.
-3.  **Speed vs. Accuracy:** The **YOLOv6-3.0n** is incredibly fast (1.17ms), making it a viable option for extreme low-latency requirements where a drop in accuracy (37.5% mAP) is acceptable. However, for general-purpose applications, the YOLOv9-T offers a better balance (38.3% mAP at 2.3ms) with significantly fewer parameters (2.0M vs 4.7M).
+1. **Efficiency King:** YOLOv9-C achieves a 53.0% mAP with only 25.3M parameters. In contrast, the YOLOv6-3.0l requires 59.6M parameters to reach a lower mAP of 52.8%. This illustrates YOLOv9's superior architectural design, which does "more with less."
+2. **Peak Performance:** The **YOLOv9-E** model sets a high bar with 55.6% mAP, offering a level of precision that the YOLOv6 series does not reach in this comparison.
+3. **Speed vs. Accuracy:** The **YOLOv6-3.0n** is incredibly fast (1.17ms), making it a viable option for extreme low-latency requirements where a drop in accuracy (37.5% mAP) is acceptable. However, for general-purpose applications, the YOLOv9-T offers a better balance (38.3% mAP at 2.3ms) with significantly fewer parameters (2.0M vs 4.7M).
 
 !!! tip "Memory Efficiency"
 Ultralytics YOLO models, including YOLOv9, are renowned for their optimized memory usage during training. Unlike some heavy transformer-based models that require massive GPU VRAM, these models can often be trained on consumer-grade hardware, democratizing access to state-of-the-art AI development.

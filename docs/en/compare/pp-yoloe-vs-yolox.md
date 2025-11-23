@@ -94,7 +94,7 @@ YOLOX introduced a "pro-anchor-free" design philosophy to the YOLO family:
 When choosing between PP-YOLOE+ and YOLOX, performance metrics on standard benchmarks provide the most objective basis for decision-making. The following data highlights their performance on the COCO validation set.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | PP-YOLOE+t | 640                   | 39.9                 | -                              | 2.84                                | **4.85**           | 19.15             |
 | PP-YOLOE+s | 640                   | 43.7                 | -                              | 2.62                                | **7.93**           | **17.36**         |
 | PP-YOLOE+m | 640                   | 49.8                 | -                              | 5.56                                | **23.43**          | **49.91**         |

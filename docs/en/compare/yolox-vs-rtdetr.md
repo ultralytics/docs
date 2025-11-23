@@ -20,7 +20,7 @@ While YOLOX represented a significant shift toward anchor-free methodologies in 
 The performance metrics below illustrate the fundamental design philosophies of these two models. RTDETRv2 generally achieves higher [Mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) by utilizing attention mechanisms to understand complex scenes. However, this accuracy often comes with increased computational cost. YOLOX, particularly in its smaller variants, prioritizes low [inference latency](https://www.ultralytics.com/glossary/inference-latency) and efficient execution on standard hardware.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOXnano  | 416                   | 25.8                 | -                              | -                                   | **0.91**           | **1.08**          |
 | YOLOXtiny  | 416                   | 32.8                 | -                              | -                                   | 5.06               | 6.45              |
 | YOLOXs     | 640                   | 40.5                 | -                              | **2.56**                            | 9.0                | 26.8              |

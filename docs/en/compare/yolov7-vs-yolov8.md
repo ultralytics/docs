@@ -20,7 +20,7 @@ This guide provides a detailed technical comparison to help developers and resea
 The following table presents a direct comparison of performance metrics between key YOLOv7 and YOLOv8 models. YOLOv8 demonstrates a significant advantage in inference speed and a favorable parameter count, particularly in the smaller model variants which are critical for [edge AI](https://www.ultralytics.com/glossary/edge-ai) applications.
 
 | Model   | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+|---------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
 | YOLOv7l | 640                   | 51.4                 | -                              | 6.84                                | 36.9               | 104.7             |
 | YOLOv7x | 640                   | 53.1                 | -                              | 11.57                               | 71.3               | 189.9             |
 |         |                       |                      |                                |                                     |                    |                   |
@@ -84,9 +84,9 @@ Ultralytics models are renowned for their engineering efficiency. YOLOv8 utilize
 
 While YOLOv7 is a powerful research repository, Ultralytics YOLOv8 offers a polished product experience. The Ultralytics ecosystem provides:
 
-1.  **Streamlined API:** A consistent Python interface for all tasks.
-2.  **Deployment:** One-click export to formats like ONNX, TensorRT, CoreML, and TFLite via the [Export mode](https://docs.ultralytics.com/modes/export/).
-3.  **Community Support:** An active [Discord community](https://discord.com/invite/ultralytics) and frequent updates ensuring compatibility with the latest PyTorch versions.
+1. **Streamlined API:** A consistent Python interface for all tasks.
+2. **Deployment:** One-click export to formats like ONNX, TensorRT, CoreML, and TFLite via the [Export mode](https://docs.ultralytics.com/modes/export/).
+3. **Community Support:** An active [Discord community](https://discord.com/invite/ultralytics) and frequent updates ensuring compatibility with the latest PyTorch versions.
 
 ## Code Comparison
 
