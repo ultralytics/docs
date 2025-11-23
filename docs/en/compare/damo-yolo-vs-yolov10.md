@@ -86,7 +86,7 @@ YOLOv10 focuses on holistic efficiency, targeting both the architecture and the 
 
 One of the most significant advantages of YOLOv10 is its seamless integration into the **Ultralytics ecosystem**. Developers can train, validate, and deploy YOLOv10 using the same simple API used for [YOLOv8](https://docs.ultralytics.com/models/yolov8/) and [YOLO11](https://docs.ultralytics.com/models/yolo11/).
 
-```python
+from ultralytics import YOLO
 from ultralytics import YOLOv10
 
 # Load a pre-trained YOLOv10n model
