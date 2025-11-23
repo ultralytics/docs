@@ -112,7 +112,8 @@ The comparison below highlights the performance metrics of both models. While YO
 3. **Speed vs. Accuracy:** The **YOLOv6-3.0n** is incredibly fast (1.17ms), making it a viable option for extreme low-latency requirements where a drop in accuracy (37.5% mAP) is acceptable. However, for general-purpose applications, the YOLOv9-T offers a better balance (38.3% mAP at 2.3ms) with significantly fewer parameters (2.0M vs 4.7M).
 
 !!! tip "Memory Efficiency"
-Ultralytics YOLO models, including YOLOv9, are renowned for their optimized memory usage during training. Unlike some heavy transformer-based models that require massive GPU VRAM, these models can often be trained on consumer-grade hardware, democratizing access to state-of-the-art AI development.
+
+    Ultralytics YOLO models, including YOLOv9, are renowned for their optimized memory usage during training. Unlike some heavy transformer-based models that require massive GPU VRAM, these models can often be trained on consumer-grade hardware, democratizing access to state-of-the-art AI development.
 
 ## Training and Usability
 

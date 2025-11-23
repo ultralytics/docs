@@ -61,7 +61,8 @@ YOLOv9 introduces two core concepts to address the "information bottleneck" prob
 2. **Generalized Efficient Layer Aggregation Network (GELAN):** A novel lightweight architecture that combines the strengths of CSPNet and ELAN. It prioritizes **gradient path planning**, allowing for higher parameter efficiency and faster inference speeds without sacrificing accuracy.
 
 !!! info "Did You Know?"
-The GELAN architecture is designed to be hardware-agnostic, optimizing inference not just for high-end GPUs but also for edge devices where computational resources are limited.
+
+    The GELAN architecture is designed to be hardware-agnostic, optimizing inference not just for high-end GPUs but also for edge devices where computational resources are limited.
 
 ### Strengths and Use Cases
 
@@ -132,7 +133,8 @@ The **Ultralytics ecosystem** provides a significant advantage for YOLOv9. While
 - **Active Maintenance:** Frequent updates, community support, and extensive guides on tasks like [object tracking](https://docs.ultralytics.com/modes/track/) and [deployment](https://docs.ultralytics.com/guides/model-deployment-practices/).
 
 !!! tip "Deployment Flexibility"
-YOLOv9 models trained with Ultralytics can be easily deployed to edge devices using formats like TFLite or Edge TPU. Check out our [TFLite integration guide](https://docs.ultralytics.com/integrations/tflite/) for more details.
+
+    YOLOv9 models trained with Ultralytics can be easily deployed to edge devices using formats like TFLite or Edge TPU. Check out our [TFLite integration guide](https://docs.ultralytics.com/integrations/tflite/) for more details.
 
 ### Training Efficiency and Memory
 

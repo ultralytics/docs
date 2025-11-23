@@ -38,7 +38,8 @@ Released in May 2024 by researchers from **Tsinghua University**, YOLOv10 aims t
 [Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10/){ .md-button }
 
 !!! tip "Latest Innovation"
-While comparing these strong architectures, developers starting new projects should also evaluate **[YOLO11](https://docs.ultralytics.com/models/yolo11/)**. It builds upon the strengths of both, offering state-of-the-art accuracy, improved feature extraction, and native support for diverse tasks like [pose estimation](https://docs.ultralytics.com/tasks/pose/) and [oriented object detection](https://docs.ultralytics.com/tasks/obb/).
+
+    While comparing these strong architectures, developers starting new projects should also evaluate **[YOLO11](https://docs.ultralytics.com/models/yolo11/)**. It builds upon the strengths of both, offering state-of-the-art accuracy, improved feature extraction, and native support for diverse tasks like [pose estimation](https://docs.ultralytics.com/tasks/pose/) and [oriented object detection](https://docs.ultralytics.com/tasks/obb/).
 
 ## Architecture and Technical Innovation
 
@@ -101,7 +102,8 @@ The following table compares the performance metrics on the [COCO dataset](https
 - **Focus:** While powerful, it is primarily specialized for object detection, lacking the native multi-task breadth (like pose estimation) found in the Ultralytics YOLO series (v8, 11).
 
 !!! info "Memory Requirements"
-Both models are designed to be lightweight. Unlike large transformer models which consume vast amounts of CUDA memory during training, Ultralytics YOLO models are optimized for **memory efficiency**, allowing them to be trained on consumer-grade GPUs with modest VRAM.
+
+    Both models are designed to be lightweight. Unlike large transformer models which consume vast amounts of CUDA memory during training, Ultralytics YOLO models are optimized for **memory efficiency**, allowing them to be trained on consumer-grade GPUs with modest VRAM.
 
 ## Real-World Use Cases
 

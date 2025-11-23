@@ -33,7 +33,8 @@ The table below illustrates this distinction. While RTDETRv2 achieves high mAP s
 | YOLOv5x    | 640                   | 50.7                 | 763.2                          | 11.89                               | 97.2               | 246.4             |
 
 !!! tip "Memory Efficiency"
-YOLOv5 requires significantly less CUDA memory for training compared to transformer-based models like RTDETRv2. This lower barrier to entry allows developers to train custom models on standard consumer GPUs or even cloud-based environments like [Google Colab](https://docs.ultralytics.com/integrations/google-colab/) without running into Out-Of-Memory (OOM) errors.
+
+    YOLOv5 requires significantly less CUDA memory for training compared to transformer-based models like RTDETRv2. This lower barrier to entry allows developers to train custom models on standard consumer GPUs or even cloud-based environments like [Google Colab](https://docs.ultralytics.com/integrations/google-colab/) without running into Out-Of-Memory (OOM) errors.
 
 ## RTDETRv2: The Transformer Challenger
 
@@ -135,7 +136,8 @@ Choosing the right model depends on your specific constraints and goals.
 - **Multi-Task Requirements:** Projects that need both detection and segmentation can use a single framework, simplifying the tech stack.
 
 !!! note "Looking for the Latest Tech?"
-While YOLOv5 remains a powerful tool, developers seeking the absolute latest in performance and architecture should check out **[YOLO11](https://docs.ultralytics.com/models/yolo11/)**. YOLO11 builds on the legacy of YOLOv5, offering even higher accuracy, faster speeds, and expanded capabilities like pose estimation and oriented object detection (OBB).
+
+    While YOLOv5 remains a powerful tool, developers seeking the absolute latest in performance and architecture should check out **[YOLO11](https://docs.ultralytics.com/models/yolo11/)**. YOLO11 builds on the legacy of YOLOv5, offering even higher accuracy, faster speeds, and expanded capabilities like pose estimation and oriented object detection (OBB).
 
 ## Conclusion
 

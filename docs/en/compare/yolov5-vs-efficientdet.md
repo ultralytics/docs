@@ -71,7 +71,8 @@ While raw metrics are important, the developer experience often dictates the suc
 YOLOv5 is renowned for its "out-of-the-box" usability. The model can be installed via a simple pip command and utilized with minimal code. In contrast, EfficientDet implementations often require more complex setup within the TensorFlow ecosystem or specific research repositories.
 
 !!! tip "Streamlined Workflow"
-With Ultralytics, you can go from dataset to trained model in minutes. The integration with tools like [Ultralytics HUB](https://www.ultralytics.com/hub) allows for seamless model management, visualization, and deployment without extensive boilerplate code.
+
+    With Ultralytics, you can go from dataset to trained model in minutes. The integration with tools like [Ultralytics HUB](https://www.ultralytics.com/hub) allows for seamless model management, visualization, and deployment without extensive boilerplate code.
 
 ### Training Efficiency and Memory
 

@@ -60,7 +60,8 @@ EfficientDet was introduced by the Google Brain AutoML team with the goal of bre
 - **Weaknesses:** The complex connections in BiFPN and depth-wise separable convolutions are often memory-bound on GPUs, leading to slower real-world [inference latency](https://www.ultralytics.com/glossary/inference-latency) despite low FLOP counts.
 
 !!! info "Did You Know?"
-EfficientDet's heavy use of depth-wise separable convolutions reduces the number of parameters significantly but can lead to lower GPU utilization compared to standard convolutions used in models like YOLO.
+
+    EfficientDet's heavy use of depth-wise separable convolutions reduces the number of parameters significantly but can lead to lower GPU utilization compared to standard convolutions used in models like YOLO.
 
 [Learn more about EfficientDet](https://github.com/google/automl/tree/master/efficientdet){ .md-button }
 

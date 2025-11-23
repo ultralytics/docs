@@ -35,7 +35,8 @@ YOLOv5 employs a CSPDarknet backbone combined with a PANet neck and a YOLOv3-sty
 - **Memory Efficiency**: YOLOv5 is known for its relatively low memory footprint during training compared to transformer-based models, making it accessible on consumer-grade GPUs.
 
 !!! tip "Seamless Deployment"
-YOLOv5's focus on exportability allows developers to deploy models effortlessly to diverse environments, from cloud servers to [edge devices](https://www.ultralytics.com/glossary/edge-ai) like the Raspberry Pi or NVIDIA Jetson.
+
+    YOLOv5's focus on exportability allows developers to deploy models effortlessly to diverse environments, from cloud servers to [edge devices](https://www.ultralytics.com/glossary/edge-ai) like the Raspberry Pi or NVIDIA Jetson.
 
 [Learn more about YOLOv5](https://docs.ultralytics.com/models/yolov5/){ .md-button }
 

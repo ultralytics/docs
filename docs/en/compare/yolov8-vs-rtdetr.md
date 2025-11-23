@@ -99,7 +99,8 @@ While RTDETRv2 is a strong academic contender for pure detection tasks, it lacks
 - **Deployment:** One-click export to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx/), CoreML, and TFLite for diverse hardware support.
 
 !!! tip "Hardware Consideration"
-If your deployment target involves **CPU inference** (e.g., standard servers, laptops) or low-power edge devices, **YOLOv8** is overwhelmingly the better choice due to its optimized CNN architecture. RTDETRv2 is best reserved for scenarios with dedicated high-end GPU acceleration.
+
+    If your deployment target involves **CPU inference** (e.g., standard servers, laptops) or low-power edge devices, **YOLOv8** is overwhelmingly the better choice due to its optimized CNN architecture. RTDETRv2 is best reserved for scenarios with dedicated high-end GPU acceleration.
 
 ## Ideal Use Cases
 

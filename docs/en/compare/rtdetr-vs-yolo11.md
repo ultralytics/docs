@@ -53,7 +53,8 @@ However, this comes with trade-offs. Transformer-based architectures are inheren
 YOLO11 employs an advanced CNN architecture featuring improved feature extraction layers and an optimized head for precise [bounding box](https://www.ultralytics.com/glossary/bounding-box) regression. Unlike models focused solely on detection, YOLO11 is a versatile platform supporting multiple computer vision tasks—[instance segmentation](https://docs.ultralytics.com/tasks/segment/), [image classification](https://docs.ultralytics.com/tasks/classify/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb/)—within a single unified framework.
 
 !!! tip "Unified Ecosystem"
-One of the most significant advantages of YOLO11 is its integration with the Ultralytics ecosystem. Developers can move from dataset management to [training](https://docs.ultralytics.com/modes/train/) and deployment seamlessly, using the same API for all tasks.
+
+    One of the most significant advantages of YOLO11 is its integration with the Ultralytics ecosystem. Developers can move from dataset management to [training](https://docs.ultralytics.com/modes/train/) and deployment seamlessly, using the same API for all tasks.
 
 ### The Ultralytics Advantage
 

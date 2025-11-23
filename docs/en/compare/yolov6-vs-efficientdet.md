@@ -36,7 +36,8 @@ The table below illustrates this trade-off. While EfficientDet-d7 achieves a hig
 | EfficientDet-d7 | 640                   | **53.7**             | 122.0                          | 128.07                              | 51.9               | 325.0             |
 
 !!! tip "Performance Optimization"
-For industrial deployments, combining YOLOv6-3.0 with [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) can yield massive speed improvements. The architectural simplicity of YOLOv6 allows it to map very efficiently to GPU hardware instructions compared to the complex feature pyramid networks found in older models.
+
+    For industrial deployments, combining YOLOv6-3.0 with [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) can yield massive speed improvements. The architectural simplicity of YOLOv6 allows it to map very efficiently to GPU hardware instructions compared to the complex feature pyramid networks found in older models.
 
 ## YOLOv6-3.0: Built for Industry
 
@@ -78,7 +79,8 @@ EfficientDet relies on the EfficientNet backbone and introduces the Bi-direction
 - **Parameter Efficiency:** The smaller variants (d0-d2) are extremely lightweight in terms of disk size and [FLOPs](https://www.ultralytics.com/glossary/flops), making them useful for storage-constrained environments.
 
 !!! info "Architectural Complexity"
-While the BiFPN is highly effective for accuracy, its irregular memory access patterns can make it slower on GPUs compared to the dense, regular convolution blocks used in YOLO architectures. This is why EfficientDet often benchmarks with higher [inference latency](https://www.ultralytics.com/glossary/inference-latency) despite having fewer parameters.
+
+    While the BiFPN is highly effective for accuracy, its irregular memory access patterns can make it slower on GPUs compared to the dense, regular convolution blocks used in YOLO architectures. This is why EfficientDet often benchmarks with higher [inference latency](https://www.ultralytics.com/glossary/inference-latency) despite having fewer parameters.
 
 [Learn more about EfficientDet](https://github.com/google/automl/tree/master/efficientdet){ .md-button }
 

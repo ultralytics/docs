@@ -96,7 +96,8 @@ The architectural optimizations in YOLO11 (C3k2, C2PSA) allow it to process imag
 In terms of [GPU inference](https://docs.ultralytics.com/guides/model-deployment-options/), YOLO11 models also demonstrate lower latency across most sizes, making them highly effective for real-time video processing pipelines.
 
 !!! tip "Memory Efficiency"
-Both Ultralytics YOLO11 and YOLOv8 are designed for low memory consumption during training and inference compared to transformer-based models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/). This makes them far more accessible for developers using consumer-grade hardware or cloud environments with limited CUDA memory.
+
+    Both Ultralytics YOLO11 and YOLOv8 are designed for low memory consumption during training and inference compared to transformer-based models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/). This makes them far more accessible for developers using consumer-grade hardware or cloud environments with limited CUDA memory.
 
 ### Comparative Metrics
 

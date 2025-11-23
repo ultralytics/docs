@@ -45,7 +45,8 @@ The metrics highlight a distinct divergence in design philosophy. EfficientDet m
 - **Model Size:** YOLOv8n requires fewer parameters (3.2M) than the smallest EfficientDet (3.9M), making it highly storage-efficient for mobile applications.
 
 !!! info "Efficiency vs. Latency"
-Low FLOP count does not always equal fast execution. EfficientDet is highly optimized for theoretical computation cost, but YOLOv8 exploits the parallel processing capabilities of modern GPUs (like NVIDIA T4/A100) more effectively, resulting in lower real-world latency.
+
+    Low FLOP count does not always equal fast execution. EfficientDet is highly optimized for theoretical computation cost, but YOLOv8 exploits the parallel processing capabilities of modern GPUs (like NVIDIA T4/A100) more effectively, resulting in lower real-world latency.
 
 ## Architecture and Design Philosophy
 
@@ -112,7 +113,8 @@ Training modern [Transformers](https://www.ultralytics.com/glossary/transformer)
 - **Fast Convergence:** Advanced augmentation techniques like [Mosaic](https://docs.ultralytics.com/guides/yolo-data-augmentation/) accelerate learning, reducing the number of epochs needed to reach high accuracy.
 
 !!! tip "Integrated Ecosystem"
-Ultralytics models integrate seamlessly with tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases/), [Comet](https://docs.ultralytics.com/integrations/comet/), and [ClearML](https://docs.ultralytics.com/integrations/clearml/) for experiment tracking, as well as [Roboflow](https://docs.ultralytics.com/integrations/roboflow/) for dataset management.
+
+    Ultralytics models integrate seamlessly with tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases/), [Comet](https://docs.ultralytics.com/integrations/comet/), and [ClearML](https://docs.ultralytics.com/integrations/clearml/) for experiment tracking, as well as [Roboflow](https://docs.ultralytics.com/integrations/roboflow/) for dataset management.
 
 ## Real-World Applications
 

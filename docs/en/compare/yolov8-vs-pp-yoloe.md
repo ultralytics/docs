@@ -75,7 +75,8 @@ When comparing YOLOv8 and PP-YOLOE+, the trade-off between speed, accuracy, and 
 For instance, **YOLOv8n** is an ideal candidate for mobile and embedded applications, offering real-time performance with minimal computational overhead. In contrast, while PP-YOLOE+ models like the 'x' variant push the boundaries of accuracy, they do so at the cost of being heavier and slower, which may not be viable for real-time video analytics streams.
 
 !!! tip "Efficiency Matters"
-For production environments, model size and speed are often as critical as raw accuracy. YOLOv8's efficient architecture allows for deployment on smaller, less expensive hardware without a significant drop in detection quality.
+
+    For production environments, model size and speed are often as critical as raw accuracy. YOLOv8's efficient architecture allows for deployment on smaller, less expensive hardware without a significant drop in detection quality.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
 | ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
@@ -118,7 +119,8 @@ results[0].show()
 ```
 
 !!! note "Seamless Training"
-Training a custom model is equally simple. Ultralytics handles data augmentation, hyperparameter tuning, and dataset management automatically, allowing you to focus on curating high-quality data.
+
+    Training a custom model is equally simple. Ultralytics handles data augmentation, hyperparameter tuning, and dataset management automatically, allowing you to focus on curating high-quality data.
 
 ## Conclusion
 
