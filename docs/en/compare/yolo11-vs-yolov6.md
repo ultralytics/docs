@@ -113,7 +113,7 @@ The comparison reveals a clear trend: **YOLO11 consistently achieves higher accu
 - **Inference Speed**: While YOLOv6-3.0n shows slightly faster TensorRT speeds, the substantial accuracy gap (2.0 mAP) and larger model size make YOLO11n a more balanced choice for modern applications where precision is paramount.
 
 !!! tip "Deployment Advantage"
-The reduced parameter count of YOLO11 not only speeds up inference but also lowers memory bandwidth requirements. This makes YOLO11 particularly effective on edge devices like the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) or [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/), where memory resources are often the bottleneck.
+    The reduced parameter count of YOLO11 not only speeds up inference but also lowers memory bandwidth requirements. This makes YOLO11 particularly effective on edge devices like the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) or [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/), where memory resources are often the bottleneck.
 
 ## Training and Usability
 

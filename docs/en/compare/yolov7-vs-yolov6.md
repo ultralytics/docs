@@ -86,7 +86,7 @@ The following table illustrates the trade-offs between the two models. YOLOv6-3.
 - **Compute Efficiency:** YOLOv6 utilizes fewer [FLOPs](https://www.ultralytics.com/glossary/flops) for comparable performance levels, validating its "EfficientRep" design philosophy.
 
 !!! note "Deployment Considerations"
-While benchmarks provide a baseline, real-world performance depends heavily on the deployment hardware. YOLOv6's re-parameterization shines on GPUs, while YOLOv7's concatenation-based architecture is robust but can be memory-bandwidth intensive.
+    While benchmarks provide a baseline, real-world performance depends heavily on the deployment hardware. YOLOv6's re-parameterization shines on GPUs, while YOLOv7's concatenation-based architecture is robust but can be memory-bandwidth intensive.
 
 ## The Ultralytics Advantage: Beyond Comparison
 

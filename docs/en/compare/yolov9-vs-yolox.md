@@ -80,7 +80,7 @@ The table below highlights the performance differences. Notably, **YOLOv9-C** ac
 While YOLOX introduced impressive speeds in 2021, YOLOv9 pushes the envelope further. The **YOLOv9-T** (Tiny) model offers an exceptional balance, delivering 38.3% mAP with only 2.0M parameters, making it highly suitable for mobile and embedded applications. In contrast, YOLOX-Nano is smaller but sacrifices significant accuracy (25.8% mAP).
 
 !!! note "Training Efficiency"
-YOLOv9 benefits from modern training recipes and the optimized Ultralytics trainer, often resulting in faster convergence and lower memory usage during training compared to older architectures.
+    YOLOv9 benefits from modern training recipes and the optimized Ultralytics trainer, often resulting in faster convergence and lower memory usage during training compared to older architectures.
 
 ## Ideal Use Cases
 
@@ -128,7 +128,7 @@ results[0].show()
 ```
 
 !!! tip "Export Flexibility"
-YOLOv9 models trained with Ultralytics can be easily exported to formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), [OpenVINO](https://docs.ultralytics.com/integrations/openvino/), and [CoreML](https://docs.ultralytics.com/integrations/coreml/) for maximum deployment flexibility.
+    YOLOv9 models trained with Ultralytics can be easily exported to formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), [OpenVINO](https://docs.ultralytics.com/integrations/openvino/), and [CoreML](https://docs.ultralytics.com/integrations/coreml/) for maximum deployment flexibility.
 
 ## Conclusion and Recommendations
 

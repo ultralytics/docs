@@ -87,7 +87,7 @@ The choice between these models often depends on the specific constraints of the
 - **Choose RTDETRv2 if:** You have access to powerful GPUs (like NVIDIA T4 or A100) and accuracy is paramount. It excels in crowded scenes, autonomous driving, or aerial surveillance where context and object relationships are critical.
 
 !!! tip "Deployment Optimization"
-Regardless of the model chosen, utilizing optimization frameworks like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) or [OpenVINO](https://docs.ultralytics.com/integrations/openvino/) is essential for achieving real-time speeds in production environments. Both models benefit significantly from [quantization](https://www.ultralytics.com/glossary/model-quantization) to FP16 or INT8.
+    Regardless of the model chosen, utilizing optimization frameworks like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) or [OpenVINO](https://docs.ultralytics.com/integrations/openvino/) is essential for achieving real-time speeds in production environments. Both models benefit significantly from [quantization](https://www.ultralytics.com/glossary/model-quantization) to FP16 or INT8.
 
 ## Why Ultralytics YOLO Models Are the Superior Choice
 

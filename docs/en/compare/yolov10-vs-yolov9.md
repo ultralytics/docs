@@ -35,7 +35,7 @@ YOLOv10 achieves its efficiency through a combination of **Consistent Dual Assig
 2.  **Model Optimization:** The architecture includes lightweight classification heads, spatial-channel decoupled downsampling, and rank-guided block design. These features reduce computational redundancy and memory usage, making the model highly efficient on hardware with limited resources.
 
 !!! tip "Efficiency Advantage"
-The removal of NMS in YOLOv10 is particularly beneficial for edge deployment. On devices where CPU resources are scarce, avoiding the computational cost of sorting and filtering thousands of candidate boxes can result in substantial speedups.
+    The removal of NMS in YOLOv10 is particularly beneficial for edge deployment. On devices where CPU resources are scarce, avoiding the computational cost of sorting and filtering thousands of candidate boxes can result in substantial speedups.
 
 [Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10/){ .md-button }
 
@@ -59,7 +59,7 @@ YOLOv9 introduces novel concepts to ensure that the network retains and utilizes
 2.  **Generalized Efficient Layer Aggregation Network (GELAN):** This new architecture replaces the conventional ELAN used in previous versions. GELAN optimizes parameter utilization and computational efficiency (FLOPs), allowing YOLOv9 to achieve higher accuracy with a model size comparable to its predecessors.
 
 !!! note "Deep Learning Insight"
-YOLOv9's focus on information retention makes it exceptionally strong at detecting objects in complex scenes where feature details might otherwise be lost during downsampling operations in the [backbone](https://www.ultralytics.com/glossary/backbone).
+    YOLOv9's focus on information retention makes it exceptionally strong at detecting objects in complex scenes where feature details might otherwise be lost during downsampling operations in the [backbone](https://www.ultralytics.com/glossary/backbone).
 
 [Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9/){ .md-button }
 

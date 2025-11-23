@@ -78,7 +78,7 @@ YOLOv8 represents a refinement of the YOLO architecture focusing on usability, v
 - **Unified Framework:** Perhaps its strongest architectural feature is its native support for multiple vision tasks—[instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), [classification](https://docs.ultralytics.com/tasks/classify/), and [oriented object detection (OBB)](https://docs.ultralytics.com/tasks/obb/)—all within a single codebase.
 
 !!! tip "Did you know?"
-Ultralytics provides a seamless path to export models to optimized formats like **ONNX**, **TensorRT**, **CoreML**, and **OpenVINO**. This [export capability](https://docs.ultralytics.com/modes/export/) ensures that your trained models can run efficiently on almost any hardware platform.
+    Ultralytics provides a seamless path to export models to optimized formats like **ONNX**, **TensorRT**, **CoreML**, and **OpenVINO**. This [export capability](https://docs.ultralytics.com/modes/export/) ensures that your trained models can run efficiently on almost any hardware platform.
 
 [Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8/){ .md-button }
 

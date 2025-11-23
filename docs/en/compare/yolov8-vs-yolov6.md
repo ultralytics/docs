@@ -97,7 +97,7 @@ The following table presents a direct comparison of performance metrics on the [
 One of the defining differences between these models is the developer experience. Ultralytics prioritizes a frictionless workflow, evident in how models are trained and deployed.
 
 !!! tip "Unified Workflow"
-Ultralytics provides a consistent API across all tasks. Whether you are performing detection, segmentation, or pose estimation, the syntax remains the same, drastically reducing the learning curve.
+    Ultralytics provides a consistent API across all tasks. Whether you are performing detection, segmentation, or pose estimation, the syntax remains the same, drastically reducing the learning curve.
 
 ### Ease of Use with Ultralytics
 

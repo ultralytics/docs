@@ -43,7 +43,7 @@ The comparison between YOLOv8 and EfficientDet highlights a fundamental shift in
 - **Architectural Efficiency:** The lower FLOP count of EfficientDet does not always translate to lower latency, especially on GPUs where memory access costs and parallelism matter more than raw operation counts. YOLOv8's architecture is tailored to maximize hardware utilization.
 
 !!! tip "Hardware Optimization"
-Always benchmark models on your target hardware. Theoretical FLOPs are a useful proxy for complexity but often fail to predict actual latency on GPUs or NPUs, where memory bandwidth and parallelization capabilities play a larger role. Use the [YOLO benchmark mode](https://docs.ultralytics.com/modes/benchmark/) to test performance on your specific setup.
+    Always benchmark models on your target hardware. Theoretical FLOPs are a useful proxy for complexity but often fail to predict actual latency on GPUs or NPUs, where memory bandwidth and parallelization capabilities play a larger role. Use the [YOLO benchmark mode](https://docs.ultralytics.com/modes/benchmark/) to test performance on your specific setup.
 
 ## Ultralytics YOLOv8 Overview
 
@@ -122,7 +122,7 @@ results = model("path/to/image.jpg")
 In contrast, EfficientDet is typically found in research-oriented repositories (like the original TensorFlow implementation). While powerful, these implementations often require more boilerplate code, complex configuration files, and deeper knowledge of the underlying framework (TensorFlow/Keras) to train on [custom datasets](https://docs.ultralytics.com/datasets/detect/).
 
 !!! example "Export Capabilities"
-Ultralytics models support one-click export to numerous formats including [ONNX](https://docs.ultralytics.com/integrations/onnx/), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), CoreML, and TFLite. This flexibility is crucial for deploying models to diverse environments, from cloud servers to [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) edge devices.
+    Ultralytics models support one-click export to numerous formats including [ONNX](https://docs.ultralytics.com/integrations/onnx/), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), CoreML, and TFLite. This flexibility is crucial for deploying models to diverse environments, from cloud servers to [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) edge devices.
 
 ## Ideal Use Cases
 

@@ -53,7 +53,7 @@ DAMO-YOLO integrates several cutting-edge concepts to achieve its performance:
 3.  **ZeroHead & AlignedOTA:** The model uses a "ZeroHead" design to reduce the complexity of the detection head and employs AlignedOTA (Optimal Transport Assignment) to handle label assignment during training, solving issues with misalignment between classification and regression tasks.
 
 !!! warning "Complexity Consideration"
-While DAMO-YOLO introduces impressive innovations, its reliance on NAS and specialized components can make the training pipeline more complex and less accessible for developers who require quick customization or deployment on varied hardware without extensive tuning.
+    While DAMO-YOLO introduces impressive innovations, its reliance on NAS and specialized components can make the training pipeline more complex and less accessible for developers who require quick customization or deployment on varied hardware without extensive tuning.
 
 ### Strengths and Weaknesses
 
@@ -121,7 +121,7 @@ While DAMO-YOLO is a robust academic contribution, YOLOv10 benefits from the **w
 - **Training Efficiency:** Streamlined routines that support features like automatic mixed precision (AMP) and multi-GPU training out of the box.
 
 !!! tip "Beyond Detection"
-If your project requires versatility beyond bounding boxes—such as [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), or [oriented object detection (OBB)](https://docs.ultralytics.com/tasks/obb/)—consider exploring **[YOLO11](https://docs.ultralytics.com/models/yolo11/)** or **[YOLOv8](https://docs.ultralytics.com/models/yolov8/)**. While YOLOv10 excels at pure detection, the broader Ultralytics family offers state-of-the-art solutions for these complex multitasking needs.
+    If your project requires versatility beyond bounding boxes—such as [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), or [oriented object detection (OBB)](https://docs.ultralytics.com/tasks/obb/)—consider exploring **[YOLO11](https://docs.ultralytics.com/models/yolo11/)** or **[YOLOv8](https://docs.ultralytics.com/models/yolov8/)**. While YOLOv10 excels at pure detection, the broader Ultralytics family offers state-of-the-art solutions for these complex multitasking needs.
 
 ## Ideal Use Cases
 
