@@ -79,12 +79,7 @@ for Apple MPS.</p><p><span class="doc-section-title">Parameters:</span></p><tabl
 <span>37</span>
 <span>38</span>
 <span>39</span>
-<span>40</span>
-<span>41</span>
-<span>42</span>
-<span>43</span>
-<span>44</span>
-<span>45</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>40</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize PosePredictor for pose estimation tasks.</span>
 <span></span>
 <span></span><span class="sd">    Sets up a PosePredictor instance, configuring it for pose detection tasks and handling device-specific warnings</span>
@@ -97,11 +92,6 @@ for Apple MPS.</p><p><span class="doc-section-title">Parameters:</span></p><tabl
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">overrides</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="s2">"pose"</span>
-<span></span>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"mps"</span><span class="p">:</span>
-<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-<span></span>            <span class="s2">"Apple MPS known Pose bug. Recommend 'device=cpu' for Pose models. "</span>
-<span></span>            <span class="s2">"See https://github.com/ultralytics/ultralytics/issues/4031."</span>
-<span></span>        <span class="p">)</span>
 </code></pre></div></td></tr></table></div></details><div class="doc doc-children"><div class="doc doc-object doc-function"><h3 class="doc doc-heading" id="ultralytics.models.yolo.pose.predict.PosePredictor.construct_result">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">construct_result</span></h3><div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">construct_result</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_img</span><span class="p">,</span> <span class="n">img_path</span><span class="p">)</span>
 </code></pre></div><div class="doc doc-contents"><p>Construct the result object from the prediction, including keypoints.</p><p>Extends the parent class implementation by extracting keypoint data from predictions and adding them to the
@@ -125,7 +115,12 @@ the number of detections, K is the number of keypoints, and D is the keypoint di
 </td><td><div class="doc-md-description"><p>The path to the original image file.</p></div></td><td><em>required</em></td></tr></tbody></table><p><span class="doc-section-title">Returns:</span></p><table><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr class="doc-section-item"><td>
 <code><span title="Results">Results</span></code>
 </td><td><div class="doc-md-description"><p>The result object containing the original image, image path, class names, bounding boxes, and
-keypoints.</p></div></td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/pose/predict.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>47</span>
+keypoints.</p></div></td></tr></tbody></table><details class="mkdocstrings-source"><summary>Source code in <code>ultralytics/models/yolo/pose/predict.py</code></summary><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>42</span>
+<span>43</span>
+<span>44</span>
+<span>45</span>
+<span>46</span>
+<span>47</span>
 <span>48</span>
 <span>49</span>
 <span>50</span>
@@ -143,12 +138,7 @@ keypoints.</p></div></td></tr></tbody></table><details class="mkdocstrings-sourc
 <span>62</span>
 <span>63</span>
 <span>64</span>
-<span>65</span>
-<span>66</span>
-<span>67</span>
-<span>68</span>
-<span>69</span>
-<span>70</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">construct_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pred</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_img</span><span class="p">,</span> <span class="n">img_path</span><span class="p">):</span>
+<span>65</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">construct_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pred</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_img</span><span class="p">,</span> <span class="n">img_path</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Construct the result object from the prediction, including keypoints.</span>
 <span></span>
 <span></span><span class="sd">    Extends the parent class implementation by extracting keypoint data from predictions and adding them to the</span>
