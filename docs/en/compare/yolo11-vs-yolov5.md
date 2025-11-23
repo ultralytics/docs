@@ -4,103 +4,32 @@ description: Explore the comprehensive comparison between YOLO11 and YOLOv5. Lea
 keywords: YOLO11 vs YOLOv5,Yolo comparison,Yolo models,object detection,Yolo performance,Yolo benchmarks,Ultralytics,Yolo architecture
 ---
 
-# YOLO11 vs YOLOv5: A Technical Evolution in Object Detection
+# YOLO11 vs YOLOv5: Evolution of State-of-the-Art Object Detection
 
-Choosing the right object detection model is a critical decision that balances the need for accuracy, speed, and ease of deployment. This page offers a comprehensive technical comparison between two landmark models from Ultralytics: the state-of-the-art [Ultralytics YOLO11](https://docs.ultralytics.com/models/yolo11/) and the widely adopted [Ultralytics YOLOv5](https://docs.ultralytics.com/models/yolov5/). While YOLOv5 set an industry standard for its performance and usability, YOLO11 represents the next evolutionary step, delivering superior accuracy, enhanced versatility, and the latest architectural innovations, all within the robust and user-friendly Ultralytics ecosystem.
+The evolution of real-time object detection has been significantly shaped by the Ultralytics YOLO series. **YOLOv5**, released in 2020, set a global standard for ease of use, speed, and reliability, becoming one of the most deployed vision AI models in history. **YOLO11**, the latest iteration, builds upon this legendary foundation to deliver unprecedented accuracy, efficiency, and versatility.
+
+This guide provides a detailed technical comparison between these two powerhouses, helping developers and researchers understand the architectural shifts, performance gains, and ideal use cases for each.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO11", "YOLOv5"]'></canvas>
 
-## Ultralytics YOLO11: The New State-of-the-Art
+## Performance Analysis
 
-YOLO11, authored by Glenn Jocher and Jing Qiu, is the latest and most advanced model in the Ultralytics YOLO series. Released in 2024, it builds upon the strong foundation of its predecessors like [YOLOv8](https://docs.ultralytics.com/models/yolov8/) to set a new benchmark in performance and efficiency. It is engineered not just for object detection but as a comprehensive framework for a multitude of computer vision tasks.
+The performance gap between YOLO11 and YOLOv5 highlights the rapid advancements in neural network design. While YOLOv5 remains a capable model, YOLO11 consistently outperforms it across all model scales, particularly in terms of CPU inference speed and detection accuracy.
 
-- **Authors:** Glenn Jocher, Jing Qiu
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
-- **Date:** 2024-09-27
-- **GitHub:** <https://github.com/ultralytics/ultralytics>
-- **Docs:** <https://docs.ultralytics.com/models/yolo11/>
+### Key Performance Metrics
 
-### Architecture and Key Features
-
-YOLO11 introduces significant architectural refinements, including an **anchor-free detection head** and an optimized network structure. This modern design choice simplifies the training process by eliminating the need to pre-define anchor boxes, leading to better generalization on diverse datasets. The model achieves a higher [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) than YOLOv5 with fewer parameters and computational requirements (FLOPs) in many cases, demonstrating superior efficiency.
-
-A standout feature of YOLO11 is its **versatility**. It is a unified framework that natively supports [object detection](https://docs.ultralytics.com/tasks/detect/), [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [image classification](https://docs.ultralytics.com/tasks/classify/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb/). This multi-task capability makes it an incredibly powerful and flexible tool for complex AI systems.
-
-### Strengths
-
-- **State-of-the-Art Accuracy:** Delivers significantly higher mAP scores compared to YOLOv5, establishing a new performance standard.
-- **High Efficiency:** Achieves better accuracy with a more efficient architecture, often requiring fewer parameters and FLOPs.
-- **Anchor-Free Design:** Simplifies training and improves performance by removing the dependency on anchor box configuration.
-- **Multi-Task Versatility:** A single framework for a wide range of vision tasks, streamlining development for multifaceted applications.
-- **Well-Maintained Ecosystem:** Benefits from continuous development, extensive [documentation](https://docs.ultralytics.com/models/yolo11/), strong community support, and seamless integration with tools like [Ultralytics HUB](https://www.ultralytics.com/hub) for MLOps.
-- **Training Efficiency:** Offers efficient training processes with readily available pre-trained weights and generally requires lower memory usage than more complex architectures like transformers.
-
-### Weaknesses
-
-- As a cutting-edge model, larger variants of YOLO11 can be computationally intensive, requiring modern GPU hardware for optimal performance.
-
-### Ideal Use Cases
-
-YOLO11 is the ideal choice for new projects that demand the highest accuracy and flexibility:
-
-- **Advanced Robotics:** For precise object interaction and navigation in dynamic environments.
-- **Industrial Automation:** High-accuracy [quality control](https://www.ultralytics.com/solutions/ai-in-manufacturing) and defect detection.
-- **Healthcare:** Assisting in [medical image analysis](https://www.ultralytics.com/glossary/medical-image-analysis) for tasks like tumor detection.
-- **Smart Cities:** Powering complex systems for [traffic management](https://www.ultralytics.com/blog/optimizingtraffic-management-with-ultralytics-yolo11) and public safety.
-
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
-
-## YOLOv5: The Established and Versatile Workhorse
-
-Released in 2020 by Glenn Jocher at Ultralytics, YOLOv5 quickly became one of the most popular object detection models in the world. It is celebrated for its exceptional balance of speed and accuracy, its ease of use, and its robust, well-documented implementation in [PyTorch](https://pytorch.org/).
-
-- **Author:** Glenn Jocher
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
-- **Date:** 2020-06-26
-- **GitHub:** <https://github.com/ultralytics/yolov5>
-- **Docs:** <https://docs.ultralytics.com/models/yolov5/>
-
-### Architecture and Key Features
-
-YOLOv5 uses an architecture based on a CSPDarknet53 backbone and a PANet neck for effective feature aggregation. Its detection head is **anchor-based**, which was a standard and effective approach at the time of its release. One of YOLOv5's greatest strengths is its scalability, offering a range of models from the tiny 'n' (nano) version to the large 'x' (extra-large) version, allowing developers to easily trade between speed and accuracy.
-
-### Strengths
-
-- **Exceptional Inference Speed:** Highly optimized for real-time performance, making it a go-to choice for applications on [edge devices](https://www.ultralytics.com/blog/edge-ai-and-aiot-upgrade-any-camera-with-ultralytics-yolov8-in-a-no-code-way) like [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/).
-- **Ease of Use:** Renowned for its simple API, extensive tutorials, and streamlined training and deployment workflows.
-- **Mature Ecosystem:** Backed by a massive community, years of active development, and countless real-world deployments, ensuring stability and reliability.
-- **Flexibility:** The wide range of model sizes makes it adaptable to nearly any hardware constraint.
-
-### Weaknesses
-
-- **Lower Accuracy:** While still powerful, its accuracy is surpassed by newer models like YOLO11.
-- **Anchor-Based Detection:** Relies on predefined anchor boxes, which can sometimes require manual tuning for optimal performance on custom datasets compared to modern [anchor-free detectors](https://www.ultralytics.com/glossary/anchor-free-detectors).
-
-### Ideal Use Cases
-
-YOLOv5 remains an excellent choice for specific scenarios:
-
-- **Edge Computing:** Deploying on resource-constrained devices like a [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) where inference speed is the top priority.
-- **Rapid Prototyping:** Its simplicity and speed make it perfect for quickly building and testing proof-of-concept applications.
-- **Legacy Systems:** Maintaining or updating existing projects built on the YOLOv5 framework.
-- **Real-Time Surveillance:** Powering [security systems](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8) where high FPS is crucial.
-
-[Learn more about YOLOv5](https://docs.ultralytics.com/models/yolov5/){ .md-button }
-
-## Performance and Benchmarks: YOLO11 vs. YOLOv5
-
-The performance metrics clearly illustrate the evolution from YOLOv5 to YOLO11. On the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/), YOLO11 models consistently achieve higher mAP scores than their YOLOv5 counterparts of similar size. For example, YOLO11m reaches 51.5 mAP, significantly outperforming YOLOv5m's 45.4 mAP. Furthermore, YOLO11 often does this with greater computational efficiency. Notably, the smallest model, YOLO11n, is faster on CPU than YOLOv5n while delivering a massive 11.5-point increase in mAP.
+The table below presents a head-to-head comparison on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/). A critical observation is the **efficiency of YOLO11n**, which achieves a **39.5 mAP**, significantly surpassing YOLOv5n's 28.0 mAP, while also running faster on CPU hardware.
 
 | Model   | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
 | ------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
-| YOLO11n | 640                   | 39.5                 | **56.1**                       | 1.5                                 | **2.6**            | **6.5**           |
-| YOLO11s | 640                   | 47.0                 | 90.0                           | 2.5                                 | 9.4                | 21.5              |
-| YOLO11m | 640                   | 51.5                 | 183.2                          | 4.7                                 | 20.1               | 68.0              |
-| YOLO11l | 640                   | 53.4                 | 238.6                          | 6.2                                 | 25.3               | 86.9              |
-| YOLO11x | 640                   | **54.7**             | 462.8                          | 11.3                                | 56.9               | 194.9             |
+| YOLO11n | 640                   | **39.5**             | **56.1**                       | 1.5                                 | **2.6**            | **6.5**           |
+| YOLO11s | 640                   | **47.0**             | **90.0**                       | 2.5                                 | 9.4                | **21.5**          |
+| YOLO11m | 640                   | **51.5**             | **183.2**                      | 4.7                                 | **20.1**           | 68.0              |
+| YOLO11l | 640                   | **53.4**             | **238.6**                      | **6.2**                             | **25.3**           | **86.9**          |
+| YOLO11x | 640                   | **54.7**             | **462.8**                      | **11.3**                            | **56.9**           | **194.9**         |
 |         |                       |                      |                                |                                     |                    |                   |
 | YOLOv5n | 640                   | 28.0                 | 73.6                           | **1.12**                            | **2.6**            | 7.7               |
 | YOLOv5s | 640                   | 37.4                 | 120.7                          | 1.92                                | 9.1                | 24.0              |
@@ -108,20 +37,126 @@ The performance metrics clearly illustrate the evolution from YOLOv5 to YOLO11. 
 | YOLOv5l | 640                   | 49.0                 | 408.4                          | 6.61                                | 53.2               | 135.0             |
 | YOLOv5x | 640                   | 50.7                 | 763.2                          | 11.89                               | 97.2               | 246.4             |
 
-## Conclusion: Which Model Should You Choose?
+### Accuracy vs. Efficiency
 
-The choice between YOLO11 and YOLOv5 depends on your project's specific needs.
+YOLO11 represents a paradigm shift in the "efficiency vs. accuracy" trade-off.
 
-**YOLOv5** is a proven, reliable, and incredibly fast model. It remains a fantastic option for applications where speed is the absolute priority, especially on older or resource-limited hardware. Its maturity and vast community support provide a stable foundation for many projects.
+- **Small Object Detection:** YOLO11 significantly improves detection of small objects compared to YOLOv5, thanks to its refined feature extraction layers.
+- **Compute Efficiency:** YOLO11l achieves 53.4 mAP with only 25.3M parameters. In contrast, YOLOv5l requires 53.2M parameters to reach a lower mAP of 49.0. This **50% reduction in parameters** for higher accuracy translates to lower memory usage and faster training times.
 
-However, for nearly all new projects, **YOLO11 is the clear and recommended choice**. It represents a significant leap forward, offering state-of-the-art accuracy, superior efficiency, and unparalleled versatility. Its anchor-free architecture and native support for multiple vision tasks make it a more powerful, flexible, and future-proof solution. By choosing YOLO11, developers are leveraging the latest advancements in AI to build more capable and accurate computer vision applications, all while benefiting from the streamlined and well-maintained Ultralytics ecosystem.
+!!! info "Anchor-Free vs Anchor-Based"
 
-## Explore Other Model Comparisons
+    One of the most significant technical differences is the detection head mechanism. **YOLOv5** uses an **anchor-based** approach, which requires predefined anchor boxes that must be tuned for specific datasets to achieve optimal performance.
 
-If you're interested in how these models stack up against other leading architectures, check out our other comparison pages:
+    **YOLO11** utilizes an **anchor-free** design. This eliminates the need for manual anchor box calculation, simplifies the training pipeline, and improves generalization on diverse datasets without hyperparameter tuning.
 
-- [YOLO11 vs YOLOv8](https://docs.ultralytics.com/compare/yolo11-vs-yolov8/)
-- [YOLO11 vs YOLOv10](https://docs.ultralytics.com/compare/yolo11-vs-yolov10/)
-- [YOLOv5 vs YOLOv8](https://docs.ultralytics.com/compare/yolov8-vs-yolov5/)
-- [YOLOv5 vs YOLOv7](https://docs.ultralytics.com/compare/yolov5-vs-yolov7/)
-- [YOLOv5 vs YOLOv9](https://docs.ultralytics.com/compare/yolov5-vs-yolov9/)
+## Model Architecture and Design
+
+The architectural differences between these two models reflect the progression of [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) research over several years.
+
+### YOLOv5: The Proven Standard
+
+**YOLOv5** introduced a user-friendly PyTorch implementation that made object detection accessible to the masses.
+
+- **Backbone:** Utilizes a modified CSPDarknet53, which is highly effective but computationally heavier than modern alternatives.
+- **Focus:** Prioritized a balance of speed and accuracy that was revolutionary at its release in 2020.
+- **Legacy:** It remains a "safe choice" for systems already deeply integrated with its specific input/output formats.
+
+[Learn more about YOLOv5](https://docs.ultralytics.com/models/yolov5/){ .md-button }
+
+### YOLO11: The Cutting Edge
+
+**YOLO11** integrates the latest deep learning techniques to maximize feature reuse and minimize computational overhead.
+
+- **C3k2 Block:** An evolution of the CSP bottleneck, this block allows for more efficient gradient flow and feature fusion.
+- **C2PSA Module:** Introduces spatial attention mechanisms, enabling the model to focus on critical areas of the image for better object localization.
+- **Multi-Task Head:** Unlike YOLOv5, which requires separate model forks for different tasks, YOLO11 natively supports [Object Detection](https://docs.ultralytics.com/tasks/detect/), [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/), and Classification in a unified framework.
+
+[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
+
+### Comparison Table: Technical Specifications
+
+| Feature            | YOLOv5                                          | YOLO11                                          |
+| :----------------- | :---------------------------------------------- | :---------------------------------------------- |
+| **Architecture**   | CSPDarknet Backbone                             | Refined Backbone with C3k2 & C2PSA              |
+| **Detection Head** | Anchor-Based                                    | Anchor-Free                                     |
+| **Tasks**          | Detect, Segment, Classify                       | Detect, Segment, Classify, Pose, OBB, Track     |
+| **License**        | [AGPL-3.0](https://www.ultralytics.com/license) | [AGPL-3.0](https://www.ultralytics.com/license) |
+| **Release Date**   | June 2020                                       | September 2024                                  |
+| **Ease of Use**    | High (Command Line & PyTorch Hub)               | Very High (Unified Python SDK & CLI)            |
+
+## Training and Ecosystem
+
+Both models benefit from the robust **Ultralytics ecosystem**, which provides seamless tools for data management, training, and deployment.
+
+### Training Efficiency
+
+YOLO11 is designed to train faster and converge more quickly than YOLOv5.
+
+- **Smart Defaults:** The Ultralytics engine automatically configures hyperparameters based on the dataset and model size, reducing the need for manual [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning/).
+- **Memory Usage:** Thanks to the reduced parameter count, YOLO11 models generally consume less GPU VRAM during training, allowing for larger [batch sizes](https://www.ultralytics.com/glossary/batch-size) on consumer hardware.
+
+### Code Example: Training YOLO11
+
+Training YOLO11 is streamlined using the `ultralytics` Python package. The following example demonstrates how to train a YOLO11n model on the COCO8 dataset.
+
+```python
+from ultralytics import YOLO
+
+# Load a pre-trained YOLO11n model
+model = YOLO("yolo11n.pt")
+
+# Train the model
+# The device argument can be 'cpu', 0 for GPU, or [0, 1] for multi-GPU
+results = model.train(data="coco8.yaml", epochs=100, imgsz=640, device=0)
+```
+
+### Ecosystem Integration
+
+While YOLOv5 has a vast collection of third-party tutorials due to its age, YOLO11 is natively integrated into the modern Ultralytics package. This provides immediate access to advanced features:
+
+- **One-Click Export:** Export to [ONNX](https://docs.ultralytics.com/integrations/onnx/), [OpenVINO](https://docs.ultralytics.com/integrations/openvino/), TensorRT, and CoreML with a single command.
+- **Tracking:** Built-in support for object tracking (BoT-SORT, ByteTrack) without external repositories.
+- **Explorer:** Use the [Ultralytics Explorer](https://docs.ultralytics.com/datasets/explorer/) API to visualize and query your datasets using SQL and semantic search.
+
+## Ideal Use Cases
+
+Choosing the right model depends on your project's specific constraints and requirements.
+
+### When to Choose YOLO11
+
+YOLO11 is the **recommended choice for 95% of new projects**.
+
+1.  **New Developments:** If you are starting from scratch, YOLO11 offers the best future-proofing, accuracy, and speed.
+2.  **CPU Deployment:** For edge devices running on CPU (e.g., Raspberry Pi, mobile phones), YOLO11n is significantly faster and more accurate than YOLOv5n.
+3.  **Complex Tasks:** Projects requiring [Pose Estimation](https://docs.ultralytics.com/tasks/pose/) or [OBB](https://docs.ultralytics.com/tasks/obb/) (e.g., aerial imagery, document analysis) are natively supported by YOLO11.
+4.  **Cloud & Server:** The high throughput of YOLO11 makes it ideal for processing massive video streams in real-time.
+
+### When to Stick with YOLOv5
+
+YOLOv5 remains a viable option for specific legacy scenarios.
+
+1.  **Legacy Maintenance:** If you have a production system heavily coupled with the specific YOLOv5 codebase or output format.
+2.  **Specific Hardware Tuning:** Some older embedded accelerators may have highly optimized firmware specifically validated for YOLOv5 layers (though most modern runtimes like OpenVINO now favor newer architectures).
+3.  **Academic Baseline:** Researchers comparing against historical baselines often cite YOLOv5 due to its long-standing presence in literature.
+
+!!! tip "Migration to YOLO11"
+
+    Migrating from YOLOv5 to YOLO11 is straightforward. The dataset format (YOLO TXT) remains identical, meaning you can reuse your existing annotated datasets without modification. The Python API structure is also very similar, often requiring only a change in the model name string (e.g., from `yolov5su.pt` to `yolo11n.pt` within the `ultralytics` package).
+
+## Exploring Other Options
+
+Ultralytics supports a wide range of models beyond just YOLO11 and YOLOv5. Depending on your specific needs, you might consider:
+
+- **[YOLOv8](https://docs.ultralytics.com/models/yolov8/):** The direct predecessor to YOLO11, offering a great balance of features and wide industry adoption.
+- **[YOLOv10](https://docs.ultralytics.com/models/yolov10/):** An architecture focused on NMS-free training for lower latency in specific real-time applications.
+- **[RT-DETR](https://docs.ultralytics.com/models/rtdetr/):** A transformer-based detector that excels in accuracy for cases where inference speed is less critical than maximum precision.
+- **[YOLOv9](https://docs.ultralytics.com/models/yolov9/):** Known for its Programmable Gradient Information (PGI) concept, offering strong performance on difficult detection tasks.
+
+## Conclusion
+
+The transition from YOLOv5 to YOLO11 marks a significant milestone in the history of computer vision. **YOLOv5** democratized AI, making object detection accessible to everyone. **YOLO11** perfects this vision, delivering a model that is faster, lighter, and more accurate.
+
+For developers seeking the absolute best performance-per-watt and the most versatile feature set, **YOLO11 is the clear winner**. Its integration into the active Ultralytics ecosystem ensures that you have access to the latest tools, simple APIs, and a thriving community to support your AI journey.
+
+Ready to upgrade? Check out the [YOLO11 Documentation](https://docs.ultralytics.com/models/yolo11/) or explore the [GitHub repository](https://github.com/ultralytics/ultralytics) to get started today.
