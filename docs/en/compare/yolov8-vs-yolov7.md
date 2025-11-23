@@ -17,7 +17,7 @@ This guide provides a detailed technical analysis to help developers and researc
 
 ## Performance Analysis
 
-When comparing performance, it is crucial to look at the trade-off between inference speed and detection accuracy ([mAP](https://www.ultralytics.com/glossarymean-average-precision-map)). YOLOv8 generally offers a superior balance, providing higher accuracy for similar model sizes and faster inference speeds on modern hardware.
+When comparing performance, it is crucial to look at the trade-off between inference speed and detection accuracy ([mAP](https://www.ultralytics.com/glossary/mean-average-precision-map)). YOLOv8 generally offers a superior balance, providing higher accuracy for similar model sizes and faster inference speeds on modern hardware.
 
 The following table highlights the performance differences on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/).
 
@@ -34,7 +34,7 @@ The following table highlights the performance differences on the [COCO dataset]
 
 ### Key Takeaways
 
-- **Efficiency:** The **YOLOv8n** (nano) model achieves remarkable speeds (1.47 ms on GPU), making it ideal for [edge AI](https://www.ultralytics.com/glossaryedge-ai) applications where latency is critical.
+- **Efficiency:** The **YOLOv8n** (nano) model achieves remarkable speeds (1.47 ms on GPU), making it ideal for [edge AI](https://www.ultralytics.com/glossary/edge-ai) applications where latency is critical.
 - **Accuracy:** **YOLOv8x** surpasses **YOLOv7x** in accuracy (53.9% vs 53.1% mAP) while maintaining a competitive parameter count.
 - **Optimization:** YOLOv8 models demonstrate better parameter efficiency, delivering higher performance per FLOP, which translates to lower energy consumption during [inference](https://docs.ultralytics.com/modes/predict/).
 
@@ -50,7 +50,7 @@ Released by Ultralytics in early 2023, **YOLOv8** was designed to be state-of-th
 
 ### Architecture and Innovation
 
-YOLOv8 introduces an **anchor-free detection** mechanism, which simplifies the training process by removing the need for manual anchor box calculations. This reduces the number of box predictions and accelerates [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossarynon-maximum-suppression-nms).
+YOLOv8 introduces an **anchor-free detection** mechanism, which simplifies the training process by removing the need for manual anchor box calculations. This reduces the number of box predictions and accelerates [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms).
 
 The architecture features the **C2f module** (Cross-Stage Partial Bottleneck with two convolutions), which combines high-level features with contextual information more effectively than previous iterations. This leads to richer gradient flow and improved learning convergence. Additionally, YOLOv8 employs a **decoupled head**, processing objectness, classification, and regression tasks independently for greater accuracy.
 
@@ -78,7 +78,7 @@ YOLOv7 utilizes the **Extended Efficient Layer Aggregation Network (E-ELAN)**, w
 
 ### Strengths and Limitations
 
-YOLOv7 is a powerful model that offers excellent speed-to-accuracy ratios, particularly on GPU devices. Its "bag-of-freebies" approach ensures that the model remains lightweight during deployment. However, compared to YOLOv8, it lacks the unified multi-task support out-of-the-box and requires more complex setup procedures involving cloning repositories and managing dependencies manually. It is primarily an [object detection](https://www.ultralytics.com/glossaryobject-detection) specialist, with other tasks often requiring separate branches or implementations.
+YOLOv7 is a powerful model that offers excellent speed-to-accuracy ratios, particularly on GPU devices. Its "bag-of-freebies" approach ensures that the model remains lightweight during deployment. However, compared to YOLOv8, it lacks the unified multi-task support out-of-the-box and requires more complex setup procedures involving cloning repositories and managing dependencies manually. It is primarily an [object detection](https://www.ultralytics.com/glossary/object-detection) specialist, with other tasks often requiring separate branches or implementations.
 
 [Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7/){ .md-button }
 
