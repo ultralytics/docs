@@ -20,7 +20,7 @@ The fundamental difference between these two models lies in their architectural 
 The table below illustrates this distinction. While RTDETRv2 achieves high mAP scores on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/), it demands significantly more computational resources. YOLOv5, particularly in its smaller variants (Nano and Small), offers drastically faster inference speeds—especially on CPUs—and a much lower memory footprint, making it the practical choice for real-world applications.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | RTDETRv2-s | 640                   | 48.1                 | -                              | 5.03                                | 20                 | 60                |
 | RTDETRv2-m | 640                   | 51.9                 | -                              | 7.51                                | 36                 | 100               |
 | RTDETRv2-l | 640                   | 53.4                 | -                              | 9.76                                | 42                 | 136               |

@@ -97,7 +97,7 @@ results[0].show()
 The comparison below highlights the efficiency gains of YOLO11. While YOLOv8 remains a powerful contender, YOLO11 consistently delivers higher accuracy (mAP) with reduced computational complexity (FLOPs) and faster inference speeds. This is particularly noticeable in the "Nano" and "Small" models, where YOLO11n achieves a **39.5 mAP** compared to YOLOv8n's 37.3, all while running significantly faster on CPU.
 
 | Model   | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|---------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv8n | 640                   | 37.3                 | 80.4                           | **1.47**                            | 3.2                | 8.7               |
 | YOLOv8s | 640                   | 44.9                 | 128.4                          | 2.66                                | 11.2               | 28.6              |
 | YOLOv8m | 640                   | 50.2                 | 234.7                          | 5.86                                | 25.9               | 78.9              |

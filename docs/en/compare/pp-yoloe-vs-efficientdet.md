@@ -54,7 +54,7 @@ The core innovation of EfficientDet is the **BiFPN**, which allows for easy and 
 When evaluating these models, the trade-off between [inference speed](https://www.ultralytics.com/glossary/inference-latency) and mean Average Precision (mAP) becomes clear. While EfficientDet set high standards upon its release, newer architectures like PP-YOLOE+ have leveraged hardware-aware designs to achieve superior performance on modern GPUs.
 
 | Model           | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|-----------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| --------------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | PP-YOLOE+t      | 640                   | 39.9                 | -                              | 2.84                                | 4.85               | 19.15             |
 | PP-YOLOE+s      | 640                   | 43.7                 | -                              | 2.62                                | 7.93               | 17.36             |
 | PP-YOLOE+m      | 640                   | 49.8                 | -                              | 5.56                                | 23.43              | 49.91             |

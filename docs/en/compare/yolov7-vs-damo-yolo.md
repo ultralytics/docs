@@ -63,7 +63,7 @@ DAMO-YOLO excels in [edge AI](https://www.ultralytics.com/glossary/edge-ai) scen
 The following table highlights the performance trade-offs. YOLOv7 generally achieves higher accuracy (mAP) at the cost of higher computational complexity (FLOPs), while DAMO-YOLO prioritizes speed and parameter efficiency, particularly in its smaller configurations.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv7l    | 640                   | **51.4**             | -                              | 6.84                                | 36.9               | 104.7             |
 | YOLOv7x    | 640                   | **53.1**             | -                              | 11.57                               | 71.3               | 189.9             |
 |            |                       |                      |                                |                                     |                    |                   |

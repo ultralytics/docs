@@ -20,7 +20,7 @@ This guide provides an in-depth technical analysis of these two models, comparin
 The following benchmarks illustrate the distinct trade-offs between EfficientDet and DAMO-YOLO. EfficientDet is renowned for its low parameter count and FLOPs, making it theoretically efficient, whereas DAMO-YOLO is optimized for real-world inference speed on GPUs.
 
 | Model           | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|-----------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| --------------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | EfficientDet-d0 | 640                   | 34.6                 | **10.2**                       | 3.92                                | **3.9**            | **2.54**          |
 | EfficientDet-d1 | 640                   | 40.5                 | 13.5                           | 7.31                                | 6.6                | 6.1               |
 | EfficientDet-d2 | 640                   | 43.0                 | 17.7                           | 10.92                               | 8.1                | 11.0              |

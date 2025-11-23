@@ -20,7 +20,7 @@ While RTDETRv2 leverages [Vision Transformers (ViT)](https://www.ultralytics.com
 Before diving into performance metrics, it is essential to understand the background and architectural philosophy of each model.
 
 | Feature           | Ultralytics YOLOv5                          | RTDETRv2                            |
-|:------------------|:--------------------------------------------|:------------------------------------|
+| :---------------- | :------------------------------------------ | :---------------------------------- |
 | **Architecture**  | CNN-based (Anchor-based)                    | Hybrid (CNN Backbone + Transformer) |
 | **Primary Focus** | Real-time Speed, Versatility, Ease of Use   | High Accuracy, Global Context       |
 | **Authors**       | Glenn Jocher                                | Wenyu Lv, Yian Zhao, et al.         |
@@ -55,7 +55,7 @@ RTDETRv2 (Real-Time Detection Transformer v2) represents a shift towards transfo
 The table below provides a direct comparison of key performance metrics. While RTDETRv2 shows impressive accuracy (mAP) on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/), YOLOv5 demonstrates superior inference speeds, particularly on CPU hardware where transformers often struggle.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv5n    | 640                   | 28.0                 | **73.6**                       | **1.12**                            | **2.6**            | **7.7**           |
 | YOLOv5s    | 640                   | 37.4                 | 120.7                          | 1.92                                | 9.1                | 24.0              |
 | YOLOv5m    | 640                   | 45.4                 | 233.9                          | 4.03                                | 25.1               | 64.2              |

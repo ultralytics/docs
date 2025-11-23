@@ -20,7 +20,7 @@ While YOLOv7 introduced significant academic advancements in 2022, **Ultralytics
 The following table highlights the performance trade-offs between the two architectures. While YOLOv7 pushes for higher [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map), YOLOv5 offers distinct advantages in inference speed and lower parameter counts for specific model sizes.
 
 | Model   | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|---------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv7l | 640                   | 51.4                 | -                              | 6.84                                | 36.9               | 104.7             |
 | YOLOv7x | 640                   | 53.1                 | -                              | 11.57                               | 71.3               | 189.9             |
 |         |                       |                      |                                |                                     |                    |                   |

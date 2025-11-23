@@ -69,7 +69,7 @@ DAMO-YOLO moves away from purely hand-crafted architectures, relying partly on a
 The following comparison utilizes data from the [COCO val2017 dataset](https://docs.ultralytics.com/datasets/detect/coco/). The metrics highlight the trade-offs between the two models across different scales.
 
 | Model       | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|-------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ----------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv6-3.0n | 640                   | 37.5                 | -                              | **1.17**                            | **4.7**            | **11.4**          |
 | YOLOv6-3.0s | 640                   | 45.0                 | -                              | 2.66                                | 18.5               | 45.3              |
 | YOLOv6-3.0m | 640                   | 50.0                 | -                              | 5.28                                | 34.9               | 85.8              |

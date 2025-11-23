@@ -61,7 +61,7 @@ When comparing the two models, the trade-off usually lies between raw accuracy a
 The table below highlights the performance metrics. Note the exceptional speed of the **YOLOv5n**, which remains one of the fastest options for extremely resource-constrained environments.
 
 | Model   | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|---------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv5n | 640                   | 28.0                 | **73.6**                       | **1.12**                            | **2.6**            | **7.7**           |
 | YOLOv5s | 640                   | 37.4                 | 120.7                          | 1.92                                | 9.1                | 24.0              |
 | YOLOv5m | 640                   | 45.4                 | 233.9                          | 4.03                                | 25.1               | 64.2              |

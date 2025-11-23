@@ -78,7 +78,7 @@ YOLOX remains a strong baseline in the research community due to its clean ancho
 The comparison below highlights the significant advancements made in efficiency and accuracy over the three years separating these models. The metrics focus on model size (parameters), computational cost (FLOPs), and accuracy (mAP) on the COCO dataset.
 
 | Model     | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|-----------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| --------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv10n  | 640                   | 39.5                 | -                              | 1.56                                | 2.3                | 6.7               |
 | YOLOv10s  | 640                   | 46.7                 | -                              | 2.66                                | 7.2                | 21.6              |
 | YOLOv10m  | 640                   | 51.3                 | -                              | 5.48                                | 15.4               | 59.1              |

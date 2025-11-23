@@ -91,7 +91,7 @@ When comparing **YOLO11 vs. EfficientDet**, the most striking difference lies in
 The table below illustrates this gap. For instance, **YOLO11n** outperforms **EfficientDet-d0** in both accuracy (+4.9 mAP) and speed (2.6x faster on T4 GPU). As we scale up, the difference becomes even more pronounced; **YOLO11x** offers superior accuracy to **EfficientDet-d7** while being over **11x faster**.
 
 | Model           | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|-----------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| --------------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | **YOLO11n**     | 640                   | 39.5                 | 56.1                           | **1.5**                             | **2.6**            | 6.5               |
 | **YOLO11s**     | 640                   | 47.0                 | 90.0                           | 2.5                                 | 9.4                | 21.5              |
 | **YOLO11m**     | 640                   | 51.5                 | 183.2                          | 4.7                                 | 20.1               | 68.0              |

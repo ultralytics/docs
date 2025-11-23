@@ -20,7 +20,7 @@ The landscape of real-time object detection is defined by the trade-off between 
 As illustrated, YOLO11 consistently delivers superior performance on standard hardware. For instance, the **YOLO11n** model achieves competitive accuracy while maintaining blazing-fast speeds on CPU, making it highly effective for [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) scenarios. Furthermore, larger variants like **YOLO11x** dominate in accuracy, proving essential for high-fidelity tasks.
 
 | Model    | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|----------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| -------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLO11n  | 640                   | 39.5                 | **56.1**                       | **1.5**                             | 2.6                | **6.5**           |
 | YOLO11s  | 640                   | **47.0**             | **90.0**                       | **2.5**                             | 9.4                | 21.5              |
 | YOLO11m  | 640                   | **51.5**             | **183.2**                      | **4.7**                             | 20.1               | 68.0              |

@@ -24,7 +24,7 @@ The performance gap between YOLO11 and YOLOv5 highlights the rapid advancements 
 The table below presents a head-to-head comparison on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/). A critical observation is the **efficiency of YOLO11n**, which achieves a **39.5 mAP**, significantly surpassing YOLOv5n's 28.0 mAP, while also running faster on CPU hardware.
 
 | Model   | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|---------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLO11n | 640                   | **39.5**             | **56.1**                       | 1.5                                 | **2.6**            | **6.5**           |
 | YOLO11s | 640                   | **47.0**             | **90.0**                       | 2.5                                 | 9.4                | **21.5**          |
 | YOLO11m | 640                   | **51.5**             | **183.2**                      | 4.7                                 | **20.1**           | 68.0              |
@@ -77,7 +77,7 @@ The architectural differences between these two models reflect the progression o
 ### Comparison Table: Technical Specifications
 
 | Feature            | YOLOv5                                          | YOLO11                                          |
-|:-------------------|:------------------------------------------------|:------------------------------------------------|
+| :----------------- | :---------------------------------------------- | :---------------------------------------------- |
 | **Architecture**   | CSPDarknet Backbone                             | Refined Backbone with C3k2 & C2PSA              |
 | **Detection Head** | Anchor-Based                                    | Anchor-Free                                     |
 | **Tasks**          | Detect, Segment, Classify                       | Detect, Segment, Classify, Pose, OBB, Track     |

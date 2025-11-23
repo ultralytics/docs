@@ -77,7 +77,7 @@ YOLO11 employs a highly optimized, anchor-free architecture that enhances featur
 The table below highlights the performance differences between YOLOX and YOLO11. YOLO11 consistently demonstrates higher accuracy (mAP) with fewer parameters and FLOPs, translating to faster inference speeds.
 
 | Model     | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|-----------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| --------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOXnano | 416                   | 25.8                 | -                              | -                                   | **0.91**           | **1.08**          |
 | YOLOXtiny | 416                   | 32.8                 | -                              | -                                   | 5.06               | 6.45              |
 | YOLOXs    | 640                   | 40.5                 | -                              | 2.56                                | 9.0                | 26.8              |

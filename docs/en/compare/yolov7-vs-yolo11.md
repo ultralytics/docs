@@ -87,7 +87,7 @@ A defining characteristic of YOLO11 is its **native multi-task support**. Within
 The following table illustrates the performance differences between YOLOv7 and YOLO11. The data highlights how modern optimizations allow YOLO11 to achieve superior accuracy with a fraction of the computational cost.
 
 | Model   | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|---------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv7l | 640                   | 51.4                 | -                              | 6.84                                | 36.9               | 104.7             |
 | YOLOv7x | 640                   | 53.1                 | -                              | 11.57                               | 71.3               | 189.9             |
 |         |                       |                      |                                |                                     |                    |                   |

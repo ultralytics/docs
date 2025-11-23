@@ -77,7 +77,7 @@ When comparing these two models, the trade-off typically lies between **speed** 
     While YOLOv9 tops the accuracy charts, **YOLOv5** often provides a more practical balance for real-time applications, offering significantly faster inference speeds (ms) on standard hardware while maintaining robust detection capabilities.
 
 | Model   | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|---------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv5n | 640                   | 28.0                 | **73.6**                       | **1.12**                            | 2.6                | 7.7               |
 | YOLOv5s | 640                   | 37.4                 | 120.7                          | 1.92                                | 9.1                | 24.0              |
 | YOLOv5m | 640                   | 45.4                 | 233.9                          | 4.03                                | 25.1               | 64.2              |

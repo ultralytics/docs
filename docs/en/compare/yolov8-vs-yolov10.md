@@ -69,7 +69,7 @@ When comparing these two models, it is essential to look beyond just pure accura
 The table below highlights the performance on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/). YOLOv10 achieves higher mAP with fewer parameters in some cases, but YOLOv8 remains highly competitive in inference speed, particularly on standard CPU and GPU benchmarks.
 
 | Model    | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|----------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| -------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv8n  | 640                   | 37.3                 | **80.4**                       | **1.47**                            | 3.2                | 8.7               |
 | YOLOv8s  | 640                   | 44.9                 | **128.4**                      | **2.66**                            | 11.2               | 28.6              |
 | YOLOv8m  | 640                   | 50.2                 | **234.7**                      | 5.86                                | 25.9               | 78.9              |

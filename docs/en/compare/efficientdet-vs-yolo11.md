@@ -95,7 +95,7 @@ When comparing EfficientDet and YOLO11, the most striking difference lies in **i
 As shown in the table below, **YOLO11n** achieves a higher mAP (39.5) than **EfficientDet-d0** (34.6) while being significantly faster. More impressively, **YOLO11m** matches the accuracy of the much heavier **EfficientDet-d5** (51.5 mAP) but runs approximately **14 times faster** on a T4 GPU (4.7 ms vs 67.86 ms). This massive speed advantage allows YOLO11 to process high-resolution video streams in real-time, a feat that is challenging for higher-tier EfficientDet models.
 
 | Model           | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|-----------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| --------------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | EfficientDet-d0 | 640                   | 34.6                 | **10.2**                       | 3.92                                | 3.9                | **2.54**          |
 | EfficientDet-d1 | 640                   | 40.5                 | 13.5                           | 7.31                                | 6.6                | 6.1               |
 | EfficientDet-d2 | 640                   | 43.0                 | 17.7                           | 10.92                               | 8.1                | 11.0              |

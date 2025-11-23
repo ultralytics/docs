@@ -93,7 +93,7 @@ YOLOv6-3.0 is well-suited for high-throughput environments:
 The comparison below highlights the performance metrics of both models. While YOLOv6-3.0 offers impressive speed for its smallest variants, YOLOv9 demonstrates superior efficiency, delivering higher accuracy with fewer parameters in comparable brackets.
 
 | Model       | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|-------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ----------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv9t     | 640                   | 38.3                 | -                              | 2.3                                 | 2.0                | 7.7               |
 | YOLOv9s     | 640                   | 46.8                 | -                              | 3.54                                | 7.1                | 26.4              |
 | YOLOv9m     | 640                   | 51.4                 | -                              | 6.43                                | 20.0               | 76.3              |

@@ -64,7 +64,7 @@ YOLOv6-3.0 focuses on optimizing the trade-off between speed and accuracy throug
 The following comparison utilizes metrics from the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/), a standard benchmark for object detection. The table highlights how YOLOv10 pushes the envelope in terms of parameter efficiency and accuracy.
 
 | Model       | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|-------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ----------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv10n    | 640                   | 39.5                 | -                              | 1.56                                | **2.3**            | **6.7**           |
 | YOLOv10s    | 640                   | 46.7                 | -                              | 2.66                                | **7.2**            | **21.6**          |
 | YOLOv10m    | 640                   | 51.3                 | -                              | 5.48                                | **15.4**           | **59.1**          |

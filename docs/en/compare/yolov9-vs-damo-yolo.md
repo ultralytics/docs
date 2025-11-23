@@ -88,7 +88,7 @@ However, the efficiency of YOLOv9's GELAN architecture allows it to remain highl
     When evaluating models, consider the **FLOPs** (Floating Point Operations) alongside parameter count. A lower FLOPs count generally indicates a model that is computationally lighter and potentially faster on mobile or [edge AI](https://www.ultralytics.com/glossary/edge-ai) hardware.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv9t    | 640                   | 38.3                 | -                              | **2.3**                             | **2.0**            | **7.7**           |
 | YOLOv9s    | 640                   | 46.8                 | -                              | 3.54                                | **7.1**            | **26.4**          |
 | YOLOv9m    | 640                   | 51.4                 | -                              | 6.43                                | **20.0**           | 76.3              |

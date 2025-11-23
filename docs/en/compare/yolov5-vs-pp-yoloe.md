@@ -64,7 +64,7 @@ Ultralytics YOLOv5 shines in [inference speed](https://www.ultralytics.com/gloss
 YOLOv5 models are designed with memory constraints in mind. They typically require less CUDA memory during training and inference compared to complex anchor-free architectures or [transformer-based models](https://www.ultralytics.com/glossary/transformer). This efficiency facilitates smoother deployment on resource-constrained hardware, such as [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/) modules, without extensive optimization efforts.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv5n    | 640                   | 28.0                 | **73.6**                       | **1.12**                            | **2.6**            | **7.7**           |
 | YOLOv5s    | 640                   | 37.4                 | **120.7**                      | 1.92                                | 9.1                | 24.0              |
 | YOLOv5m    | 640                   | 45.4                 | **233.9**                      | 4.03                                | 25.1               | 64.2              |

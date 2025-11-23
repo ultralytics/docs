@@ -53,7 +53,7 @@ In contrast, YOLOv10 employs a **consistent dual assignment** strategy. This all
 The table below highlights the performance trade-offs. YOLOv10 generally achieves higher [Mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) with fewer parameters compared to the older YOLOv5 architecture. However, YOLOv5 remains competitive in raw inference speed on certain hardware configurations, particularly when using optimized export formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) or [ONNX](https://docs.ultralytics.com/integrations/onnx/).
 
 | Model    | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|----------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| -------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv10n | 640                   | 39.5                 | -                              | 1.56                                | **2.3**            | **6.7**           |
 | YOLOv10s | 640                   | 46.7                 | -                              | 2.66                                | **7.2**            | **21.6**          |
 | YOLOv10m | 640                   | 51.3                 | -                              | 5.48                                | **15.4**           | **59.1**          |

@@ -62,7 +62,7 @@ YOLOv9 introduces **Programmable Gradient Information (PGI)** and the **Generali
 The following table contrasts the performance of YOLOX and YOLOv9 on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/). YOLOv9 consistently demonstrates higher mAP scores with fewer parameters, highlighting the efficiency of the GELAN architecture.
 
 | Model     | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|-----------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| --------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOXnano | 416                   | 25.8                 | -                              | -                                   | **0.91**           | **1.08**          |
 | YOLOXtiny | 416                   | 32.8                 | -                              | -                                   | 5.06               | 6.45              |
 | YOLOXs    | 640                   | 40.5                 | -                              | 2.56                                | 9.0                | 26.8              |

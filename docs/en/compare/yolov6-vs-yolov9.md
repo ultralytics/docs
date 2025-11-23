@@ -85,7 +85,7 @@ For example, **YOLOv9c** achieves a **53.0% mAP** with only **25.3M parameters**
 Conversely, the **YOLOv6-3.0n** offers extremely low latency (1.17 ms), making it viable for ultra-fast [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) where a drop in accuracy (37.5% mAP) is acceptable.
 
 | Model       | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|-------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ----------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv6-3.0n | 640                   | 37.5                 | -                              | **1.17**                            | 4.7                | 11.4              |
 | YOLOv6-3.0s | 640                   | 45.0                 | -                              | 2.66                                | 18.5               | 45.3              |
 | YOLOv6-3.0m | 640                   | 50.0                 | -                              | 5.28                                | 34.9               | 85.8              |

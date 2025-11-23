@@ -53,7 +53,7 @@ YOLOX introduces a **decoupled head** architecture, separating the classificatio
 When comparing YOLOv5 and YOLOX, the trade-off usually centers on inference latency versus absolute [precision](https://www.ultralytics.com/glossary/precision). YOLOv5 is meticulously optimized for speed, particularly on hardware accelerators using [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) and ONNX Runtime. As shown in the data below, YOLOv5 models demonstrate significantly lower latency (higher speed) across equivalent model sizes.
 
 | Model     | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|-----------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| --------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv5n   | 640                   | 28.0                 | **73.6**                       | **1.12**                            | 2.6                | 7.7               |
 | YOLOv5s   | 640                   | 37.4                 | 120.7                          | 1.92                                | 9.1                | 24.0              |
 | YOLOv5m   | 640                   | 45.4                 | 233.9                          | 4.03                                | 25.1               | 64.2              |

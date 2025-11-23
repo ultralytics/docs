@@ -65,7 +65,7 @@ YOLOv10 introduces a holistic efficiency-accuracy driven design. Its standout fe
 The following table compares the performance metrics on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/). While YOLOv5 remains competitive, particularly in CPU speed for its Nano variant, YOLOv10 demonstrates superior efficiency in terms of parameters and accuracy (mAP).
 
 | Model    | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|----------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| -------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv5n  | 640                   | 28.0                 | **73.6**                       | **1.12**                            | 2.6                | 7.7               |
 | YOLOv5s  | 640                   | 37.4                 | 120.7                          | 1.92                                | 9.1                | 24.0              |
 | YOLOv5m  | 640                   | 45.4                 | 233.9                          | 4.03                                | 25.1               | 64.2              |

@@ -24,7 +24,7 @@ When evaluating object detection models, the trade-off between inference speed a
 Notably, YOLOv8 provides transparent benchmarks for CPU inference via [ONNX](https://docs.ultralytics.com/integrations/onnx/), a crucial metric for deployment on hardware without dedicated GPUs. In contrast, standard YOLOX benchmarks primarily focus on GPU performance, leaving a gap for users targeting [edge AI](https://www.ultralytics.com/glossary/edge-ai) applications on standard processors.
 
 | Model     | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|-----------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| --------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOXnano | 416                   | 25.8                 | -                              | -                                   | **0.91**           | **1.08**          |
 | YOLOXtiny | 416                   | 32.8                 | -                              | -                                   | 5.06               | 6.45              |
 | YOLOXs    | 640                   | 40.5                 | -                              | 2.56                                | 9.0                | 26.8              |

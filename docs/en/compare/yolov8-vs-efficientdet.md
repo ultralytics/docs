@@ -20,7 +20,7 @@ While EfficientDet introduced groundbreaking concepts in model scaling and effic
 The comparison between YOLOv8 and EfficientDet highlights a fundamental shift in design philosophy. EfficientDet focuses heavily on minimizing FLOPs (Floating Point Operations) and parameter count, theoretically making it highly efficient. In contrast, YOLOv8 is engineered to maximize throughput on modern hardware, leveraging GPU parallelism to deliver superior inference speeds without compromising accuracy.
 
 | Model           | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|-----------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| --------------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv8n         | 640                   | 37.3                 | 80.4                           | 1.47                                | 3.2                | 8.7               |
 | YOLOv8s         | 640                   | 44.9                 | 128.4                          | 2.66                                | 11.2               | 28.6              |
 | YOLOv8m         | 640                   | 50.2                 | 234.7                          | 5.86                                | 25.9               | 78.9              |

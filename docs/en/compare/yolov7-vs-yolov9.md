@@ -20,7 +20,7 @@ The transition from YOLOv7 to YOLOv9 represents a significant leap in parameter 
 For developers focused on [edge AI deployment](https://www.ultralytics.com/glossary/edge-ai), this efficiency is crucial. As illustrated in the table below, **YOLOv9e** achieves a dominant **55.6% mAP**, surpassing the larger **YOLOv7x** while maintaining a competitive computational footprint. Conversely, the smaller **YOLOv9t** offers a lightweight solution for highly constrained devices, a tier that YOLOv7 does not explicitly target with the same granularity.
 
 | Model   | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|---------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv7l | 640                   | 51.4                 | -                              | 6.84                                | 36.9               | 104.7             |
 | YOLOv7x | 640                   | 53.1                 | -                              | 11.57                               | 71.3               | 189.9             |
 |         |                       |                      |                                |                                     |                    |                   |

@@ -78,7 +78,7 @@ PP-YOLOE+ features a CSPRepResNet [backbone](https://www.ultralytics.com/glossar
 The choice between RTDETRv2 and PP-YOLOE+ often comes down to the specific constraints of the deployment environment. If the hardware allows for higher computational overhead, RTDETRv2 offers superior detection capabilities. Conversely, for strictly constrained [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) scenarios, PP-YOLOE+ remains a strong contender.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | RTDETRv2-s | 640                   | 48.1                 | -                              | 5.03                                | 20                 | 60                |
 | RTDETRv2-m | 640                   | 51.9                 | -                              | 7.51                                | 36                 | 100               |
 | RTDETRv2-l | 640                   | 53.4                 | -                              | 9.76                                | 42                 | 136               |

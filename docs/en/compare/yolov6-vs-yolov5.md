@@ -18,7 +18,7 @@ Selecting the right architecture for your computer vision project is a pivotal d
 The table below presents a direct comparison of performance metrics on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/). While YOLOv6-3.0 pushes the boundaries of peak accuracy on GPU devices, **Ultralytics YOLOv5** maintains a reputation for exceptional efficiency, particularly on CPU, and significantly lower model complexity (parameters and FLOPs) for its lightweight variants.
 
 | Model       | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|-------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ----------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv6-3.0n | 640                   | 37.5                 | -                              | 1.17                                | 4.7                | 11.4              |
 | YOLOv6-3.0s | 640                   | 45.0                 | -                              | 2.66                                | 18.5               | 45.3              |
 | YOLOv6-3.0m | 640                   | 50.0                 | -                              | 5.28                                | 34.9               | 85.8              |

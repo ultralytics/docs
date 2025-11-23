@@ -18,7 +18,7 @@ The landscape of [computer vision](https://www.ultralytics.com/glossary/computer
 When selecting an [object detection](https://www.ultralytics.com/glossary/object-detection) model, the primary trade-off usually lies between Mean Average Precision (mAP) and latency. The following data highlights the performance differences between RTDETRv2 and DAMO-YOLO on the COCO validation dataset.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | RTDETRv2-s | 640                   | 48.1                 | -                              | 5.03                                | 20                 | 60                |
 | RTDETRv2-m | 640                   | 51.9                 | -                              | 7.51                                | 36                 | 100               |
 | RTDETRv2-l | 640                   | 53.4                 | -                              | 9.76                                | 42                 | 136               |

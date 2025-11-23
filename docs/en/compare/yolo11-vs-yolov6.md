@@ -92,7 +92,7 @@ YOLOv6-3.0 is suitable for:
 The following table presents a detailed comparison of YOLO11 and YOLOv6-3.0 on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/). The metrics highlight the advancements in efficiency achieved by the YOLO11 architecture.
 
 | Model       | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|-------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ----------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLO11n     | 640                   | **39.5**             | **56.1**                       | 1.5                                 | **2.6**            | **6.5**           |
 | YOLO11s     | 640                   | **47.0**             | **90.0**                       | **2.5**                             | **9.4**            | **21.5**          |
 | YOLO11m     | 640                   | **51.5**             | **183.2**                      | **4.7**                             | **20.1**           | **68.0**          |

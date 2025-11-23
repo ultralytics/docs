@@ -66,7 +66,7 @@ Additionally, YOLOv10 utilizes a **holistic efficiency-accuracy driven model des
 When comparing performance, YOLOv10 demonstrates significant advantages on modern hardware, particularly GPUs. While EfficientDet was optimized for FLOPs, YOLOv10 is optimized for actual latency and throughput.
 
 | Model           | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|-----------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| --------------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | EfficientDet-d0 | 640                   | 34.6                 | **10.2**                       | 3.92                                | 3.9                | **2.54**          |
 | EfficientDet-d1 | 640                   | 40.5                 | 13.5                           | 7.31                                | 6.6                | 6.1               |
 | EfficientDet-d2 | 640                   | 43.0                 | 17.7                           | 10.92                               | 8.1                | 11.0              |

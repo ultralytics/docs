@@ -79,7 +79,7 @@ When using YOLOv9 within the **Ultralytics ecosystem**, developers gain signific
 The comparison below highlights the trade-offs between DAMO-YOLO and YOLOv9. While DAMO-YOLO offers competitive speeds on specific hardware, YOLOv9 consistently delivers higher [Mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) with fewer parameters, showcasing superior architectural efficiency.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | DAMO-YOLOt | 640                   | 42.0                 | -                              | 2.32                                | 8.5                | 18.1              |
 | DAMO-YOLOs | 640                   | 46.0                 | -                              | **3.45**                            | 16.3               | 37.8              |
 | DAMO-YOLOm | 640                   | 49.2                 | -                              | **5.09**                            | 28.2               | **61.8**          |

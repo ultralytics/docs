@@ -20,7 +20,7 @@ While both models aim to optimize the trade-off between speed and accuracy, they
 The table below provides a direct comparison of efficiency and accuracy on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/). Key takeaways include the parameter efficiency and inference speeds, where **YOLOv10** demonstrates significant advantages due to its NMS-free design.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | DAMO-YOLOt | 640                   | 42.0                 | -                              | 2.32                                | 8.5                | 18.1              |
 | DAMO-YOLOs | 640                   | 46.0                 | -                              | 3.45                                | 16.3               | 37.8              |
 | DAMO-YOLOm | 640                   | 49.2                 | -                              | 5.09                                | 28.2               | 61.8              |

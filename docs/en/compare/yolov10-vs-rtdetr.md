@@ -70,7 +70,7 @@ RT-DETRv2 is designed to be adaptable, offering varying model scales to fit diff
 The comparison below highlights the distinct advantages of each architecture. **YOLOv10** excels in speed and efficiency, offering remarkably low latency and parameter counts. For instance, the YOLOv10n model runs at **1.56ms** on a T4 GPU, making it ideal for high-speed video processing. **RT-DETRv2**, while slower, provides robust accuracy, particularly in the larger model sizes, but at the cost of significantly higher [FLOPs](https://www.ultralytics.com/glossary/flops) and memory usage.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv10n   | 640                   | 39.5                 | -                              | **1.56**                            | **2.3**            | **6.7**           |
 | YOLOv10s   | 640                   | 46.7                 | -                              | 2.66                                | 7.2                | 21.6              |
 | YOLOv10m   | 640                   | 51.3                 | -                              | 5.48                                | 15.4               | 59.1              |

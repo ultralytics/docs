@@ -83,7 +83,7 @@ Thanks to optimized architectural choices, YOLO11 shines in CPU inference speeds
 Ultralytics YOLO11 models are designed for optimal memory usage. Compared to transformer-based detectors like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/), YOLO11 requires significantly less CUDA memory during training, making it accessible to developers with standard consumer GPUs.
 
 | Model   | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|---------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv5n | 640                   | 28.0                 | 73.6                           | **1.12**                            | **2.6**            | 7.7               |
 | YOLOv5s | 640                   | 37.4                 | 120.7                          | 1.92                                | 9.1                | 24.0              |
 | YOLOv5m | 640                   | 45.4                 | 233.9                          | 4.03                                | 25.1               | 64.2              |

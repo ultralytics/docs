@@ -67,7 +67,7 @@ DAMO-YOLO explores advanced techniques to improve the speed-accuracy trade-off. 
 The following table compares the performance of various YOLOv10 and DAMO-YOLO model sizes on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/). YOLOv10 consistently demonstrates superior performance, offering higher accuracy with lower latency and fewer parameters.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv10n   | 640                   | 39.5                 | -                              | **1.56**                            | **2.3**            | **6.7**           |
 | YOLOv10s   | 640                   | 46.7                 | -                              | 2.66                                | 7.2                | 21.6              |
 | YOLOv10m   | 640                   | 51.3                 | -                              | 5.48                                | 15.4               | 59.1              |

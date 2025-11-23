@@ -44,7 +44,7 @@ YOLOv8 introduces an **anchor-free detection** head, eliminating the need for ma
 When comparing performance, it is essential to look at both accuracy (mAP) and inference speed. The table below demonstrates that YOLOv8 consistently achieves higher [Mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/) compared to YOLOv5 counterparts of similar size, often with comparable or better inference speeds.
 
 | Model   | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|---------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | YOLOv8n | 640                   | 37.3                 | 80.4                           | 1.47                                | **3.2**            | **8.7**           |
 | YOLOv8s | 640                   | 44.9                 | 128.4                          | 2.66                                | 11.2               | 28.6              |
 | YOLOv8m | 640                   | 50.2                 | 234.7                          | 5.86                                | 25.9               | 78.9              |

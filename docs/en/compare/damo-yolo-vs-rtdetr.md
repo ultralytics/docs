@@ -66,7 +66,7 @@ The core distinction between these two models lies in their architectural rootsâ
 The table below outlines key metrics on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/). While RTDETRv2 dominates in terms of Mean Average Precision (mAP), DAMO-YOLO demonstrates superior throughput (FPS) and lower parameter counts for its smaller variants.
 
 | Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | DAMO-YOLOt | 640                   | 42.0                 | -                              | **2.32**                            | **8.5**            | **18.1**          |
 | DAMO-YOLOs | 640                   | 46.0                 | -                              | 3.45                                | 16.3               | 37.8              |
 | DAMO-YOLOm | 640                   | 49.2                 | -                              | 5.09                                | 28.2               | 61.8              |

@@ -65,7 +65,7 @@ RTDETRv2 builds upon the success of DETR (Detection Transformer) but addresses i
 When selecting a model for [deployment](https://docs.ultralytics.com/guides/model-deployment-options/), developers must weigh trade-offs between accuracy (mAP), speed (latency), and model size (parameters). The table below compares the performance of EfficientDet variants against RTDETRv2.
 
 | Model           | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-|-----------------|-----------------------|----------------------|--------------------------------|-------------------------------------|--------------------|-------------------|
+| --------------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
 | EfficientDet-d0 | 640                   | 34.6                 | 10.2                           | **3.92**                            | **3.9**            | **2.54**          |
 | EfficientDet-d1 | 640                   | 40.5                 | 13.5                           | 7.31                                | 6.6                | 6.1               |
 | EfficientDet-d2 | 640                   | 43.0                 | 17.7                           | 10.92                               | 8.1                | 11.0              |
