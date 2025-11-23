@@ -44,6 +44,8 @@ Released in late 2022, DAMO-YOLO represents a significant effort by Alibaba Grou
 **Arxiv:** [https://arxiv.org/abs/2211.15444v2](https://arxiv.org/abs/2211.15444v2)  
 **GitHub:** [https://github.com/tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)
 
+[Learn more about DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO){ .md-button }
+
 ### Architecture and Key Features
 
 DAMO-YOLO integrates several cutting-edge concepts to achieve its performance:
@@ -141,7 +143,3 @@ If your project requires versatility beyond bounding boxes—such as [instance s
 Both models represent significant milestones in computer vision. DAMO-YOLO showcased the power of NAS and advanced feature fusion in 2022. However, for modern applications in 2024 and beyond, **YOLOv10** offers a more compelling package. Its NMS-free end-to-end architecture solves a long-standing bottleneck in object detection, while its integration into the Ultralytics ecosystem ensures it is accessible, maintainable, and easy to deploy.
 
 For developers seeking the best balance of speed, accuracy, and ease of use, YOLOv10—alongside the versatile **[YOLO11](https://docs.ultralytics.com/models/yolo11/)**—stands as the superior choice for building robust AI solutions.
-
-```
-
-```
