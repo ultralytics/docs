@@ -885,7 +885,7 @@
 <span></span>        <span class="n">memory_pos</span><span class="o">=</span><span class="n">memory_pos_embed</span><span class="p">,</span>
 <span></span>        <span class="n">num_obj_ptr_tokens</span><span class="o">=</span><span class="n">num_obj_ptr_tokens</span><span class="p">,</span>
 <span></span>    <span class="p">)</span>
-<span></span>    <span class="c1"># reshape the output (HW)BC =&gt; BCHW</span>
+<span></span>    <span class="c1"># Reshape output (HW)BC =&gt; BCHW</span>
 <span></span>    <span class="n">pix_feat_with_mem</span> <span class="o">=</span> <span class="n">pix_feat_with_mem</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
 <span></span>    <span class="k">return</span> <span class="n">pix_feat_with_mem</span>
 </code></pre></div></details><p><br/></p><h3 id="ultralytics.models.sam.modules.sam.SAM2Model._track_step"><span class="doc-kind doc-kind-method">method</span> <code>ultralytics.models.sam.modules.sam.SAM2Model._track_step</code></h3><div class="highlight"><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_track_step</span><span class="p">(</span>
@@ -932,7 +932,7 @@
 <span></span>        <span class="n">pix_feat</span> <span class="o">=</span> <span class="n">pix_feat</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="o">*</span><span class="n">feat_sizes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 <span></span>        <span class="n">sam_outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_use_mask_as_output</span><span class="p">(</span><span class="n">mask_inputs</span><span class="p">,</span> <span class="n">pix_feat</span><span class="p">,</span> <span class="n">high_res_features</span><span class="p">)</span>
 <span></span>    <span class="k">else</span><span class="p">:</span>
-<span></span>        <span class="c1"># fused the visual feature with previous memory features in the memory bank</span>
+<span></span>        <span class="c1"># Fuse visual features with previous memory features in the memory bank</span>
 <span></span>        <span class="n">pix_feat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_memory_conditioned_features</span><span class="p">(</span>
 <span></span>            <span class="n">frame_idx</span><span class="o">=</span><span class="n">frame_idx</span><span class="p">,</span>
 <span></span>            <span class="n">is_init_cond_frame</span><span class="o">=</span><span class="n">is_init_cond_frame</span><span class="p">,</span>
