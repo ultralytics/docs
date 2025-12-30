@@ -9,7 +9,7 @@
 <span></span><span class="w">    </span><span class="sd">"""Send event to Platform endpoint."""</span>
 <span></span>    <span class="k">try</span><span class="p">:</span>
 <span></span>        <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-<span></span>            <span class="s2">"https://alpha.ultralytics.com/api/training/webhook"</span><span class="p">,</span>
+<span></span>            <span class="s2">"https://alpha.ultralytics.com/api/webhooks/training/metrics"</span><span class="p">,</span>
 <span></span>            <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">"event"</span><span class="p">:</span> <span class="n">event</span><span class="p">,</span> <span class="s2">"project"</span><span class="p">:</span> <span class="n">project</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s2">"data"</span><span class="p">:</span> <span class="n">data</span><span class="p">},</span>
 <span></span>            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">"Authorization"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"Bearer </span><span class="si">{</span><span class="n">_api_key</span><span class="si">}</span><span class="s2">"</span><span class="p">},</span>
 <span></span>            <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
@@ -30,7 +30,7 @@
 <span></span>
 <span></span>        <span class="c1"># Get signed upload URL</span>
 <span></span>        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-<span></span>            <span class="s2">"https://alpha.ultralytics.com/api/training/upload-url"</span><span class="p">,</span>
+<span></span>            <span class="s2">"https://alpha.ultralytics.com/api/webhooks/models/upload"</span><span class="p">,</span>
 <span></span>            <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">"project"</span><span class="p">:</span> <span class="n">project</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s2">"filename"</span><span class="p">:</span> <span class="n">model_path</span><span class="o">.</span><span class="n">name</span><span class="p">},</span>
 <span></span>            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">"Authorization"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"Bearer </span><span class="si">{</span><span class="n">_api_key</span><span class="si">}</span><span class="s2">"</span><span class="p">},</span>
 <span></span>            <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
