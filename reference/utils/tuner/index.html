@@ -17,7 +17,7 @@
 <span></span>
 <span></span><span class="n">Start</span> <span class="n">tuning</span> <span class="n">hyperparameters</span> <span class="k">for</span> <span class="n">YOLO11n</span> <span class="n">training</span> <span class="n">on</span> <span class="n">the</span> <span class="n">COCO8</span> <span class="n">dataset</span>
 <span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">result_grid</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">use_ray</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</code></pre></div><details><summary>Source code in <code>ultralytics/utils/tuner.py</code></summary><a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/utils/tuner.py#L9-L160"><i aria-hidden="true" class="fa-brands fa-github" style="margin-right:6px;"></i>View on GitHub</a><div class="highlight"><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_ray_tune</span><span class="p">(</span>
+</code></pre></div><details><summary>Source code in <code>ultralytics/utils/tuner.py</code></summary><a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/utils/tuner.py#L9-L171"><i aria-hidden="true" class="fa-brands fa-github" style="margin-right:6px;"></i>View on GitHub</a><div class="highlight"><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_ray_tune</span><span class="p">(</span>
 <span></span>    <span class="n">model</span><span class="p">,</span>
 <span></span>    <span class="n">space</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">grace_period</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
@@ -98,12 +98,23 @@
 <span></span>    <span class="c1"># Put the model in ray store</span>
 <span></span>    <span class="n">task</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">task</span>
 <span></span>    <span class="n">model_in_store</span> <span class="o">=</span> <span class="n">ray</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<span></span>    <span class="n">base_name</span> <span class="o">=</span> <span class="n">train_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"name"</span><span class="p">,</span> <span class="s2">"tune"</span><span class="p">)</span>
 <span></span>
 <span></span>    <span class="k">def</span><span class="w"> </span><span class="nf">_tune</span><span class="p">(</span><span class="n">config</span><span class="p">):</span>
 <span></span><span class="w">        </span><span class="sd">"""Train the YOLO model with the specified hyperparameters and return results."""</span>
 <span></span>        <span class="n">model_to_train</span> <span class="o">=</span> <span class="n">ray</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">model_in_store</span><span class="p">)</span>  <span class="c1"># get the model from ray store for tuning</span>
 <span></span>        <span class="n">model_to_train</span><span class="o">.</span><span class="n">reset_callbacks</span><span class="p">()</span>
 <span></span>        <span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">train_args</span><span class="p">)</span>
+<span></span>
+<span></span>        <span class="c1"># Set trial-specific name for W&amp;B logging</span>
+<span></span>        <span class="k">try</span><span class="p">:</span>
+<span></span>            <span class="n">trial_id</span> <span class="o">=</span> <span class="n">tune</span><span class="o">.</span><span class="n">get_trial_id</span><span class="p">()</span>  <span class="c1"># Get current trial ID (e.g., "2c2fc_00000")</span>
+<span></span>            <span class="n">trial_suffix</span> <span class="o">=</span> <span class="n">trial_id</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"_"</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="s2">"_"</span> <span class="ow">in</span> <span class="n">trial_id</span> <span class="k">else</span> <span class="n">trial_id</span>
+<span></span>            <span class="n">config</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">base_name</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">trial_suffix</span><span class="si">}</span><span class="s2">"</span>
+<span></span>        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+<span></span>            <span class="c1"># Not in Ray Tune context or error getting trial ID, use base name</span>
+<span></span>            <span class="n">config</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span> <span class="o">=</span> <span class="n">base_name</span>
+<span></span>
 <span></span>        <span class="n">results</span> <span class="o">=</span> <span class="n">model_to_train</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="o">**</span><span class="n">config</span><span class="p">)</span>
 <span></span>        <span class="k">return</span> <span class="n">results</span><span class="o">.</span><span class="n">results_dict</span>
 <span></span>
