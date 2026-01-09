@@ -17,7 +17,7 @@
 <span></span>
 <span></span><span class="n">Start</span> <span class="n">tuning</span> <span class="n">hyperparameters</span> <span class="k">for</span> <span class="n">YOLO11n</span> <span class="n">training</span> <span class="n">on</span> <span class="n">the</span> <span class="n">COCO8</span> <span class="n">dataset</span>
 <span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">result_grid</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">use_ray</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</code></pre></div><details><summary>Source code in <code>ultralytics/utils/tuner.py</code></summary><a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/utils/tuner.py#L9-L171"><i aria-hidden="true" class="fa-brands fa-github" style="margin-right:6px;"></i>View on GitHub</a><div class="highlight"><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_ray_tune</span><span class="p">(</span>
+</code></pre></div><details><summary>Source code in <code>ultralytics/utils/tuner.py</code></summary><a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/utils/tuner.py#L9-L168"><i aria-hidden="true" class="fa-brands fa-github" style="margin-right:6px;"></i>View on GitHub</a><div class="highlight"><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_ray_tune</span><span class="p">(</span>
 <span></span>    <span class="n">model</span><span class="p">,</span>
 <span></span>    <span class="n">space</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">grace_period</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
@@ -46,9 +46,6 @@
 <span></span><span class="sd">        &gt;&gt;&gt; result_grid = model.tune(data="coco8.yaml", use_ray=True)</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"💡 Learn about RayTune at https://docs.ultralytics.com/integrations/ray-tune"</span><span class="p">)</span>
-<span></span>    <span class="k">if</span> <span class="n">train_args</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span></span>        <span class="n">train_args</span> <span class="o">=</span> <span class="p">{}</span>
-<span></span>
 <span></span>    <span class="k">try</span><span class="p">:</span>
 <span></span>        <span class="n">checks</span><span class="o">.</span><span class="n">check_requirements</span><span class="p">(</span><span class="s2">"ray[tune]"</span><span class="p">)</span>
 <span></span>
