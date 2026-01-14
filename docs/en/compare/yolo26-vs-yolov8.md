@@ -56,7 +56,7 @@ The following table contrasts the performance of YOLO26 against YOLOv8 on the [C
 | YOLOv8l     | 640                   | 52.9                 | 375.2                          | 9.06                                | 43.7               | 165.2             |
 | YOLOv8x     | 640                   | 53.9                 | 479.1                          | 14.37                               | 68.2               | 257.8             |
 
-_Metrics based on standard testing environments. Speed generally favours YOLO26 on CPU due to architectural optimizations._
+_Metrics based on standard testing environments. Speed generally favors YOLO26 on CPU due to architectural optimizations._
 
 ### Task Versatility
 
