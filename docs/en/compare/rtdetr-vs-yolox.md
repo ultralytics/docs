@@ -76,22 +76,22 @@ The following table contrasts the performance of RTDETRv2 and YOLOX on the COCO 
 ### RTDETRv2
 
 - **Strengths:**
-  - **NMS-Free Potential:** As a transformer-based model, it moves closer to end-to-end detection, reducing reliance on [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) thresholds.
-  - **Global Context:** The attention mechanism allows the model to understand the relationship between distant parts of an image, improving performance in complex scenes with occlusion.
-  - **Adaptability:** The ability to adjust decoder layers offers flexibility during deployment without retraining.
+    - **NMS-Free Potential:** As a transformer-based model, it moves closer to end-to-end detection, reducing reliance on [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) thresholds.
+    - **Global Context:** The attention mechanism allows the model to understand the relationship between distant parts of an image, improving performance in complex scenes with occlusion.
+    - **Adaptability:** The ability to adjust decoder layers offers flexibility during deployment without retraining.
 - **Weaknesses:**
-  - **Resource Intensity:** Transformers typically require more GPU memory during training compared to pure CNN architectures like YOLOX.
-  - **Complexity:** The architecture can be harder to debug and optimize for specific edge hardware compared to simpler convolutional stacks.
+    - **Resource Intensity:** Transformers typically require more GPU memory during training compared to pure CNN architectures like YOLOX.
+    - **Complexity:** The architecture can be harder to debug and optimize for specific edge hardware compared to simpler convolutional stacks.
 
 ### YOLOX
 
 - **Strengths:**
-  - **Simplicity:** The anchor-free design simplifies the pipeline and reduces the number of hyperparameters developers need to tune.
-  - **Lightweight Options:** The Nano and Tiny versions are exceptionally small, making them suitable for mobile applications and [IoT devices](https://www.ultralytics.com/glossary/edge-computing).
-  - **Community Support:** As a well-established model, there are many third-party implementations and deployment guides available.
+    - **Simplicity:** The anchor-free design simplifies the pipeline and reduces the number of hyperparameters developers need to tune.
+    - **Lightweight Options:** The Nano and Tiny versions are exceptionally small, making them suitable for mobile applications and [IoT devices](https://www.ultralytics.com/glossary/edge-computing).
+    - **Community Support:** As a well-established model, there are many third-party implementations and deployment guides available.
 - **Weaknesses:**
-  - **Training Speed:** YOLOX can be slower to converge compared to newer Ultralytics models that utilize optimized training pipelines.
-  - **Accuracy Ceiling:** In high-complexity scenarios, it may lag behind newer transformer-hybrid models or the latest YOLO iterations like YOLO11 or YOLO26.
+    - **Training Speed:** YOLOX can be slower to converge compared to newer Ultralytics models that utilize optimized training pipelines.
+    - **Accuracy Ceiling:** In high-complexity scenarios, it may lag behind newer transformer-hybrid models or the latest YOLO iterations like YOLO11 or YOLO26.
 
 ## Ideal Use Cases
 
