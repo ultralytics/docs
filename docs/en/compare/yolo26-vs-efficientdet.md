@@ -73,7 +73,7 @@ YOLO26 represents a departure from traditional anchor-based detection logic foun
 
 EfficientDet is built on the **EfficientNet** backbone and introduces the **BiFPN** (Bi-directional Feature Pyramid Network).
 
-- **Compound Scaling:** EfficientDet scales resolution, width, and depth simultaneously using a compound coefficient $\phi$. This allows users to trade off accuracy for resources systematically from D0 to D7.
+- **Compound Scaling:** EfficientDet scales resolution, width, and depth simultaneously using a compound coefficient (phi). This allows users to trade off accuracy for resources systematically from D0 to D7.
 - **BiFPN:** Unlike a standard FPN, BiFPN allows information to flow both top-down and bottom-up, and it uses learnable weights to determine the importance of different input features.
 - **Anchor-Based:** EfficientDet relies on a set of pre-defined anchor boxes, requiring careful tuning of aspect ratios and scales for optimal performance on [custom datasets](https://docs.ultralytics.com/datasets/).
 

@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Explore a detailed comparison of YOLOv6-3.0 and EfficientDet including benchmarks, architectures, and applications for optimal object detection model choice.
-keywords: YOLOv6, EfficientDet, object detection, model comparison, YOLOv6-3.0, EfficientDet-d7, computer vision, benchmarks, architecture, real-time detection
+description: Explore a detailed comparison of YOLOv5 and YOLO26 including benchmarks, architectures, and applications for optimal object detection model choice.
+keywords: YOLOv5, YOLO26, object detection, model comparison, YOLOv5, YOLO26, computer vision, benchmarks, architecture, real-time detection
 ---
 
 # YOLOv5 vs. YOLO26: Evolution of Real-Time Object Detection

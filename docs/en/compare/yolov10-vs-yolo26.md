@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Explore a detailed technical comparison of YOLO11 and EfficientDet, including architecture, performance benchmarks, and ideal applications for object detection.
-keywords: YOLO11, EfficientDet, object detection, model comparison, YOLO vs EfficientDet, computer vision, technical comparison, Ultralytics, performance benchmarks
+description: Explore a detailed technical comparison of YOLOv10 and YOLO26, including architecture, performance benchmarks, and ideal applications for object detection.
+keywords: YOLOv10, YOLO26, object detection, model comparison, YOLOv10 vs YOLO26, computer vision, technical comparison, Ultralytics, performance benchmarks
 ---
 
 # YOLOv10 vs. YOLO26: A Comparative Analysis

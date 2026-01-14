@@ -39,11 +39,11 @@ The following table highlights the performance trade-offs between the DAMO-YOLO 
 
 DAMO-YOLO was introduced in late 2022 as a high-performance detector designed to bridge the gap between low latency and high accuracy. Developed by the Alibaba Group, it incorporates several "new tech" components to push the boundaries of the YOLO family.
 
-Authors: Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun  
-Organization: [Alibaba Group](https://www.alibabagroup.com/)  
-Date: 2022-11-23  
-Arxiv: [https://arxiv.org/abs/2211.15444v2](https://arxiv.org/abs/2211.15444v2)  
-GitHub: [https://github.com/tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)
+Authors: Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun
+Organization: [Alibaba Group](https://www.alibabagroup.com/)
+Date: 2022-11-23
+Arxiv: [DAMO-YOLO paper on arXiv](https://arxiv.org/abs/2211.15444v2)
+GitHub: [DAMO-YOLO GitHub repository](https://github.com/tinyvision/DAMO-YOLO)
 
 [Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
 
@@ -71,7 +71,7 @@ GitHub: [https://github.com/google/automl/tree/master/efficientdet](https://gith
 
 The defining feature of EfficientDet is the **BiFPN (Bi-directional Feature Pyramid Network)**. Unlike standard FPNs that only pass information top-down, BiFPN allows for complex, weighted bidirectional feature fusion. This ensures that the network learns the importance of different input features, leading to better multi-scale detection.
 
-EfficientDet also pioneered **Compound Scaling**. Instead of arbitrarily increasing depth, width, or resolution, the authors proposed a compound coefficient $\phi$ that uniformly scales all dimensions of the network. This allows users to choose from EfficientDet-D0 (fastest, lightest) up to D7 (most accurate, heaviest) depending on their specific resource constraints. While revolutionary at the time, the heavy use of depth-wise separable convolutions can sometimes lead to lower GPU utilization compared to standard convolutions used in YOLO architectures.
+EfficientDet also pioneered **Compound Scaling**. Instead of arbitrarily increasing depth, width, or resolution, the authors proposed a compound scaling coefficient that uniformly scales all dimensions of the network. This allows users to choose from EfficientDet-D0 (fastest, lightest) up to D7 (most accurate, heaviest) depending on their specific resource constraints. While revolutionary at the time, the heavy use of depth-wise separable convolutions can sometimes lead to lower GPU utilization compared to standard convolutions used in YOLO architectures.
 
 ## Training Methodologies and Usability
 

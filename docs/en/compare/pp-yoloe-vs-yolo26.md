@@ -1,7 +1,7 @@
 ---
 comments: true
-description: Compare YOLOv5 and EfficientDet for object detection. Explore architecture, performance, strengths, and use cases to choose the right model.
-keywords: YOLOv5, EfficientDet, object detection, model comparison, computer vision, performance metrics, Ultralytics, real-time detection, deep learning
+description: Compare PP-YOLOE+ and YOLO26 for object detection. Explore architecture, performance, strengths, and use cases to choose the right model.
+keywords: PP-YOLOE+, YOLO26, object detection, model comparison, computer vision, performance metrics, Ultralytics, real-time detection, deep learning
 ---
 
 # PP-YOLOE+ vs. YOLO26: A Deep Dive into SOTA Object Detectors
@@ -133,7 +133,7 @@ YOLO26 is designed for lower memory consumption during training. The new **MuSGD
 
 ### When to choose YOLO26
 
-- **Real-Time Edge Deployment:** For applications on [Android](https://docs.ultralytics.com/platform/app/), iOS, or embedded Linux where every millisecond of latency counts.
+- **Real-Time Edge Deployment:** For applications on [Android](https://docs.ultralytics.com/guides/model-deployment-options/), iOS, or embedded Linux where every millisecond of latency counts.
 - **Small Object Detection:** The combination of **ProgLoss** and **STAL** makes YOLO26 superior for tasks like [drone imagery analysis](https://docs.ultralytics.com/datasets/detect/visdrone/) or defect detection in manufacturing.
 - **Multi-Task Requirements:** If your project requires switching between detection, segmentation, and pose estimation without learning a new API or codebase.
 - **Rapid Prototyping:** The "batteries-included" nature of the Ultralytics package allows startups and enterprise teams to move from data to deployment faster.

@@ -129,7 +129,7 @@ yolo export model=yolo26n.pt format=onnx
 
 **Choose YOLO26 if:**
 
-- **Edge Deployment is Critical:** The removal of NMS and DFL makes YOLO26 the superior choice for [Android/iOS apps](https://docs.ultralytics.com/platform/app/) and embedded systems where CPU cycles are precious.
+- **Edge Deployment is Critical:** The removal of NMS and DFL makes YOLO26 the superior choice for [Android/iOS apps](https://docs.ultralytics.com/guides/model-deployment-options/) and embedded systems where CPU cycles are precious.
 - **Small Object Detection:** The ProgLoss and STAL functions make it significantly better for [identifying pests in agriculture](https://www.ultralytics.com/blog/leverage-ultralytics-yolo11-object-detection-for-pest-control) or distant objects in drone footage.
 - **Training Stability:** If you are training on massive custom datasets and have experienced divergence issues, the MuSGD optimizer in YOLO26 offers a more stable training path.
 - **Simplest Export:** The end-to-end architecture exports more cleanly to formats like CoreML and TensorRT without requiring complex external NMS plugins.

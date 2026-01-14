@@ -81,7 +81,7 @@ The core strength of DAMO-YOLO lies in its automated design process.
 PP-YOLOE+ focuses on refining the details of the inference cycle.
 
 1.  **Scalable CSPRepResStage:** This backbone combines the gradient flow benefits of CSPNet with the residual learning of ResNet, optimized via reparameterization for inference.
-2.  **Task Alignment Learning (TAL):** Similar to TODO, TAL explicitly aligns the anchor classification score with the IoU (Intersection over Union) of the prediction, helping the model suppress low-quality bounding boxes during [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms).
+2.  **Task Alignment Learning (TAL):** TAL explicitly aligns the anchor classification score with the IoU (Intersection over Union) of the prediction, helping the model suppress low-quality bounding boxes during [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms).
 3.  **VFL and DFL:** The use of Varifocal Loss (VFL) and Distribution Focal Loss (DFL) improves the training stability and localization accuracy, particularly for difficult examples.
 
 !!! info "The Role of Distillation"

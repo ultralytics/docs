@@ -110,7 +110,7 @@ The choice of model often depends on the specific deployment environment.
 
 In high-speed manufacturing lines, **YOLOv6** and **YOLO26** are preferred due to their high frame rates. Detecting defects on a conveyor belt moving at 5 meters per second requires inference times below 10ms, which EfficientDet-d4/d5 struggles to achieve on standard hardware.
 
-- **Application:** [Packaging inspection](https://docs.ultralytics.com/datasets/segment/package-seg/) and [defect detection](https://docs.ultralytics.com/examples/manufacturing/).
+- **Application:** [Packaging inspection](https://docs.ultralytics.com/datasets/segment/package-seg/) and [defect detection](https://docs.ultralytics.com/solutions/).
 
 ### Aerial Imagery and Remote Sensing
 
