@@ -1,12 +1,12 @@
 ---
 comments: true
-description: Explore comprehensive comparisons of Ultralytics YOLO11, YOLOv10, RT-DETR, and other top object detection models. Use our benchmarks, charts, and decision guides to select the perfect model.
-keywords: YOLO11, YOLOv10 comparison, YOLOv8 vs RT-DETR, object detection benchmarks, computer vision models, AI model selection, Ultralytics Platform, speed vs accuracy
+description: Explore comprehensive comparisons of Ultralytics YOLO26, YOLO11, YOLOv10, RT-DETR, and other top object detection models. Use our benchmarks, charts, and decision guides to select the perfect model.
+keywords: YOLO26, YOLO11, YOLOv10 comparison, YOLOv8 vs RT-DETR, object detection benchmarks, computer vision models, AI model selection, Ultralytics Platform, speed vs accuracy
 ---
 
 # Model Comparisons: Choose the Best Object Detection Model for Your Project
 
-Choosing the right neural network architecture is the cornerstone of any successful [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) project. Welcome to the **Ultralytics Model Comparison Hub**! This page centralizes detailed technical analyses and performance benchmarks, dissecting the trade-offs between the latest [Ultralytics YOLO11](https://docs.ultralytics.com/models/yolo11/) and other leading architectures like YOLOv10, RT-DETR, and EfficientDet.
+Choosing the right neural network architecture is the cornerstone of any successful [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) project. Welcome to the **Ultralytics Model Comparison Hub**! This page centralizes detailed technical analyses and performance benchmarks, dissecting the trade-offs between the latest [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) and other leading architectures like YOLO11, YOLOv10, RT-DETR, and EfficientDet.
 
 Whether your application demands the millisecond latency of [edge AI](https://www.ultralytics.com/glossary/edge-ai) or the high-fidelity precision required for medical imaging, this guide provides the data-driven insights needed to make an informed choice. We evaluate models based on [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map), [inference speed](https://www.ultralytics.com/glossary/inference-latency), parameter efficiency, and ease of deployment.
 
@@ -31,29 +31,40 @@ graph TD
     B -- "Edge / Mobile (CPU/NPU)" --> C{Latency Priority?}
     B -- "Cloud / GPU" --> D{Accuracy vs Speed?}
 
-    C -- "Extreme Speed (Real-time)" --> E[YOLO11n / YOLO11s]
-    C -- "Balanced Legacy" --> F[YOLOv5s / YOLOv8s]
+    C -- "Extreme Speed (Real-time)" --> E[YOLO26n / YOLO26s]
+    C -- "Balanced Legacy" --> F[YOLO11s / YOLOv8s]
 
-    D -- "Max Accuracy (SOTA)" --> G[YOLO11x / RT-DETR-X]
-    D -- "Balanced Performance" --> H[YOLO11m / YOLO11l]
+    D -- "Max Accuracy (SOTA)" --> G[YOLO26x / YOLO26l]
+    D -- "Balanced Performance" --> H[YOLO26m / YOLO11m]
 
     A --> I{Specialized Features?}
-    I -- "NMS-Free Inference" --> J[YOLOv10]
-    I -- "Multitask (Seg/Pose/OBB)" --> K[YOLO11 / YOLOv8]
-    I -- "Video Analytics" --> L[YOLO11 + Tracking]
+    I -- "NMS-Free Inference" --> J[YOLO26 / YOLOv10]
+    I -- "Multitask (Seg/Pose/OBB)" --> K[YOLO26 / YOLO11]
+    I -- "Video Analytics" --> L[YOLO26 + Tracking]
 ```
 
-## The Current Landscape: YOLO11 and Beyond
+## The Current Landscape: YOLO26 and Beyond
 
 The field of object detection moves rapidly. While older models remain relevant for legacy support, new architectures push the boundaries of what is possible.
 
+### [Ultralytics YOLO26](../models/yolo26.md)
+
+Released in January 2026, **YOLO26** is the latest state-of-the-art model and the recommended starting point for all new projects. It introduces groundbreaking architectural innovations including an **End-to-End NMS-Free Design** that eliminates the need for Non-Maximum Suppression post-processing, resulting in faster and more predictable inference times. YOLO26 is up to **43% faster on CPUs** compared to previous generations, making it ideal for edge deployment.
+
+Key innovations include:
+
+- **NMS-Free End-to-End:** Simplified deployment with no post-processing required
+- **DFL Removal:** Streamlined exports to ONNX, TensorRT, and CoreML
+- **MuSGD Optimizer:** Hybrid SGD/Muon optimizer inspired by LLM training for stable convergence
+- **ProgLoss + STAL:** Enhanced small object detection performance
+
+!!! tip "Why Choose YOLO26?"
+
+    YOLO26 represents the pinnacle of Ultralytics engineering, combining the best of CNN efficiency with transformer-like end-to-end capabilities. It supports all tasks—detection, segmentation, pose estimation, classification, and OBB—while being smaller, faster, and easier to deploy than ever before.
+
 ### [Ultralytics YOLO11](../models/yolo11.md)
 
-As the latest stable release, **YOLO11** is the recommended starting point for new projects. It introduces significant architectural improvements over previous versions, including enhanced [feature extraction](https://www.ultralytics.com/glossary/feature-extraction) capabilities and optimized computation graphs. It supports a full suite of tasks—detection, segmentation, pose estimation, classification, and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/)—within a single, unified framework.
-
-!!! tip "Why Choose YOLO11?"
-
-    YOLO11 represents the pinnacle of Ultralytics engineering, offering the best balance of speed and accuracy for real-world applications. It is fully supported by our ecosystem, ensuring long-term maintenance and compatibility.
+**YOLO11** remains a highly capable model, offering a 22% reduction in parameters compared to YOLOv8 while improving detection accuracy. It is fully supported and recommended for users who need proven stability or have existing YOLO11 pipelines.
 
 ### Community Models: A Note on YOLO12 and YOLO13
 
@@ -66,10 +77,6 @@ You may encounter references to **YOLO12** or **YOLO13** in community discussion
     *   **YOLO12:** Utilizes attention layers that often cause training instability, excessive memory consumption, and significantly slower CPU inference speeds.
     *   **YOLO13:** Benchmarks indicate only marginal accuracy gains over YOLO11 while being larger and slower. Reported results have shown issues with reproducibility.
 
-### Looking Ahead: YOLO26 and Ultralytics Platform
-
-Ultralytics is actively developing **YOLO26**, targeting an open-source release in late 2025. This next-generation model aims to support all YOLO11 tasks while being smaller, faster, and natively end-to-end. Furthermore, in 2026, the **Ultralytics Platform** will launch as a comprehensive SaaS solution for data sourcing, auto-annotation, and cloud training, simplifying the entire [MLOps lifecycle](https://www.ultralytics.com/glossary/machine-learning-operations-mlops).
-
 <p align="center">
   <br>
   <iframe loading="lazy" width="720" height="405" src="https://www.youtube.com/embed/POlQ8MIHhlM"
@@ -78,17 +85,35 @@ Ultralytics is actively developing **YOLO26**, targeting an open-source release 
     allowfullscreen>
   </iframe>
   <br>
-  <strong>Watch:</strong> YOLO Models Comparison: Ultralytics YOLO11 vs. YOLOv10 vs. YOLOv9 vs. Ultralytics YOLOv8 🎉
+  <strong>Watch:</strong> YOLO Models Comparison: Ultralytics YOLO11 vs. YOLOv10 vs. YOLOv9 vs. Ultralytics YOLOv8
 </p>
 
 ## Detailed Model Comparisons
 
 Explore our in-depth technical comparisons to understand specific architectural differences, such as backbone selection, head design, and loss functions. We've organized them by model for easy access:
 
+### [YOLO26](../models/yolo26.md) vs
+
+YOLO26 is the latest Ultralytics model featuring NMS-free end-to-end detection, the MuSGD optimizer, and up to 43% faster CPU inference. It's optimized for edge deployment while achieving state-of-the-art accuracy.
+
+- [YOLO26 vs YOLO11](yolo26-vs-yolo11.md)
+- [YOLO26 vs YOLOv10](yolo26-vs-yolov10.md)
+- [YOLO26 vs YOLOv9](yolo26-vs-yolov9.md)
+- [YOLO26 vs YOLOv8](yolo26-vs-yolov8.md)
+- [YOLO26 vs YOLOv7](yolo26-vs-yolov7.md)
+- [YOLO26 vs YOLOv6-3.0](yolo26-vs-yolov6.md)
+- [YOLO26 vs YOLOv5](yolo26-vs-yolov5.md)
+- [YOLO26 vs PP-YOLOE+](yolo26-vs-pp-yoloe.md)
+- [YOLO26 vs DAMO-YOLO](yolo26-vs-damo-yolo.md)
+- [YOLO26 vs YOLOX](yolo26-vs-yolox.md)
+- [YOLO26 vs RT-DETR](yolo26-vs-rtdetr.md)
+- [YOLO26 vs EfficientDet](yolo26-vs-efficientdet.md)
+
 ### [YOLO11](../models/yolo11.md) vs
 
 YOLO11 builds upon the success of its predecessors with cutting-edge research. It features an improved backbone and neck architecture for better feature extraction and optimized efficiency.
 
+- [YOLO11 vs YOLO26](yolo11-vs-yolo26.md)
 - [YOLO11 vs YOLOv10](yolo11-vs-yolov10.md)
 - [YOLO11 vs YOLOv9](yolo11-vs-yolov9.md)
 - [YOLO11 vs YOLOv8](yolo11-vs-yolov8.md)
@@ -105,6 +130,7 @@ YOLO11 builds upon the success of its predecessors with cutting-edge research. I
 
 Developed by Tsinghua University, YOLOv10 focuses on removing the [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) step to reduce latency variance, offering state-of-the-art performance with reduced computational overhead.
 
+- [YOLOv10 vs YOLO26](yolov10-vs-yolo26.md)
 - [YOLOv10 vs YOLO11](yolov10-vs-yolo11.md)
 - [YOLOv10 vs YOLOv9](yolov10-vs-yolov9.md)
 - [YOLOv10 vs YOLOv8](yolov10-vs-yolov8.md)
@@ -121,6 +147,7 @@ Developed by Tsinghua University, YOLOv10 focuses on removing the [Non-Maximum S
 
 YOLOv9 introduces Programmable Gradient Information (PGI) and the Generalized Efficient Layer Aggregation Network (GELAN) to address information loss in deep neural networks.
 
+- [YOLOv9 vs YOLO26](yolov9-vs-yolo26.md)
 - [YOLOv9 vs YOLO11](yolov9-vs-yolo11.md)
 - [YOLOv9 vs YOLOv10](yolov9-vs-yolov10.md)
 - [YOLOv9 vs YOLOv8](yolov9-vs-yolov8.md)
@@ -137,6 +164,7 @@ YOLOv9 introduces Programmable Gradient Information (PGI) and the Generalized Ef
 
 Ultralytics YOLOv8 remains a highly popular choice, featuring advanced backbone and neck architectures and an anchor-free split head for optimal accuracy-speed tradeoffs.
 
+- [YOLOv8 vs YOLO26](yolov8-vs-yolo26.md)
 - [YOLOv8 vs YOLO11](yolov8-vs-yolo11.md)
 - [YOLOv8 vs YOLOv10](yolov8-vs-yolov10.md)
 - [YOLOv8 vs YOLOv9](yolov8-vs-yolov9.md)
@@ -153,6 +181,7 @@ Ultralytics YOLOv8 remains a highly popular choice, featuring advanced backbone 
 
 YOLOv7 introduced "trainable bag-of-freebies" and model re-parameterization, focusing on optimizing the training process without increasing inference costs.
 
+- [YOLOv7 vs YOLO26](yolov7-vs-yolo26.md)
 - [YOLOv7 vs YOLO11](yolov7-vs-yolo11.md)
 - [YOLOv7 vs YOLOv10](yolov7-vs-yolov10.md)
 - [YOLOv7 vs YOLOv9](yolov7-vs-yolov9.md)
@@ -169,6 +198,7 @@ YOLOv7 introduced "trainable bag-of-freebies" and model re-parameterization, foc
 
 Meituan's YOLOv6 is designed for industrial applications, featuring Bi-directional Concatenation (BiC) modules and anchor-aided training strategies.
 
+- [YOLOv6-3.0 vs YOLO26](yolov6-vs-yolo26.md)
 - [YOLOv6-3.0 vs YOLO11](yolov6-vs-yolo11.md)
 - [YOLOv6-3.0 vs YOLOv10](yolov6-vs-yolov10.md)
 - [YOLOv6-3.0 vs YOLOv9](yolov6-vs-yolov9.md)
@@ -185,6 +215,7 @@ Meituan's YOLOv6 is designed for industrial applications, featuring Bi-direction
 
 Ultralytics YOLOv5 is celebrated for its ease of use, stability, and speed. It remains a robust choice for projects requiring broad device compatibility.
 
+- [YOLOv5 vs YOLO26](yolov5-vs-yolo26.md)
 - [YOLOv5 vs YOLO11](yolov5-vs-yolo11.md)
 - [YOLOv5 vs YOLOv10](yolov5-vs-yolov10.md)
 - [YOLOv5 vs YOLOv9](yolov5-vs-yolov9.md)
@@ -201,6 +232,7 @@ Ultralytics YOLOv5 is celebrated for its ease of use, stability, and speed. It r
 
 RT-DETR (Real-Time Detection Transformer) leverages vision transformers to achieve high accuracy with real-time performance, excelling in global context understanding.
 
+- [RT-DETR vs YOLO26](rtdetr-vs-yolo26.md)
 - [RT-DETR vs YOLO11](rtdetr-vs-yolo11.md)
 - [RT-DETR vs YOLOv10](rtdetr-vs-yolov10.md)
 - [RT-DETR vs YOLOv9](rtdetr-vs-yolov9.md)
@@ -217,6 +249,7 @@ RT-DETR (Real-Time Detection Transformer) leverages vision transformers to achie
 
 PP-YOLOE+, developed by Baidu, uses Task Alignment Learning (TAL) and a decoupled head to balance efficiency and accuracy.
 
+- [PP-YOLOE+ vs YOLO26](pp-yoloe-vs-yolo26.md)
 - [PP-YOLOE+ vs YOLO11](pp-yoloe-vs-yolo11.md)
 - [PP-YOLOE+ vs YOLOv10](pp-yoloe-vs-yolov10.md)
 - [PP-YOLOE+ vs YOLOv9](pp-yoloe-vs-yolov9.md)
@@ -233,6 +266,7 @@ PP-YOLOE+, developed by Baidu, uses Task Alignment Learning (TAL) and a decouple
 
 From Alibaba Group, DAMO-YOLO employs Neural Architecture Search (NAS) and efficient RepGFPN to maximize accuracy on static benchmarks.
 
+- [DAMO-YOLO vs YOLO26](damo-yolo-vs-yolo26.md)
 - [DAMO-YOLO vs YOLO11](damo-yolo-vs-yolo11.md)
 - [DAMO-YOLO vs YOLOv10](damo-yolo-vs-yolov10.md)
 - [DAMO-YOLO vs YOLOv9](damo-yolo-vs-yolov9.md)
@@ -249,6 +283,7 @@ From Alibaba Group, DAMO-YOLO employs Neural Architecture Search (NAS) and effic
 
 YOLOX, developed by Megvii, is an anchor-free evolution known for its decoupled head and SimOTA label assignment strategy.
 
+- [YOLOX vs YOLO26](yolox-vs-yolo26.md)
 - [YOLOX vs YOLO11](yolox-vs-yolo11.md)
 - [YOLOX vs YOLOv10](yolox-vs-yolov10.md)
 - [YOLOX vs YOLOv9](yolox-vs-yolov9.md)
@@ -265,6 +300,7 @@ YOLOX, developed by Megvii, is an anchor-free evolution known for its decoupled 
 
 EfficientDet by Google Brain uses compound scaling and BiFPN to optimize parameter efficiency, offering a spectrum of models (D0-D7) for different constraints.
 
+- [EfficientDet vs YOLO26](efficientdet-vs-yolo26.md)
 - [EfficientDet vs YOLO11](efficientdet-vs-yolo11.md)
 - [EfficientDet vs YOLOv10](efficientdet-vs-yolov10.md)
 - [EfficientDet vs YOLOv9](efficientdet-vs-yolov9.md)
