@@ -127,7 +127,8 @@ Conversely, utilizing YOLOv6 often involves more complex configuration files and
 YOLO26's NMS-free design fundamentally simplifies deployment. Exporting to formats like ONNX or OpenVINO is straightforward because custom NMS plugins are no longer required. This ensures that the model runs identically on a [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/), a mobile phone, or a cloud server.
 
 !!! tip "Memory Efficiency"
-YOLO26 models typically require significantly less GPU memory during training compared to older architectures or transformer-based models. This allows researchers to train larger batch sizes or use accessible hardware like free [Google Colab](https://docs.ultralytics.com/integrations/google-colab/) tiers.
+
+    YOLO26 models typically require significantly less GPU memory during training compared to older architectures or transformer-based models. This allows researchers to train larger batch sizes or use accessible hardware like free [Google Colab](https://docs.ultralytics.com/integrations/google-colab/) tiers.
 
 ## Conclusion
 

@@ -44,7 +44,8 @@ For most modern applications, particularly those deploying to edge devices or re
 4.  **Multi-positives:** To mitigate the extreme imbalance of positive/negative samples in anchor-free detectors, YOLOX assigns the center 3x3 area as positives.
 
 !!! info "Legacy Strengths"
-YOLOX remains a strong baseline for academic research and scenarios where legacy anchor-free implementations are preferred. Its decoupled head design heavily influenced subsequent architectures.
+
+    YOLOX remains a strong baseline for academic research and scenarios where legacy anchor-free implementations are preferred. Its decoupled head design heavily influenced subsequent architectures.
 
 ---
 
@@ -70,7 +71,8 @@ YOLOX remains a strong baseline for academic research and scenarios where legacy
 5.  **Task Versatility:** Unlike YOLOX, which is primarily a detector, YOLO26 supports [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), [Classification](https://docs.ultralytics.com/tasks/classify/), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) tasks out of the box.
 
 !!! tip "Edge Optimization"
-YOLO26 boasts **up to 43% faster CPU inference** compared to previous generations, making it the superior choice for deployments on Raspberry Pi, mobile devices, and standard Intel CPUs without dedicated GPUs.
+
+    YOLO26 boasts **up to 43% faster CPU inference** compared to previous generations, making it the superior choice for deployments on Raspberry Pi, mobile devices, and standard Intel CPUs without dedicated GPUs.
 
 ---
 

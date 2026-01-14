@@ -144,4 +144,5 @@ For developers seeking the best possible balance of speed, accuracy, and efficie
 For those looking to the absolute cutting edge, keep an eye on the newly released [YOLO26](https://docs.ultralytics.com/models/yolo26/), which introduces end-to-end NMS-free detection for even faster deployment.
 
 !!! note "Explore Further"
-Interested in other models? Check out [YOLOv9](https://docs.ultralytics.com/models/yolov9/) for programmable gradient information or [YOLOv10](https://docs.ultralytics.com/models/yolov10/) for earlier experiments in NMS-free architectures.
+
+    Interested in other models? Check out [YOLOv9](https://docs.ultralytics.com/models/yolov9/) for programmable gradient information or [YOLOv10](https://docs.ultralytics.com/models/yolov10/) for earlier experiments in NMS-free architectures.
