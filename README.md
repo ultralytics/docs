@@ -137,7 +137,7 @@ Ultralytics Docs are available under two licensing options to accommodate differ
 
 ## ✉️ Contact
 
-For bug reports, feature requests, and other issues related to the documentation, please use [GitHub Issues](https://github.com/ultralytics/docs/issues). For discussions, questions, and community support regarding Ultralytics software, [Ultralytics HUB](https://docs.ultralytics.com/hub/), and more, join the conversation with peers and the Ultralytics team on our [Discord server](https://discord.com/invite/ultralytics)!
+For bug reports, feature requests, and other issues related to the documentation, please use [GitHub Issues](https://github.com/ultralytics/docs/issues). For discussions, questions, and community support regarding Ultralytics software, the [Ultralytics Platform](https://docs.ultralytics.com/platform/quickstart/), and more, join the conversation with peers and the Ultralytics team on our [Discord server](https://discord.com/invite/ultralytics)!
 
 <br>
 <div align="center">
