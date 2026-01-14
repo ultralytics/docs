@@ -45,7 +45,7 @@ Date: 2022-11-23
 Arxiv: [DAMO-YOLO paper on arXiv](https://arxiv.org/abs/2211.15444v2)
 GitHub: [DAMO-YOLO GitHub repository](https://github.com/tinyvision/DAMO-YOLO)
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO){ .md-button }
 
 ### Key Architectural Innovations
 
@@ -61,11 +61,11 @@ Furthermore, DAMO-YOLO utilizes an **Efficient RepGFPN** (Reparameterized Genera
 
 EfficientDet, released by Google in late 2019, shifted the paradigm of object detection by focusing on efficiency and scalability. It built upon the success of the EfficientNet image classification backbone.
 
-Authors: Mingxing Tan, Ruoming Pang, and Quoc V. Le  
-Organization: [Google Research](https://research.google/)  
-Date: 2019-11-20  
-Arxiv: [https://arxiv.org/abs/1911.09070](https://arxiv.org/abs/1911.09070)  
-GitHub: [https://github.com/google/automl/tree/master/efficientdet](https://github.com/google/automl/tree/master/efficientdet)
+Authors: Mingxing Tan, Ruoming Pang, and Quoc V. Le
+Organization: [Google Research](https://research.google/)
+Date: 2019-11-20
+Arxiv: [EfficientDet paper on arXiv](https://arxiv.org/abs/1911.09070)
+GitHub: [EfficientDet GitHub repository](https://github.com/google/automl/tree/master/efficientdet)
 
 ### BiFPN and Compound Scaling
 

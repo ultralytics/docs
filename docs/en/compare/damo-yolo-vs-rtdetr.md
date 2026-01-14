@@ -50,7 +50,7 @@ RTDETRv2 builds upon the success of the original RT-DETR, refining the applicati
 
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
 - **Organization:** [Baidu](https://www.baidu.com/)
-- **Date:** 2023-04-17 (Updated July 2024)
+- **Date:** 2024-07-24
 - **Arxiv:** [RT-DETR: DETRs Beat YOLOs on Real-time Object Detection](https://arxiv.org/abs/2304.08069)
 
 ### Architectural Innovations
