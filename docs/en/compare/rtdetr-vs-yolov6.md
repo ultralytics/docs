@@ -112,7 +112,7 @@ While RTDETRv2 and YOLOv6-3.0 excel in their respective niches, **Ultralytics YO
 Why developers and researchers increasingly prefer Ultralytics models:
 
 1. **Versatility:** Unlike YOLOv6, which is strictly for detection, Ultralytics supports [image classification](https://docs.ultralytics.com/tasks/classify/), [segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) detection within a single API.
-2. **Well-Maintained Ecosystem:** The Ultralytics platform provides frequent updates, broad community support, and seamless integrations with tools like [MLflow](https://docs.ultralytics.com/integrations/mlflow/), [TensorBoard](https://docs.ultralytics.com/integrations/tensorboard/), and [Ultralytics HUB](https://docs.ultralytics.com/hub/).
+2. **Well-Maintained Ecosystem:** The Ultralytics platform provides frequent updates, broad community support, and seamless integrations with tools like [MLflow](https://docs.ultralytics.com/integrations/mlflow/), [TensorBoard](https://docs.ultralytics.com/integrations/tensorboard/), and [Ultralytics HUB](https://docs.ultralytics.com/platformub/quickstart/  ).
 3. **Ease of Use:** With a "low-code" philosophy, you can train, validate, and deploy state-of-the-art models with just a few lines of Python or CLI commands.
 4. **Performance Balance:** YOLO11 provides a sweet spot of [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) speed and high accuracy, often outperforming older YOLO versions and matching complex transformers in practical scenarios.
 

@@ -93,7 +93,7 @@ model_rtdetr.predict("asset.jpg")
 
 ### Deployment and Ecosystem
 
-YOLOv7 has widespread support due to its age, but integration into modern MLOps pipelines can be manual. RTDETRv2 is newer and has growing support. In contrast, **Ultralytics** models benefit from a **Well-Maintained Ecosystem**, including seamless export to [ONNX](https://docs.ultralytics.com/integrations/onnx/), TensorRT, and CoreML, and integration with tools like [Ultralytics HUB](https://docs.ultralytics.com/hub/) for cloud training and dataset management.
+YOLOv7 has widespread support due to its age, but integration into modern MLOps pipelines can be manual. RTDETRv2 is newer and has growing support. In contrast, **Ultralytics** models benefit from a **Well-Maintained Ecosystem**, including seamless export to [ONNX](https://docs.ultralytics.com/integrations/onnx/), TensorRT, and CoreML, and integration with tools like [Ultralytics HUB](https://docs.ultralytics.com/platformub/quickstart/  ) for cloud training and dataset management.
 
 ## Ideal Use Cases
 
