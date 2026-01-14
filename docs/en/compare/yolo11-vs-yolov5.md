@@ -115,15 +115,15 @@ Both models benefit from the robust **Ultralytics ecosystem**, known for its dev
 
 - **Streamlined API:** Both models can be loaded, trained, and deployed with just a few lines of Python code using the `ultralytics` package.
 
-  ```python
-  from ultralytics import YOLO
+    ```python
+    from ultralytics import YOLO
 
-  # Load a model
-  model = YOLO("yolo11n.pt")  # or 'yolov5nu.pt'
+    # Load a model
+    model = YOLO("yolo11n.pt")  # or 'yolov5nu.pt'
 
-  # Train the model
-  model.train(data="coco8.yaml", epochs=100)
-  ```
+    # Train the model
+    model.train(data="coco8.yaml", epochs=100)
+    ```
 
 - **Memory Efficiency:** Unlike heavy transformer-based models that demand massive [GPU](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) VRAM, Ultralytics models are optimized for lower memory footprints during training, making them accessible on consumer-grade hardware.
 - **Deployment Options:** Both models support seamless export to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx/), TensorRT, CoreML, and OpenVINO, ensuring your model runs anywhere from a cloud server to an iPhone.

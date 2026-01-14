@@ -100,14 +100,14 @@ While YOLOv10 provides excellent weights and architecture, YOLOv5 benefits from 
 ## Real-World Applications
 
 - **YOLOv10 Ideal Use Cases:**
-  - **High-Speed Robotics:** Where latency jitter from NMS is unacceptable.
-  - **Edge Devices:** The reduced parameter count (e.g., YOLOv10n at 2.3M params) makes it excellent for microcontrollers.
-  - **Academic Research:** A strong baseline for studying [label assignment](https://www.ultralytics.com/glossary/data-labeling) strategies.
+    - **High-Speed Robotics:** Where latency jitter from NMS is unacceptable.
+    - **Edge Devices:** The reduced parameter count (e.g., YOLOv10n at 2.3M params) makes it excellent for microcontrollers.
+    - **Academic Research:** A strong baseline for studying [label assignment](https://www.ultralytics.com/glossary/data-labeling) strategies.
 
 - **YOLOv5 Ideal Use Cases:**
-  - **Industrial Inspection:** Validated reliability for manufacturing lines detecting defects.
-  - **Mobile Apps:** Proven compatibility with iOS (CoreML) and Android (TFLite) pipelines.
-  - **Legacy Systems:** Easy integration into existing PyTorch 1.x workflows.
+    - **Industrial Inspection:** Validated reliability for manufacturing lines detecting defects.
+    - **Mobile Apps:** Proven compatibility with iOS (CoreML) and Android (TFLite) pipelines.
+    - **Legacy Systems:** Easy integration into existing PyTorch 1.x workflows.
 
 ## The Next Step: YOLO26
 
