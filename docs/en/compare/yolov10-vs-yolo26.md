@@ -126,7 +126,7 @@ YOLOv10 remains a strong choice for academic researchers specifically investigat
 
 YOLO26 is the recommended choice for **developers, engineers, and enterprises** building real-world applications.
 
-- **Edge Deployment:** The removal of DFL and optimization for CPU inference make it ideal for [mobile apps](https://docs.ultralytics.com/platformub/quickstart/  ) and IoT devices.
+- **Edge Deployment:** The removal of DFL and optimization for CPU inference make it ideal for [mobile apps](https://docs.ultralytics.com/platform/) and IoT devices.
 - **Complex Scenarios:** The **ProgLoss** function and **STAL** provide a tangible advantage in scenarios involving small objects, such as [drone imagery](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations) or satellite analysis.
 - **Multi-Task Requirements:** Projects that may eventually need segmentation or pose estimation can stay within the same codebase without switching libraries.
 - **Production Stability:** The robust export support for ONNX, TensorRT, CoreML, and OpenVINO ensures that the model you train is the model you can deploy.

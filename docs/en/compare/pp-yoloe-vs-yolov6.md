@@ -93,7 +93,7 @@ While PP-YOLOE+ and YOLOv6-3.0 offer compelling features, developer experience a
 
 ### Ease of Use and Ecosystem
 
-Ultralytics prioritizes a seamless user experience. Unlike the complex configuration files and dependency chains often associated with PaddlePaddle or other research-centric codebases, Ultralytics offers a simple Python [API](https://docs.ultralytics.com/hub/inference-api/) and a robust Command Line Interface (CLI).
+Ultralytics prioritizes a seamless user experience. Unlike the complex configuration files and dependency chains often associated with PaddlePaddle or other research-centric codebases, Ultralytics offers a simple Python [API](https://docs.ultralytics.com/platform/inference-api/) and a robust Command Line Interface (CLI).
 
 ```python
 from ultralytics import YOLO
