@@ -4,115 +4,102 @@ description: Discover the key differences, performance benchmarks, and use cases
 keywords: YOLOv10, DAMO-YOLO, object detection, YOLO comparison, computer vision, model benchmarking, NMS-free training, neural architecture search, RepGFPN, real-time detection, Ultralytics
 ---
 
-# YOLOv10 vs. DAMO-YOLO: A Technical Comparison
+# YOLOv10 vs. DAMO-YOLO: Innovations in Real-Time Object Detection
 
-Selecting the optimal object detection model is a critical decision that balances the trade-offs between accuracy, speed, and computational cost. This page provides a detailed technical comparison between [YOLOv10](https://docs.ultralytics.com/models/yolov10/), the latest highly efficient model integrated into the Ultralytics ecosystem, and DAMO-YOLO, a powerful detector from Alibaba Group. We will analyze their architectures, performance metrics, and ideal use cases to help you make an informed choice for your [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) projects.
+The landscape of [object detection](https://docs.ultralytics.com/tasks/detect/) is characterized by a constant pursuit of the optimal balance between inference speed and detection accuracy. Two significant contributions to this field are **YOLOv10**, developed by researchers at [Tsinghua University](https://www.tsinghua.edu.cn/en/), and **DAMO-YOLO**, created by the [Alibaba Group](https://www.alibabagroup.com/). Both models introduce novel architectural strategies to reduce latency while maintaining high precision on benchmarks like [COCO](https://docs.ultralytics.com/datasets/detect/coco/).
+
+This detailed comparison explores their architectural differences, training methodologies, and performance metrics to help developers choose the right model for their computer vision applications.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "DAMO-YOLO"]'></canvas>
 
-## YOLOv10: Real-Time End-to-End Detection
+## Model Overview and Origins
 
-YOLOv10, introduced by researchers at [Tsinghua University](https://www.tsinghua.edu.cn/en/) in May 2024, marks a significant step forward in real-time object detection. Its primary innovation is achieving end-to-end detection by eliminating the need for [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms), which reduces post-processing overhead and lowers [inference latency](https://www.ultralytics.com/glossary/inference-latency).
+Understanding the design philosophy behind these models requires looking at their origins and primary goals.
 
-**Technical Details:**  
-**Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.  
-**Organization:** [Tsinghua University](https://www.tsinghua.edu.cn/en/)  
-**Date:** 2024-05-23  
-**Arxiv:** [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)  
-**GitHub:** [https://github.com/THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)  
-**Docs:** [https://docs.ultralytics.com/models/yolov10/](https://docs.ultralytics.com/models/yolov10/)
+### YOLOv10
 
-### Architecture and Key Features
+Released in May 2024, YOLOv10 marks a significant shift in the YOLO lineage by introducing a **NMS-free training capability**. By utilizing consistent dual assignments, it removes the need for Non-Maximum Suppression (NMS) during inference, a post-processing step that often bottlenecks deployment speed on edge devices.
 
-YOLOv10 is built upon the robust Ultralytics framework, inheriting its ease of use and powerful ecosystem. Its architecture introduces several key advancements for superior efficiency and performance:
-
-- **NMS-Free Training:** YOLOv10 employs consistent dual assignments for labels during training. This allows the model to produce clean predictions without requiring the NMS post-processing step, simplifying the deployment pipeline and making it truly end-to-end.
-- **Holistic Efficiency-Accuracy Design:** The model architecture was comprehensively optimized to reduce computational redundancy. This includes a lightweight classification head and spatial-channel decoupled downsampling, which enhances both speed and capability.
-- **Seamless Ultralytics Integration:** As part of the Ultralytics ecosystem, YOLOv10 benefits from a streamlined user experience. This includes a simple [Python API](https://docs.ultralytics.com/usage/python/), extensive [documentation](https://docs.ultralytics.com/), efficient [training processes](https://docs.ultralytics.com/modes/train/), and readily available pre-trained weights. This integration makes it exceptionally easy for developers to get started and deploy models quickly.
-
-!!! tip "Why NMS-Free Matters"
-
-    Traditional object detectors often predict multiple bounding boxes for a single object. Non-Maximum Suppression (NMS) is a post-processing step used to filter out these duplicates. By eliminating NMS, YOLOv10 significantly reduces inference latency and complexity, especially in edge deployment scenarios where every millisecond counts.
+- **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
+- **Organization:** Tsinghua University
+- **Date:** 2024-05-23
+- **Links:** [Arxiv Paper](https://arxiv.org/abs/2405.14458) | [GitHub Repository](https://github.com/THU-MIG/yolov10)
 
 [Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10/){ .md-button }
 
-## DAMO-YOLO: NAS-Driven Efficiency
+### DAMO-YOLO
 
-DAMO-YOLO is a fast and accurate object detection model developed by the [Alibaba Group](https://www.alibabagroup.com/en-US/). Released in November 2022, it introduced several new techniques to push the performance boundaries of YOLO-style detectors, focusing heavily on architectural optimization through search algorithms.
+DAMO-YOLO, released in late 2022, focuses on uncovering efficient architectures through **Neural Architecture Search (NAS)**. It introduces technologies like MAE-NAS backbones and a heavy reliance on distillation to boost the performance of smaller models without increasing inference cost.
 
-**Technical Details:**  
-**Authors:** Xianzhe Xu, Yiqi Jiang, Weihua Chen, et al.  
-**Organization:** [Alibaba Group](https://www.alibabagroup.com/en-US/)  
-**Date:** 2022-11-23  
-**Arxiv:** [https://arxiv.org/abs/2211.15444](https://arxiv.org/abs/2211.15444)  
-**GitHub:** [https://github.com/tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)  
-**Docs:** [https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md](https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md)
+- **Authors:** Xianzhe Xu, Yiqi Jiang, Weihua Chen, et al.
+- **Organization:** Alibaba Group
+- **Date:** 2022-11-23
+- **Links:** [Arxiv Paper](https://arxiv.org/abs/2211.15444v2) | [GitHub Repository](https://github.com/tinyvision/DAMO-YOLO)
 
-### Architecture and Key Features
+## Performance Metrics and Efficiency
 
-DAMO-YOLO explores advanced techniques to improve the speed-accuracy trade-off. Its architecture is characterized by:
+When deploying models for tasks such as [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-automotive) or robotics, raw metrics are critical. YOLOv10 generally offers superior parameter efficiency and [mAP accuracy](https://docs.ultralytics.com/guides/yolo-performance-metrics/), particularly in the smaller model variants (Nano and Small), which are crucial for edge AI.
 
-- **Neural Architecture Search (NAS):** The backbone of DAMO-YOLO was generated using NAS, allowing for a highly optimized [feature extraction](https://www.ultralytics.com/glossary/feature-extraction) network tailored specifically for detection tasks.
-- **Efficient RepGFPN Neck:** It incorporates a novel [Feature Pyramid Network (FPN)](https://www.ultralytics.com/glossary/feature-pyramid-network-fpn) design called RepGFPN that efficiently fuses features from different scales.
-- **ZeroHead and AlignedOTA:** The model uses a simplified, zero-parameter head and an improved label assignment strategy called AlignedOTA (Aligned Optimal Transport Assignment) to enhance detection accuracy and localization.
-- **Knowledge Distillation:** DAMO-YOLO leverages [knowledge distillation](https://www.ultralytics.com/glossary/knowledge-distillation) to further boost the performance of its smaller models by learning from larger teacher networks.
+The table below highlights the performance differences on the COCO validation set.
 
-[Learn more about DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO){ .md-button }
+| Model        | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
+| ------------ | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
+| **YOLOv10n** | 640                   | 39.5                 | -                              | **1.56**                            | **2.3**            | **6.7**           |
+| **YOLOv10s** | 640                   | **46.7**             | -                              | **2.66**                            | **7.2**            | **21.6**          |
+| **YOLOv10m** | 640                   | **51.3**             | -                              | 5.48                                | **15.4**           | **59.1**          |
+| **YOLOv10b** | 640                   | **52.7**             | -                              | **6.54**                            | **24.4**           | **92.0**          |
+| **YOLOv10l** | 640                   | **53.3**             | -                              | 8.33                                | **29.5**           | 120.3             |
+| **YOLOv10x** | 640                   | **54.4**             | -                              | **12.2**                            | 56.9               | 160.4             |
+|              |                       |                      |                                |                                     |                    |                   |
+| DAMO-YOLOt   | 640                   | 42.0                 | -                              | 2.32                                | 8.5                | 18.1              |
+| DAMO-YOLOs   | 640                   | 46.0                 | -                              | 3.45                                | 16.3               | 37.8              |
+| DAMO-YOLOm   | 640                   | 49.2                 | -                              | **5.09**                            | 28.2               | 61.8              |
+| DAMO-YOLOl   | 640                   | 50.8                 | -                              | **7.18**                            | 42.1               | **97.3**          |
 
-## Performance Head-to-Head
+### Analysis
 
-The following table compares the performance of various YOLOv10 and DAMO-YOLO model sizes on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/). YOLOv10 consistently demonstrates superior performance, offering higher accuracy with lower latency and fewer parameters.
+YOLOv10 demonstrates significant efficiency gains. For example, **YOLOv10s** achieves a higher mAP (46.7) than DAMO-YOLOs (46.0) while using fewer than half the parameters (7.2M vs 16.3M) and significantly fewer [FLOPs](https://www.ultralytics.com/glossary/flops). This efficiency is attributed to YOLOv10's holistic model design and rank-guided block improvements.
 
-| Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
-| YOLOv10n   | 640                   | 39.5                 | -                              | **1.56**                            | **2.3**            | **6.7**           |
-| YOLOv10s   | 640                   | 46.7                 | -                              | 2.66                                | 7.2                | 21.6              |
-| YOLOv10m   | 640                   | 51.3                 | -                              | 5.48                                | 15.4               | 59.1              |
-| YOLOv10b   | 640                   | 52.7                 | -                              | 6.54                                | 24.4               | 92.0              |
-| YOLOv10l   | 640                   | 53.3                 | -                              | 8.33                                | 29.5               | 120.3             |
-| YOLOv10x   | 640                   | **54.4**             | -                              | 12.2                                | 56.9               | 160.4             |
-|            |                       |                      |                                |                                     |                    |                   |
-| DAMO-YOLOt | 640                   | 42.0                 | -                              | 2.32                                | 8.5                | 18.1              |
-| DAMO-YOLOs | 640                   | 46.0                 | -                              | 3.45                                | 16.3               | 37.8              |
-| DAMO-YOLOm | 640                   | 49.2                 | -                              | 5.09                                | 28.2               | 61.8              |
-| DAMO-YOLOl | 640                   | 50.8                 | -                              | 7.18                                | 42.1               | 97.3              |
+## Architectural Innovations
 
-As the data shows, YOLOv10 models generally outperform their DAMO-YOLO counterparts in efficiency. For instance, YOLOv10-S achieves a higher [mAP](https://www.ultralytics.com/glossary/mean-average-precision-map) (46.7 vs. 46.0) than DAMO-YOLO-S while being significantly faster (2.66 ms vs. 3.45 ms) and having less than half the parameters (7.2M vs. 16.3M). This trend holds across all model sizes, culminating in YOLOv10-X reaching the highest mAP of 54.4.
+### YOLOv10: End-to-End and Holistic Design
 
-## Strengths and Weaknesses Analysis
+The defining feature of YOLOv10 is its **Consistent Dual Assignment** strategy. During training, the model uses a "one-to-many" head for rich supervision and a "one-to-one" head to align predictions with ground truth. During [inference](https://docs.ultralytics.com/modes/predict/), only the one-to-one head is used, eliminating the need for NMS.
 
-### YOLOv10 Strengths
+Key architectural features include:
 
-- **State-of-the-Art Efficiency:** YOLOv10 delivers an exceptional balance of speed and accuracy, often outperforming competitors with fewer parameters and lower latency.
-- **Ease of Use:** The model is incredibly user-friendly thanks to its integration with the Ultralytics ecosystem.
-- **End-to-End Deployment:** The NMS-free design simplifies the entire workflow from training to [inference](https://docs.ultralytics.com/modes/predict/), making it ideal for real-world applications on [edge devices](https://docs.ultralytics.com/guides/nvidia-jetson/).
-- **Lower Memory Requirements:** Compared to more complex architectures, YOLOv10 is efficient in its memory usage during both training and inference.
+- **Large-Kernel Convolutions:** Improves the [receptive field](https://www.ultralytics.com/glossary/receptive-field) for better small object detection.
+- **Partial Self-Attention (PSA):** Enhances global representation learning with minimal computational cost.
+- **Spatial-Channel Decoupled Downsampling:** Reduces information loss during feature map reduction.
 
-### DAMO-YOLO Strengths
+### DAMO-YOLO: Neural Architecture Search
 
-- **High Performance:** DAMO-YOLO achieves competitive accuracy and speed, making it a strong contender in the object detection space.
-- **Innovative Technologies:** It incorporates cutting-edge research concepts like NAS and advanced label assignment strategies which are valuable for academic exploration.
+DAMO-YOLO relies heavily on automated search to find efficient structures.
 
-### Weaknesses
+- **MAE-NAS Backbone:** Uses Method of Auxiliary Edges (MAE) to search for optimal backbone structures under latency constraints.
+- **RepGFPN:** An efficient neck architecture that upgrades the standard [Feature Pyramid Network](https://www.ultralytics.com/glossary/feature-pyramid-network-fpn) with reparameterization techniques for better feature fusion.
+- **ZeroHead:** A lightweight detection head design intended to maximize speed.
 
-- **YOLOv10:** While exceptional for [object detection](https://docs.ultralytics.com/tasks/detect/), YOLOv10 is currently focused on this single task, unlike the versatile [Ultralytics YOLO11](https://docs.ultralytics.com/models/yolo11/) which supports segmentation, classification, and pose estimation out-of-the-box.
-- **DAMO-YOLO:** The model's architecture and training pipeline are more complex compared to YOLOv10. It is primarily available within specific research toolboxes, which can be a barrier for developers who prefer a more integrated, user-friendly solution like the one offered by Ultralytics.
+## Training Methodologies and Ease of Use
 
-## The Ultralytics Advantage
+The ecosystem surrounding a model significantly impacts its usability for developers. Ultralytics models, including YOLOv10, benefit from a unified, well-maintained framework.
 
-While both models are impressive, Ultralytics models like YOLOv10 and the flagship [YOLO11](https://docs.ultralytics.com/models/yolo11/) offer a distinct advantage for developers and researchers:
+### Ultralytics Ecosystem Advantage
 
-1. **Unified Ecosystem:** Ultralytics provides a cohesive platform where [data annotation](https://docs.ultralytics.com/guides/data-collection-and-annotation/), training, and deployment happen seamlessly.
-2. **Ease of Use:** With a simple Python API, you can load a model and run inference in just a few lines of code.
-3. **Versatility:** Ultralytics supports a wide array of tasks including [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [image classification](https://docs.ultralytics.com/tasks/classify/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/).
-4. **Community Support:** A vibrant community and extensive documentation ensure you are never stuck on a problem for long.
+YOLOv10 is integrated directly into the `ultralytics` Python package. This provides seamless access to [training](https://docs.ultralytics.com/modes/train/), validation, and [export](https://docs.ultralytics.com/modes/export/) modes across various formats (ONNX, TensorRT, CoreML).
 
-### Usage Example: YOLOv10 with Ultralytics
+!!! tip "Streamlined Deployment"
 
-Running YOLOv10 is straightforward using the Ultralytics Python package. Here is how you can load a pre-trained model and run prediction on an image:
+    Because YOLOv10 removes NMS, exporting the model to formats like ONNX or TensorRT is significantly simpler. There is no need to append complex NMS plugins to the model graph, making it natively compatible with more inference engines.
+
+Conversely, DAMO-YOLO typically requires utilizing its specific codebase, which may have different dependencies and API structures compared to the standardized Ultralytics workflow. This can increase the "time-to-first-inference" for new projects.
+
+### Code Example: Running YOLOv10
+
+The following code snippet demonstrates how easily YOLOv10 can be used for [object detection](https://docs.ultralytics.com/tasks/detect/) within the Ultralytics environment:
 
 ```python
 from ultralytics import YOLO
@@ -120,26 +107,30 @@ from ultralytics import YOLO
 # Load a pre-trained YOLOv10n model
 model = YOLO("yolov10n.pt")
 
-# Perform object detection on an image
-results = model("path/to/image.jpg")
+# Run inference on an image
+results = model.predict("path/to/image.jpg")
 
-# Display the results
+# Display results
 results[0].show()
 ```
 
+## Advancing the State-of-the-Art: YOLO26
+
+While YOLOv10 introduced the NMS-free paradigm, **YOLO26** represents the next generation of this technology, refining the end-to-end approach for even greater performance and versatility.
+
+Released in January 2026, [YOLO26](https://docs.ultralytics.com/models/yolo26/) builds upon the foundations laid by YOLOv10 and models like [YOLO11](https://docs.ultralytics.com/models/yolo11/). It incorporates several groundbreaking improvements:
+
+- **Natively End-to-End:** Like YOLOv10, YOLO26 is NMS-free, but it further optimizes the architecture to remove Distribution Focal Loss (DFL), simplifying the export process for edge devices.
+- **MuSGD Optimizer:** Inspired by LLM training (specifically Moonshot AI's Kimi K2), YOLO26 utilizes a hybrid SGD and Muon optimizer for faster convergence.
+- **Enhanced Loss Functions:** The integration of ProgLoss and STAL (Soft-Target Anchor Loss) provides notable improvements in small-object recognition, a critical requirement for [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) and IoT.
+- **CPU Inference Speed:** YOLO26 is specifically optimized for CPUs, offering up to **43% faster inference** than previous generations, making it ideal for devices like Raspberry Pi.
+
+[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+
 ## Conclusion
 
-Both YOLOv10 and DAMO-YOLO are formidable object detection models. DAMO-YOLO serves as an excellent reference for research into NAS-based architectures and advanced feature fusion. However, for practical deployment and [MLOps](https://www.ultralytics.com/glossary/machine-learning-operations-mlops) efficiency, **YOLOv10** stands out as the superior choice. Its NMS-free architecture, combined with the comprehensive Ultralytics ecosystem, ensures that you can move from concept to production faster and with better performance.
+Both YOLOv10 and DAMO-YOLO represent significant engineering achievements. DAMO-YOLO showcases the power of Neural Architecture Search for finding efficient structures. However, **YOLOv10** stands out for its end-to-end NMS-free design and superior parameter efficiency, particularly in the Nano and Small variants.
 
-For users requiring even greater versatility across multiple vision tasks, we highly recommend exploring [YOLO11](https://docs.ultralytics.com/models/yolo11/), which defines the current state-of-the-art for the YOLO family.
+For developers seeking a balance of high performance, ease of use, and a robust support ecosystem, the Ultralytics models—starting with YOLOv10 and evolving into the cutting-edge **YOLO26**—offer the most compelling solution. The seamless integration with [datasets](https://docs.ultralytics.com/datasets/) and deployment tools ensures that researchers can focus on solving real-world problems rather than managing complex model dependencies.
 
-## Explore Other Model Comparisons
-
-To see how these models stack up against other leading architectures, check out these comparisons:
-
-- [YOLO11 vs. DAMO-YOLO](https://docs.ultralytics.com/compare/yolo11-vs-damo-yolo/)
-- [YOLOv8 vs. DAMO-YOLO](https://docs.ultralytics.com/compare/yolov8-vs-damo-yolo/)
-- [RT-DETR vs. DAMO-YOLO](https://docs.ultralytics.com/compare/rtdetr-vs-damo-yolo/)
-- [YOLOX vs. DAMO-YOLO](https://docs.ultralytics.com/compare/yolox-vs-damo-yolo/)
-- [YOLOv10 vs. RT-DETR](https://docs.ultralytics.com/compare/yolov10-vs-rtdetr/)
-- [YOLOv10 vs. YOLOX](https://docs.ultralytics.com/compare/yolov10-vs-yolox/)
+For those interested in other high-performance options, the [YOLO11](https://docs.ultralytics.com/models/yolo11/) and [YOLO-World](https://docs.ultralytics.com/models/yolo-world/) models also provide specialized capabilities for open-vocabulary detection and general computer vision tasks.
