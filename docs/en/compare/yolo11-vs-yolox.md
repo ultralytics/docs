@@ -42,7 +42,7 @@ Released by **Ultralytics** on September 27, 2024, [YOLO11](https://docs.ultraly
 
 - **Superior Efficiency:** YOLO11m achieves a higher mean Average Precision (mAP) than [YOLOv8m](https://docs.ultralytics.com/models/yolov8/) while using **22% fewer parameters**. This reduction in model size translates directly to lower memory usage and faster inference on edge devices.
 - **Versatility:** Unlike many competitors restricted to bounding boxes, YOLO11 natively supports a wide array of [computer vision tasks](https://docs.ultralytics.com/tasks/), including [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), [oriented object detection (OBB)](https://docs.ultralytics.com/tasks/obb/), and [image classification](https://docs.ultralytics.com/tasks/classify/).
-- **Ecosystem Integration:** YOLO11 is fully integrated into the Ultralytics ecosystem, providing seamless access to tools like [Ultralytics HUB](https://hub.ultralytics.com/) for no-code training and extensive deployment options via the `ultralytics` Python package.
+- **Ecosystem Integration:** YOLO11 is fully integrated into the Ultralytics ecosystem, providing seamless access to tools like the [Ultralytics Platform](https://docs.ultralytics.com/platform/) for no-code training and extensive deployment options via the `ultralytics` Python package.
 
 ### Architecture
 

@@ -111,7 +111,7 @@ In contrast, typical YOLOv7 implementations often rely on older, script-based wo
 
 ### Training Efficiency
 
-YOLO11 benefits from optimized data augmentation pipelines and modern loss functions. The ability to use the [Ultralytics HUB](https://hub.ultralytics.com/) for cloud training further simplifies the process, enabling users to visualize metrics and manage datasets without complex infrastructure setup.
+YOLO11 benefits from optimized data augmentation pipelines and modern loss functions. The ability to use the [Ultralytics Platform](https://docs.ultralytics.com/platform/) for cloud training further simplifies the process, enabling users to visualize metrics and manage datasets without complex infrastructure setup.
 
 ## Real-World Use Cases
 

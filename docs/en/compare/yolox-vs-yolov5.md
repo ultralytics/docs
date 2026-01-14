@@ -99,7 +99,7 @@ While YOLOX shows competitive mAP scores on the COCO benchmark, YOLOv5 often pro
 
 ### Ecosystem and Support
 
-This is where Ultralytics shines. The extensive documentation, active GitHub discussions, and seamless integration with tools like [Ultralytics HUB](https://www.ultralytics.com/hub) (soon migrating to the new Ultralytics Platform) provide a safety net for developers. YOLOX, while powerful, lacks the same level of plug-and-play tooling and long-term maintenance assurance.
+This is where Ultralytics shines. The extensive documentation, active GitHub discussions, and seamless integration with tools like the [Ultralytics Platform](https://docs.ultralytics.com/platform/) provide a safety net for developers. YOLOX, while powerful, lacks the same level of plug-and-play tooling and long-term maintenance assurance.
 
 ### Code Example: Running YOLOv5
 

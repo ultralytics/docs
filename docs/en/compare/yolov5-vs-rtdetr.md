@@ -83,7 +83,7 @@ However, **YOLOv5** remains superior in pure raw inference speed on CPU and edge
 This is where Ultralytics models shine. The **YOLOv5 ecosystem** is incredibly mature.
 
 - **Documentation:** Extensive, beginner-friendly [docs](https://docs.ultralytics.com) cover everything from training on custom datasets to multi-GPU training.
-- **Integration:** Seamless integration with tools like [Ultralytics HUB](https://www.ultralytics.com/hub), MLflow, and TensorBoard makes lifecycle management effortless.
+- **Integration:** Seamless integration with tools like the [Ultralytics Platform](https://docs.ultralytics.com/platform/), MLflow, and TensorBoard makes lifecycle management effortless.
 - **Community:** A massive global community ensures that bugs are found and fixed quickly, and support is readily available.
 
 In contrast, while RTDETRv2 is technically impressive, it lacks the same level of integrated tooling and ease of use found in the Ultralytics Python package.

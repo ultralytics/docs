@@ -141,7 +141,7 @@ Choosing the right model depends on your specific application constraints.
 **Choose YOLOv8 when:**
 
 - **Task Variety:** You need [segmentation](https://docs.ultralytics.com/tasks/segment/) or pose estimation alongside detection.
-- **Ecosystem Support:** You require extensive documentation, community support, and seamless integration with tools like [Ultralytics HUB](https://hub.ultralytics.com/) (migrating to Ultralytics Platform).
+- **Ecosystem Support:** You require extensive documentation, community support, and seamless integration with tools like the [Ultralytics Platform](https://docs.ultralytics.com/platform/).
 - **Deployment Flexibility:** You need reliable export to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx/), TensorRT, CoreML, and TFLite with established support channels.
 - **Proven Stability:** Enterprise applications where long-term maintainability and a large user base are critical factors.
 

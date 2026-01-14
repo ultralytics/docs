@@ -143,7 +143,7 @@ DAMO-YOLO (2022) uses Neural Architecture Search (NAS) and RepGFPN to optimize s
 
 ### Can I use DAMO-YOLO weights with the Ultralytics API?
 
-No, DAMO-YOLO uses a different codebase and architecture. To use the streamlined Ultralytics API, simpler export options, and tools like the [Ultralytics HUB](https://docs.ultralytics.com/), you should use Ultralytics models such as YOLOv5, YOLO11, or [YOLO26](https://docs.ultralytics.com/models/yolo26/).
+No, DAMO-YOLO uses a different codebase and architecture. To use the streamlined Ultralytics API, simpler export options, and tools like the [Ultralytics Platform](https://docs.ultralytics.com/platform/), you should use Ultralytics models such as YOLOv5, YOLO11, or [YOLO26](https://docs.ultralytics.com/models/yolo26/).
 
 ### Which model is better for edge deployment?
 

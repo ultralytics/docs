@@ -107,7 +107,7 @@ model_v5.train(data="coco8.yaml", epochs=100)
 
 YOLO26 supports improved [data augmentation](https://docs.ultralytics.com/guides/yolo-data-augmentation/) strategies and the new **MuSGD optimizer**, which helps in escaping local minima more effectively than the standard SGD used in YOLOv5. Additionally, YOLO26 offers task-specific improvements, such as **Residual Log-Likelihood Estimation (RLE)** for [pose estimation](https://docs.ultralytics.com/tasks/pose/) and specialized angle losses for [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) tasks, features that were either absent or less refined in the YOLOv5 era.
 
-Users can also leverage the **Ultralytics Platform**, which replaces the older [Ultralytics HUB](https://docs.ultralytics.com/), to manage datasets, train models in the cloud, and deploy to various endpoints seamlessly.
+Users can also leverage the [Ultralytics Platform](https://docs.ultralytics.com/platform/) to manage datasets, train models in the cloud, and deploy to various endpoints seamlessly.
 
 ## Ideal Use Cases
 
