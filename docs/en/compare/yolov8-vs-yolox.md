@@ -125,19 +125,19 @@ For those looking for the absolute latest in performance and efficiency, we also
 ## Additional Resources
 
 - **Ultralytics YOLOv8**:
-  - **Authors**: Glenn Jocher, Ayush Chaurasia, and Jing Qiu
-  - **Organization**: [Ultralytics](https://www.ultralytics.com/)
-  - **GitHub**: [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-  - **Docs**: [YOLOv8 Documentation](https://docs.ultralytics.com/models/yolov8/)
+    - **Authors**: Glenn Jocher, Ayush Chaurasia, and Jing Qiu
+    - **Organization**: [Ultralytics](https://www.ultralytics.com/)
+    - **GitHub**: [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
+    - **Docs**: [YOLOv8 Documentation](https://docs.ultralytics.com/models/yolov8/)
 
 - **YOLOX**:
-  - **Authors**: Zheng Ge, Songtao Liu, et al.
-  - **Organization**: Megvii
-  - **Date**: 2021-07-18
-  - **Arxiv**: [YOLOX: Exceeding YOLO Series in 2021](https://arxiv.org/abs/2107.08430)
-  - **GitHub**: [Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
+    - **Authors**: Zheng Ge, Songtao Liu, et al.
+    - **Organization**: Megvii
+    - **Date**: 2021-07-18
+    - **Arxiv**: [YOLOX: Exceeding YOLO Series in 2021](https://arxiv.org/abs/2107.08430)
+    - **GitHub**: [Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
 
 - **Other Models**:
-  - [YOLO26](https://docs.ultralytics.com/models/yolo26/): The latest state-of-the-art model from Ultralytics.
-  - [YOLO11](https://docs.ultralytics.com/models/yolo11/): The previous SOTA generation, still widely used and supported.
-  - [YOLOv5](https://docs.ultralytics.com/models/yolov5/): The legendary model that defined ease of use in computer vision.
+    - [YOLO26](https://docs.ultralytics.com/models/yolo26/): The latest state-of-the-art model from Ultralytics.
+    - [YOLO11](https://docs.ultralytics.com/models/yolo11/): The previous SOTA generation, still widely used and supported.
+    - [YOLOv5](https://docs.ultralytics.com/models/yolov5/): The legendary model that defined ease of use in computer vision.
