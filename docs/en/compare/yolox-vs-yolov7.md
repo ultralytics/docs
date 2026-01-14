@@ -86,22 +86,22 @@ The table below highlights performance metrics on the [COCO dataset](https://doc
 ### YOLOX
 
 - **Strengths:**
-  - **Simplicity:** The anchor-free design removes the complex step of anchor box clustering (k-means) for custom [datasets](https://docs.ultralytics.com/datasets/).
-  - **Robustness:** Decoupled heads often lead to better convergence and localization accuracy.
-  - **Legacy Support:** Good support for legacy frameworks like MegEngine alongside PyTorch.
+    - **Simplicity:** The anchor-free design removes the complex step of anchor box clustering (k-means) for custom [datasets](https://docs.ultralytics.com/datasets/).
+    - **Robustness:** Decoupled heads often lead to better convergence and localization accuracy.
+    - **Legacy Support:** Good support for legacy frameworks like MegEngine alongside PyTorch.
 - **Weaknesses:**
-  - **Parameter Efficiency:** Generally requires more parameters and FLOPs to achieve similar mAP to newer architectures.
-  - **Training Speed:** Training can be slower due to the heavy augmentations and decoupled head computations.
+    - **Parameter Efficiency:** Generally requires more parameters and FLOPs to achieve similar mAP to newer architectures.
+    - **Training Speed:** Training can be slower due to the heavy augmentations and decoupled head computations.
 
 ### YOLOv7
 
 - **Strengths:**
-  - **Speed/Accuracy Trade-off:** Excellent performance on GPU devices, offering higher frame rates for equivalent accuracy.
-  - **Advanced Features:** Incorporates pose estimation and instance segmentation capabilities within the same framework.
-  - **Optimization:** Highly optimized for TensorRT deployment.
+    - **Speed/Accuracy Trade-off:** Excellent performance on GPU devices, offering higher frame rates for equivalent accuracy.
+    - **Advanced Features:** Incorporates pose estimation and instance segmentation capabilities within the same framework.
+    - **Optimization:** Highly optimized for TensorRT deployment.
 - **Weaknesses:**
-  - **Complexity:** The architecture (E-ELAN, RepConv) is more complex to modify or debug compared to simpler backbones.
-  - **Config Sensitivity:** Can be sensitive to hyperparameter tuning when moving away from standard datasets.
+    - **Complexity:** The architecture (E-ELAN, RepConv) is more complex to modify or debug compared to simpler backbones.
+    - **Config Sensitivity:** Can be sensitive to hyperparameter tuning when moving away from standard datasets.
 
 ## The Ultralytics Advantage
 

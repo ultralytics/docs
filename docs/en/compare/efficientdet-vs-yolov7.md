@@ -100,7 +100,7 @@ While EfficientDet and YOLOv7 remain significant contributions to computer visio
 
 ### Ease of Use and Ecosystem
 
-Legacy models often require complex installation steps, specific CUDA versions, or fragmented codebases. In contrast, Ultralytics focuses on a unified, streamlined user experience. With a simple `pip install ultralytics`, users gain access to a robust Python API and [CLI commands](https://docs.ultralytics.com/usage/cli/) that standardize training, validation, and deployment. The **Well-Maintained Ecosystem** ensures frequent updates, broad hardware support, and integration with tools like [Ultralytics HUB](https://docs.ultralytics.com/platformub/quickstart/  ) for seamless MLOps.
+Legacy models often require complex installation steps, specific CUDA versions, or fragmented codebases. In contrast, Ultralytics focuses on a unified, streamlined user experience. With a simple `pip install ultralytics`, users gain access to a robust Python API and [CLI commands](https://docs.ultralytics.com/usage/cli/) that standardize training, validation, and deployment. The **Well-Maintained Ecosystem** ensures frequent updates, broad hardware support, and integration with tools like [Ultralytics HUB](https://docs.ultralytics.com/platformub/quickstart/) for seamless MLOps.
 
 ### Performance Balance and Memory Efficiency
 

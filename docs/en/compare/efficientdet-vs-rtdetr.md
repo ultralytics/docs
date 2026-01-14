@@ -94,7 +94,7 @@ While EfficientDet and RTDETRv2 are formidable models, developers seeking a holi
 
 - **Ease of Use:** Ultralytics models are renowned for their streamlined user experience. With a simple [Python API](https://docs.ultralytics.com/usage/python/), users can train, validate, and deploy models in just a few lines of code. This contrasts with the often complex configuration files required for EfficientDet or the memory-intensive training loops of RTDETR.
 - **Versatility:** Unlike the single-task focus of many competitors, YOLO11 supports [object detection](https://docs.ultralytics.com/tasks/detect/), [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [classification](https://docs.ultralytics.com/tasks/classify/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [oriented object detection (OBB)](https://docs.ultralytics.com/tasks/obb/) within a single framework.
-- **Well-Maintained Ecosystem:** Ultralytics provides a robust ecosystem including [Ultralytics HUB](https://docs.ultralytics.com/platformub/quickstart/  ) for dataset management and model training, along with extensive documentation and community support.
+- **Well-Maintained Ecosystem:** Ultralytics provides a robust ecosystem including [Ultralytics HUB](https://docs.ultralytics.com/platformub/quickstart/) for dataset management and model training, along with extensive documentation and community support.
 - **Performance Balance:** Ultralytics models are meticulously engineered to provide an excellent trade-off between speed and accuracy. They are designed to be memory-efficient, allowing for training on standard consumer GPUs where Transformer models might struggle.
 
 [Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
