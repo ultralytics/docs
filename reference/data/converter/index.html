@@ -803,7 +803,7 @@ efficient conversion of large datasets and can download images from URLs.</p><p>
 <span></span>
 <span></span><span class="n">Use</span> <span class="k">with</span> <span class="n">YOLO</span> <span class="n">training</span>
 <span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo26n.pt"</span><span class="p">)</span>
 <span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"https://github.com/ultralytics/assets/releases/download/v0.0.0/coco8-ndjson.ndjson"</span><span class="p">)</span>
 </code></pre></div><details><summary>Source code in <code>ultralytics/data/converter.py</code></summary><a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/data/converter.py#L749-L874"><i aria-hidden="true" class="fa-brands fa-github" style="margin-right:6px;"></i>View on GitHub</a><div class="highlight"><pre><span></span><code><span></span><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">convert_ndjson_to_yolo</span><span class="p">(</span><span class="n">ndjson_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">,</span> <span class="n">output_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Convert NDJSON dataset format to Ultralytics YOLO11 dataset structure.</span>
@@ -835,7 +835,7 @@ efficient conversion of large datasets and can download images from URLs.</p><p>
 <span></span>
 <span></span><span class="sd">        Use with YOLO training</span>
 <span></span><span class="sd">        &gt;&gt;&gt; from ultralytics import YOLO</span>
-<span></span><span class="sd">        &gt;&gt;&gt; model = YOLO("yolo11n.pt")</span>
+<span></span><span class="sd">        &gt;&gt;&gt; model = YOLO("yolo26n.pt")</span>
 <span></span><span class="sd">        &gt;&gt;&gt; model.train(data="https://github.com/ultralytics/assets/releases/download/v0.0.0/coco8-ndjson.ndjson")</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"aiohttp"</span><span class="p">)</span>

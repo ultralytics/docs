@@ -125,7 +125,7 @@
 <span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">run_callbacks</span><span class="p">(</span><span class="s2">"on_pretrain_routine_start"</span><span class="p">)</span>
 <span></span>
 <span></span>        <span class="c1"># Model and Dataset</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">check_model_file_from_stem</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>  <span class="c1"># add suffix, i.e. yolo11n -&gt; yolo11n.pt</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">check_model_file_from_stem</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>  <span class="c1"># add suffix, i.e. yolo26n -&gt; yolo26n.pt</span>
 <span></span>        <span class="k">with</span> <span class="n">torch_distributed_zero_first</span><span class="p">(</span><span class="n">LOCAL_RANK</span><span class="p">):</span>  <span class="c1"># avoid auto-downloading dataset multiple times</span>
 <span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_dataset</span><span class="p">()</span>
 <span></span>
