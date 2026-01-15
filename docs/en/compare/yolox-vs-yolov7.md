@@ -43,7 +43,7 @@ Released in July 2022, YOLOv7 focused heavily on architecture optimization and t
 **YOLOv7 Details:**
 
 - **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
-- **Organization:** [Institute of Information Science, Academia Sinica](https://www.iis.sinica.edu.tw/en/page.html)
+- **Organization:** [Institute of Information Science, Academia Sinica](https://www.iis.sinica.edu.tw/en/index.html)
 - **Date:** 2022-07-06
 - **Arxiv:** [YOLOv7: Trainable bag-of-freebies sets new state-of-the-art](https://arxiv.org/abs/2207.02696)
 - **GitHub:** [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
