@@ -22,7 +22,7 @@ Released in July 2022, **YOLOv7** was developed by Chien-Yao Wang, Alexey Bochko
 **Key Technical Details:**
 
 - **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
-- **Organization:** Institute of Information Science, [Academia Sinica](https://www.iis.sinica.edu.tw/en/page.aspx), Taiwan
+- **Organization:** Institute of Information Science, [Academia Sinica](https://www.iis.sinica.edu.tw/en/index.html), Taiwan
 - **Date:** 2022-07-06
 - **Links:** [ArXiv Paper](https://arxiv.org/abs/2207.02696) | [GitHub Repository](https://github.com/WongKinYiu/yolov7)
 
