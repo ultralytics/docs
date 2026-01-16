@@ -667,6 +667,8 @@
 <span></span>                <span class="k">assert</span> <span class="n">cpu</span><span class="p">,</span> <span class="s2">"inference not supported on CPU"</span>
 <span></span>            <span class="k">if</span> <span class="s2">"cuda"</span> <span class="ow">in</span> <span class="n">device</span><span class="o">.</span><span class="n">type</span><span class="p">:</span>
 <span></span>                <span class="k">assert</span> <span class="n">gpu</span><span class="p">,</span> <span class="s2">"inference not supported on GPU"</span>
+<span></span>            <span class="k">if</span> <span class="nb">format</span> <span class="o">==</span> <span class="s2">"ncnn"</span><span class="p">:</span>
+<span></span>                <span class="k">assert</span> <span class="ow">not</span> <span class="n">is_end2end</span><span class="p">,</span> <span class="s2">"End-to-end torch.topk operation is not supported for NCNN prediction yet"</span>
 <span></span>
 <span></span>            <span class="c1"># Export</span>
 <span></span>            <span class="k">if</span> <span class="nb">format</span> <span class="o">==</span> <span class="s2">"-"</span><span class="p">:</span>
@@ -685,8 +687,6 @@
 <span></span>            <span class="k">assert</span> <span class="n">model</span><span class="o">.</span><span class="n">task</span> <span class="o">!=</span> <span class="s2">"pose"</span> <span class="ow">or</span> <span class="nb">format</span> <span class="o">!=</span> <span class="s2">"executorch"</span><span class="p">,</span> <span class="s2">"ExecuTorch Pose inference is not supported"</span>
 <span></span>            <span class="k">assert</span> <span class="nb">format</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"edgetpu"</span><span class="p">,</span> <span class="s2">"tfjs"</span><span class="p">},</span> <span class="s2">"inference not supported"</span>
 <span></span>            <span class="k">assert</span> <span class="nb">format</span> <span class="o">!=</span> <span class="s2">"coreml"</span> <span class="ow">or</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"Darwin"</span><span class="p">,</span> <span class="s2">"inference only supported on macOS&gt;=10.13"</span>
-<span></span>            <span class="k">if</span> <span class="nb">format</span> <span class="o">==</span> <span class="s2">"ncnn"</span><span class="p">:</span>
-<span></span>                <span class="k">assert</span> <span class="ow">not</span> <span class="n">is_end2end</span><span class="p">,</span> <span class="s2">"End-to-end torch.topk operation is not supported for NCNN prediction yet"</span>
 <span></span>            <span class="n">exported_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">ASSETS</span> <span class="o">/</span> <span class="s2">"bus.jpg"</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="n">imgsz</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">half</span><span class="o">=</span><span class="n">half</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span></span>
 <span></span>            <span class="c1"># Validate</span>
