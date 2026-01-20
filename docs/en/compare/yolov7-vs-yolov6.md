@@ -100,7 +100,7 @@ While both YOLOv7 and YOLOv6 are impressive, the Ultralytics ecosystem offers di
 
 - **Ease of Use:** Ultralytics models are renowned for their "zero-to-hero" experience. With a simple Python API, users can train, validate, and deploy models in just a few lines of code.
 - **Versatility:** Unlike many competitors that focus solely on detection, Ultralytics supports a full range of tasks including **segmentation**, **classification**, **pose estimation**, and **Oriented Bounding Boxes (OBB)** within a single framework.
-- **Ecosystem Support:** The [Ultralytics Platform](https://www.ultralytics.com/hub) simplifies the entire ML lifecycle, from dataset management to [model deployment](https://docs.ultralytics.com/guides/model-deployment-options/), ensuring that teams can move from prototype to production efficiently.
+- **Ecosystem Support:** The [Ultralytics Platform](https://platform.ultralytics.com) simplifies the entire ML lifecycle, from dataset management to [model deployment](https://docs.ultralytics.com/guides/model-deployment-options/), ensuring that teams can move from prototype to production efficiently.
 - **Training Efficiency:** Ultralytics models are optimized for faster convergence, saving valuable GPU hours and reducing the carbon footprint of AI development.
 
 For users seeking the absolute latest in performance, **YOLO26** builds upon these foundations with an end-to-end NMS-free design, offering faster inference and simplified deployment.
@@ -137,4 +137,4 @@ For developers seeking the most streamlined experience, extensive documentation,
 - **YOLOv7 Paper:** [Trainable bag-of-freebies sets new state-of-the-art](https://arxiv.org/abs/2207.02696)
 - **YOLOv6 Paper:** [YOLOv6 v3.0: A Full-Scale Reloading](https://arxiv.org/abs/2301.05586)
 - **Ultralytics Docs:** [Official Documentation](https://docs.ultralytics.com/)
-- **Dataset Management:** [Ultralytics Platform](https://www.ultralytics.com/hub)
+- **Dataset Management:** [Ultralytics Platform](https://platform.ultralytics.com)

@@ -85,7 +85,7 @@ A model is only as good as the tools available to train and deploy it. This is w
 YOLOv8 is backed by the comprehensive **Ultralytics ecosystem**, designed to streamline the entire AI lifecycle.
 
 - **Ease of Use:** A simple Python API allows developers to train, validate, and deploy models with just a few lines of code.
-- **Ultralytics Platform:** Users can leverage the [Ultralytics Platform](https://www.ultralytics.com/hub) (formerly HUB) for managing datasets, visualizing training runs, and one-click model exports.
+- **Ultralytics Platform:** Users can leverage the [Ultralytics Platform](https://platform.ultralytics.com) (formerly HUB) for managing datasets, visualizing training runs, and one-click model exports.
 - **Documentation & Community:** Extensive [docs](https://docs.ultralytics.com/) and a vibrant community provide support for troubleshooting and custom implementations.
 
 ```python
@@ -131,7 +131,7 @@ YOLOv10 excels in pure detection tasks where **low latency** is the primary cons
 
 ## Conclusion
 
-Both architectures represent significant milestones in computer vision. **Ultralytics YOLOv8** remains the robust, all-rounder choice for developers needing a versatile, well-supported tool for diverse tasks ranging from classification to segmentation. Its integration with the [Ultralytics Platform](https://www.ultralytics.com/hub) and extensive documentation ensures a smooth path from prototype to production.
+Both architectures represent significant milestones in computer vision. **Ultralytics YOLOv8** remains the robust, all-rounder choice for developers needing a versatile, well-supported tool for diverse tasks ranging from classification to segmentation. Its integration with the [Ultralytics Platform](https://platform.ultralytics.com) and extensive documentation ensures a smooth path from prototype to production.
 
 **YOLOv10** offers a compelling alternative for specific detection-only use cases, particularly where the NMS-free architecture can provide a speed advantage. However, for users seeking the latest advancements in end-to-end processing combined with the full power of the Ultralytics ecosystem, the newly released **[YOLO26](https://docs.ultralytics.com/models/yolo26/)** is the ultimate recommendation, offering superior speed, accuracy, and ease of use.
 

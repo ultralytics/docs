@@ -149,7 +149,7 @@ Typical research repositories often require cloning specific branches, installin
 
 Both YOLOv6-3.0 and DAMO-YOLO introduced valuable concepts to the computer vision community. YOLOv6 proved the viability of heavy re-parameterization for GPU throughput, while DAMO-YOLO showcased the power of NAS.
 
-However, for production-grade applications in 2026, **Ultralytics YOLO26** stands out as the robust choice. Its end-to-end design, removal of NMS, superior CPU performance, and integration into a comprehensive [platform](https://www.ultralytics.com/hub) make it the most efficient path from prototype to production. Whether you are building [smart manufacturing](https://www.ultralytics.com/blog/smart-manufacturing) systems or [autonomous drones](https://www.ultralytics.com/blog/build-ai-powered-drone-applications-with-ultralytics-yolo11), the stability and versatility of the Ultralytics ecosystem provide a distinct competitive edge.
+However, for production-grade applications in 2026, **Ultralytics YOLO26** stands out as the robust choice. Its end-to-end design, removal of NMS, superior CPU performance, and integration into a comprehensive [platform](https://platform.ultralytics.com) make it the most efficient path from prototype to production. Whether you are building [smart manufacturing](https://www.ultralytics.com/blog/smart-manufacturing) systems or [autonomous drones](https://www.ultralytics.com/blog/build-ai-powered-drone-applications-with-ultralytics-yolo11), the stability and versatility of the Ultralytics ecosystem provide a distinct competitive edge.
 
 ### Further Reading
 

@@ -87,7 +87,7 @@ model = YOLO("yolo26n.pt")
 model.train(data="coco8.yaml", epochs=100)
 ```
 
-This integration extends to the [Ultralytics Platform](https://www.ultralytics.com/hub), which simplifies data management and cloud training, and features expansive [documentation](https://docs.ultralytics.com/) that is constantly updated by the community.
+This integration extends to the [Ultralytics Platform](https://platform.ultralytics.com), which simplifies data management and cloud training, and features expansive [documentation](https://docs.ultralytics.com/) that is constantly updated by the community.
 
 ## Conclusion
 
