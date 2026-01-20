@@ -103,7 +103,7 @@ YOLO11 is the preferred choice for most developers due to its **versatility and 
 
 - **Edge Computing:** With lower parameter counts and FLOPs, YOLO11 excels on resource-constrained devices like the Raspberry Pi or NVIDIA Jetson Nano.
 - **Multi-Task Workflows:** If your project requires [segmentation](https://docs.ultralytics.com/tasks/segment/) or [pose estimation](https://docs.ultralytics.com/tasks/pose/) alongside detection, YOLO11 provides a unified API for all these tasks.
-- **Rapid Development:** The Ultralytics ecosystem, including the [Ultralytics Platform](https://hub.ultralytics.com/), allows for quick training, validation, and deployment without deep knowledge of complex training scripts.
+- **Rapid Development:** The Ultralytics ecosystem, including the [Ultralytics Platform](https://platform.ultralytics.com/), allows for quick training, validation, and deployment without deep knowledge of complex training scripts.
 
 ### When to Consider YOLOv6-3.0
 

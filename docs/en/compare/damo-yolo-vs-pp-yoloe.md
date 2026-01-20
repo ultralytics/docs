@@ -125,7 +125,7 @@ results[0].show()
 
 ### Versatility and Ecosystem
 
-Ultralytics offers a unified ecosystem. While DAMO-YOLO and PP-YOLOE+ are primarily focused on detection, the [Ultralytics Platform](https://www.ultralytics.com/hub) and library support a vast array of tasks including [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/). This versatility allows researchers to switch tasks without learning a new API.
+Ultralytics offers a unified ecosystem. While DAMO-YOLO and PP-YOLOE+ are primarily focused on detection, the [Ultralytics Platform](https://platform.ultralytics.com) and library support a vast array of tasks including [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/). This versatility allows researchers to switch tasks without learning a new API.
 
 Furthermore, the [Ultralytics ecosystem](https://www.ultralytics.com) ensures your models are future-proof, with seamless export options to ONNX, TensorRT, CoreML, and TFLite, backed by a community that actively maintains and updates the codebase.
 

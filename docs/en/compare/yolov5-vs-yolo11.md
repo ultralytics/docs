@@ -107,7 +107,7 @@ Both models support export to formats like [ONNX](https://onnx.ai/), [TensorRT](
 
 !!! tip "Managing the Lifecycle"
 
-    Users can manage their datasets, training runs, and deployments using the [Ultralytics Platform](https://www.ultralytics.com/hub). This SaaS solution simplifies collaboration and provides visualization tools for model metrics, replacing the older HUB workflows.
+    Users can manage their datasets, training runs, and deployments using the [Ultralytics Platform](https://platform.ultralytics.com). This SaaS solution simplifies collaboration and provides visualization tools for model metrics, replacing the older HUB workflows.
 
 ## Ideal Use Cases
 
@@ -136,7 +136,7 @@ While YOLO11 represents a significant mature step in vision AI, developers seeki
 
 ## Conclusion
 
-YOLOv5 remains a legendary model that democratized computer vision, but **YOLO11** is the superior choice for modern applications. It delivers faster inference, higher accuracy, and lower computational costs. Backed by the robust Ultralytics ecosystem—including the new [Ultralytics Platform](https://www.ultralytics.com/hub) for cloud training and management—YOLO11 provides the versatility and performance needed to tackle today's most demanding real-world challenges.
+YOLOv5 remains a legendary model that democratized computer vision, but **YOLO11** is the superior choice for modern applications. It delivers faster inference, higher accuracy, and lower computational costs. Backed by the robust Ultralytics ecosystem—including the new [Ultralytics Platform](https://platform.ultralytics.com) for cloud training and management—YOLO11 provides the versatility and performance needed to tackle today's most demanding real-world challenges.
 
 For those requiring strict open-source collaboration, both models are available under the [AGPL-3.0 license](https://www.ultralytics.com/legal/agpl-3-0-software-license). Commercial deployment is fully supported through an [Enterprise License](https://www.ultralytics.com/license), ensuring your intellectual property remains protected.
 

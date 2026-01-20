@@ -113,7 +113,7 @@ model.train(data="coco8.yaml", epochs=100, imgsz=640)
 results = model("path/to/image.jpg")
 ```
 
-The ecosystem supports seamless [dataset management](https://docs.ultralytics.com/datasets/), easy [model export](https://docs.ultralytics.com/modes/export/) to formats like CoreML and OpenVINO, and integration with tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases/) for experiment tracking. Developers can also leverage the [Ultralytics Platform](https://www.ultralytics.com/hub) (formerly HUB) for web-based model training and deployment.
+The ecosystem supports seamless [dataset management](https://docs.ultralytics.com/datasets/), easy [model export](https://docs.ultralytics.com/modes/export/) to formats like CoreML and OpenVINO, and integration with tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases/) for experiment tracking. Developers can also leverage the [Ultralytics Platform](https://platform.ultralytics.com) (formerly HUB) for web-based model training and deployment.
 
 For users interested in the absolute latest advancements, **[YOLO26](https://docs.ultralytics.com/models/yolo26/)** builds upon the foundation of YOLOv10. It features an improved MuSGD optimizer and ProgLoss functions that further enhance small object detection, a critical capability for tasks like [drone-based monitoring](https://www.ultralytics.com/blog/build-ai-powered-drone-applications-with-ultralytics-yolo11).
 

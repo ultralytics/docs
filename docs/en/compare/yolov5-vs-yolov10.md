@@ -81,7 +81,7 @@ Choosing between these models often depends on the specific constraints of your 
 
 ### Where Ultralytics YOLOv5 Excels
 
-YOLOv5 remains a superior choice for projects requiring a mature, well-documented ecosystem. Its integration with the **[Ultralytics Platform](https://www.ultralytics.com/hub)** simplifies [dataset management](https://docs.ultralytics.com/datasets/) and model training. For developers needing to deploy [pose estimation](https://docs.ultralytics.com/tasks/pose/) or [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) detection, YOLOv5 (and its successors like YOLO11 and YOLO26) provides native support that YOLOv10 lacks.
+YOLOv5 remains a superior choice for projects requiring a mature, well-documented ecosystem. Its integration with the **[Ultralytics Platform](https://platform.ultralytics.com)** simplifies [dataset management](https://docs.ultralytics.com/datasets/) and model training. For developers needing to deploy [pose estimation](https://docs.ultralytics.com/tasks/pose/) or [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) detection, YOLOv5 (and its successors like YOLO11 and YOLO26) provides native support that YOLOv10 lacks.
 
 !!! tip "Memory Efficiency"
 

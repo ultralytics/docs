@@ -105,7 +105,7 @@ While YOLOX and YOLOv6 represent important steps in object detection history, th
 
 Ultralytics models are designed with a "users-first" philosophy. The API is consistent across all model generations, allowing you to swap a YOLOv8 model for a YOLO26 model with a single line of code. This streamlined user experience contrasts with the fragmented codebases often found in research-oriented repositories.
 
-Furthermore, the [Ultralytics Platform](https://www.ultralytics.com/hub) (formerly HUB) simplifies the entire lifecycle, from data management to **[model deployment](https://www.ultralytics.com/glossary/model-deployment)**. This integrated tooling ensures that you spend less time debugging environment issues and more time solving computer vision problems.
+Furthermore, the [Ultralytics Platform](https://platform.ultralytics.com) (formerly HUB) simplifies the entire lifecycle, from data management to **[model deployment](https://www.ultralytics.com/glossary/model-deployment)**. This integrated tooling ensures that you spend less time debugging environment issues and more time solving computer vision problems.
 
 ### Next-Generation Performance: YOLO26
 

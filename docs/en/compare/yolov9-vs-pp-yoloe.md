@@ -110,4 +110,4 @@ For most developers and researchers, the ease of use, extensive documentation, a
 
 !!! tip "Start Your Project Today"
 
-    You can begin experimenting with these models immediately using the [Ultralytics Platform](https://www.ultralytics.com/hub), which simplifies dataset management and model training, allowing you to focus on building impactful solutions.
+    You can begin experimenting with these models immediately using the [Ultralytics Platform](https://platform.ultralytics.com), which simplifies dataset management and model training, allowing you to focus on building impactful solutions.

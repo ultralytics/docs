@@ -146,7 +146,7 @@ print(f"YOLO26 Speed: {results_26[0].speed}")
 results = model_26.train(data="coco8.yaml", epochs=100, imgsz=640)
 ```
 
-The [Ultralytics Platform](https://www.ultralytics.com/hub) (formerly HUB) further simplifies this by allowing you to manage datasets and train both models in the cloud without writing code, though YOLO26 is the recommended default for new projects created on the platform.
+The [Ultralytics Platform](https://platform.ultralytics.com) (formerly HUB) further simplifies this by allowing you to manage datasets and train both models in the cloud without writing code, though YOLO26 is the recommended default for new projects created on the platform.
 
 ## Deployment and Ecosystem
 
