@@ -125,10 +125,10 @@ Choosing the right model depends on your specific constraints, but for most prod
 
 - **Choose DAMO-YOLO if:** You are a researcher specifically investigating Neural Architecture Search methodologies or have a legacy pipeline built around the tinyvision codebase.
 - **Choose Ultralytics YOLO26 if:**
-  - **Edge Deployment:** You need to run on [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/), mobile devices, or CPUs where the NMS-free design delivers massive speedups.
-  - **Rapid Development:** You need a model that is easy to train, validate, and [export](https://docs.ultralytics.com/modes/export/) to formats like CoreML or TFLite without complex configuration.
-  - **Complex Vision Tasks:** Your project requires more than just bounding boxes, such as [segmenting objects](https://docs.ultralytics.com/tasks/segment/) or tracking human pose.
-  - **Long-Term Maintenance:** You require a model backed by an active community, frequent updates, and comprehensive documentation.
+    - **Edge Deployment:** You need to run on [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/), mobile devices, or CPUs where the NMS-free design delivers massive speedups.
+    - **Rapid Development:** You need a model that is easy to train, validate, and [export](https://docs.ultralytics.com/modes/export/) to formats like CoreML or TFLite without complex configuration.
+    - **Complex Vision Tasks:** Your project requires more than just bounding boxes, such as [segmenting objects](https://docs.ultralytics.com/tasks/segment/) or tracking human pose.
+    - **Long-Term Maintenance:** You require a model backed by an active community, frequent updates, and comprehensive documentation.
 
 ## Conclusion
 

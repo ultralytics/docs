@@ -95,11 +95,11 @@ Ultralytics prioritizes a unified and streamlined user experience. With the `ult
 - **Streamlined API:** Training, validation, prediction, and export can all be handled with a few lines of Python code or simple CLI commands.
 - **Ultralytics Platform:** Users can manage datasets, annotate images, and train models via a web interface on the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26), removing the need for complex local environment setups.
 - **Versatility:** Unlike YOLOv6, which is primarily an object detector, YOLO11 natively supports multiple tasks:
-  - [Object Detection](https://docs.ultralytics.com/tasks/detect/)
-  - [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/)
-  - [Pose Estimation](https://docs.ultralytics.com/tasks/pose/)
-  - [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/)
-  - [Image Classification](https://docs.ultralytics.com/tasks/classify/)
+    - [Object Detection](https://docs.ultralytics.com/tasks/detect/)
+    - [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/)
+    - [Pose Estimation](https://docs.ultralytics.com/tasks/pose/)
+    - [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/)
+    - [Image Classification](https://docs.ultralytics.com/tasks/classify/)
 
 ### YOLOv6-3.0 Experience
 

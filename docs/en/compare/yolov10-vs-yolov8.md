@@ -104,15 +104,15 @@ One of the most significant advantages of choosing an Ultralytics model like YOL
 
 - **Simple Python API:** Developers can load, train, and deploy models with just a few lines of code.
 
-  ```python
-  from ultralytics import YOLO
+    ```python
+    from ultralytics import YOLO
 
-  # Load a model
-  model = YOLO("yolov8n.pt")
+    # Load a model
+    model = YOLO("yolov8n.pt")
 
-  # Train
-  model.train(data="coco8.yaml", epochs=100)
-  ```
+    # Train
+    model.train(data="coco8.yaml", epochs=100)
+    ```
 
 - **Extensive Documentation:** The [Ultralytics Docs](https://docs.ultralytics.com/) provide detailed guides on everything from [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning/) to [exporting models](https://docs.ultralytics.com/modes/export/) for iOS and Android.
 - **Memory Efficiency:** Ultralytics models are optimized for lower CUDA memory usage during training compared to many Transformer-based alternatives like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/), allowing for larger batch sizes on standard consumer GPUs.

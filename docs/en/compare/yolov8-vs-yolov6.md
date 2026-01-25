@@ -102,11 +102,11 @@ In contrast, YOLOv6-3.0's training pipeline, while effective, often demands more
 A critical differentiator is the range of tasks supported natively.
 
 - **YOLOv8** is a multi-task framework. It supports:
-  - [Object Detection](https://docs.ultralytics.com/tasks/detect/)
-  - [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/) (pixel-level masking)
-  - [Pose Estimation](https://docs.ultralytics.com/tasks/pose/) (keypoint detection)
-  - [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/) (for aerial or rotated objects)
-  - [Image Classification](https://docs.ultralytics.com/tasks/classify/)
+    - [Object Detection](https://docs.ultralytics.com/tasks/detect/)
+    - [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/) (pixel-level masking)
+    - [Pose Estimation](https://docs.ultralytics.com/tasks/pose/) (keypoint detection)
+    - [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/) (for aerial or rotated objects)
+    - [Image Classification](https://docs.ultralytics.com/tasks/classify/)
 - **YOLOv6-3.0** is primarily designed for standard object detection. While there have been experimental releases for other tasks, the ecosystem support and documentation for these are less comprehensive than what is available for YOLOv8.
 
 ### 3. Deployment and Export

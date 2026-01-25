@@ -106,7 +106,7 @@ However, for edge devices like the Raspberry Pi or NVIDIA Jetson, **YOLOv5** rem
 Both models are versatile, but the Ultralytics implementation ensures they support a wide range of tasks beyond simple detection:
 
 - **Instance Segmentation:** Precise pixel-level masks.
-- **Classification:** Whole-image labelling.
+- **Classification:** Whole-image labeling.
 - **Pose Estimation:** Tracking keypoints for [human activity recognition](https://www.ultralytics.com/blog/using-pose-estimation-to-perfect-your-running-technique).
 - **OBB:** Oriented Bounding Boxes for [aerial imagery](https://docs.ultralytics.com/datasets/obb/).
 

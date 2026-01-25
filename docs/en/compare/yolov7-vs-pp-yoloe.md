@@ -68,7 +68,7 @@ PP-YOLOE+ utilizes an **anchor-free** paradigm, significantly reducing the numbe
 
 ### Anchor-Based vs. Anchor-Free
 
-The most distinct difference lies in their approach to bounding boxes. **YOLOv7** uses predefined anchor boxes, which act as reference templates for detecting objects. This works well for standard datasets like [COCO](https://docs.ultralytics.com/datasets/detect/coco/) but may struggle with irregular object shapes found in datasets like [DOTA-v2](https://docs.ultralytics.com/datasets/obb/dota-v2/) unless manually retuned.
+The most distinct difference lies in their approach to bounding boxes. **YOLOv7** uses predefined anchor boxes, which act as reference templates for detecting objects. This works well for standard datasets like [COCO](https://docs.ultralytics.com/datasets/detect/coco/) but may struggle with irregular object shapes found in datasets like [DOTA-v2](https://docs.ultralytics.com/datasets/obb/dota-v2/) unless manually returned.
 
 **PP-YOLOE+** is anchor-free, predicting the center of objects and their distances to boundaries directly. This generally simplifies the training pipeline. Modern Ultralytics models, such as **YOLO11** and **YOLO26**, have also fully adopted anchor-free and even NMS-free architectures to maximize flexibility and speed.
 

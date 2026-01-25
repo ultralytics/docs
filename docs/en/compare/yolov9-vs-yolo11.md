@@ -70,10 +70,10 @@ YOLO11 shines through its integration with the broader Ultralytics ecosystem. Th
 
 - **Memory Efficiency:** YOLO11 is optimized to require significantly less CUDA memory during training compared to transformer-heavy architectures or unoptimized repositories. This democratizes access to training, allowing users to fine-tune state-of-the-art models on consumer-grade GPUs like the RTX 3060 or 4070.
 - **Broad Task Support:** Unlike YOLOv9, which is primarily focused on detection in its base repository, YOLO11 natively supports:
-  - [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/)
-  - [Pose Estimation](https://docs.ultralytics.com/tasks/pose/)
-  - [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/)
-  - [Image Classification](https://docs.ultralytics.com/tasks/classify/)
+    - [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/)
+    - [Pose Estimation](https://docs.ultralytics.com/tasks/pose/)
+    - [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/)
+    - [Image Classification](https://docs.ultralytics.com/tasks/classify/)
 - **Exportability:** One-click export to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx/), TensorRT, CoreML, and TFLite makes YOLO11 the go-to choice for mobile and embedded deployment.
 
 [Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }

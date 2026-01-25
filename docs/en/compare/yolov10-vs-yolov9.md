@@ -118,9 +118,9 @@ YOLO26 is the recommended choice for new projects, offering a superior balance o
 - **DFL Removal:** By removing Distribution Focal Loss, YOLO26 streamlines the model architecture, making it friendlier for export and compatible with a wider range of edge/low-power devices.
 - **Performance Leap:** Optimizations specifically targeting CPU inference deliver speeds up to **43% faster** than previous generations, making it a powerhouse for [edge AI](https://www.ultralytics.com/glossary/edge-ai).
 - **Task Versatility:** Unlike the detection-focused releases of v9 and v10, YOLO26 includes specialized improvements for all tasks:
-  - **Segmentation:** New semantic segmentation loss and multi-scale proto.
-  - **Pose:** Residual Log-Likelihood Estimation (RLE) for high-accuracy keypoints.
-  - **OBB:** Specialized angle loss to handle boundary issues in [Oriented Bounding Box](https://docs.ultralytics.com/tasks/obb/) tasks.
+    - **Segmentation:** New semantic segmentation loss and multi-scale proto.
+    - **Pose:** Residual Log-Likelihood Estimation (RLE) for high-accuracy keypoints.
+    - **OBB:** Specialized angle loss to handle boundary issues in [Oriented Bounding Box](https://docs.ultralytics.com/tasks/obb/) tasks.
 
 ### Streamlined Workflow with Ultralytics Platform
 

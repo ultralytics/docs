@@ -115,8 +115,8 @@ Choosing the right model depends on your specific constraints:
 
 - **EfficientDet:** Best suited for **academic research** where studying compound scaling or BiFPN architectures is necessary. It is also found in legacy systems where the cost of migration outweighs the performance benefits of newer models.
 - **YOLOv10 / YOLO26:** The ideal choice for **real-time applications**.
-  - **Robotics:** The NMS-free design reduces latency jitter, which is critical for navigation and obstacle avoidance.
-  - **Traffic Monitoring:** High throughput allows for processing multiple video streams on a single GPU using [object tracking](https://docs.ultralytics.com/modes/track/).
-  - **Mobile Apps:** Lower parameter counts and memory usage make these models perfect for deployment on iOS and Android devices.
+    - **Robotics:** The NMS-free design reduces latency jitter, which is critical for navigation and obstacle avoidance.
+    - **Traffic Monitoring:** High throughput allows for processing multiple video streams on a single GPU using [object tracking](https://docs.ultralytics.com/modes/track/).
+    - **Mobile Apps:** Lower parameter counts and memory usage make these models perfect for deployment on iOS and Android devices.
 
 For developers seeking the best balance of speed, accuracy, and ease of deployment, transitioning to **Ultralytics YOLO26** or **[YOLO11](https://docs.ultralytics.com/models/yolo11/)** is the recommended path forward.
