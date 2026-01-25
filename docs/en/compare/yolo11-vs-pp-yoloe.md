@@ -59,7 +59,7 @@ Released in September 2024, **YOLO11** builds upon the legacy of previous YOLO v
 
 ## PP-YOLOE+: Architecture and Ecosystem
 
-**PP-YOLOE+** is an upgraded version of PP-YOLOE, developed by the PaddlePaddle team. It is designed as a strong baseline for industrial applications, leveraging the Baidu PaddlePaddle [deep learning framework](https://en.wikipedia.org/wiki/PaddlePaddle).
+**PP-YOLOE+** is an upgraded version of PP-YOLOE, developed by the PaddlePaddle team. It is designed as a strong baseline for industrial applications, leveraging the Baidu [PaddlePaddle deep learning framework](https://www.paddlepaddle.org.cn/en).
 
 ### Key Architectural Features
 
