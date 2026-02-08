@@ -154,7 +154,7 @@
 <span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">Model file not found: </span><span class="si">{</span><span class="n">model_path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span></span>        <span class="k">return</span> <span class="kc">None</span>
 <span></span>
-<span></span>    <span class="c1"># Get signed upload URL from Platform</span>
+<span></span>    <span class="c1"># Get signed upload URL from Platform (server sanitizes filename for storage safety)</span>
 <span></span>    <span class="nd">@Retry</span><span class="p">(</span><span class="n">times</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span></span>    <span class="k">def</span><span class="w"> </span><span class="nf">get_signed_url</span><span class="p">():</span>
 <span></span>        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
