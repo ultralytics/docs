@@ -137,7 +137,6 @@ YOLOv8 is recommended for:
 - **Established Production Systems:** Existing production environments already built on the YOLOv8 architecture with stable, well-tested deployment pipelines.
 - **Broad Community and Ecosystem Support:** Applications benefiting from YOLOv8's extensive tutorials, third-party integrations, and active community resources.
 
-
 ## Code Example: Getting Started
 
 Leveraging the power of the latest Ultralytics models is incredibly straightforward. The following Python code demonstrates training a YOLO26 model on a custom dataset, observing the MuSGD optimizer automatically driving rapid convergence.

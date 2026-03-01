@@ -104,7 +104,6 @@ YOLOv9 is recommended for:
 - **Gradient Flow Optimization Studies:** Research focused on understanding and mitigating information loss in deep network layers during training.
 - **High-Accuracy Detection Benchmarking:** Scenarios where YOLOv9's strong COCO benchmark performance is needed as a reference point for architectural comparisons.
 
-
 ## The Ultralytics Advantage
 
 Choosing a model involves more than just reading an accuracy benchmark; the surrounding software ecosystem dictates how fast you can go from data collection to production.

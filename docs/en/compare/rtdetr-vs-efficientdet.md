@@ -107,7 +107,6 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
-
 ## The Ultralytics Alternative: Advancing the State-of-the-Art
 
 While both RTDETRv2 and EfficientDet have strong merits, modern AI development demands frameworks that offer a seamless [developer experience](https://docs.ultralytics.com/quickstart/) alongside cutting-edge performance. The [Ultralytics ecosystem](https://docs.ultralytics.com/) provides a significantly more streamlined approach to computer vision tasks.

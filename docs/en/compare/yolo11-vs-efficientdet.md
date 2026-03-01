@@ -150,7 +150,6 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
-
 ## Conclusion
 
 EfficientDet was a pioneering architecture that proved the viability of compound scaling in object detection. However, the rapid pace of AI research has brought forth models that are simply more capable, easier to integrate, and faster to run.

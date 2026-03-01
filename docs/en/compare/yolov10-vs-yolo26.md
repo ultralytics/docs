@@ -129,7 +129,6 @@ YOLO26 is recommended for:
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
-
 ## Conclusion
 
 The transition from YOLOv10 to YOLO26 highlights a crucial shift from academic proof-of-concept to production-ready enterprise solutions. By adopting the pioneering NMS-free design and enhancing it with the MuSGD optimizer, ProgLoss, and streamlined edge compatibility, YOLO26 sets a new benchmark for what is possible in real-time computer vision. For developers aiming to achieve the best balance of speed, accuracy, and usability, YOLO26 stands out as the ultimate recommendation.

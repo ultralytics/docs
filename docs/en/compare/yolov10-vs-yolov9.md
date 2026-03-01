@@ -146,7 +146,6 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
-
 ## Conclusion
 
 Both YOLOv9 and YOLOv10 offer unique advantages. YOLOv9 is a testament to maximizing network parameter efficiency and theoretical gradient flow, resulting in top-tier accuracy. Meanwhile, YOLOv10 serves as the academic pioneer of end-to-end bounding box detection without the latency penalty of NMS.

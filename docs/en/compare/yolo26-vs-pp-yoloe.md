@@ -144,7 +144,6 @@ PP-YOLOE+ is recommended for:
 - **Paddle Lite Edge Deployment:** Deploying to hardware with highly optimized inference kernels specifically for the Paddle Lite or Paddle inference engine.
 - **High-Accuracy Server-Side Detection:** Scenarios prioritizing maximum detection accuracy on powerful GPU servers where framework dependency is not a concern.
 
-
 ## Exploring Other Architectures
 
 For users exploring a broader spectrum of models, we also recommend reviewing [YOLO11](https://docs.ultralytics.com/models/yolo11/), the highly reliable prior generation of Ultralytics models, which remains a staple in thousands of production environments. Additionally, for scenarios requiring transformer-based mechanisms, the [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) architecture offers an intriguing alternative, albeit with higher memory demands during training.

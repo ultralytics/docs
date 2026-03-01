@@ -145,7 +145,6 @@ YOLO26 is recommended for:
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
-
 ## Conclusion
 
 Both models represent incredible leaps forward for the open-source community. YOLOv9 introduced vital theoretical improvements to gradient flow that will inspire architectures for years to come. However, for modern developers, startups, and enterprise teams seeking a flawless balance of speed, accuracy, and deployment ease, **Ultralytics YOLO26** is the clear recommendation.

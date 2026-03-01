@@ -124,7 +124,6 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
-
 ## Exploring Other Architectures
 
 While YOLOv10 and YOLO11 are excellent choices, your specific use case might benefit from other architectures available in the documentation. For sequence-based reasoning, transformer models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) provide high accuracy, though they typically demand higher memory requirements. Conversely, if you need zero-shot capabilities for identifying novel classes without retraining, [YOLO-World](https://docs.ultralytics.com/models/yolo-world/) offers an open-vocabulary approach driven by natural language prompts.

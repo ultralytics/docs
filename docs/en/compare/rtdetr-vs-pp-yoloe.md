@@ -154,7 +154,6 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
-
 ## Conclusion
 
 Both RTDETRv2 and PP-YOLOE+ have pushed the boundaries of what is possible in computer vision, proving the viability of both transformer and highly optimized CNN architectures. However, the complexity of deploying fragmented research codebases can hinder production timelines.
