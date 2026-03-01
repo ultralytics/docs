@@ -20,7 +20,7 @@ Both models stem from highly capable engineering teams but target slightly diffe
 **PP-YOLOE+ Details:**
 
 - Authors: PaddlePaddle Authors
-- Organization: [Baidu](https://ir.baidu.com/company-overview)
+- Organization: [Baidu](https://github.com/PaddlePaddle)
 - Date: 2022-04-02
 - Arxiv: [https://arxiv.org/abs/2203.16250](https://arxiv.org/abs/2203.16250)
 - GitHub: [https://github.com/PaddlePaddle/PaddleDetection/](https://github.com/PaddlePaddle/PaddleDetection/)

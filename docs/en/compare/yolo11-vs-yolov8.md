@@ -21,7 +21,7 @@ The transition from YOLOv8 to YOLO11 introduced several key architectural refine
 
 ### YOLO11 Architecture
 
-YOLO11 represents a significant leap forward in optimizing parameter usage. It replaces the traditional C2f modules with advanced C3k2 blocks, which enhance spatial feature processing without ballooning the parameter count. Additionally, YOLO11 introduces the C2PSA (Cross-Stage Partial Spatial Attention) module within its backbone. This attention mechanism allows the model to focus on critical regions of interest, drastically improving [small object detection](https://www.ultralytics.com/glossary/small-object-detection) and handling complex occlusions.
+YOLO11 represents a significant leap forward in optimizing parameter usage. It replaces the traditional C2f modules with advanced C3k2 blocks, which enhance spatial feature processing without ballooning the parameter count. Additionally, YOLO11 introduces the C2PSA (Cross-Stage Partial Spatial Attention) module within its backbone. This attention mechanism allows the model to focus on critical regions of interest, drastically improving [small object detection](https://www.ultralytics.com/blog/exploring-small-object-detection-with-ultralytics-yolo11) and handling complex occlusions.
 
 - **Authors:** Glenn Jocher and Jing Qiu
 - **Organization:** [Ultralytics](https://www.ultralytics.com/)

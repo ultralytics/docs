@@ -84,7 +84,7 @@ model.train(data="coco8.yaml", epochs=100, imgsz=640, device=0)
 model.export(format="onnx")
 ```
 
-[Learn more about DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 ## Real-World Applications and Versatility
 

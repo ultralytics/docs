@@ -17,7 +17,7 @@ This guide provides a detailed technical analysis of PP-YOLOE+ and DAMO-YOLO, ex
 
 ## PP-YOLOE+: Refined Industrial Object Detection
 
-Developed within the [Baidu ecosystem](https://ir.baidu.com/company-overview), PP-YOLOE+ is an iterative improvement over the original PP-YOLOE, heavily optimized for the PaddlePaddle deep learning framework. It was designed to maximize accuracy and inference speed on server-grade hardware, making it a strong candidate for industrial inspection and [smart retail](https://www.ultralytics.com/solutions/ai-in-retail) applications.
+Developed within the [Baidu ecosystem](https://github.com/PaddlePaddle), PP-YOLOE+ is an iterative improvement over the original PP-YOLOE, heavily optimized for the PaddlePaddle deep learning framework. It was designed to maximize accuracy and inference speed on server-grade hardware, making it a strong candidate for industrial inspection and [smart retail](https://www.ultralytics.com/solutions/ai-in-retail) applications.
 
 ### Architectural Innovations
 
@@ -30,7 +30,7 @@ PP-YOLOE+ introduces several architectural enhancements to improve upon previous
 **PP-YOLOE+ Details:**
 
 - Authors: PaddlePaddle Authors
-- Organization: [Baidu](https://ir.baidu.com/company-overview)
+- Organization: [Baidu](https://github.com/PaddlePaddle)
 - Date: 2022-04-02
 - Arxiv: [2203.16250](https://arxiv.org/abs/2203.16250)
 - GitHub: [PaddlePaddle/PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection/)

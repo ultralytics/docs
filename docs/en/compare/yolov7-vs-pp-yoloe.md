@@ -126,7 +126,7 @@ Choosing between these architectures often depends on the specific deployment en
 ### When to Choose YOLOv7
 
 - **GPU-Accelerated Systems:** Performs exceptionally well on server-grade GPUs for tasks requiring high throughput, such as [video analytics](https://www.ultralytics.com/blog/a-guide-on-tracking-moving-objects-in-videos-with-ultralytics-yolo-models).
-- **Robotics Integration:** Ideal for [integrating computer vision in robotics](https://www.ultralytics.com/blog/integrating-computer-vision-in-robotics-with-ultralytics-yolo11), allowing for fast decision-making in dynamic environments.
+- **Robotics Integration:** Ideal for [integrating computer vision in robotics](https://www.ultralytics.com/blog/integrating-computer-vision-in-robotics-with-ultalytics-yolo11), allowing for fast decision-making in dynamic environments.
 - **Academic Research:** Widely supported and frequently used as a reliable baseline in PyTorch-based research.
 
 While older models hold historical significance, transitioning to modern architectures like **YOLO26** or [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) via the [Ultralytics Platform](https://docs.ultralytics.com/platform/) ensures access to the latest optimizations, the simplest training workflows, and the broadest multi-task support available today.

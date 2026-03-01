@@ -37,7 +37,7 @@ Unlike many specialized models, YOLOv8 offers unmatched versatility. Beyond boun
 
 ## PP-YOLOE+: The PaddlePaddle Powerhouse
 
-PP-YOLOE+ is an evolutionary step from previous PP-YOLO iterations, specifically designed to run efficiently on [Baidu](https://ir.baidu.com/company-overview)'s internal frameworks.
+PP-YOLOE+ is an evolutionary step from previous PP-YOLO iterations, specifically designed to run efficiently on [Baidu](https://github.com/PaddlePaddle)'s internal frameworks.
 
 - **Authors:** PaddlePaddle Authors
 - **Organization:** [Baidu](https://www.baidu.com/)
