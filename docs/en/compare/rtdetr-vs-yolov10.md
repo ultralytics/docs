@@ -100,6 +100,35 @@ While RTDETRv2 offers robust accuracy, YOLOv10 demonstrates a remarkable advanta
 
     If you are deploying on server-grade GPUs where [batch size](https://www.ultralytics.com/glossary/batch-size) and VRAM are less constrained, the larger models (like `-x` or `-l`) maximize accuracy. For edge devices like Raspberry Pi or mobile phones, prioritize nano (`-n`) or small (`-s`) variants to maintain real-time frame rates.
 
+## Use Cases and Recommendations
+
+Choosing between RT-DETR and YOLOv10 depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose RT-DETR
+
+RT-DETR is a strong choice for:
+
+- **Transformer-Based Detection Research:** Projects exploring attention mechanisms and transformer architectures for end-to-end object detection without NMS.
+- **High-Accuracy Scenarios with Flexible Latency:** Applications where detection accuracy is the top priority and slightly higher inference latency is acceptable.
+- **Large Object Detection:** Scenes with primarily medium-to-large objects where the global attention mechanism of transformers provides a natural advantage.
+
+### When to Choose YOLOv10
+
+YOLOv10 is recommended for:
+
+- **NMS-Free Real-Time Detection:** Applications that benefit from end-to-end detection without Non-Maximum Suppression, reducing deployment complexity.
+- **Balanced Speed-Accuracy Tradeoffs:** Projects requiring a strong balance between inference speed and detection accuracy across various model scales.
+- **Consistent-Latency Applications:** Deployment scenarios where predictable inference times are critical, such as [robotics](https://www.ultralytics.com/glossary/robotics) or autonomous systems.
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## The Ultralytics Advantage: Introducing YOLO26
 
 While both RTDETRv2 and YOLOv10 offer compelling academic advancements, deploying them in real-world scenarios requires a robust, well-maintained software ecosystem. The [Ultralytics Platform](https://platform.ultralytics.com/) provides an unparalleled developer experience, combining ease of use, extensive documentation, and powerful tools for [data annotation](https://www.ultralytics.com/glossary/data-annotation) and deployment.

@@ -101,6 +101,35 @@ The true test of these models lies in their empirical performance on standard be
 
 As shown above, YOLOv10 maintains a significant advantage in raw inference speed. For example, YOLOv10-S achieves 46.7 mAP with a TensorRT latency of just 2.66ms, whereas EfficientDet-d3 achieves a similar 47.5 mAP but takes nearly 20ms—making YOLOv10 vastly superior for real-time video streaming or fast-moving manufacturing pipelines.
 
+## Use Cases and Recommendations
+
+Choosing between YOLOv10 and EfficientDet depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose YOLOv10
+
+YOLOv10 is a strong choice for:
+
+- **NMS-Free Real-Time Detection:** Applications that benefit from end-to-end detection without Non-Maximum Suppression, reducing deployment complexity.
+- **Balanced Speed-Accuracy Tradeoffs:** Projects requiring a strong balance between inference speed and detection accuracy across various model scales.
+- **Consistent-Latency Applications:** Deployment scenarios where predictable inference times are critical, such as [robotics](https://www.ultralytics.com/glossary/robotics) or autonomous systems.
+
+### When to Choose EfficientDet
+
+EfficientDet is recommended for:
+
+- **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
+- **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
+- **Mobile Deployment via TFLite:** Projects that specifically require [TensorFlow Lite](https://www.tensorflow.org/lite) export for Android or embedded Linux devices.
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## The Modern Standard: Enter Ultralytics YOLO26
 
 While YOLOv10 introduced the groundbreaking NMS-free paradigm and EfficientDet showcased principled scaling, the computer vision landscape has continued to evolve. For developers starting new projects today, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the undisputed state of the art. Released in January 2026, it merges the best of all worlds into a highly polished, production-ready package within the [Ultralytics Platform](https://platform.ultralytics.com).

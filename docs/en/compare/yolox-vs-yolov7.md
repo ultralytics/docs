@@ -91,6 +91,35 @@ For constrained edge devices like [Raspberry Pi](https://docs.ultralytics.com/gu
 
 For processing high-resolution feeds in industrial defect detection or dense traffic monitoring, **YOLOv7** is superior. Its robust feature aggregation allows it to maintain high accuracy even when objects are partially occluded or varying greatly in scale.
 
+## Use Cases and Recommendations
+
+Choosing between YOLOX and YOLOv7 depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose YOLOX
+
+YOLOX is a strong choice for:
+
+- **Anchor-Free Detection Research:** Academic research using YOLOX's clean, anchor-free architecture as a baseline for experimenting with new detection heads or loss functions.
+- **Ultra-Lightweight Edge Devices:** Deploying on microcontrollers or legacy mobile hardware where the YOLOX-Nano variant's extremely small footprint (0.91M parameters) is critical.
+- **SimOTA Label Assignment Studies:** Research projects investigating optimal transport-based label assignment strategies and their impact on training convergence.
+
+### When to Choose YOLOv7
+
+YOLOv7 is recommended for:
+
+- **Academic Benchmarking:** Reproducing 2022-era state-of-the-art results or studying the effects of E-ELAN and trainable bag-of-freebies techniques.
+- **Reparameterization Research:** Investigating planned reparameterized convolutions and compound model scaling strategies.
+- **Existing Custom Pipelines:** Projects with heavily customized pipelines built around YOLOv7's specific architecture that cannot easily be refactored.
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## The Ultralytics Advantage
 
 While both YOLOX and YOLOv7 are powerful research implementations, moving from a research repository to a scalable production environment can be daunting. This is where the [Ultralytics Platform](https://platform.ultralytics.com) shines.

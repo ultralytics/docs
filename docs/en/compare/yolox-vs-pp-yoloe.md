@@ -56,6 +56,35 @@ Understanding how these models perform across different scales is essential for 
 
     While PP-YOLOE+x achieves the highest absolute accuracy, YOLOX provides extremely lightweight variants (Nano and Tiny) that are highly suitable for low-power microcontrollers and legacy mobile hardware.
 
+## Use Cases and Recommendations
+
+Choosing between YOLOX and PP-YOLOE+ depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose YOLOX
+
+YOLOX is a strong choice for:
+
+- **Anchor-Free Detection Research:** Academic research using YOLOX's clean, anchor-free architecture as a baseline for experimenting with new detection heads or loss functions.
+- **Ultra-Lightweight Edge Devices:** Deploying on microcontrollers or legacy mobile hardware where the YOLOX-Nano variant's extremely small footprint (0.91M parameters) is critical.
+- **SimOTA Label Assignment Studies:** Research projects investigating optimal transport-based label assignment strategies and their impact on training convergence.
+
+### When to Choose PP-YOLOE+
+
+PP-YOLOE+ is recommended for:
+
+- **PaddlePaddle Ecosystem Integration:** Organizations with existing infrastructure built on [Baidu's PaddlePaddle](https://www.paddlepaddle.org.cn/) framework and tooling.
+- **Paddle Lite Edge Deployment:** Deploying to hardware with highly optimized inference kernels specifically for the Paddle Lite or Paddle inference engine.
+- **High-Accuracy Server-Side Detection:** Scenarios prioritizing maximum detection accuracy on powerful GPU servers where framework dependency is not a concern.
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## The Ultralytics Advantage: Introducing YOLO26
 
 While both YOLOX and PP-YOLOE+ offer distinct advantages, the rapid evolution of AI demands tools that combine state-of-the-art accuracy with unparalleled ease of use. This is where [Ultralytics](https://www.ultralytics.com/) models, specifically the recently released [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/), outshine legacy research repositories.

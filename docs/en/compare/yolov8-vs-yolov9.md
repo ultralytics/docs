@@ -136,6 +136,35 @@ In specialized manufacturing settings where detecting microscopic anomalies is c
 
 For tracking customers across store aisles or managing [automated checkout systems](https://www.ultralytics.com/solutions/ai-in-retail), **YOLOv8** provides the best balance. Its ability to simultaneously run detection and [multi-object tracking](https://docs.ultralytics.com/modes/track/) using standard algorithms like BoT-SORT makes it a robust solution for multi-camera retail deployments.
 
+## Use Cases and Recommendations
+
+Choosing between YOLOv8 and YOLOv9 depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose YOLOv8
+
+YOLOv8 is a strong choice for:
+
+- **Versatile Multi-Task Deployment:** Projects requiring a proven model for [detection](https://docs.ultralytics.com/tasks/detect/), [segmentation](https://docs.ultralytics.com/tasks/segment/), [classification](https://docs.ultralytics.com/tasks/classify/), and [pose estimation](https://docs.ultralytics.com/tasks/pose/) within the Ultralytics ecosystem.
+- **Established Production Systems:** Existing production environments already built on the YOLOv8 architecture with stable, well-tested deployment pipelines.
+- **Broad Community and Ecosystem Support:** Applications benefiting from YOLOv8's extensive tutorials, third-party integrations, and active community resources.
+
+### When to Choose YOLOv9
+
+YOLOv9 is recommended for:
+
+- **Information Bottleneck Research:** Academic projects studying Programmable Gradient Information (PGI) and Generalized Efficient Layer Aggregation Network (GELAN) architectures.
+- **Gradient Flow Optimization Studies:** Research focused on understanding and mitigating information loss in deep network layers during training.
+- **High-Accuracy Detection Benchmarking:** Scenarios where YOLOv9's strong COCO benchmark performance is needed as a reference point for architectural comparisons.
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## The Next Evolution: YOLO26
 
 While YOLOv8 and YOLOv9 are powerful, the AI landscape moves rapidly. For teams demanding the absolute best performance, the newly released **YOLO26** builds upon the successes of these previous generations.

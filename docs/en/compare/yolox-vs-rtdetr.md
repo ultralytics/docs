@@ -71,6 +71,35 @@ To objectively evaluate these architectures, we examine their performance on the
 
 While RTDETRv2 achieves impressive accuracy, YOLOX maintains an advantage in lightweight parameter profiles, particularly with its Nano and Tiny variants.
 
+## Use Cases and Recommendations
+
+Choosing between YOLOX and RT-DETR depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose YOLOX
+
+YOLOX is a strong choice for:
+
+- **Anchor-Free Detection Research:** Academic research using YOLOX's clean, anchor-free architecture as a baseline for experimenting with new detection heads or loss functions.
+- **Ultra-Lightweight Edge Devices:** Deploying on microcontrollers or legacy mobile hardware where the YOLOX-Nano variant's extremely small footprint (0.91M parameters) is critical.
+- **SimOTA Label Assignment Studies:** Research projects investigating optimal transport-based label assignment strategies and their impact on training convergence.
+
+### When to Choose RT-DETR
+
+RT-DETR is recommended for:
+
+- **Transformer-Based Detection Research:** Projects exploring attention mechanisms and transformer architectures for end-to-end object detection without NMS.
+- **High-Accuracy Scenarios with Flexible Latency:** Applications where detection accuracy is the top priority and slightly higher inference latency is acceptable.
+- **Large Object Detection:** Scenes with primarily medium-to-large objects where the global attention mechanism of transformers provides a natural advantage.
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## The Ultralytics Advantage: YOLO26
 
 While both YOLOX and RTDETRv2 offer distinct strengths, the newly released [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) redefines the state-of-the-art for vision AI, resolving the historical trade-offs between speed, accuracy, and ease of deployment.

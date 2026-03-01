@@ -106,6 +106,35 @@ predict_results = model("https://ultralytics.com/images/bus.jpg")
 path = model.export(format="onnx")
 ```
 
+## Use Cases and Recommendations
+
+Choosing between YOLOv5 and PP-YOLOE+ depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose YOLOv5
+
+YOLOv5 is a strong choice for:
+
+- **Proven Production Systems:** Existing deployments where YOLOv5's long track record of stability, extensive documentation, and massive community support are valued.
+- **Resource-Constrained Training:** Environments with limited GPU resources where YOLOv5's efficient training pipeline and lower memory requirements are advantageous.
+- **Extensive Export Format Support:** Projects requiring deployment across many formats including [ONNX](https://docs.ultralytics.com/integrations/onnx/), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), [CoreML](https://docs.ultralytics.com/integrations/coreml/), and [TFLite](https://docs.ultralytics.com/integrations/tflite/).
+
+### When to Choose PP-YOLOE+
+
+PP-YOLOE+ is recommended for:
+
+- **PaddlePaddle Ecosystem Integration:** Organizations with existing infrastructure built on [Baidu's PaddlePaddle](https://www.paddlepaddle.org.cn/) framework and tooling.
+- **Paddle Lite Edge Deployment:** Deploying to hardware with highly optimized inference kernels specifically for the Paddle Lite or Paddle inference engine.
+- **High-Accuracy Server-Side Detection:** Scenarios prioritizing maximum detection accuracy on powerful GPU servers where framework dependency is not a concern.
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## Alternative State-of-the-Art Models to Consider
 
 While YOLOv5 is a robust and proven standard, the field of computer vision moves rapidly. For teams starting new projects, we highly recommend exploring our newer architectures.

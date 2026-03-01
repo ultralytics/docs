@@ -84,6 +84,27 @@ Below is a direct comparison of YOLO26 and YOLOv9 performance on the [COCO datas
 
 _Note: CPU speeds for YOLOv9 are omitted as they vary heavily based on NMS configuration and are generally slower than YOLO26's native NMS-free implementation._
 
+## Use Cases and Recommendations
+
+Choosing between YOLO26 and YOLOv9 depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose YOLO26
+
+YOLO26 is a strong choice for:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+### When to Choose YOLOv9
+
+YOLOv9 is recommended for:
+
+- **Information Bottleneck Research:** Academic projects studying Programmable Gradient Information (PGI) and Generalized Efficient Layer Aggregation Network (GELAN) architectures.
+- **Gradient Flow Optimization Studies:** Research focused on understanding and mitigating information loss in deep network layers during training.
+- **High-Accuracy Detection Benchmarking:** Scenarios where YOLOv9's strong COCO benchmark performance is needed as a reference point for architectural comparisons.
+
+
 ## The Ultralytics Advantage
 
 Choosing a model involves more than just reading an accuracy benchmark; the surrounding software ecosystem dictates how fast you can go from data collection to production.

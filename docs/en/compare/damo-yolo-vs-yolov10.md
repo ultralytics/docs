@@ -102,6 +102,35 @@ prediction[0].show()
 - **Autonomous Vehicles (YOLOv10):** The NMS-free architecture guarantees deterministic, predictable latency, which is critical for safety systems in [autonomous driving](https://www.ultralytics.com/blog/ai-in-self-driving-cars).
 - **Industrial Automation (YOLOv10):** Detecting defects on fast-moving assembly lines requires models that maximize [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) speeds without consuming vast VRAM, making YOLOv10 a prime candidate for edge deployment.
 
+## Use Cases and Recommendations
+
+Choosing between DAMO-YOLO and YOLOv10 depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose DAMO-YOLO
+
+DAMO-YOLO is a strong choice for:
+
+- **High-Throughput Video Analytics:** Processing high-FPS video streams on fixed NVIDIA GPU infrastructure where batch-1 throughput is the primary metric.
+- **Industrial Manufacturing Lines:** Scenarios with strict GPU latency constraints on dedicated hardware, such as real-time quality inspection on assembly lines.
+- **Neural Architecture Search Research:** Studying the effects of automated architecture search (MAE-NAS) and efficient reparameterized backbones on detection performance.
+
+### When to Choose YOLOv10
+
+YOLOv10 is recommended for:
+
+- **NMS-Free Real-Time Detection:** Applications that benefit from end-to-end detection without Non-Maximum Suppression, reducing deployment complexity.
+- **Balanced Speed-Accuracy Tradeoffs:** Projects requiring a strong balance between inference speed and detection accuracy across various model scales.
+- **Consistent-Latency Applications:** Deployment scenarios where predictable inference times are critical, such as [robotics](https://www.ultralytics.com/glossary/robotics) or autonomous systems.
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## The Next Generation: Enter Ultralytics YOLO26
 
 While YOLOv10 laid the groundwork for NMS-free detection, the technology has evolved rapidly. For modern applications, the **Ultralytics YOLO26** model offers unparalleled performance and usability, taking the best of previous generations and refining them for production.

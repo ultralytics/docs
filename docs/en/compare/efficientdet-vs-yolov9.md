@@ -76,6 +76,35 @@ YOLOv9 provides a generational leap in speed. For instance, YOLOv9e achieves a *
 
     Exporting your architecture to optimized formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) or [OpenVINO](https://docs.ultralytics.com/integrations/openvino/) drastically reduces inference times compared to raw PyTorch runs.
 
+## Use Cases and Recommendations
+
+Choosing between EfficientDet and YOLOv9 depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose EfficientDet
+
+EfficientDet is a strong choice for:
+
+- **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
+- **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
+- **Mobile Deployment via TFLite:** Projects that specifically require [TensorFlow Lite](https://www.tensorflow.org/lite) export for Android or embedded Linux devices.
+
+### When to Choose YOLOv9
+
+YOLOv9 is recommended for:
+
+- **Information Bottleneck Research:** Academic projects studying Programmable Gradient Information (PGI) and Generalized Efficient Layer Aggregation Network (GELAN) architectures.
+- **Gradient Flow Optimization Studies:** Research focused on understanding and mitigating information loss in deep network layers during training.
+- **High-Accuracy Detection Benchmarking:** Scenarios where YOLOv9's strong COCO benchmark performance is needed as a reference point for architectural comparisons.
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## The Ultralytics Advantage: Choosing YOLO26
 
 While YOLOv9 and EfficientDet paved the way, developers looking for a truly modern, production-ready framework should consider [Ultralytics YOLO models](https://platform.ultralytics.com), specifically the newly released **YOLO26**.

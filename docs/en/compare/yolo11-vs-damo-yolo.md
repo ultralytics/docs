@@ -92,6 +92,35 @@ model.export(format="engine", device=0)
 
 **DAMO-YOLO**, originating from an academic and research-heavy background, presents a steeper learning curve. Achieving its peak accuracy often involves complex knowledge distillation pipelines—meaning you first have to train a massive "teacher" network before passing that knowledge to a smaller "student" network. This massively inflates the required [GPU compute](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) overhead and overall training duration compared to the lean training loops of Ultralytics models.
 
+## Use Cases and Recommendations
+
+Choosing between YOLO11 and DAMO-YOLO depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose YOLO11
+
+YOLO11 is a strong choice for:
+
+- **Production Edge Deployment:** Commercial applications on devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) or [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/) where reliability and active maintenance are paramount.
+- **Multi-Task Vision Applications:** Projects requiring [detection](https://docs.ultralytics.com/tasks/detect/), [segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [OBB](https://docs.ultralytics.com/tasks/obb/) within a single unified framework.
+- **Rapid Prototyping and Deployment:** Teams that need to move quickly from data collection to production using the streamlined [Ultralytics Python API](https://docs.ultralytics.com/usage/python/).
+
+### When to Choose DAMO-YOLO
+
+DAMO-YOLO is recommended for:
+
+- **High-Throughput Video Analytics:** Processing high-FPS video streams on fixed NVIDIA GPU infrastructure where batch-1 throughput is the primary metric.
+- **Industrial Manufacturing Lines:** Scenarios with strict GPU latency constraints on dedicated hardware, such as real-time quality inspection on assembly lines.
+- **Neural Architecture Search Research:** Studying the effects of automated architecture search (MAE-NAS) and efficient reparameterized backbones on detection performance.
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## Real-World Applications and Use Cases
 
 ### Autonomous Systems and Drones

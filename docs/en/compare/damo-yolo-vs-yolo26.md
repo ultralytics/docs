@@ -121,6 +121,27 @@ Deploying computer vision on battery-powered devices requires extreme efficiency
 
 If a project demands more than just object detection—such as analyzing player mechanics in [sports](https://www.ultralytics.com/blog/exploring-the-applications-of-computer-vision-in-sports) using pose estimation, or extracting exact pixel boundaries using instance segmentation—**YOLO26** provides native support across all these tasks within a single, unified codebase. DAMO-YOLO is strictly limited to bounding box detection.
 
+## Use Cases and Recommendations
+
+Choosing between DAMO-YOLO and YOLO26 depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose DAMO-YOLO
+
+DAMO-YOLO is a strong choice for:
+
+- **High-Throughput Video Analytics:** Processing high-FPS video streams on fixed NVIDIA GPU infrastructure where batch-1 throughput is the primary metric.
+- **Industrial Manufacturing Lines:** Scenarios with strict GPU latency constraints on dedicated hardware, such as real-time quality inspection on assembly lines.
+- **Neural Architecture Search Research:** Studying the effects of automated architecture search (MAE-NAS) and efficient reparameterized backbones on detection performance.
+
+### When to Choose YOLO26
+
+YOLO26 is recommended for:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## Conclusion
 
 Both architectures represent significant achievements in the field of deep learning. **DAMO-YOLO** offers a fascinating glimpse into the power of Neural Architecture Search and distillation techniques tailored for specific hardware benchmarks.

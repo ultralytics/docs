@@ -78,6 +78,35 @@ The following table highlights the performance differences across various model 
 | YOLO11l    | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
 | YOLO11x    | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
 
+## Use Cases and Recommendations
+
+Choosing between PP-YOLOE+ and YOLO11 depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose PP-YOLOE+
+
+PP-YOLOE+ is a strong choice for:
+
+- **PaddlePaddle Ecosystem Integration:** Organizations with existing infrastructure built on [Baidu's PaddlePaddle](https://www.paddlepaddle.org.cn/) framework and tooling.
+- **Paddle Lite Edge Deployment:** Deploying to hardware with highly optimized inference kernels specifically for the Paddle Lite or Paddle inference engine.
+- **High-Accuracy Server-Side Detection:** Scenarios prioritizing maximum detection accuracy on powerful GPU servers where framework dependency is not a concern.
+
+### When to Choose YOLO11
+
+YOLO11 is recommended for:
+
+- **Production Edge Deployment:** Commercial applications on devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) or [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/) where reliability and active maintenance are paramount.
+- **Multi-Task Vision Applications:** Projects requiring [detection](https://docs.ultralytics.com/tasks/detect/), [segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [OBB](https://docs.ultralytics.com/tasks/obb/) within a single unified framework.
+- **Rapid Prototyping and Deployment:** Teams that need to move quickly from data collection to production using the streamlined [Ultralytics Python API](https://docs.ultralytics.com/usage/python/).
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## The Ultralytics Advantage
 
 While academic benchmarks are important, the long-term success of an AI project relies heavily on the ecosystem surrounding the model. The [Ultralytics Platform](https://platform.ultralytics.com) offers distinct advantages for developers and enterprises alike.

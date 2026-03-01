@@ -69,6 +69,35 @@ When comparing these models side-by-side, the tradeoff between sheer accuracy an
 
 As seen above, EfficientDet-d7 achieves the highest overall accuracy, making it suitable for rigorous cloud-based applications. Conversely, the DAMO-YOLO series provides highly competitive accuracy with significantly lower latency on GPU hardware, making it a stronger candidate for real-time edge deployments.
 
+## Use Cases and Recommendations
+
+Choosing between DAMO-YOLO and EfficientDet depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose DAMO-YOLO
+
+DAMO-YOLO is a strong choice for:
+
+- **High-Throughput Video Analytics:** Processing high-FPS video streams on fixed NVIDIA GPU infrastructure where batch-1 throughput is the primary metric.
+- **Industrial Manufacturing Lines:** Scenarios with strict GPU latency constraints on dedicated hardware, such as real-time quality inspection on assembly lines.
+- **Neural Architecture Search Research:** Studying the effects of automated architecture search (MAE-NAS) and efficient reparameterized backbones on detection performance.
+
+### When to Choose EfficientDet
+
+EfficientDet is recommended for:
+
+- **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
+- **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
+- **Mobile Deployment via TFLite:** Projects that specifically require [TensorFlow Lite](https://www.tensorflow.org/lite) export for Android or embedded Linux devices.
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## The Modern Alternative: Ultralytics YOLO26
 
 While both DAMO-YOLO and EfficientDet represent significant academic milestones, real-world deployment often requires a more balanced, feature-rich, and developer-friendly approach. This is where [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) sets a new industry standard.

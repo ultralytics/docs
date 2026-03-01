@@ -126,6 +126,35 @@ Choosing between these architectures often depends on the specific hardware and 
 - **PP-YOLOE+** is highly suited for high-speed industrial inspection and environments heavily invested in the PaddlePaddle ecosystem. Its low parameter count at the smaller scales makes it viable for certain robotics applications.
 - **Ultralytics YOLO26** is the universally recommended solution for comprehensive commercial deployment. With its enhanced ProgLoss + STAL functions, it dramatically improves small-object recognition critical for [aerial drone operations](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations) and [smart city traffic monitoring](https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities).
 
+## Use Cases and Recommendations
+
+Choosing between RT-DETR and PP-YOLOE+ depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose RT-DETR
+
+RT-DETR is a strong choice for:
+
+- **Transformer-Based Detection Research:** Projects exploring attention mechanisms and transformer architectures for end-to-end object detection without NMS.
+- **High-Accuracy Scenarios with Flexible Latency:** Applications where detection accuracy is the top priority and slightly higher inference latency is acceptable.
+- **Large Object Detection:** Scenes with primarily medium-to-large objects where the global attention mechanism of transformers provides a natural advantage.
+
+### When to Choose PP-YOLOE+
+
+PP-YOLOE+ is recommended for:
+
+- **PaddlePaddle Ecosystem Integration:** Organizations with existing infrastructure built on [Baidu's PaddlePaddle](https://www.paddlepaddle.org.cn/) framework and tooling.
+- **Paddle Lite Edge Deployment:** Deploying to hardware with highly optimized inference kernels specifically for the Paddle Lite or Paddle inference engine.
+- **High-Accuracy Server-Side Detection:** Scenarios prioritizing maximum detection accuracy on powerful GPU servers where framework dependency is not a concern.
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## Conclusion
 
 Both RTDETRv2 and PP-YOLOE+ have pushed the boundaries of what is possible in computer vision, proving the viability of both transformer and highly optimized CNN architectures. However, the complexity of deploying fragmented research codebases can hinder production timelines.

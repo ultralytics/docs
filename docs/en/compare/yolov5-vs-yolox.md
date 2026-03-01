@@ -110,6 +110,35 @@ Choosing between these models depends on your deployment environment and technic
 - **Academic Research and Custom Architectures:** **YOLOX** is highly regarded in the research community. Its decoupled head and anchor-free nature make it an excellent baseline for engineers looking to experiment with novel label assignment strategies or those working on datasets where traditional anchor boxes fail to generalize.
 - **Agricultural AI:** For precision agriculture tasks like fruit detection or weed identification via drones, the ease of training and deploying YOLOv5 models using the [Ultralytics Platform](https://docs.ultralytics.com/platform/) allows domain experts to implement AI solutions without needing deep machine learning engineering backgrounds.
 
+## Use Cases and Recommendations
+
+Choosing between YOLOv5 and YOLOX depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose YOLOv5
+
+YOLOv5 is a strong choice for:
+
+- **Proven Production Systems:** Existing deployments where YOLOv5's long track record of stability, extensive documentation, and massive community support are valued.
+- **Resource-Constrained Training:** Environments with limited GPU resources where YOLOv5's efficient training pipeline and lower memory requirements are advantageous.
+- **Extensive Export Format Support:** Projects requiring deployment across many formats including [ONNX](https://docs.ultralytics.com/integrations/onnx/), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), [CoreML](https://docs.ultralytics.com/integrations/coreml/), and [TFLite](https://docs.ultralytics.com/integrations/tflite/).
+
+### When to Choose YOLOX
+
+YOLOX is recommended for:
+
+- **Anchor-Free Detection Research:** Academic research using YOLOX's clean, anchor-free architecture as a baseline for experimenting with new detection heads or loss functions.
+- **Ultra-Lightweight Edge Devices:** Deploying on microcontrollers or legacy mobile hardware where the YOLOX-Nano variant's extremely small footprint (0.91M parameters) is critical.
+- **SimOTA Label Assignment Studies:** Research projects investigating optimal transport-based label assignment strategies and their impact on training convergence.
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## The Future of Vision AI: Enter YOLO26
 
 While both YOLOv5 and YOLOX have cemented their places in computer vision history, the field is rapidly advancing. For developers starting new projects today, Ultralytics highly recommends exploring its latest flagship model, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26).

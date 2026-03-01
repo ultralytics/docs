@@ -113,6 +113,27 @@ results_yolo[0].show()
 model_yolo.export(format="onnx")
 ```
 
+## Use Cases and Recommendations
+
+Choosing between RT-DETR and YOLO26 depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose RT-DETR
+
+RT-DETR is a strong choice for:
+
+- **Transformer-Based Detection Research:** Projects exploring attention mechanisms and transformer architectures for end-to-end object detection without NMS.
+- **High-Accuracy Scenarios with Flexible Latency:** Applications where detection accuracy is the top priority and slightly higher inference latency is acceptable.
+- **Large Object Detection:** Scenes with primarily medium-to-large objects where the global attention mechanism of transformers provides a natural advantage.
+
+### When to Choose YOLO26
+
+YOLO26 is recommended for:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## Exploring Other Architectures
 
 While YOLO26 represents the current pinnacle of performance, developers might also find value in exploring previous iterations. The highly successful [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains a robust, fully supported model for a variety of legacy systems. You can dive deeper into its capabilities by reading our [RTDETR vs YOLO11 comparison](https://docs.ultralytics.com/compare/rtdetr-vs-yolo11/). Additionally, if you are analyzing older architectures, checking out the [EfficientDet vs YOLO26 comparison](https://docs.ultralytics.com/compare/efficientdet-vs-yolo26/) provides great historical context on how far [object detection architectures](https://www.ultralytics.com/glossary/object-detection-architectures) have progressed.

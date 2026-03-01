@@ -81,6 +81,35 @@ When evaluating models for production, balancing [mean Average Precision (mAP)](
 
     While EfficientDet achieves high accuracy on its larger `d7` variants, YOLOX provides far superior latency on GPU hardware (via [TensorRT](https://developer.nvidia.com/tensorrt)), making it a better choice for high-FPS applications like autonomous driving or sports tracking.
 
+## Use Cases and Recommendations
+
+Choosing between EfficientDet and YOLOX depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose EfficientDet
+
+EfficientDet is a strong choice for:
+
+- **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
+- **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
+- **Mobile Deployment via TFLite:** Projects that specifically require [TensorFlow Lite](https://www.tensorflow.org/lite) export for Android or embedded Linux devices.
+
+### When to Choose YOLOX
+
+YOLOX is recommended for:
+
+- **Anchor-Free Detection Research:** Academic research using YOLOX's clean, anchor-free architecture as a baseline for experimenting with new detection heads or loss functions.
+- **Ultra-Lightweight Edge Devices:** Deploying on microcontrollers or legacy mobile hardware where the YOLOX-Nano variant's extremely small footprint (0.91M parameters) is critical.
+- **SimOTA Label Assignment Studies:** Research projects investigating optimal transport-based label assignment strategies and their impact on training convergence.
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## The Ultralytics Advantage: Introducing YOLO26
 
 While EfficientDet and YOLOX represented significant leaps in their respective eras, modern computer vision demands greater versatility, streamlined workflows, and uncompromising speed. For developers prioritizing ease of use, lower memory requirements, and a well-maintained ecosystem, we highly recommend upgrading to **[Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/)**, released in January 2026.

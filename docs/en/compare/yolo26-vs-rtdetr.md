@@ -88,6 +88,27 @@ Evaluating these models head-to-head reveals the tangible benefits of the latest
 
 As demonstrated, YOLO26 consistently outperforms RTDETRv2 across all size variants. The **YOLO26x** achieves a remarkable 57.5 mAP with lower latency (11.8 ms on TensorRT) and significantly fewer parameters (55.7M) than the RTDETRv2-x (54.3 mAP, 15.03 ms, 76M parameters).
 
+## Use Cases and Recommendations
+
+Choosing between YOLO26 and RT-DETR depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose YOLO26
+
+YOLO26 is a strong choice for:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+### When to Choose RT-DETR
+
+RT-DETR is recommended for:
+
+- **Transformer-Based Detection Research:** Projects exploring attention mechanisms and transformer architectures for end-to-end object detection without NMS.
+- **High-Accuracy Scenarios with Flexible Latency:** Applications where detection accuracy is the top priority and slightly higher inference latency is acceptable.
+- **Large Object Detection:** Scenes with primarily medium-to-large objects where the global attention mechanism of transformers provides a natural advantage.
+
+
 ## The Ultralytics Advantage
 
 Choosing the right machine learning architecture is only part of the equation; the surrounding ecosystem dictates how quickly a team can move from prototyping to production.

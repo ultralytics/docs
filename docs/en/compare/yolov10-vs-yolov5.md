@@ -73,6 +73,35 @@ Visualizing the relationship between speed and accuracy is essential for identif
 
     When deploying to [edge AI](https://www.ultralytics.com/glossary/edge-ai) devices like the [NVIDIA Jetson](https://developer.nvidia.com/embedded-computing), models without NMS logic (like YOLOv10 and YOLO26) often compile more cleanly to TensorRT, avoiding fallback operations to the CPU.
 
+## Use Cases and Recommendations
+
+Choosing between YOLOv10 and YOLOv5 depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose YOLOv10
+
+YOLOv10 is a strong choice for:
+
+- **NMS-Free Real-Time Detection:** Applications that benefit from end-to-end detection without Non-Maximum Suppression, reducing deployment complexity.
+- **Balanced Speed-Accuracy Tradeoffs:** Projects requiring a strong balance between inference speed and detection accuracy across various model scales.
+- **Consistent-Latency Applications:** Deployment scenarios where predictable inference times are critical, such as [robotics](https://www.ultralytics.com/glossary/robotics) or autonomous systems.
+
+### When to Choose YOLOv5
+
+YOLOv5 is recommended for:
+
+- **Proven Production Systems:** Existing deployments where YOLOv5's long track record of stability, extensive documentation, and massive community support are valued.
+- **Resource-Constrained Training:** Environments with limited GPU resources where YOLOv5's efficient training pipeline and lower memory requirements are advantageous.
+- **Extensive Export Format Support:** Projects requiring deployment across many formats including [ONNX](https://docs.ultralytics.com/integrations/onnx/), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), [CoreML](https://docs.ultralytics.com/integrations/coreml/), and [TFLite](https://docs.ultralytics.com/integrations/tflite/).
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## The Ultralytics Advantage
 
 While YOLOv10 offers excellent detection capabilities, relying on academic repositories can sometimes complicate production pipelines. By using the official [Ultralytics Python package](https://pypi.org/project/ultralytics/), you gain access to a unified ecosystem that supports both YOLOv5 and YOLOv10, along with advanced features.

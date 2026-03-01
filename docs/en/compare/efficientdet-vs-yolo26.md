@@ -94,6 +94,27 @@ EfficientDet is strictly an [object detection](https://docs.ultralytics.com/task
 
     If you are maintaining older systems, Ultralytics still fully supports [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and older iterations in the exact same API. However, for all new developments, YOLO26 provides the best resource-to-accuracy yield.
 
+## Use Cases and Recommendations
+
+Choosing between EfficientDet and YOLO26 depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose EfficientDet
+
+EfficientDet is a strong choice for:
+
+- **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
+- **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
+- **Mobile Deployment via TFLite:** Projects that specifically require [TensorFlow Lite](https://www.tensorflow.org/lite) export for Android or embedded Linux devices.
+
+### When to Choose YOLO26
+
+YOLO26 is recommended for:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## Implementation Example: Training YOLO26
 
 Thanks to the Ultralytics Python SDK, initiating a highly optimized training run takes only a few lines of code. The framework natively handles mixed-precision scaling, multi-GPU orchestration via [PyTorch](https://pytorch.org/), and augmentation pipelines.

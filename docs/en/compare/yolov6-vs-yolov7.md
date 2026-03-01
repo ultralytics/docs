@@ -71,6 +71,35 @@ When evaluating these models on the [MS COCO](https://cocodataset.org/) dataset,
 
 The data reveals that YOLOv6-3.0n offers exceptional inference speed, making it suitable for high-frequency video analytics. Conversely, YOLOv7x achieves the highest mAP, dominating in tasks where detection accuracy is paramount over raw frame rates.
 
+## Use Cases and Recommendations
+
+Choosing between YOLOv6 and YOLOv7 depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose YOLOv6
+
+YOLOv6 is a strong choice for:
+
+- **Industrial Hardware-Aware Deployment:** Scenarios where the model's hardware-aware design and efficient reparameterization provide optimized performance on specific target hardware.
+- **Fast Single-Stage Detection:** Applications prioritizing raw inference speed on GPU for real-time video processing in controlled environments.
+- **Meituan Ecosystem Integration:** Teams already working within [Meituan's](https://about.meituan.com/en) technology stack and deployment infrastructure.
+
+### When to Choose YOLOv7
+
+YOLOv7 is recommended for:
+
+- **Academic Benchmarking:** Reproducing 2022-era state-of-the-art results or studying the effects of E-ELAN and trainable bag-of-freebies techniques.
+- **Reparameterization Research:** Investigating planned reparameterized convolutions and compound model scaling strategies.
+- **Existing Custom Pipelines:** Projects with heavily customized pipelines built around YOLOv7's specific architecture that cannot easily be refactored.
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## The Ultralytics Advantage: Stepping into the Future
 
 While YOLOv6-3.0 and YOLOv7 represent significant milestones, integrating disparate repositories into production pipelines often presents challenges in [model deployment](https://docs.ultralytics.com/guides/model-deployment-options/) and hyperparameter tuning. The **Ultralytics ecosystem** resolves these pain points by offering a streamlined, unified interface.

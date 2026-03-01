@@ -114,6 +114,35 @@ YOLO11 is the undisputed champion of practical, real-world deployment. Its minim
 - **[Agriculture](https://www.ultralytics.com/solutions/ai-in-agriculture):** Deploying on drones for real-time crop health monitoring and automated harvesting robotics.
 - **[Retail Analytics](https://www.ultralytics.com/solutions/ai-in-retail):** Processing multiple camera streams concurrently for queue management and inventory tracking without requiring massive server farms.
 
+## Use Cases and Recommendations
+
+Choosing between RT-DETR and YOLO11 depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose RT-DETR
+
+RT-DETR is a strong choice for:
+
+- **Transformer-Based Detection Research:** Projects exploring attention mechanisms and transformer architectures for end-to-end object detection without NMS.
+- **High-Accuracy Scenarios with Flexible Latency:** Applications where detection accuracy is the top priority and slightly higher inference latency is acceptable.
+- **Large Object Detection:** Scenes with primarily medium-to-large objects where the global attention mechanism of transformers provides a natural advantage.
+
+### When to Choose YOLO11
+
+YOLO11 is recommended for:
+
+- **Production Edge Deployment:** Commercial applications on devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) or [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/) where reliability and active maintenance are paramount.
+- **Multi-Task Vision Applications:** Projects requiring [detection](https://docs.ultralytics.com/tasks/detect/), [segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [OBB](https://docs.ultralytics.com/tasks/obb/) within a single unified framework.
+- **Rapid Prototyping and Deployment:** Teams that need to move quickly from data collection to production using the streamlined [Ultralytics Python API](https://docs.ultralytics.com/usage/python/).
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## Looking Forward: The Arrival of YOLO26
 
 If you are beginning a new project, you should also consider the next generation of vision AI: **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**. Released in January 2026, YOLO26 incorporates the best of both worlds. It introduces an **End-to-End NMS-Free Design** (first pioneered in [YOLOv10](https://platform.ultralytics.com/ultralytics/yolov10)), completely eliminating post-processing latency just like RTDETRv2, but with the unmatched speed of a CNN.

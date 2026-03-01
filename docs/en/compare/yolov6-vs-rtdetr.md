@@ -103,6 +103,35 @@ The following table benchmarks YOLOv6-3.0 and RTDETRv2 across key performance in
 
 ---
 
+## Use Cases and Recommendations
+
+Choosing between YOLOv6 and RT-DETR depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose YOLOv6
+
+YOLOv6 is a strong choice for:
+
+- **Industrial Hardware-Aware Deployment:** Scenarios where the model's hardware-aware design and efficient reparameterization provide optimized performance on specific target hardware.
+- **Fast Single-Stage Detection:** Applications prioritizing raw inference speed on GPU for real-time video processing in controlled environments.
+- **Meituan Ecosystem Integration:** Teams already working within [Meituan's](https://about.meituan.com/en) technology stack and deployment infrastructure.
+
+### When to Choose RT-DETR
+
+RT-DETR is recommended for:
+
+- **Transformer-Based Detection Research:** Projects exploring attention mechanisms and transformer architectures for end-to-end object detection without NMS.
+- **High-Accuracy Scenarios with Flexible Latency:** Applications where detection accuracy is the top priority and slightly higher inference latency is acceptable.
+- **Large Object Detection:** Scenes with primarily medium-to-large objects where the global attention mechanism of transformers provides a natural advantage.
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## The Ultralytics Advantage: Enter YOLO26
 
 While YOLOv6-3.0 and RTDETRv2 excel in their specific niches, the modern machine learning landscape demands models that blend speed, accuracy, and developer experience. The [Ultralytics ecosystem](https://platform.ultralytics.com/) addresses these needs perfectly, particularly with the release of **YOLO26**.

@@ -99,6 +99,35 @@ Furthermore, the Ultralytics ecosystem provides unmatched versatility. Beyond bo
 
     Models trained using the Ultralytics framework can be exported to multiple formats, including [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) and [OpenVINO](https://docs.ultralytics.com/integrations/openvino/), ensuring highly optimized inference across diverse hardware.
 
+## Use Cases and Recommendations
+
+Choosing between PP-YOLOE+ and YOLOv9 depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose PP-YOLOE+
+
+PP-YOLOE+ is a strong choice for:
+
+- **PaddlePaddle Ecosystem Integration:** Organizations with existing infrastructure built on [Baidu's PaddlePaddle](https://www.paddlepaddle.org.cn/) framework and tooling.
+- **Paddle Lite Edge Deployment:** Deploying to hardware with highly optimized inference kernels specifically for the Paddle Lite or Paddle inference engine.
+- **High-Accuracy Server-Side Detection:** Scenarios prioritizing maximum detection accuracy on powerful GPU servers where framework dependency is not a concern.
+
+### When to Choose YOLOv9
+
+YOLOv9 is recommended for:
+
+- **Information Bottleneck Research:** Academic projects studying Programmable Gradient Information (PGI) and Generalized Efficient Layer Aggregation Network (GELAN) architectures.
+- **Gradient Flow Optimization Studies:** Research focused on understanding and mitigating information loss in deep network layers during training.
+- **High-Accuracy Detection Benchmarking:** Scenarios where YOLOv9's strong COCO benchmark performance is needed as a reference point for architectural comparisons.
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## Looking Forward: The YOLO26 Advantage
 
 While both PP-YOLOE+ and YOLOv9 are powerful, the newly released [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the definitive next step for production environments. Released in January 2026, YOLO26 establishes a new standard for edge computing and cloud deployments. We highly recommend YOLO26 for all new computer vision projects due to its breakthrough innovations:

@@ -104,6 +104,35 @@ Industries leveraging YOLO11 include:
 - **Retail Analytics:** Implementing [smart surveillance](https://www.ultralytics.com/blog/smart-surveillance-ultralytics-yolo11) to analyze customer traffic and automate inventory management.
 - **Logistics and Supply Chain:** High-speed barcode and package detection using [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/) on fast-moving conveyor belts.
 
+## Use Cases and Recommendations
+
+Choosing between DAMO-YOLO and YOLO11 depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose DAMO-YOLO
+
+DAMO-YOLO is a strong choice for:
+
+- **High-Throughput Video Analytics:** Processing high-FPS video streams on fixed NVIDIA GPU infrastructure where batch-1 throughput is the primary metric.
+- **Industrial Manufacturing Lines:** Scenarios with strict GPU latency constraints on dedicated hardware, such as real-time quality inspection on assembly lines.
+- **Neural Architecture Search Research:** Studying the effects of automated architecture search (MAE-NAS) and efficient reparameterized backbones on detection performance.
+
+### When to Choose YOLO11
+
+YOLO11 is recommended for:
+
+- **Production Edge Deployment:** Commercial applications on devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) or [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/) where reliability and active maintenance are paramount.
+- **Multi-Task Vision Applications:** Projects requiring [detection](https://docs.ultralytics.com/tasks/detect/), [segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [OBB](https://docs.ultralytics.com/tasks/obb/) within a single unified framework.
+- **Rapid Prototyping and Deployment:** Teams that need to move quickly from data collection to production using the streamlined [Ultralytics Python API](https://docs.ultralytics.com/usage/python/).
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## The Next Generation: Introducing YOLO26
 
 While YOLO11 remains a powerful and reliable choice, the computer vision landscape moves quickly. For developers initiating new projects, the latest **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** model represents the new state-of-the-art.

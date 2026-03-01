@@ -111,6 +111,35 @@ Once trained, exporting a YOLO11 model to formats like [ONNX](https://docs.ultra
 
     Remember that while RTDETRv2 focuses exclusively on bounding box detection, the YOLO11 architecture natively supports [pose estimation](https://docs.ultralytics.com/tasks/pose/) and [instance segmentation](https://docs.ultralytics.com/tasks/segment/), allowing you to consolidate multiple vision tasks into a single model family.
 
+## Use Cases and Recommendations
+
+Choosing between YOLO11 and RT-DETR depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose YOLO11
+
+YOLO11 is a strong choice for:
+
+- **Production Edge Deployment:** Commercial applications on devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) or [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/) where reliability and active maintenance are paramount.
+- **Multi-Task Vision Applications:** Projects requiring [detection](https://docs.ultralytics.com/tasks/detect/), [segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [OBB](https://docs.ultralytics.com/tasks/obb/) within a single unified framework.
+- **Rapid Prototyping and Deployment:** Teams that need to move quickly from data collection to production using the streamlined [Ultralytics Python API](https://docs.ultralytics.com/usage/python/).
+
+### When to Choose RT-DETR
+
+RT-DETR is recommended for:
+
+- **Transformer-Based Detection Research:** Projects exploring attention mechanisms and transformer architectures for end-to-end object detection without NMS.
+- **High-Accuracy Scenarios with Flexible Latency:** Applications where detection accuracy is the top priority and slightly higher inference latency is acceptable.
+- **Large Object Detection:** Scenes with primarily medium-to-large objects where the global attention mechanism of transformers provides a natural advantage.
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## Looking Ahead: The Power of YOLO26
 
 While YOLO11 stands as an excellent production choice, teams looking for the absolute cutting-edge should strongly consider [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). Released in January 2026, YOLO26 bridges the architectural gap by incorporating an **End-to-End NMS-Free Design** (first pioneered in YOLOv10) directly into its core, eliminating post-processing latency and deployment logic complexity entirely.

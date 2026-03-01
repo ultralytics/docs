@@ -102,6 +102,35 @@ predictions[0].show()
 
 This unified interface is a hallmark of the well-maintained Ultralytics ecosystem, ensuring that developers spend less time debugging environment issues and more time iterating on their [computer vision solutions](https://www.ultralytics.com/solutions).
 
+## Use Cases and Recommendations
+
+Choosing between YOLOX and YOLOv8 depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose YOLOX
+
+YOLOX is a strong choice for:
+
+- **Anchor-Free Detection Research:** Academic research using YOLOX's clean, anchor-free architecture as a baseline for experimenting with new detection heads or loss functions.
+- **Ultra-Lightweight Edge Devices:** Deploying on microcontrollers or legacy mobile hardware where the YOLOX-Nano variant's extremely small footprint (0.91M parameters) is critical.
+- **SimOTA Label Assignment Studies:** Research projects investigating optimal transport-based label assignment strategies and their impact on training convergence.
+
+### When to Choose YOLOv8
+
+YOLOv8 is recommended for:
+
+- **Versatile Multi-Task Deployment:** Projects requiring a proven model for [detection](https://docs.ultralytics.com/tasks/detect/), [segmentation](https://docs.ultralytics.com/tasks/segment/), [classification](https://docs.ultralytics.com/tasks/classify/), and [pose estimation](https://docs.ultralytics.com/tasks/pose/) within the Ultralytics ecosystem.
+- **Established Production Systems:** Existing production environments already built on the YOLOv8 architecture with stable, well-tested deployment pipelines.
+- **Broad Community and Ecosystem Support:** Applications benefiting from YOLOv8's extensive tutorials, third-party integrations, and active community resources.
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## Looking Ahead: The YOLO26 Architecture
 
 While YOLOv8 provides exceptional balance and usability, the frontier of artificial intelligence continues to advance rapidly. Released in January 2026, **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** represents the definitive standard for modern edge and cloud deployment, taking the foundational concepts of prior generations and optimizing them relentlessly.

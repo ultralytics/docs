@@ -124,6 +124,27 @@ Deciding between YOLO26 and PP-YOLOE+ depends largely on the constraints of your
 - **Time-Critical Deployments:** The natively NMS-free architecture guarantees stable, ultra-low latency inference, crucial for [autonomous driving research](https://www.ultralytics.com/blog/ai-in-self-driving-cars) and high-speed [manufacturing quality control](https://www.ultralytics.com/solutions/ai-in-manufacturing).
 - **Multi-Task Projects:** When a project requires a blend of object detection, precise masking via segmentation, or keypoint tracking via pose estimation, the unified YOLO26 framework is indispensable.
 
+## Use Cases and Recommendations
+
+Choosing between YOLO26 and PP-YOLOE+ depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose YOLO26
+
+YOLO26 is a strong choice for:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+### When to Choose PP-YOLOE+
+
+PP-YOLOE+ is recommended for:
+
+- **PaddlePaddle Ecosystem Integration:** Organizations with existing infrastructure built on [Baidu's PaddlePaddle](https://www.paddlepaddle.org.cn/) framework and tooling.
+- **Paddle Lite Edge Deployment:** Deploying to hardware with highly optimized inference kernels specifically for the Paddle Lite or Paddle inference engine.
+- **High-Accuracy Server-Side Detection:** Scenarios prioritizing maximum detection accuracy on powerful GPU servers where framework dependency is not a concern.
+
+
 ## Exploring Other Architectures
 
 For users exploring a broader spectrum of models, we also recommend reviewing [YOLO11](https://docs.ultralytics.com/models/yolo11/), the highly reliable prior generation of Ultralytics models, which remains a staple in thousands of production environments. Additionally, for scenarios requiring transformer-based mechanisms, the [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) architecture offers an intriguing alternative, albeit with higher memory demands during training.

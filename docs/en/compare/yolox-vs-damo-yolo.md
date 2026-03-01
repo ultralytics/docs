@@ -66,6 +66,35 @@ When comparing these two models, we must look at their parameter counts, require
 
 While both models achieve impressive results, they come with caveats. YOLOX requires careful tuning of its decoupled head, while DAMO-YOLO's heavy reliance on distillation makes retraining on custom datasets highly resource-intensive, demanding vast amounts of [GPU memory](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit).
 
+## Use Cases and Recommendations
+
+Choosing between YOLOX and DAMO-YOLO depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose YOLOX
+
+YOLOX is a strong choice for:
+
+- **Anchor-Free Detection Research:** Academic research using YOLOX's clean, anchor-free architecture as a baseline for experimenting with new detection heads or loss functions.
+- **Ultra-Lightweight Edge Devices:** Deploying on microcontrollers or legacy mobile hardware where the YOLOX-Nano variant's extremely small footprint (0.91M parameters) is critical.
+- **SimOTA Label Assignment Studies:** Research projects investigating optimal transport-based label assignment strategies and their impact on training convergence.
+
+### When to Choose DAMO-YOLO
+
+DAMO-YOLO is recommended for:
+
+- **High-Throughput Video Analytics:** Processing high-FPS video streams on fixed NVIDIA GPU infrastructure where batch-1 throughput is the primary metric.
+- **Industrial Manufacturing Lines:** Scenarios with strict GPU latency constraints on dedicated hardware, such as real-time quality inspection on assembly lines.
+- **Neural Architecture Search Research:** Studying the effects of automated architecture search (MAE-NAS) and efficient reparameterized backbones on detection performance.
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## The Ultralytics Advantage: Introducing YOLO26
 
 While YOLOX and DAMO-YOLO represent important historical milestones, modern developers require a solution that pairs state-of-the-art accuracy with unparalleled ease of use. This is where [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) transforms the landscape. Released in January 2026, YOLO26 builds upon the legacy of [NMS-free models](https://docs.ultralytics.com/models/yolov10/) to deliver the ultimate balance of speed, accuracy, and developer experience.

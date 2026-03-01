@@ -72,6 +72,35 @@ The table below contrasts key metrics on standard [datasets like COCO](https://d
 
 As shown, PP-YOLOE+ generally scales better in raw mAP for high-end GPUs, while EfficientDet attempts to minimize parameters. However, both fall behind modern real-time capabilities required for cutting-edge [edge AI](https://www.ultralytics.com/glossary/edge-ai).
 
+## Use Cases and Recommendations
+
+Choosing between PP-YOLOE+ and EfficientDet depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose PP-YOLOE+
+
+PP-YOLOE+ is a strong choice for:
+
+- **PaddlePaddle Ecosystem Integration:** Organizations with existing infrastructure built on [Baidu's PaddlePaddle](https://www.paddlepaddle.org.cn/) framework and tooling.
+- **Paddle Lite Edge Deployment:** Deploying to hardware with highly optimized inference kernels specifically for the Paddle Lite or Paddle inference engine.
+- **High-Accuracy Server-Side Detection:** Scenarios prioritizing maximum detection accuracy on powerful GPU servers where framework dependency is not a concern.
+
+### When to Choose EfficientDet
+
+EfficientDet is recommended for:
+
+- **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
+- **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
+- **Mobile Deployment via TFLite:** Projects that specifically require [TensorFlow Lite](https://www.tensorflow.org/lite) export for Android or embedded Linux devices.
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## The Modern Alternative: Ultralytics YOLO26
 
 While PP-YOLOE+ and EfficientDet represent significant historical milestones, developers seeking state-of-the-art accuracy, lower memory consumption, and a streamlined user experience should look to [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26).

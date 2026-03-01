@@ -79,6 +79,35 @@ Understanding the exact trade-offs between these models requires analyzing their
 
 As seen above, RTDETRv2 achieves significantly higher [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) at comparable parameter counts to the mid-tier EfficientDet models, heavily utilizing its transformer architecture to boost accuracy.
 
+## Use Cases and Recommendations
+
+Choosing between RT-DETR and EfficientDet depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose RT-DETR
+
+RT-DETR is a strong choice for:
+
+- **Transformer-Based Detection Research:** Projects exploring attention mechanisms and transformer architectures for end-to-end object detection without NMS.
+- **High-Accuracy Scenarios with Flexible Latency:** Applications where detection accuracy is the top priority and slightly higher inference latency is acceptable.
+- **Large Object Detection:** Scenes with primarily medium-to-large objects where the global attention mechanism of transformers provides a natural advantage.
+
+### When to Choose EfficientDet
+
+EfficientDet is recommended for:
+
+- **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
+- **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
+- **Mobile Deployment via TFLite:** Projects that specifically require [TensorFlow Lite](https://www.tensorflow.org/lite) export for Android or embedded Linux devices.
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## The Ultralytics Alternative: Advancing the State-of-the-Art
 
 While both RTDETRv2 and EfficientDet have strong merits, modern AI development demands frameworks that offer a seamless [developer experience](https://docs.ultralytics.com/quickstart/) alongside cutting-edge performance. The [Ultralytics ecosystem](https://docs.ultralytics.com/) provides a significantly more streamlined approach to computer vision tasks.

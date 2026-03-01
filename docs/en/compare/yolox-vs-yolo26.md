@@ -127,6 +127,27 @@ YOLO26 is fundamentally designed for modern industrial applications. Because it 
 - **Drone and Aerial Analytics:** The specialized angle loss for OBB and the integration of ProgLoss + STAL make YOLO26 unmatched at detecting rotated objects and tiny artifacts in vast satellite images.
 - **Edge Security Systems:** With its 43% faster CPU inference, YOLO26 allows companies to deploy robust security analytics directly onto inexpensive local hardware without requiring expensive cloud compute.
 
+## Use Cases and Recommendations
+
+Choosing between YOLOX and YOLO26 depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose YOLOX
+
+YOLOX is a strong choice for:
+
+- **Anchor-Free Detection Research:** Academic research using YOLOX's clean, anchor-free architecture as a baseline for experimenting with new detection heads or loss functions.
+- **Ultra-Lightweight Edge Devices:** Deploying on microcontrollers or legacy mobile hardware where the YOLOX-Nano variant's extremely small footprint (0.91M parameters) is critical.
+- **SimOTA Label Assignment Studies:** Research projects investigating optimal transport-based label assignment strategies and their impact on training convergence.
+
+### When to Choose YOLO26
+
+YOLO26 is recommended for:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## Exploring Other Ultralytics Models
 
 If you are exploring the evolution of computer vision, there are other highly capable models within the Ultralytics family worth investigating:

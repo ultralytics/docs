@@ -112,6 +112,35 @@ In scenarios governed by strict hardware limitations or specialized NPUs that st
 
 For robotics navigation, missing small objects can be catastrophic. The GELAN architecture within YOLOv9 ensures that features of small, distant obstacles aren't lost in the network's deep layers, outperforming older models in critical safety environments like [AI in automotive](https://www.ultralytics.com/solutions/ai-in-automotive) applications.
 
+## Use Cases and Recommendations
+
+Choosing between YOLOv9 and YOLOX depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose YOLOv9
+
+YOLOv9 is a strong choice for:
+
+- **Information Bottleneck Research:** Academic projects studying Programmable Gradient Information (PGI) and Generalized Efficient Layer Aggregation Network (GELAN) architectures.
+- **Gradient Flow Optimization Studies:** Research focused on understanding and mitigating information loss in deep network layers during training.
+- **High-Accuracy Detection Benchmarking:** Scenarios where YOLOv9's strong COCO benchmark performance is needed as a reference point for architectural comparisons.
+
+### When to Choose YOLOX
+
+YOLOX is recommended for:
+
+- **Anchor-Free Detection Research:** Academic research using YOLOX's clean, anchor-free architecture as a baseline for experimenting with new detection heads or loss functions.
+- **Ultra-Lightweight Edge Devices:** Deploying on microcontrollers or legacy mobile hardware where the YOLOX-Nano variant's extremely small footprint (0.91M parameters) is critical.
+- **SimOTA Label Assignment Studies:** Research projects investigating optimal transport-based label assignment strategies and their impact on training convergence.
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## The Future: Enter YOLO26
 
 While YOLOv9 represents an impressive milestone, the demands of production environments constantly push the boundaries. The newly released **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** represents the definitive standard for modern vision AI.

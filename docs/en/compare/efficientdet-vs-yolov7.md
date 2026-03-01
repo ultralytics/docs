@@ -83,6 +83,35 @@ When comparing these models, examining the trade-offs between precision, inferen
 
     While EfficientDet-d7 achieves the highest mAP, it requires nearly 128ms on a T4 GPU. In stark contrast, YOLOv7x achieves a comparable 53.1 mAP at an incredibly fast 11.57ms, demonstrating a massive generational leap in computational efficiency for real-time deployments.
 
+## Use Cases and Recommendations
+
+Choosing between EfficientDet and YOLOv7 depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose EfficientDet
+
+EfficientDet is a strong choice for:
+
+- **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
+- **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
+- **Mobile Deployment via TFLite:** Projects that specifically require [TensorFlow Lite](https://www.tensorflow.org/lite) export for Android or embedded Linux devices.
+
+### When to Choose YOLOv7
+
+YOLOv7 is recommended for:
+
+- **Academic Benchmarking:** Reproducing 2022-era state-of-the-art results or studying the effects of E-ELAN and trainable bag-of-freebies techniques.
+- **Reparameterization Research:** Investigating planned reparameterized convolutions and compound model scaling strategies.
+- **Existing Custom Pipelines:** Projects with heavily customized pipelines built around YOLOv7's specific architecture that cannot easily be refactored.
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## The Ultralytics Advantage
 
 Choosing the right architecture goes beyond just raw metrics; it involves evaluating the entire machine learning lifecycle. The [Ultralytics ecosystem](https://docs.ultralytics.com/) provides an unparalleled developer experience, significantly lowering the barrier to entry for robust AI deployments.

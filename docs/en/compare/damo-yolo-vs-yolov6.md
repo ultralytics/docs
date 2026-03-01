@@ -75,6 +75,35 @@ While DAMO-YOLO exhibits a slight edge in the small tier (46.0 mAP vs 45.0 mAP),
 
     If your hardware environment allows for heavy automated searches to customize your backbone, DAMO-YOLO's NAS approach is highly effective. However, if you rely entirely on standardized GPU acceleration (like T4 or A100), YOLOv6's EfficientRep structures often translate to higher raw FPS.
 
+## Use Cases and Recommendations
+
+Choosing between DAMO-YOLO and YOLOv6 depends on your specific project requirements, deployment constraints, and ecosystem preferences.
+
+### When to Choose DAMO-YOLO
+
+DAMO-YOLO is a strong choice for:
+
+- **High-Throughput Video Analytics:** Processing high-FPS video streams on fixed NVIDIA GPU infrastructure where batch-1 throughput is the primary metric.
+- **Industrial Manufacturing Lines:** Scenarios with strict GPU latency constraints on dedicated hardware, such as real-time quality inspection on assembly lines.
+- **Neural Architecture Search Research:** Studying the effects of automated architecture search (MAE-NAS) and efficient reparameterized backbones on detection performance.
+
+### When to Choose YOLOv6
+
+YOLOv6 is recommended for:
+
+- **Industrial Hardware-Aware Deployment:** Scenarios where the model's hardware-aware design and efficient reparameterization provide optimized performance on specific target hardware.
+- **Fast Single-Stage Detection:** Applications prioritizing raw inference speed on GPU for real-time video processing in controlled environments.
+- **Meituan Ecosystem Integration:** Teams already working within [Meituan's](https://about.meituan.com/en) technology stack and deployment infrastructure.
+
+### When to Choose Ultralytics (YOLO26)
+
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+
+
 ## The Ultralytics Advantage: Introducing YOLO26
 
 While both DAMO-YOLO and YOLOv6-3.0 are highly capable, they suffer from fragmented ecosystems, single-task limitations, and complex deployment pipelines. For modern engineering teams, [Ultralytics models](https://docs.ultralytics.com/models/) provide a substantially better developer experience, culminating in the groundbreaking **YOLO26**.
