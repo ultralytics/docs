@@ -128,7 +128,7 @@ YOLOv6 is recommended for:
 
 - **Industrial Hardware-Aware Deployment:** Scenarios where the model's hardware-aware design and efficient reparameterization provide optimized performance on specific target hardware.
 - **Fast Single-Stage Detection:** Applications prioritizing raw inference speed on GPU for real-time video processing in controlled environments.
-- **Meituan Ecosystem Integration:** Teams already working within [Meituan's](https://about.meituan.com/en) technology stack and deployment infrastructure.
+- **Meituan Ecosystem Integration:** Teams already working within [Meituan's](https://www.meituan.com/) technology stack and deployment infrastructure.
 
 ### When to Choose Ultralytics (YOLO26)
 
