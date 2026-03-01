@@ -47,9 +47,9 @@ RTDETRv2 (Real-Time Detection Transformer v2) represents a substantial leap in a
 **Key Characteristics:**
 
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
-- **Organization:** [Baidu](https://research.baidu.com/)
-- **Date:** 2023-04-17 (v1) / 2024-07-24 (v2)
-- **Links:** [Arxiv Paper](https://arxiv.org/abs/2304.08069), [GitHub Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
+- **Organization:** [Baidu](https://www.baidu.com/)
+- **Date:** 2024-07-24
+- **Links:** [Arxiv Paper](https://arxiv.org/abs/2407.17140), [GitHub Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 
 ### Architecture and Strengths
 

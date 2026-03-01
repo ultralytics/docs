@@ -40,8 +40,8 @@ Understanding the origins and design intent of these models provides crucial con
 ### RTDETRv2
 
 **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu  
-**Organization:** [Baidu](https://research.baidu.com/)  
-**Date:** 2024-07-24 (v2 release)  
+**Organization:** [Baidu](https://www.baidu.com/)
+**Date:** 2024-07-24  
 **Arxiv:** [https://arxiv.org/abs/2407.17140](https://arxiv.org/abs/2407.17140)  
 **GitHub:** [lyuwenyu/RT-DETR](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 

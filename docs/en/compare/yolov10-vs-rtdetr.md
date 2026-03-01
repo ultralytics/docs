@@ -45,9 +45,9 @@ Building upon the original Real-Time Detection Transformer, RTDETRv2 incorporate
 ### Technical Specifications
 
 - Authors: Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
-- Organization: [Baidu](https://research.baidu.com/)
-- Date: 2023-04-17
-- ArXiv: [RTDETRv2 Paper](https://arxiv.org/abs/2304.08069)
+- Organization: [Baidu](https://www.baidu.com/)
+- Date: 2024-07-24
+- ArXiv: [RTDETRv2 Paper](https://arxiv.org/abs/2407.17140)
 - GitHub: [lyuwenyu/RT-DETR](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 - Docs: [RTDETRv2 Documentation](https://docs.ultralytics.com/models/rtdetr/)
 

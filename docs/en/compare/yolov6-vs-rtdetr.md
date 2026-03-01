@@ -54,9 +54,9 @@ YOLOv6-3.0 adopts a hardware-friendly **EfficientRep** backbone specifically tai
 Spearheaded by researchers at Baidu, RTDETRv2 builds upon the original RT-DETR by refining the detection transformer framework with a "bag-of-freebies" approach, achieving state-of-the-art accuracy without sacrificing real-time viability.
 
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
-- **Organization:** [Baidu](https://research.baidu.com/)
-- **Date:** 2023-04-17 (Initial Base) / 2024-07-24 (v2 Release)
-- **ArXiv:** [2304.08069](https://arxiv.org/abs/2304.08069)
+- **Organization:** [Baidu](https://www.baidu.com/)
+- **Date:** 2024-07-24
+- **ArXiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
 - **GitHub:** [lyuwenyu/RT-DETR](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 
 ### Architecture Highlights

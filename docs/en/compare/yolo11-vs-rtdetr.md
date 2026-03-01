@@ -38,9 +38,9 @@ For developers targeting [edge computing](https://docs.ultralytics.com/guides/mo
 RTDETRv2 (Real-Time Detection Transformer version 2) represents Baidu's effort to make transformer-based architectures viable for real-time tasks. It builds upon the original RT-DETR by incorporating a "bag-of-freebies" approach to improve baseline accuracy without inflating inference latency.
 
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
-- **Organization:** [Baidu](https://research.baidu.com/)
-- **Date:** 2023-04-17
-- **Arxiv:** [2304.08069](https://arxiv.org/abs/2304.08069)
+- **Organization:** [Baidu](https://www.baidu.com/)
+- **Date:** 2024-07-24
+- **Arxiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
 - **GitHub:** [RT-DETRv2 Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 - **Docs:** [RTDETRv2 README](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
 

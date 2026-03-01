@@ -50,9 +50,9 @@ Unlike models limited strictly to bounding boxes, YOLO26 is a versatile powerhou
 RTDETRv2, developed by researchers at Baidu, builds upon the original RT-DETR framework. It aims to prove that Detection Transformers (DETRs) can compete with, and sometimes exceed, the speed and accuracy of highly optimized CNNs in real-time scenarios.
 
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
-- **Organization:** Baidu
-- **Date:** 2023-04-17
-- **Arxiv:** [2304.08069](https://arxiv.org/abs/2304.08069)
+- **Organization:** [Baidu](https://www.baidu.com/)
+- **Date:** 2024-07-24
+- **Arxiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
 - **GitHub:** [RT-DETRv2 PyTorch Implementation](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 - **Docs:** [RT-DETRv2 README](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
 

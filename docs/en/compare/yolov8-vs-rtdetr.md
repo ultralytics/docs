@@ -44,9 +44,9 @@ RTDETRv2 (Real-Time Detection Transformer version 2) builds on the original RT-D
 **Key Characteristics:**
 
 - Authors: Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
-- Organization: [Baidu](https://github.com/lyuwenyu/RT-DETR)
-- Date: April 17, 2023
-- Arxiv: [2304.08069](https://arxiv.org/abs/2304.08069)
+- Organization: [Baidu](https://www.baidu.com/)
+- Date: 2024-07-24
+- Arxiv: [2407.17140](https://arxiv.org/abs/2407.17140)
 - GitHub: [RT-DETR Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 - Docs: [RTDETRv2 README](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
 

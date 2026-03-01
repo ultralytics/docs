@@ -47,9 +47,9 @@ However, EfficientDet relies on standard non-maximum suppression (NMS) during po
 RTDETRv2 represents the evolution of transformer-based architectures, shifting the paradigm away from traditional anchor-based CNNs.
 
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
-- **Organization:** [Baidu](https://research.baidu.com/)
-- **Date:** April 17, 2023 (Original), July 2024 (v2)
-- **Arxiv:** [https://arxiv.org/abs/2304.08069](https://arxiv.org/abs/2304.08069)
+- **Organization:** [Baidu](https://www.baidu.com/)
+- **Date:** 2024-07-24
+- **Arxiv:** [https://arxiv.org/abs/2407.17140](https://arxiv.org/abs/2407.17140)
 - **GitHub:** [RT-DETR Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 - **Docs:** [RTDETRv2 Documentation](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
 

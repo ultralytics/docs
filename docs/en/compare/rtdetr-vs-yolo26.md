@@ -20,8 +20,8 @@ RTDETRv2 builds upon the original [RT-DETR](https://docs.ultralytics.com/models/
 **Key Characteristics:**
 
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
-- **Organization:** [Baidu](https://research.baidu.com/)
-- **Date:** July 24, 2024
+- **Organization:** [Baidu](https://www.baidu.com/)
+- **Date:** 2024-07-24
 - **Links:** [Arxiv](https://arxiv.org/abs/2407.17140), [GitHub](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch), [Docs](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
 
 ### Architecture and Strengths

@@ -110,7 +110,7 @@ This workflow highlights the superior **Training Efficiency** of Ultralytics mod
 
 !!! tip "Explore the Latest in Vision AI"
 
-    While YOLOv9 offers exceptional performance, we strongly recommend considering the newly released **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** for new projects. YOLO26 features a native end-to-end NMS-free design, drastically simplifying deployment. Powered by the MuSGD optimizer, it ensures stable training and delivers up to 43% faster CPU inference for edge computing!
+    While YOLOv9 offers exceptional performance, we strongly recommend considering the newly released **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** for new projects. YOLO26 features a native **End-to-End NMS-Free Design**, drastically simplifying deployment. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), it delivers up to **43% faster CPU inference** for edge computing. Powered by the **MuSGD Optimizer**, it ensures stable training and fast convergence. Additionally, **ProgLoss + STAL** provides improved loss functions with notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery.
 
 ## Versatility and Task Support
 

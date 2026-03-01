@@ -44,7 +44,7 @@ RTDETRv2 builds upon the original RT-DETR framework, further establishing that t
 
 **Key Characteristics:**
 Authors: Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, Yi Liu  
-Organization: [Baidu](https://research.baidu.com/)  
+Organization: [Baidu](https://www.baidu.com/)  
 Date: 2024-07-24  
 Arxiv: [https://arxiv.org/abs/2407.17140](https://arxiv.org/abs/2407.17140)  
 GitHub: [lyuwenyu/RT-DETR](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)

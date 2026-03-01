@@ -39,9 +39,9 @@ YOLOX transitioned the YOLO family to an anchor-free paradigm, integrating a dec
 Building upon the foundation of its predecessor, RTDETRv2 leverages the power of Vision Transformers (ViTs) to achieve highly competitive accuracy without sacrificing real-time inference speeds.
 
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
-- **Organization:** [Baidu](https://research.baidu.com/)
-- **Date:** April 17, 2023 (RTDETR), July 2024 (RTDETRv2 updates)
-- **Links:** [Arxiv](https://arxiv.org/abs/2304.08069), [GitHub](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
+- **Organization:** [Baidu](https://www.baidu.com/)
+- **Date:** 2024-07-24
+- **Links:** [Arxiv](https://arxiv.org/abs/2407.17140), [GitHub](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 
 ### Architectural Innovations
 

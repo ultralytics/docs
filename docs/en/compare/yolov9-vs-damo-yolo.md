@@ -115,6 +115,7 @@ Released in 2026, YOLO26 builds upon the successes of its predecessors, offering
 ### Key YOLO26 Innovations
 
 - **End-to-End NMS-Free Design:** YOLO26 eliminates Non-Maximum Suppression (NMS) post-processing entirely. This creates a streamlined deployment pipeline that is natively end-to-end, a breakthrough first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10/).
+- **DFL Removal:** Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility.
 - **Up to 43% Faster CPU Inference:** By removing complex post-processing and optimizing core convolutions, YOLO26 is uniquely suited for edge computing scenarios lacking dedicated GPUs.
 - **MuSGD Optimizer:** Inspired by LLM training innovations, YOLO26 utilizes a hybrid of SGD and Muon (MuSGD) to guarantee more stable training runs and noticeably faster convergence times.
 - **ProgLoss + STAL:** These advanced loss functions provide remarkable enhancements in small-object recognition, making YOLO26 ideal for high-altitude aerial imagery and IoT devices.

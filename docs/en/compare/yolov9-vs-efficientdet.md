@@ -121,6 +121,7 @@ While YOLOv9 and EfficientDet are powerful, developers looking for the ultimate 
 Released in January 2026, **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** represents the current state-of-the-art. It improves upon previous generations (including [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8)) with several critical breakthroughs:
 
 - **End-to-End NMS-Free Design:** YOLO26 eliminates Non-Maximum Suppression entirely, a concept pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10/), resulting in significantly faster and simpler [model deployment](https://docs.ultralytics.com/guides/model-deployment-options/).
+- **DFL Removal:** Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility.
 - **Up to 43% Faster CPU Inference:** Perfectly optimized for [IoT devices](https://www.ultralytics.com/blog/industrial-iot-iiot-internet-of-things-explained) and environments lacking dedicated GPUs.
 - **MuSGD Optimizer:** A revolutionary hybrid of SGD and Muon (inspired by LLM training innovations), ensuring faster convergence and incredibly stable training runs.
 - **ProgLoss + STAL:** Advanced loss functions that drastically improve the detection of small objects, a critical factor for aerial drone imagery and robust robotics.

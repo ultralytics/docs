@@ -21,7 +21,7 @@ Developed by researchers at Baidu, RTDETRv2 builds upon the original RT-DETR by 
 
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
 - **Organization:** [Baidu](https://www.baidu.com/)
-- **Date:** April 17, 2023 (v1) / July 24, 2024 (v2)
+- **Date:** 2024-07-24
 - **Links:** [Arxiv](https://arxiv.org/abs/2407.17140), [GitHub](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 
 A defining characteristic of RTDETRv2 is its natively **end-to-end NMS-free design**. By completely removing Non-Maximum Suppression (NMS) during post-processing, the model stabilizes inference latency and simplifies the deployment pipeline. The global attention mechanism allows the model to excel in complex scene understanding and dense crowds, as it evaluates the entire image context simultaneously.
