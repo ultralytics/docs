@@ -198,13 +198,13 @@ jobs:
             # cat summary.txt >> $GITHUB_STEP_SUMMARY   # CHANGED: removed
 
             # Two-pass approach to remove timeout and network error entries
-            # First pass: identify pages followed by TIMEOUT or ERROR entries
-            grep -B1 "^\[TIMEOUT\]" summary.txt | grep "\.html\]:$" > /tmp/skip_pages.txt 2>/dev/null || true
-            grep -B1 "^\[ERROR\]" summary.txt | grep "\.html\]:$" >> /tmp/skip_pages.txt 2>/dev/null || true
+            # First pass: identify pages followed by TIMEOUT or network error entries
+            grep -B1 -E "^\[TIMEOUT\]|^\[ERROR\]|^Error:" summary.txt | grep "\.html\]:$" > /tmp/skip_pages.txt 2>/dev/null || true
 
-            # Second pass: remove TIMEOUT/ERROR lines, their pages, and squeeze blank lines
+            # Second pass: remove TIMEOUT/Error lines, their pages, and squeeze blank lines
             ESCAPED_SUMMARY=$(grep -v "^\[TIMEOUT\]" summary.txt | \
               grep -v "^\[ERROR\]" | \
+              grep -v "^Error:" | \
               grep -v "Issues found in .* inputs" | \
               grep -F -v -f /tmp/skip_pages.txt | tr -d '\r' | \
               sed -E 's/[[:space:]]*\|[[:space:]]*Rejected status code[^:]*:[[:space:]]*/ | /g' | \
@@ -223,7 +223,7 @@ jobs:
             echo "EOF" >> $GITHUB_ENV
 
             # Raise error only if 4xx errors remain (not network errors, timeouts, or server errors)
-            if grep -v "^\[TIMEOUT\]" summary.txt | grep -v "^\[ERROR\]" | grep -qE "^\[4[0-9]{2}\]"; then
+            if grep -v "^\[TIMEOUT\]" summary.txt | grep -v "^\[ERROR\]" | grep -v "^Error:" | grep -qE "^\[4[0-9]{2}\]"; then
               exit 1
             fi
 
