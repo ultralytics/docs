@@ -78,7 +78,7 @@ The table below contrasts key [performance metrics](https://docs.ultralytics.com
 | EfficientDet-d6 | 640                         | 52.6                       | 92.8                                 | 89.29                                     | 51.9                     | 226.0                   |
 | EfficientDet-d7 | 640                         | **53.7**                   | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
 
-As shown, while EfficientDet-d7 achieves a high mAP, its [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) speed severely lags behind YOLOv7 variants, highlighting the latter's dominance in GPU-accelerated [real-time object detection](https://huggingface.co/papers/trending).
+As shown, while EfficientDet-d7 achieves a high mAP, its [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) speed severely lags behind YOLOv7 variants, highlighting the latter's dominance in GPU-accelerated [real-time object detection](https://www.ultralytics.com/glossary/real-time-inference).
 
 ## The Evolution of Object Detection: YOLO26
 

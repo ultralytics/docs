@@ -123,7 +123,7 @@ The architectural differences between the two models dictate their ideal deploym
 
 **When to Consider YOLOv7:**
 
-- **Academic Benchmarking:** Researchers studying the effects of re-parameterization techniques often use YOLOv7 as a standard baseline, as reflected by its popularity on [Papers With Code](https://huggingface.co/papers/trending).
+- **Academic Benchmarking:** Researchers studying the effects of re-parameterization techniques often use YOLOv7 as a standard baseline, as reflected by its popularity on [Papers With Code](https://paperswithcode.com/).
 - **Legacy Server Pipelines:** If an existing heavy-compute pipeline is already strictly optimized around YOLOv7's specific anchor outputs, maintaining it might be practical in the short term.
 
 ## Looking Ahead: The Next Generation

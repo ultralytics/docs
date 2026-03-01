@@ -47,6 +47,8 @@ Organization: Baidu
 Date: 2022-04-02  
 Arxiv: [https://arxiv.org/abs/2203.16250](https://arxiv.org/abs/2203.16250)
 
+[Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md){ .md-button }
+
 ## Performance Metrics and Benchmarks
 
 Choosing the right model often comes down to the specific constraints of your hardware and latency requirements. The table below illustrates the trade-offs between accuracy (mAP), speed, and model complexity.
@@ -124,7 +126,7 @@ Choosing between these architectures often depends on the specific deployment en
 ### When to Choose YOLOv7
 
 - **GPU-Accelerated Systems:** Performs exceptionally well on server-grade GPUs for tasks requiring high throughput, such as [video analytics](https://www.ultralytics.com/blog/a-guide-on-tracking-moving-objects-in-videos-with-ultralytics-yolo-models).
-- **Robotics Integration:** Ideal for [integrating computer vision in robotics](https://www.ultralytics.com/blog/integrating-computer-vision-in-robotics-with-ultalytics-yolo11), allowing for fast decision-making in dynamic environments.
+- **Robotics Integration:** Ideal for [integrating computer vision in robotics](https://www.ultralytics.com/blog/integrating-computer-vision-in-robotics-with-ultralytics-yolo11), allowing for fast decision-making in dynamic environments.
 - **Academic Research:** Widely supported and frequently used as a reliable baseline in PyTorch-based research.
 
 While older models hold historical significance, transitioning to modern architectures like **YOLO26** or [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) via the [Ultralytics Platform](https://docs.ultralytics.com/platform/) ensures access to the latest optimizations, the simplest training workflows, and the broadest multi-task support available today.

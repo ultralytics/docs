@@ -107,7 +107,7 @@ YOLO26 is the undisputed recommendation for modern, forward-looking computer vis
 
 While mostly superseded by newer architectures, YOLOv7 retains specific niche utilities.
 
-- **Academic Benchmarking:** Researchers developing new anchor-based detection heads or studying gradient path strategies frequently use YOLOv7 as a standard baseline comparison on platforms like [Papers With Code](https://huggingface.co/papers/trending).
+- **Academic Benchmarking:** Researchers developing new anchor-based detection heads or studying gradient path strategies frequently use YOLOv7 as a standard baseline comparison on platforms like [Papers With Code](https://paperswithcode.com/).
 - **Legacy GPU Pipelines:** Enterprise systems that were custom-built around YOLOv7's specific tensor outputs and custom NMS configurations on powerful [AWS EC2 P4d](https://aws.amazon.com/ec2/instance-types/p4/) instances may delay migration to newer models until a total system refactor is necessary.
 
 ## Code Example: Getting Started
