@@ -42,7 +42,7 @@ When deploying models into real-world applications, raw accuracy must be balance
 | YOLO11l | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
 | YOLO11x | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
 
-_Note: Missing CPU speeds for YOLOv7 indicate legacy testing environments that did not standardise ONNX CPU benchmarks. Best values in comparable tiers are highlighted._
+_Note: Missing CPU speeds for YOLOv7 indicate legacy testing environments that did not standardize ONNX CPU benchmarks. Best values in comparable tiers are highlighted._
 
 ### Analyzing the Results
 
