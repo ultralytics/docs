@@ -22,9 +22,9 @@ RTDETRv2 (Real-Time Detection Transformer version 2) builds upon the foundationa
 **Key Technical Details:**
 
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
-- **Organization:** [Baidu](https://research.baidu.com/)
-- **Date:** April 17, 2023 (Original), July 2024 (v2)
-- **Links:** [ArXiv Publication](https://arxiv.org/abs/2304.08069) | [GitHub Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
+- **Organization:** [Baidu](https://www.baidu.com/)
+- **Date:** 2024-07-24
+- **Links:** [ArXiv Publication](https://arxiv.org/abs/2407.17140) | [GitHub Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 
 ### Architecture and Strengths
 
@@ -117,6 +117,6 @@ Once trained, YOLOv8 supports one-click exports to [ONNX](https://docs.ultralyti
 
 While YOLOv8 remains a legendary milestone, computer vision moves incredibly fast. For teams looking for the absolute cutting edge in 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the next paradigm shift.
 
-If you are drawn to the NMS-free design of RTDETRv2, YOLO26 incorporates a native **End-to-End NMS-Free Design**, combining the post-processing simplicity of transformers with the blazing speed of CNNs. Additionally, YOLO26 utilizes the groundbreaking **MuSGD Optimizer**, bringing LLM-style training stability to vision models for incredibly fast convergence. With **up to 43% faster CPU inference** and advanced **ProgLoss** mechanisms for superior small-object detection, YOLO26 is definitively the recommended upgrade path over both YOLOv8 and RTDETRv2.
+If you are drawn to the NMS-free design of RTDETRv2, YOLO26 incorporates a native **End-to-End NMS-Free Design**, combining the post-processing simplicity of transformers with the blazing speed of CNNs. Additionally, YOLO26 utilizes the groundbreaking **MuSGD Optimizer**, bringing LLM-style training stability to vision models for incredibly fast convergence. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), YOLO26 achieves **up to 43% faster CPU inference**. Combined with advanced **ProgLoss + STAL** mechanisms for superior small-object detection, YOLO26 is definitively the recommended upgrade path over both YOLOv8 and RTDETRv2.
 
 For further reading on alternative models, explore our guides on [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or read the detailed breakdown of [YOLOv10 vs YOLOv8](https://docs.ultralytics.com/compare/yolov10-vs-yolov8/) to see how NMS-free architecture evolved in the YOLO family.

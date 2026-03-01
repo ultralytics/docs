@@ -20,9 +20,9 @@ This guide provides an in-depth technical analysis of these two prominent archit
 Building upon the original Real-Time Detection Transformer (RT-DETR), RTDETRv2 introduces a series of "bag-of-freebies" to improve upon the baseline architecture without sacrificing its inference latency.
 
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
-- **Organization:** Baidu
-- **Date:** April 17, 2023 (v1), July 24, 2024 (v2)
-- **Links:** [Arxiv Paper](https://arxiv.org/abs/2304.08069), [GitHub Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
+- **Organization:** [Baidu](https://www.baidu.com/)
+- **Date:** 2024-07-24
+- **Links:** [Arxiv Paper](https://arxiv.org/abs/2407.17140), [GitHub Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 
 ### Architecture and Capabilities
 

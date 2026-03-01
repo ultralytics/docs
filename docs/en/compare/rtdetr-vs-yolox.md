@@ -20,9 +20,9 @@ This comprehensive guide explores the architectural nuances, performance metrics
 Introduced as a successor to the original RT-DETR, RTDETRv2 leverages transformer architecture to achieve high-performance real-time object detection. By eliminating the need for Non-Maximum Suppression (NMS), it simplifies the inference pipeline.
 
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
-- **Organization:** Baidu
-- **Date:** April 17, 2023
-- **Links:** [Arxiv Paper](https://arxiv.org/abs/2304.08069), [Official GitHub](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch), [Documentation](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
+- **Organization:** [Baidu](https://www.baidu.com/)
+- **Date:** 2024-07-24
+- **Links:** [Arxiv Paper](https://arxiv.org/abs/2407.17140), [Official GitHub](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch), [Documentation](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
 
 ### Architecture and Design
 

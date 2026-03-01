@@ -20,9 +20,9 @@ This comprehensive technical comparison explores their respective architectures,
 Developed by researchers at Baidu, RTDETRv2 builds upon the foundation of the original RT-DETR, representing a significant leap forward in transformer-based [object detection](https://docs.ultralytics.com/tasks/detect/).
 
 - Authors: Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
-- Organization: Baidu
-- Date: 2023-04-17
-- Arxiv: [2304.08069](https://arxiv.org/abs/2304.08069)
+- Organization: [Baidu](https://www.baidu.com/)
+- Date: 2024-07-24
+- Arxiv: [2407.17140](https://arxiv.org/abs/2407.17140)
 - GitHub: [lyuwenyu/RT-DETR](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 - Docs: [RTDETRv2 GitHub README](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
 

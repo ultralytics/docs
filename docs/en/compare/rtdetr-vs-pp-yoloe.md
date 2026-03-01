@@ -24,9 +24,9 @@ Before analyzing the performance data, it is important to understand the origins
 RTDETRv2 represents a significant leap in transformer-based vision architectures. Building upon the original Real-Time Detection Transformer, it leverages a flexible vision transformer backbone paired with an efficient hybrid encoder. Its most defining characteristic is its natively end-to-end prediction capability, completely eliminating the need for Non-Maximum Suppression (NMS) during post-processing.
 
 Author: Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu  
-Organization: Baidu  
-Date: 2023-04-17  
-Arxiv: [2304.08069](https://arxiv.org/abs/2304.08069)  
+Organization: [Baidu](https://www.baidu.com/)
+Date: 2024-07-24
+Arxiv: [2407.17140](https://arxiv.org/abs/2407.17140)  
 GitHub: [RT-DETR Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 
 [Learn more about RTDETRv2](https://docs.ultralytics.com/models/rtdetr/){ .md-button }
