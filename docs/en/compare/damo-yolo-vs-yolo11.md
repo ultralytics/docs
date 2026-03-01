@@ -10,7 +10,7 @@ When choosing a real-time object detection architecture for your next computer v
 
 **DAMO-YOLO Details:**  
 Authors: Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun  
-Organization: [Alibaba Group](https://github.com/tinyvision)  
+Organization: [Alibaba Group](https://www.alibabagroup.com/)
 Date: 2022-11-23  
 Arxiv: [2211.15444v2](https://arxiv.org/abs/2211.15444v2)  
 GitHub: [tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)  
