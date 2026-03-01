@@ -26,7 +26,7 @@ Key architectural breakthroughs of YOLO26 include:
 - **MuSGD Optimizer:** Inspired by Moonshot AI's Kimi K2, this hybrid of Stochastic Gradient Descent (SGD) and Muon brings LLM training innovations into computer vision, resulting in remarkably stable training and rapid convergence.
 - **ProgLoss + STAL:** These advanced loss functions deliver notable improvements in small-object recognition, which is a critical necessity for drone-based [aerial imagery analysis](https://www.ultralytics.com/blog/using-computer-vision-to-analyze-satellite-imagery) and intricate robotics pipelines.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ### DAMO-YOLO: Neural Architecture Search at Scale
 

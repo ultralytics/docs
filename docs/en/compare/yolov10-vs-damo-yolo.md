@@ -78,7 +78,7 @@ DAMO-YOLO introduces several novel technologies tailored for industrial applicat
 
 Additionally, the architecture utilizes an **Efficient RepGFPN** neck. This feature pyramid network is designed to improve feature fusion across different scales, which is critical for complex tasks like [aerial imagery analysis](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) where objects vary drastically in size. To complement this, DAMO-YOLO implements a **ZeroHead**, a minimalist detection head that drastically reduces the complexity of the final prediction layers, saving valuable computation time during inference.
 
-[Learn more about DAMO-YOLO](https://docs.ultralytics.com/compare/damo-yolo-vs-yolov8/){ .md-button }
+[Learn more about DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO){ .md-button }
 
 ## Performance Comparison
 

@@ -56,7 +56,7 @@ Unlike YOLOv6, which focuses strictly on bounding box detection, Ultralytics YOL
 
     Ultralytics creates a "zero-to-hero" experience. Instead of complex environment setups common in research repositories, you can train, validate, and export models via a unified Python API or command-line interface. The [Ultralytics Platform](https://platform.ultralytics.com/) further simplifies dataset labeling and cloud training.
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 ## Performance and Technical Comparison
 
@@ -110,7 +110,7 @@ Released in January 2026, YOLO26 establishes a new standard for AI model efficie
 - **CPU Optimized:** By removing the Distribution Focal Loss (DFL), YOLO26 achieves up to 43% faster CPU inference, making it the perfect choice for mobile, IoT, and [edge AI applications](https://www.ultralytics.com/glossary/edge-ai).
 - **Advanced Loss Functions:** Implementations of ProgLoss and STAL drastically improve small-object recognition, vital for aerial imagery and robotics.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Conclusion and Recommendations
 

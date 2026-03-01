@@ -24,7 +24,7 @@ Date: 2024-09-27
 GitHub: [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)  
 Docs: [https://docs.ultralytics.com/models/yolo11/](https://docs.ultralytics.com/models/yolo11/)
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 **YOLOv7 Details:**  
 Authors: Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao  
@@ -123,6 +123,6 @@ While YOLO11 stands as a highly robust choice, innovation in artificial intellig
 
 Released in January 2026, YOLO26 introduces an end-to-end NMS-Free Design, completely eliminating the latency bottlenecks associated with [Non-Maximum Suppression](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing. Furthermore, YOLO26 incorporates the revolutionary **MuSGD Optimizer**, inspired by LLM training methodologies, to ensure faster convergence. With targeted loss improvements via **ProgLoss + STAL** and up to 43% faster CPU inference due to DFL removal, YOLO26 is specifically optimized for edge computing and represents the current pinnacle of vision AI.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 For users interested in specialized alternative structures, exploring the transformer-based [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) or the dynamic open-vocabulary [YOLO-World](https://docs.ultralytics.com/models/yolo-world/) models may also yield beneficial results for diverse computer vision deployments.

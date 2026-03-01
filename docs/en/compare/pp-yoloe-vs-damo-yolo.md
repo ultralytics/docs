@@ -60,7 +60,7 @@ DAMO-YOLO emphasizes low latency and high accuracy through an automated and dist
 - GitHub: [tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)
 - Docs: [DAMO-YOLO Documentation](https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md)
 
-[Learn more about DAMO-YOLO](https://docs.ultralytics.com/compare/damo-yolo-vs-yolov8/){ .md-button }
+[Learn more about DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO){ .md-button }
 
 !!! tip "Framework Lock-in"
 
@@ -121,7 +121,7 @@ results = model("https://ultralytics.com/images/bus.jpg")
 model.export(format="onnx")
 ```
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Ideal Use Cases and Recommendations
 

@@ -116,7 +116,7 @@ While both YOLOv5 and YOLOX have cemented their places in computer vision histor
 
 Released in January 2026, YOLO26 represents a massive leap forward in both performance and usability. It introduces a breakthrough **end-to-end NMS-free design**, completely eliminating Non-Maximum Suppression post-processing. This significantly reduces latency variability and simplifies deployment logic on low-power devices.
 
-Furthermore, YOLO26 utilizes the novel **MuSGD Optimizer**—a hybrid of SGD and Muon inspired by LLM training innovations—for incredibly stable and fast convergence. By removing Distribution Focal Loss (DFL), YOLO26 achieves up to **43% faster CPU inference**, solidifying its position as the ultimate model for modern edge computing, robotics, and IoT applications. Users interested in previous generations may also look into [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), though YOLO26 is the undisputed state-of-the-art choice.
+Furthermore, YOLO26 utilizes the novel **MuSGD Optimizer**—a hybrid of SGD and Muon inspired by LLM training innovations—for incredibly stable and fast convergence. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), YOLO26 achieves up to **43% faster CPU inference**, solidifying its position as the ultimate model for modern edge computing, robotics, and IoT applications. Additionally, **ProgLoss + STAL** delivers improved loss functions with notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery. Users interested in previous generations may also look into [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), though YOLO26 is the undisputed state-of-the-art choice.
 
 ## Conclusion
 

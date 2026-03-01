@@ -58,7 +58,7 @@ YOLO26 introduces several revolutionary features that solve common pain points i
 
     Beyond standard detection, YOLO26 features specialized improvements: Semantic segmentation loss and multi-scale proto for [segmentation tasks](https://docs.ultralytics.com/tasks/segment/), Residual Log-Likelihood Estimation (RLE) for [pose estimation](https://docs.ultralytics.com/tasks/pose/), and customized angle loss to resolve boundary issues in [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) detection.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Performance Comparison
 

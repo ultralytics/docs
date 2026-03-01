@@ -27,7 +27,7 @@ Organization: [Ultralytics](https://www.ultralytics.com)
 Date: 2026-01-14  
 GitHub: [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>

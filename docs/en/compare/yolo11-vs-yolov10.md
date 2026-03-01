@@ -29,7 +29,7 @@ One of the standout improvements in YOLO11 is the implementation of the **C3k2 B
 
 YOLO11 utilizes an anchor-free design that minimizes the complexity of hyperparameter tuning, allowing for robust generalization across a vast array of custom datasets. Furthermore, memory requirements during training are significantly lower compared to transformer-based architectures, allowing researchers to train large models efficiently on standard consumer hardware.
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 ## Exploring the YOLOv10 Architecture
 
@@ -110,7 +110,7 @@ Released in January 2026, YOLO26 merges the best of both worlds. It natively ado
 
 YOLO26 also brings Large Language Model (LLM) training stability to computer vision via the innovative **MuSGD Optimizer**, a hybrid inspired by cutting-edge AI research. Coupled with the **ProgLoss + STAL** loss functions, YOLO26 delivers unparalleled precision on small objects, which is essential for detailed [traffic video detection](https://www.ultralytics.com/blog/traffic-video-detection-at-nighttime-a-look-at-why-accuracy-is-key) and complex robotic automation.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Conclusion
 

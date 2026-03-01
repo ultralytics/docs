@@ -93,7 +93,7 @@ Released in January 2026, YOLO26 represents a paradigm shift. It delivers unpara
 - **ProgLoss + STAL:** Superior loss functions dramatically improve small object detection, an area where older architectures like YOLOX often struggled. This makes YOLO26 ideal for aerial imagery and IoT sensors.
 - **Unmatched Versatility:** While YOLOv6 and YOLOX are strictly detection models, a single YOLO26 architecture natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), [image classification](https://docs.ultralytics.com/tasks/classify/), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/).
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ### Ease of Use and Ecosystem Support
 

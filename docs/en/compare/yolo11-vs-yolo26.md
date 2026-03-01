@@ -29,7 +29,7 @@ Released in late 2024, YOLO11 refined the advancements of earlier generations, c
 - **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLO11 Documentation](https://docs.ultralytics.com/models/yolo11/)
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 ### YOLO26: The New Frontier
 

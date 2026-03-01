@@ -42,7 +42,7 @@ Created by [Alibaba Group](https://www.alibabagroup.com/), DAMO-YOLO leverages N
 
 DAMO-YOLO stands out with its RepGFPN (Reparameterized Generalized Feature Pyramid Network) for efficient multi-scale feature fusion and its ZeroHead design, which significantly reduces the computational overhead in the detection head. It also incorporates AlignedOTA label assignment and robust knowledge distillation techniques to boost accuracy without inflating the model's parameter count.
 
-[Learn more about DAMO-YOLO](https://docs.ultralytics.com/compare/damo-yolo-vs-yolov8/){ .md-button }
+[Learn more about DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO){ .md-button }
 
 !!! note "Distillation Overhead"
 

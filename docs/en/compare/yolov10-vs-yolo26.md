@@ -87,7 +87,6 @@ results = model.train(
     data="coco8.yaml",
     epochs=100,
     imgsz=640,
-    optimizer="MuSGD",  # Leverage the new LLM-inspired optimizer
 )
 
 # Export natively to TensorRT without NMS complexities

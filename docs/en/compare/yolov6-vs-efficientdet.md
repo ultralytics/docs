@@ -100,7 +100,7 @@ For developers seeking the ultimate performance balance, [Ultralytics YOLO26](ht
 - **Up to 43% Faster CPU Inference:** With the removal of Distribution Focal Loss (DFL), YOLO26 is vastly more efficient on CPUs and low-power IoT devices compared to legacy models.
 - **ProgLoss + STAL:** These advanced loss functions deliver massive improvements in small object recognition, making YOLO26 ideal for drone and aerial imagery applications.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Implementation Example: Training YOLO26
 

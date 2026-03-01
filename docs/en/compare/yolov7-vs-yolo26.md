@@ -84,7 +84,7 @@ Deploying legacy models often involves wrestling with complex third-party reposi
 
 !!! note "Other Ultralytics Models"
 
-    While YOLO26 is the recommended standard, developers migrating legacy systems may also explore [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), another highly capable generation in the Ultralytics lineup that offers excellent stability for long-term support projects. We generally advise avoiding community experimental models like YOLO12 or YOLO13, which often suffer from training instability and high memory overhead.
+    While YOLO26 is the recommended standard, developers migrating legacy systems may also explore [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), another highly capable generation in the Ultralytics lineup that offers excellent stability for long-term support projects.
 
 ### Code Example: Training and Deployment
 

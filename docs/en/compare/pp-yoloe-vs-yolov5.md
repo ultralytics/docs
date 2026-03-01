@@ -118,7 +118,7 @@ For the vast majority of international developers, researchers, and enterprises,
 
 While YOLOv5 is an iconic model, the frontier of computer vision has advanced. For all new developments, we strongly recommend transitioning to **YOLO26**, released in January 2026. Available seamlessly via the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26), YOLO26 completely redefines efficiency.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 **Key Innovations in YOLO26:**
 

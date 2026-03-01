@@ -119,7 +119,7 @@ While YOLOv7 remains a strong legacy architecture, the field has advanced rapidl
 - **Up to 43% Faster CPU Inference:** By strategically removing Distribution Focal Loss (DFL), YOLO26 significantly boosts performance on edge computing platforms and CPUs.
 - **ProgLoss + STAL:** These advanced loss functions yield substantial improvements in detecting small objects, making YOLO26 exceptionally well-suited for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and detailed surveillance.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Ideal Use Cases
 

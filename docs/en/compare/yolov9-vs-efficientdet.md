@@ -125,6 +125,6 @@ Released in January 2026, **[Ultralytics YOLO26](https://platform.ultralytics.co
 - **MuSGD Optimizer:** A revolutionary hybrid of SGD and Muon (inspired by LLM training innovations), ensuring faster convergence and incredibly stable training runs.
 - **ProgLoss + STAL:** Advanced loss functions that drastically improve the detection of small objects, a critical factor for aerial drone imagery and robust robotics.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 By leveraging the comprehensive [Ultralytics Platform](https://platform.ultralytics.com), teams can effortlessly manage datasets, track experiments, and deploy models like YOLO26 across diverse hardware ecosystems, ensuring their computer vision pipelines remain cutting-edge and production-ready.

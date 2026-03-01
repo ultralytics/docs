@@ -133,7 +133,7 @@ Here is why upgrading is highly recommended:
 
 For developers seeking the best performance balance across [object detection](https://docs.ultralytics.com/tasks/detect/), segmentation, and beyond, deploying models via the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26) provides an unparalleled, zero-friction experience.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Conclusion
 

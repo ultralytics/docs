@@ -44,7 +44,7 @@ YOLO11 was designed from the ground up for production environments, focusing on 
 - **Date:** September 27, 2024
 - **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 ## Architectural Innovations
 

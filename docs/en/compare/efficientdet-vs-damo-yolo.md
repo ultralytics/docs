@@ -83,7 +83,7 @@ Understanding the empirical trade-offs is essential for selecting a model. The t
 
 ## The Ultralytics Advantage: Advancing Beyond Legacy Models
 
-While EfficientDet and DAMO-YOLO provide valuable academic insights, modern developers require frameworks that balance state-of-the-art performance with developer ergonomics. This is where the [Ultralytics ecosystem](https://docs.ultralytics.com/reference/__init__/) excels.
+While EfficientDet and DAMO-YOLO provide valuable academic insights, modern developers require frameworks that balance state-of-the-art performance with developer ergonomics. This is where the [Ultralytics ecosystem](https://www.ultralytics.com/) excels.
 
 ### Unmatched Ease of Use and Ecosystem
 

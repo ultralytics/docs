@@ -95,7 +95,7 @@ For developers seeking the absolute best performance, [Ultralytics YOLO26](https
 
 Furthermore, YOLO26 introduces **ProgLoss + STAL** for notable improvements in small-object recognition, and unlike the specialized YOLOv10, it offers extreme versatility. It natively supports [object detection](https://docs.ultralytics.com/tasks/detect/), segmentation, pose, and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb/) with task-specific improvements like semantic segmentation loss and Residual Log-Likelihood Estimation (RLE) for pose. Furthermore, the removal of Distribution Focal Loss (DFL) ensures simplified export and better low-power device compatibility.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ### Ease of Use and Training Efficiency
 

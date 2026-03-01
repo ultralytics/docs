@@ -79,7 +79,7 @@ When comparing the models head-to-head, YOLO26 demonstrates a clear superiority 
 | YOLO11l | 640                         | 53.4                       | **238.6**                            | **6.2**                                   | 25.3                     | 86.9                    |
 | YOLO11x | 640                         | 54.7                       | **462.8**                            | **11.3**                                  | 56.9                     | 194.9                   |
 
-_Note: The YOLO26 nano (YOLO26n) model showcases a massive ~44% improvement in CPU speed compared to YOLO11n, highlighting its edge-first design philosophy._
+_Note: The YOLO26 nano (YOLO26n) model showcases a ~31% improvement in CPU speed compared to YOLO11n (38.9ms vs 56.1ms), highlighting its edge-first design philosophy._
 
 ## Versatility Across Computer Vision Tasks
 

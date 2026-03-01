@@ -26,7 +26,7 @@ Released in January 2026, YOLO26 represents the pinnacle of the Ultralytics ecos
 - GitHub: [Ultralytics GitHub Repository](https://github.com/ultralytics/ultralytics)
 - Docs: [Official YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26/)
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 **PP-YOLOE+ Overview**  
 Developed as an evolution of the PP-YOLO series, PP-YOLOE+ is an anchor-free detector heavily optimized for the PaddlePaddle ecosystem. It relies on a CSPRepResNet backbone and an ET-head to improve standard detection metrics.

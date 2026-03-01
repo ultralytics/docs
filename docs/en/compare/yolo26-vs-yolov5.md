@@ -43,7 +43,7 @@ Before diving into architectural nuances, let's establish the foundational detai
 
 ## Architectural Innovations
 
-The six-year gap between YOLOv5 and YOLO26 represents a massive leap in deep learning research. YOLOv5 popularized the widespread use of [PyTorch](https://pytorch.org/) for vision models, offering a highly optimized, anchor-based detection mechanism that became the industry standard. However, it relied heavily on [Non-Maximum Suppression (NMS)](https://huggingface.co/papers/trending) during post-processing, which could introduce latency bottlenecks on resource-constrained devices.
+The six-year gap between YOLOv5 and YOLO26 represents a massive leap in deep learning research. YOLOv5 popularized the widespread use of [PyTorch](https://pytorch.org/) for vision models, offering a highly optimized, anchor-based detection mechanism that became the industry standard. However, it relied heavily on [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) during post-processing, which could introduce latency bottlenecks on resource-constrained devices.
 
 YOLO26 completely reimagines the inference pipeline with an **End-to-End NMS-Free Design**. By eliminating the need for NMS post-processing, YOLO26 delivers faster and much simpler deployment logic, a concept first pioneered in YOLOv10 but perfected here. Furthermore, YOLO26 features **DFL Removal** (Distribution Focal Loss), which drastically simplifies the output head. This makes exporting the model to formats like [ONNX](https://onnx.ai/) and [TensorRT](https://developer.nvidia.com/tensorrt) incredibly smooth, ensuring excellent compatibility with edge and low-power devices.
 

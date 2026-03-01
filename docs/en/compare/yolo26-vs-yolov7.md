@@ -27,7 +27,7 @@ Before examining the performance data, it is important to understand the origins
 **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)  
 **Docs:** [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26/)
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ### YOLOv7
 
@@ -49,7 +49,7 @@ The architectural philosophies behind YOLO26 and YOLOv7 diverge significantly, r
 
 ### YOLO26: The Edge-First Paradigm
 
-Released in 2026, YOLO26 fundamentally rethinks the deployment pipeline. Its most significant breakthrough is the **End-to-End NMS-Free Design**. By eliminating [Non-Maximum Suppression (NMS)](https://en.wikipedia.org/wiki/NMS) post-processing, YOLO26 drastically reduces latency variability, a concept that was first successfully piloted in [YOLOv10](https://docs.ultralytics.com/models/yolov10/). This ensures consistent frame rates even in densely populated scenes, which is critical for autonomous robotics and traffic monitoring.
+Released in 2026, YOLO26 fundamentally rethinks the deployment pipeline. Its most significant breakthrough is the **End-to-End NMS-Free Design**. By eliminating [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing, YOLO26 drastically reduces latency variability, a concept that was first successfully piloted in [YOLOv10](https://docs.ultralytics.com/models/yolov10/). This ensures consistent frame rates even in densely populated scenes, which is critical for autonomous robotics and traffic monitoring.
 
 Furthermore, YOLO26 completely removes Distribution Focal Loss (DFL). This **DFL Removal** simplifies the export process to formats like [ONNX](https://onnx.ai/) and [Apple CoreML](https://developer.apple.com/machine-learning/core-ml/), achieving up to **43% faster CPU inference**.
 

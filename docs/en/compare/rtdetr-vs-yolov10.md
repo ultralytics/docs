@@ -113,7 +113,7 @@ For developers seeking the absolute state-of-the-art in 2026, **[Ultralytics YOL
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, which is critical for [applications using drones](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations) and IoT sensors.
 - **Unmatched Versatility:** Unlike models limited to bounding boxes, YOLO26 supports a full suite of tasks including [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), [image classification](https://docs.ultralytics.com/tasks/classify/), and [OBB detection](https://docs.ultralytics.com/tasks/obb/), complete with task-specific improvements like Residual Log-Likelihood Estimation (RLE) for Pose.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ### Seamless Implementation with Python
 

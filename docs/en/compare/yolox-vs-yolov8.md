@@ -56,7 +56,7 @@ YOLOv8 introduces a streamlined architecture that replaces the C3 module with th
 
 Beyond standard [object detection](https://docs.ultralytics.com/tasks/detect/), YOLOv8 natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [image classification](https://docs.ultralytics.com/tasks/classify/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb/). This multi-task versatility makes it a highly attractive choice for complex production environments where multiple model types must be maintained.
 
-[Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8/){ .md-button }
+[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
 ## Performance and Metrics Comparison
 

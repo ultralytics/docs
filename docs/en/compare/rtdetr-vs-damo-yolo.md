@@ -111,8 +111,8 @@ Unlike models limited strictly to bounding boxes, the YOLO26 family offers unpar
 
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
 - **Organization:** [Baidu](https://www.baidu.com/)
-- **Date:** 2023-04-17
-- **Arxiv:** [2304.08069](https://arxiv.org/abs/2304.08069)
+- **Date:** 2024-07-24
+- **Arxiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
 - **GitHub:** [RT-DETR Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 
 ### DAMO-YOLO

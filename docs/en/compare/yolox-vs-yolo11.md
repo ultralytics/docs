@@ -43,7 +43,7 @@ YOLO11 is not just an object detector; it is a unified framework supporting [ins
 
 Furthermore, YOLO11 is fully integrated into the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo11), which provides a streamlined ecosystem for data annotation, model training, and deployment.
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 ## Performance and Metrics Comparison
 

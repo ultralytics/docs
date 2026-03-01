@@ -69,7 +69,7 @@ Released in January 2026, YOLO26 establishes a new standard for modern [object d
 3. **Unmatched Hardware Efficiency:** By removing Distribution Focal Loss (DFL), YOLO26 drastically lowers memory requirements. It boasts up to **43% faster CPU inference**, making it the definitive choice for devices lacking dedicated [GPU](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) acceleration.
 4. **Extreme Versatility:** Unlike PP-YOLOE+ which focuses strictly on detection, YOLO26 offers unified support across numerous tasks. It incorporates a specialized semantic segmentation loss for [instance segmentation](https://docs.ultralytics.com/tasks/segment/), Residual Log-Likelihood Estimation (RLE) for accurate [pose estimation](https://docs.ultralytics.com/tasks/pose/), and advanced angle loss mechanisms for [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/).
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ### Seamless Ecosystem Integration
 

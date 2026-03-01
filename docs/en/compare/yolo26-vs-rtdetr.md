@@ -35,7 +35,7 @@ YOLO26 introduces several groundbreaking features that differentiate it not only
 - **MuSGD Optimizer:** Bridging the gap between Large Language Model (LLM) training and computer vision, YOLO26 utilizes the MuSGD optimizer. This hybrid of SGD and Muon—inspired by Moonshot AI's Kimi K2—ensures robust training stability and faster convergence.
 - **ProgLoss + STAL:** Advanced loss functions bring notable improvements to small-object recognition. This is critical for industries relying on [aerial imagery analysis](https://docs.ultralytics.com/datasets/detect/visdrone/) and Internet of Things (IoT) sensors.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ### Versatility Across Vision Tasks
 

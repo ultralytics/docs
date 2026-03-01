@@ -22,9 +22,9 @@ Introduced as an evolution of the original Real-Time Detection Transformer, RTDE
 **Model Details:**
 
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
-- **Organization:** [Baidu](https://research.baidu.com/)
-- **Date:** April 17, 2023 (Original), updated for v2 in 2024
-- **Arxiv:** [2304.08069](https://arxiv.org/abs/2304.08069)
+- **Organization:** [Baidu](https://www.baidu.com/)
+- **Date:** 2024-07-24
+- **Arxiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
 - **GitHub:** [RT-DETR Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 - **Docs:** [RTDETRv2 Documentation](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
 
@@ -53,7 +53,7 @@ YOLO11 shines in its **Performance Balance**. It achieves an extraordinary trade
 
 Moreover, Ultralytics YOLO models are renowned for their lower memory usage during training and inference. Unlike Transformer models which can easily exhaust VRAM, YOLO11 allows for larger batch sizes on standard GPUs. Furthermore, YOLO11 is not limited to mere object detection; it boasts incredible **Versatility**, featuring native support for [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Image Classification](https://docs.ultralytics.com/tasks/classify/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/).
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 ## Performance and Metrics Comparison
 

@@ -115,9 +115,9 @@ While YOLOv10 introduced the groundbreaking NMS-free paradigm and EfficientDet s
 
 Furthermore, YOLO26 provides unmatched **versatility**. While EfficientDet and YOLOv10 are strictly detection models, YOLO26 seamlessly handles [oriented bounding boxes](https://docs.ultralytics.com/tasks/obb/), [image classification](https://docs.ultralytics.com/tasks/classify/), and instance segmentation using the same intuitive [Ultralytics Python package](https://docs.ultralytics.com/usage/python/).
 
-!!! warning "Legacy Models vs Modern Ecosystems"
+!!! tip "Well-Maintained Ecosystem"
 
-    While [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) remain fully supported, experimental community models like YOLO12 or YOLO13 are not recommended due to severe training instability and excessive memory consumption caused by bloated attention layers. Stick to the officially supported Ultralytics ecosystem for guaranteed performance and long-term maintenance.
+    Both [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) remain fully supported within the Ultralytics ecosystem. For the best combination of performance, stability, and long-term support, we recommend using officially maintained Ultralytics models.
 
 ### Ease of Use with Ultralytics
 

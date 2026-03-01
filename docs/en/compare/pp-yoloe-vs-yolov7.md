@@ -111,7 +111,7 @@ While PP-YOLOE+ and YOLOv7 are milestones in object detection, the landscape of 
 - **MuSGD Optimizer:** Inspired by advanced LLM training techniques (like Moonshot AI's Kimi K2), YOLO26 uses a hybrid of SGD and Muon for incredibly stable training and fast convergence.
 - **ProgLoss + STAL:** These improved loss functions bring remarkable gains in small-object detection, which is vital for use cases like [drone aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and manufacturing defect detection.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Ideal Use Cases and Deployment Scenarios
 

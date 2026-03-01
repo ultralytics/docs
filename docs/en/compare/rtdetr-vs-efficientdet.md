@@ -19,9 +19,9 @@ Building on the success of the original RT-DETR, RTDETRv2 refines the transforme
 
 **Model Details**
 Authors: Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu  
-Organization: [Baidu](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)  
-Date: 2023-04-17  
-Links: [Arxiv](https://arxiv.org/abs/2304.08069), [GitHub](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch), [Docs](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
+Organization: [Baidu](https://www.baidu.com/)
+Date: 2024-07-24
+Links: [Arxiv](https://arxiv.org/abs/2407.17140), [GitHub](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch), [Docs](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
 
 ### Architecture and Core Strengths
 
@@ -87,7 +87,7 @@ If you are exploring state-of-the-art detection, the newly released [Ultralytics
 
 !!! tip "Why Choose YOLO26?"
 
-    YOLO26 implements an **End-to-End NMS-Free Design**, bringing the deployment simplicity of RTDETRv2 to the ultra-efficient YOLO architecture. Furthermore, it introduces the **MuSGD Optimizer**—inspired by LLM training innovations—for superior training stability, and boasts up to **43% faster CPU inference** than previous generations, making it an exceptional choice for [edge computing](https://www.ultralytics.com/glossary/edge-computing) over heavier models.
+    YOLO26 implements an **End-to-End NMS-Free Design**, bringing the deployment simplicity of RTDETRv2 to the ultra-efficient YOLO architecture. Furthermore, it introduces the **MuSGD Optimizer**—inspired by LLM training innovations—for superior training stability. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), YOLO26 boasts up to **43% faster CPU inference** than previous generations, making it an exceptional choice for [edge computing](https://www.ultralytics.com/glossary/edge-computing) over heavier models. Additionally, **ProgLoss + STAL** delivers improved loss functions with notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery.
 
 The ease of use provided by the [Ultralytics Python package](https://docs.ultralytics.com/usage/python/) is unmatched. Developers can train, validate, and [export models](https://docs.ultralytics.com/modes/export/) using an intuitive API that abstracts away the boilerplate code typically required by research repositories.
 

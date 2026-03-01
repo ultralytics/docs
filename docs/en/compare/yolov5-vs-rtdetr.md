@@ -118,7 +118,7 @@ If you are starting a new vision project today, it is highly recommended to expl
 
 While YOLOv5 remains incredibly reliable, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) offers improved accuracy and an expanded set of tasks including [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) detection.
 
-Even more significantly, the cutting-edge [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) merges the best of both worlds. It implements an **End-to-End NMS-Free Design** (first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10/)), eliminating the post-processing overhead while maintaining the efficiency of a CNN. YOLO26 also introduces the **MuSGD Optimizer**, inspired by LLM training innovations, for faster convergence. Furthermore, YOLO26 delivers **Up to 43% Faster CPU Inference**, making it the absolute best choice for edge AI.
+Even more significantly, the cutting-edge [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) merges the best of both worlds. It implements an **End-to-End NMS-Free Design** (first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10/)), eliminating the post-processing overhead while maintaining the efficiency of a CNN. YOLO26 also introduces the **MuSGD Optimizer**, inspired by LLM training innovations, for faster convergence. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), YOLO26 delivers **Up to 43% Faster CPU Inference**, making it the absolute best choice for edge AI. Additionally, **ProgLoss + STAL** provides improved loss functions with notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery.
 
 ## Conclusion
 

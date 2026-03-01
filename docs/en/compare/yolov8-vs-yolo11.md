@@ -28,7 +28,7 @@ Released as a major leap forward in early 2023, YOLOv8 introduced anchor-free de
 - **Date:** 2023-01-10
 - **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 
-[Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8/){ .md-button }
+[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
 ### Ultralytics YOLO11
 
@@ -39,7 +39,7 @@ Building upon the success of its predecessors, YOLO11 refined the core architect
 - **Date:** 2024-09-27
 - **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 !!! tip "Other Architectures"
 
@@ -115,7 +115,7 @@ YOLO26 fundamentally reimagines the deployment pipeline. It features an **End-to
 
 Training stability and convergence speeds are dramatically improved by the novel **MuSGD Optimizer**, a hybrid inspired by LLM training techniques. Additionally, new loss formulations like **ProgLoss + STAL** significantly enhance small-object recognition—a historic pain point for IoT and robotics. With task-specific improvements like RLE for pose estimation and multi-scale proto for segmentation, YOLO26 stands unmatched.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 !!! info "Choosing the Right Model"
 

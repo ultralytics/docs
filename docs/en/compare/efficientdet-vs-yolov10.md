@@ -90,10 +90,10 @@ While both models have historical and structural significance, integrating them 
 Deploying YOLOv10 with Ultralytics is incredibly straightforward. The following code snippet demonstrates how to initialize, train, and evaluate a YOLOv10 network entirely within the Python API.
 
 ```python
-from ultralytics import YOLOv10
+from ultralytics import YOLO
 
 # Load a pre-trained YOLOv10 model (nano variant for edge speed)
-model = YOLOv10("yolov10n.pt")
+model = YOLO("yolov10n.pt")
 
 # Train the model on the COCO8 dataset
 results = model.train(data="coco8.yaml", epochs=50, imgsz=640, batch=16)
@@ -102,7 +102,7 @@ results = model.train(data="coco8.yaml", epochs=50, imgsz=640, batch=16)
 metrics = model.val()
 
 # Export the model to ONNX for production deployment
-model.export(format="onnx", opset=13, simplify=True)
+model.export(format="onnx")
 ```
 
 ## The Future is Here: Enter Ultralytics YOLO26
@@ -120,7 +120,7 @@ While YOLOv10 introduced the revolutionary NMS-free design, the technology has e
 - **MuSGD Optimizer:** YOLO26 borrows innovations from Large Language Model (LLM) training. By fusing the stability of SGD with the speed of Muon, it converges faster and more reliably than any predecessor.
 - **ProgLoss + STAL:** Superior loss formulations effectively solve long-standing issues with small-object detection, an area where EfficientDet traditionally struggled.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Conclusion: Matching Models to Use Cases
 

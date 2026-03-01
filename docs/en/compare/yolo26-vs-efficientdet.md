@@ -37,7 +37,7 @@ YOLO26 introduces several groundbreaking features that drastically improve both 
 
     Thanks to the DFL removal and NMS-free architecture, exporting YOLO26 models to edge-friendly formats like [NVIDIA TensorRT](https://developer.nvidia.com/tensorrt) or [Intel OpenVINO](https://docs.ultralytics.com/integrations/openvino/) requires virtually no custom plugin development.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Architectural Overview: EfficientDet
 

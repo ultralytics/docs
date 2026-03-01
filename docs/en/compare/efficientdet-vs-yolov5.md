@@ -53,7 +53,7 @@ YOLOv5 introduced significant upgrades over its predecessors, utilizing a CSPDar
 
 YOLOv5 also heavily utilizes [Mosaic Data Augmentation](https://docs.ultralytics.com/reference/data/augment/), blending four disparate images into a single training tile. This greatly improves the model's ability to detect small objects and generalizes contextual understanding, making it highly robust in varied environments.
 
-[Learn more about YOLOv5](https://docs.ultralytics.com/models/yolov5/){ .md-button }
+[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
 
 ## Performance and Benchmarks
 
@@ -97,19 +97,16 @@ The well-maintained [Ultralytics ecosystem](https://docs.ultralytics.com/integra
 Running inference with a pre-trained YOLOv5 model requires only a few lines of code via [PyTorch Hub](https://pytorch.org/hub/):
 
 ```python
-import torch
+from ultralytics import YOLO
 
 # Load the highly efficient YOLOv5s model
-model = torch.hub.load("ultralytics/yolov5", "yolov5s")
+model = YOLO("yolov5su.pt")
 
-# Define an image URL or local path
-img_url = "https://ultralytics.com/images/zidane.jpg"
-
-# Run inference automatically handling resizing and normalization
-results = model(img_url)
+# Run inference on an image
+results = model("https://ultralytics.com/images/zidane.jpg")
 
 # Display the detected bounding boxes
-results.show()
+results[0].show()
 ```
 
 ## Versatility and Real-World Applications

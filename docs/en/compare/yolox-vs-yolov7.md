@@ -126,7 +126,7 @@ predictions[0].show()
 
 While YOLOv7 and YOLOX represent important historical steps, the state-of-the-art moves rapidly. Released in January 2026, **Ultralytics YOLO26** introduces groundbreaking paradigms that supersede previous models.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 - **End-to-End NMS-Free Design:** YOLO26 natively eliminates [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing. This drastically reduces latency bottlenecks and guarantees deterministic execution times across varied hardware setups.
 - **Up to 43% Faster CPU Inference:** By removing Distribution Focal Loss (DFL) and optimizing network depth, YOLO26 is heavily tailored for edge devices lacking dedicated GPU hardware.

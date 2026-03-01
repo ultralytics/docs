@@ -91,7 +91,7 @@ The [Ultralytics Platform](https://platform.ultralytics.com) offers unparalleled
 - **ProgLoss + STAL:** Superior loss function design drastically boosts accuracy for detecting small objects, making YOLO26 ideal for aerial imagery and IoT networks.
 - **DFL Removal:** Simplified structural design enables frictionless conversion to mobile deployment formats.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 Other robust options in the Ultralytics ecosystem include [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8), which also provide multi-task versatility such as [instance segmentation](https://docs.ultralytics.com/tasks/segment/) and [pose estimation](https://docs.ultralytics.com/tasks/pose/).
 

@@ -40,7 +40,7 @@ Platform: [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yo
 
 Released in early 2026, **YOLO26** is the culmination of years of iterative improvements, focusing heavily on edge deployment and simplified training pipelines. It introduces an **end-to-end NMS-free design**, completely eliminating the traditional Non-Maximum Suppression post-processing step. This breakthrough drastically simplifies model deployment across diverse hardware. Furthermore, by removing the Distribution Focal Loss (DFL) module, YOLO26 achieves significantly lower latency, cementing its status as the premier choice for modern [computer vision applications](https://www.ultralytics.com/blog/60-impactful-computer-vision-applications).
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Architectural Innovations
 

@@ -29,7 +29,7 @@ DAMO-YOLO utilizes a NAS-optimized backbone named MAE-NAS, which automatically s
 
 Furthermore, the model introduces a "ZeroHead" design. By removing complex multi-branch structures in the detection head, it preserves spatial information more effectively while reducing computational overhead. The training methodology also leverages AlignedOTA (Aligned Optimal Transport Assignment) and robust knowledge distillation, allowing smaller student models to learn from heavier teacher networks.
 
-[Learn more about DAMO-YOLO](https://docs.ultralytics.com/compare/damo-yolo-vs-yolo11/){ .md-button }
+[Learn more about DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO){ .md-button }
 
 !!! note "Distillation Complexity"
 
@@ -89,7 +89,7 @@ Released in January 2026, [YOLO26](https://platform.ultralytics.com/ultralytics/
 4. **Enhanced Accuracy:** Utilizing **ProgLoss + STAL**, YOLO26 sees dramatic improvements in [small object detection](https://www.ultralytics.com/blog/exploring-small-object-detection-with-ultralytics-yolo11), making it the optimal choice for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and defect inspection.
 5. **Unmatched Versatility:** Unlike industrial models that only do bounding boxes, the YOLO26 family supports multi-modal tasks, including [Image Classification](https://docs.ultralytics.com/tasks/classify/), [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/).
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ### Seamless Ecosystem Experience
 

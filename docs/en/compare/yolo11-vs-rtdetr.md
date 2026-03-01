@@ -25,7 +25,7 @@ Introduced by Ultralytics, YOLO11 builds upon years of foundational research to 
 - **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLO11 Documentation](https://docs.ultralytics.com/models/yolo11/)
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 ### Architecture and Strengths
 
@@ -122,6 +122,6 @@ YOLO26 also introduces several revolutionary features:
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, a critical requirement for drone surveillance, [agricultural monitoring](https://www.ultralytics.com/solutions/ai-in-agriculture), and IoT edge sensors.
 - **Up to 43% Faster CPU Inference:** For deployments lacking dedicated GPUs, YOLO26 is specifically optimized for CPU execution, vastly outperforming previous generations.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 For those interested in exploring a wider range of architectures, the Ultralytics documentation also provides insights into [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8), the widely adopted [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5), and specialized models like [YOLO-World](https://docs.ultralytics.com/models/yolo-world/) for open-vocabulary detection applications. Ultimately, whether prioritizing the proven stability of YOLO11 or the breakthrough innovations of YOLO26, the Ultralytics ecosystem delivers unparalleled tools to bring your computer vision solutions to life.

@@ -30,7 +30,7 @@ Developed by Google Research, EfficientDet introduced a paradigm shift by treati
 - GitHub: [google/automl](https://github.com/google/automl/tree/master/efficientdet)
 - Docs: [EfficientDet Documentation](https://github.com/google/automl/tree/master/efficientdet#readme)
 
-[Learn more about EfficientDet](https://docs.ultralytics.com/models/){ .md-button }
+[Learn more about EfficientDet](https://github.com/google/automl/tree/master/efficientdet){ .md-button }
 
 The core innovation of EfficientDet lies in its **Bi-directional Feature Pyramid Network (BiFPN)**. Unlike traditional FPNs that only sum features top-down, BiFPN introduces learnable weights to conduct cross-scale feature fusion both top-down and bottom-up. This allows the network to understand the importance of different input features intuitively. Coupled with the [EfficientNet backbone](https://www.ultralytics.com/blog/what-is-efficientnet-a-quick-overview), EfficientDet scales resolution, depth, and width simultaneously, creating a family of models (d0 to d7) that cater to varying computational budgets.
 
@@ -49,7 +49,7 @@ Building on the successes of its predecessors, PP-YOLOE+ was engineered by the P
 - GitHub: [PaddlePaddle/PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection/)
 - Docs: [PP-YOLOE+ Configuration](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
 
-[Learn more about PP-YOLOE+](https://docs.ultralytics.com/models/yoloe/){ .md-button }
+[Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md){ .md-button }
 
 PP-YOLOE+ features a **CSPRepResNet backbone**, which leverages Cross Stage Partial networks combined with re-parameterization techniques to enhance feature extraction without bloating inference latency. Its **ET-head (Efficient Task-aligned head)** significantly improves the alignment between classification and localization tasks. Furthermore, it employs an anchor-free design combined with dynamic label assignment (TAL), which streamlines the training process and improves generalization across diverse datasets.
 

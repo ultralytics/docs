@@ -128,7 +128,7 @@ YOLO26 stands out by introducing several massive leaps forward:
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, a critical factor for aerial imagery and IoT sensors.
 - **Unmatched Versatility:** Unlike YOLOX, which is strictly an object detector, YOLO26 natively supports [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), [Image Classification](https://docs.ultralytics.com/tasks/classify/), and [OBB Detection](https://docs.ultralytics.com/tasks/obb/) within a single, unified library.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 !!! tip "Leverage the Ultralytics Platform"
 

@@ -29,7 +29,7 @@ Released by the team at [Ultralytics](https://www.ultralytics.com/about), YOLOv8
 - **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 - **Documentation:** [YOLOv8 Docs](https://docs.ultralytics.com/models/yolov8/)
 
-[Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8/){ .md-button }
+[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
 ### YOLOv9: Programmable Gradient Information
 

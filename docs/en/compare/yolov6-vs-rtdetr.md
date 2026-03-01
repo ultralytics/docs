@@ -117,7 +117,7 @@ Released in January 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/
 4. **Enhanced Small Object Detection:** The introduction of ProgLoss and STAL loss functions provides a massive leap in detecting small objects—a critical requirement for drone analytics and aerial imagery that YOLOv6 historically struggled with.
 5. **Task Versatility:** Unlike YOLOv6, which focuses strictly on detection, YOLO26 supports multi-modal workflows including [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), [Image Classification](https://docs.ultralytics.com/tasks/classify/), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/)—all from a single, unified API.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ### Training Efficiency and Ease of Use
 

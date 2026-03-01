@@ -98,7 +98,7 @@ YOLO26 introduces several pioneering enhancements that outclass traditional CNNs
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, an area where models like PP-YOLOE+ historically struggle, proving critical for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and drone applications.
 - **DFL Removal:** The removal of Distribution Focal Loss simplifies the export process, ensuring seamless compatibility across various edge and low-power devices.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 !!! note "Task-Specific Versatility"
 

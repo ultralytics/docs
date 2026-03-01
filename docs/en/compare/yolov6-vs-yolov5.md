@@ -118,7 +118,7 @@ Key innovations in YOLO26 include:
 
 For general-purpose tasks, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) also remains an excellent, fully-supported choice within the Ultralytics family.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Conclusion
 

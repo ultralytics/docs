@@ -27,7 +27,7 @@ Authored by Chien-Yao Wang and Hong-Yuan Mark Liao from the Institute of Informa
 
 Authored by Glenn Jocher and Jing Qiu at [Ultralytics](https://www.ultralytics.com/), YOLO26 was released on January 14, 2026. Building on the massive success of predecessors like [YOLO11](https://docs.ultralytics.com/models/yolo11/) and [YOLOv8](https://docs.ultralytics.com/models/yolov8/), YOLO26 was engineered from the ground up to prioritize production readiness, edge deployment, and native end-to-end efficiency.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 !!! tip "Try YOLO26 Today"
 

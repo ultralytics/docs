@@ -118,7 +118,7 @@ YOLO26 introduces an **End-to-End NMS-Free Design**, completely eliminating the 
 
 Training stability and convergence speed have also seen massive upgrades thanks to the **MuSGD Optimizer**, a hybrid of SGD and Muon inspired by LLM training methodologies. Additionally, the introduction of **ProgLoss + STAL** significantly boosts small-object recognition, which is critical for drone imagery and dense industrial inspection.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 !!! note "Other Models to Consider"
 

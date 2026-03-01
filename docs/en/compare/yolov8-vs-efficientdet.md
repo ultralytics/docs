@@ -25,7 +25,7 @@ Released by Ultralytics in January 2023, YOLOv8 represented a major leap forward
 
 The architecture introduces an anchor-free detection head, which heavily reduces the number of box predictions and speeds up Non-Maximum Suppression (NMS). Its backbone utilizes a novel **C2f module** (Cross-Stage Partial bottleneck with two convolutions) to improve gradient flow during training while maintaining a lightweight footprint. This makes YOLOv8 exceptionally efficient when compiled to formats like [NVIDIA TensorRT](https://developer.nvidia.com/tensorrt) or [ONNX](https://onnx.ai/).
 
-[Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8/){ .md-button }
+[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
 ### EfficientDet
 

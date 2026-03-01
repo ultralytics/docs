@@ -50,7 +50,7 @@ Ultralytics YOLO26 introduces several groundbreaking features that make it the d
 
     YOLO26 includes specialized improvements across multiple modalities: a multi-scale proto for [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), Residual Log-Likelihood Estimation (RLE) for [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), and advanced angle loss to mitigate boundary issues in [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) detection.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Performance Comparison
 

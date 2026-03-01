@@ -37,7 +37,7 @@ Launched later in the same year, YOLO11 represents the continuous refinement of 
 
 YOLO11 is designed for production. While it excels at standard bounding box detection, its true strength lies in its **versatility**. Unlike YOLOv10, which is primarily focused on object detection, YOLO11 natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), [image classification](https://docs.ultralytics.com/tasks/classify/), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) tasks using a unified architecture. It boasts remarkably low **memory requirements** during training, making it highly accessible for teams working with consumer-grade [GPUs](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) compared to heavier, transformer-based architectures.
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 ## Performance and Metrics Comparison
 

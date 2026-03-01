@@ -29,7 +29,7 @@ Released in early 2023, YOLOv8 introduced a major overhaul to the YOLO framework
 
 YOLOv8 quickly became the industry standard due to its excellent performance balance and deep integration into the [Ultralytics ecosystem](https://docs.ultralytics.com/). It natively supports [object detection](https://docs.ultralytics.com/tasks/detect/), [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [image classification](https://docs.ultralytics.com/tasks/classify/). However, it relies on standard Non-Maximum Suppression (NMS) for post-processing, which can introduce latency bottlenecks in highly constrained edge environments.
 
-[Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8/){ .md-button }
+[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
 ### YOLO26: The Next-Generation Edge Powerhouse
 
@@ -43,7 +43,7 @@ Released in January 2026, YOLO26 takes the foundation built by its predecessors 
 
 YOLO26 introduces several paradigm-shifting technical improvements. Most notably, it features an **End-to-End NMS-Free Design**. Pioneered initially by [YOLOv10](https://docs.ultralytics.com/models/yolov10/), this architecture eliminates the need for NMS post-processing, significantly simplifying export pipelines and reducing latency variance. Furthermore, the removal of Distribution Focal Loss (DFL) streamlines the detection head, making it incredibly friendly for deployment on edge AI hardware.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 !!! tip "Other Ultralytics Models"
 

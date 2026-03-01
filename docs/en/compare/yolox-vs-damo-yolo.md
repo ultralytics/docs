@@ -101,7 +101,7 @@ results = model("https://ultralytics.com/images/bus.jpg")
 model.export(format="openvino")
 ```
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Other Models to Consider
 

@@ -121,7 +121,7 @@ While YOLOv7 and EfficientDet laid the groundwork for modern computer vision, th
 - **ProgLoss + STAL:** The integration of Progressive Loss and Scale-Targeted Alignment Loss heavily improves the model's ability to detect tiny objects, solving a massive pain point for drone imagery and [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system/).
 - **Task-Specific Improvements:** YOLO26 isn't just a detector. It features a Semantic segmentation loss and multi-scale proto for flawless [segmentation](https://docs.ultralytics.com/tasks/segment/), Residual Log-Likelihood Estimation (RLE) for hyper-accurate [pose tracking](https://docs.ultralytics.com/tasks/pose/), and specialized angle loss for resolving [OBB](https://docs.ultralytics.com/tasks/obb/) boundary ambiguities.
 
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Exploring Alternative Models
 

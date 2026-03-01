@@ -25,7 +25,7 @@ Both models were introduced around the same time but stem from different design 
 - GitHub: [Ultralytics GitHub Repository](https://github.com/ultralytics/ultralytics)
 - Docs: [YOLOv8 Official Documentation](https://docs.ultralytics.com/models/yolov8/)
 
-[Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8/){ .md-button }
+[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
 ### DAMO-YOLO Details
 
@@ -123,7 +123,7 @@ DAMO-YOLO can be beneficial in niche scenarios, particularly:
 
 While YOLOv8 remains a highly dependable workhorse, the computer vision field moves rapidly. Users should also consider exploring newer generations:
 
-**YOLO26:** The latest generation, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26), represents a paradigm shift. It introduces a natively **End-to-End NMS-Free Design**, completely eliminating the latency bottlenecks associated with Non-Maximum Suppression post-processing. Powered by the new **MuSGD Optimizer** (a hybrid of SGD and Muon) and specialized **ProgLoss + STAL** loss functions, YOLO26 achieves remarkably stable training and vastly improved small-object recognition. Furthermore, architectural tweaks provide up to **43% Faster CPU Inference** compared to previous generations, making it the definitive choice for modern edge computing.
+**YOLO26:** The latest generation, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26), represents a paradigm shift. It introduces a natively **End-to-End NMS-Free Design**, completely eliminating the latency bottlenecks associated with Non-Maximum Suppression post-processing. Powered by the new **MuSGD Optimizer** (a hybrid of SGD and Muon) and specialized **ProgLoss + STAL** loss functions, YOLO26 achieves remarkably stable training and vastly improved small-object recognition. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), architectural tweaks provide up to **43% Faster CPU Inference** compared to previous generations, making it the definitive choice for modern edge computing.
 
 **YOLO11:** Another excellent alternative, [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) offers incremental architectural refinements over YOLOv8 and remains a robust, heavily adopted model in the community.
 

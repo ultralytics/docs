@@ -55,7 +55,7 @@ Evaluating performance requires looking beyond top-line accuracy to consider the
 
 As the table demonstrates, YOLO11 achieves a highly favorable performance balance. The `YOLO11s` variant, for example, surpasses the `DAMO-YOLOs` in accuracy while maintaining a significantly smaller parameter footprint. This reduction in memory requirements translates directly to lower deployment costs and more agile performance on edge devices.
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 ## Training Methodologies and Usability
 
