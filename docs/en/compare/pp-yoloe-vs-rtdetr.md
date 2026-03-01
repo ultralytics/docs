@@ -34,7 +34,7 @@ PP-YOLOE+ relies on a heavily optimized backbone and a customized feature pyrami
 
 The primary strength of PP-YOLOE+ lies in its robust performance on standard server hardware and its deep integration with Baidu's tools. It is well-suited for traditional industrial workflows, such as static [defect detection](https://www.ultralytics.com/blog/how-vision-ai-enhances-defect-detection-on-production-lines) in manufacturing environments where hardware constraints are not overly restrictive.
 
-[Learn more about PP-YOLOE+](https://docs.ultralytics.com/models/yoloe/){ .md-button }
+[Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md){ .md-button }
 
 !!! tip "Ecosystem Considerations"
 

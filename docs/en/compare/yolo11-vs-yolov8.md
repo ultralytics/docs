@@ -119,7 +119,7 @@ While YOLO11 represents a mature and highly capable architecture, the rapid pace
 YOLO26 pushes the boundaries of computer vision with several groundbreaking features:
 
 - **End-to-End NMS-Free Design:** Building on concepts explored in [YOLOv10](https://docs.ultralytics.com/models/yolov10/), YOLO26 natively eliminates Non-Maximum Suppression (NMS) post-processing, resulting in lower, more predictable latency across all deployment hardware.
-- **Up to 43% Faster CPU Inference:** By completely removing the Distribution Focal Loss (DFL) branch, YOLO26 is specifically optimized for [edge computing devices](https://www.ibm.com/topics) that lack powerful GPUs.
+- **Up to 43% Faster CPU Inference:** By completely removing the Distribution Focal Loss (DFL) branch, YOLO26 is specifically optimized for [edge computing devices](https://www.ultralytics.com/glossary/edge-ai) that lack powerful GPUs.
 - **MuSGD Optimizer:** Inspired by large language model (LLM) training techniques, YOLO26 utilizes a hybrid MuSGD optimizer, ensuring remarkably stable and rapid training convergence.
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in tiny and heavily occluded object recognition, essential for autonomous robotics and drone-based analytics.
 

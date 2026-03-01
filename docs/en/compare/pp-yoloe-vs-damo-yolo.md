@@ -36,7 +36,7 @@ PP-YOLOE+ introduces several architectural enhancements to improve upon previous
 - GitHub: [PaddlePaddle/PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection/)
 - Docs: [PP-YOLOE+ Documentation](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
 
-[Learn more about PP-YOLOE+](https://docs.ultralytics.com/models/yoloe/){ .md-button }
+[Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md){ .md-button }
 
 ## DAMO-YOLO: Neural Architecture Search at the Edge
 

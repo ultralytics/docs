@@ -6,7 +6,7 @@ keywords: PP-YOLOE+, YOLOv9, object detection, model comparison, computer vision
 
 # PP-YOLOE+ vs. YOLOv9: A Technical Deep Dive into Modern Object Detection
 
-The landscape of real-time computer vision is constantly shifting, with researchers and developers continuously pushing the boundaries of accuracy and inference speed. When comparing [PP-YOLOE+](https://docs.ultralytics.com/models/yoloe/) and [YOLOv9](https://docs.ultralytics.com/models/yolov9/), we are looking at two distinct philosophies in model architecture and ecosystem design.
+The landscape of real-time computer vision is constantly shifting, with researchers and developers continuously pushing the boundaries of accuracy and inference speed. When comparing [PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md) and [YOLOv9](https://docs.ultralytics.com/models/yolov9/), we are looking at two distinct philosophies in model architecture and ecosystem design.
 
 This comprehensive technical comparison analyzes their architectural innovations, performance metrics, training methodologies, and ideal use cases to help you choose the right [object detection](https://docs.ultralytics.com/tasks/detect/) model for your next deployment.
 
@@ -31,7 +31,7 @@ Developed by the PaddlePaddle Authors at Baidu, PP-YOLOE+ was introduced on Apri
 
 PP-YOLOE+ introduces a robust anchor-free architecture, heavily optimized for deployment within the PaddlePaddle ecosystem. It utilizes a modified CSPRepResNet backbone and an ET-head to improve feature extraction and bounding box regression. While it achieves high [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map), its reliance on the PaddlePaddle framework can sometimes introduce integration friction for developers accustomed to PyTorch or TensorFlow.
 
-[Learn more about PP-YOLOE+](https://docs.ultralytics.com/models/yoloe/){ .md-button }
+[Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md){ .md-button }
 
 ### YOLOv9 Overview
 

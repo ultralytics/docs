@@ -25,7 +25,7 @@ PP-YOLOE+ is an evolved version of the original PP-YOLO, built specifically to o
 - **Arxiv:** [2203.16250](https://arxiv.org/abs/2203.16250)
 - **Docs:** [PaddleDetection README](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
 
-[Learn more about PP-YOLOE+](https://docs.ultralytics.com/models/yoloe/){ .md-button }
+[Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md){ .md-button }
 
 PP-YOLOE+ features a CSPRepResNet backbone, an Efficient Task-aligned head (ET-head), and relies heavily on varifocal loss for classification alongside distribution focal loss for bounding box regression. Its transition to an [anchor-free detector](https://www.ultralytics.com/glossary/anchor-free-detectors) design helped streamline the post-processing pipeline, making it highly competitive at the time of its release.
 

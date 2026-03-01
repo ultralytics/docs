@@ -97,16 +97,16 @@ The difference in usability is best demonstrated through code.
 **Training with YOLOv5:**
 
 ```python
-import torch
+from ultralytics import YOLO
 
-# Load a pretrained YOLOv5s model from PyTorch Hub
-model = torch.hub.load("ultralytics/yolov5", "yolov5s")
+# Load a pretrained YOLOv5s model
+model = YOLO("yolov5su.pt")
 
 # Run inference on an image
 results = model("https://ultralytics.com/images/zidane.jpg")
 
 # Display results
-results.show()
+results[0].show()
 ```
 
 **Training with YOLOX:**

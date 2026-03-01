@@ -41,7 +41,7 @@ Date: 2022-04-02
 Arxiv: [2203.16250](https://arxiv.org/abs/2203.16250)  
 GitHub: [PaddleDetection Repository](https://github.com/PaddlePaddle/PaddleDetection/)
 
-[Learn more about PP-YOLOE+](https://docs.ultralytics.com/models/yoloe/){ .md-button }
+[Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md){ .md-button }
 
 !!! tip "Ecosystem Integration"
 

@@ -6,7 +6,7 @@ keywords: PP-YOLOE+, YOLOv6-3.0, object detection, model comparison, machine lea
 
 # Navigating Object Detection: PP-YOLOE+ vs YOLOv6-3.0
 
-The field of real-time [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) has expanded rapidly, leading to highly specialized architectures optimized for diverse deployment scenarios. Developers frequently compare [PP-YOLOE+](https://docs.ultralytics.com/models/yoloe/) and [YOLOv6-3.0](https://docs.ultralytics.com/models/yolov6/) when building applications that require a balance of high throughput and reliable accuracy. Both models brought substantial architectural improvements to the table upon their releases, focusing on enhancing inference speeds for industrial and edge applications.
+The field of real-time [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) has expanded rapidly, leading to highly specialized architectures optimized for diverse deployment scenarios. Developers frequently compare [PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md) and [YOLOv6-3.0](https://docs.ultralytics.com/models/yolov6/) when building applications that require a balance of high throughput and reliable accuracy. Both models brought substantial architectural improvements to the table upon their releases, focusing on enhancing inference speeds for industrial and edge applications.
 
 Before diving into the detailed architectural breakdowns, explore the chart below to visualize how these models perform relative to one another in terms of speed and accuracy.
 
@@ -35,7 +35,7 @@ While PP-YOLOE+ achieves impressive [mean average precision (mAP)](https://www.u
 
     PP-YOLOE+ is highly optimized for deployment within Baidu's technology stack, making it an excellent choice if your production environment relies heavily on Paddle inference tools.
 
-[Learn more about PP-YOLOE+](https://docs.ultralytics.com/models/yoloe/){ .md-button }
+[Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md){ .md-button }
 
 ## YOLOv6-3.0: Industrial Throughput
 

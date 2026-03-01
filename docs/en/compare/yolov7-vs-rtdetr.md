@@ -65,12 +65,12 @@ When benchmarking these models, we must look at a holistic picture encompassing 
 
 | Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv7l    | 640                         | 51.4                       | -                                    | 6.84                                      | 36.9                     | 104.7                   |
-| YOLOv7x    | 640                         | 53.1                       | -                                    | 11.57                                     | 71.3                     | 189.9                   |
+| YOLOv7l    | 640                         | 51.4                       | -                                    | **6.84**                                  | **36.9**                 | **104.7**               |
+| YOLOv7x    | 640                         | 53.1                       | -                                    | **11.57**                                 | **71.3**                 | **189.9**               |
 |            |                             |                            |                                      |                                           |                          |                         |
-| RTDETRv2-s | 640                         | 48.1                       | -                                    | **5.03**                                  | **20**                   | **60**                  |
+| RTDETRv2-s | 640                         | 48.1                       | -                                    | 5.03                                      | 20                       | 60                      |
 | RTDETRv2-m | 640                         | 51.9                       | -                                    | 7.51                                      | 36                       | 100                     |
-| RTDETRv2-l | 640                         | 53.4                       | -                                    | 9.76                                      | 42                       | 136                     |
+| RTDETRv2-l | 640                         | **53.4**                   | -                                    | 9.76                                      | 42                       | 136                     |
 | RTDETRv2-x | 640                         | **54.3**                   | -                                    | 15.03                                     | 76                       | 259                     |
 
 !!! info "Interpreting the Benchmarks"
