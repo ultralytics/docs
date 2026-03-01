@@ -4,164 +4,136 @@ description: Compare YOLOv5 and YOLOv9 - performance, architecture, and use case
 keywords: YOLOv5, YOLOv9, object detection, model comparison, performance metrics, real-time detection, computer vision, Ultralytics, machine learning
 ---
 
-# YOLOv5 vs. YOLOv9: Evolution of Real-Time Object Detection
+# YOLOv5 vs. YOLOv9: An In-Depth Technical Comparison
 
-The landscape of [real-time object detection](https://www.ultralytics.com/glossary/object-detection) has evolved dramatically over the last few years. While **YOLOv5** set the standard for usability and industrial adoption in 2020, **YOLOv9** introduced novel architectural concepts in 2024 to push the boundaries of accuracy and efficiency. This guide provides a detailed technical comparison to help developers choose the right tool for their [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) projects.
+The landscape of computer vision and real-time object detection has seen remarkable advancements over the past few years. Navigating the choice between established, battle-tested models and newer research architectures is a common challenge for machine learning engineers. This guide provides a comprehensive technical comparison between two highly influential models in the YOLO family: **YOLOv5** and **YOLOv9**.
+
+Whether you are deploying to constrained edge devices, researching high-fidelity feature extraction, or building complex [object detection](https://docs.ultralytics.com/tasks/detect/) pipelines, understanding the architectural nuances, performance metrics, and ecosystem differences of these models is crucial.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv5", "YOLOv9"]'></canvas>
 
-## Model Origins and Technical Specifications
+## Model Overviews
 
-Understanding the provenance of these models helps contextualize their design philosophy and intended use cases.
+Before diving into the architectural comparisons, it is helpful to understand the origins and primary objectives of each model.
 
-### YOLOv5: The Industrial Standard
+### Ultralytics YOLOv5
 
-Launched in June 2020 by Glenn Jocher and **Ultralytics**, YOLOv5 prioritized ease of use, exportability, and speed. It became the first YOLO model implemented natively in [PyTorch](https://pytorch.org/), making it accessible to a massive community of Python developers.
+Developed by Glenn Jocher and released by [Ultralytics](https://www.ultralytics.com/) on June 26, 2020, YOLOv5 marked a paradigm shift in how developers interacted with vision models. By fully embracing the [PyTorch](https://pytorch.org/) framework, YOLOv5 traded the complex compilation steps of earlier Darknet-based models for an intuitive, Python-first user experience.
 
 - **Author:** Glenn Jocher
 - **Organization:** [Ultralytics](https://www.ultralytics.com/)
 - **Date:** 2020-06-26
-- **Repo:** [GitHub](https://github.com/ultralytics/yolov5)
-- **Focus:** Usability, robust export pathways (ONNX, CoreML, TFLite), and rapid training.
+- **GitHub:** [YOLOv5 Repository](https://github.com/ultralytics/yolov5)
+- **Docs:** [YOLOv5 Platform Overview](https://platform.ultralytics.com/ultralytics/yolov5)
 
-[Learn more about YOLOv5](https://docs.ultralytics.com/models/yolov5/){ .md-button }
+YOLOv5 is renowned for its **Ease of Use** and stable performance across diverse hardware environments. It supports not just detection, but also [image classification](https://docs.ultralytics.com/tasks/classify/) and [instance segmentation](https://docs.ultralytics.com/tasks/segment/).
 
-### YOLOv9: Architectural Innovation
+[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
 
-Released in February 2024 by Chien-Yao Wang and Hong-Yuan Mark Liao from Academia Sinica, YOLOv9 focused on solving the "information bottleneck" problem in deep networks.
+### YOLOv9
 
-- **Authors:** Chien-Yao Wang, Hong-Yuan Mark Liao
-- **Organization:** Institute of Information Science, Academia Sinica
+Introduced by Chien-Yao Wang and Hong-Yuan Mark Liao from the Institute of Information Science at Academia Sinica, Taiwan, YOLOv9 focuses heavily on architectural theory to mitigate information bottleneck issues in deep neural networks.
+
+- **Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao
+- **Organization:** Institute of Information Science, Academia Sinica, Taiwan
 - **Date:** 2024-02-21
-- **Repo:** [GitHub](https://github.com/WongKinYiu/yolov9)
-- **Paper:** [arXiv:2402.13616](https://arxiv.org/abs/2402.13616)
-- **Focus:** Parameter efficiency and deep supervision using Programmable Gradient Information (PGI).
+- **Arxiv:** [2402.13616](https://arxiv.org/abs/2402.13616)
+- **GitHub:** [YOLOv9 Repository](https://github.com/WongKinYiu/yolov9)
+- **Docs:** [YOLOv9 Documentation](https://docs.ultralytics.com/models/yolov9/)
+
+The core of YOLOv9 relies on two major theoretical innovations: Programmable Gradient Information (PGI) and the Generalized Efficient Layer Aggregation Network (GELAN). These concepts help the model retain critical spatial features through deep network layers.
 
 [Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9/){ .md-button }
 
-## Architectural Differences
+!!! tip "Future-Proof Your Deployments"
 
-The core difference lies in how these models handle feature extraction and gradient flow.
+    While YOLOv5 and YOLOv9 are powerful, the newly released [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the ultimate balance of speed and precision. Featuring an end-to-end NMS-free design and up to 43% faster CPU inference, YOLO26 is highly recommended for modern edge computing and production deployments.
 
-**YOLOv5** utilizes a CSPNet (Cross Stage Partial Network) backbone. This design splits the gradient flow to reduce computation while maintaining accuracy, which was revolutionary for creating compact models suitable for [embedded systems](https://www.ultralytics.com/glossary/edge-computing). Its anchor-based detection head is highly optimized for general-purpose tasks, offering a balance that remains competitive for many legacy applications.
+## Architectural and Technical Differences
 
-**YOLOv9** introduces two key innovations: **GELAN** (Generalized Efficient Layer Aggregation Network) and **PGI** (Programmable Gradient Information). GELAN optimizes parameter utilization, allowing the model to be lighter while learning more complex features. PGI addresses the loss of information as data propagates through deep layers by providing an auxiliary supervision branch, ensuring reliable gradient generation even in very deep architectures.
+Understanding what powers these vision models under the hood is vital for optimizing [model deployment](https://docs.ultralytics.com/guides/model-deployment-options/) strategies.
 
-!!! info "Did you know?"
+### Feature Extraction and Information Retention
 
-    While YOLOv9 offers architectural novelty, the **Ultralytics YOLOv5** ecosystem remains unmatched for deployment. It natively supports export to formats like TensorRT and Edge TPU, simplifying the path from training to production.
+YOLOv5 utilizes a Cross Stage Partial Network (CSPNet) backbone, which effectively reduces computation overhead while maintaining accurate gradient flow during backpropagation. This design is highly optimized for traditional [GPU operations](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) and ensures lower memory requirements during training compared to heavy transformer alternatives.
 
-## Performance Analysis
+YOLOv9 introduces GELAN, a generic architecture that extends CSPNet principles. Coupled with PGI—an auxiliary reversible branch—YOLOv9 ensures that deep layers do not lose the semantic data necessary for precise objective functions. This allows YOLOv9 to achieve high [accuracy](https://www.ultralytics.com/glossary/accuracy), particularly on smaller objects, though the complex auxiliary branching can sometimes complicate export pipelines to deeply constrained edge hardware.
 
-When comparing metrics, YOLOv9 generally achieves higher mAP<sup>val</sup> for a given parameter count, particularly in the larger model variants. However, YOLOv5 remains incredibly competitive in inference speed on CPUs and legacy hardware due to its simpler architecture.
+### Memory Requirements and Training Efficiency
 
-### Benchmark Metrics
+When it comes to training efficiency, YOLOv5 remains incredibly robust. The well-maintained [Ultralytics ecosystem](https://docs.ultralytics.com/) ensures that YOLOv5 models consume significantly less CUDA memory, allowing researchers to maximize [batch sizes](https://www.ultralytics.com/glossary/batch-size) on consumer-grade GPUs. While YOLOv9 achieves excellent parameter efficiency (high accuracy relative to its size), its training process can be more resource-intensive if not utilizing optimized frameworks. Fortunately, integrating YOLOv9 into the Ultralytics API brings it closer to parity with YOLOv5's streamlined resource management.
 
-The table below highlights the trade-offs. **YOLOv9c** achieves 53.0% mAP, surpassing **YOLOv5x** (50.7%) while using significantly fewer parameters (25.3M vs 97.2M). This demonstrates the efficiency of the GELAN architecture. Conversely, the smaller YOLOv5 variants (Nano and Small) offer extremely low latency, making them viable for ultra-low-power devices.
+## Performance and Metrics
 
-| Model   | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
-| YOLOv5n | 640                   | 28.0                 | **73.6**                       | **1.12**                            | **1.9**            | **4.5**           |
-| YOLOv5s | 640                   | 37.4                 | 120.7                          | 1.92                                | 7.2                | 16.5              |
-| YOLOv5m | 640                   | 45.4                 | 233.9                          | 4.03                                | 21.2               | 49.0              |
-| YOLOv5l | 640                   | 49.0                 | 408.4                          | 6.61                                | 46.5               | 109.1             |
-| YOLOv5x | 640                   | 50.7                 | 763.2                          | 11.89                               | 86.7               | 205.7             |
-|         |                       |                      |                                |                                     |                    |                   |
-| YOLOv9t | 640                   | 38.3                 | -                              | 2.3                                 | 2.0                | 7.7               |
-| YOLOv9s | 640                   | 46.8                 | -                              | 3.54                                | 7.1                | 26.4              |
-| YOLOv9m | 640                   | 51.4                 | -                              | 6.43                                | 20.0               | 76.3              |
-| YOLOv9c | 640                   | **53.0**             | -                              | 7.16                                | 25.3               | 102.1             |
-| YOLOv9e | 640                   | **55.6**             | -                              | 16.77                               | 57.3               | 189.0             |
+To objectively evaluate these architectures, we compare their performance on standard datasets like COCO. Below is a detailed breakdown of metrics such as mAP (Mean Average Precision), inference speed, and parameter counts.
 
-_Note: The table reflects standard COCO validation metrics. Bold values indicate the best performance in that specific category._
+| Model   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOv5n | 640                         | 28.0                       | **73.6**                             | **1.12**                                  | 2.6                      | **7.7**                 |
+| YOLOv5s | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
+| YOLOv5m | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
+| YOLOv5l | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
+| YOLOv5x | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
+|         |                             |                            |                                      |                                           |                          |                         |
+| YOLOv9t | 640                         | 38.3                       | -                                    | 2.3                                       | **2.0**                  | **7.7**                 |
+| YOLOv9s | 640                         | 46.8                       | -                                    | 3.54                                      | 7.1                      | 26.4                    |
+| YOLOv9m | 640                         | 51.4                       | -                                    | 6.43                                      | 20.0                     | 76.3                    |
+| YOLOv9c | 640                         | 53.0                       | -                                    | 7.16                                      | 25.3                     | 102.1                   |
+| YOLOv9e | 640                         | **55.6**                   | -                                    | 16.77                                     | 57.3                     | 189.0                   |
 
-## Ease of Use and Ecosystem
+As the table shows, YOLOv9 achieves higher raw accuracy at equivalent tiers, reflecting its newer architecture. However, YOLOv5n maintains an incredibly low TensorRT latency of 1.12ms, highlighting its enduring strength for high-speed, localized [edge computing](https://www.ultralytics.com/glossary/edge-computing) applications.
 
-This is where the distinction becomes most practical for developers.
+## Training Methodologies and Ease of Use
 
-### The Ultralytics Experience (YOLOv5)
+The true advantage of leveraging [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) today lies in the accessibility of the toolchain.
 
-YOLOv5 is designed for the developer experience. The [Ultralytics ecosystem](https://docs.ultralytics.com/) provides a seamless workflow:
+### The Ultralytics Advantage
 
-1.  **Simple API:** Load and train models with a few lines of Python.
-2.  **Integrated Tools:** Automatic integration with [experiment tracking](https://docs.ultralytics.com/integrations/comet/) tools like Comet and ClearML.
-3.  **Deployment:** One-click export to [ONNX](https://docs.ultralytics.com/integrations/onnx/), CoreML, TFLite, and OpenVINO.
+While original research repositories for models like YOLOv9 are foundational, they often come with complex dependency matrices and boilerplate scripts. The [Ultralytics Python API](https://docs.ultralytics.com/usage/python/) completely abstracts this complexity. With the Ultralytics ecosystem, you can train, evaluate, and export both YOLOv5 and YOLOv9 with an identical, unified syntax.
 
 ```python
 from ultralytics import YOLO
 
-# Load a pre-trained YOLOv5 model
-model = YOLO("yolov5su.pt")
+# Load a pre-trained YOLOv5 model for fast deployment
+model_v5 = YOLO("yolov5s.pt")
 
-# Train on custom data
-model.train(data="coco8.yaml", epochs=100)
+# Or leverage a YOLOv9 model for high-fidelity accuracy
+model_v9 = YOLO("yolov9c.pt")
 
-# Export to ONNX for deployment
-model.export(format="onnx")
+# Train seamlessly on custom data with automatic MLflow logging
+results = model_v9.train(data="coco8.yaml", epochs=50, imgsz=640)
+
+# Export the trained model to ONNX
+model_v9.export(format="onnx")
 ```
 
-### YOLOv9 Implementation
+This single-API approach provides immense **Versatility**, supporting not just detection, but [pose estimation](https://docs.ultralytics.com/tasks/pose/) and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb/) depending on the model chosen. Furthermore, robust integrations with tools like [Comet ML](https://docs.ultralytics.com/integrations/comet/) and [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases/) are baked directly into the training loop.
 
-While highly accurate, the original YOLOv9 repository is research-focused. However, **YOLOv9 is now fully supported within the Ultralytics package**, bringing the same ease of use to this newer architecture. This means you don't have to sacrifice usability to access the latest architectural improvements; you can simply switch the model name string.
+## Ideal Use Cases and Real-World Applications
 
-## Training Efficiency and Memory
+Choosing between these architectures depends largely on the constraints of your hardware and the precision required by your application domain.
 
-A critical advantage of Ultralytics models, including YOLOv5 and the integrated YOLOv9, is memory efficiency.
+### When to Choose YOLOv5
 
-- **GPU Memory:** Ultralytics training loops are optimized to minimize [CUDA memory](https://docs.ultralytics.com/guides/docker-quickstart/) usage. This allows users to train larger batch sizes on consumer-grade hardware (like NVIDIA RTX 3060/4090) compared to transformer-based models which are often memory-hungry.
-- **Convergence:** YOLOv5 is famous for its "train out of the box" capability, requiring minimal [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning/). YOLOv9, with its PGI auxiliary branch, also demonstrates stable convergence, though the architecture is more complex.
+YOLOv5 is a battle-hardened veteran that shines in deployments prioritizing stability, low memory footprints, and extreme export compatibility.
 
-## Real-World Applications
+- **Mobile Deployments:** Exporting YOLOv5 to [TFLite](https://docs.ultralytics.com/integrations/tflite/) or CoreML for on-device inference on older smartphones is incredibly seamless.
+- **Legacy Edge Hardware:** For devices like the Raspberry Pi or early generation NVIDIA Jetson Nanos, the straightforward convolutions of YOLOv5 ensure consistent frame rates for applications like [smart parking management](https://docs.ultralytics.com/guides/parking-management/).
+- **Rapid Prototyping:** The extensive availability of community tutorials, custom [pre-trained weights](https://www.ultralytics.com/glossary/model-weights), and massive dataset compatibility makes it the fastest way to validate a proof-of-concept.
 
-Choosing the right model depends on your deployment constraints.
+### When to Choose YOLOv9
 
-### Ideal Use Cases for YOLOv5
+YOLOv9 is ideal for scenarios where capturing intricate details and minimizing false negatives is absolutely critical, even if it requires slightly more compute overhead.
 
-- **Edge AI on Legacy Hardware:** If you are deploying to older Raspberry Pi models or mobile devices where every millisecond of [inference latency](https://www.ultralytics.com/glossary/inference-latency) matters, YOLOv5n (Nano) is unbeaten.
-- **Rapid Prototyping:** For hackathons or startups needing a Proof of Concept (PoC) in hours, the vast documentation and community tutorials for YOLOv5 speed up development.
-- **Mobile Apps:** Its native support for [iOS CoreML](https://docs.ultralytics.com/integrations/coreml/) and Android TFLite makes it a staple for mobile developers.
+- **Aerial and Satellite Imagery:** The PGI framework is highly adept at maintaining the fidelity of small objects, making YOLOv9 excellent for drone-based [agricultural monitoring](https://www.ultralytics.com/solutions/ai-in-agriculture).
+- **Medical Imaging Diagnostics:** When detecting minute anomalies or lesions in high-resolution scans, the accurate gradient flow of GELAN provides a necessary edge in recall.
+- **High-End Retail Analytics:** Tracking overlapping products on dense shelves benefits significantly from YOLOv9's superior feature retention capabilities.
 
-### Ideal Use Cases for YOLOv9
+## Expanding Your Horizons
 
-- **High-Precision Inspection:** In manufacturing quality control where detecting minute defects is critical, the superior feature extraction of GELAN makes YOLOv9 a better choice.
-- **Medical Imaging:** For tasks like [tumor detection](https://docs.ultralytics.com/datasets/detect/brain-tumor/), where accuracy is paramount over raw speed, YOLOv9e provides the necessary mAP boost.
-- **Complex Scenes:** Environments with high occlusion or clutter benefit from the programmable gradients that help the model retain critical information through deep layers.
+While comparing YOLOv5 and YOLOv9 offers a clear view of how architectures have evolved from 2020 to 2024, the field of AI is moving faster than ever. For developers seeking the absolute frontier of performance, exploring the latest [YOLO26 models](https://docs.ultralytics.com/models/yolo26/) is highly encouraged. By replacing traditional Non-Maximum Suppression with a native **End-to-End NMS-Free Design** and utilizing the advanced **MuSGD Optimizer**, YOLO26 bridges the gap between research-level accuracy and production-level speed. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), YOLO26 achieves up to **43% faster CPU inference**, making it ideal for edge computing. Additionally, **ProgLoss + STAL** provides improved loss functions with notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery.
 
-## The Future: Meeting YOLO26
-
-While YOLOv5 is a reliable workhorse and YOLOv9 offers high accuracy, the field has moved forward again. For new projects starting in 2026, **Ultralytics YOLO26** represents the pinnacle of performance and efficiency.
-
-**Why Upgrade to YOLO26?**
-
-- **Natively End-to-End:** Unlike YOLOv5 and v9 which require NMS post-processing, YOLO26 is NMS-free, simplifying deployment pipelines.
-- **MuSGD Optimizer:** Inspired by LLM training, this optimizer ensures faster and more stable training.
-- **Versatility:** Supports Detection, [Segmentation](https://docs.ultralytics.com/tasks/segment/), Pose, OBB, and Classification out of the box.
-
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
-
-For users currently on YOLOv5, migrating to YOLO26 offers significant speedups (up to 43% faster CPU inference) and improved small-object detection via **ProgLoss + STAL**, making it the recommended path forward for both edge and cloud deployments.
-
-## Conclusion
-
-Both architectures have their place. **YOLOv5** remains the king of simplicity and broad device compatibility, perfect for developers who need a "just works" solution. **YOLOv9** offers a glimpse into the future of efficient deep learning with its programmable gradients, delivering state-of-the-art accuracy.
-
-However, utilizing the **Ultralytics ecosystem** ensures you aren't locked in. You can train YOLOv5, YOLOv9, and the cutting-edge YOLO26 using the exact same API, allowing you to benchmark them on your own data and choose the winner for your specific application.
-
-### Comparison Summary
-
-| Feature           | YOLOv5                         | YOLOv9                                 |
-| :---------------- | :----------------------------- | :------------------------------------- |
-| **Primary Focus** | Speed, Ease of Use, Deployment | Accuracy, Parameter Efficiency         |
-| **Architecture**  | CSPNet Backbone, Anchor-Based  | GELAN Backbone, PGI, Anchor-Based      |
-| **Ecosystem**     | Native Ultralytics Support     | Integrated into Ultralytics            |
-| **Best For**      | Mobile, Edge, Legacy Systems   | High-Accuracy Research, Complex Scenes |
-| **Inference**     | Extremely Fast (CPU/GPU)       | High Accuracy / Slower                 |
-
-Explore other models in the Ultralytics family:
-
-- [YOLO11](https://docs.ultralytics.com/models/yolo11/) - The robust predecessor to YOLO26.
-- [YOLOv8](https://docs.ultralytics.com/models/yolov8/) - A unified framework for detection, segmentation, and pose.
-- [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) - Real-time Transformer-based detection.
+You might also be interested in comparing these architectures against other state-of-the-art models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) or the highly capable [YOLO11](https://docs.ultralytics.com/models/yolo11/). Utilizing the unified Ultralytics framework ensures that no matter which model you choose, your development pipeline remains clean, efficient, and ready to scale.

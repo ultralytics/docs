@@ -4,158 +4,158 @@ description: Discover the key differences between PP-YOLOE+ and YOLOX models in 
 keywords: PP-YOLOE+, YOLOX, object detection, anchor-free models, model comparison, performance benchmarks, decoupled detection head, machine learning, computer vision
 ---
 
-# PP-YOLOE+ vs YOLOX: A Technical Analysis of Anchor-Free Detectors
+# PP-YOLOE+ vs YOLOX: Navigating the Evolution of Real-Time Object Detectors
 
-In the evolving landscape of [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv), anchor-free object detection has become a dominant paradigm, offering simpler architectures and often superior performance compared to traditional anchor-based methods. Two significant contributions to this field are **PP-YOLOE+**, developed by Baidu's PaddlePaddle team, and **YOLOX**, a high-performance anchor-free detector from Megvii.
-
-This analysis provides a deep dive into their architectures, performance metrics, and real-world applicability, while also highlighting how the modern [Ultralytics ecosystem](https://www.ultralytics.com) and the state-of-the-art [YOLO26](https://docs.ultralytics.com/models/yolo26/) model offer a compelling alternative for developers seeking the ultimate balance of speed, accuracy, and ease of use.
+The landscape of [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) has been significantly shaped by the rapid evolution of object detection models. Among the notable milestones in this journey are PP-YOLOE+ and YOLOX, two architectures that pushed the boundaries of real-time performance and accuracy. Understanding their architectural nuances, performance trade-offs, and ideal deployment scenarios is crucial for researchers and developers building the next generation of visual recognition systems.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["PP-YOLOE+", "YOLOX"]'></canvas>
 
-## Model Overviews
+## Model Lineage and Details
 
-### PP-YOLOE+
+Before diving into the technical architectures, it is helpful to contextualize the origins of both models. Each was developed to address specific bottlenecks in [object detection](https://docs.ultralytics.com/tasks/detect/), heavily influenced by their backing organizations.
 
-**Authors:** PaddlePaddle Authors  
-**Organization:** [Baidu](https://www.baidu.com/)  
-**Date:** 2022-04-02  
-**Arxiv:** [https://arxiv.org/abs/2203.16250](https://arxiv.org/abs/2203.16250)  
-**GitHub:** [PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection/)
+**PP-YOLOE+ Details:**
 
-PP-YOLOE+ is an evolution of PP-YOLOE, which itself improved upon PP-YOLOv2. It serves as the flagship model for the PaddleDetection library. It features a unique CSPRepResNet backbone and utilizes a Task Alignment Learning (TAL) strategy to dynamically assign labels. Optimized for the PaddlePaddle framework, it emphasizes high inference speeds on V100 GPUs and integrates techniques like varifocal loss to handle class imbalance effectively.
+- Authors: PaddlePaddle Authors
+- Organization: [Baidu](https://github.com/PaddlePaddle)
+- Date: 2022-04-02
+- Arxiv: [https://arxiv.org/abs/2203.16250](https://arxiv.org/abs/2203.16250)
+- GitHub: [https://github.com/PaddlePaddle/PaddleDetection/](https://github.com/PaddlePaddle/PaddleDetection/)
+- Docs: [PaddleDetection PP-YOLOE+ README](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
 
 [Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md){ .md-button }
 
-### YOLOX
+**YOLOX Details:**
 
-**Authors:** Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun  
-**Organization:** Megvii  
-**Date:** 2021-07-18  
-**Arxiv:** [https://arxiv.org/abs/2107.08430](https://arxiv.org/abs/2107.08430)  
-**GitHub:** [YOLOX Repository](https://github.com/Megvii-BaseDetection/YOLOX)
+- Authors: Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun
+- Organization: [Megvii](https://en.megvii.com/)
+- Date: 2021-07-18
+- Arxiv: [https://arxiv.org/abs/2107.08430](https://arxiv.org/abs/2107.08430)
+- GitHub: [https://github.com/Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
+- Docs: [YOLOX Official Documentation](https://yolox.readthedocs.io/en/latest/)
 
-YOLOX marked a pivot in the YOLO series by switching to an anchor-free mechanism and decoupling the detection head. This design separates the classification and regression tasks, which significantly improves convergence speed and accuracy. By incorporating advanced techniques like SimOTA for dynamic label assignment, YOLOX achieved state-of-the-art results upon its release, winning the Streaming Perception Challenge at the 2021 CVPR Workshop on [Autonomous Driving](https://www.ultralytics.com/glossary/autonomous-vehicles).
+[Learn more about YOLOX](https://github.com/Megvii-BaseDetection/YOLOX){ .md-button }
 
-[Learn more about YOLOX](https://yolox.readthedocs.io/en/latest/){ .md-button }
+## Architectural Innovations
 
-## Architectural Comparison
+The core differences between these two detectors lie in their approach to feature extraction and bounding box prediction.
 
-The core difference between these models lies in their specific implementations of the anchor-free concept and their optimization targets.
+**YOLOX** made waves in 2021 by successfully adapting the YOLO family to an **anchor-free** design. By removing anchor boxes, YOLOX significantly reduced the number of design parameters and heuristic tuning required for custom datasets. Furthermore, it introduced a decoupled head, which separates classification and localization tasks into distinct neural pathways. This separation resolved the inherent conflict between classifying an object and regressing its spatial coordinates, leading to faster convergence during training.
 
-### Backbone and Neck
+**PP-YOLOE+**, developed by Baidu, is heavily optimized for the [PaddlePaddle](https://docs.ultralytics.com/integrations/paddlepaddle/) ecosystem. It builds upon its predecessor, PP-YOLOv2, by introducing a dynamic label assignment strategy (TAL) and a novel backbone called CSPRepResNet. This backbone leverages structural re-parameterization, allowing the model to benefit from complex multi-branch architectures during training while seamlessly folding into a fast, single-path network for inference.
 
-**PP-YOLOE+** employs a CSPRepResNet backbone, which combines the benefits of residual connections with the efficiency of CSPNet (Cross Stage Partial Network). This is coupled with a Path Aggregation Network (PANet) neck to enhance multi-scale feature fusion. The "+" version specifically refines the backbone with re-parameterization techniques, allowing for a complex training structure that collapses into a simpler, faster structure during inference.
+!!! tip "Structural Re-parameterization"
 
-**YOLOX** typically uses a modified CSPDarknet backbone, similar to YOLOv5, but distinguishes itself with its decoupled head. Traditional YOLO heads perform classification and localization simultaneously, often leading to conflict. YOLOX's decoupled head processes these tasks in parallel branches, leading to better feature alignment. It allows the model to learn features specific to "what" the object is (classification) separately from "where" it is (localization).
+    Structural re-parameterization allows a model to train with multiple parallel branches (improving gradient flow) and then mathematically collapse those branches into a single convolutional layer for deployment, boosting inference speeds without sacrificing accuracy.
 
-### Label Assignment
+## Performance and Metrics Comparison
 
-Label assignment—determining which output pixels correspond to ground truth objects—is crucial for anchor-free detectors.
+When comparing these models head-to-head, it becomes evident that they serve slightly different ends of the performance spectrum. PP-YOLOE+ generally achieves higher absolute accuracy, while YOLOX excels in providing extremely lightweight variants suitable for highly constrained hardware.
 
-- **YOLOX** introduced **SimOTA** (Simplified Optimal Transport Assignment). This algorithm treats label assignment as an optimal transport problem, dynamically assigning positive samples to ground truths based on a global optimization cost. This results in robust performance even in crowded scenes.
-- **PP-YOLOE+** utilizes **Task Alignment Learning (TAL)**. TAL explicitly aligns the classification score and localization quality (IoU), ensuring that high-confidence detections also have high localization accuracy. This approach minimizes the misalignment between the two tasks, a common issue in one-stage detectors.
+| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| PP-YOLOE+t | 640                         | 39.9                       | -                                    | 2.84                                      | 4.85                     | 19.15                   |
+| PP-YOLOE+s | 640                         | 43.7                       | -                                    | 2.62                                      | 7.93                     | 17.36                   |
+| PP-YOLOE+m | 640                         | 49.8                       | -                                    | 5.56                                      | 23.43                    | 49.91                   |
+| PP-YOLOE+l | 640                         | 52.9                       | -                                    | 8.36                                      | 52.2                     | 110.07                  |
+| PP-YOLOE+x | 640                         | **54.7**                   | -                                    | 14.3                                      | 98.42                    | 206.59                  |
+|            |                             |                            |                                      |                                           |                          |                         |
+| YOLOXnano  | 416                         | 25.8                       | -                                    | -                                         | **0.91**                 | **1.08**                |
+| YOLOXtiny  | 416                         | 32.8                       | -                                    | -                                         | 5.06                     | 6.45                    |
+| YOLOXs     | 640                         | 40.5                       | -                                    | **2.56**                                  | 9.0                      | 26.8                    |
+| YOLOXm     | 640                         | 46.9                       | -                                    | 5.43                                      | 25.3                     | 73.8                    |
+| YOLOXl     | 640                         | 49.7                       | -                                    | 9.04                                      | 54.2                     | 155.6                   |
+| YOLOXx     | 640                         | 51.1                       | -                                    | 16.1                                      | 99.1                     | 281.9                   |
 
-!!! info "Anchor-Free vs. Anchor-Based"
+_Note: The best performing values in each relevant column segment are highlighted in **bold**._
 
-    Both models are **anchor-free**, meaning they predict object centers and sizes directly rather than refining pre-defined anchor boxes. This simplifies the design, reduces the number of hyperparameters (no need to tune anchor sizes), and generally improves generalization across diverse datasets.
+While YOLOX offers nano and tiny variants that consume barely any disk space or CUDA memory, PP-YOLOE+ scales incredibly well to server-grade hardware, making it a robust choice for heavy industrial applications within the Baidu ecosystem.
 
-## Performance Analysis
+## Real-World Applications
 
-When comparing performance, it is essential to look at both accuracy ([mAP](https://www.ultralytics.com/glossary/mean-average-precision-map)) and speed (Latency/FPS) across different hardware.
+Choosing between these frameworks often comes down to integration requirements and hardware targets.
 
-| Model      | size<br><sup>(pixels) | mAP<sup>val<br>50-95 | Speed<br><sup>CPU ONNX<br>(ms) | Speed<br><sup>T4 TensorRT10<br>(ms) | params<br><sup>(M) | FLOPs<br><sup>(B) |
-| ---------- | --------------------- | -------------------- | ------------------------------ | ----------------------------------- | ------------------ | ----------------- |
-| PP-YOLOE+t | 640                   | 39.9                 | -                              | 2.84                                | 4.85               | 19.15             |
-| PP-YOLOE+s | 640                   | 43.7                 | -                              | 2.62                                | 7.93               | 17.36             |
-| PP-YOLOE+m | 640                   | 49.8                 | -                              | 5.56                                | 23.43              | 49.91             |
-| PP-YOLOE+l | 640                   | 52.9                 | -                              | **8.36**                            | **52.2**           | **110.07**        |
-| PP-YOLOE+x | 640                   | **54.7**             | -                              | **14.3**                            | **98.42**          | **206.59**        |
-|            |                       |                      |                                |                                     |                    |                   |
-| YOLOXnano  | 416                   | 25.8                 | -                              | -                                   | 0.91               | 1.08              |
-| YOLOXtiny  | 416                   | 32.8                 | -                              | -                                   | 5.06               | 6.45              |
-| YOLOXs     | 640                   | 40.5                 | -                              | 2.56                                | 9.0                | 26.8              |
-| YOLOXm     | 640                   | 46.9                 | -                              | 5.43                                | 25.3               | 73.8              |
-| YOLOXl     | 640                   | 49.7                 | -                              | 9.04                                | 54.2               | 155.6             |
-| YOLOXx     | 640                   | 51.1                 | -                              | 16.1                                | 99.1               | 281.9             |
+### Where YOLOX Excels
 
-**Key Takeaways:**
+Due to its anchor-free nature and availability of extreme edge variants, YOLOX is popular in [robotics](https://www.ultralytics.com/solutions/ai-in-robotics) and microcontroller deployment. Its simple post-processing pipeline allows for easier porting to customized NPU hardware formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) and [NCNN](https://docs.ultralytics.com/integrations/ncnn/).
 
-- **Accuracy:** PP-YOLOE+ generally achieves higher [mAP](https://docs.ultralytics.com/guides/yolo-performance-metrics/) scores at comparable model sizes, particularly in the larger variants (L and X), thanks to the refined TAL strategy and RepResNet backbone.
-- **Efficiency:** While YOLOX is highly efficient, PP-YOLOE+ demonstrates lower FLOPs and parameter counts for similar performance levels, indicating a more compact architectural design.
-- **Speed:** Inference speeds are competitive, but PP-YOLOE+ often edges out YOLOX on TensorRT-optimized hardware due to its hardware-aware neural architecture design.
+### Where PP-YOLOE+ Excels
 
-## Real-World Applications and Use Cases
+For organizations deeply integrated into Asian manufacturing hubs utilizing Baidu's technology stack, PP-YOLOE+ provides a pre-optimized path to deployment. It shines in high-accuracy [quality inspection](https://www.ultralytics.com/solutions/ai-in-manufacturing) scenarios running on powerful server racks where strict real-time constraints allow for slightly heavier model weights.
+
+## Use Cases and Recommendations
+
+Choosing between PP-YOLOE+ and YOLOX depends on your specific project requirements, deployment constraints, and ecosystem preferences.
 
 ### When to Choose PP-YOLOE+
 
-PP-YOLOE+ is ideally suited for industrial applications where the deployment environment supports the PaddlePaddle ecosystem.
+PP-YOLOE+ is a strong choice for:
 
-- **Manufacturing Quality Control:** Its high accuracy makes it excellent for detecting subtle defects on assembly lines.
-- **Smart Retail:** The strong performance of the 's' and 'm' variants allows for efficient [product recognition](https://www.ultralytics.com/blog/ai-in-retail-enhancing-customer-experience-using-computer-vision) on edge servers.
-- **High-Speed Transport:** Its optimization for V100/T4 GPUs makes it a candidate for server-side processing of traffic feeds.
+- **PaddlePaddle Ecosystem Integration:** Organizations with existing infrastructure built on [Baidu's PaddlePaddle](https://www.paddlepaddle.org.cn/) framework and tooling.
+- **Paddle Lite Edge Deployment:** Deploying to hardware with highly optimized inference kernels specifically for the Paddle Lite or Paddle inference engine.
+- **High-Accuracy Server-Side Detection:** Scenarios prioritizing maximum detection accuracy on powerful GPU servers where framework dependency is not a concern.
 
 ### When to Choose YOLOX
 
-YOLOX remains a favorite in the academic and research community due to its pure PyTorch implementation and clear architectural innovations.
+YOLOX is recommended for:
 
-- **Autonomous Driving Research:** Having won streaming perception challenges, YOLOX is robust for dynamic environments requiring stable tracking.
-- **Mobile Deployments:** The YOLOX-Nano and Tiny versions are very lightweight, making them suitable for [mobile apps](https://docs.ultralytics.com/integrations/tflite/) or drones with limited compute.
-- **Custom Research:** Its decoupled head and anchor-free design are often easier to modify for novel tasks beyond standard detection.
+- **Anchor-Free Detection Research:** Academic research using YOLOX's clean, anchor-free architecture as a baseline for experimenting with new detection heads or loss functions.
+- **Ultra-Lightweight Edge Devices:** Deploying on microcontrollers or legacy mobile hardware where the YOLOX-Nano variant's extremely small footprint (0.91M parameters) is critical.
+- **SimOTA Label Assignment Studies:** Research projects investigating optimal transport-based label assignment strategies and their impact on training convergence.
 
-## The Ultralytics Advantage
+### When to Choose Ultralytics (YOLO26)
 
-While PP-YOLOE+ and YOLOX are capable models, the **Ultralytics ecosystem** offers a distinct advantage for developers who prioritize speed of development, ease of maintenance, and deployment flexibility.
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
 
-### Ease of Use and Ecosystem
+- **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
-Ultralytics models, including the latest **[YOLO26](https://docs.ultralytics.com/models/yolo26/)**, are designed with a "zero-to-hero" philosophy. Unlike PP-YOLOE+, which requires the specific PaddlePaddle framework, or YOLOX, which can have complex configuration files, Ultralytics provides a unified Python API. You can train, validate, and deploy models in just a few lines of code.
+## The Ultralytics Advantage: Enter YOLO26
+
+While PP-YOLOE+ and YOLOX represent excellent research milestones, the modern deployment landscape demands a more cohesive, developer-friendly experience with superior efficiency. This is where [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) completely redefines the standard for modern visual AI.
+
+For teams looking to transition from isolated research repositories to production-ready systems, Ultralytics offers a robust, well-maintained ecosystem. Training a model no longer requires configuring complex environments; it is as simple as accessing a unified Python API.
+
+**Key advantages of Ultralytics YOLO26 include:**
+
+- **End-to-End NMS-Free Design:** Unlike both PP-YOLOE+ and YOLOX, which require Non-Maximum Suppression (NMS) to filter redundant bounding boxes, YOLO26 is natively end-to-end. This eliminates latency bottlenecks and simplifies the deployment logic drastically.
+- **Up to 43% Faster CPU Inference:** By strategically removing Distribution Focal Loss (DFL), YOLO26 achieves unparalleled inference speeds on CPU hardware, making it far superior for [edge computing](https://www.ultralytics.com/glossary/edge-computing) and low-power devices.
+- **MuSGD Optimizer:** Inspired by Moonshot AI’s Kimi K2, this hybrid optimizer brings LLM training stability to computer vision, ensuring much faster convergence and minimizing the memory requirements during training phases.
+- **ProgLoss + STAL:** These advanced loss functions deliver notable improvements in small-object recognition, a critical feature for [drone operations](https://www.ultralytics.com/blog/build-ai-powered-drone-applications-with-ultralytics-yolo11) and highly detailed aerial imagery.
+- **Versatility:** While PP-YOLOE+ and YOLOX focus purely on detection, YOLO26 seamlessly handles [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/) using the exact same intuitive syntax.
+
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+
+### Streamlined Training with Ultralytics
+
+The memory efficiency and training speed of Ultralytics models are unmatched, completely outperforming transformer-based alternatives that require immense CUDA memory overhead. You can leverage the power of YOLO26 in just a few lines of code:
 
 ```python
 from ultralytics import YOLO
 
-# Load the latest YOLO26 model
+# Load the highly efficient, end-to-end YOLO26 nano model
 model = YOLO("yolo26n.pt")
 
-# Train on a custom dataset
-results = model.train(data="coco8.yaml", epochs=100)
+# Train on a custom dataset with built-in auto-batching and MuSGD optimization
+results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
-# Run inference
-results = model("https://ultralytics.com/images/bus.jpg")
+# Validate the model's performance
+metrics = model.val()
+
+# Export seamlessly to ONNX or TensorRT
+model.export(format="engine")
 ```
 
-The ecosystem is further bolstered by the **[Ultralytics Platform](https://docs.ultralytics.com/platform/)**, which simplifies dataset management, cloud training, and model versioning.
+!!! info "Explore the Ultralytics Platform"
 
-### Unmatched Versatility
-
-Ultralytics models are not limited to object detection. The same API supports:
-
-- **[Instance Segmentation](https://docs.ultralytics.com/tasks/segment/):** Precise pixel-level masking of objects.
-- **[Pose Estimation](https://docs.ultralytics.com/tasks/pose/):** Detecting keypoints on human bodies or animals.
-- **[Oriented Object Detection (OBB)](https://docs.ultralytics.com/tasks/obb/):** Handling rotated objects like ships in satellite imagery.
-- **[Classification](https://docs.ultralytics.com/tasks/classify/):** Categorizing entire images efficiently.
-
-Neither PP-YOLOE+ nor YOLOX offers this level of native, multi-task support within a single, unified framework.
-
-### Memory Efficiency and Training
-
-Ultralytics YOLO models are engineered for efficiency. They typically require less **[GPU memory](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit)** during training compared to transformer-based architectures or older detection models. This allows developers to train larger batch sizes on consumer-grade hardware, democratizing access to high-performance AI. Pre-trained weights are readily available and automatically downloaded, streamlining the transfer learning process.
-
-## The Future: YOLO26
-
-For developers seeking the absolute cutting edge, **YOLO26** represents a significant leap forward. Released in January 2026, it introduces native end-to-end capabilities that eliminate the need for Non-Maximum Suppression (NMS).
-
-### Key YOLO26 Innovations
-
-- **End-to-End NMS-Free:** By removing the NMS post-processing step, YOLO26 simplifies deployment pipelines and reduces latency variance, a feature pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10/).
-- **MuSGD Optimizer:** Inspired by LLM training, this hybrid optimizer (SGD + Muon) ensures stable training and faster convergence.
-- **Edge Optimization:** With the removal of Distribution Focal Loss (DFL), YOLO26 achieves up to **43% faster CPU inference**, making it the superior choice for edge devices like Raspberry Pi or mobile phones.
-- **ProgLoss + STAL:** Advanced loss functions improve small-object detection, crucial for [drone inspection](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations) and IoT applications.
-
-[Learn more about YOLO26](https://docs.ultralytics.com/models/yolo26/){ .md-button }
+    For teams looking for a no-code solution, the [Ultralytics Platform](https://platform.ultralytics.com/) provides cloud-based training, integrated dataset annotation, and one-click deployment for all your YOLO models.
 
 ## Conclusion
 
-PP-YOLOE+ and YOLOX helped pioneer the anchor-free revolution in object detection. PP-YOLOE+ offers high accuracy within the PaddlePaddle ecosystem, while YOLOX provides a clean, effective architecture for research. However, for most modern applications, **Ultralytics YOLO models**—and specifically **YOLO26**—provide a superior balance of performance, versatility, and ease of use. Whether you are building [smart city](https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities) solutions or [agricultural robotics](https://www.ultralytics.com/blog/sowing-success-ai-in-agriculture), the Ultralytics platform ensures your computer vision pipeline is future-proof and efficient.
+Both PP-YOLOE+ and YOLOX have earned their places in computer vision history, offering high accuracy and lightweight anchor-free designs, respectively. However, for organizations building the future of [AI in agriculture](https://www.ultralytics.com/solutions/ai-in-agriculture), smart cities, and retail, the continuous maintenance, ease of use, and native NMS-free architecture of **Ultralytics YOLO26** make it the undisputed choice.
+
+If you are exploring alternative architectures for specific benchmarks, you may also find value in comparing the older [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or transformer-based options like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) via the comprehensive Ultralytics documentation. By migrating to the unified Ultralytics ecosystem, developers save invaluable time and resources while achieving state-of-the-art results on any edge or cloud deployment.
