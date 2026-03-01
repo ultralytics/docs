@@ -114,7 +114,6 @@ YOLO26 is recommended for:
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
-
 ## Implementation Example: Training YOLO26
 
 Thanks to the Ultralytics Python SDK, initiating a highly optimized training run takes only a few lines of code. The framework natively handles mixed-precision scaling, multi-GPU orchestration via [PyTorch](https://pytorch.org/), and augmentation pipelines.

@@ -108,7 +108,6 @@ RT-DETR is recommended for:
 - **High-Accuracy Scenarios with Flexible Latency:** Applications where detection accuracy is the top priority and slightly higher inference latency is acceptable.
 - **Large Object Detection:** Scenes with primarily medium-to-large objects where the global attention mechanism of transformers provides a natural advantage.
 
-
 ## The Ultralytics Advantage
 
 Choosing the right machine learning architecture is only part of the equation; the surrounding ecosystem dictates how quickly a team can move from prototyping to production.

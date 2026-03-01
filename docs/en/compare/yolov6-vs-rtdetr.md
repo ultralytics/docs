@@ -131,7 +131,6 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
-
 ## The Ultralytics Advantage: Enter YOLO26
 
 While YOLOv6-3.0 and RTDETRv2 excel in their specific niches, the modern machine learning landscape demands models that blend speed, accuracy, and developer experience. The [Ultralytics ecosystem](https://platform.ultralytics.com/) addresses these needs perfectly, particularly with the release of **YOLO26**.

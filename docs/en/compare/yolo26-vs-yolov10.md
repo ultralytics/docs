@@ -142,7 +142,6 @@ YOLOv10 is recommended for:
 - **Balanced Speed-Accuracy Tradeoffs:** Projects requiring a strong balance between inference speed and detection accuracy across various model scales.
 - **Consistent-Latency Applications:** Deployment scenarios where predictable inference times are critical, such as [robotics](https://www.ultralytics.com/glossary/robotics) or autonomous systems.
 
-
 ## Conclusion
 
 While YOLOv10 made significant contributions to the academic community by introducing the NMS-free paradigm, **YOLO26** elevates this technology to enterprise-grade readiness. With its remarkable 43% boost in CPU speed, the innovative MuSGD optimizer, and unmatched versatility across vision tasks, YOLO26 stands out as the ultimate choice for both edge computing and large-scale cloud deployments.
