@@ -4,6 +4,7 @@
 # Ignores the following status codes to reduce false positives:
 #   - 401(Vimeo, 'unauthorized')
 #   - 403(OpenVINO, 'forbidden')
+#   - 415(ClearML, 'unsupported media type')
 #   - 429(Instagram, 'too many requests')
 #   - 500(Zenodo, 'cached')
 #   - 502(Zenodo, 'bad gateway')
@@ -49,7 +50,7 @@ jobs:
             --scheme 'https' \
             --timeout 60 \
             --insecure \
-            --accept 100..=103,200..=299,302,401,403,429,500..=599,999 \
+            --accept 100..=103,200..=299,302,401,403,415,429,500..=599,999 \
             --exclude-all-private \
             --exclude 'https?://(www\.)?(linkedin\.com|twitter\.com|x\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com|tesla\.com|wellfound\.com|fda\.gov)' \
             --exclude '(/\$|%7B|api\.indexnow\.org)' \
@@ -72,7 +73,7 @@ jobs:
             --scheme 'https' \
             --timeout 60 \
             --insecure \
-            --accept 100..=103,200..=299,302,401,403,429,500..=599,999 \
+            --accept 100..=103,200..=299,302,401,403,415,429,500..=599,999 \
             --exclude-all-private \
             --exclude 'https?://(www\.)?(linkedin\.com|twitter\.com|x\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com|tesla\.com|wellfound\.com|fda\.gov)' \
             --exclude '(/\$|%7B|api\.indexnow\.org)' \
