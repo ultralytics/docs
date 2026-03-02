@@ -50,7 +50,7 @@ YOLOv5 is not just limited to [object detection](https://docs.ultralytics.com/ta
 
 !!! tip "Memory Efficiency in Ultralytics Models"
 
-    When comparing model architectures, memory consumption is a critical factor. Ultralytics YOLO models maintain significantly lower VRAM requirements during both training and inference compared to heavy [transformer models](https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)), making them highly accessible for developers using consumer-grade hardware or cloud notebooks like [Google Colab](https://colab.research.google.com/).
+    When comparing model architectures, memory consumption is a critical factor. Ultralytics YOLO models maintain significantly lower VRAM requirements during both training and inference compared to heavy [transformer models](https://en.wikipedia.org/wiki/Transformer_(deep_learning)), making them highly accessible for developers using consumer-grade hardware or cloud notebooks like [Google Colab](https://colab.research.google.com/).
 
 [Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
 
