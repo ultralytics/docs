@@ -17,7 +17,7 @@
 <span></span>
 <span></span><span class="n">Start</span> <span class="n">tuning</span> <span class="n">hyperparameters</span> <span class="k">for</span> <span class="n">YOLO26n</span> <span class="n">training</span> <span class="n">on</span> <span class="n">the</span> <span class="n">COCO8</span> <span class="n">dataset</span>
 <span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">result_grid</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">use_ray</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</code></pre></div><details><summary>Source code in <code>ultralytics/utils/tuner.py</code></summary><a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/utils/tuner.py#L9-L168"><i aria-hidden="true" class="fa-brands fa-github" style="margin-right:6px;"></i>View on GitHub</a><div class="highlight"><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_ray_tune</span><span class="p">(</span>
+</code></pre></div><details><summary>Source code in <code>ultralytics/utils/tuner.py</code></summary><a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/utils/tuner.py#L9-L164"><i aria-hidden="true" class="fa-brands fa-github" style="margin-right:6px;"></i>View on GitHub</a><div class="highlight"><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_ray_tune</span><span class="p">(</span>
 <span></span>    <span class="n">model</span><span class="p">,</span>
 <span></span>    <span class="n">space</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">grace_period</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
@@ -52,7 +52,6 @@
 <span></span>        <span class="kn">import</span><span class="w"> </span><span class="nn">ray</span>
 <span></span>        <span class="kn">from</span><span class="w"> </span><span class="nn">ray</span><span class="w"> </span><span class="kn">import</span> <span class="n">tune</span>
 <span></span>        <span class="kn">from</span><span class="w"> </span><span class="nn">ray.air</span><span class="w"> </span><span class="kn">import</span> <span class="n">RunConfig</span>
-<span></span>        <span class="kn">from</span><span class="w"> </span><span class="nn">ray.air.integrations.wandb</span><span class="w"> </span><span class="kn">import</span> <span class="n">WandbLoggerCallback</span>
 <span></span>        <span class="kn">from</span><span class="w"> </span><span class="nn">ray.tune.schedulers</span><span class="w"> </span><span class="kn">import</span> <span class="n">ASHAScheduler</span>
 <span></span>    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
 <span></span>        <span class="k">raise</span> <span class="ne">ModuleNotFoundError</span><span class="p">(</span><span class="s1">'Ray Tune required but not found. To install run: pip install "ray[tune]"'</span><span class="p">)</span>
@@ -139,9 +138,6 @@
 <span></span>        <span class="n">reduction_factor</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
 <span></span>    <span class="p">)</span>
 <span></span>
-<span></span>    <span class="c1"># Define the callbacks for the hyperparameter search</span>
-<span></span>    <span class="n">tuner_callbacks</span> <span class="o">=</span> <span class="p">[</span><span class="n">WandbLoggerCallback</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">"YOLOv8-tune"</span><span class="p">)]</span> <span class="k">if</span> <span class="n">wandb</span> <span class="k">else</span> <span class="p">[]</span>
-<span></span>
 <span></span>    <span class="c1"># Create the Ray Tune hyperparameter search tuner</span>
 <span></span>    <span class="n">tune_dir</span> <span class="o">=</span> <span class="n">get_save_dir</span><span class="p">(</span>
 <span></span>        <span class="n">get_cfg</span><span class="p">(</span>
@@ -164,7 +160,7 @@
 <span></span>                <span class="n">trial_name_creator</span><span class="o">=</span><span class="k">lambda</span> <span class="n">trial</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">trial</span><span class="o">.</span><span class="n">trainable_name</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">trial</span><span class="o">.</span><span class="n">trial_id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
 <span></span>                <span class="n">trial_dirname_creator</span><span class="o">=</span><span class="k">lambda</span> <span class="n">trial</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">trial</span><span class="o">.</span><span class="n">trainable_name</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">trial</span><span class="o">.</span><span class="n">trial_id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
 <span></span>            <span class="p">),</span>
-<span></span>            <span class="n">run_config</span><span class="o">=</span><span class="n">RunConfig</span><span class="p">(</span><span class="n">callbacks</span><span class="o">=</span><span class="n">tuner_callbacks</span><span class="p">,</span> <span class="n">storage_path</span><span class="o">=</span><span class="n">tune_dir</span><span class="o">.</span><span class="n">parent</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">tune_dir</span><span class="o">.</span><span class="n">name</span><span class="p">),</span>
+<span></span>            <span class="n">run_config</span><span class="o">=</span><span class="n">RunConfig</span><span class="p">(</span><span class="n">storage_path</span><span class="o">=</span><span class="n">tune_dir</span><span class="o">.</span><span class="n">parent</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">tune_dir</span><span class="o">.</span><span class="n">name</span><span class="p">),</span>
 <span></span>        <span class="p">)</span>
 <span></span>
 <span></span>    <span class="c1"># Run the hyperparameter search</span>
