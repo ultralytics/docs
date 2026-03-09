@@ -2,6 +2,7 @@
 
 # Continuous Integration (CI) GitHub Actions tests broken link checker using https://github.com/lycheeverse/lychee
 # Ignores the following status codes to reduce false positives:
+#   - 400(various, 'bad request' from bot-blocking servers)
 #   - 401(Vimeo, 'unauthorized')
 #   - 403(OpenVINO, 'forbidden')
 #   - 415(ClearML, 'unsupported media type')
@@ -122,10 +123,16 @@ jobs:
           # Install codespell
           uv pip install --system codespell
 
+          # Create ignore file for multi-word phrases
+          cat > .codespell-ignore.txt << 'EOF'
+          United Nations Environmental Programme
+          EOF
+
           # Run codespell on HTML files
           CODESPELL_OUTPUT=$(find ./${{ matrix.website }} -type f -name "*.html" -print0 | xargs -0 codespell \
             --builtin clear,rare,informal,en-GB_to_en-US \
             --uri-ignore-words-list "*" \
+            --ignore-words .codespell-ignore.txt \
             --ignore-words-list "Ain't,grey,writeable,MENAT,Hart,wither,Bund,DED,AKS,VAs,RepResNet,iDenfy,Idenfy,WIT,Smoot,EHR,ROUGE,ALS,iTerm,Carmel,FPR,Hach,Calle,ore,COO,MOT,crate,nd,ned,strack,dota,ane,segway,fo,gool,winn,commend,bloc,nam,afterall,skelton,goin,tread,braket,corse,SoM,couldn't,couldn,nin,cancelled,MapPin,cann,CANN" \
             --skip "*.pt,*.pth,*.torchscript,*.onnx,*.tflite,*.pb,*.bin,*.param,*.mlmodel,*.engine,*.npy,*.data*,*.csv,*pnnx*,*venv*,*translat*,*lock*,__pycache__*,*.ico,*.jpg,*.png,*.mp4,*.mov,/runs,/.git,./docs/mkdocs_??.yml" \
             2>&1 || true)
@@ -182,7 +189,7 @@ jobs:
             --scheme 'https' \
             --timeout 60 \
             --insecure \
-            --accept 100..=103,200..=299,302,401,403,415,429,500..=599,999 \
+            --accept 100..=103,200..=299,302,400,401,403,415,429,500..=599,999 \
             --exclude-all-private \
             --exclude 'https?://(www\.)?(linkedin\.com|twitter\.com|x\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com|tesla\.com|wellfound\.com|fda\.gov|.*\.run\.app|.*\.cloudfunctions\.net|0\.0\.0\.0:5543/predict/from_files)' \
             --exclude-path './**/ci.yml' \
