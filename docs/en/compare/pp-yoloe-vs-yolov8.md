@@ -22,7 +22,7 @@ Both of these models represent significant milestones in the evolution of object
 Developed as an extension of the PaddleDetection suite, PP-YOLOE+ builds upon previous iterations of the PP-YOLO series. It is heavily optimized for the PaddlePaddle deep learning framework, primarily targeting industrial deployments in specific Asian markets where the Baidu software stack is prevalent.
 
 - **Authors:** PaddlePaddle Authors
-- **Organization:** [Baidu](https://research.baidu.com/)
+- **Organization:** [Baidu](https://github.com/baidu-research)
 - **Date:** 2022-04-02
 - **Arxiv:** [https://arxiv.org/abs/2203.16250](https://arxiv.org/abs/2203.16250)
 - **GitHub:** [PaddlePaddle/PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection/)
