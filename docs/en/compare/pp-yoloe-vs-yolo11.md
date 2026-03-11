@@ -24,7 +24,7 @@ Both models stem from rigorous academic research and extensive engineering, but 
 Developed by the researchers at Baidu, PP-YOLOE+ is an iteration of the earlier PP-YOLOE, designed to push the boundaries of real-time detection within the PaddlePaddle ecosystem.
 
 - **Authors:** PaddlePaddle Authors
-- **Organization:** [Baidu](https://research.baidu.com/)
+- **Organization:** [Baidu](https://github.com/baidu-research)
 - **Date:** 2022-04-02
 - **Arxiv:** [https://arxiv.org/abs/2203.16250](https://arxiv.org/abs/2203.16250)
 - **GitHub:** [PaddleDetection Repository](https://github.com/PaddlePaddle/PaddleDetection/)

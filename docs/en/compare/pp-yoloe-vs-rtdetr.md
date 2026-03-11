@@ -20,7 +20,7 @@ Developed as an iteration over its predecessors, PP-YOLOE+ pushes the boundaries
 **Model Details:**
 
 - Authors: PaddlePaddle Authors
-- Organization: [Baidu](https://research.baidu.com/)
+- Organization: [Baidu](https://github.com/baidu-research)
 - Date: 2022-04-02
 - Arxiv: [2203.16250](https://arxiv.org/abs/2203.16250)
 - GitHub: [PaddleDetection Repository](https://github.com/PaddlePaddle/PaddleDetection/)
