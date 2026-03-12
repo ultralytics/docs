@@ -131,9 +131,11 @@ jobs:
             2>&1 || true)
 
           # Filter out known proper names that use British spelling
-          CODESPELL_OUTPUT=$(echo "$CODESPELL_OUTPUT" | grep -v \
-            -e "United Nations Environmental Programme" \
-            || true)
+          SPELL_EXCEPTIONS=(
+            "-e" "United Nations Environmental Programme"
+          )
+
+          CODESPELL_OUTPUT=$(echo "$CODESPELL_OUTPUT" | grep -v "${SPELL_EXCEPTIONS[@]}" || true)
 
           # Process CODESPELL_OUTPUT
           MODIFIED_OUTPUT=$(echo "$CODESPELL_OUTPUT" | sed 's#\(.*\):[0-9]*: \(.*\)#\1  \2#; s/\.html//; s#\(.*\)/index  #\1/  #; s#\./##')
