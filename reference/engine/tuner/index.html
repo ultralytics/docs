@@ -45,7 +45,7 @@
 <span></span><span class="o">&gt;&gt;&gt;</span> <span class="p">)</span>
 <span></span>
 <span></span><span class="n">Tune</span> <span class="k">with</span> <span class="n">custom</span> <span class="n">search</span> <span class="n">space</span><span class="p">:</span>
-<span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">space</span><span class="o">=</span><span class="p">{</span><span class="s2">"lr0"</span><span class="p">:</span> <span class="p">(</span><span class="mf">1e-5</span><span class="p">,</span> <span class="mf">1e-1</span><span class="p">),</span> <span class="s2">"momentum"</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">)})</span>
+<span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">space</span><span class="o">=</span><span class="p">{</span><span class="s2">"lr0"</span><span class="p">:</span> <span class="p">(</span><span class="mf">1e-5</span><span class="p">,</span> <span class="mf">1e-2</span><span class="p">),</span> <span class="s2">"momentum"</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">)})</span>
 </code></pre></div><details><summary>Source code in <code>ultralytics/engine/tuner.py</code></summary><a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/engine/tuner.py#L36-L457"><i aria-hidden="true" class="fa-brands fa-github" style="margin-right:6px;"></i>View on GitHub</a><div class="highlight"><pre><span></span><code><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Tuner</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""A class for hyperparameter tuning of YOLO models.</span>
 <span></span>
@@ -91,7 +91,7 @@
 <span></span><span class="sd">        &gt;&gt;&gt; )</span>
 <span></span>
 <span></span><span class="sd">        Tune with custom search space:</span>
-<span></span><span class="sd">        &gt;&gt;&gt; model.tune(space={"lr0": (1e-5, 1e-1), "momentum": (0.6, 0.98)})</span>
+<span></span><span class="sd">        &gt;&gt;&gt; model.tune(space={"lr0": (1e-5, 1e-2), "momentum": (0.7, 0.98)})</span>
 <span></span><span class="sd">    """</span>
 <span></span>
 <span></span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
