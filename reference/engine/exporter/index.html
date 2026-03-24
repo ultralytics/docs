@@ -1035,11 +1035,11 @@
 <span></span>    <span class="k">assert</span> <span class="ow">not</span> <span class="n">IS_JETSON</span><span class="p">,</span> <span class="s2">"Jetson Paddle exports not supported yet"</span>
 <span></span>    <span class="n">check_requirements</span><span class="p">(</span>
 <span></span>        <span class="p">(</span>
-<span></span>            <span class="s2">"paddlepaddle-gpu&gt;=3.0.0,!=3.3.0"</span>  <span class="c1"># exclude 3.3.0 https://github.com/PaddlePaddle/Paddle/issues/77340</span>
+<span></span>            <span class="s2">"paddlepaddle-gpu&gt;=3.0.0,&lt;3.3.0"</span>  <span class="c1"># pin &lt;3.3.0 https://github.com/PaddlePaddle/Paddle/issues/77340</span>
 <span></span>            <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span>
 <span></span>            <span class="k">else</span> <span class="s2">"paddlepaddle==3.0.0"</span>  <span class="c1"># pin 3.0.0 for ARM64</span>
 <span></span>            <span class="k">if</span> <span class="n">ARM64</span>
-<span></span>            <span class="k">else</span> <span class="s2">"paddlepaddle&gt;=3.0.0,!=3.3.0"</span><span class="p">,</span>  <span class="c1"># exclude 3.3.0 https://github.com/PaddlePaddle/Paddle/issues/77340</span>
+<span></span>            <span class="k">else</span> <span class="s2">"paddlepaddle&gt;=3.0.0,&lt;3.3.0"</span><span class="p">,</span>  <span class="c1"># pin &lt;3.3.0 https://github.com/PaddlePaddle/Paddle/issues/77340</span>
 <span></span>            <span class="s2">"x2paddle"</span><span class="p">,</span>
 <span></span>        <span class="p">)</span>
 <span></span>    <span class="p">)</span>
