@@ -84,7 +84,7 @@ YOLOv7 is primarily a detection model, with experimental branches for other task
 
 Exporting a model for production can often be a bottleneck. The Ultralytics package allows developers to export to formats like [ONNX](https://onnx.ai/), [TensorRT](https://developer.nvidia.com/tensorrt), and CoreML with a single line of Python code. This avoids the operator support issues sometimes encountered when exporting complex anchor-based graphs.
 
-Furthermore, YOLOv8 integrates seamlessly with MLOps tools. Whether you are tracking experiments with [Weights & Biases](https://wandb.ai/) or testing deployments on [Hugging Face Spaces](https://huggingface.co/), the Ultralytics ecosystem handles the heavy lifting.
+Furthermore, YOLOv8 integrates seamlessly with MLOps tools. Whether you are tracking experiments with [Weights & Biases](https://wandb.ai/site) or testing deployments on [Hugging Face Spaces](https://huggingface.co/), the Ultralytics ecosystem handles the heavy lifting.
 
 ### Code Example: Training and Exporting YOLOv8
 
@@ -123,7 +123,7 @@ The architectural differences between the two models dictate their ideal deploym
 
 **When to Consider YOLOv7:**
 
-- **Academic Benchmarking:** Researchers studying the effects of re-parameterization techniques often use YOLOv7 as a standard baseline, as reflected by its popularity on [Papers With Code](https://paperswithcode.com/).
+- **Academic Benchmarking:** Researchers studying the effects of re-parameterization techniques often use YOLOv7 as a standard baseline, as reflected by its popularity on [Papers With Code](https://huggingface.co/papers/trending).
 - **Legacy Server Pipelines:** If an existing heavy-compute pipeline is already strictly optimized around YOLOv7's specific anchor outputs, maintaining it might be practical in the short term.
 
 ## Looking Ahead: The Next Generation

@@ -117,7 +117,7 @@ EfficientDet is a strong choice for:
 
 - **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
 - **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
-- **Mobile Deployment via TFLite:** Projects that specifically require [TensorFlow Lite](https://www.tensorflow.org/lite) export for Android or embedded Linux devices.
+- **Mobile Deployment via TFLite:** Projects that specifically require [TensorFlow Lite](https://ai.google.dev/edge/litert) export for Android or embedded Linux devices.
 
 ### When to Choose YOLOv8
 

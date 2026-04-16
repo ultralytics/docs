@@ -26,7 +26,7 @@ Introduced in mid-2022, YOLOv7 pushed the boundaries of what was possible on GPU
 - **GitHub:** [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
 - **Docs:** [Ultralytics YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7/)
 
-YOLOv7 introduced the concept of trainable "bag-of-freebies," which heavily utilized re-parameterization techniques and extended efficient layer aggregation networks (E-ELAN). This allowed the model to learn more diverse features and continuously improve the learning capability of the network without destroying the original gradient path. While it achieved an impressive [state-of-the-art benchmark on COCO](https://paperswithcode.com/sota/object-detection-on-coco) at the time, its architecture remains heavily reliant on anchor-based outputs and requires complex [Non-Maximum Suppression (NMS)](https://en.wikipedia.org/wiki/NMS) post-processing, which can introduce latency bottlenecks during deployment.
+YOLOv7 introduced the concept of trainable "bag-of-freebies," which heavily utilized re-parameterization techniques and extended efficient layer aggregation networks (E-ELAN). This allowed the model to learn more diverse features and continuously improve the learning capability of the network without destroying the original gradient path. While it achieved an impressive [state-of-the-art benchmark on COCO](https://huggingface.co/papers/trending) at the time, its architecture remains heavily reliant on anchor-based outputs and requires complex [Non-Maximum Suppression (NMS)](https://en.wikipedia.org/wiki/NMS) post-processing, which can introduce latency bottlenecks during deployment.
 
 [Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7/){ .md-button }
 

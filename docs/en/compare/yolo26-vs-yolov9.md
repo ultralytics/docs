@@ -110,7 +110,7 @@ Choosing a model involves more than just reading an accuracy benchmark; the surr
 
 ### Ease of Use and Ecosystem
 
-The [Ultralytics Python API](https://docs.ultralytics.com/usage/python/) offers a seamless "zero-to-hero" experience. Instead of cloning complex repositories or manually configuring distributed training scripts, developers can install the package via `pip` and start training immediately. The actively maintained [Ultralytics ecosystem](https://platform.ultralytics.com/deploy/inference/) guarantees frequent updates, automated integrations with ML platforms like [Weights & Biases](https://wandb.ai/), and extensive documentation.
+The [Ultralytics Python API](https://docs.ultralytics.com/usage/python/) offers a seamless "zero-to-hero" experience. Instead of cloning complex repositories or manually configuring distributed training scripts, developers can install the package via `pip` and start training immediately. The actively maintained [Ultralytics ecosystem](https://platform.ultralytics.com/deploy/inference/) guarantees frequent updates, automated integrations with ML platforms like [Weights & Biases](https://wandb.ai/site), and extensive documentation.
 
 !!! note "Other Ultralytics Models"
 
