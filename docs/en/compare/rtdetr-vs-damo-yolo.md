@@ -92,7 +92,7 @@ results_yolo[0].show()
 
 Choosing between these architectures depends entirely on your specific project requirements:
 
-- **RTDETRv2** excels in server-side processing where VRAM is abundant. Its global context awareness is perfect for [medical imaging](https://www.nature.com/subjects/medical-imaging) and dense crowd analysis where occlusions are frequent.
+- **RTDETRv2** excels in server-side processing where VRAM is abundant. Its global context awareness is perfect for [medical imaging](https://www.nature.com/subjects/medical-imaging?error=cookies_not_supported&code=fe3dedd7-5a9d-4206-9baf-f97b0ad990aa) and dense crowd analysis where occlusions are frequent.
 - **DAMO-YOLO** is highly suitable for [embedded IoT applications](https://en.wikipedia.org/wiki/Internet_of_things) and fast-moving industrial inspection lines where low parameter counts and high FPS are strict requirements.
 
 ## The Future: Ultralytics YOLO26

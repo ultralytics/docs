@@ -101,7 +101,7 @@ predictions[0].show()
 
 !!! note "Experiment Tracking"
 
-    YOLOv8 integrates natively with popular MLops tools like [Weights & Biases](https://wandb.ai/) and [ClearML](https://docs.ultralytics.com/integrations/clearml/), allowing you to monitor your [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning/) and training metrics in real-time.
+    YOLOv8 integrates natively with popular MLops tools like [Weights & Biases](https://wandb.ai/site) and [ClearML](https://docs.ultralytics.com/integrations/clearml/), allowing you to monitor your [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning/) and training metrics in real-time.
 
 ## Ideal Use Cases
 

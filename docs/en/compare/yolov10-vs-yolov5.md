@@ -106,7 +106,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 While YOLOv10 offers excellent detection capabilities, relying on academic repositories can sometimes complicate production pipelines. By using the official [Ultralytics Python package](https://pypi.org/project/ultralytics/), you gain access to a unified ecosystem that supports both YOLOv5 and YOLOv10, along with advanced features.
 
 - **Training Efficiency:** Ultralytics YOLO architectures are deeply optimized for lower [memory requirements](https://docs.ultralytics.com/guides/yolo-performance-metrics/) during training. Unlike heavy transformer models (such as RT-DETR) which require massive CUDA memory, you can comfortably train YOLOv5 and YOLOv10 on standard consumer GPUs.
-- **Ecosystem Integration:** The integration with [Ultralytics Platform](https://platform.ultralytics.com) allows developers to visually manage datasets, track experiments using [Weights & Biases](https://wandb.ai/), and automatically tune hyperparameters.
+- **Ecosystem Integration:** The integration with [Ultralytics Platform](https://platform.ultralytics.com) allows developers to visually manage datasets, track experiments using [Weights & Biases](https://wandb.ai/site), and automatically tune hyperparameters.
 
 ### Code Example: Seamless Training
 

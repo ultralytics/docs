@@ -103,7 +103,7 @@ The data reveals that YOLOv8 provides a substantial boost in accuracy. For insta
 
 ## The Ecosystem Advantage
 
-Choosing either YOLOv5 or YOLOv8 grants developers access to the well-maintained [Ultralytics Platform](https://platform.ultralytics.com/). This integrated environment offers simple tools for dataset annotation, [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning/), cloud training, and model monitoring. The active development and strong community support ensure that developers can quickly resolve issues and integrate with external tools like [Weights & Biases](https://wandb.ai/) and [ClearML](https://clear.ml/).
+Choosing either YOLOv5 or YOLOv8 grants developers access to the well-maintained [Ultralytics Platform](https://platform.ultralytics.com/). This integrated environment offers simple tools for dataset annotation, [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning/), cloud training, and model monitoring. The active development and strong community support ensure that developers can quickly resolve issues and integrate with external tools like [Weights & Biases](https://wandb.ai/site) and [ClearML](https://clear.ml/).
 
 While other frameworks might suffer from steep learning curves, Ultralytics prioritizes a streamlined user experience, ensuring a favorable trade-off between speed and accuracy suitable for diverse real-world deployment scenarios.
 
