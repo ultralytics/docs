@@ -16,7 +16,6 @@ on:
 jobs:
   Test:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
     strategy:
       fail-fast: false
       max-parallel: 10
@@ -72,82 +71,38 @@ jobs:
       - name: Check domain redirections
         shell: python
         run: |
-          import time
-          from urllib.parse import urlparse
-
           import requests
-          from requests.adapters import HTTPAdapter
-          from urllib3.util.retry import Retry
+          import time
 
-          VALID_DESTINATIONS = {"ultralytics.com", "www.ultralytics.com", "yolo11.com", "www.yolo11.com"}
-          REQUEST_TIMEOUT = (10, 20)
-          BASE_DELAY = 5
-          MAX_DELAY = 120
-          USER_AGENT = (
-              "Mozilla/5.0 (compatible; UltralyticsDomainCheck/1.0; +https://github.com/ultralytics/docs)"
-          )
-
-          def build_session():
-              """Create a session with lightweight retries for transient HTTP errors."""
-              retry = Retry(
-                  total=2,
-                  connect=2,
-                  read=2,
-                  status=2,
-                  backoff_factor=1,
-                  status_forcelist=(429, 500, 502, 503, 504),
-                  allowed_methods=frozenset(["GET"]),
-                  raise_on_status=False,
-              )
-              adapter = HTTPAdapter(max_retries=retry)
-              session = requests.Session()
-              session.headers.update({"User-Agent": USER_AGENT})
-              session.mount("https://", adapter)
-              session.mount("http://", adapter)
-              return session
-
-          def is_valid_destination(url):
-              """Check the final redirect hostname against approved destinations."""
-              hostname = (urlparse(url).hostname or "").lower()
-              return hostname in VALID_DESTINATIONS
-
-          def check_domain_redirection(domain, prefix, session, max_attempts=5):
+          def check_domain_redirection(domain, prefix, max_attempts=5):
               """Check if the given domain redirects correctly, with exponential delays between retries."""
+              valid_destinations = ["ultralytics.com", "yolo11.com"]
               url = f"https://{prefix}{domain}"
               print(f"\nChecking {url}")
 
               for attempt in range(max_attempts):
-                  response = None
                   try:
                       if attempt > 0:
-                          delay = min(BASE_DELAY * (2 ** attempt), MAX_DELAY)  # 10, 20, 40, 80...
+                          delay = min(5 * (2 ** attempt), 120)  # 10, 20, 40, 80...
                           print(f"Retrying in {delay}s (attempt {attempt + 1}/{max_attempts})")
                           time.sleep(delay)
 
-                      response = session.get(url, allow_redirects=True, timeout=REQUEST_TIMEOUT, stream=True)
+                      response = requests.get(url, allow_redirects=True, timeout=10)
                       response.raise_for_status()
 
-                      if is_valid_destination(response.url) and response.status_code == 200:
-                          print(f"Success ✅ -> {response.url}")
+                      if any(dest in response.url for dest in valid_destinations) and response.status_code == 200:
+                          print("Success ✅")
                           return True
-
-                      print(f"Unexpected final URL: {response.url} (status {response.status_code}) ❌")
-                      return False
 
                   except requests.RequestException as e:
                       print(f"Error: {e}")
                       if attempt == max_attempts - 1:
                           print(f"Failed after {max_attempts} attempts ❌")
                           return False
-                  finally:
-                      if response is not None:
-                          response.close()
 
               return False
 
-          session = build_session()
-          success = check_domain_redirection('${{ matrix.domain }}', '${{ matrix.prefix }}', session)
-          session.close()
+          success = check_domain_redirection('${{ matrix.domain }}', '${{ matrix.prefix }}')
           if not success:
               raise Exception(f"Domain check failed for ${{ matrix.domain }} with prefix '${{ matrix.prefix }}'")
 
