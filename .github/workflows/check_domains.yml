@@ -83,7 +83,7 @@ jobs:
               for attempt in range(max_attempts):
                   try:
                       if attempt > 0:
-                          delay = min(5 * (2 ** attempt), 120)  # 10, 20, 40, 80...
+                          delay = min(10 * (2 ** attempt), 160)  # 20, 40, 80, 160...
                           print(f"Retrying in {delay}s (attempt {attempt + 1}/{max_attempts})")
                           time.sleep(delay)
 
