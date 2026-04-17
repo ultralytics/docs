@@ -168,6 +168,7 @@ jobs:
         with:
           retry_delay_seconds: 1800
           retries: 3
+          backoff: fixed
           run: |
             # Count successfully downloaded files
             downloaded_files=$(find ${{ matrix.website }} -type f | wc -l)
