@@ -123,8 +123,14 @@ jobs:
           # Install codespell
           uv pip install --system codespell
 
-          # Run codespell on HTML files
-          CODESPELL_OUTPUT=$(find ./${{ matrix.website }} -type f -name "*.html" -print0 | xargs -0 codespell \
+          # Run codespell on rendered HTML text, not inline JS/CSS payloads.
+          SPELLCHECK_ROOT=".codespell-html"
+          rm -rf "$SPELLCHECK_ROOT"
+          mkdir "$SPELLCHECK_ROOT"
+          cp -R "${{ matrix.website }}" "$SPELLCHECK_ROOT/"
+          find "$SPELLCHECK_ROOT/${{ matrix.website }}" -type f -name "*.html" \
+            -exec perl -0pi -e 's#<script\b[^>]*>.*?</script>##gis; s#<style\b[^>]*>.*?</style>##gis' {} +
+          CODESPELL_OUTPUT=$(find "$SPELLCHECK_ROOT/${{ matrix.website }}" -type f -name "*.html" -print0 | xargs -0 codespell \
             --builtin clear,rare,informal,en-GB_to_en-US \
             --uri-ignore-words-list "*" \
             --ignore-words-list "Ain't,grey,writeable,MENAT,Hart,wither,Bund,DED,AKS,VAs,RepResNet,iDenfy,Idenfy,WIT,Smoot,EHR,ROUGE,ALS,iTerm,Carmel,FPR,Hach,Calle,ore,COO,MOT,crate,nd,ned,strack,dota,ane,segway,fo,gool,winn,commend,bloc,nam,afterall,skelton,goin,tread,braket,corse,SoM,couldn't,couldn,nin,cancelled,MapPin,cann,CANN,Programme" \
@@ -132,7 +138,7 @@ jobs:
             2>&1 || true)
 
           # Process CODESPELL_OUTPUT
-          MODIFIED_OUTPUT=$(echo "$CODESPELL_OUTPUT" | sed 's#\(.*\):[0-9]*: \(.*\)#\1  \2#; s/\.html//; s#\(.*\)/index  #\1/  #; s#\./##')
+          MODIFIED_OUTPUT=$(echo "$CODESPELL_OUTPUT" | sed 's#\.codespell-html/##; s#\(.*\):[0-9]*: \(.*\)#\1  \2#; s/\.html//; s#\(.*\)/index  #\1/  #; s#\./##')
 
           # Count total errors
           TOTAL_ERRORS=$(echo "$MODIFIED_OUTPUT" | grep -c "==>" || echo "0")
@@ -142,21 +148,23 @@ jobs:
 
           if [[ "$CODESPELL_OUTPUT" == *"==>"* ]]; then
             echo "Spelling errors found ⚠️"
-            echo "## 📝 Spelling Errors" >> $GITHUB_STEP_SUMMARY
-            echo "$MODIFIED_OUTPUT" >> $GITHUB_STEP_SUMMARY
+            echo "## 📝 Spelling Errors" >> "$GITHUB_STEP_SUMMARY"
+            echo "$MODIFIED_OUTPUT" >> "$GITHUB_STEP_SUMMARY"
 
             # Prepare limited output for Slack (first 10 errors)
             SLACK_OUTPUT=$(echo "$MODIFIED_OUTPUT" | grep "==>" | head -10 | awk '{printf "%s\\n", $0}')
             SLACK_HEADER="*${TOTAL_ERRORS} Spelling Errors*\\n\\n"
             if [ "$TOTAL_ERRORS" -gt 10 ]; then
-              SLACK_FOOTER="...$(($TOTAL_ERRORS - 10)) more ➜ <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|Action summary>"
+              SLACK_FOOTER="...$((TOTAL_ERRORS - 10)) more ➜ <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|Action summary>"
             else
               SLACK_FOOTER=""
             fi
 
-            echo "CODESPELL_ERRORS<<EOF" >> $GITHUB_ENV
-            echo "${SLACK_HEADER}${SLACK_OUTPUT}${SLACK_FOOTER}" >> $GITHUB_ENV
-            echo "EOF" >> $GITHUB_ENV
+            {
+              echo "CODESPELL_ERRORS<<EOF"
+              echo "${SLACK_HEADER}${SLACK_OUTPUT}${SLACK_FOOTER}"
+              echo "EOF"
+            } >> "$GITHUB_ENV"
 
             exit 1
           fi
