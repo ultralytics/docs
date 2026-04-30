@@ -11,7 +11,7 @@ Choosing the right neural network architecture is essential for any modern compu
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv5", "PP-YOLOE+"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv5", "PP-YOLOE+"&#93;'></canvas>
 
 ## Understanding the Architectures
 

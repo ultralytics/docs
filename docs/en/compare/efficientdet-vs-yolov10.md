@@ -13,7 +13,7 @@ We will explore their core architectures, review performance benchmarks on [stan
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["EfficientDet", "YOLOv10"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"EfficientDet", "YOLOv10"&#93;'></canvas>
 
 ## EfficientDet: The Compound Scaling Pioneer
 

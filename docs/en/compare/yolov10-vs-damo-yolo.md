@@ -11,7 +11,7 @@ When building modern [computer vision](https://www.ultralytics.com/glossary/comp
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "DAMO-YOLO"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv10", "DAMO-YOLO"&#93;'></canvas>
 
 Whether your project requires deployment on constrained [edge AI](https://www.ultralytics.com/glossary/edge-ai) hardware or demands maximum accuracy on cloud GPUs, understanding the nuances of these architectures will help you make an informed decision.
 

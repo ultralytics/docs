@@ -11,7 +11,7 @@ The rapidly evolving landscape of computer vision has produced an impressive arr
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "RTDETRv2"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"DAMO-YOLO", "RTDETRv2"&#93;'></canvas>
 
 This comprehensive guide dives deep into the technical specifications, architectural innovations, and practical use cases of both models, while also exploring how modern solutions like the [Ultralytics Platform](https://platform.ultralytics.com) and the state-of-the-art [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) have redefined industry standards for deployment and ease of use.
 

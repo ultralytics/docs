@@ -11,7 +11,7 @@ The landscape of [computer vision](https://www.ultralytics.com/glossary/computer
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "RTDETRv2"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv10", "RTDETRv2"&#93;'></canvas>
 
 This technical comparison provides an in-depth analysis of their architectures, training methodologies, and ideal deployment scenarios to help developers and researchers choose the right tool for their next [vision AI](https://www.ultralytics.com/blog-category/vision-ai) project.
 

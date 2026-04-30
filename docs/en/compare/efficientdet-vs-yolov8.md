@@ -13,7 +13,7 @@ Whether your goal is deploying models on highly constrained [edge computing](htt
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["EfficientDet", "YOLOv8"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"EfficientDet", "YOLOv8"&#93;'></canvas>
 
 ## Model Overview and Origins
 

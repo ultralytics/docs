@@ -13,7 +13,7 @@ This comprehensive guide delves into the technical nuances of both models, compa
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["RTDETRv2", "PP-YOLOE+"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"RTDETRv2", "PP-YOLOE+"&#93;'></canvas>
 
 ## Model Overviews
 

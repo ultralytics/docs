@@ -13,7 +13,7 @@ This guide provides a detailed technical analysis of PP-YOLOE+ and DAMO-YOLO, ex
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["PP-YOLOE+", "DAMO-YOLO"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"PP-YOLOE+", "DAMO-YOLO"&#93;'></canvas>
 
 ## PP-YOLOE+: Refined Industrial Object Detection
 

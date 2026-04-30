@@ -11,7 +11,7 @@ The landscape of computer vision is constantly evolving, with new architectures 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv5", "YOLOv6-3.0"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv5", "YOLOv6-3.0"&#93;'></canvas>
 
 ## Introduction to the Models
 

@@ -11,7 +11,7 @@ The evolution of [computer vision](https://www.ultralytics.com/glossary/computer
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "YOLOv5"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"DAMO-YOLO", "YOLOv5"&#93;'></canvas>
 
 ## Introduction to DAMO-YOLO
 

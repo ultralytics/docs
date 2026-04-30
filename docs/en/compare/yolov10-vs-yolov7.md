@@ -11,7 +11,7 @@ The rapid progression of computer vision over the last few years has yielded inc
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "YOLOv7"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv10", "YOLOv7"&#93;'></canvas>
 
 Both models pushed the boundaries of [object detection](https://docs.ultralytics.com/tasks/detect/) upon their respective releases, yet the modern [Ultralytics ecosystem](https://platform.ultralytics.com) and the introduction of next-generation models like YOLO26 offer far superior workflows for today's AI practitioners.
 

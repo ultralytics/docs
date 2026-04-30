@@ -13,7 +13,7 @@ While both models brought significant innovations to the field of [object detect
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["EfficientDet", "DAMO-YOLO"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"EfficientDet", "DAMO-YOLO"&#93;'></canvas>
 
 ## EfficientDet: Scalable and Efficient Object Detection
 

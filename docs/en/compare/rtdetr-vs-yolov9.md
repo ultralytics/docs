@@ -11,7 +11,7 @@ The field of computer vision has witnessed a fascinating divergence in architect
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["RTDETRv2", "YOLOv9"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"RTDETRv2", "YOLOv9"&#93;'></canvas>
 
 ## Introduction to the Models
 

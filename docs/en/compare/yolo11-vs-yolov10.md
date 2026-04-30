@@ -11,7 +11,7 @@ The landscape of real-time computer vision is constantly evolving, with new arch
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO11", "YOLOv10"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLO11", "YOLOv10"&#93;'></canvas>
 
 ## Unpacking the YOLO11 Architecture
 

@@ -13,7 +13,7 @@ This comprehensive technical comparison explores the distinct approaches of both
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "YOLOv7"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"DAMO-YOLO", "YOLOv7"&#93;'></canvas>
 
 ## Model Origins and Metadata
 

@@ -11,7 +11,7 @@ The evolution of computer vision has been marked by significant milestones, and 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv7", "YOLO26"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv7", "YOLO26"&#93;'></canvas>
 
 ## YOLOv7: The "Bag-of-Freebies" Pioneer
 

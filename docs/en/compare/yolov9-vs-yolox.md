@@ -11,7 +11,7 @@ The field of computer vision has witnessed a rapid evolution in real-time object
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv9", "YOLOX"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv9", "YOLOX"&#93;'></canvas>
 
 ## Architectural Innovations
 

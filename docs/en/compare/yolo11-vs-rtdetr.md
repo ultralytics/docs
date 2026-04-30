@@ -11,7 +11,7 @@ The landscape of computer vision has expanded rapidly, offering developers a myr
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO11", "RTDETRv2"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLO11", "RTDETRv2"&#93;'></canvas>
 
 By analyzing their architectures, performance metrics, and ideal deployment scenarios, this guide aims to help machine learning engineers make informed decisions. While both models push the boundaries of accuracy, [Ultralytics YOLO](https://www.ultralytics.com/yolo) models typically offer a superior balance of speed, ecosystem support, and ease of use for real-world production.
 

@@ -13,7 +13,7 @@ This guide provides an in-depth technical analysis comparing these two architect
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv9", "EfficientDet"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv9", "EfficientDet"&#93;'></canvas>
 
 ## Model Origins and Technical Specifications
 

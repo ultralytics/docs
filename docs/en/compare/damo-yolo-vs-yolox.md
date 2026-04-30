@@ -11,7 +11,7 @@ The landscape of real-time computer vision is constantly evolving. Two notable m
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "YOLOX"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"DAMO-YOLO", "YOLOX"&#93;'></canvas>
 
 This comprehensive guide explores the technical nuances of both models and highlights why modern alternatives like the [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) platform offer superior performance and ease of use for today's production environments.
 

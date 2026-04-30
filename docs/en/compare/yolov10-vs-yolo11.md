@@ -46,7 +46,7 @@ When comparing these models side-by-side, it is essential to look at how they pe
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "YOLO11"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv10", "YOLO11"&#93;'></canvas>
 
 The table below highlights the performance differences. YOLO11 frequently edges out YOLOv10 in mAP across most size categories while maintaining highly competitive [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) inference speeds.
 

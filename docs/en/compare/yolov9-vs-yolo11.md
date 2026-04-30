@@ -13,7 +13,7 @@ This comprehensive technical comparison analyzes their architectures, performanc
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv9", "YOLO11"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv9", "YOLO11"&#93;'></canvas>
 
 !!! tip "Future-Proof Your Project with YOLO26"
 

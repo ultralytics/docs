@@ -13,7 +13,7 @@ By comparing their architectural innovations, training methodologies, and deploy
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["EfficientDet", "YOLOv5"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"EfficientDet", "YOLOv5"&#93;'></canvas>
 
 ## EfficientDet: Scalable Architecture with BiFPN
 

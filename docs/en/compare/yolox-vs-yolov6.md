@@ -11,7 +11,7 @@ The evolution of [computer vision](https://www.ultralytics.com/glossary/computer
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOX", "YOLOv6-3.0"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOX", "YOLOv6-3.0"&#93;'></canvas>
 
 This technical comparison breaks down their architectural differences, performance metrics, and ideal use cases, while also introducing the next-generation capabilities of [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) for developers seeking the ultimate edge and cloud deployment solution.
 

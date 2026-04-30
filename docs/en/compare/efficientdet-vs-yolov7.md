@@ -13,7 +13,7 @@ This comprehensive technical analysis explores the architectural nuances, [perfo
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["EfficientDet", "YOLOv7"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"EfficientDet", "YOLOv7"&#93;'></canvas>
 
 ## Understanding EfficientDet
 

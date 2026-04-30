@@ -11,7 +11,7 @@ The field of computer vision has witnessed remarkable advancements over the last
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv8", "YOLO26"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv8", "YOLO26"&#93;'></canvas>
 
 ## Model Overviews
 

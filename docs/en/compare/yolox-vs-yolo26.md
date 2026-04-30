@@ -11,7 +11,7 @@ The field of computer vision has witnessed incredible transformations over the p
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOX", "YOLO26"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOX", "YOLO26"&#93;'></canvas>
 
 ## Model Overviews
 

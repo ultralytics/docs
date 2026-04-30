@@ -13,7 +13,7 @@ By analyzing their architectural differences, performance metrics, and ideal dep
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv7", "YOLOv5"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv7", "YOLOv5"&#93;'></canvas>
 
 ## Model Background and Origins
 

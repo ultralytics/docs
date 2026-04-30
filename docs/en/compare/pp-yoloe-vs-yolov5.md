@@ -11,7 +11,7 @@ When choosing the right deep learning framework for computer vision, developers 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["PP-YOLOE+", "YOLOv5"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"PP-YOLOE+", "YOLOv5"&#93;'></canvas>
 
 ## Model Origins and Metadata
 

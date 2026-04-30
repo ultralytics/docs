@@ -11,7 +11,7 @@ The landscape of real-time object detection is continually evolving, with resear
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv7", "DAMO-YOLO"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv7", "DAMO-YOLO"&#93;'></canvas>
 
 ## Model Backgrounds and Technical Details
 

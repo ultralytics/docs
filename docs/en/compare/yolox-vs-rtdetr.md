@@ -13,7 +13,7 @@ While both models have made significant contributions to the field of [object de
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOX", "RTDETRv2"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOX", "RTDETRv2"&#93;'></canvas>
 
 ## YOLOX: Bridging the Gap Between Research and Industry
 

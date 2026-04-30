@@ -11,7 +11,7 @@ When evaluating computer vision models for high-performance applications, choosi
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv6-3.0", "YOLO11"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv6-3.0", "YOLO11"&#93;'></canvas>
 
 Both models offer strong solutions for [machine learning](https://www.ultralytics.com/glossary/machine-learning-ml) practitioners, but they cater to different deployment paradigms. Below, we break down their architectures, training methodologies, and ideal real-world deployment scenarios to help you make an informed decision.
 

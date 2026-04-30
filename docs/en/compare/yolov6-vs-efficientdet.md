@@ -13,7 +13,7 @@ Below is an interactive chart visualizing the performance differences between th
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv6-3.0", "EfficientDet"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv6-3.0", "EfficientDet"&#93;'></canvas>
 
 ## YOLOv6-3.0: Industrial-Grade Throughput
 

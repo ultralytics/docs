@@ -13,7 +13,7 @@ This comprehensive guide dives into their unique designs, training methodologies
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "EfficientDet"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv10", "EfficientDet"&#93;'></canvas>
 
 ## YOLOv10: The NMS-Free Pioneer
 

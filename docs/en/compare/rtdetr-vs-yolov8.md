@@ -11,7 +11,7 @@ The landscape of computer vision is constantly shifting, often highlighted by th
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["RTDETRv2", "YOLOv8"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"RTDETRv2", "YOLOv8"&#93;'></canvas>
 
 ---
 

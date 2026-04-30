@@ -13,7 +13,7 @@ Before diving into the detailed architectural breakdowns, explore the chart belo
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["PP-YOLOE+", "YOLOv6-3.0"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"PP-YOLOE+", "YOLOv6-3.0"&#93;'></canvas>
 
 ## PP-YOLOE+: Architectural Strengths and Weaknesses
 

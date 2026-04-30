@@ -11,7 +11,7 @@ When building scalable and efficient [computer vision](https://en.wikipedia.org/
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv5", "YOLOv8"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv5", "YOLOv8"&#93;'></canvas>
 
 Both of these models represent significant milestones in the history of real-time [object detection](https://docs.ultralytics.com/tasks/detect/), and both benefit from the highly optimized memory requirements and [ease of use](https://docs.ultralytics.com/quickstart/) that characterize the Ultralytics ecosystem.
 

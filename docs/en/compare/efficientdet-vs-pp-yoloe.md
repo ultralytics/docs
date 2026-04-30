@@ -13,7 +13,7 @@ This comprehensive guide dissects their architectures, training methodologies, a
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["EfficientDet", "PP-YOLOE+"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"EfficientDet", "PP-YOLOE+"&#93;'></canvas>
 
 ## Architectural Innovations and Design Philosophies
 

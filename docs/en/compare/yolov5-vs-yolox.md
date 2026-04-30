@@ -13,7 +13,7 @@ This guide provides an in-depth technical analysis of these two models, comparin
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv5", "YOLOX"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv5", "YOLOX"&#93;'></canvas>
 
 ## Model Overviews and Architectural Differences
 

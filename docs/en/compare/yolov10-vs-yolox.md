@@ -11,7 +11,7 @@ The field of computer vision is driven by rapid advancements in real-time object
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "YOLOX"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv10", "YOLOX"&#93;'></canvas>
 
 ## Model Backgrounds and Origins
 

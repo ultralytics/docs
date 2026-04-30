@@ -11,7 +11,7 @@ The field of computer vision is constantly evolving, with new architectures push
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv8", "YOLOv7"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv8", "YOLOv7"&#93;'></canvas>
 
 Understanding the structural and methodological differences between these two models is crucial for machine learning engineers looking to optimize their deployment pipelines. While YOLOv7 introduced a powerful "bag-of-freebies" approach tailored for raw throughput, Ultralytics YOLOv8 focused on creating a holistic, easy-to-use ecosystem that balances high accuracy with low memory consumption and multi-task versatility.
 

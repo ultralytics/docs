@@ -13,7 +13,7 @@ While both architectures represented major leaps forward upon their respective r
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["EfficientDet", "YOLOv6-3.0"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"EfficientDet", "YOLOv6-3.0"&#93;'></canvas>
 
 ## EfficientDet: Scalable AutoML Architecture
 

@@ -11,7 +11,7 @@ The landscape of computer vision has grown increasingly complex, making the sele
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv6-3.0", "YOLOv10"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv6-3.0", "YOLOv10"&#93;'></canvas>
 
 ## Unpacking YOLOv6-3.0: Built for Industrial Throughput
 

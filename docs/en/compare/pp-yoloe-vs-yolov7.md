@@ -11,7 +11,7 @@ When building computer vision pipelines, selecting the right object detection mo
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["PP-YOLOE+", "YOLOv7"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"PP-YOLOE+", "YOLOv7"&#93;'></canvas>
 
 ## Overview of the Models
 

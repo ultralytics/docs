@@ -13,7 +13,7 @@ This guide provides a comprehensive technical comparison of these two models, an
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["RTDETRv2", "YOLOv10"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"RTDETRv2", "YOLOv10"&#93;'></canvas>
 
 ## RTDETRv2: Real-Time Detection Transformers
 

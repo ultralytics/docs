@@ -13,7 +13,7 @@ This guide provides an in-depth technical comparison between two pivotal models 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv5", "RTDETRv2"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv5", "RTDETRv2"&#93;'></canvas>
 
 ## Ultralytics YOLOv5: The Industry Standard for Efficiency
 

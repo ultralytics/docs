@@ -13,7 +13,7 @@ This guide provides a deep technical dive into both models, comparing their stru
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO26", "RTDETRv2"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLO26", "RTDETRv2"&#93;'></canvas>
 
 ## Ultralytics YOLO26: The Pinnacle of Edge-First Vision AI
 

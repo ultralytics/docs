@@ -13,7 +13,7 @@ This detailed technical guide provides an in-depth analysis of these two models,
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "YOLOv9"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"DAMO-YOLO", "YOLOv9"&#93;'></canvas>
 
 ## Executive Summary: Choosing the Right Architecture
 

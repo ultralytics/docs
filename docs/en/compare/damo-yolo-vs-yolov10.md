@@ -11,7 +11,7 @@ The field of computer vision has witnessed a rapid evolution in real-time [objec
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "YOLOv10"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"DAMO-YOLO", "YOLOv10"&#93;'></canvas>
 
 ## DAMO-YOLO: Neural Architecture Search at Scale
 

@@ -11,7 +11,7 @@ The landscape of computer vision has been heavily shaped by models aiming to bri
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv6-3.0", "YOLOX"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv6-3.0", "YOLOX"&#93;'></canvas>
 
 This comprehensive technical comparison dives into the architectures, performance metrics, and ideal use cases for YOLOv6-3.0 and YOLOX, while also exploring how the next-generation [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) model builds upon and surpasses these innovations.
 

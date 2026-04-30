@@ -13,7 +13,7 @@ This guide provides an in-depth technical analysis of these two prominent archit
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["RTDETRv2", "YOLOv5"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"RTDETRv2", "YOLOv5"&#93;'></canvas>
 
 ## RTDETRv2: The Transformer Approach to Real-Time Detection
 

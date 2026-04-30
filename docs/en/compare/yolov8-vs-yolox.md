@@ -11,7 +11,7 @@ The landscape of computer vision has been heavily shaped by the continuous evolu
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv8", "YOLOX"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv8", "YOLOX"&#93;'></canvas>
 
 This comprehensive technical comparison explores their respective architectures, training methodologies, and real-world performance metrics to help developers and researchers choose the optimal solution for their vision AI applications.
 

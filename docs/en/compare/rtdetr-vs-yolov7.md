@@ -11,7 +11,7 @@ The landscape of [computer vision](https://www.ultralytics.com/glossary/computer
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["RTDETRv2", "YOLOv7"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"RTDETRv2", "YOLOv7"&#93;'></canvas>
 
 ## RTDETRv2: The Transformer Approach to Real-Time Detection
 

@@ -13,7 +13,7 @@ This comprehensive technical comparison explores their respective architectures,
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["RTDETRv2", "YOLOv6-3.0"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"RTDETRv2", "YOLOv6-3.0"&#93;'></canvas>
 
 ## RTDETRv2: The Vision Transformer Approach
 

@@ -13,7 +13,7 @@ Whether you are targeting millisecond latency on [edge AI](https://www.ultralyti
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["EfficientDet", "YOLO11"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"EfficientDet", "YOLO11"&#93;'></canvas>
 
 ## Model Profiles and Technical Details
 

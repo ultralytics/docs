@@ -11,7 +11,7 @@ The evolution of real-time object detection has seen numerous paradigms shift, f
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOX", "DAMO-YOLO"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOX", "DAMO-YOLO"&#93;'></canvas>
 
 ## YOLOX: Pioneering the Anchor-Free Paradigm
 

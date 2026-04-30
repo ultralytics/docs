@@ -11,7 +11,7 @@ The field of computer vision has witnessed tremendous growth, with object detect
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv9", "YOLOv5"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv9", "YOLOv5"&#93;'></canvas>
 
 ## Architectural Innovations and Technical Origins
 

@@ -11,7 +11,7 @@ The landscape of computer vision is constantly evolving, driven by the demand fo
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO26", "YOLOv10"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLO26", "YOLOv10"&#93;'></canvas>
 
 ## The Evolution of NMS-Free Architectures
 

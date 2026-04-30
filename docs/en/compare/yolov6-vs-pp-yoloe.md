@@ -11,7 +11,7 @@ When selecting a framework for real-time [object detection](https://docs.ultraly
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv6-3.0", "PP-YOLOE+"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv6-3.0", "PP-YOLOE+"&#93;'></canvas>
 
 This technical comparison provides an in-depth look at their architectures, performance metrics, and training methodologies, while also introducing modern alternatives like [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) that offer superior versatility and ease of use.
 

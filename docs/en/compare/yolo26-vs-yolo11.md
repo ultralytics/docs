@@ -11,7 +11,7 @@ When building state-of-the-art computer vision systems, selecting the right mode
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO26", "YOLO11"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLO26", "YOLO11"&#93;'></canvas>
 
 ## Model Lineage and Metadata
 

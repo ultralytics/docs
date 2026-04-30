@@ -11,7 +11,7 @@ The demand for high-performance, real-time [computer vision](https://en.wikipedi
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["PP-YOLOE+", "YOLOv8"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"PP-YOLOE+", "YOLOv8"&#93;'></canvas>
 
 ## Introduction to the Architectures
 

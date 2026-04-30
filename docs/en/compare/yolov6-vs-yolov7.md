@@ -13,7 +13,7 @@ This comprehensive technical comparison explores their architectures, performanc
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv6-3.0", "YOLOv7"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv6-3.0", "YOLOv7"&#93;'></canvas>
 
 ## YOLOv6-3.0: Industrial Throughput Optimization
 

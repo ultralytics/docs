@@ -13,7 +13,7 @@ Whether you are deploying vision models to edge devices or building high-through
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "YOLO26"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"DAMO-YOLO", "YOLO26"&#93;'></canvas>
 
 ## DAMO-YOLO: Neural Architecture Search at Scale
 

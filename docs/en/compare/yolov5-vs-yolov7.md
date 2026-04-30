@@ -11,7 +11,7 @@ The landscape of computer vision has evolved rapidly over the last few years, dr
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv5", "YOLOv7"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv5", "YOLOv7"&#93;'></canvas>
 
 ## At a Glance: Model Origins
 

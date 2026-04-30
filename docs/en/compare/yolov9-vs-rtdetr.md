@@ -13,7 +13,7 @@ This comprehensive guide compares these two powerful models, analyzing their arc
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv9", "RTDETRv2"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"YOLOv9", "RTDETRv2"&#93;'></canvas>
 
 ## Executive Summary
 

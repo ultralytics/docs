@@ -11,7 +11,7 @@ In the highly competitive landscape of real-time computer vision, choosing the o
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
-<canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "PP-YOLOE+"]'></canvas>
+<canvas id="modelComparisonChart" width="1024" height="400" active-models='&#91;"DAMO-YOLO", "PP-YOLOE+"&#93;'></canvas>
 
 ## Model Overviews
 
