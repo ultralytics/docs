@@ -76,9 +76,10 @@ jobs:
           }
           failed_sitemaps = []
           for host, paths in sitemap_paths.items():
+              site_url = "sc-domain:ultralytics.com" if host in {"academy.ultralytics.com", "handbook.ultralytics.com"} else f"https://{host}/"
               for path in paths:
                   sitemap = f'https://{host}{path}/sitemap.xml'
-                  if not submit_sitemap(f'https://{host}/', sitemap, credentials_json):
+                  if not submit_sitemap(site_url, sitemap, credentials_json):
                       failed_sitemaps.append(sitemap)
           if failed_sitemaps:
               raise SystemExit(f"Failed to submit {len(failed_sitemaps)} sitemap(s): {', '.join(failed_sitemaps)}")
