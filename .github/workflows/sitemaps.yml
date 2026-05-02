@@ -73,10 +73,11 @@ jobs:
               "docs.ultralytics.com": ['', '/zh', '/ko', '/ja', '/ru', '/de', '/fr', '/es', '/pt', '/ar', '/tr', '/vi', '/it'],
               "academy.ultralytics.com": [''],
               "handbook.ultralytics.com": [''],
+              "platform.ultralytics.com": [''],
           }
           failed_sitemaps = []
           for host, paths in sitemap_paths.items():
-              site_url = "sc-domain:ultralytics.com" if host in {"academy.ultralytics.com", "handbook.ultralytics.com"} else f"https://{host}/"
+              site_url = "sc-domain:ultralytics.com" if host in {"academy.ultralytics.com", "handbook.ultralytics.com", "platform.ultralytics.com"} else f"https://{host}/"
               for path in paths:
                   sitemap = f'https://{host}{path}/sitemap.xml'
                   if not submit_sitemap(site_url, sitemap, credentials_json):
