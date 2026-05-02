@@ -46,7 +46,7 @@ jobs:
         run: |
           modified_files=$(git diff --name-only HEAD^ HEAD | tr '\n' ' ')
           echo "Modified files: $modified_files"
-          echo "MODIFIED_FILES=$modified_files" >> $GITHUB_ENV
+          echo "MODIFIED_FILES=$modified_files" >> "$GITHUB_ENV"
 
       - name: Submit Sitemaps to Google
         env:
@@ -63,14 +63,27 @@ jobs:
                 webmasters_service = build('webmasters', 'v3', credentials=credentials)
                 webmasters_service.sitemaps().submit(siteUrl=site_url, feedpath=sitemap_url).execute()
                 print(f'Submitted {sitemap_url} ✅')
+                return True
               except Exception as e:
                 print(f'ERROR ❌: {sitemap_url} failed to submit {e}')
+                return False
           credentials_json = os.environ['CREDENTIALS_JSON']
-          # Submit sitemaps for each language
-          for host in ["www.ultralytics.com", "docs.ultralytics.com"]:
-              for lang in ['', '/zh', '/ko', '/ja', '/ru', '/de', '/fr', '/es', '/pt', '/ar', '/tr', '/vi', '/it']:
-                  sitemap = f'https://{host}{lang}/sitemap.xml'
-                  submit_sitemap(f'https://{host}/', sitemap, credentials_json)
+          sitemap_paths = {
+              "www.ultralytics.com": ['', '/zh', '/ko', '/ja', '/ru', '/de', '/fr', '/es', '/pt', '/ar', '/tr', '/vi', '/it'],
+              "docs.ultralytics.com": ['', '/zh', '/ko', '/ja', '/ru', '/de', '/fr', '/es', '/pt', '/ar', '/tr', '/vi', '/it'],
+              "academy.ultralytics.com": [''],
+              "handbook.ultralytics.com": [''],
+              "platform.ultralytics.com": [''],
+          }
+          failed_sitemaps = []
+          for host, paths in sitemap_paths.items():
+              site_url = "sc-domain:ultralytics.com" if host in {"academy.ultralytics.com", "handbook.ultralytics.com", "platform.ultralytics.com"} else f"https://{host}/"
+              for path in paths:
+                  sitemap = f'https://{host}{path}/sitemap.xml'
+                  if not submit_sitemap(site_url, sitemap, credentials_json):
+                      failed_sitemaps.append(sitemap)
+          if failed_sitemaps:
+              raise SystemExit(f"Failed to submit {len(failed_sitemaps)} sitemap(s): {', '.join(failed_sitemaps)}")
 
       - name: Submit URLs to IndexNow
         env:
@@ -105,32 +118,39 @@ jobs:
                   print(f"ERROR ❌: Failed to extract URLs from {sitemap_url} - {e}")
                   return []
 
-          def filter_modified_urls(urls, modified_files):
+          def filter_modified_urls(host, urls, modified_files):
               # Filter URLs based on modified files
               modified_urls = []
               for file in modified_files:
                   # Convert file path to URL path, i.e. 'modes/index.html' -> 'https://docs.ultralytics.com/modes/'
-                  full_url = f'https://{host}/{file.replace('index.html', '')}'
+                  full_url = f"https://{host}/{file.replace('index.html', '')}"
                   if full_url in urls:
                       modified_urls.append(full_url)
               return modified_urls
 
           # Submit URLs from each sitemap to IndexNow
-          host = "docs.ultralytics.com"
-          all_urls = []
-          for lang in ['', '/zh', '/ko', '/ja', '/ru', '/de', '/fr', '/es', '/pt', '/ar', '/tr', '/vi', '/it']:
-              sitemap = f'https://{host}{lang}/sitemap.xml'
-              lang_urls = extract_urls_from_sitemap(sitemap)
-              all_urls.extend(lang_urls)
-              print(f'Found {len(lang_urls)} in {sitemap} ({len(all_urls)} total)')
+          sitemap_paths = {
+              "docs.ultralytics.com": ['', '/zh', '/ko', '/ja', '/ru', '/de', '/fr', '/es', '/pt', '/ar', '/tr', '/vi', '/it'],
+          }
+          for host, paths in sitemap_paths.items():
+              all_urls = []
+              for path in paths:
+                  sitemap = f'https://{host}{path}/sitemap.xml'
+                  sitemap_urls = extract_urls_from_sitemap(sitemap)
+                  all_urls.extend(sitemap_urls)
+                  print(f'Found {len(sitemap_urls)} in {sitemap} ({len(all_urls)} total)')
 
-          # Filter URLs based on modified files
-          if os.getenv('SUBMIT_ALL_URLS', 'false').lower() == 'true':
-              urls_to_submit = all_urls
-          else:
-              urls_to_submit = filter_modified_urls(all_urls, os.environ['MODIFIED_FILES'].split())
-              print(f'\nFound {len(urls_to_submit)} URLs updated in last commit to submit:\n{"\n".join(urls_to_submit)}\n')
+              # Filter URLs based on modified files
+              if os.getenv('SUBMIT_ALL_URLS', 'false').lower() == 'true':
+                  urls_to_submit = all_urls
+              elif host == "docs.ultralytics.com":
+                  urls_to_submit = filter_modified_urls(host, all_urls, os.environ['MODIFIED_FILES'].split())
+                  updated_urls = "\n".join(urls_to_submit)
+                  print(f'\nFound {len(urls_to_submit)} {host} URLs updated in last commit to submit:\n{updated_urls}\n')
+              else:
+                  urls_to_submit = []
+                  print(f'Skipping changed-file IndexNow submission for {host}; use submit_all_urls to submit all URLs.')
 
-          # Submit filtered URLs
-          if urls_to_submit:
-              submit_urls_to_indexnow(host, urls_to_submit)
+              # Submit filtered URLs
+              if urls_to_submit:
+                  submit_urls_to_indexnow(host, urls_to_submit)
