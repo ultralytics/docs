@@ -63,8 +63,10 @@ jobs:
                 webmasters_service = build('webmasters', 'v3', credentials=credentials)
                 webmasters_service.sitemaps().submit(siteUrl=site_url, feedpath=sitemap_url).execute()
                 print(f'Submitted {sitemap_url} ✅')
+                return True
               except Exception as e:
                 print(f'ERROR ❌: {sitemap_url} failed to submit {e}')
+                return False
           credentials_json = os.environ['CREDENTIALS_JSON']
           sitemap_paths = {
               "www.ultralytics.com": ['', '/zh', '/ko', '/ja', '/ru', '/de', '/fr', '/es', '/pt', '/ar', '/tr', '/vi', '/it'],
@@ -72,10 +74,14 @@ jobs:
               "academy.ultralytics.com": [''],
               "handbook.ultralytics.com": [''],
           }
+          failed_sitemaps = []
           for host, paths in sitemap_paths.items():
               for path in paths:
                   sitemap = f'https://{host}{path}/sitemap.xml'
-                  submit_sitemap(f'https://{host}/', sitemap, credentials_json)
+                  if not submit_sitemap(f'https://{host}/', sitemap, credentials_json):
+                      failed_sitemaps.append(sitemap)
+          if failed_sitemaps:
+              raise SystemExit(f"Failed to submit {len(failed_sitemaps)} sitemap(s): {', '.join(failed_sitemaps)}")
 
       - name: Submit URLs to IndexNow
         env:
@@ -123,8 +129,6 @@ jobs:
           # Submit URLs from each sitemap to IndexNow
           sitemap_paths = {
               "docs.ultralytics.com": ['', '/zh', '/ko', '/ja', '/ru', '/de', '/fr', '/es', '/pt', '/ar', '/tr', '/vi', '/it'],
-              "academy.ultralytics.com": [''],
-              "handbook.ultralytics.com": [''],
           }
           for host, paths in sitemap_paths.items():
               all_urls = []
