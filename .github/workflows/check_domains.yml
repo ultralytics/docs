@@ -73,7 +73,7 @@ jobs:
           import requests
           import time
 
-          def check_domain_redirection(domain, prefix, max_attempts=5):
+          def check_domain_redirection(domain, prefix, max_attempts=6):
               """Check if the given domain redirects correctly, with exponential delays between retries."""
               valid_destinations = ["ultralytics.com", "yolo11.com"]
               url = f"https://{prefix}{domain}"
@@ -86,7 +86,7 @@ jobs:
                           print(f"Retrying in {delay}s (attempt {attempt + 1}/{max_attempts})")
                           time.sleep(delay)
 
-                      response = requests.get(url, allow_redirects=True, timeout=10)
+                      response = requests.get(url, allow_redirects=True, timeout=20)
                       response.raise_for_status()
 
                       if any(dest in response.url for dest in valid_destinations) and response.status_code == 200:
