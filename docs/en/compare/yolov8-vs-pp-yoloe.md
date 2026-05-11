@@ -21,7 +21,7 @@ Introduced by Ultralytics, YOLOv8 quickly established itself as a cornerstone fo
 - **Organization:** [Ultralytics](https://www.ultralytics.com/)
 - **Date:** 2023-01-10
 - **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
-- **Docs:** [YOLOv8 Documentation](https://docs.ultralytics.com/models/yolov8/)
+- **Docs:** [YOLOv8 Documentation](https://docs.ultralytics.com/models/yolov8)
 
 [Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
@@ -29,7 +29,7 @@ Introduced by Ultralytics, YOLOv8 quickly established itself as a cornerstone fo
 
 YOLOv8 features a highly optimized anchor-free design and incorporates a decoupled head to independently process objectness, classification, and regression tasks. This structural refinement leads to better feature representation and faster convergence during training.
 
-Unlike many specialized models, YOLOv8 offers unmatched versatility. Beyond bounding box detection, the same unified architecture and API natively support [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [image classification](https://docs.ultralytics.com/tasks/classify/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb/).
+Unlike many specialized models, YOLOv8 offers unmatched versatility. Beyond bounding box detection, the same unified architecture and API natively support [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
 !!! tip "Streamlined Development"
 
@@ -82,7 +82,7 @@ Furthermore, YOLO models heavily outperform large transformer-based architecture
 
 The true defining factor between these architectures lies in the user experience.
 
-The **[Ultralytics Platform](https://platform.ultralytics.com)** offers a well-maintained ecosystem that abstracts away the friction of machine learning operations. It provides an incredibly simple API, extensive documentation, and native tools for data logging, hyperparameter tuning, and cross-platform export. Whether you need to deploy via [ONNX](https://docs.ultralytics.com/integrations/onnx/), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), or [CoreML](https://developer.apple.com/documentation/coreml), Ultralytics handles it seamlessly.
+The **[Ultralytics Platform](https://platform.ultralytics.com)** offers a well-maintained ecosystem that abstracts away the friction of machine learning operations. It provides an incredibly simple API, extensive documentation, and native tools for data logging, hyperparameter tuning, and cross-platform export. Whether you need to deploy via [ONNX](https://docs.ultralytics.com/integrations/onnx), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), or [CoreML](https://developer.apple.com/documentation/coreml), Ultralytics handles it seamlessly.
 
 Conversely, PP-YOLOE+ often requires deep knowledge of the PaddlePaddle framework. Converting these models to run efficiently on standard [NVIDIA GPUs](https://www.nvidia.com/en-us/data-center/tesla-t4/) or edge devices outside of the Baidu hardware ecosystem can be a complex, multi-step process lacking the streamlined automation found in Ultralytics tools.
 
@@ -111,7 +111,7 @@ Choosing between YOLOv8 and PP-YOLOE+ depends on your specific project requireme
 
 YOLOv8 is a strong choice for:
 
-- **Versatile Multi-Task Deployment:** Projects requiring a proven model for [detection](https://docs.ultralytics.com/tasks/detect/), [segmentation](https://docs.ultralytics.com/tasks/segment/), [classification](https://docs.ultralytics.com/tasks/classify/), and [pose estimation](https://docs.ultralytics.com/tasks/pose/) within the Ultralytics ecosystem.
+- **Versatile Multi-Task Deployment:** Projects requiring a proven model for [detection](https://docs.ultralytics.com/tasks/detect), [segmentation](https://docs.ultralytics.com/tasks/segment), [classification](https://docs.ultralytics.com/tasks/classify), and [pose estimation](https://docs.ultralytics.com/tasks/pose) within the Ultralytics ecosystem.
 - **Established Production Systems:** Existing production environments already built on the YOLOv8 architecture with stable, well-tested deployment pipelines.
 - **Broad Community and Ecosystem Support:** Applications benefiting from YOLOv8's extensive tutorials, third-party integrations, and active community resources.
 
@@ -125,11 +125,11 @@ PP-YOLOE+ is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## Looking Forward: The YOLO26 Advantage
 
@@ -138,7 +138,7 @@ For those looking to build future-proof applications, the recently released **[U
 - **End-to-End NMS-Free Design:** YOLO26 natively eliminates the need for Non-Maximum Suppression post-processing, dramatically reducing latency variability and simplifying deployment logic.
 - **MuSGD Optimizer:** Integrating LLM training innovations into vision AI, this hybrid of SGD and [Muon](https://github.com/KellerJordan/Muon) ensures incredibly stable training dynamics and faster convergence.
 - **Up to 43% Faster CPU Inference:** By removing Distribution Focal Loss (DFL), YOLO26 provides unmatched speed on edge devices and standard CPUs, making it ideal for IoT and mobile applications.
-- **ProgLoss + STAL:** These advanced loss functions deliver notable improvements in small-object recognition, a critical requirement for [drone analytics](https://docs.ultralytics.com/datasets/detect/visdrone/) and aerial imagery.
+- **ProgLoss + STAL:** These advanced loss functions deliver notable improvements in small-object recognition, a critical requirement for [drone analytics](https://docs.ultralytics.com/datasets/detect/visdrone) and aerial imagery.
 
 !!! note "Upgrade Recommendation"
 

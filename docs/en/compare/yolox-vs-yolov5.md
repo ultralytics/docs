@@ -76,19 +76,19 @@ When transitioning from research to production, the ecosystem surrounding a mode
 
 ### Streamlined User Experience
 
-YOLOv5 is universally praised for its "zero-to-hero" developer experience. The [Ultralytics Python API](https://docs.ultralytics.com/usage/python/) and CLI allow you to load, train, and deploy models with single lines of code. In contrast, running YOLOX from the [Megvii GitHub repository](https://github.com/Megvii-BaseDetection/YOLOX) requires more manual configuration of environment variables, complex Python path setups, and a steeper learning curve typical of academic research codebases.
+YOLOv5 is universally praised for its "zero-to-hero" developer experience. The [Ultralytics Python API](https://docs.ultralytics.com/usage/python) and CLI allow you to load, train, and deploy models with single lines of code. In contrast, running YOLOX from the [Megvii GitHub repository](https://github.com/Megvii-BaseDetection/YOLOX) requires more manual configuration of environment variables, complex Python path setups, and a steeper learning curve typical of academic research codebases.
 
 ### Training Efficiency and Memory Requirements
 
-Ultralytics models are meticulously engineered to minimize memory usage during training. YOLOv5 requires significantly less CUDA memory compared to heavily parameterized transformer models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) or unoptimized research models. This allows developers to train larger batch sizes on consumer-grade hardware, accelerating the iterative development cycle.
+Ultralytics models are meticulously engineered to minimize memory usage during training. YOLOv5 requires significantly less CUDA memory compared to heavily parameterized transformer models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) or unoptimized research models. This allows developers to train larger batch sizes on consumer-grade hardware, accelerating the iterative development cycle.
 
 ### Versatility Across Tasks
 
-While YOLOX is strictly an object detection framework, the Ultralytics ecosystem has evolved YOLOv5 to support multiple vision tasks. Out of the box, you can perform [Image Classification](https://docs.ultralytics.com/tasks/classify/), [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), and object detection using the exact same API syntax.
+While YOLOX is strictly an object detection framework, the Ultralytics ecosystem has evolved YOLOv5 to support multiple vision tasks. Out of the box, you can perform [Image Classification](https://docs.ultralytics.com/tasks/classify), [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), and object detection using the exact same API syntax.
 
 !!! tip "Continuous Innovation"
 
-    If you require even more advanced tasks like [Pose Estimation](https://docs.ultralytics.com/tasks/pose/) or [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) detection, we highly recommend upgrading to the latest [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) architecture, which supports all these natively with state-of-the-art accuracy.
+    If you require even more advanced tasks like [Pose Estimation](https://docs.ultralytics.com/tasks/pose) or [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection, we highly recommend upgrading to the latest [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) architecture, which supports all these natively with state-of-the-art accuracy.
 
 ## Code Comparison
 
@@ -117,7 +117,7 @@ _(Requires manual repository cloning, setup.py installation, and complex CLI arg
 python tools/train.py -f exps/default/yolox_s.py -d 1 -b 64 --fp16 -o
 ```
 
-The Ultralytics approach removes friction, allowing you to focus on your dataset and application logic rather than debugging configuration files. Furthermore, tracking your experiments is seamless with built-in integrations for [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases/) and [Comet ML](https://docs.ultralytics.com/integrations/comet/).
+The Ultralytics approach removes friction, allowing you to focus on your dataset and application logic rather than debugging configuration files. Furthermore, tracking your experiments is seamless with built-in integrations for [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases) and [Comet ML](https://docs.ultralytics.com/integrations/comet).
 
 ## Ideal Use Cases and Real-World Applications
 
@@ -133,7 +133,7 @@ YOLOv5 is the undisputed champion of practical deployment.
 
 - **High-Speed Manufacturing:** For assembly line [defect detection](https://www.ultralytics.com/blog/how-vision-ai-enhances-defect-detection-on-production-lines), YOLOv5's minimal inference latency on edge GPUs ensures products are inspected without slowing down the belt.
 - **Drone and Aerial Imagery:** Its efficient memory footprint allows it to run on lightweight companion computers on drones for tasks like [agriculture monitoring](https://www.ultralytics.com/solutions/ai-in-agriculture) and wildlife tracking.
-- **Smart Retail:** From [automated checkout](https://www.ultralytics.com/solutions/ai-in-retail) to inventory management, YOLOv5 easily exports to [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) and [ONNX](https://docs.ultralytics.com/integrations/onnx/) for mass deployment across thousands of store cameras.
+- **Smart Retail:** From [automated checkout](https://www.ultralytics.com/solutions/ai-in-retail) to inventory management, YOLOv5 easily exports to [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) and [ONNX](https://docs.ultralytics.com/integrations/onnx) for mass deployment across thousands of store cameras.
 
 ## Looking Forward: The YOLO26 Advantage
 

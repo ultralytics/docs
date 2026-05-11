@@ -6,20 +6,20 @@ keywords: YOLO26, YOLO11, YOLOv10 comparison, YOLOv8 vs RT-DETR, object detectio
 
 # Model Comparisons: Choose the Best Object Detection Model for Your Project
 
-Choosing the right neural network architecture is the cornerstone of any successful [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) project. Welcome to the **Ultralytics Model Comparison Hub**! This page centralizes detailed technical analyses and performance benchmarks, dissecting the trade-offs between the latest [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) and other leading architectures like YOLO11, YOLOv10, RT-DETR, and EfficientDet.
+Choosing the right neural network architecture is the cornerstone of any successful [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) project. Welcome to the **Ultralytics Model Comparison Hub**! This page centralizes detailed technical analyses and performance benchmarks, dissecting the trade-offs between the latest [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) and other leading architectures like YOLO11, YOLOv10, RT-DETR, and EfficientDet.
 
 Whether your application demands the millisecond latency of [edge AI](https://www.ultralytics.com/glossary/edge-ai) or the high-fidelity precision required for medical imaging, this guide provides the data-driven insights needed to make an informed choice. We evaluate models based on [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map), [inference speed](https://www.ultralytics.com/glossary/inference-latency), parameter efficiency, and ease of deployment.
 
 ## Interactive Performance Benchmarks
 
-Visualizing the relationship between speed and accuracy is essential for identifying the "Pareto frontier" of object detection—models that offer the best accuracy for a given speed constraint. The chart below contrasts key metrics on standard [datasets like COCO](https://docs.ultralytics.com/datasets/detect/coco/).
+Visualizing the relationship between speed and accuracy is essential for identifying the "Pareto frontier" of object detection—models that offer the best accuracy for a given speed constraint. The chart below contrasts key metrics on standard [datasets like COCO](https://docs.ultralytics.com/datasets/detect/coco).
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400"></canvas>
 
-This chart visualizes key [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics/) enabling you to quickly assess the trade-offs between different models. Understanding these metrics is fundamental to selecting a model that aligns with your specific deployment constraints.
+This chart visualizes key [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics) enabling you to quickly assess the trade-offs between different models. Understanding these metrics is fundamental to selecting a model that aligns with your specific deployment constraints.
 
 ## Quick Decision Guide
 

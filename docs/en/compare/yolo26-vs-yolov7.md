@@ -25,7 +25,7 @@ Before examining the performance data, it is important to understand the origins
 **Organization:** [Ultralytics](https://www.ultralytics.com)  
 **Date:** 2026-01-14  
 **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)  
-**Docs:** [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26/)
+**Docs:** [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26)
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
@@ -37,11 +37,11 @@ Before examining the performance data, it is important to understand the origins
 **Arxiv:** [YOLOv7 Paper](https://arxiv.org/abs/2207.02696)  
 **GitHub:** [YOLOv7 Repository](https://github.com/WongKinYiu/yolov7)
 
-[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7/){ .md-button }
+[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 
 !!! note "Alternative Models to Consider"
 
-    If you are exploring the broader ecosystem, you might also be interested in [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) for highly balanced multi-task deployments, or the transformer-based [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) for sequence-based detection. Note that older models like [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) and [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5) remain fully supported on the Ultralytics Platform for legacy integration.
+    If you are exploring the broader ecosystem, you might also be interested in [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) for highly balanced multi-task deployments, or the transformer-based [RT-DETR](https://docs.ultralytics.com/models/rtdetr) for sequence-based detection. Note that older models like [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) and [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5) remain fully supported on the Ultralytics Platform for legacy integration.
 
 ## Architectural Deep Dive
 
@@ -49,7 +49,7 @@ The architectural philosophies behind YOLO26 and YOLOv7 diverge significantly, r
 
 ### YOLO26: The Edge-First Paradigm
 
-Released in 2026, YOLO26 fundamentally rethinks the deployment pipeline. Its most significant breakthrough is the **End-to-End NMS-Free Design**. By eliminating [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing, YOLO26 drastically reduces latency variability, a concept that was first successfully piloted in [YOLOv10](https://docs.ultralytics.com/models/yolov10/). This ensures consistent frame rates even in densely populated scenes, which is critical for autonomous robotics and traffic monitoring.
+Released in 2026, YOLO26 fundamentally rethinks the deployment pipeline. Its most significant breakthrough is the **End-to-End NMS-Free Design**. By eliminating [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing, YOLO26 drastically reduces latency variability, a concept that was first successfully piloted in [YOLOv10](https://docs.ultralytics.com/models/yolov10). This ensures consistent frame rates even in densely populated scenes, which is critical for autonomous robotics and traffic monitoring.
 
 Furthermore, YOLO26 completely removes Distribution Focal Loss (DFL). This **DFL Removal** simplifies the export process to formats like [ONNX](https://onnx.ai/) and [Apple CoreML](https://developer.apple.com/machine-learning/core-ml/), achieving up to **43% faster CPU inference**.
 
@@ -80,11 +80,11 @@ _Note: YOLO26x outperforms YOLOv7x in mAP by an impressive margin (57.5 vs 53.1)
 
 ## The Ultralytics Ecosystem Advantage
 
-A primary reason developers consistently choose YOLO26 is its deep integration into the [Ultralytics Platform](https://docs.ultralytics.com/platform/). Unlike the standalone scripts required for older architectures, Ultralytics provides a seamless, unified workflow.
+A primary reason developers consistently choose YOLO26 is its deep integration into the [Ultralytics Platform](https://docs.ultralytics.com/platform). Unlike the standalone scripts required for older architectures, Ultralytics provides a seamless, unified workflow.
 
 1. **Ease of Use:** The Python API allows users to load, train, and deploy models in just a few lines of code. Exporting to mobile formats like [TensorFlow Lite](https://ai.google.dev/edge/litert) requires merely changing a single argument.
 2. **Memory Requirements:** Ultralytics models are meticulously engineered for training efficiency. They require significantly less CUDA memory compared to heavy vision transformer models, allowing researchers to run larger batch sizes on consumer hardware.
-3. **Versatility:** While YOLOv7 requires entirely different repositories for different tasks, YOLO26 natively supports [Image Classification](https://docs.ultralytics.com/tasks/classify/), [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) detection from a single, cohesive library. It even includes task-specific loss functions, such as Residual Log-Likelihood Estimation (RLE) for human pose pipelines.
+3. **Versatility:** While YOLOv7 requires entirely different repositories for different tasks, YOLO26 natively supports [Image Classification](https://docs.ultralytics.com/tasks/classify), [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection from a single, cohesive library. It even includes task-specific loss functions, such as Residual Log-Likelihood Estimation (RLE) for human pose pipelines.
 4. **Active Development:** The Ultralytics open-source community provides frequent updates, ensuring rapid resolution of edge cases and continuous compatibility with the latest [PyTorch](https://pytorch.org/) releases.
 
 !!! tip "Streamlined Exporting"

@@ -39,7 +39,7 @@ Furthermore, YOLOX introduced a decoupled head architecture. By separating the c
 
 ## YOLOv6-3.0: The Industrial Heavyweight
 
-Developed by the Vision AI Department at [Meituan](https://www.meituan.com/), YOLOv6-3.0 is unapologetically engineered for maximum industrial throughput, particularly on NVIDIA GPUs using hardware accelerators like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/).
+Developed by the Vision AI Department at [Meituan](https://www.meituan.com/), YOLOv6-3.0 is unapologetically engineered for maximum industrial throughput, particularly on NVIDIA GPUs using hardware accelerators like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt).
 
 - **Authors:** Chuyi Li, Lulu Li, Yifei Geng, et al.
 - **Organization:** Meituan
@@ -53,7 +53,7 @@ YOLOv6-3.0 focuses on maximizing [GPU](https://www.ultralytics.com/glossary/gpu-
 
 The backbone is constructed using the hardware-friendly EfficientRep architecture, deliberately designed to minimize memory access costs and maximize computational density on modern accelerators. This makes YOLOv6 an exceptionally strong candidate for server-side video analytics.
 
-[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6/){ .md-button }
+[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6){ .md-button }
 
 ## Performance Comparison
 
@@ -97,19 +97,19 @@ YOLOv6 is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultralytics Advantage
 
 While both Megvii and Meituan provide powerful research repositories, deploying these models in production often requires significant engineering overhead. The integrated [Ultralytics ecosystem](https://docs.ultralytics.com/) eliminates these hurdles by offering a unified, extensively documented API.
 
-By leveraging the Ultralytics package, developers gain access to an unparalleled user experience. This includes built-in [auto-augmentation](https://docs.ultralytics.com/reference/data/augment/), highly efficient memory management during training (drastically lowering VRAM requirements compared to transformer models like [RTDETR](https://docs.ultralytics.com/models/rtdetr/)), and seamless export pipelines to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx/) and [OpenVINO](https://docs.ultralytics.com/integrations/openvino/).
+By leveraging the Ultralytics package, developers gain access to an unparalleled user experience. This includes built-in [auto-augmentation](https://docs.ultralytics.com/reference/data/augment), highly efficient memory management during training (drastically lowering VRAM requirements compared to transformer models like [RTDETR](https://docs.ultralytics.com/models/rtdetr)), and seamless export pipelines to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx) and [OpenVINO](https://docs.ultralytics.com/integrations/openvino).
 
-Unlike specialized models, Ultralytics architectures are inherently versatile, supporting [Object Detection](https://docs.ultralytics.com/tasks/detect/), [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), Image Classification, and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/) out of the box.
+Unlike specialized models, Ultralytics architectures are inherently versatile, supporting [Object Detection](https://docs.ultralytics.com/tasks/detect), [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), Image Classification, and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb) out of the box.
 
 ### Enter YOLO26: The Ultimate Edge Solution
 

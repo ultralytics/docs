@@ -23,7 +23,7 @@ Understanding the core mechanics of these models is crucial for [machine learnin
 
 Building on the success of the original RT-DETR, RTDETRv2 utilizes a hybrid encoder and a [transformer decoder](https://arxiv.org/abs/1706.03762). This design allows the model to process global context highly effectively, making it exceptionally good at distinguishing between overlapping objects in dense scenes. The most significant advantage of this architecture is its native NMS-free (Non-Maximum Suppression) design. By eliminating the NMS post-processing step, RTDETRv2 streamlines the inference pipeline and ensures more stable latency across varying hardware configurations.
 
-[Learn more about RTDETRv2](https://docs.ultralytics.com/models/rtdetr/){ .md-button }
+[Learn more about RTDETRv2](https://docs.ultralytics.com/models/rtdetr){ .md-button }
 
 ### DAMO-YOLO: Advancing CNN Efficiency
 
@@ -37,7 +37,7 @@ DAMO-YOLO, on the other hand, remains rooted in the highly successful CNN-based 
 
 ## Performance and Metrics Comparison
 
-When evaluating models for deployment, [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics/) such as mean Average Precision (mAP), inference speed, and parameter count are paramount. Below is a detailed comparison of the two model families.
+When evaluating models for deployment, [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics) such as mean Average Precision (mAP), inference speed, and parameter count are paramount. Below is a detailed comparison of the two model families.
 
 | Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -53,7 +53,7 @@ When evaluating models for deployment, [performance metrics](https://docs.ultral
 
 ### Analysis of Results
 
-As seen in the table, the **RTDETRv2-x** achieves the highest accuracy with an mAP<sup>val</sup> of 54.3, showcasing the power of the transformer architecture on complex validations like the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/). However, this comes at the cost of significantly higher parameters (76M) and FLOPs.
+As seen in the table, the **RTDETRv2-x** achieves the highest accuracy with an mAP<sup>val</sup> of 54.3, showcasing the power of the transformer architecture on complex validations like the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco). However, this comes at the cost of significantly higher parameters (76M) and FLOPs.
 
 Conversely, **DAMO-YOLOt** (Tiny) is exceptionally lightweight, requiring only 8.5M parameters, making it an incredibly fast option for environments where CUDA memory is severely restricted. DAMO-YOLO generally provides a favorable trade-off between speed and accuracy for legacy edge devices.
 
@@ -86,13 +86,13 @@ results_yolo[0].show()
 
 !!! tip "Exporting Models for Production"
 
-    Using the Ultralytics API, you can seamlessly [export your trained models](https://docs.ultralytics.com/modes/export/) to formats like TensorRT, ONNX, or CoreML with a simple `model.export(format="engine")` command, drastically reducing deployment friction.
+    Using the Ultralytics API, you can seamlessly [export your trained models](https://docs.ultralytics.com/modes/export) to formats like TensorRT, ONNX, or CoreML with a simple `model.export(format="engine")` command, drastically reducing deployment friction.
 
 ## Ideal Use Cases
 
 Choosing between these architectures depends entirely on your specific project requirements:
 
-- **RTDETRv2** excels in server-side processing where VRAM is abundant. Its global context awareness is perfect for [medical imaging](https://www.nature.com/subjects/medical-imaging?error=cookies_not_supported&code=fe3dedd7-5a9d-4206-9baf-f97b0ad990aa) and dense crowd analysis where occlusions are frequent.
+- **RTDETRv2** excels in server-side processing where VRAM is abundant. Its global context awareness is perfect for [medical imaging](https://www.nature.com/subjects/medical-imaging) and dense crowd analysis where occlusions are frequent.
 - **DAMO-YOLO** is highly suitable for [embedded IoT applications](https://en.wikipedia.org/wiki/Internet_of_things) and fast-moving industrial inspection lines where low parameter counts and high FPS are strict requirements.
 
 ## The Future: Ultralytics YOLO26
@@ -101,7 +101,7 @@ While both RTDETRv2 and DAMO-YOLO have their merits, the field of computer visio
 
 YOLO26 adopts an **End-to-End NMS-Free Design**, capturing the primary benefit of transformers without the massive computational overhead. It incorporates the innovative **MuSGD Optimizer**—inspired by [Large Language Model](https://en.wikipedia.org/wiki/Large_language_model) training—for stable, fast convergence. Furthermore, with **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), YOLO26 achieves up to **43% faster CPU inference**, making it the undisputed champion for [edge computing](https://en.wikipedia.org/wiki/Edge_computing). Additionally, **ProgLoss + STAL** provides improved loss functions with notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery.
 
-Unlike models limited strictly to bounding boxes, the YOLO26 family offers unparalleled versatility, supporting tasks ranging from [instance segmentation](https://docs.ultralytics.com/tasks/segment/) and [pose estimation](https://docs.ultralytics.com/tasks/pose/) to [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb/), all managed seamlessly through the intuitive [Ultralytics Platform](https://platform.ultralytics.com).
+Unlike models limited strictly to bounding boxes, the YOLO26 family offers unparalleled versatility, supporting tasks ranging from [instance segmentation](https://docs.ultralytics.com/tasks/segment) and [pose estimation](https://docs.ultralytics.com/tasks/pose) to [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb), all managed seamlessly through the intuitive [Ultralytics Platform](https://platform.ultralytics.com).
 
 [Explore YOLO26 on Platform](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
@@ -123,4 +123,4 @@ Unlike models limited strictly to bounding boxes, the YOLO26 family offers unpar
 - **Arxiv:** [2211.15444v2](https://arxiv.org/abs/2211.15444v2)
 - **GitHub:** [DAMO-YOLO Repository](https://github.com/tinyvision/DAMO-YOLO)
 
-For users interested in exploring other comparisons, check out our guides on [RTDETRv2 vs. YOLO11](https://docs.ultralytics.com/compare/rtdetr-vs-yolo11/) or [DAMO-YOLO vs. YOLOv8](https://docs.ultralytics.com/compare/damo-yolo-vs-yolov8/) to see how these models perform against previous generations of the Ultralytics family.
+For users interested in exploring other comparisons, check out our guides on [RTDETRv2 vs. YOLO11](https://docs.ultralytics.com/compare/rtdetr-vs-yolo11) or [DAMO-YOLO vs. YOLOv8](https://docs.ultralytics.com/compare/damo-yolo-vs-yolov8) to see how these models perform against previous generations of the Ultralytics family.

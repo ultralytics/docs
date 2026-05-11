@@ -39,7 +39,7 @@ Developed by Xianzhe Xu and a team of researchers at the [Alibaba Group](https:/
 
 DAMO-YOLO's strategy was built on automating the design of efficient structures:
 
-- **MAE-NAS Backbones:** Utilizing a Multi-Objective Evolutionary algorithm, DAMO-YOLO discovered highly efficient backbones customized for specific latency budgets, particularly when exported to frameworks like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/).
+- **MAE-NAS Backbones:** Utilizing a Multi-Objective Evolutionary algorithm, DAMO-YOLO discovered highly efficient backbones customized for specific latency budgets, particularly when exported to frameworks like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt).
 - **Efficient RepGFPN:** A heavy-neck design that significantly enhances feature fusion across different spatial resolutions, which is highly beneficial for [aerial imagery analysis](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and detecting objects at varying scales.
 - **ZeroHead:** A simplified prediction head that trims computational redundancy without sacrificing the model's overall mean Average Precision (mAP).
 - **AlignedOTA and Distillation:** Incorporates advanced label assignment and teacher-student knowledge distillation to squeeze maximum performance out of smaller student models.
@@ -88,15 +88,15 @@ DAMO-YOLO is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultralytics Advantage: Introducing YOLO26
 
-While YOLOX and DAMO-YOLO represent important historical milestones, modern developers require a solution that pairs state-of-the-art accuracy with unparalleled ease of use. This is where [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) transforms the landscape. Released in January 2026, YOLO26 builds upon the legacy of [NMS-free models](https://docs.ultralytics.com/models/yolov10/) to deliver the ultimate balance of speed, accuracy, and developer experience.
+While YOLOX and DAMO-YOLO represent important historical milestones, modern developers require a solution that pairs state-of-the-art accuracy with unparalleled ease of use. This is where [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) transforms the landscape. Released in January 2026, YOLO26 builds upon the legacy of [NMS-free models](https://docs.ultralytics.com/models/yolov10) to deliver the ultimate balance of speed, accuracy, and developer experience.
 
 ### Why Choose YOLO26?
 
@@ -107,11 +107,11 @@ The integrated Ultralytics ecosystem outshines fragmented academic repositories 
 - **MuSGD Optimizer:** YOLO26 borrows LLM training innovations with its hybrid SGD and Muon optimizer, ensuring rock-solid training stability and ultra-fast convergence.
 - **Up to 43% Faster CPU Inference:** Thanks to deep structural optimizations, YOLO26 runs blazingly fast on CPUs without needing expensive GPU hardware.
 - **Advanced Loss Functions:** The integration of ProgLoss + STAL provides massive improvements in small-object recognition, making it ideal for tasks like [drone inspections](https://www.ultralytics.com/solutions/ai-in-agriculture) and IoT monitoring.
-- **Versatility:** Unlike DAMO-YOLO, which is strictly a detector, YOLO26 natively supports [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), [Image Classification](https://docs.ultralytics.com/tasks/classify/), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) tasks in a single, unified framework.
+- **Versatility:** Unlike DAMO-YOLO, which is strictly a detector, YOLO26 natively supports [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), [Image Classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) tasks in a single, unified framework.
 
 !!! tip "Start Building Instantly"
 
-    With the [Ultralytics Python API](https://docs.ultralytics.com/usage/python/), you don't need to manually configure complex distillation pipelines or write hundreds of lines of C++ code to deploy your model.
+    With the [Ultralytics Python API](https://docs.ultralytics.com/usage/python), you don't need to manually configure complex distillation pipelines or write hundreds of lines of C++ code to deploy your model.
 
 ```python
 from ultralytics import YOLO
@@ -137,7 +137,7 @@ The computer vision ecosystem is vast. Depending on your specific constraints, y
 
 - **[YOLO11](https://platform.ultralytics.com/ultralytics/yolo11):** The highly capable predecessor to YOLO26, known for its robustness in [retail analytics](https://www.ultralytics.com/solutions/ai-in-retail) and [manufacturing quality control](https://www.ultralytics.com/solutions/ai-in-manufacturing).
 - **[YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8):** A legendary, highly stable anchor-free model that popularized widespread edge deployment.
-- **[RT-DETR](https://docs.ultralytics.com/models/rtdetr/):** A Real-Time DEtection TRansformer developed by Baidu, offering an excellent alternative for tasks that benefit heavily from global attention mechanisms, albeit at the cost of higher training memory requirements.
+- **[RT-DETR](https://docs.ultralytics.com/models/rtdetr):** A Real-Time DEtection TRansformer developed by Baidu, offering an excellent alternative for tasks that benefit heavily from global attention mechanisms, albeit at the cost of higher training memory requirements.
 
 ## Conclusion
 

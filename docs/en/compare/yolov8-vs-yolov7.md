@@ -23,7 +23,7 @@ Released by Ultralytics in early 2023, YOLOv8 represents a major architectural s
 - **Organization:** [Ultralytics](https://www.ultralytics.com/)
 - **Date:** 2023-01-10
 - **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- **Docs:** [YOLOv8 Documentation](https://docs.ultralytics.com/models/yolov8/)
+- **Docs:** [YOLOv8 Documentation](https://docs.ultralytics.com/models/yolov8)
 
 ### Architectural Innovations
 
@@ -53,7 +53,7 @@ YOLOv7 employs an **Extended Efficient Layer Aggregation Network (E-ELAN)**, whi
 
 While YOLOv7 achieves excellent performance on standard academic benchmarks like the [MS COCO dataset](https://cocodataset.org/), its architecture is heavily optimized for server-grade accelerators. Exporting and deploying these models to edge devices can sometimes require more manual configuration compared to more modern, streamlined frameworks.
 
-[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7/){ .md-button }
+[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 
 ## Detailed Performance Comparison
 
@@ -78,7 +78,7 @@ While YOLOv7 provides strong raw detection metrics, **Ultralytics YOLOv8** outsh
 
 ### Unmatched Versatility
 
-YOLOv7 is primarily a detection model, with experimental branches for other tasks. In contrast, YOLOv8 natively supports [Object Detection](https://docs.ultralytics.com/tasks/detect/), [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Image Classification](https://docs.ultralytics.com/tasks/classify/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/). This unified approach means a team can learn one API and deploy it across entirely different project requirements.
+YOLOv7 is primarily a detection model, with experimental branches for other tasks. In contrast, YOLOv8 natively supports [Object Detection](https://docs.ultralytics.com/tasks/detect), [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Image Classification](https://docs.ultralytics.com/tasks/classify), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb). This unified approach means a team can learn one API and deploy it across entirely different project requirements.
 
 ### Streamlined Deployment and Integrations
 

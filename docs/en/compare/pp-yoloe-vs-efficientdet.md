@@ -6,7 +6,7 @@ keywords: PP-YOLOE+,EfficientDet,object detection,PP-YOLOE+m,EfficientDet-D7,AI 
 
 # PP-YOLOE+ vs EfficientDet: A Comprehensive Technical Comparison
 
-Choosing the right architecture is a critical step in building robust [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) applications. This technical guide explores the trade-offs between two well-known object detection models: **PP-YOLOE+** and **EfficientDet**. We will break down their architectures, analyze their [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics/), and explore their ideal deployment scenarios.
+Choosing the right architecture is a critical step in building robust [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) applications. This technical guide explores the trade-offs between two well-known object detection models: **PP-YOLOE+** and **EfficientDet**. We will break down their architectures, analyze their [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics), and explore their ideal deployment scenarios.
 
 While both models have made significant contributions to the field, we will also discuss how modern alternatives like [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) offer vastly superior memory efficiency, faster inference, and a highly streamlined developer experience.
 
@@ -31,11 +31,11 @@ PP-YOLOE+ features a CSPRepResNet backbone, an Efficient Task-aligned head (ET-h
 
 !!! tip "Integration Benefits"
 
-    Teams already deeply invested in Baidu's PaddlePaddle framework often find PP-YOLOE+ easier to adopt for tasks like [instance segmentation](https://docs.ultralytics.com/tasks/segment/), though it lacks the broad multi-framework support seen in newer tools.
+    Teams already deeply invested in Baidu's PaddlePaddle framework often find PP-YOLOE+ easier to adopt for tasks like [instance segmentation](https://docs.ultralytics.com/tasks/segment), though it lacks the broad multi-framework support seen in newer tools.
 
 ## Architectural Overview: EfficientDet
 
-EfficientDet takes a radically different approach to [object detection](https://docs.ultralytics.com/tasks/detect/), relying heavily on neural architecture search and compound scaling principles.
+EfficientDet takes a radically different approach to [object detection](https://docs.ultralytics.com/tasks/detect), relying heavily on neural architecture search and compound scaling principles.
 
 - **Authors:** Mingxing Tan, Ruoming Pang, and Quoc V. Le
 - **Organization:** [Google](https://github.com/google/automl/tree/master/efficientdet)
@@ -51,7 +51,7 @@ While theoretically highly efficient in terms of FLOPs, EfficientDet models can 
 
 ## Performance Analysis and Benchmarks
 
-The table below contrasts key metrics on standard [datasets like COCO](https://docs.ultralytics.com/datasets/detect/coco/). Comparing [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) against inference speed provides a clear picture of the Pareto frontier.
+The table below contrasts key metrics on standard [datasets like COCO](https://docs.ultralytics.com/datasets/detect/coco). Comparing [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) against inference speed provides a clear picture of the Pareto frontier.
 
 | Model           | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | --------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -94,11 +94,11 @@ EfficientDet is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Modern Alternative: Ultralytics YOLO26
 
@@ -106,14 +106,14 @@ While PP-YOLOE+ and EfficientDet represent significant historical milestones, de
 
 YOLO26 represents a massive leap forward in object detection, introducing several critical innovations:
 
-- **End-to-End NMS-Free Design:** Building on the breakthroughs of [YOLOv10](https://docs.ultralytics.com/models/yolov10/), YOLO26 natively eliminates Non-Maximum Suppression (NMS) during inference. This results in significantly lower latency and removes complex post-processing bottlenecks.
+- **End-to-End NMS-Free Design:** Building on the breakthroughs of [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 natively eliminates Non-Maximum Suppression (NMS) during inference. This results in significantly lower latency and removes complex post-processing bottlenecks.
 - **MuSGD Optimizer:** Inspired by LLM training innovations, YOLO26 utilizes a hybrid SGD and Muon optimizer. This drastically improves training stability and reduces convergence time.
-- **Extreme Speed:** YOLO26 delivers up to **43% faster CPU inference** compared to older generations like [YOLO11](https://docs.ultralytics.com/models/yolo11/), making it the absolute best choice for battery-powered or CPU-only edge devices.
+- **Extreme Speed:** YOLO26 delivers up to **43% faster CPU inference** compared to older generations like [YOLO11](https://docs.ultralytics.com/models/yolo11), making it the absolute best choice for battery-powered or CPU-only edge devices.
 - **Advanced Loss Functions:** The integration of ProgLoss and STAL greatly improves small-object recognition, which is essential for tasks like [drone analytics](https://www.ultralytics.com/blog/build-ai-powered-drone-applications-with-ultralytics-yolo11) and [robotics](https://www.ultralytics.com/blog/from-algorithms-to-automation-ais-role-in-robotics).
 
 !!! note "Multi-Task Versatility"
 
-    Unlike EfficientDet which focuses purely on detection, YOLO26 natively handles [pose estimation](https://docs.ultralytics.com/tasks/pose/), [image classification](https://docs.ultralytics.com/tasks/classify/), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb/), all within the same well-maintained ecosystem.
+    Unlike EfficientDet which focuses purely on detection, YOLO26 natively handles [pose estimation](https://docs.ultralytics.com/tasks/pose), [image classification](https://docs.ultralytics.com/tasks/classify), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb), all within the same well-maintained ecosystem.
 
 ### Ease of Use and Ecosystem Integration
 
@@ -134,7 +134,7 @@ results = model.train(data="coco8.yaml", epochs=100)
 predictions = model("https://ultralytics.com/images/bus.jpg")
 ```
 
-For those exploring other alternatives, architectures like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) or the legacy [YOLOv8](https://docs.ultralytics.com/models/yolov8/) are also available within the Ultralytics ecosystem, allowing for seamless swapping and testing.
+For those exploring other alternatives, architectures like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) or the legacy [YOLOv8](https://docs.ultralytics.com/models/yolov8) are also available within the Ultralytics ecosystem, allowing for seamless swapping and testing.
 
 ## Conclusion
 

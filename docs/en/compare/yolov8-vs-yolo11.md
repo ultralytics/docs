@@ -43,7 +43,7 @@ Building upon the success of its predecessors, YOLO11 refined the core architect
 
 !!! tip "Other Architectures"
 
-    If you are exploring alternative approaches, Ultralytics also supports transformer-based models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) and zero-shot open-vocabulary detectors like [YOLO-World](https://docs.ultralytics.com/models/yolo-world/). However, for optimal latency and memory efficiency, standard YOLO architectures typically remain the preferred choice.
+    If you are exploring alternative approaches, Ultralytics also supports transformer-based models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) and zero-shot open-vocabulary detectors like [YOLO-World](https://docs.ultralytics.com/models/yolo-world). However, for optimal latency and memory efficiency, standard YOLO architectures typically remain the preferred choice.
 
 ## Architectural and Methodological Differences
 
@@ -100,10 +100,10 @@ The seamless integration extends to the [Ultralytics Platform](https://platform.
 
 A major hallmark of the Ultralytics framework is its inherent **versatility**. Both YOLOv8 and YOLO11 support a wide range of computer vision tasks beyond standard object detection:
 
-- **[Instance Segmentation](https://docs.ultralytics.com/tasks/segment/):** Highly accurate pixel-level masks useful for medical imaging and autonomous driving.
-- **[Pose Estimation](https://docs.ultralytics.com/tasks/pose/):** Keypoint detection tailored for sports analytics and human-computer interaction.
-- **[Image Classification](https://docs.ultralytics.com/tasks/classify/):** Lightweight categorization utilizing backbones trained on [ImageNet](https://www.image-net.org/).
-- **[Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/):** Critical for identifying rotated objects in satellite imagery.
+- **[Instance Segmentation](https://docs.ultralytics.com/tasks/segment):** Highly accurate pixel-level masks useful for medical imaging and autonomous driving.
+- **[Pose Estimation](https://docs.ultralytics.com/tasks/pose):** Keypoint detection tailored for sports analytics and human-computer interaction.
+- **[Image Classification](https://docs.ultralytics.com/tasks/classify):** Lightweight categorization utilizing backbones trained on [ImageNet](https://www.image-net.org/).
+- **[Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb):** Critical for identifying rotated objects in satellite imagery.
 
 YOLOv8, having been available longer, boasts an enormous repository of community tutorials and heavily tested enterprise deployments. If you are integrating with legacy pipelines that strictly expect YOLOv8 tensor shapes, it remains a highly dependable choice. However, for new projects prioritizing maximum efficiency—such as deploying on embedded edge devices like a Raspberry Pi—YOLO11 is the clear operational winner due to its superior speed-to-parameter ratio.
 
@@ -115,7 +115,7 @@ Choosing between YOLOv8 and YOLO11 depends on your specific project requirements
 
 YOLOv8 is a strong choice for:
 
-- **Versatile Multi-Task Deployment:** Projects requiring a proven model for [detection](https://docs.ultralytics.com/tasks/detect/), [segmentation](https://docs.ultralytics.com/tasks/segment/), [classification](https://docs.ultralytics.com/tasks/classify/), and [pose estimation](https://docs.ultralytics.com/tasks/pose/) within the Ultralytics ecosystem.
+- **Versatile Multi-Task Deployment:** Projects requiring a proven model for [detection](https://docs.ultralytics.com/tasks/detect), [segmentation](https://docs.ultralytics.com/tasks/segment), [classification](https://docs.ultralytics.com/tasks/classify), and [pose estimation](https://docs.ultralytics.com/tasks/pose) within the Ultralytics ecosystem.
 - **Established Production Systems:** Existing production environments already built on the YOLOv8 architecture with stable, well-tested deployment pipelines.
 - **Broad Community and Ecosystem Support:** Applications benefiting from YOLOv8's extensive tutorials, third-party integrations, and active community resources.
 
@@ -123,17 +123,17 @@ YOLOv8 is a strong choice for:
 
 YOLO11 is recommended for:
 
-- **Production Edge Deployment:** Commercial applications on devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) or [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/) where reliability and active maintenance are paramount.
-- **Multi-Task Vision Applications:** Projects requiring [detection](https://docs.ultralytics.com/tasks/detect/), [segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [OBB](https://docs.ultralytics.com/tasks/obb/) within a single unified framework.
-- **Rapid Prototyping and Deployment:** Teams that need to move quickly from data collection to production using the streamlined [Ultralytics Python API](https://docs.ultralytics.com/usage/python/).
+- **Production Edge Deployment:** Commercial applications on devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) or [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson) where reliability and active maintenance are paramount.
+- **Multi-Task Vision Applications:** Projects requiring [detection](https://docs.ultralytics.com/tasks/detect), [segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [OBB](https://docs.ultralytics.com/tasks/obb) within a single unified framework.
+- **Rapid Prototyping and Deployment:** Teams that need to move quickly from data collection to production using the streamlined [Ultralytics Python API](https://docs.ultralytics.com/usage/python).
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Cutting Edge: The YOLO26 Advantage
 

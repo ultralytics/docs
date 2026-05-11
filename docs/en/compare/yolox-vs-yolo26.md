@@ -26,7 +26,7 @@ Arxiv: [2107.08430](https://arxiv.org/abs/2107.08430)
 GitHub: [Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)  
 Docs: [YOLOX ReadTheDocs](https://yolox.readthedocs.io/en/latest/)
 
-Introduced in mid-2021, YOLOX represented a major shift by adopting an anchor-free design coupled with a decoupled head and the advanced label assignment strategy known as SimOTA. By stepping away from the traditional anchor box mechanisms that dominated previous architectures, YOLOX successfully bridged the gap between academic research and industrial application, offering an elegant yet highly effective framework for [object detection](https://docs.ultralytics.com/tasks/detect/).
+Introduced in mid-2021, YOLOX represented a major shift by adopting an anchor-free design coupled with a decoupled head and the advanced label assignment strategy known as SimOTA. By stepping away from the traditional anchor box mechanisms that dominated previous architectures, YOLOX successfully bridged the gap between academic research and industrial application, offering an elegant yet highly effective framework for [object detection](https://docs.ultralytics.com/tasks/detect).
 
 [Learn more about YOLOX](https://github.com/Megvii-BaseDetection/YOLOX){ .md-button }
 
@@ -57,8 +57,8 @@ YOLO26 takes architectural efficiency to the next level. The removal of NMS not 
 Key YOLO26 innovations include:
 
 - **MuSGD Optimizer:** Inspired by Large Language Model (LLM) training techniques, this hybrid of SGD and Muon ensures exceptionally stable training runs and faster convergence.
-- **Up to 43% Faster CPU Inference:** By eliminating DFL and streamlining the network architecture, YOLO26 is heavily optimized for resource-constrained edge devices, from simple IoT sensors to [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) boards.
-- **ProgLoss + STAL:** These advanced loss functions deliver notable improvements in small-object recognition, which is critical for analyzing [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) and performing precise quality control in [manufacturing automation](https://www.ultralytics.com/blog/manufacturing-automation).
+- **Up to 43% Faster CPU Inference:** By eliminating DFL and streamlining the network architecture, YOLO26 is heavily optimized for resource-constrained edge devices, from simple IoT sensors to [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) boards.
+- **ProgLoss + STAL:** These advanced loss functions deliver notable improvements in small-object recognition, which is critical for analyzing [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and performing precise quality control in [manufacturing automation](https://www.ultralytics.com/blog/manufacturing-automation).
 
 !!! tip "Edge-First Optimization"
 
@@ -91,7 +91,7 @@ One of the most profound differences between these architectures lies in their u
 
 While YOLOX remains a foundational repository for researchers studying gradient flow and anchor-free mechanics, its setup can be complex, often requiring manual configuration of dependencies and operators. Conversely, the **[Ultralytics ecosystem](https://docs.ultralytics.com/)** defines the industry standard for ease of use.
 
-By utilizing the unified Python API, developers can initialize, train, and deploy YOLO26 models with unparalleled simplicity. The system inherently handles dataset downloading, hyperparameter tuning, and seamless export to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx/), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), and OpenVINO.
+By utilizing the unified Python API, developers can initialize, train, and deploy YOLO26 models with unparalleled simplicity. The system inherently handles dataset downloading, hyperparameter tuning, and seamless export to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), and OpenVINO.
 
 ```python
 from ultralytics import YOLO
@@ -121,7 +121,7 @@ YOLOX remains a viable candidate for specific academic benchmarks and legacy sys
 
 ### Where YOLO26 Excels
 
-YOLO26 is fundamentally designed for modern industrial applications. Because it natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/), it is far more versatile than standard detection engines.
+YOLO26 is fundamentally designed for modern industrial applications. Because it natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb), it is far more versatile than standard detection engines.
 
 - **Smart Retail and Inventory:** Utilizing the NMS-free design guarantees that automated checkout systems process video feeds with ultra-low latency, recognizing products without the bottleneck of post-processing loops.
 - **Drone and Aerial Analytics:** The specialized angle loss for OBB and the integration of ProgLoss + STAL make YOLO26 unmatched at detecting rotated objects and tiny artifacts in vast satellite images.
@@ -145,7 +145,7 @@ YOLO26 is recommended for:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## Exploring Other Ultralytics Models
 

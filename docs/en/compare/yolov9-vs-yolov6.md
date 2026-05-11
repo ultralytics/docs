@@ -28,7 +28,7 @@ Introduced in early 2024, YOLOv9 tackles one of the most persistent challenges i
 
 YOLOv9 introduces the concept of Programmable Gradient Information (PGI) alongside the Generalized Efficient Layer Aggregation Network (GELAN). PGI addresses the information bottleneck by providing auxiliary supervision that ensures the main network learns robust, reliable features without adding inference overhead. Meanwhile, GELAN optimizes parameter utilization, allowing the model to achieve state-of-the-art [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) while keeping the computational cost manageable. This makes it an exceptional choice for [medical image analysis](https://www.ultralytics.com/glossary/medical-image-analysis) or detecting extremely small objects where feature fidelity is critical.
 
-[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9/){ .md-button }
+[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9){ .md-button }
 
 ## YOLOv6-3.0 Overview: Built for Industrial Scale
 
@@ -41,13 +41,13 @@ Developed by Meituan, YOLOv6-3.0 (also referred to as v3.0) is engineered from t
 
 ### Architecture and Methodologies
 
-YOLOv6-3.0 distinguishes itself through its RepOptimizer and Anchor-Aided Training (AAT) strategies. The model utilizes a hardware-aware neural network design inspired by RepVGG, which allows it to run exceptionally fast on GPUs during inference by fusing layers. The 3.0 update further refined the architecture by introducing a Bi-directional Concatenation (BiC) module to improve localization accuracy. Because it is highly optimized for deployment formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) and [OpenVINO](https://docs.ultralytics.com/integrations/openvino/), YOLOv6-3.0 is frequently adopted in logistics, [manufacturing automation](https://www.ultralytics.com/blog/manufacturing-automation), and high-throughput server environments.
+YOLOv6-3.0 distinguishes itself through its RepOptimizer and Anchor-Aided Training (AAT) strategies. The model utilizes a hardware-aware neural network design inspired by RepVGG, which allows it to run exceptionally fast on GPUs during inference by fusing layers. The 3.0 update further refined the architecture by introducing a Bi-directional Concatenation (BiC) module to improve localization accuracy. Because it is highly optimized for deployment formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) and [OpenVINO](https://docs.ultralytics.com/integrations/openvino), YOLOv6-3.0 is frequently adopted in logistics, [manufacturing automation](https://www.ultralytics.com/blog/manufacturing-automation), and high-throughput server environments.
 
-[Learn more about YOLOv6-3.0](https://docs.ultralytics.com/models/yolov6/){ .md-button }
+[Learn more about YOLOv6-3.0](https://docs.ultralytics.com/models/yolov6){ .md-button }
 
 ## Performance Comparison
 
-When evaluating these models on the standard [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/), we can observe distinct trade-offs between accuracy and raw inference speed.
+When evaluating these models on the standard [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco), we can observe distinct trade-offs between accuracy and raw inference speed.
 
 | Model       | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ----------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -68,17 +68,17 @@ While YOLOv6-3.0n takes the crown for raw speed on T4 hardware (1.17ms), YOLOv9t
 
 !!! tip "Future-Proof Your Project with YOLO26"
 
-    If you are starting a new computer vision initiative, we highly recommend utilizing **[YOLO26](https://docs.ultralytics.com/models/yolo26/)**. Released in 2026, it features a native **End-to-End NMS-Free Design** that completely eliminates post-processing latency, unlocking up to **43% Faster CPU Inference**.
+    If you are starting a new computer vision initiative, we highly recommend utilizing **[YOLO26](https://docs.ultralytics.com/models/yolo26)**. Released in 2026, it features a native **End-to-End NMS-Free Design** that completely eliminates post-processing latency, unlocking up to **43% Faster CPU Inference**.
 
 ## The Ultralytics Ecosystem Advantage
 
-Regardless of which model's architectural philosophy appeals to you, implementing them natively through the [Ultralytics Python API](https://docs.ultralytics.com/usage/python/) provides a superior developer experience.
+Regardless of which model's architectural philosophy appeals to you, implementing them natively through the [Ultralytics Python API](https://docs.ultralytics.com/usage/python) provides a superior developer experience.
 
 ### Ease of Use and Training Efficiency
 
 Training complex deep learning models traditionally requires massive boilerplate code. The [Ultralytics Platform](https://platform.ultralytics.com) abstracts these complexities. Whether you are fine-tuning YOLOv9 for [defect detection](https://www.ultralytics.com/blog/how-vision-ai-enhances-defect-detection-on-production-lines) or exporting YOLOv6 for mobile applications, the workflow remains remarkably consistent.
 
-Furthermore, Ultralytics architectures generally boast lower [CUDA memory requirements](https://docs.ultralytics.com/guides/yolo-performance-metrics/) during training compared to bulky transformer-based models. This allows developers to use larger batch sizes on consumer-grade GPUs, vastly improving training efficiency.
+Furthermore, Ultralytics architectures generally boast lower [CUDA memory requirements](https://docs.ultralytics.com/guides/yolo-performance-metrics) during training compared to bulky transformer-based models. This allows developers to use larger batch sizes on consumer-grade GPUs, vastly improving training efficiency.
 
 ```python
 from ultralytics import YOLO
@@ -96,7 +96,7 @@ model.export(format="engine", half=True)
 
 ### Unmatched Versatility Across Vision Tasks
 
-While YOLOv6-3.0 is heavily optimized for fast bounding box generation, modern computer vision projects often require a multi-task approach. Ultralytics models are celebrated for their extreme versatility. With tools like [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) and the newer YOLO26, a single framework seamlessly handles [object detection](https://docs.ultralytics.com/tasks/detect/), [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [image classification](https://docs.ultralytics.com/tasks/classify/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb/).
+While YOLOv6-3.0 is heavily optimized for fast bounding box generation, modern computer vision projects often require a multi-task approach. Ultralytics models are celebrated for their extreme versatility. With tools like [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) and the newer YOLO26, a single framework seamlessly handles [object detection](https://docs.ultralytics.com/tasks/detect), [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
 ## Introducing YOLO26: The New Standard
 

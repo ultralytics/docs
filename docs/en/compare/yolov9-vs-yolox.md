@@ -6,7 +6,7 @@ keywords: YOLOv9, YOLOX, object detection, model comparison, computer vision, YO
 
 # YOLOv9 vs YOLOX: A Technical Deep Dive into Modern Object Detection
 
-The field of computer vision has witnessed a rapid evolution in real-time object detection architectures. This guide provides a comprehensive comparison between **[YOLOv9](https://docs.ultralytics.com/models/yolov9/)** and **YOLOX**, analyzing their architectural innovations, performance metrics, and training methodologies. Whether you are building smart applications for [AI in manufacturing](https://www.ultralytics.com/solutions/ai-in-manufacturing) or exploring [predictive modeling](https://www.ultralytics.com/glossary/predictive-modeling), understanding these models will help you make informed decisions for your next deployment.
+The field of computer vision has witnessed a rapid evolution in real-time object detection architectures. This guide provides a comprehensive comparison between **[YOLOv9](https://docs.ultralytics.com/models/yolov9)** and **YOLOX**, analyzing their architectural innovations, performance metrics, and training methodologies. Whether you are building smart applications for [AI in manufacturing](https://www.ultralytics.com/solutions/ai-in-manufacturing) or exploring [predictive modeling](https://www.ultralytics.com/glossary/predictive-modeling), understanding these models will help you make informed decisions for your next deployment.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -27,7 +27,7 @@ YOLOv9 introduced a paradigm shift by addressing the information bottleneck prob
 
 By retaining crucial feature data during the feed-forward process, YOLOv9 ensures that the gradients used to update weights during backpropagation remain accurate. This architecture excels at [feature extraction](https://www.ultralytics.com/glossary/feature-extraction), making it highly capable of detecting small objects in complex environments, such as those found in [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and detailed medical scans.
 
-[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9/){ .md-button }
+[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9){ .md-button }
 
 ### YOLOX: Bridging Research and Industry
 
@@ -90,11 +90,11 @@ metrics = model.val()
 model.export(format="engine")
 ```
 
-With built-in support for multiple tasks, including [object detection](https://docs.ultralytics.com/tasks/detect/), [instance segmentation](https://docs.ultralytics.com/tasks/segment/), and [pose estimation](https://docs.ultralytics.com/tasks/pose/), you can rapidly pivot your computer vision solutions without changing your entire codebase.
+With built-in support for multiple tasks, including [object detection](https://docs.ultralytics.com/tasks/detect), [instance segmentation](https://docs.ultralytics.com/tasks/segment), and [pose estimation](https://docs.ultralytics.com/tasks/pose), you can rapidly pivot your computer vision solutions without changing your entire codebase.
 
 !!! tip "Seamless Exporting"
 
-    Deploying to the edge? Ultralytics makes it simple to export your trained models to highly optimized formats like [ONNX](https://docs.ultralytics.com/integrations/onnx/), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), and OpenVINO with just a single command.
+    Deploying to the edge? Ultralytics makes it simple to export your trained models to highly optimized formats like [ONNX](https://docs.ultralytics.com/integrations/onnx), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), and OpenVINO with just a single command.
 
 ## Real-World Applications
 
@@ -134,11 +134,11 @@ YOLOX is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Future: Enter YOLO26
 
@@ -148,4 +148,4 @@ YOLO26 completely revitalizes the deployment pipeline with a native **End-to-End
 
 Furthermore, YOLO26 incorporates the groundbreaking **MuSGD Optimizer**, a hybrid of SGD and Muon that borrows innovations from LLM training to provide incredibly stable and rapid convergence. By removing Distribution Focal Loss (DFL), YOLO26 achieves up to **43% faster CPU inference** compared to its predecessors, making it the absolute best choice for edge devices and enterprise deployments. With notable improvements in small-object recognition via ProgLoss and STAL, YOLO26 effectively supersedes both YOLOX and YOLOv9.
 
-For engineers exploring modern architectures, we also recommend checking out [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) as powerful alternatives within the Ultralytics suite. Ensure your project is future-proofed by leveraging the unparalleled performance of the latest models on the Ultralytics Platform.
+For engineers exploring modern architectures, we also recommend checking out [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [RT-DETR](https://docs.ultralytics.com/models/rtdetr) as powerful alternatives within the Ultralytics suite. Ensure your project is future-proofed by leveraging the unparalleled performance of the latest models on the Ultralytics Platform.

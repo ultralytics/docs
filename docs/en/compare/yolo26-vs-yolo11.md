@@ -23,7 +23,7 @@ Both models were developed by Ultralytics, but they represent different paradigm
 - **Organization:** [Ultralytics](https://www.ultralytics.com/about)
 - **Date:** 2026-01-14
 - **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
-- **Docs:** [YOLO26 Official Documentation](https://docs.ultralytics.com/models/yolo26/)
+- **Docs:** [YOLO26 Official Documentation](https://docs.ultralytics.com/models/yolo26)
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
@@ -33,21 +33,21 @@ Both models were developed by Ultralytics, but they represent different paradigm
 - **Organization:** [Ultralytics](https://www.ultralytics.com/about)
 - **Date:** 2024-09-27
 - **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
-- **Docs:** [YOLO11 Official Documentation](https://docs.ultralytics.com/models/yolo11/)
+- **Docs:** [YOLO11 Official Documentation](https://docs.ultralytics.com/models/yolo11)
 
 [Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 !!! tip "Other Architectures"
 
-    While YOLO26 is our most advanced real-time model, users dealing with highly specialized hardware or massive memory capacities might also explore transformer-based architectures like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) or the breakthrough NMS-free pioneer, [YOLOv10](https://docs.ultralytics.com/models/yolov10/).
+    While YOLO26 is our most advanced real-time model, users dealing with highly specialized hardware or massive memory capacities might also explore transformer-based architectures like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) or the breakthrough NMS-free pioneer, [YOLOv10](https://docs.ultralytics.com/models/yolov10).
 
 ## Architectural Differences and Innovations
 
-The leap from YOLO11 to YOLO26 involves fundamental shifts in both model architecture and the underlying training regimen. While YOLO11 established a robust baseline for [object detection](https://docs.ultralytics.com/tasks/detect/) and multi-task learning, YOLO26 completely overhauls the deployment pipeline for edge computing.
+The leap from YOLO11 to YOLO26 involves fundamental shifts in both model architecture and the underlying training regimen. While YOLO11 established a robust baseline for [object detection](https://docs.ultralytics.com/tasks/detect) and multi-task learning, YOLO26 completely overhauls the deployment pipeline for edge computing.
 
 ### End-to-End NMS-Free Design
 
-One of the most significant upgrades in YOLO26 is its natively end-to-end architecture. Unlike YOLO11, which relies on [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing to filter overlapping bounding boxes, YOLO26 eliminates this step entirely. This concept, first pioneered in [YOLOv10](https://docs.ultralytics.com/compare/yolov10-vs-yolo26/), dramatically reduces latency variability and simplifies deployment logic across diverse edge devices.
+One of the most significant upgrades in YOLO26 is its natively end-to-end architecture. Unlike YOLO11, which relies on [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing to filter overlapping bounding boxes, YOLO26 eliminates this step entirely. This concept, first pioneered in [YOLOv10](https://docs.ultralytics.com/compare/yolov10-vs-yolo26), dramatically reduces latency variability and simplifies deployment logic across diverse edge devices.
 
 ### DFL Removal for Edge Efficiency
 
@@ -59,7 +59,7 @@ Training stability and speed are paramount. YOLO26 introduces the **MuSGD Optimi
 
 ### ProgLoss and STAL
 
-For researchers working with [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or drone applications, detecting tiny features is a historic challenge. YOLO26 introduces ProgLoss combined with STAL (Scale-Targeted Attention Loss), delivering notable improvements in small-object recognition over YOLO11.
+For researchers working with [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or drone applications, detecting tiny features is a historic challenge. YOLO26 introduces ProgLoss combined with STAL (Scale-Targeted Attention Loss), delivering notable improvements in small-object recognition over YOLO11.
 
 ## Performance and Metrics Comparison
 
@@ -85,10 +85,10 @@ _Note: The YOLO26 nano (YOLO26n) model showcases a ~31% improvement in CPU speed
 
 Both models benefit from the highly maintained Ultralytics ecosystem, offering unparalleled ease of use through a unified Python API. They are not just object detectors; they are multi-task powerhouses. However, YOLO26 incorporates several task-specific advancements:
 
-- **Instance Segmentation:** YOLO26 uses a refined semantic segmentation loss and multi-scale prototyping, generating crisper mask boundaries than YOLO11. Learn more about [segmentation workflows](https://docs.ultralytics.com/tasks/segment/).
-- **Pose Estimation:** By integrating Residual Log-Likelihood Estimation (RLE), YOLO26 dramatically improves keypoint accuracy in complex human poses. Discover [pose estimation capabilities](https://docs.ultralytics.com/tasks/pose/).
-- **Oriented Bounding Boxes (OBB):** A specialized angle loss function resolves historical boundary discontinuity issues, making YOLO26 exceptionally reliable for detecting rotated objects in satellite feeds. Read about [OBB tasks](https://docs.ultralytics.com/tasks/obb/).
-- **Image Classification:** Both models handle high-speed [classification](https://docs.ultralytics.com/tasks/classify/) efficiently, with YOLO26 delivering marginal top-1 accuracy improvements on ImageNet.
+- **Instance Segmentation:** YOLO26 uses a refined semantic segmentation loss and multi-scale prototyping, generating crisper mask boundaries than YOLO11. Learn more about [segmentation workflows](https://docs.ultralytics.com/tasks/segment).
+- **Pose Estimation:** By integrating Residual Log-Likelihood Estimation (RLE), YOLO26 dramatically improves keypoint accuracy in complex human poses. Discover [pose estimation capabilities](https://docs.ultralytics.com/tasks/pose).
+- **Oriented Bounding Boxes (OBB):** A specialized angle loss function resolves historical boundary discontinuity issues, making YOLO26 exceptionally reliable for detecting rotated objects in satellite feeds. Read about [OBB tasks](https://docs.ultralytics.com/tasks/obb).
+- **Image Classification:** Both models handle high-speed [classification](https://docs.ultralytics.com/tasks/classify) efficiently, with YOLO26 delivering marginal top-1 accuracy improvements on ImageNet.
 
 ## Training and Inference Code Example
 
@@ -139,4 +139,4 @@ While YOLO26 is superior, YOLO11 remains an incredibly capable model. You might 
 
 Regardless of whether you deploy YOLO11 or YOLO26, utilizing Ultralytics models means tapping into a [well-maintained ecosystem](https://github.com/ultralytics/ultralytics) with frequent updates and vast community support.
 
-For enterprise teams, the [Ultralytics Platform](https://platform.ultralytics.com/) provides an end-to-end solution for [data annotation](https://docs.ultralytics.com/platform/data/annotation/), model training, and seamless cloud deployment. From exporting your trained weights to [CoreML](https://docs.ultralytics.com/integrations/coreml/) or [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), to configuring advanced [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning/), the tools provided ensure your AI lifecycle is as streamlined as possible.
+For enterprise teams, the [Ultralytics Platform](https://platform.ultralytics.com/) provides an end-to-end solution for [data annotation](https://docs.ultralytics.com/platform/data/annotation), model training, and seamless cloud deployment. From exporting your trained weights to [CoreML](https://docs.ultralytics.com/integrations/coreml) or [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), to configuring advanced [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning), the tools provided ensure your AI lifecycle is as streamlined as possible.

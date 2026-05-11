@@ -23,11 +23,11 @@ Developed by the team at Ultralytics, **YOLO11** represents a highly refined ite
 - **Organization:** [Ultralytics](https://www.ultralytics.com/)
 - **Date:** 2024-09-27
 - **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- **Docs:** [https://docs.ultralytics.com/models/yolo11/](https://docs.ultralytics.com/models/yolo11/)
+- **Docs:** [https://docs.ultralytics.com/models/yolo11/](https://docs.ultralytics.com/models/yolo11)
 
 [Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
-YOLO11 shines in its versatility. While many traditional models focus solely on bounding boxes, YOLO11 natively supports [object detection](https://docs.ultralytics.com/tasks/detect/), [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [image classification](https://docs.ultralytics.com/tasks/classify/), and [pose estimation](https://docs.ultralytics.com/tasks/pose/). This multi-modal capability allows developers to consolidate their [vision AI](https://www.ultralytics.com/glossary/computer-vision-cv) pipelines under a single, well-maintained framework.
+YOLO11 shines in its versatility. While many traditional models focus solely on bounding boxes, YOLO11 natively supports [object detection](https://docs.ultralytics.com/tasks/detect), [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), and [pose estimation](https://docs.ultralytics.com/tasks/pose). This multi-modal capability allows developers to consolidate their [vision AI](https://www.ultralytics.com/glossary/computer-vision-cv) pipelines under a single, well-maintained framework.
 
 ### DAMO-YOLO
 
@@ -46,7 +46,7 @@ The core philosophy of DAMO-YOLO revolves around rep-parameterization and automa
 
 !!! note "Other Models to Consider"
 
-    While comparing YOLO11 and DAMO-YOLO, consider checking out the newer [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). It introduces natively end-to-end NMS-free inference and delivers up to 43% faster CPU speeds. You might also explore comparisons involving [YOLOX](https://docs.ultralytics.com/compare/yolox-vs-damo-yolo/) or [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8).
+    While comparing YOLO11 and DAMO-YOLO, consider checking out the newer [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). It introduces natively end-to-end NMS-free inference and delivers up to 43% faster CPU speeds. You might also explore comparisons involving [YOLOX](https://docs.ultralytics.com/compare/yolox-vs-damo-yolo) or [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8).
 
 ## Performance and Architecture Comparison
 
@@ -75,7 +75,7 @@ Conversely, **DAMO-YOLO**'s MAE-NAS generated backbones are finely tuned for hig
 
 When factoring in development time, the **Ease of Use** of a model becomes just as important as its raw benchmarks.
 
-**YOLO11** is built heavily on the principle of developer accessibility. The comprehensive `ultralytics` package abstracts away the heavy lifting of dataset parsing, augmentation, and hyperparameter tuning. Exporting models to production formats like [ONNX](https://onnx.ai/), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), and [OpenVINO](https://docs.ultralytics.com/integrations/openvino/) requires only a single command.
+**YOLO11** is built heavily on the principle of developer accessibility. The comprehensive `ultralytics` package abstracts away the heavy lifting of dataset parsing, augmentation, and hyperparameter tuning. Exporting models to production formats like [ONNX](https://onnx.ai/), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), and [OpenVINO](https://docs.ultralytics.com/integrations/openvino) requires only a single command.
 
 ```python
 from ultralytics import YOLO
@@ -100,9 +100,9 @@ Choosing between YOLO11 and DAMO-YOLO depends on your specific project requireme
 
 YOLO11 is a strong choice for:
 
-- **Production Edge Deployment:** Commercial applications on devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) or [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/) where reliability and active maintenance are paramount.
-- **Multi-Task Vision Applications:** Projects requiring [detection](https://docs.ultralytics.com/tasks/detect/), [segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [OBB](https://docs.ultralytics.com/tasks/obb/) within a single unified framework.
-- **Rapid Prototyping and Deployment:** Teams that need to move quickly from data collection to production using the streamlined [Ultralytics Python API](https://docs.ultralytics.com/usage/python/).
+- **Production Edge Deployment:** Commercial applications on devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) or [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson) where reliability and active maintenance are paramount.
+- **Multi-Task Vision Applications:** Projects requiring [detection](https://docs.ultralytics.com/tasks/detect), [segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [OBB](https://docs.ultralytics.com/tasks/obb) within a single unified framework.
+- **Rapid Prototyping and Deployment:** Teams that need to move quickly from data collection to production using the streamlined [Ultralytics Python API](https://docs.ultralytics.com/usage/python).
 
 ### When to Choose DAMO-YOLO
 
@@ -114,21 +114,21 @@ DAMO-YOLO is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## Real-World Applications and Use Cases
 
 ### Autonomous Systems and Drones
 
-For aerial imagery and UAV deployments, **YOLO11** provides an incredibly favorable performance balance. Small object detection is a massive hurdle in drone analytics, but YOLO11 handles varying scales natively out of the box. Additionally, the low [memory requirements](https://docs.ultralytics.com/guides/yolo-performance-metrics/) allow YOLO11 Nano and Small variants to run directly on lightweight edge CPUs or NPUs strapped to the drone.
+For aerial imagery and UAV deployments, **YOLO11** provides an incredibly favorable performance balance. Small object detection is a massive hurdle in drone analytics, but YOLO11 handles varying scales natively out of the box. Additionally, the low [memory requirements](https://docs.ultralytics.com/guides/yolo-performance-metrics) allow YOLO11 Nano and Small variants to run directly on lightweight edge CPUs or NPUs strapped to the drone.
 
 ### Industrial Automation and Quality Control
 
-In smart factories, latency is paramount. While **DAMO-YOLO** offers robust inference speeds on heavy server-grade GPUs due to its RepGFPN neck, the rigid integration can be overkill. YOLO11 often acts as a superior alternative for automated quality control due to its simple [tracking APIs](https://docs.ultralytics.com/modes/track/) and the ability to seamlessly pivot from pure detection to [oriented bounding box (OBB)](https://docs.ultralytics.com/tasks/obb/) tasks if the defects require angled boundary recognition.
+In smart factories, latency is paramount. While **DAMO-YOLO** offers robust inference speeds on heavy server-grade GPUs due to its RepGFPN neck, the rigid integration can be overkill. YOLO11 often acts as a superior alternative for automated quality control due to its simple [tracking APIs](https://docs.ultralytics.com/modes/track) and the ability to seamlessly pivot from pure detection to [oriented bounding box (OBB)](https://docs.ultralytics.com/tasks/obb) tasks if the defects require angled boundary recognition.
 
 ### Smart Healthcare and Medical Imaging
 

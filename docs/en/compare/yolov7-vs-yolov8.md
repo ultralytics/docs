@@ -6,7 +6,7 @@ keywords: YOLOv7, YOLOv8, object detection, model comparison, computer vision, r
 
 # YOLOv7 vs YOLOv8: A Technical Comparison of Real-Time Detectors
 
-The rapid evolution of computer vision has produced an array of powerful tools for developers and researchers. When deciding on the right architecture for an [object detection](https://docs.ultralytics.com/tasks/detect/) pipeline, comparing established models is essential. This technical guide provides a deep dive into the architectures, performance metrics, and ideal use cases of two highly influential models: YOLOv7 and Ultralytics YOLOv8.
+The rapid evolution of computer vision has produced an array of powerful tools for developers and researchers. When deciding on the right architecture for an [object detection](https://docs.ultralytics.com/tasks/detect) pipeline, comparing established models is essential. This technical guide provides a deep dive into the architectures, performance metrics, and ideal use cases of two highly influential models: YOLOv7 and Ultralytics YOLOv8.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -26,7 +26,7 @@ Introduced in mid-2022, YOLOv7 focused heavily on architectural gradient path op
 - Date: 2022-07-06
 - Arxiv: [2207.02696](https://arxiv.org/abs/2207.02696)
 - GitHub: [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
-- Docs: [Ultralytics YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7/)
+- Docs: [Ultralytics YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7)
 
 **Architecture Highlights:**
 YOLOv7 primarily utilizes an anchor-based detection head (though it experimented with anchor-free branches) and introduces Extended Efficient Layer Aggregation Networks (E-ELAN). This design improves the learning ability of the network without destroying the original gradient path. It performs exceptionally well on server-grade [GPUs](https://en.wikipedia.org/wiki/Graphics_processing_unit), making it highly suitable for heavy-duty video analytics.
@@ -34,7 +34,7 @@ YOLOv7 primarily utilizes an anchor-based detection head (though it experimented
 **Strengths and Weaknesses:**
 While YOLOv7 achieves excellent latency on dedicated hardware, its ecosystem is highly fragmented. Training requires complex command-line arguments, manual repository cloning, and strict dependency management in [PyTorch](https://pytorch.org/). Furthermore, memory requirements during training can be prohibitive on consumer hardware.
 
-[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7/){ .md-button }
+[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 
 ### Ultralytics YOLOv8: The Versatile Standard
 
@@ -50,7 +50,7 @@ Released in early 2023, YOLOv8 completely redefined the developer experience, fo
 YOLOv8 introduced a natively **anchor-free** detection head, eliminating the need to manually configure anchor boxes based on the [MS COCO dataset](https://cocodataset.org/) or custom data distributions. It incorporates the C2f module to improve gradient flow and uses a decoupled head structure that separates objectness, classification, and regression tasks. This heavily accelerates convergence and boosts accuracy.
 
 **Strengths and Weaknesses:**
-YOLOv8 boasts exceptional **Memory Requirements** efficiency. It requires significantly less CUDA memory during training compared to YOLOv7 and heavier transformer models, allowing developers to use larger batch sizes. Its primary strength lies in its **Versatility**, natively supporting [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [image classification](https://docs.ultralytics.com/tasks/classify/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/). The only minor drawback is that extremely specialized legacy pipelines built exclusively for YOLOv7 tensors might require a brief refactoring period.
+YOLOv8 boasts exceptional **Memory Requirements** efficiency. It requires significantly less CUDA memory during training compared to YOLOv7 and heavier transformer models, allowing developers to use larger batch sizes. Its primary strength lies in its **Versatility**, natively supporting [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb). The only minor drawback is that extremely specialized legacy pipelines built exclusively for YOLOv7 tensors might require a brief refactoring period.
 
 [Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
@@ -79,7 +79,7 @@ _Note: YOLOv8x achieves the highest mAP in this grouping, while YOLOv8n dominate
 
 When it comes to **Ease of Use**, Ultralytics YOLOv8 operates in a league of its own. Older architectures like YOLOv7 require cloning specific repositories and running verbose command-line scripts to configure datasets and paths.
 
-Conversely, YOLOv8's `ultralytics` package offers a highly streamlined developer experience. **Training Efficiency** is maximized through automatic data downloading, ready-to-use pretrained weights, and seamless [exporting capabilities](https://docs.ultralytics.com/modes/export/) to formats like [ONNX](https://onnx.ai/) and [TensorRT](https://developer.nvidia.com/tensorrt).
+Conversely, YOLOv8's `ultralytics` package offers a highly streamlined developer experience. **Training Efficiency** is maximized through automatic data downloading, ready-to-use pretrained weights, and seamless [exporting capabilities](https://docs.ultralytics.com/modes/export) to formats like [ONNX](https://onnx.ai/) and [TensorRT](https://developer.nvidia.com/tensorrt).
 
 Here is how easily you can load, train, and run inference using the Ultralytics Python API:
 
@@ -101,7 +101,7 @@ predictions[0].show()
 
 !!! note "Experiment Tracking"
 
-    YOLOv8 integrates natively with popular MLops tools like [Weights & Biases](https://wandb.ai/site) and [ClearML](https://docs.ultralytics.com/integrations/clearml/), allowing you to monitor your [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning/) and training metrics in real-time.
+    YOLOv8 integrates natively with popular MLops tools like [Weights & Biases](https://wandb.ai/site) and [ClearML](https://docs.ultralytics.com/integrations/clearml), allowing you to monitor your [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning) and training metrics in real-time.
 
 ## Ideal Use Cases
 
@@ -115,7 +115,7 @@ Choosing between these architectures often comes down to the specific constraint
 ### When to Choose YOLOv8
 
 - **Cross-Platform Production:** Ideal for teams that need to deploy seamlessly across cloud GPUs, mobile devices, and browsers.
-- **Multi-Task Requirements:** If your project needs to move beyond bounding boxes and leverage rich [instance segmentation masks](https://docs.ultralytics.com/tasks/segment/) or [pose keypoints](https://docs.ultralytics.com/tasks/pose/).
+- **Multi-Task Requirements:** If your project needs to move beyond bounding boxes and leverage rich [instance segmentation masks](https://docs.ultralytics.com/tasks/segment) or [pose keypoints](https://docs.ultralytics.com/tasks/pose).
 - **Resource-Constrained Edge:** YOLOv8 Nano (`yolov8n`) provides incredible accuracy-to-speed ratios for robotics, drones, and IoT sensors.
 
 ## Looking Forward: The Generational Leap to YOLO26
@@ -125,9 +125,9 @@ While YOLOv8 remains a highly robust choice, the field of computer vision moves 
 Released in January 2026, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) pushes the boundaries of what is possible on edge devices:
 
 - **End-to-End NMS-Free Design:** YOLO26 is natively end-to-end, completely eliminating Non-Maximum Suppression (NMS) post-processing. This ensures significantly faster, simpler deployment pipelines without the latency bottlenecks of traditional dense prediction models.
-- **DFL Removal:** By removing Distribution Focal Loss, YOLO26 achieves much simpler [model deployment options](https://docs.ultralytics.com/guides/model-deployment-options/) and superior edge compatibility.
+- **DFL Removal:** By removing Distribution Focal Loss, YOLO26 achieves much simpler [model deployment options](https://docs.ultralytics.com/guides/model-deployment-options) and superior edge compatibility.
 - **Up to 43% Faster CPU Inference:** Heavily optimized for constrained environments like Raspberry Pi and embedded systems, beating all prior generations in CPU throughput.
 - **MuSGD Optimizer:** Inspired by Large Language Model (LLM) training paradigms, YOLO26 incorporates a hybrid of SGD and Muon. This delivers unprecedented training stability and lightning-fast convergence.
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, which is highly critical for aerial imagery, automated agriculture, and robotics.
 
-Whether you are scaling up to massive video analytics clusters with YOLOv8 or pushing inference to tiny edge devices with the cutting-edge YOLO26, the [Ultralytics Platform](https://docs.ultralytics.com/platform/) provides the tools to manage your entire AI lifecycle seamlessly.
+Whether you are scaling up to massive video analytics clusters with YOLOv8 or pushing inference to tiny edge devices with the cutting-edge YOLO26, the [Ultralytics Platform](https://docs.ultralytics.com/platform) provides the tools to manage your entire AI lifecycle seamlessly.

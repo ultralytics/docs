@@ -26,9 +26,9 @@ Developed as a continuation of the YOLO family, YOLOv7 introduced the concept of
 - **Date:** 2022-07-06
 - **Arxiv:** [https://arxiv.org/abs/2207.02696](https://arxiv.org/abs/2207.02696)
 - **GitHub:** [https://github.com/WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
-- **Docs:** [https://docs.ultralytics.com/models/yolov7/](https://docs.ultralytics.com/models/yolov7/)
+- **Docs:** [https://docs.ultralytics.com/models/yolov7/](https://docs.ultralytics.com/models/yolov7)
 
-[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7/){ .md-button }
+[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 
 ### DAMO-YOLO Details
 
@@ -76,15 +76,15 @@ The table above demonstrates that YOLOv7 scales well into high-accuracy domains 
 
 A major distinction between the two architectures lies in their training methodologies. DAMO-YOLO's reliance on distillation means that training a new model from scratch or fine-tuning on a [custom computer vision dataset](https://www.ultralytics.com/blog/custom-training-ultralytics-yolo11-with-computer-vision-datasets) often demands significantly more VRAM and [GPU compute](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) time.
 
-In contrast, models integrated into the Ultralytics ecosystem, such as YOLOv7 and later versions, are heavily optimized for [memory requirements](https://docs.ultralytics.com/guides/yolo-performance-metrics/). They allow developers to utilize larger batch sizes on consumer hardware without encountering out-of-memory errors, simplifying the [experiment tracking](https://www.ultralytics.com/glossary/experiment-tracking) and iteration process.
+In contrast, models integrated into the Ultralytics ecosystem, such as YOLOv7 and later versions, are heavily optimized for [memory requirements](https://docs.ultralytics.com/guides/yolo-performance-metrics). They allow developers to utilize larger batch sizes on consumer hardware without encountering out-of-memory errors, simplifying the [experiment tracking](https://www.ultralytics.com/glossary/experiment-tracking) and iteration process.
 
 ## The Ultralytics Advantage
 
 While both YOLOv7 and DAMO-YOLO offer compelling features, deploying models within the [Ultralytics ecosystem](https://www.ultralytics.com/) provides an unparalleled developer experience.
 
-- **Ease of Use:** The Ultralytics Python package offers a unified, simple API. You can quickly switch between model architectures, start [training loops](https://docs.ultralytics.com/modes/train/), or run [inference](https://docs.ultralytics.com/modes/predict/) with a few lines of code.
-- **Well-Maintained Ecosystem:** Ultralytics provides frequent updates, ensuring native compatibility with the latest [PyTorch](https://pytorch.org/) releases and CUDA drivers. It also simplifies exporting models to formats like [ONNX](https://onnx.ai/), [TensorRT](https://developer.nvidia.com/tensorrt), and [OpenVINO](https://docs.ultralytics.com/integrations/openvino/).
-- **Versatility:** Unlike DAMO-YOLO, which is strictly an object detector, the Ultralytics ecosystem supports diverse tasks natively. Models from the Ultralytics family can perform standard bounding box detection, [pose estimation](https://docs.ultralytics.com/tasks/pose/), [instance segmentation](https://docs.ultralytics.com/tasks/segment/), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/).
+- **Ease of Use:** The Ultralytics Python package offers a unified, simple API. You can quickly switch between model architectures, start [training loops](https://docs.ultralytics.com/modes/train), or run [inference](https://docs.ultralytics.com/modes/predict) with a few lines of code.
+- **Well-Maintained Ecosystem:** Ultralytics provides frequent updates, ensuring native compatibility with the latest [PyTorch](https://pytorch.org/) releases and CUDA drivers. It also simplifies exporting models to formats like [ONNX](https://onnx.ai/), [TensorRT](https://developer.nvidia.com/tensorrt), and [OpenVINO](https://docs.ultralytics.com/integrations/openvino).
+- **Versatility:** Unlike DAMO-YOLO, which is strictly an object detector, the Ultralytics ecosystem supports diverse tasks natively. Models from the Ultralytics family can perform standard bounding box detection, [pose estimation](https://docs.ultralytics.com/tasks/pose), [instance segmentation](https://docs.ultralytics.com/tasks/segment), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
 ### Code Example: Getting Started Quickly
 
@@ -114,7 +114,7 @@ model.export(format="onnx")
 
 While YOLOv7 remains a strong legacy architecture, the field has advanced rapidly. For new deployments, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) (released January 2026) is the recommended standard, outperforming previous generations in almost every metric.
 
-- **End-to-End NMS-Free Design:** First pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10/), YOLO26 natively eliminates Non-Maximum Suppression (NMS) post-processing. This ensures deterministic, ultra-low latency inference critical for robotics and self-driving technologies.
+- **End-to-End NMS-Free Design:** First pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 natively eliminates Non-Maximum Suppression (NMS) post-processing. This ensures deterministic, ultra-low latency inference critical for robotics and self-driving technologies.
 - **MuSGD Optimizer:** Inspired by advanced LLM training techniques (like Moonshot AI's Kimi K2), this hybrid optimizer blends SGD and Muon to deliver highly stable training and faster convergence across datasets.
 - **Up to 43% Faster CPU Inference:** By strategically removing Distribution Focal Loss (DFL), YOLO26 significantly boosts performance on edge computing platforms and CPUs.
 - **ProgLoss + STAL:** These advanced loss functions yield substantial improvements in detecting small objects, making YOLO26 exceptionally well-suited for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and detailed surveillance.
@@ -134,4 +134,4 @@ While YOLOv7 remains a strong legacy architecture, the field has advanced rapidl
 
 ### Why Migrate to Modern Ultralytics Models (YOLO11 / YOLO26)
 
-For the vast majority of enterprise applications—from [retail analytics](https://www.ultralytics.com/blog/ai-in-retail-enhancing-customer-experience-using-computer-vision) and [smart manufacturing](https://www.ultralytics.com/blog/improving-manufacturing-with-computer-vision) to healthcare—modern Ultralytics models are unmatched. The integration with the [Ultralytics Platform](https://docs.ultralytics.com/platform/) provides a complete ML pipeline, offering ease of use, superior documentation, robust community support, and multi-task versatility. Whether tracking inventory on a Raspberry Pi or running heavy analytics in the cloud, models like YOLO26 offer the ideal performance balance for the future of computer vision.
+For the vast majority of enterprise applications—from [retail analytics](https://www.ultralytics.com/blog/ai-in-retail-enhancing-customer-experience-using-computer-vision) and [smart manufacturing](https://www.ultralytics.com/blog/improving-manufacturing-with-computer-vision) to healthcare—modern Ultralytics models are unmatched. The integration with the [Ultralytics Platform](https://docs.ultralytics.com/platform) provides a complete ML pipeline, offering ease of use, superior documentation, robust community support, and multi-task versatility. Whether tracking inventory on a Raspberry Pi or running heavy analytics in the cloud, models like YOLO26 offer the ideal performance balance for the future of computer vision.

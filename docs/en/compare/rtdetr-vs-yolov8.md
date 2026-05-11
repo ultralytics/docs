@@ -32,9 +32,9 @@ At its core, RTDETRv2 leverages a hybrid architecture combining a CNN backbone w
 
 ### Weaknesses
 
-Despite its powerful contextual understanding, transformer-based architectures like RTDETRv2 require immense computational overhead during training. They demand a significant amount of CUDA memory, making them difficult to train on consumer-grade hardware. Additionally, setting up a custom dataset and tuning the training hyperparameters often requires deep domain expertise, as the model lacks a highly polished, beginner-friendly software wrapper. Deployment to low-power edge devices such as older [Raspberry Pi hardware](https://docs.ultralytics.com/guides/raspberry-pi/) can also prove challenging due to the heavy attention mechanisms.
+Despite its powerful contextual understanding, transformer-based architectures like RTDETRv2 require immense computational overhead during training. They demand a significant amount of CUDA memory, making them difficult to train on consumer-grade hardware. Additionally, setting up a custom dataset and tuning the training hyperparameters often requires deep domain expertise, as the model lacks a highly polished, beginner-friendly software wrapper. Deployment to low-power edge devices such as older [Raspberry Pi hardware](https://docs.ultralytics.com/guides/raspberry-pi) can also prove challenging due to the heavy attention mechanisms.
 
-[Learn more about RTDETRv2](https://docs.ultralytics.com/models/rtdetr/){ .md-button }
+[Learn more about RTDETRv2](https://docs.ultralytics.com/models/rtdetr){ .md-button }
 
 ---
 
@@ -47,11 +47,11 @@ Since its release, [Ultralytics YOLOv8](https://platform.ultralytics.com/ultraly
 - **Authors:** Glenn Jocher, Ayush Chaurasia, and Jing Qiu
 - **Organization:** [Ultralytics](https://www.ultralytics.com/about)
 - **Date:** January 10, 2023
-- **Links:** [Official Documentation](https://docs.ultralytics.com/models/yolov8/) | [GitHub Repository](https://github.com/ultralytics/ultralytics)
+- **Links:** [Official Documentation](https://docs.ultralytics.com/models/yolov8) | [GitHub Repository](https://github.com/ultralytics/ultralytics)
 
 ### Architecture and Strengths
 
-YOLOv8 utilizes a highly optimized anchor-free CNN architecture with a decoupled head, significantly improving object localization and classification accuracy over previous generations. Its greatest strength lies in its incredible efficiency and versatility. The architecture requires substantially lower memory during training compared to vision transformers, allowing practitioners to run larger [batch sizes](https://www.ultralytics.com/glossary/batch-size) on standard GPUs. Furthermore, the Ultralytics ecosystem provides an unmatched, seamless workflow. The unified Python API enables [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning/), training, validation, and export with just a few lines of code.
+YOLOv8 utilizes a highly optimized anchor-free CNN architecture with a decoupled head, significantly improving object localization and classification accuracy over previous generations. Its greatest strength lies in its incredible efficiency and versatility. The architecture requires substantially lower memory during training compared to vision transformers, allowing practitioners to run larger [batch sizes](https://www.ultralytics.com/glossary/batch-size) on standard GPUs. Furthermore, the Ultralytics ecosystem provides an unmatched, seamless workflow. The unified Python API enables [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning), training, validation, and export with just a few lines of code.
 
 ### Weaknesses
 
@@ -84,13 +84,13 @@ When comparing raw numbers, it becomes evident that both models prioritize diffe
 
 ### Memory Requirements and Training Efficiency
 
-One of the most critical factors for independent developers and enterprise teams alike is training cost. Ultralytics YOLO models require significantly lower CUDA memory during the [training process](https://docs.ultralytics.com/modes/train/) than transformer architectures. A standard RTDETRv2 model may easily bottleneck a consumer GPU, whereas YOLOv8 converges quickly and reliably on hardware like the NVIDIA RTX 4070.
+One of the most critical factors for independent developers and enterprise teams alike is training cost. Ultralytics YOLO models require significantly lower CUDA memory during the [training process](https://docs.ultralytics.com/modes/train) than transformer architectures. A standard RTDETRv2 model may easily bottleneck a consumer GPU, whereas YOLOv8 converges quickly and reliably on hardware like the NVIDIA RTX 4070.
 
 ## Ecosystem, API, and Ease of Use
 
 The true differentiator for modern AI solutions is the supporting software framework. The Ultralytics ecosystem simplifies complex engineering hurdles. With active development and robust community support on platforms like [Discord](https://discord.com/invite/ultralytics), YOLOv8 ensures your project doesn't stall due to poor documentation.
 
-Furthermore, YOLOv8 goes beyond standard object detection. It is a true multi-task network with native support for [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), [Image Classification](https://docs.ultralytics.com/tasks/classify/), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/). RTDETRv2 remains heavily focused purely on detection.
+Furthermore, YOLOv8 goes beyond standard object detection. It is a true multi-task network with native support for [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), [Image Classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb). RTDETRv2 remains heavily focused purely on detection.
 
 ### Code Example: Unified Simplicity
 
@@ -111,7 +111,7 @@ results_cnn = model_cnn("https://ultralytics.com/images/bus.jpg")
 model_cnn.export(format="onnx")
 ```
 
-Once trained, YOLOv8 supports one-click exports to [ONNX](https://docs.ultralytics.com/integrations/onnx/), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), and [OpenVINO](https://docs.ultralytics.com/integrations/openvino/), guaranteeing high-throughput inference across diverse hardware backends.
+Once trained, YOLOv8 supports one-click exports to [ONNX](https://docs.ultralytics.com/integrations/onnx), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), and [OpenVINO](https://docs.ultralytics.com/integrations/openvino), guaranteeing high-throughput inference across diverse hardware backends.
 
 ## Use Cases and Recommendations
 
@@ -129,17 +129,17 @@ RT-DETR is a strong choice for:
 
 YOLOv8 is recommended for:
 
-- **Versatile Multi-Task Deployment:** Projects requiring a proven model for [detection](https://docs.ultralytics.com/tasks/detect/), [segmentation](https://docs.ultralytics.com/tasks/segment/), [classification](https://docs.ultralytics.com/tasks/classify/), and [pose estimation](https://docs.ultralytics.com/tasks/pose/) within the Ultralytics ecosystem.
+- **Versatile Multi-Task Deployment:** Projects requiring a proven model for [detection](https://docs.ultralytics.com/tasks/detect), [segmentation](https://docs.ultralytics.com/tasks/segment), [classification](https://docs.ultralytics.com/tasks/classify), and [pose estimation](https://docs.ultralytics.com/tasks/pose) within the Ultralytics ecosystem.
 - **Established Production Systems:** Existing production environments already built on the YOLOv8 architecture with stable, well-tested deployment pipelines.
 - **Broad Community and Ecosystem Support:** Applications benefiting from YOLOv8's extensive tutorials, third-party integrations, and active community resources.
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## Looking Forward: The YOLO26 Advantage
 
@@ -147,4 +147,4 @@ While YOLOv8 remains a legendary milestone, computer vision moves incredibly fas
 
 If you are drawn to the NMS-free design of RTDETRv2, YOLO26 incorporates a native **End-to-End NMS-Free Design**, combining the post-processing simplicity of transformers with the blazing speed of CNNs. Additionally, YOLO26 utilizes the groundbreaking **MuSGD Optimizer**, bringing LLM-style training stability to vision models for incredibly fast convergence. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), YOLO26 achieves **up to 43% faster CPU inference**. Combined with advanced **ProgLoss + STAL** mechanisms for superior small-object detection, YOLO26 is definitively the recommended upgrade path over both YOLOv8 and RTDETRv2.
 
-For further reading on alternative models, explore our guides on [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or read the detailed breakdown of [YOLOv10 vs YOLOv8](https://docs.ultralytics.com/compare/yolov10-vs-yolov8/) to see how NMS-free architecture evolved in the YOLO family.
+For further reading on alternative models, explore our guides on [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or read the detailed breakdown of [YOLOv10 vs YOLOv8](https://docs.ultralytics.com/compare/yolov10-vs-yolov8) to see how NMS-free architecture evolved in the YOLO family.

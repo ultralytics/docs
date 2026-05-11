@@ -8,7 +8,7 @@ keywords: YOLOv8, YOLOv6-3.0, object detection, machine learning, computer visio
 
 The landscape of real-time computer vision is constantly evolving, driven by the demand for faster, more accurate, and more versatile models. Two of the most prominent architectures that emerged in early 2023 are [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) and YOLOv6-3.0 by Meituan. Both models push the boundaries of state-of-the-art performance, but they cater to slightly different development philosophies and deployment scenarios.
 
-This comprehensive guide provides an in-depth analysis of their architectures, performance metrics, and ideal use cases, helping machine learning engineers and researchers choose the right tool for their next [object detection](https://docs.ultralytics.com/tasks/detect/) project.
+This comprehensive guide provides an in-depth analysis of their architectures, performance metrics, and ideal use cases, helping machine learning engineers and researchers choose the right tool for their next [object detection](https://docs.ultralytics.com/tasks/detect) project.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -27,7 +27,7 @@ The Ultralytics YOLOv8 architecture represents a unified, multi-task framework d
 - Organization: [Ultralytics](https://www.ultralytics.com/)
 - Date: 2023-01-10
 - GitHub: [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- Docs: [https://docs.ultralytics.com/models/yolov8/](https://docs.ultralytics.com/models/yolov8/)
+- Docs: [https://docs.ultralytics.com/models/yolov8/](https://docs.ultralytics.com/models/yolov8)
 
 [Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
@@ -40,9 +40,9 @@ Originally introduced for industrial applications at Meituan, YOLOv6 received a 
 - Date: 2023-01-13
 - Arxiv: [https://arxiv.org/abs/2301.05586](https://arxiv.org/abs/2301.05586)
 - GitHub: [https://github.com/meituan/YOLOv6](https://github.com/meituan/YOLOv6)
-- Docs: [https://docs.ultralytics.com/models/yolov6/](https://docs.ultralytics.com/models/yolov6/)
+- Docs: [https://docs.ultralytics.com/models/yolov6/](https://docs.ultralytics.com/models/yolov6)
 
-[Learn more about YOLOv6-3.0](https://docs.ultralytics.com/models/yolov6/){ .md-button }
+[Learn more about YOLOv6-3.0](https://docs.ultralytics.com/models/yolov6){ .md-button }
 
 !!! tip "Streamlined Management"
 
@@ -54,7 +54,7 @@ Originally introduced for industrial applications at Meituan, YOLOv6 received a 
 
 YOLOv8 introduced a highly refined, anchor-free detection head. By removing predefined anchor boxes, the model generalizes better across diverse datasets and reduces the number of post-processing heuristics. Furthermore, YOLOv8 offers an unmatched **Performance Balance**, consistently achieving a favorable trade-off between speed and accuracy suitable for diverse real-world deployment scenarios—from cloud servers to resource-constrained edge devices.
 
-A major advantage of YOLOv8 is its **Memory requirements**. During training, Ultralytics models exhibit significantly lower CUDA memory usage compared to heavy transformer-based alternatives like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/). This allows developers to utilize larger batch sizes on standard consumer GPUs, resulting in excellent **Training Efficiency**.
+A major advantage of YOLOv8 is its **Memory requirements**. During training, Ultralytics models exhibit significantly lower CUDA memory usage compared to heavy transformer-based alternatives like [RT-DETR](https://docs.ultralytics.com/models/rtdetr). This allows developers to utilize larger batch sizes on standard consumer GPUs, resulting in excellent **Training Efficiency**.
 
 ### The YOLOv6-3.0 Architecture
 
@@ -83,7 +83,7 @@ While YOLOv6-3.0 boasts slight speed advantages on specific TensorRT benchmarks,
 
 The starkest contrast between the two models lies in their ecosystem support.
 
-YOLOv6 is primarily a bounding-box detection engine. In contrast, YOLOv8 is celebrated for its **Versatility**. Within a single unified framework, YOLOv8 natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [image classification](https://docs.ultralytics.com/tasks/classify/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) detection.
+YOLOv6 is primarily a bounding-box detection engine. In contrast, YOLOv8 is celebrated for its **Versatility**. Within a single unified framework, YOLOv8 natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection.
 
 Furthermore, the **Ease of Use** of the Ultralytics ecosystem is unparalleled. With a simple Python API, researchers can initiate training, validate results, and export models to numerous formats without writing complex boilerplate code. The **Well-Maintained Ecosystem** ensures active development, frequent updates, and seamless integrations with popular experiment tracking tools.
 
@@ -118,7 +118,7 @@ Choosing between YOLOv8 and YOLOv6 depends on your specific project requirements
 
 YOLOv8 is a strong choice for:
 
-- **Versatile Multi-Task Deployment:** Projects requiring a proven model for [detection](https://docs.ultralytics.com/tasks/detect/), [segmentation](https://docs.ultralytics.com/tasks/segment/), [classification](https://docs.ultralytics.com/tasks/classify/), and [pose estimation](https://docs.ultralytics.com/tasks/pose/) within the Ultralytics ecosystem.
+- **Versatile Multi-Task Deployment:** Projects requiring a proven model for [detection](https://docs.ultralytics.com/tasks/detect), [segmentation](https://docs.ultralytics.com/tasks/segment), [classification](https://docs.ultralytics.com/tasks/classify), and [pose estimation](https://docs.ultralytics.com/tasks/pose) within the Ultralytics ecosystem.
 - **Established Production Systems:** Existing production environments already built on the YOLOv8 architecture with stable, well-tested deployment pipelines.
 - **Broad Community and Ecosystem Support:** Applications benefiting from YOLOv8's extensive tutorials, third-party integrations, and active community resources.
 
@@ -132,11 +132,11 @@ YOLOv6 is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## Looking Forward: Upgrading to YOLO26
 
@@ -150,7 +150,7 @@ Training stability and convergence speed have also seen massive upgrades thanks 
 
 !!! note "Other Models to Consider"
 
-    Depending on your specific constraints, you may also be interested in exploring [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) for highly balanced legacy workflows or [YOLO-World](https://docs.ultralytics.com/models/yolo-world/) for zero-shot, open-vocabulary detection tasks without the need for extensive retraining.
+    Depending on your specific constraints, you may also be interested in exploring [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) for highly balanced legacy workflows or [YOLO-World](https://docs.ultralytics.com/models/yolo-world) for zero-shot, open-vocabulary detection tasks without the need for extensive retraining.
 
 ## Conclusion
 

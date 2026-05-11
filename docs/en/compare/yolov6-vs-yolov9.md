@@ -17,7 +17,7 @@ While both models offer unique architectural innovations, developers looking for
 
 ## YOLOv6-3.0: Industrial Throughput Optimization
 
-Developed by the Vision AI Department at Meituan, [YOLOv6-3.0](https://docs.ultralytics.com/models/yolov6/) was heavily engineered for maximum throughput in industrial applications, particularly on GPU hardware.
+Developed by the Vision AI Department at Meituan, [YOLOv6-3.0](https://docs.ultralytics.com/models/yolov6) was heavily engineered for maximum throughput in industrial applications, particularly on GPU hardware.
 
 - **Authors:** Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu
 - **Organization:** [Meituan](https://github.com/meituan)
@@ -35,11 +35,11 @@ The backbone is based on an EfficientRep design, meticulously optimized to be ha
 
 The primary strength of YOLOv6-3.0 lies in its high frame rate on GPUs like the NVIDIA T4, making it suitable for high-density [video understanding](https://www.ultralytics.com/glossary/video-understanding) streams. However, its heavy reliance on specific hardware optimizations can result in sub-optimal latency on CPU-only edge devices. Furthermore, setting up its training pipeline can be complex compared to more unified frameworks.
 
-[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6/){ .md-button }
+[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6){ .md-button }
 
 ## YOLOv9: Programmable Gradient Information
 
-Released a year later, [YOLOv9](https://docs.ultralytics.com/models/yolov9/) focuses on solving the information bottleneck problem inherent in deep neural networks, pushing the theoretical limits of CNN architectures.
+Released a year later, [YOLOv9](https://docs.ultralytics.com/models/yolov9) focuses on solving the information bottleneck problem inherent in deep neural networks, pushing the theoretical limits of CNN architectures.
 
 - **Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao
 - **Organization:** [Institute of Information Science, Academia Sinica](https://www.iis.sinica.edu.tw/zh/index.html)
@@ -55,7 +55,7 @@ YOLOv9's major contribution is **Programmable Gradient Information (PGI)**, whic
 
 YOLOv9 achieves outstanding [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) on benchmark datasets like COCO, making it a favorite for researchers prioritizing raw accuracy. However, like YOLOv6, it still relies on traditional Non-Maximum Suppression (NMS) for post-processing. This adds latency and complicates the [model deployment](https://www.ultralytics.com/glossary/model-deployment) pipeline, especially when porting to edge devices using formats like ONNX or TensorRT.
 
-[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9/){ .md-button }
+[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9){ .md-button }
 
 ## Performance Comparison
 
@@ -89,13 +89,13 @@ Released in early 2026, YOLO26 fundamentally redefines deployment efficiency by 
 1. **MuSGD Optimizer:** Inspired by LLM training (like Moonshot AI's Kimi K2), YOLO26 utilizes a hybrid of SGD and Muon. This brings unparalleled training stability and faster convergence to computer vision tasks.
 2. **Up to 43% Faster CPU Inference:** Unlike YOLOv6's heavy GPU focus, YOLO26 is heavily optimized for edge devices. The removal of Distribution Focal Loss (DFL) simplifies the head, making it highly compatible with low-power CPUs and [edge computing](https://www.ultralytics.com/glossary/edge-computing) hardware.
 3. **ProgLoss + STAL:** Advanced loss functions drastically improve small object detection, which is critical for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and robotics.
-4. **Unmatched Versatility:** While YOLOv6 is purely a detection engine, YOLO26 handles [instance segmentation](https://docs.ultralytics.com/tasks/segment/), classification, [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) detection seamlessly.
+4. **Unmatched Versatility:** While YOLOv6 is purely a detection engine, YOLO26 handles [instance segmentation](https://docs.ultralytics.com/tasks/segment), classification, [pose estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection seamlessly.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ### Seamless Training with Ultralytics
 
-Training state-of-the-art models shouldn't require complex bash scripts. The Ultralytics Python API provides a streamlined experience with automatic data loading, minimal [CUDA memory usage](https://docs.ultralytics.com/guides/yolo-common-issues/), and built-in tracking.
+Training state-of-the-art models shouldn't require complex bash scripts. The Ultralytics Python API provides a streamlined experience with automatic data loading, minimal [CUDA memory usage](https://docs.ultralytics.com/guides/yolo-common-issues), and built-in tracking.
 
 ```python
 from ultralytics import YOLO
@@ -116,6 +116,6 @@ Choosing the right architecture depends entirely on your target deployment envir
 
 - **Use YOLOv6-3.0 for:** Factory automation and defect detection where server-grade GPUs (e.g., A100s) are abundant and batch processing maximizes throughput.
 - **Use YOLOv9 for:** Academic research or competitions where wringing out the absolute highest mAP on standardized datasets like COCO is the primary goal.
-- **Use YOLO26 for:** Almost all modern commercial applications. Its NMS-free architecture, low memory footprint, and high-speed CPU inference make it perfect for [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system/), smart retail, and real-time [object tracking](https://docs.ultralytics.com/modes/track/) on embedded devices.
+- **Use YOLO26 for:** Almost all modern commercial applications. Its NMS-free architecture, low memory footprint, and high-speed CPU inference make it perfect for [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system), smart retail, and real-time [object tracking](https://docs.ultralytics.com/modes/track) on embedded devices.
 
 By leveraging the comprehensive [Ultralytics ecosystem](https://docs.ultralytics.com/), developers can easily experiment with [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8), YOLO11, and YOLO26 to find the perfect performance balance for their specific real-world challenges.

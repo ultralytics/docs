@@ -29,7 +29,7 @@ The core of YOLOv6-3.0 lies in its hardware-friendly design. It incorporates a B
 
 Powered by an EfficientRep backbone, this model shines in heavy-duty [manufacturing automation](https://www.ultralytics.com/blog/manufacturing-automation) tasks where batch processing on powerful NVIDIA hardware (such as T4 or A100 GPUs) is the norm. While it performs admirably in server clusters, its reliance on specific hardware optimizations can make it less efficient on low-power edge CPUs.
 
-[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6/){ .md-button }
+[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6){ .md-button }
 
 ## Unpacking YOLOv10: The NMS-Free Pioneer
 
@@ -47,7 +47,7 @@ YOLOv10's major contribution to the field is its end-to-end NMS-free design. By 
 
 Furthermore, the model boasts a holistic efficiency-accuracy driven model design. Through comprehensive optimization of various layers, YOLOv10 drastically cuts down computational redundancy. This makes it highly suitable for resource-constrained environments, including [autonomous vehicles](https://www.ultralytics.com/glossary/autonomous-vehicles) and edge robotics.
 
-[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10/){ .md-button }
+[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10){ .md-button }
 
 ## Detailed Performance Comparison
 
@@ -97,11 +97,11 @@ YOLOv10 is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultralytics Advantage: Why YOLO26 is the Superior Choice
 
@@ -114,18 +114,18 @@ Released in January 2026, YOLO26 incorporates the best innovations from the prec
 - **End-to-End NMS-Free Design:** Building on the concept pioneered in YOLOv10, YOLO26 natively eliminates NMS post-processing, resulting in smoother, more predictable inference times that are drastically [easier to ship to production](https://www.ultralytics.com/blog/exploring-why-ultralytics-yolo26-is-easier-to-ship-to-production).
 - **MuSGD Optimizer:** Inspired by large language model optimizations like Moonshot AI's Kimi K2, this hybrid of SGD and Muon ensures incredibly stable training and dramatically faster convergence.
 - **Up to 43% Faster CPU Inference:** For edge devices, YOLO26 features specific architectural simplifications, making it vastly superior for deployment on IoT chips and consumer CPUs.
-- **DFL Removal:** The removal of Distribution Focal Loss simplifies the head export, greatly improving compatibility with low-power deployment engines like [OpenVINO](https://docs.ultralytics.com/integrations/openvino/) or NCNN.
+- **DFL Removal:** The removal of Distribution Focal Loss simplifies the head export, greatly improving compatibility with low-power deployment engines like [OpenVINO](https://docs.ultralytics.com/integrations/openvino) or NCNN.
 - **ProgLoss + STAL:** Advanced loss formulations notably boost precision on small object recognition, which is critical for [drone UAV operations](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations) and distant subject tracking.
 
-Furthermore, unlike single-task repositories, the Ultralytics ecosystem handles a massive array of vision tasks out of the box, including bounding box detection, [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [image classification](https://docs.ultralytics.com/tasks/classify/), and [pose estimation](https://docs.ultralytics.com/tasks/pose/).
+Furthermore, unlike single-task repositories, the Ultralytics ecosystem handles a massive array of vision tasks out of the box, including bounding box detection, [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), and [pose estimation](https://docs.ultralytics.com/tasks/pose).
 
 ### Training Efficiency and Memory Optimization
 
-A critical advantage of Ultralytics YOLO models over complex [transformer-based architectures like RT-DETR](https://docs.ultralytics.com/models/rtdetr/) is their incredibly low CUDA memory consumption during training. A developer can comfortably fine-tune YOLO26 on a consumer-grade GPU or through free cloud resources, significantly democratizing AI development.
+A critical advantage of Ultralytics YOLO models over complex [transformer-based architectures like RT-DETR](https://docs.ultralytics.com/models/rtdetr) is their incredibly low CUDA memory consumption during training. A developer can comfortably fine-tune YOLO26 on a consumer-grade GPU or through free cloud resources, significantly democratizing AI development.
 
 ### Code Example: Getting Started with YOLO26
 
-The ease of use provided by the [Ultralytics Python API](https://docs.ultralytics.com/usage/python/) allows you to load, train, and test models in just a few lines of code.
+The ease of use provided by the [Ultralytics Python API](https://docs.ultralytics.com/usage/python) allows you to load, train, and test models in just a few lines of code.
 
 ```python
 from ultralytics import YOLO
@@ -154,4 +154,4 @@ When choosing between YOLOv6-3.0 and YOLOv10, the decision hinges on the deploym
 
 However, for developers seeking zero-compromise performance backed by comprehensive documentation, cloud logging via the [Ultralytics Platform](https://platform.ultralytics.com), and multi-task versatility, **YOLO26 is the definitive recommendation**.
 
-For legacy infrastructure requirements, teams might also investigate the previous generation [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), or explore [YOLO-World](https://docs.ultralytics.com/models/yolo-world/) for unique open-vocabulary detection capabilities.
+For legacy infrastructure requirements, teams might also investigate the previous generation [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), or explore [YOLO-World](https://docs.ultralytics.com/models/yolo-world) for unique open-vocabulary detection capabilities.

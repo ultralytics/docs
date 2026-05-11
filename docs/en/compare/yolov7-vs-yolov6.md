@@ -22,15 +22,15 @@ Released in mid-2022, YOLOv7 introduced several innovative strategies to optimiz
 - Date: 2022-07-06
 - Arxiv: [2207.02696](https://arxiv.org/abs/2207.02696)
 - GitHub: [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
-- Docs: [Ultralytics YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7/)
+- Docs: [Ultralytics YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7)
 
 ### Architecture Highlights
 
 YOLOv7 is characterized by its Extended Efficient Layer Aggregation Network (E-ELAN). This architecture allows the model to learn more diverse features by controlling the shortest longest gradient path. Furthermore, YOLOv7 utilizes structural re-parameterization techniques during inference to merge convolution layers, effectively reducing the parameter count and computation time without sacrificing the learned representations.
 
-The model also features a unique auxiliary head training strategy. By using a "lead head" for final predictions and an "auxiliary head" to guide training in the middle layers, YOLOv7 achieves better convergence and richer feature extraction, particularly beneficial when tackling challenging [object detection](https://docs.ultralytics.com/tasks/detect/) tasks.
+The model also features a unique auxiliary head training strategy. By using a "lead head" for final predictions and an "auxiliary head" to guide training in the middle layers, YOLOv7 achieves better convergence and richer feature extraction, particularly beneficial when tackling challenging [object detection](https://docs.ultralytics.com/tasks/detect) tasks.
 
-[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7/){ .md-button }
+[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 
 ## YOLOv6-3.0: Industrial-Grade Throughput
 
@@ -41,7 +41,7 @@ Developed by the Meituan Vision AI Department, YOLOv6-3.0 was explicitly designe
 - Date: 2023-01-13
 - Arxiv: [2301.05586](https://arxiv.org/abs/2301.05586)
 - GitHub: [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
-- Docs: [Ultralytics YOLOv6 Documentation](https://docs.ultralytics.com/models/yolov6/)
+- Docs: [Ultralytics YOLOv6 Documentation](https://docs.ultralytics.com/models/yolov6)
 
 ### Architecture Highlights
 
@@ -49,7 +49,7 @@ YOLOv6-3.0 adopts an EfficientRep backbone, which is highly optimized for parall
 
 Additionally, YOLOv6-3.0 utilizes an Anchor-Aided Training (AAT) strategy. This innovative approach combines the benefits of anchor-based training with anchor-free inference, allowing the model to enjoy the stability of anchors during the learning phase while maintaining the speed and simplicity of an anchor-free design during deployment.
 
-[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6/){ .md-button }
+[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6){ .md-button }
 
 ## Performance Comparison
 
@@ -67,7 +67,7 @@ When evaluating models for production, balancing accuracy (mAP) with inference s
 
 !!! info "Hardware Considerations"
 
-    YOLOv6-3.0 is exceptionally well-suited for high-throughput GPU environments (like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/)), while YOLOv7 provides a robust balance for systems where feature retention is heavily prioritized.
+    YOLOv6-3.0 is exceptionally well-suited for high-throughput GPU environments (like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt)), while YOLOv7 provides a robust balance for systems where feature retention is heavily prioritized.
 
 ## The Ultralytics Advantage
 
@@ -75,12 +75,12 @@ While the standalone repositories for YOLOv7 and YOLOv6-3.0 are powerful, levera
 
 - **Ease of Use:** Gone are the days of complex setup scripts. The Ultralytics API allows you to load, train, and deploy YOLOv7 or YOLOv6 models with minimal boilerplate code. You can easily switch between architectures by merely changing the model weights file.
 - **Well-Maintained Ecosystem:** Ultralytics provides a robust environment with frequent updates, ensuring native compatibility with the latest [PyTorch](https://pytorch.org/) distributions and CUDA versions.
-- **Training Efficiency:** Training pipelines are deeply optimized to utilize GPU resources effectively. Furthermore, Ultralytics YOLO models generally have lower memory requirements during training compared to heavy transformer-based models (like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/)), enabling larger [batch sizes](https://www.ultralytics.com/glossary/batch-size) on consumer-grade hardware.
-- **Versatility:** In addition to standard bounding box detection, the Ultralytics framework seamlessly supports advanced tasks like [pose estimation](https://docs.ultralytics.com/tasks/pose/) and [instance segmentation](https://docs.ultralytics.com/tasks/segment/) across compatible model families, a feature often lacking in isolated research repositories.
+- **Training Efficiency:** Training pipelines are deeply optimized to utilize GPU resources effectively. Furthermore, Ultralytics YOLO models generally have lower memory requirements during training compared to heavy transformer-based models (like [RT-DETR](https://docs.ultralytics.com/models/rtdetr)), enabling larger [batch sizes](https://www.ultralytics.com/glossary/batch-size) on consumer-grade hardware.
+- **Versatility:** In addition to standard bounding box detection, the Ultralytics framework seamlessly supports advanced tasks like [pose estimation](https://docs.ultralytics.com/tasks/pose) and [instance segmentation](https://docs.ultralytics.com/tasks/segment) across compatible model families, a feature often lacking in isolated research repositories.
 
 ### Code Example: Training and Inference
 
-Integrating these models into your Python pipeline is straightforward. Ensure your dataset is formatted correctly (e.g., standard [COCO](https://docs.ultralytics.com/datasets/detect/coco/)) and run the following:
+Integrating these models into your Python pipeline is straightforward. Ensure your dataset is formatted correctly (e.g., standard [COCO](https://docs.ultralytics.com/datasets/detect/coco)) and run the following:
 
 ```python
 from ultralytics import YOLO
@@ -120,9 +120,9 @@ While YOLOv7 and YOLOv6-3.0 are highly capable, the rapid pace of artificial int
 
 If you are starting a new project, **YOLO26 is strongly recommended** over previous generations. It introduces several groundbreaking features:
 
-- **End-to-End NMS-Free Design:** Building on the foundations laid by [YOLOv10](https://docs.ultralytics.com/models/yolov10/), YOLO26 natively eliminates Non-Maximum Suppression (NMS). This reduces post-processing overhead, simplifying deployment to mobile applications and ensuring highly deterministic, low-latency inference.
+- **End-to-End NMS-Free Design:** Building on the foundations laid by [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 natively eliminates Non-Maximum Suppression (NMS). This reduces post-processing overhead, simplifying deployment to mobile applications and ensuring highly deterministic, low-latency inference.
 - **MuSGD Optimizer:** Inspired by advanced LLM training techniques (such as those used in Moonshot AI's Kimi K2), YOLO26 utilizes a hybrid optimizer combining SGD and Muon. This guarantees more stable training dynamics and drastically faster convergence.
-- **Up to 43% Faster CPU Inference:** By strategically removing the Distribution Focal Loss (DFL), YOLO26 achieves massive speedups on CPUs. This makes it the undisputed champion for edge environments like the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) and remote IoT sensors.
+- **Up to 43% Faster CPU Inference:** By strategically removing the Distribution Focal Loss (DFL), YOLO26 achieves massive speedups on CPUs. This makes it the undisputed champion for edge environments like the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) and remote IoT sensors.
 - **ProgLoss + STAL:** Advanced loss functions specifically engineered to improve small-object recognition, a historic weakness of single-stage detectors.
 
-By combining these innovations with the powerful [Ultralytics Platform](https://docs.ultralytics.com/platform/), YOLO26 offers unparalleled performance, versatility, and ease of deployment for the modern machine learning engineer.
+By combining these innovations with the powerful [Ultralytics Platform](https://docs.ultralytics.com/platform), YOLO26 offers unparalleled performance, versatility, and ease of deployment for the modern machine learning engineer.

@@ -6,7 +6,7 @@ keywords: EfficientDet, YOLOv9, object detection comparison, computer vision, mo
 
 # EfficientDet vs. YOLOv9: Architecture, Performance, and Edge Deployment
 
-The landscape of computer vision has been shaped by continuous breakthroughs in neural network design. Finding the right balance between computational efficiency and detection accuracy is critical when selecting a model. Google's **EfficientDet** established a strong baseline in 2019 by introducing scalable architectures, while **YOLOv9**, released in 2024, pushed the boundaries of [object detection](https://docs.ultralytics.com/tasks/detect/) using Programmable Gradient Information (PGI).
+The landscape of computer vision has been shaped by continuous breakthroughs in neural network design. Finding the right balance between computational efficiency and detection accuracy is critical when selecting a model. Google's **EfficientDet** established a strong baseline in 2019 by introducing scalable architectures, while **YOLOv9**, released in 2024, pushed the boundaries of [object detection](https://docs.ultralytics.com/tasks/detect) using Programmable Gradient Information (PGI).
 
 This guide provides a comprehensive technical comparison between these two models and introduces the modern [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) framework, which offers a robust, end-to-end solution optimized for production environments.
 
@@ -40,16 +40,16 @@ Developed by researchers at Academia Sinica, YOLOv9 tackles the degradation of i
 - **Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao
 - **Organization:** Institute of Information Science, Academia Sinica
 - **Date:** February 21, 2024
-- **Links:** [Arxiv](https://arxiv.org/abs/2402.13616), [GitHub](https://github.com/WongKinYiu/yolov9), [Docs](https://docs.ultralytics.com/models/yolov9/)
+- **Links:** [Arxiv](https://arxiv.org/abs/2402.13616), [GitHub](https://github.com/WongKinYiu/yolov9), [Docs](https://docs.ultralytics.com/models/yolov9)
 
 **Key Architectural Features:**
 YOLOv9 introduces Programmable Gradient Information (PGI) to provide auxiliary supervision, ensuring crucial data is retained for updating network weights reliably. It also features the Generalized Efficient Layer Aggregation Network (GELAN) to maximize parameter efficiency. Despite these advancements, YOLOv9 still requires Non-Maximum Suppression (NMS) during post-processing, which adds latency.
 
-[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9/){ .md-button }
+[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9){ .md-button }
 
 ## Performance Comparison
 
-When evaluating these models, analyzing empirical data helps determine which architecture provides the best trade-off for your specific [hardware requirements](https://docs.ultralytics.com/guides/yolo-performance-metrics/).
+When evaluating these models, analyzing empirical data helps determine which architecture provides the best trade-off for your specific [hardware requirements](https://docs.ultralytics.com/guides/yolo-performance-metrics).
 
 | Model           | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | --------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -74,7 +74,7 @@ YOLOv9 provides a generational leap in speed. For instance, YOLOv9e achieves a *
 
 !!! tip "Exporting Models for Production"
 
-    Exporting your architecture to optimized formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) or [OpenVINO](https://docs.ultralytics.com/integrations/openvino/) drastically reduces inference times compared to raw PyTorch runs.
+    Exporting your architecture to optimized formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) or [OpenVINO](https://docs.ultralytics.com/integrations/openvino) drastically reduces inference times compared to raw PyTorch runs.
 
 ## Use Cases and Recommendations
 
@@ -98,11 +98,11 @@ YOLOv9 is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultralytics Advantage: Choosing YOLO26
 
@@ -121,11 +121,11 @@ The [Ultralytics Platform](https://platform.ultralytics.com) offers unparalleled
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
-Other robust options in the Ultralytics ecosystem include [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8), which also provide multi-task versatility such as [instance segmentation](https://docs.ultralytics.com/tasks/segment/) and [pose estimation](https://docs.ultralytics.com/tasks/pose/).
+Other robust options in the Ultralytics ecosystem include [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8), which also provide multi-task versatility such as [instance segmentation](https://docs.ultralytics.com/tasks/segment) and [pose estimation](https://docs.ultralytics.com/tasks/pose).
 
 ### Simplified Training with the Python SDK
 
-Ultralytics models prioritize developer experience. Training a state-of-the-art model is condensed into just a few lines of [Python](https://docs.ultralytics.com/usage/python/).
+Ultralytics models prioritize developer experience. Training a state-of-the-art model is condensed into just a few lines of [Python](https://docs.ultralytics.com/usage/python).
 
 ```python
 from ultralytics import YOLO
@@ -147,4 +147,4 @@ Choosing between these architectures heavily depends on your deployment target.
 
 - **Legacy Cloud Deployments:** EfficientDet was popular for offline, cloud-based batch processing where high accuracy was needed, and strict real-time constraints were non-existent.
 - **Academic Research:** YOLOv9 remains an interesting choice for researchers pushing theoretical CNN bounds and analyzing gradient flows through network layers.
-- **Edge Computing and IoT:** **YOLO26** dominates real-world applications. Its NMS-free pipeline and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) capabilities make it the superior option for smart city traffic analysis, retail inventory monitoring, and drone-based inspection, offering an unbeatable balance of high accuracy and rapid inference speeds.
+- **Edge Computing and IoT:** **YOLO26** dominates real-world applications. Its NMS-free pipeline and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) capabilities make it the superior option for smart city traffic analysis, retail inventory monitoring, and drone-based inspection, offering an unbeatable balance of high accuracy and rapid inference speeds.

@@ -25,7 +25,7 @@ Released in the summer of 2020, YOLOv5 quickly became an industry standard due t
 - **Organization:** [Ultralytics](https://www.ultralytics.com/)
 - **Date:** 2020-06-26
 - **GitHub:** [ultralytics/yolov5](https://github.com/ultralytics/yolov5)
-- **Docs:** [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5/)
+- **Docs:** [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5)
 
 YOLOv5 established a strong baseline for ease of use and introduced powerful training methodologies, including advanced mosaic data augmentation and auto-anchoring. It remains incredibly popular for researchers building upon a well-documented, heavily tested codebase.
 
@@ -39,9 +39,9 @@ Building upon years of feedback and architectural research, YOLO11 was introduce
 - **Organization:** [Ultralytics](https://www.ultralytics.com/)
 - **Date:** 2024-09-27
 - **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- **Docs:** [YOLO11 Documentation](https://docs.ultralytics.com/models/yolo11/)
+- **Docs:** [YOLO11 Documentation](https://docs.ultralytics.com/models/yolo11)
 
-YOLO11 offers a streamlined user experience through the `ultralytics` Python package, boasting a simple API that unifies [object detection](https://docs.ultralytics.com/tasks/detect/), instance segmentation, classification, pose estimation, and oriented bounding boxes (OBB). It achieves a highly favorable trade-off between speed and accuracy, making it ideal for diverse real-world deployment scenarios.
+YOLO11 offers a streamlined user experience through the `ultralytics` Python package, boasting a simple API that unifies [object detection](https://docs.ultralytics.com/tasks/detect), instance segmentation, classification, pose estimation, and oriented bounding boxes (OBB). It achieves a highly favorable trade-off between speed and accuracy, making it ideal for diverse real-world deployment scenarios.
 
 [Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
@@ -75,7 +75,7 @@ The metrics highlight a clear leap in the **performance balance** achieved by YO
 
 The performance improvements in YOLO11 stem from several key architectural evolutions. While YOLOv5 utilized a standard CSPNet backbone with C3 modules, YOLO11 introduced more efficient feature extraction blocks like C2f and later C3k2, which optimize gradient flow and reduce computational overhead.
 
-YOLO11 also features a heavily refined head. Moving away from the anchor-based design of older models, newer Ultralytics architectures adopt an anchor-free approach. This reduces the number of box predictions, streamlining the post-processing pipeline and improving the model's ability to generalize across different scales and aspect ratios. Additionally, these models boast superior [training efficiency](https://docs.ultralytics.com/guides/model-training-tips/) and readily available pre-trained weights that accelerate the convergence of fine-tuned datasets.
+YOLO11 also features a heavily refined head. Moving away from the anchor-based design of older models, newer Ultralytics architectures adopt an anchor-free approach. This reduces the number of box predictions, streamlining the post-processing pipeline and improving the model's ability to generalize across different scales and aspect ratios. Additionally, these models boast superior [training efficiency](https://docs.ultralytics.com/guides/model-training-tips) and readily available pre-trained weights that accelerate the convergence of fine-tuned datasets.
 
 ## Implementation and Code Examples
 
@@ -121,7 +121,7 @@ results.print()
 
 !!! info "Deployment Flexibility"
 
-    Both models support extensive export formats. Whether you are targeting an [NVIDIA Jetson](https://developer.nvidia.com/embedded-computing) using [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) or an iOS application using CoreML, the deployment process is thoroughly documented and supported by the community.
+    Both models support extensive export formats. Whether you are targeting an [NVIDIA Jetson](https://developer.nvidia.com/embedded-computing) using [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) or an iOS application using CoreML, the deployment process is thoroughly documented and supported by the community.
 
 ## Ideal Use Cases
 
@@ -129,12 +129,12 @@ Choosing between these models depends largely on your project's lifecycle stage 
 
 ### When to Choose YOLOv5
 
-- **Maintaining Legacy Codebases:** If your production environment is heavily customized around the YOLOv5 repository structure or specific [hyperparameter evolution](https://docs.ultralytics.com/yolov5/tutorials/hyperparameter_evolution/) techniques.
+- **Maintaining Legacy Codebases:** If your production environment is heavily customized around the YOLOv5 repository structure or specific [hyperparameter evolution](https://docs.ultralytics.com/yolov5/tutorials/hyperparameter_evolution) techniques.
 - **Academic Baselines:** When publishing research that requires direct benchmarking against established 2020-2022 computer vision standards.
 
 ### When to Choose YOLO11
 
-- **Multi-Task Projects:** When your application requires a mix of tasks such as [pose estimation](https://docs.ultralytics.com/tasks/pose/) and [instance segmentation](https://docs.ultralytics.com/tasks/segment/) using a single, unified API.
+- **Multi-Task Projects:** When your application requires a mix of tasks such as [pose estimation](https://docs.ultralytics.com/tasks/pose) and [instance segmentation](https://docs.ultralytics.com/tasks/segment) using a single, unified API.
 - **Edge Deployments:** For [edge computing](https://www.ultralytics.com/glossary/edge-computing) scenarios where squeezing out maximum mAP for a given computational budget (FLOPs) is critical.
 - **Commercial AI Solutions:** Ideal for enterprise applications in retail and security, leveraging the robust support of the [Ultralytics Platform](https://platform.ultralytics.com/).
 
@@ -148,8 +148,8 @@ Released in January 2026, YOLO26 introduces paradigm-shifting advancements desig
 - **MuSGD Optimizer:** Inspired by LLM training innovations from models like Moonshot AI's Kimi K2, this hybrid of SGD and Muon ensures incredibly stable training and dramatically faster convergence.
 - **Unprecedented CPU Speed:** By removing Distribution Focal Loss (DFL), YOLO26 achieves up to **43% faster CPU inference**, making it the absolute best choice for edge devices and environments without dedicated GPUs.
 - **Advanced Loss Functions:** The integration of ProgLoss and STAL yields notable improvements in small-object recognition, which is critical for drone analytics, IoT, and robotics.
-- **Task-Specific Enhancements:** It introduces specialized optimizations, such as Residual Log-Likelihood Estimation (RLE) for Pose and specialized angle loss for [oriented bounding boxes](https://docs.ultralytics.com/tasks/obb/), ensuring superior performance across all computer vision tasks.
+- **Task-Specific Enhancements:** It introduces specialized optimizations, such as Residual Log-Likelihood Estimation (RLE) for Pose and specialized angle loss for [oriented bounding boxes](https://docs.ultralytics.com/tasks/obb), ensuring superior performance across all computer vision tasks.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
-For users interested in specialized architectures beyond standard object detection, you might also explore models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) for transformer-based detection, or [YOLO-World](https://docs.ultralytics.com/models/yolo-world/) for open-vocabulary tracking and detection. Embracing these well-maintained, highly optimized tools ensures your computer vision pipelines remain efficient, scalable, and ahead of the curve.
+For users interested in specialized architectures beyond standard object detection, you might also explore models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) for transformer-based detection, or [YOLO-World](https://docs.ultralytics.com/models/yolo-world) for open-vocabulary tracking and detection. Embracing these well-maintained, highly optimized tools ensures your computer vision pipelines remain efficient, scalable, and ahead of the curve.

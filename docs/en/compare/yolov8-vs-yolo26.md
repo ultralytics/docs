@@ -25,9 +25,9 @@ Released in early 2023, YOLOv8 introduced a major overhaul to the YOLO framework
 - **Organization:** [Ultralytics](https://www.ultralytics.com/)
 - **Date:** 2023-01-10
 - **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
-- **Docs:** [YOLOv8 Documentation](https://docs.ultralytics.com/models/yolov8/)
+- **Docs:** [YOLOv8 Documentation](https://docs.ultralytics.com/models/yolov8)
 
-YOLOv8 quickly became the industry standard due to its excellent performance balance and deep integration into the [Ultralytics ecosystem](https://docs.ultralytics.com/). It natively supports [object detection](https://docs.ultralytics.com/tasks/detect/), [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [image classification](https://docs.ultralytics.com/tasks/classify/). However, it relies on standard Non-Maximum Suppression (NMS) for post-processing, which can introduce latency bottlenecks in highly constrained edge environments.
+YOLOv8 quickly became the industry standard due to its excellent performance balance and deep integration into the [Ultralytics ecosystem](https://docs.ultralytics.com/). It natively supports [object detection](https://docs.ultralytics.com/tasks/detect), [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [image classification](https://docs.ultralytics.com/tasks/classify). However, it relies on standard Non-Maximum Suppression (NMS) for post-processing, which can introduce latency bottlenecks in highly constrained edge environments.
 
 [Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
@@ -39,9 +39,9 @@ Released in January 2026, YOLO26 takes the foundation built by its predecessors 
 - **Organization:** [Ultralytics](https://www.ultralytics.com/)
 - **Date:** 2026-01-14
 - **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
-- **Docs:** [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26/)
+- **Docs:** [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26)
 
-YOLO26 introduces several paradigm-shifting technical improvements. Most notably, it features an **End-to-End NMS-Free Design**. Pioneered initially by [YOLOv10](https://docs.ultralytics.com/models/yolov10/), this architecture eliminates the need for NMS post-processing, significantly simplifying export pipelines and reducing latency variance. Furthermore, the removal of Distribution Focal Loss (DFL) streamlines the detection head, making it incredibly friendly for deployment on edge AI hardware.
+YOLO26 introduces several paradigm-shifting technical improvements. Most notably, it features an **End-to-End NMS-Free Design**. Pioneered initially by [YOLOv10](https://docs.ultralytics.com/models/yolov10), this architecture eliminates the need for NMS post-processing, significantly simplifying export pipelines and reducing latency variance. Furthermore, the removal of Distribution Focal Loss (DFL) streamlines the detection head, making it incredibly friendly for deployment on edge AI hardware.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
@@ -55,15 +55,15 @@ YOLO26 brings several under-the-hood advancements that drastically improve upon 
 
 ### Optimized Training with MuSGD
 
-Training efficiency is a hallmark of Ultralytics models, which typically boast much lower memory requirements compared to bulky transformer-based architectures like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/). YOLO26 enhances this further with the introduction of the **MuSGD Optimizer**. Inspired by Large Language Model (LLM) training techniques (specifically Moonshot AI's Kimi K2), this hybrid of Stochastic Gradient Descent (SGD) and Muon ensures faster convergence and highly stable training dynamics across complex datasets.
+Training efficiency is a hallmark of Ultralytics models, which typically boast much lower memory requirements compared to bulky transformer-based architectures like [RT-DETR](https://docs.ultralytics.com/models/rtdetr). YOLO26 enhances this further with the introduction of the **MuSGD Optimizer**. Inspired by Large Language Model (LLM) training techniques (specifically Moonshot AI's Kimi K2), this hybrid of Stochastic Gradient Descent (SGD) and Muon ensures faster convergence and highly stable training dynamics across complex datasets.
 
 ### Advanced Loss Functions
 
-For tasks requiring high precision, such as [drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensors, YOLO26 introduces **ProgLoss + STAL**. These improved loss functions provide notable enhancements in small-object recognition. Additionally, YOLO26 brings task-specific improvements across the board: a multi-scale proto for superior mask generation in segmentation, Residual Log-Likelihood Estimation (RLE) for finer pose estimation, and specialized angle loss to resolve boundary issues in [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) detection.
+For tasks requiring high precision, such as [drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensors, YOLO26 introduces **ProgLoss + STAL**. These improved loss functions provide notable enhancements in small-object recognition. Additionally, YOLO26 brings task-specific improvements across the board: a multi-scale proto for superior mask generation in segmentation, Residual Log-Likelihood Estimation (RLE) for finer pose estimation, and specialized angle loss to resolve boundary issues in [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection.
 
 ## Performance Analysis and Comparison
 
-The following table highlights the performance differences between the two models using the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/). Best performing values in each size category are highlighted in **bold**.
+The following table highlights the performance differences between the two models using the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco). Best performing values in each size category are highlighted in **bold**.
 
 | Model   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -86,13 +86,13 @@ The following table highlights the performance differences between the two model
 
 The data reveals a generational leap. YOLO26 significantly outperforms YOLOv8 across all metrics. The YOLO26 Nano (YOLO26n) model achieves a remarkable 40.9 mAP, substantially higher than YOLOv8n's 37.3, while utilizing fewer parameters and FLOPs.
 
-One of the most striking improvements is the CPU inference speed. Because of its optimized architecture and the removal of DFL, YOLO26 delivers **up to 43% faster CPU inference** via [ONNX](https://docs.ultralytics.com/integrations/onnx/). This makes YOLO26 unparalleled for [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) and other low-resource edge devices. While GPU speeds using [TensorRT](https://developer.nvidia.com/tensorrt) are competitive in both models, the overall parameter efficiency of YOLO26 translates to lower memory footprints during both training and inference.
+One of the most striking improvements is the CPU inference speed. Because of its optimized architecture and the removal of DFL, YOLO26 delivers **up to 43% faster CPU inference** via [ONNX](https://docs.ultralytics.com/integrations/onnx). This makes YOLO26 unparalleled for [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) and other low-resource edge devices. While GPU speeds using [TensorRT](https://developer.nvidia.com/tensorrt) are competitive in both models, the overall parameter efficiency of YOLO26 translates to lower memory footprints during both training and inference.
 
 ## Ease of Use and Ecosystem
 
 Both models benefit immensely from the well-maintained [Ultralytics ecosystem](https://www.ultralytics.com/). Developers praise the ease of use provided by the unified API, which allows switching between YOLOv8 and YOLO26 by simply changing the model name string.
 
-Whether you are performing [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning/), conducting [experiment tracking](https://docs.ultralytics.com/integrations/weights-biases/), or exploring new [datasets](https://docs.ultralytics.com/datasets/), the Ultralytics documentation provides extensive resources. Furthermore, the [Ultralytics Platform](https://platform.ultralytics.com/) offers a streamlined way to annotate, train, and deploy these models seamlessly into the cloud or locally.
+Whether you are performing [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning), conducting [experiment tracking](https://docs.ultralytics.com/integrations/weights-biases), or exploring new [datasets](https://docs.ultralytics.com/datasets), the Ultralytics documentation provides extensive resources. Furthermore, the [Ultralytics Platform](https://platform.ultralytics.com/) offers a streamlined way to annotate, train, and deploy these models seamlessly into the cloud or locally.
 
 ### Code Example
 
@@ -126,7 +126,7 @@ export_path = model.export(format="onnx")
 
 !!! info "Deployment Simplicity"
 
-    Exporting YOLO26 to formats like [CoreML](https://docs.ultralytics.com/integrations/coreml/) or [OpenVINO](https://docs.ultralytics.com/integrations/openvino/) is significantly smoother than older models due to its NMS-free architecture, which removes complex custom operations from the exported graph.
+    Exporting YOLO26 to formats like [CoreML](https://docs.ultralytics.com/integrations/coreml) or [OpenVINO](https://docs.ultralytics.com/integrations/openvino) is significantly smoother than older models due to its NMS-free architecture, which removes complex custom operations from the exported graph.
 
 ## Ideal Use Cases
 

@@ -31,7 +31,7 @@ Organization: Institute of Information Science, Academia Sinica, Taiwan
 Date: 2022-07-06  
 Arxiv: [https://arxiv.org/abs/2207.02696](https://arxiv.org/abs/2207.02696)
 
-[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7/){ .md-button }
+[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 
 ### PP-YOLOE+ Architecture Highlights
 
@@ -72,7 +72,7 @@ Choosing the right model often comes down to the specific constraints of your ha
 
 !!! tip "Optimizing for Production"
 
-    When deploying these models, leveraging export formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) or [ONNX](https://docs.ultralytics.com/integrations/onnx/) can significantly reduce latency compared to native PyTorch inference.
+    When deploying these models, leveraging export formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) or [ONNX](https://docs.ultralytics.com/integrations/onnx) can significantly reduce latency compared to native PyTorch inference.
 
 ## The Ultralytics Advantage
 
@@ -97,11 +97,11 @@ model.export(format="engine")  # TensorRT export
 
 ### Resource Efficiency
 
-A major strength of Ultralytics YOLO models is their lower **memory requirements** during both training and inference. This efficiency allows researchers and developers to use larger batch sizes on consumer-grade hardware, accelerating the training process compared to heavier models or complex Transformer architectures like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/).
+A major strength of Ultralytics YOLO models is their lower **memory requirements** during both training and inference. This efficiency allows researchers and developers to use larger batch sizes on consumer-grade hardware, accelerating the training process compared to heavier models or complex Transformer architectures like [RT-DETR](https://docs.ultralytics.com/models/rtdetr).
 
 ### Ecosystem and Versatility
 
-The Ultralytics ecosystem is exceptionally **well-maintained**, featuring frequent updates, extensive documentation, and native support for diverse tasks beyond standard detection. With Ultralytics, a single framework supports [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), [classification](https://docs.ultralytics.com/tasks/classify/), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/), providing unmatched **versatility** that competing models often lack.
+The Ultralytics ecosystem is exceptionally **well-maintained**, featuring frequent updates, extensive documentation, and native support for diverse tasks beyond standard detection. With Ultralytics, a single framework supports [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), [classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb), providing unmatched **versatility** that competing models often lack.
 
 ## The Future of Vision AI: YOLO26
 
@@ -109,7 +109,7 @@ As computer vision rapidly evolves, newer architectures have emerged that redefi
 
 **Key YOLO26 Innovations:**
 
-- **End-to-End NMS-Free Design:** YOLO26 eliminates Non-Maximum Suppression (NMS) post-processing. This natively end-to-end approach drastically simplifies deployment logic and reduces variable latency, a breakthrough first introduced in [YOLOv10](https://docs.ultralytics.com/models/yolov10/).
+- **End-to-End NMS-Free Design:** YOLO26 eliminates Non-Maximum Suppression (NMS) post-processing. This natively end-to-end approach drastically simplifies deployment logic and reduces variable latency, a breakthrough first introduced in [YOLOv10](https://docs.ultralytics.com/models/yolov10).
 - **Unprecedented Edge Performance:** By removing Distribution Focal Loss (DFL), YOLO26 achieves up to **43% faster CPU inference**, making it superior for IoT and edge devices compared to previous generations.
 - **Advanced Training Dynamics:** The integration of the **MuSGD Optimizer**—inspired by LLM innovations like Moonshot AI's Kimi K2—ensures more stable training and faster convergence.
 - **Superior Small Object Detection:** Enhanced loss functions, specifically **ProgLoss + STAL**, address historical weaknesses in recognizing small objects, crucial for applications like [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision).
@@ -129,4 +129,4 @@ Choosing between these architectures often depends on the specific deployment en
 - **Robotics Integration:** Ideal for [integrating computer vision in robotics](https://www.ultralytics.com/blog/integrating-computer-vision-in-robotics-with-ultalytics-yolo11), allowing for fast decision-making in dynamic environments.
 - **Academic Research:** Widely supported and frequently used as a reliable baseline in PyTorch-based research.
 
-While older models hold historical significance, transitioning to modern architectures like **YOLO26** or [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) via the [Ultralytics Platform](https://docs.ultralytics.com/platform/) ensures access to the latest optimizations, the simplest training workflows, and the broadest multi-task support available today.
+While older models hold historical significance, transitioning to modern architectures like **YOLO26** or [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) via the [Ultralytics Platform](https://docs.ultralytics.com/platform) ensures access to the latest optimizations, the simplest training workflows, and the broadest multi-task support available today.

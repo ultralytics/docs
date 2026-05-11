@@ -8,7 +8,7 @@ keywords: YOLOv9, YOLOv10, object detection, Ultralytics, computer vision, model
 
 The landscape of real-time computer vision has seen immense advancements, driven largely by researchers continuously pushing the performance-efficiency boundary. When analyzing the evolution of state-of-the-art vision models, **YOLOv9** and **YOLOv10** represent two critical milestones. Released in early 2024, both models introduced paradigm-shifting architectural designs to address long-standing challenges in deep neural networks, from information bottlenecks to post-processing latency.
 
-This comprehensive technical comparison explores their architectures, performance metrics, and ideal deployment scenarios, helping you navigate the complexities of modern [object detection](https://docs.ultralytics.com/tasks/detect/) ecosystems.
+This comprehensive technical comparison explores their architectures, performance metrics, and ideal deployment scenarios, helping you navigate the complexities of modern [object detection](https://docs.ultralytics.com/tasks/detect) ecosystems.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -30,7 +30,7 @@ Introduced on February 21, 2024, YOLOv9 tackles the theoretical issue of informa
 
 YOLOv9 introduces the **Generalized Efficient Layer Aggregation Network (GELAN)**, which maximizes parameter utilization by combining the strengths of CSPNet and ELAN. Furthermore, it employs **Programmable Gradient Information (PGI)**, an auxiliary supervision mechanism ensuring deep layers retain critical spatial information. This makes YOLOv9 exceptionally strong for tasks demanding high feature fidelity, such as [medical image analysis](https://www.ultralytics.com/glossary/medical-image-analysis) or distant surveillance.
 
-[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9/){ .md-button }
+[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9){ .md-button }
 
 ### YOLOv10: Real-Time End-to-End Efficiency
 
@@ -43,7 +43,7 @@ Released shortly after on May 23, 2024, YOLOv10 reimagines the deployment pipeli
 
 YOLOv10 utilizes **consistent dual assignments** during training, allowing for a natively **NMS-free design**. This removes post-processing overhead during inference, drastically reducing latency. Combined with a holistic efficiency-accuracy driven model design, YOLOv10 achieves an outstanding balance, lowering computational overhead (FLOPs) while maintaining competitive precision, making it highly attractive for [edge computing](https://www.ultralytics.com/glossary/edge-computing) applications.
 
-[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10/){ .md-button }
+[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10){ .md-button }
 
 ## Performance and Metrics Comparison
 
@@ -82,7 +82,7 @@ While architectural differences are critical, the surrounding software ecosystem
 
 Unlike complex transformer-based architectures that suffer from massive memory bloat, Ultralytics YOLO models are engineered for optimal [GPU memory](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) usage. This allows researchers to utilize larger [batch sizes](https://www.ultralytics.com/glossary/batch-size) on consumer-grade hardware, making state-of-the-art AI accessible.
 
-The unified Python API abstracts away the complexities of [data augmentation](https://docs.ultralytics.com/guides/yolo-data-augmentation/) and [hyperparameter tuning](https://www.ultralytics.com/glossary/hyperparameter-tuning). You can seamlessly switch between architectures simply by altering the weight file string.
+The unified Python API abstracts away the complexities of [data augmentation](https://docs.ultralytics.com/guides/yolo-data-augmentation) and [hyperparameter tuning](https://www.ultralytics.com/glossary/hyperparameter-tuning). You can seamlessly switch between architectures simply by altering the weight file string.
 
 ```python
 from ultralytics import YOLO
@@ -100,7 +100,7 @@ metrics = model.val()
 model.export(format="onnx")
 ```
 
-Whether you need to log metrics to [MLflow](https://docs.ultralytics.com/integrations/mlflow/) or export to [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) for high-speed hardware deployment, the Ultralytics platform handles it natively.
+Whether you need to log metrics to [MLflow](https://docs.ultralytics.com/integrations/mlflow) or export to [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) for high-speed hardware deployment, the Ultralytics platform handles it natively.
 
 ## Ideal Use Cases
 
@@ -120,7 +120,7 @@ YOLO26 represents the ultimate synthesis of previous generations, combining the 
 - **End-to-End NMS-Free Design:** Building on the foundations laid by YOLOv10, YOLO26 natively eliminates NMS post-processing for simpler deployment.
 - **MuSGD Optimizer:** A hybrid of SGD and Muon, bringing advanced LLM training innovations to computer vision for incredibly stable and fast convergence.
 - **Up to 43% Faster CPU Inference:** Specifically optimized for edge computing and devices without dedicated GPUs.
-- **DFL Removal:** Distribution Focal Loss was removed to simplify [model export](https://docs.ultralytics.com/modes/export/) and boost low-power device compatibility.
+- **DFL Removal:** Distribution Focal Loss was removed to simplify [model export](https://docs.ultralytics.com/modes/export) and boost low-power device compatibility.
 - **ProgLoss + STAL:** These improved loss functions bring notable improvements in small-object recognition, matching or exceeding YOLOv9's capabilities.
 
-For researchers evaluating legacy architectures, [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) and [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) are also well-documented alternatives within the Ultralytics ecosystem. However, for maximum versatility across all vision tasks, transitioning to YOLO26 on the [Ultralytics Platform](https://platform.ultralytics.com) ensures you are leveraging the pinnacle of open-source vision AI.
+For researchers evaluating legacy architectures, [RT-DETR](https://docs.ultralytics.com/models/rtdetr) and [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) are also well-documented alternatives within the Ultralytics ecosystem. However, for maximum versatility across all vision tasks, transitioning to YOLO26 on the [Ultralytics Platform](https://platform.ultralytics.com) ensures you are leveraging the pinnacle of open-source vision AI.

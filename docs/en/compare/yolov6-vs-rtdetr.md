@@ -45,7 +45,7 @@ YOLOv6-3.0 adopts a hardware-friendly **EfficientRep** backbone specifically tai
 - Heavier reliance on complex Non-Maximum Suppression (NMS) during post-processing, increasing latency variance.
 - Less active ecosystem compared to mainstream frameworks, making updates and community support less predictable.
 
-[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6/){ .md-button }
+[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6){ .md-button }
 
 ---
 
@@ -61,7 +61,7 @@ Spearheaded by researchers at Baidu, RTDETRv2 builds upon the original RT-DETR b
 
 ### Architecture Highlights
 
-Unlike traditional CNNs, RTDETRv2 is natively end-to-end. By leveraging transformer attention layers, the architecture completely eliminates the need for NMS post-processing. This allows for a streamlined inference pipeline. RTDETRv2 introduces highly optimized cross-scale feature fusion and an efficient hybrid encoder, allowing it to process standard [COCO datasets](https://docs.ultralytics.com/datasets/detect/coco/) with remarkable precision.
+Unlike traditional CNNs, RTDETRv2 is natively end-to-end. By leveraging transformer attention layers, the architecture completely eliminates the need for NMS post-processing. This allows for a streamlined inference pipeline. RTDETRv2 introduces highly optimized cross-scale feature fusion and an efficient hybrid encoder, allowing it to process standard [COCO datasets](https://docs.ultralytics.com/datasets/detect/coco) with remarkable precision.
 
 ### Strengths and Weaknesses
 
@@ -77,7 +77,7 @@ Unlike traditional CNNs, RTDETRv2 is natively end-to-end. By leveraging transfor
 - CPU inference speeds are notably slower than specialized edge CNNs, limiting its use in mobile or IoT devices.
 - Setup and tuning can be complex for teams accustomed to traditional [machine learning operations (MLOps)](https://www.ultralytics.com/glossary/machine-learning-operations-mlops).
 
-[Learn more about RTDETR](https://docs.ultralytics.com/models/rtdetr/){ .md-button }
+[Learn more about RTDETR](https://docs.ultralytics.com/models/rtdetr){ .md-button }
 
 ---
 
@@ -99,7 +99,7 @@ The following table benchmarks YOLOv6-3.0 and RTDETRv2 across key performance in
 
 !!! tip "Deployment Tip"
 
-    If you are deploying on strictly CPU hardware like a Raspberry Pi, CNN-based models generally far outperform transformer architectures in Frames Per Second (FPS). For optimal edge performance, consider utilizing [OpenVINO](https://docs.ultralytics.com/integrations/openvino/) to accelerate your inference.
+    If you are deploying on strictly CPU hardware like a Raspberry Pi, CNN-based models generally far outperform transformer architectures in Frames Per Second (FPS). For optimal edge performance, consider utilizing [OpenVINO](https://docs.ultralytics.com/integrations/openvino) to accelerate your inference.
 
 ---
 
@@ -125,11 +125,11 @@ RT-DETR is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultralytics Advantage: Enter YOLO26
 
@@ -139,11 +139,11 @@ Released in January 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/
 
 ### Why YOLO26 Outperforms the Competition
 
-1. **End-to-End NMS-Free Design:** First pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10/), YOLO26 natively eliminates NMS post-processing. This delivers the deployment simplicity of RTDETRv2 while maintaining the lightning-fast speed of a highly optimized CNN.
+1. **End-to-End NMS-Free Design:** First pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 natively eliminates NMS post-processing. This delivers the deployment simplicity of RTDETRv2 while maintaining the lightning-fast speed of a highly optimized CNN.
 2. **MuSGD Optimizer:** Inspired by large language model innovations (such as Moonshot AI's Kimi K2), YOLO26 utilizes a hybrid of SGD and Muon. This ensures incredibly stable training dynamics and rapid convergence, reducing the time and compute resources required for custom datasets.
 3. **Unmatched Edge Performance:** By executing complete DFL Removal (Distribution Focal Loss), YOLO26 simplifies export architectures. This optimization yields up to **43% faster CPU inference** compared to legacy models, making it the undisputed champion for edge AI and IoT devices.
 4. **Enhanced Small Object Detection:** The introduction of ProgLoss and STAL loss functions provides a massive leap in detecting small objects—a critical requirement for drone analytics and aerial imagery that YOLOv6 historically struggled with.
-5. **Task Versatility:** Unlike YOLOv6, which focuses strictly on detection, YOLO26 supports multi-modal workflows including [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), [Image Classification](https://docs.ultralytics.com/tasks/classify/), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/)—all from a single, unified API.
+5. **Task Versatility:** Unlike YOLOv6, which focuses strictly on detection, YOLO26 supports multi-modal workflows including [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), [Image Classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb)—all from a single, unified API.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
@@ -175,4 +175,4 @@ model.export(format="onnx")
 
 Both YOLOv6-3.0 and RTDETRv2 are impressive contributions to the AI community. YOLOv6-3.0 remains a powerful tool for raw GPU industrial automation, and RTDETRv2 proves that transformer architectures can achieve real-time latency while maximizing accuracy.
 
-However, for teams that require a reliable, production-ready framework with active community support, **Ultralytics YOLO models** are consistently the better choice. The seamless integration with platforms like [Hugging Face](https://huggingface.co/) and [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), combined with the incredibly low memory overhead during training, democratizes access to high-end AI. By upgrading to [YOLO26](https://docs.ultralytics.com/models/yolo26/), developers can leverage the groundbreaking MuSGD optimizer and NMS-free architecture to build faster, smarter, and more scalable computer vision pipelines.
+However, for teams that require a reliable, production-ready framework with active community support, **Ultralytics YOLO models** are consistently the better choice. The seamless integration with platforms like [Hugging Face](https://huggingface.co/) and [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), combined with the incredibly low memory overhead during training, democratizes access to high-end AI. By upgrading to [YOLO26](https://docs.ultralytics.com/models/yolo26), developers can leverage the groundbreaking MuSGD optimizer and NMS-free architecture to build faster, smarter, and more scalable computer vision pipelines.

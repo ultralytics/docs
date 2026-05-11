@@ -6,7 +6,7 @@ keywords: YOLO11, YOLOv9, object detection, model comparison, benchmarks, Ultral
 
 # YOLOv9 vs. YOLO11: A Technical Deep Dive into Modern Object Detection
 
-The rapid evolution of computer vision has continuously pushed the boundaries of what is possible in real-time [object detection](https://docs.ultralytics.com/tasks/detect/). When comparing leading architectures, **YOLOv9** and **[Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11)** stand out as monumental leaps forward, each serving distinct technical needs. YOLOv9 introduced novel ways to preserve gradient flow during deep network training, while YOLO11 revolutionized the general-purpose vision ecosystem with unmatched efficiency, versatility, and ease of use.
+The rapid evolution of computer vision has continuously pushed the boundaries of what is possible in real-time [object detection](https://docs.ultralytics.com/tasks/detect). When comparing leading architectures, **YOLOv9** and **[Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11)** stand out as monumental leaps forward, each serving distinct technical needs. YOLOv9 introduced novel ways to preserve gradient flow during deep network training, while YOLO11 revolutionized the general-purpose vision ecosystem with unmatched efficiency, versatility, and ease of use.
 
 This comprehensive technical comparison analyzes their architectures, performance metrics, memory requirements, and ideal deployment scenarios to help you select the optimal model for your next AI project.
 
@@ -33,7 +33,7 @@ YOLOv9 brought a strong academic focus on deep learning information bottlenecks,
 - **Arxiv:** [https://arxiv.org/abs/2402.13616](https://arxiv.org/abs/2402.13616)
 - **GitHub:** [https://github.com/WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9)
 
-[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9/){ .md-button }
+[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9){ .md-button }
 
 ### Ultralytics YOLO11
 
@@ -54,13 +54,13 @@ YOLOv9 introduces the concept of Programmable Gradient Information (PGI) alongsi
 
 ### Streamlined Efficiency in YOLO11
 
-YOLO11 builds on years of foundational research to deliver a highly optimized architecture. It improves upon previous iterations by reducing computational overhead while maximizing feature extraction. Unlike traditional NMS pipelines that bottleneck CPU performance, YOLO11 uses refined detection heads that achieve an incredible balance between latency and precision. Furthermore, YOLO11 boasts inherently lower memory usage during both [model training](https://docs.ultralytics.com/modes/train/) and inference compared to heavy [Transformer](https://huggingface.co/docs/transformers/index) models, which are often slower to train and require massive amounts of CUDA memory.
+YOLO11 builds on years of foundational research to deliver a highly optimized architecture. It improves upon previous iterations by reducing computational overhead while maximizing feature extraction. Unlike traditional NMS pipelines that bottleneck CPU performance, YOLO11 uses refined detection heads that achieve an incredible balance between latency and precision. Furthermore, YOLO11 boasts inherently lower memory usage during both [model training](https://docs.ultralytics.com/modes/train) and inference compared to heavy [Transformer](https://huggingface.co/docs/transformers/index) models, which are often slower to train and require massive amounts of CUDA memory.
 
 ## Performance Metrics Comparison
 
 When comparing these models on the standard [COCO dataset](https://cocodataset.org/), both showcase incredible capabilities, but trade-offs emerge between raw parameter count and operational speed.
 
-Below is a detailed breakdown of [YOLO Performance Metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics/).
+Below is a detailed breakdown of [YOLO Performance Metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics).
 
 | Model   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -92,14 +92,14 @@ The original YOLOv9 repository is highly specialized, offering cutting-edge rese
 
 YOLOv9 focuses predominantly on bounding box detection. In contrast, YOLO11 is a unified multi-task powerhouse natively supporting:
 
-- [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/)
-- [Pose Estimation](https://docs.ultralytics.com/tasks/pose/)
-- [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/)
-- [Image Classification](https://docs.ultralytics.com/tasks/classify/)
+- [Instance Segmentation](https://docs.ultralytics.com/tasks/segment)
+- [Pose Estimation](https://docs.ultralytics.com/tasks/pose)
+- [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb)
+- [Image Classification](https://docs.ultralytics.com/tasks/classify)
 
 ### Seamless Deployment
 
-Using the Ultralytics ecosystem allows developers to seamlessly [export models](https://docs.ultralytics.com/modes/export/) to an array of formats with a single line of [Python](https://www.python.org/) code. Whether targeting [ONNX](https://onnx.ai/), [OpenVINO](https://docs.openvino.ai/), [TFLite](https://ai.google.dev/edge/litert), or [CoreML](https://developer.apple.com/machine-learning/core-ml/), the transition from training to production is effortless.
+Using the Ultralytics ecosystem allows developers to seamlessly [export models](https://docs.ultralytics.com/modes/export) to an array of formats with a single line of [Python](https://www.python.org/) code. Whether targeting [ONNX](https://onnx.ai/), [OpenVINO](https://docs.openvino.ai/), [TFLite](https://ai.google.dev/edge/litert), or [CoreML](https://developer.apple.com/machine-learning/core-ml/), the transition from training to production is effortless.
 
 ```python
 from ultralytics import YOLO
@@ -126,10 +126,10 @@ For developers, engineers, and production teams, **YOLO11 is highly recommended*
 
 - **Smart Retail Analytics:** Tracking products and customers seamlessly using standard [Intel standard processors](https://www.intel.com/).
 - **Autonomous Drones:** Where low-FLOP architectures preserve battery life while still delivering robust small-object detection.
-- **Dynamic Projects:** Workflows that might start as detection but evolve to require [pose estimation](https://docs.ultralytics.com/tasks/pose/) or segmentation later on.
+- **Dynamic Projects:** Workflows that might start as detection but evolve to require [pose estimation](https://docs.ultralytics.com/tasks/pose) or segmentation later on.
 
 ## Looking Ahead: The Next Evolution
 
 While YOLO11 represents the state-of-the-art for its generation, the computer vision landscape continues to advance. Users exploring the boundaries of AI should also look toward **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**.
 
-Pioneering an end-to-end NMS-free design first explored in [YOLOv10](https://docs.ultralytics.com/models/yolov10/), YOLO26 introduces the MuSGD optimizer (a hybrid of SGD and Muon) for unprecedented training stability. With the removal of Distribution Focal Loss (DFL) to simplify export, and advanced loss mechanisms like ProgLoss and STAL, YOLO26 achieves up to 43% faster CPU inference. For modern projects, it offers the ultimate combination of academic innovation and production-ready reliability. Furthermore, teams upgrading from legacy systems like [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) will find the transition to YOLO26 or YOLO11 entirely frictionless thanks to the unified Ultralytics API.
+Pioneering an end-to-end NMS-free design first explored in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 introduces the MuSGD optimizer (a hybrid of SGD and Muon) for unprecedented training stability. With the removal of Distribution Focal Loss (DFL) to simplify export, and advanced loss mechanisms like ProgLoss and STAL, YOLO26 achieves up to 43% faster CPU inference. For modern projects, it offers the ultimate combination of academic innovation and production-ready reliability. Furthermore, teams upgrading from legacy systems like [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) will find the transition to YOLO26 or YOLO11 entirely frictionless thanks to the unified Ultralytics API.

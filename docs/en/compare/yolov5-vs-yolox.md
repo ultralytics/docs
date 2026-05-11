@@ -23,7 +23,7 @@ This guide provides an in-depth technical analysis of these two models, comparin
 - **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2020-06-26
 - **GitHub:** [Ultralytics YOLOv5 Repository](https://github.com/ultralytics/yolov5)
-- **Documentation:** [YOLOv5 Official Docs](https://docs.ultralytics.com/models/yolov5/)
+- **Documentation:** [YOLOv5 Official Docs](https://docs.ultralytics.com/models/yolov5)
 
 Introduced by Ultralytics, [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5) quickly became an industry standard due to its exceptional balance of performance, ease of use, and memory efficiency. Built natively on the [PyTorch](https://pytorch.org/) framework, YOLOv5 uses an anchor-based architecture. It relies on predefined bounding box shapes to predict object locations, which makes it highly effective for standard object detection tasks.
 
@@ -96,7 +96,7 @@ results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 metrics = model.val()
 ```
 
-Furthermore, YOLOv5's versatility extends beyond standard object detection, offering robust support for [image classification](https://docs.ultralytics.com/tasks/classify/) and [instance segmentation](https://docs.ultralytics.com/tasks/segment/) within the exact same cohesive API.
+Furthermore, YOLOv5's versatility extends beyond standard object detection, offering robust support for [image classification](https://docs.ultralytics.com/tasks/classify) and [instance segmentation](https://docs.ultralytics.com/tasks/segment) within the exact same cohesive API.
 
 !!! tip "Streamlined Deployment"
 
@@ -108,7 +108,7 @@ Choosing between these models depends on your deployment environment and technic
 
 - **Retail and Inventory Management:** For applications requiring real-time product recognition on edge devices like the NVIDIA Jetson, **YOLOv5** is exceptionally well-suited. Its minimal memory footprint and fast TensorRT inference speeds enable multi-camera tracking without dropping frames.
 - **Academic Research and Custom Architectures:** **YOLOX** is highly regarded in the research community. Its decoupled head and anchor-free nature make it an excellent baseline for engineers looking to experiment with novel label assignment strategies or those working on datasets where traditional anchor boxes fail to generalize.
-- **Agricultural AI:** For precision agriculture tasks like fruit detection or weed identification via drones, the ease of training and deploying YOLOv5 models using the [Ultralytics Platform](https://docs.ultralytics.com/platform/) allows domain experts to implement AI solutions without needing deep machine learning engineering backgrounds.
+- **Agricultural AI:** For precision agriculture tasks like fruit detection or weed identification via drones, the ease of training and deploying YOLOv5 models using the [Ultralytics Platform](https://docs.ultralytics.com/platform) allows domain experts to implement AI solutions without needing deep machine learning engineering backgrounds.
 
 ## Use Cases and Recommendations
 
@@ -120,7 +120,7 @@ YOLOv5 is a strong choice for:
 
 - **Proven Production Systems:** Existing deployments where YOLOv5's long track record of stability, extensive documentation, and massive community support are valued.
 - **Resource-Constrained Training:** Environments with limited GPU resources where YOLOv5's efficient training pipeline and lower memory requirements are advantageous.
-- **Extensive Export Format Support:** Projects requiring deployment across many formats including [ONNX](https://docs.ultralytics.com/integrations/onnx/), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), [CoreML](https://docs.ultralytics.com/integrations/coreml/), and [TFLite](https://docs.ultralytics.com/integrations/tflite/).
+- **Extensive Export Format Support:** Projects requiring deployment across many formats including [ONNX](https://docs.ultralytics.com/integrations/onnx), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), [CoreML](https://docs.ultralytics.com/integrations/coreml), and [TFLite](https://docs.ultralytics.com/integrations/tflite).
 
 ### When to Choose YOLOX
 
@@ -132,11 +132,11 @@ YOLOX is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Future of Vision AI: Enter YOLO26
 

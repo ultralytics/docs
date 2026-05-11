@@ -6,7 +6,7 @@ keywords: YOLOv6-3.0, DAMO-YOLO, object detection comparison, YOLO models, compu
 
 # YOLOv6-3.0 vs DAMO-YOLO: A Technical Showdown in Real-Time Object Detection
 
-The landscape of computer vision is constantly evolving, with new architectures pushing the boundaries of what is possible in real-time [object detection](https://docs.ultralytics.com/tasks/detect/). Two notable contenders in this space are YOLOv6-3.0 and DAMO-YOLO. Both models introduce unique architectural innovations designed to maximize performance on industrial hardware. This guide provides a comprehensive technical comparison between these two models, exploring their architectures, training methodologies, and ideal use cases, while also introducing the next-generation advantages of Ultralytics models like YOLO26.
+The landscape of computer vision is constantly evolving, with new architectures pushing the boundaries of what is possible in real-time [object detection](https://docs.ultralytics.com/tasks/detect). Two notable contenders in this space are YOLOv6-3.0 and DAMO-YOLO. Both models introduce unique architectural innovations designed to maximize performance on industrial hardware. This guide provides a comprehensive technical comparison between these two models, exploring their architectures, training methodologies, and ideal use cases, while also introducing the next-generation advantages of Ultralytics models like YOLO26.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -24,11 +24,11 @@ Developed by the Vision AI Department at [Meituan](https://tech.meituan.com/), Y
 - **Date:** 2023-01-13
 - **Arxiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
 - **GitHub:** [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
-- **Docs:** [Ultralytics YOLOv6 Documentation](https://docs.ultralytics.com/models/yolov6/)
+- **Docs:** [Ultralytics YOLOv6 Documentation](https://docs.ultralytics.com/models/yolov6)
 
 YOLOv6-3.0 introduces a Bi-directional Concatenation (BiC) module to improve feature fusion and utilizes an Anchor-Aided Training (AAT) strategy. This strategy combines the benefits of anchor-based and [anchor-free detectors](https://www.ultralytics.com/glossary/anchor-free-detectors) during training, while keeping inference strictly anchor-free. Its EfficientRep backbone makes it highly hardware-friendly for GPU batch processing, ideal for processing vast amounts of [video understanding](https://www.ultralytics.com/glossary/video-understanding) data.
 
-[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6/){ .md-button }
+[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6){ .md-button }
 
 ### DAMO-YOLO: Fast and Accurate via NAS
 
@@ -74,18 +74,18 @@ With the release of **YOLO26**, Ultralytics has redefined state-of-the-art visio
 
 ### Key Innovations in YOLO26
 
-- **End-to-End NMS-Free Design:** Building on concepts pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10/), YOLO26 natively eliminates Non-Maximum Suppression (NMS) post-processing. This drastically reduces latency variance and simplifies deployment on edge devices via [CoreML](https://developer.apple.com/machine-learning/core-ml/) or [TFLite](https://ai.google.dev/edge/litert).
+- **End-to-End NMS-Free Design:** Building on concepts pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 natively eliminates Non-Maximum Suppression (NMS) post-processing. This drastically reduces latency variance and simplifies deployment on edge devices via [CoreML](https://developer.apple.com/machine-learning/core-ml/) or [TFLite](https://ai.google.dev/edge/litert).
 - **DFL Removal:** By removing Distribution Focal Loss, YOLO26 simplifies the export process and significantly enhances compatibility with low-power microcontrollers and edge hardware.
 - **Up to 43% Faster CPU Inference:** For applications lacking dedicated GPU hardware, YOLO26's CPU optimizations deliver unparalleled speed, outperforming heavily GPU-reliant models like YOLOv6.
 - **MuSGD Optimizer:** Inspired by LLM training techniques like Moonshot AI's Kimi K2, YOLO26 utilizes the MuSGD optimizer (a hybrid of SGD and Muon) to guarantee stable training and rapid convergence.
 - **ProgLoss + STAL:** Advanced loss functions dramatically improve small-object recognition, making YOLO26 perfect for [drone operations](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations) and distant target tracking.
-- **Multi-Task Versatility:** Unlike DAMO-YOLO, which is strictly a detector, YOLO26 provides out-of-the-box support for [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/) (via Residual Log-Likelihood Estimation), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/) within a single, unified API.
+- **Multi-Task Versatility:** Unlike DAMO-YOLO, which is strictly a detector, YOLO26 provides out-of-the-box support for [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose) (via Residual Log-Likelihood Estimation), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb) within a single, unified API.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 !!! tip "Memory Efficient Training"
 
-    Unlike complex transformer architectures like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) or the distillation-heavy pipelines of DAMO-YOLO, Ultralytics models are renowned for their low VRAM footprint. You can easily train a YOLO26 model on consumer-grade hardware.
+    Unlike complex transformer architectures like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) or the distillation-heavy pipelines of DAMO-YOLO, Ultralytics models are renowned for their low VRAM footprint. You can easily train a YOLO26 model on consumer-grade hardware.
 
 ### Streamlined Python Workflow
 
@@ -124,7 +124,7 @@ Choosing the right architecture depends entirely on your deployment constraints:
 
 ### When to use Ultralytics YOLO26
 
-- **Edge and Mobile Deployments:** The NMS-free design, DFL removal, and 43% CPU speed boost make it the undisputed champion for iOS, Android, and [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) integrations.
+- **Edge and Mobile Deployments:** The NMS-free design, DFL removal, and 43% CPU speed boost make it the undisputed champion for iOS, Android, and [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) integrations.
 - **Rapid Prototyping to Production:** The seamless integration with the [Ultralytics Platform](https://platform.ultralytics.com/) enables teams to go from dataset annotation to global cloud deployment in days, not months.
 - **Complex Vision Pipelines:** When a project requires detecting bounding boxes alongside human pose keypoints and precise segmentation masks simultaneously.
 
@@ -134,4 +134,4 @@ Both YOLOv6-3.0 and DAMO-YOLO have contributed significantly to the science of r
 
 However, for developers seeking the ultimate blend of accuracy, inference speed, and ecosystem maintainability, the [Ultralytics YOLO](https://www.ultralytics.com/) family remains the premier choice. With the groundbreaking optimizations introduced in **YOLO26**, the barrier to entry for creating enterprise-grade computer vision applications has never been lower.
 
-For further exploration, you might also be interested in comparing these models to other architectures in our documentation, such as [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or transformer-based approaches like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/).
+For further exploration, you might also be interested in comparing these models to other architectures in our documentation, such as [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or transformer-based approaches like [RT-DETR](https://docs.ultralytics.com/models/rtdetr).

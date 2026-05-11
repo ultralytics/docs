@@ -25,7 +25,7 @@ YOLO11 is a highly optimized, versatile model designed for production-grade envi
 - **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2024-09-27
 - **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- **Docs:** [https://docs.ultralytics.com/models/yolo11/](https://docs.ultralytics.com/models/yolo11/)
+- **Docs:** [https://docs.ultralytics.com/models/yolo11/](https://docs.ultralytics.com/models/yolo11)
 
 [Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
@@ -38,9 +38,9 @@ YOLOv9 is a powerful academic contribution that introduces novel concepts to mit
 - **Date:** 2024-02-21
 - **Arxiv:** [https://arxiv.org/abs/2402.13616](https://arxiv.org/abs/2402.13616)
 - **GitHub:** [https://github.com/WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9)
-- **Docs:** [https://docs.ultralytics.com/models/yolov9/](https://docs.ultralytics.com/models/yolov9/)
+- **Docs:** [https://docs.ultralytics.com/models/yolov9/](https://docs.ultralytics.com/models/yolov9)
 
-[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9/){ .md-button }
+[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9){ .md-button }
 
 ## Architectural Innovations
 
@@ -50,7 +50,7 @@ YOLOv9 tackles the "information bottleneck" problem—where data is lost as it p
 
 ### YOLO11: Ecosystem and Efficiency
 
-While YOLOv9 focuses on gradient flow, YOLO11 is engineered for real-world robustness and versatility. It refines the fundamental YOLO architecture to drastically reduce CUDA memory requirements during training compared to transformer-heavy alternatives. Furthermore, YOLO11 is not just an object detector; it natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [image classification](https://docs.ultralytics.com/tasks/classify/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb/).
+While YOLOv9 focuses on gradient flow, YOLO11 is engineered for real-world robustness and versatility. It refines the fundamental YOLO architecture to drastically reduce CUDA memory requirements during training compared to transformer-heavy alternatives. Furthermore, YOLO11 is not just an object detector; it natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
 !!! tip "Streamlined Development"
 
@@ -111,7 +111,7 @@ YOLOv9 is a fantastic choice for researchers looking to explore deep learning ar
 
 ### When to Choose YOLO11
 
-YOLO11 is the ultimate tool for production. Its streamlined [object detection](https://docs.ultralytics.com/tasks/detect/) capabilities make it perfect for [smart city traffic management](https://en.wikipedia.org/wiki/Smart_city) and edge devices like the Raspberry Pi or NVIDIA Jetson. Furthermore, its versatility across various tasks means a single development pipeline can handle [segmentation in manufacturing](https://www.ultralytics.com/blog/improving-manufacturing-with-computer-vision) and [pose estimation in sports analytics](https://www.ultralytics.com/blog/using-pose-estimation-to-perfect-your-running-technique).
+YOLO11 is the ultimate tool for production. Its streamlined [object detection](https://docs.ultralytics.com/tasks/detect) capabilities make it perfect for [smart city traffic management](https://en.wikipedia.org/wiki/Smart_city) and edge devices like the Raspberry Pi or NVIDIA Jetson. Furthermore, its versatility across various tasks means a single development pipeline can handle [segmentation in manufacturing](https://www.ultralytics.com/blog/improving-manufacturing-with-computer-vision) and [pose estimation in sports analytics](https://www.ultralytics.com/blog/using-pose-estimation-to-perfect-your-running-technique).
 
 ## The Cutting Edge: Enter YOLO26
 
@@ -125,7 +125,7 @@ YOLO26 combines the best of recent innovations into a production-ready powerhous
 - **Up to 43% Faster CPU Inference:** Specifically optimized for edge computing devices without dedicated GPUs.
 - **ProgLoss + STAL:** These improved loss functions drastically enhance small-object recognition, which is critical for [agricultural monitoring](https://www.ultralytics.com/blog/the-changing-landscape-of-ai-in-agriculture) and aerial imagery.
 
-Users interested in exploring diverse architectures might also want to look into [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) for transformer-based tracking or [YOLO-World](https://docs.ultralytics.com/models/yolo-world/) for zero-shot open-vocabulary detection.
+Users interested in exploring diverse architectures might also want to look into [RT-DETR](https://docs.ultralytics.com/models/rtdetr) for transformer-based tracking or [YOLO-World](https://docs.ultralytics.com/models/yolo-world) for zero-shot open-vocabulary detection.
 
 ## Conclusion
 

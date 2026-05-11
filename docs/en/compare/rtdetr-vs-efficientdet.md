@@ -6,7 +6,7 @@ keywords: RTDETRv2, EfficientDet, object detection, model comparison, Vision Tra
 
 # RTDETRv2 vs. EfficientDet: Analyzing Real-Time Detection Architectures
 
-Selecting the optimal neural network architecture is a defining choice for any [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) project. This comprehensive technical comparison dissects two influential object detection models: RTDETRv2, a state-of-the-art transformer-based detector, and EfficientDet, a highly scalable convolutional neural network. We will evaluate their distinct architectures, [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics/), training methodologies, and ideal deployment scenarios to help you make data-driven decisions for your AI pipelines.
+Selecting the optimal neural network architecture is a defining choice for any [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) project. This comprehensive technical comparison dissects two influential object detection models: RTDETRv2, a state-of-the-art transformer-based detector, and EfficientDet, a highly scalable convolutional neural network. We will evaluate their distinct architectures, [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics), training methodologies, and ideal deployment scenarios to help you make data-driven decisions for your AI pipelines.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -15,7 +15,7 @@ Selecting the optimal neural network architecture is a defining choice for any [
 
 ## RTDETRv2: The Real-Time Detection Transformer
 
-Building on the success of the original RT-DETR, RTDETRv2 refines the transformer-based [object detection](https://docs.ultralytics.com/tasks/detect/) paradigm. By optimizing the encoder and decoder structures, it delivers high accuracy while maintaining real-time inference speeds, effectively bridging the gap between traditional CNNs and vision transformers.
+Building on the success of the original RT-DETR, RTDETRv2 refines the transformer-based [object detection](https://docs.ultralytics.com/tasks/detect) paradigm. By optimizing the encoder and decoder structures, it delivers high accuracy while maintaining real-time inference speeds, effectively bridging the gap between traditional CNNs and vision transformers.
 
 **Model Details**
 Authors: Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu  
@@ -25,15 +25,15 @@ Links: [Arxiv](https://arxiv.org/abs/2407.17140), [GitHub](https://github.com/ly
 
 ### Architecture and Core Strengths
 
-RTDETRv2 utilizes a hybrid architecture that pairs a potent CNN backbone (often ResNet or HGNet) with an efficient transformer decoder. The most defining characteristic of [RTDETRv2](https://docs.ultralytics.com/models/rtdetr/) is its native ability to bypass non-maximum suppression (NMS). Traditional detectors require NMS to filter out duplicate bounding boxes, adding variable [inference latency](https://www.ultralytics.com/glossary/inference-latency) during post-processing. RTDETRv2 formulates detection as a direct set prediction problem, utilizing bipartite matching to output unique predictions.
+RTDETRv2 utilizes a hybrid architecture that pairs a potent CNN backbone (often ResNet or HGNet) with an efficient transformer decoder. The most defining characteristic of [RTDETRv2](https://docs.ultralytics.com/models/rtdetr) is its native ability to bypass non-maximum suppression (NMS). Traditional detectors require NMS to filter out duplicate bounding boxes, adding variable [inference latency](https://www.ultralytics.com/glossary/inference-latency) during post-processing. RTDETRv2 formulates detection as a direct set prediction problem, utilizing bipartite matching to output unique predictions.
 
-This model excels in server-side deployments where GPU memory is abundant. Its global attention mechanism provides exceptional context awareness, making it highly adept at separating overlapping objects in dense, cluttered environments such as automated [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system/) or dense crowd monitoring.
+This model excels in server-side deployments where GPU memory is abundant. Its global attention mechanism provides exceptional context awareness, making it highly adept at separating overlapping objects in dense, cluttered environments such as automated [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system) or dense crowd monitoring.
 
 ### Limitations
 
 While powerful, transformer architectures inherently require more CUDA memory during training compared to standard CNNs. Furthermore, fine-tuning RTDETRv2 can require extended [training data](https://www.ultralytics.com/glossary/training-data) convergence times, making rapid prototyping slightly more resource-intensive.
 
-[Learn more about RTDETRv2](https://docs.ultralytics.com/models/rtdetr/){ .md-button }
+[Learn more about RTDETRv2](https://docs.ultralytics.com/models/rtdetr){ .md-button }
 
 ## EfficientDet: Scalable and Efficient CNNs
 
@@ -53,7 +53,7 @@ EfficientDet models range from the ultra-lightweight D0 to the massive D7. This 
 
 ### Limitations
 
-EfficientDet is an older architecture that relies heavily on anchor boxes and the traditional NMS post-processing pipeline. The anchor generation process requires careful [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning/), and the NMS step can bottleneck deployment on embedded hardware like a [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/). It also lacks native support for modern tasks like [pose estimation](https://docs.ultralytics.com/tasks/pose/) or [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb/).
+EfficientDet is an older architecture that relies heavily on anchor boxes and the traditional NMS post-processing pipeline. The anchor generation process requires careful [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning), and the NMS step can bottleneck deployment on embedded hardware like a [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi). It also lacks native support for modern tasks like [pose estimation](https://docs.ultralytics.com/tasks/pose) or [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
 [Learn more about EfficientDet](https://github.com/google/automl/tree/master/efficientdet){ .md-button }
 
@@ -101,15 +101,15 @@ EfficientDet is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultralytics Alternative: Advancing the State-of-the-Art
 
-While both RTDETRv2 and EfficientDet have strong merits, modern AI development demands frameworks that offer a seamless [developer experience](https://docs.ultralytics.com/quickstart/) alongside cutting-edge performance. The [Ultralytics ecosystem](https://docs.ultralytics.com/) provides a significantly more streamlined approach to computer vision tasks.
+While both RTDETRv2 and EfficientDet have strong merits, modern AI development demands frameworks that offer a seamless [developer experience](https://docs.ultralytics.com/quickstart) alongside cutting-edge performance. The [Ultralytics ecosystem](https://docs.ultralytics.com/) provides a significantly more streamlined approach to computer vision tasks.
 
 If you are exploring state-of-the-art detection, the newly released [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) synthesizes the best aspects of both CNNs and transformers.
 
@@ -117,7 +117,7 @@ If you are exploring state-of-the-art detection, the newly released [Ultralytics
 
     YOLO26 implements an **End-to-End NMS-Free Design**, bringing the deployment simplicity of RTDETRv2 to the ultra-efficient YOLO architecture. Furthermore, it introduces the **MuSGD Optimizer**—inspired by LLM training innovations—for superior training stability. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), YOLO26 boasts up to **43% faster CPU inference** than previous generations, making it an exceptional choice for [edge computing](https://www.ultralytics.com/glossary/edge-computing) over heavier models. Additionally, **ProgLoss + STAL** delivers improved loss functions with notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery.
 
-The ease of use provided by the [Ultralytics Python package](https://docs.ultralytics.com/usage/python/) is unmatched. Developers can train, validate, and [export models](https://docs.ultralytics.com/modes/export/) using an intuitive API that abstracts away the boilerplate code typically required by research repositories.
+The ease of use provided by the [Ultralytics Python package](https://docs.ultralytics.com/usage/python) is unmatched. Developers can train, validate, and [export models](https://docs.ultralytics.com/modes/export) using an intuitive API that abstracts away the boilerplate code typically required by research repositories.
 
 ```python
 from ultralytics import RTDETR
@@ -132,6 +132,6 @@ results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 model.export(format="engine")
 ```
 
-Ultralytics models natively support multiple tasks, including [instance segmentation](https://docs.ultralytics.com/tasks/segment/) and [image classification](https://docs.ultralytics.com/tasks/classify/), providing a versatile toolkit for diverse industry needs. Furthermore, the removal of Distribution Focal Loss (DFL) in modern Ultralytics models simplifies the computational graph, guaranteeing smoother export to embedded [NPUs and TPUs](https://docs.ultralytics.com/integrations/edge-tpu/).
+Ultralytics models natively support multiple tasks, including [instance segmentation](https://docs.ultralytics.com/tasks/segment) and [image classification](https://docs.ultralytics.com/tasks/classify), providing a versatile toolkit for diverse industry needs. Furthermore, the removal of Distribution Focal Loss (DFL) in modern Ultralytics models simplifies the computational graph, guaranteeing smoother export to embedded [NPUs and TPUs](https://docs.ultralytics.com/integrations/edge-tpu).
 
-For seamless [data annotation](https://docs.ultralytics.com/platform/data/annotation/) and model management, the [Ultralytics Platform](https://platform.ultralytics.com/) provides a comprehensive cloud environment to oversee the entire machine learning lifecycle, establishing it as the premier choice for deploying robust computer vision solutions in production.
+For seamless [data annotation](https://docs.ultralytics.com/platform/data/annotation) and model management, the [Ultralytics Platform](https://platform.ultralytics.com/) provides a comprehensive cloud environment to oversee the entire machine learning lifecycle, establishing it as the premier choice for deploying robust computer vision solutions in production.

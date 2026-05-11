@@ -51,13 +51,13 @@ Released two years later, YOLOX sought to bridge the gap between academic resear
 
 YOLOX significantly simplified the object detection paradigm. By switching to an **anchor-free** design, YOLOX eliminated the need for complex, dataset-specific anchor box tuning, reducing heuristic overhead. It also integrated a decoupled head—separating classification and localization tasks—which drastically improved convergence speed. Furthermore, the introduction of the **SimOTA** label assignment strategy optimized the allocation of positive samples dynamically during training.
 
-Despite these advancements, managing YOLOX repositories often requires compiling manual C++ extensions and navigating complex dependencies, which can hinder rapid [model deployment](https://docs.ultralytics.com/guides/model-deployment-options/) for less experienced teams.
+Despite these advancements, managing YOLOX repositories often requires compiling manual C++ extensions and navigating complex dependencies, which can hinder rapid [model deployment](https://docs.ultralytics.com/guides/model-deployment-options) for less experienced teams.
 
 [Learn more about YOLOX](https://yolox.readthedocs.io/en/latest/){ .md-button }
 
 ## Performance Comparison
 
-When evaluating models for production, balancing [mean Average Precision (mAP)](https://docs.ultralytics.com/guides/yolo-performance-metrics/) with inference speed is paramount. The table below provides a direct comparison of the EfficientDet and YOLOX families across standard COCO benchmarks.
+When evaluating models for production, balancing [mean Average Precision (mAP)](https://docs.ultralytics.com/guides/yolo-performance-metrics) with inference speed is paramount. The table below provides a direct comparison of the EfficientDet and YOLOX families across standard COCO benchmarks.
 
 | Model           | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | --------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -103,15 +103,15 @@ YOLOX is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultralytics Advantage: Introducing YOLO26
 
-While EfficientDet and YOLOX represented significant leaps in their respective eras, modern computer vision demands greater versatility, streamlined workflows, and uncompromising speed. For developers prioritizing ease of use, lower memory requirements, and a well-maintained ecosystem, we highly recommend upgrading to **[Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/)**, released in January 2026.
+While EfficientDet and YOLOX represented significant leaps in their respective eras, modern computer vision demands greater versatility, streamlined workflows, and uncompromising speed. For developers prioritizing ease of use, lower memory requirements, and a well-maintained ecosystem, we highly recommend upgrading to **[Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26)**, released in January 2026.
 
 YOLO26 represents a paradigm shift in the YOLO lineage, systematically overcoming the limitations found in older models like YOLOX and EfficientDet:
 
@@ -119,13 +119,13 @@ YOLO26 represents a paradigm shift in the YOLO lineage, systematically overcomin
 - **Up to 43% Faster CPU Inference:** Through strategic architectural tuning and the **DFL Removal** (Distribution Focal Loss), YOLO26 is uniquely optimized for environments without dedicated GPUs, completely outpacing EfficientDet on [edge AI](https://www.ultralytics.com/glossary/edge-ai) hardware like Raspberry Pi.
 - **MuSGD Optimizer:** Inspired by LLM training innovations (like Moonshot AI's Kimi K2), YOLO26 uses a hybrid of SGD and Muon. This ensures incredibly stable training and faster convergence, vastly superior to older TensorFlow estimators.
 - **ProgLoss + STAL:** Advanced loss functions bring notable improvements in small-object recognition, a historic weakness for both YOLOX and EfficientDet. This is critical for drone analytics and IoT.
-- **Incredible Versatility:** While EfficientDet and YOLOX are strictly bounding box detectors, YOLO26 natively supports [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/) (via Residual Log-Likelihood Estimation), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/).
+- **Incredible Versatility:** While EfficientDet and YOLOX are strictly bounding box detectors, YOLO26 natively supports [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose) (via Residual Log-Likelihood Estimation), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ### Streamlined User Experience and Training Efficiency
 
-One of the largest hurdles with models like YOLOX is setting up the training environment. The [Ultralytics Platform](https://platform.ultralytics.com/) offers a unified [Python SDK](https://docs.ultralytics.com/usage/python/) where training a state-of-the-art model requires only a few lines of code. Additionally, YOLO models feature highly optimized data loaders, ensuring significantly lower CUDA memory usage compared to transformer-heavy models or older multi-branch networks.
+One of the largest hurdles with models like YOLOX is setting up the training environment. The [Ultralytics Platform](https://platform.ultralytics.com/) offers a unified [Python SDK](https://docs.ultralytics.com/usage/python) where training a state-of-the-art model requires only a few lines of code. Additionally, YOLO models feature highly optimized data loaders, ensuring significantly lower CUDA memory usage compared to transformer-heavy models or older multi-branch networks.
 
 ```python
 from ultralytics import YOLO

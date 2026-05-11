@@ -6,7 +6,7 @@ keywords: YOLOv5, EfficientDet, object detection, model comparison, computer vis
 
 # YOLOv5 vs. EfficientDet: Evaluating Real-Time Object Detection Architectures
 
-When embarking on a new [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) project, choosing the right neural network architecture is one of the most consequential decisions you will make. This guide provides an in-depth technical comparison between **Ultralytics YOLOv5** and Google's **EfficientDet**. By analyzing their architectures, performance metrics, and training ecosystems, we aim to help developers and researchers identify the best [object detection](https://docs.ultralytics.com/tasks/detect/) model for their specific deployment environments.
+When embarking on a new [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) project, choosing the right neural network architecture is one of the most consequential decisions you will make. This guide provides an in-depth technical comparison between **Ultralytics YOLOv5** and Google's **EfficientDet**. By analyzing their architectures, performance metrics, and training ecosystems, we aim to help developers and researchers identify the best [object detection](https://docs.ultralytics.com/tasks/detect) model for their specific deployment environments.
 
 While EfficientDet introduced novel concepts in compound scaling and feature fusion, [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5) revolutionized the industry by democratizing access to high-performance AI through its incredibly intuitive [PyTorch](https://pytorch.org/) implementation, streamlined user experience, and unparalleled balance of speed and accuracy.
 
@@ -63,7 +63,7 @@ EfficientDet's core proposition lies in its systematic approach to scaling and f
 
 ## Performance and Metrics Comparison
 
-When comparing these models, evaluating their performance on standard benchmarks like the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/) is crucial. The table below highlights the trade-offs between size, computational demand (FLOPs), and inference speed.
+When comparing these models, evaluating their performance on standard benchmarks like the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco) is crucial. The table below highlights the trade-offs between size, computational demand (FLOPs), and inference speed.
 
 | Model           | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | --------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -84,9 +84,9 @@ When comparing these models, evaluating their performance on standard benchmarks
 
 ### Balanced Analysis
 
-**YOLOv5** shines in its deployment flexibility and raw hardware acceleration compatibility. Notice the blisteringly fast TensorRT speeds on the T4 GPU. This makes YOLOv5 incredibly well-suited for high-throughput video analytics and [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) pipelines. Furthermore, the Ultralytics ecosystem makes exporting to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx/), [CoreML](https://docs.ultralytics.com/integrations/coreml/), and [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) a one-line command.
+**YOLOv5** shines in its deployment flexibility and raw hardware acceleration compatibility. Notice the blisteringly fast TensorRT speeds on the T4 GPU. This makes YOLOv5 incredibly well-suited for high-throughput video analytics and [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) pipelines. Furthermore, the Ultralytics ecosystem makes exporting to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx), [CoreML](https://docs.ultralytics.com/integrations/coreml), and [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) a one-line command.
 
-**EfficientDet** offers excellent parameter efficiency. For a given parameter count, it often extracts a high [mean Average Precision (mAP)](https://docs.ultralytics.com/guides/yolo-performance-metrics/). However, this theoretical efficiency does not always translate to faster wall-clock inference times on edge GPUs due to the complex routing of the BiFPN layer, which can be memory-bandwidth bound rather than compute-bound.
+**EfficientDet** offers excellent parameter efficiency. For a given parameter count, it often extracts a high [mean Average Precision (mAP)](https://docs.ultralytics.com/guides/yolo-performance-metrics). However, this theoretical efficiency does not always translate to faster wall-clock inference times on edge GPUs due to the complex routing of the BiFPN layer, which can be memory-bandwidth bound rather than compute-bound.
 
 ## Ecosystem and Ease of Use
 
@@ -94,7 +94,7 @@ The defining advantage of choosing an Ultralytics model lies in the surrounding 
 
 With the introduction of the [Ultralytics Platform](https://platform.ultralytics.com), users can seamlessly transition from data collection to deployment. This platform supports auto-annotation, cloud training, and model monitoring out of the box. In contrast, training EfficientDet often requires navigating the complexities of older TensorFlow object detection APIs, which can present a steep learning curve for rapid prototyping.
 
-Furthermore, YOLOv5's versatility extends beyond bounding boxes. Through continuous updates, the Ultralytics framework natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment/) and [image classification](https://docs.ultralytics.com/tasks/classify/), providing a unified API for multiple computer vision tasks.
+Furthermore, YOLOv5's versatility extends beyond bounding boxes. Through continuous updates, the Ultralytics framework natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment) and [image classification](https://docs.ultralytics.com/tasks/classify), providing a unified API for multiple computer vision tasks.
 
 ## Ideal Use Cases
 
@@ -113,7 +113,7 @@ Building upon the legacy of its predecessors (like [YOLOv8](https://platform.ult
 - **Advanced Loss Functions:** The integration of ProgLoss and STAL drastically improves the recognition of small targets, which is vital for high-altitude drone imagery and [robotics](https://www.ultralytics.com/solutions/ai-in-robotics).
 - **DFL Removal:** By removing Distribution Focal Loss, the model export process is streamlined, further enhancing compatibility across diverse hardware accelerators.
 
-Users interested in exploring other recent architectures within the Ultralytics ecosystem might also compare models like [YOLOv10](https://docs.ultralytics.com/models/yolov10/) or [RT-DETR](https://docs.ultralytics.com/models/rtdetr/).
+Users interested in exploring other recent architectures within the Ultralytics ecosystem might also compare models like [YOLOv10](https://docs.ultralytics.com/models/yolov10) or [RT-DETR](https://docs.ultralytics.com/models/rtdetr).
 
 !!! tip "Migrating is Easy"
 

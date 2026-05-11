@@ -26,9 +26,9 @@ YOLOv9 was designed to directly address the information loss that occurs as data
 **Authors:** Chien-Yao Wang, Hong-Yuan Mark Liao  
 **Organization:** Institute of Information Science, Academia Sinica, Taiwan  
 **Date:** February 21, 2024  
-**Links:** [Arxiv](https://arxiv.org/abs/2402.13616), [GitHub](https://github.com/WongKinYiu/yolov9), [Docs](https://docs.ultralytics.com/models/yolov9/)
+**Links:** [Arxiv](https://arxiv.org/abs/2402.13616), [GitHub](https://github.com/WongKinYiu/yolov9), [Docs](https://docs.ultralytics.com/models/yolov9)
 
-[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9/){ .md-button }
+[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9){ .md-button }
 
 YOLOv9 introduces **Programmable Gradient Information (PGI)** and the **Generalized Efficient Layer Aggregation Network (GELAN)**. PGI ensures that vital spatial and semantic information is retained during the feed-forward process, preventing the degradation of gradients used for weight updates. GELAN complements this by maximizing parameter efficiency, allowing the model to achieve state-of-the-art [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) with fewer FLOPs than many conventional CNNs.
 
@@ -51,7 +51,7 @@ DAMO-YOLO relies on a MAE-NAS (Masked Autoencoders for Neural Architecture Searc
 
 ## Performance and Metrics Comparison
 
-When selecting an [object detection](https://docs.ultralytics.com/tasks/detect/) model, balancing accuracy, speed, and computational footprint is critical.
+When selecting an [object detection](https://docs.ultralytics.com/tasks/detect) model, balancing accuracy, speed, and computational footprint is critical.
 
 | Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -69,7 +69,7 @@ When selecting an [object detection](https://docs.ultralytics.com/tasks/detect/)
 ### Analysis
 
 - **Accuracy vs. Parameters:** YOLOv9 generally demonstrates a superior parameter-to-accuracy ratio. For instance, YOLOv9c achieves 53.0% mAP with 25.3M parameters, while DAMO-YOLOl achieves 50.8% mAP but requires significantly more parameters (42.1M).
-- **Inference Speed:** DAMO-YOLO's architecture provides competitive TensorRT inference speeds on T4 GPUs, slightly edging out YOLOv9 in the medium tiers. However, YOLOv9's efficiency in FLOPs and parameter count translates to exceptional [GPU memory efficiency](https://docs.ultralytics.com/guides/yolo-performance-metrics/).
+- **Inference Speed:** DAMO-YOLO's architecture provides competitive TensorRT inference speeds on T4 GPUs, slightly edging out YOLOv9 in the medium tiers. However, YOLOv9's efficiency in FLOPs and parameter count translates to exceptional [GPU memory efficiency](https://docs.ultralytics.com/guides/yolo-performance-metrics).
 - **Memory Requirements:** Ultralytics YOLO models, including YOLOv9, typically exhibit lower memory usage during both training and inference compared to complex NAS-generated models or heavy transformer architectures, making them highly accessible for deployment on constrained edge hardware.
 
 ## The Ultralytics Ecosystem Advantage
@@ -78,7 +78,7 @@ While theoretical metrics are important, practical implementation heavily dictat
 
 ### Ease of Use and Training Efficiency
 
-Training a custom YOLOv9 model requires minimal boilerplate. The [Ultralytics Python API](https://docs.ultralytics.com/usage/python/) abstracts complex processes like [data augmentation](https://docs.ultralytics.com/guides/yolo-data-augmentation/), distributed training, and hardware optimization.
+Training a custom YOLOv9 model requires minimal boilerplate. The [Ultralytics Python API](https://docs.ultralytics.com/usage/python) abstracts complex processes like [data augmentation](https://docs.ultralytics.com/guides/yolo-data-augmentation), distributed training, and hardware optimization.
 
 ```python
 from ultralytics import YOLO
@@ -100,11 +100,11 @@ Conversely, utilizing DAMO-YOLO often requires navigating rigid configuration fi
 
 ### Versatility Across Tasks
 
-A hallmark of Ultralytics models is their inherent versatility. Beyond standard bounding box detection, the Ultralytics framework seamlessly supports tasks such as [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), [Image Classification](https://docs.ultralytics.com/tasks/classify/), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) detection. DAMO-YOLO is strictly optimized for 2D object detection, requiring significant re-engineering to adapt to other visual paradigms.
+A hallmark of Ultralytics models is their inherent versatility. Beyond standard bounding box detection, the Ultralytics framework seamlessly supports tasks such as [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), [Image Classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection. DAMO-YOLO is strictly optimized for 2D object detection, requiring significant re-engineering to adapt to other visual paradigms.
 
 !!! tip "Exporting to Edge Devices"
 
-    Ultralytics simplifies the deployment pipeline by offering one-click [model export](https://docs.ultralytics.com/modes/export/) to formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), [OpenVINO](https://docs.ultralytics.com/integrations/openvino/), and CoreML, ensuring maximum performance regardless of your target hardware.
+    Ultralytics simplifies the deployment pipeline by offering one-click [model export](https://docs.ultralytics.com/modes/export) to formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), [OpenVINO](https://docs.ultralytics.com/integrations/openvino), and CoreML, ensuring maximum performance regardless of your target hardware.
 
 ## Use Cases and Recommendations
 
@@ -128,11 +128,11 @@ DAMO-YOLO is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Future: Moving to YOLO26
 
@@ -142,7 +142,7 @@ Released in 2026, YOLO26 builds upon the successes of its predecessors, offering
 
 ### Key YOLO26 Innovations
 
-- **End-to-End NMS-Free Design:** YOLO26 eliminates Non-Maximum Suppression (NMS) post-processing entirely. This creates a streamlined deployment pipeline that is natively end-to-end, a breakthrough first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10/).
+- **End-to-End NMS-Free Design:** YOLO26 eliminates Non-Maximum Suppression (NMS) post-processing entirely. This creates a streamlined deployment pipeline that is natively end-to-end, a breakthrough first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10).
 - **DFL Removal:** Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility.
 - **Up to 43% Faster CPU Inference:** By removing complex post-processing and optimizing core convolutions, YOLO26 is uniquely suited for edge computing scenarios lacking dedicated GPUs.
 - **MuSGD Optimizer:** Inspired by LLM training innovations, YOLO26 utilizes a hybrid of SGD and Muon (MuSGD) to guarantee more stable training runs and noticeably faster convergence times.

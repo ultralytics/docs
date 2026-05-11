@@ -39,7 +39,7 @@ Released on September 27, 2024, by Glenn Jocher and Jing Qiu at [Ultralytics](ht
 
 ### The Ultralytics Advantage
 
-YOLO11 is not just an object detector; it is a unified framework supporting [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [image classification](https://docs.ultralytics.com/tasks/classify/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [oriented bounding box (OBB)](https://docs.ultralytics.com/tasks/obb/) detection. It boasts a highly efficient architecture that prioritizes a seamless balance between speed, parameter count, and accuracy.
+YOLO11 is not just an object detector; it is a unified framework supporting [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding box (OBB)](https://docs.ultralytics.com/tasks/obb) detection. It boasts a highly efficient architecture that prioritizes a seamless balance between speed, parameter count, and accuracy.
 
 Furthermore, YOLO11 is fully integrated into the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo11), which provides a streamlined ecosystem for data annotation, model training, and deployment.
 
@@ -64,7 +64,7 @@ When comparing these models, the balance of performance becomes clear. YOLO11 ac
 | YOLO11l   | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
 | YOLO11x   | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
 
-As demonstrated, YOLO11 models consistently outperform YOLOX in accuracy while maintaining a leaner parameter footprint. For instance, YOLO11m achieves a **51.5 mAP** with only **20.1M parameters**, whereas YOLOXx achieves a similar 51.1 mAP but requires a massive **99.1M parameters**. This memory efficiency during training and inference makes YOLO11 highly suitable for deployment on edge AI devices, avoiding the heavy CUDA memory requirements typical of older or transformer-based models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/).
+As demonstrated, YOLO11 models consistently outperform YOLOX in accuracy while maintaining a leaner parameter footprint. For instance, YOLO11m achieves a **51.5 mAP** with only **20.1M parameters**, whereas YOLOXx achieves a similar 51.1 mAP but requires a massive **99.1M parameters**. This memory efficiency during training and inference makes YOLO11 highly suitable for deployment on edge AI devices, avoiding the heavy CUDA memory requirements typical of older or transformer-based models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr).
 
 !!! tip "Efficient Training"
 
@@ -76,7 +76,7 @@ One of the most striking differences between the two frameworks is the developer
 
 YOLOX often requires cloning repositories, setting up complex environments, and running verbose command-line arguments to train and export models to formats like [ONNX](https://onnx.ai/) or [TensorRT](https://developer.nvidia.com/tensorrt).
 
-In stark contrast, **Ultralytics YOLO11** offers an incredibly simple Python API and CLI. The Ultralytics library handles [data augmentation](https://docs.ultralytics.com/guides/yolo-data-augmentation/), [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning/), and exporting automatically.
+In stark contrast, **Ultralytics YOLO11** offers an incredibly simple Python API and CLI. The Ultralytics library handles [data augmentation](https://docs.ultralytics.com/guides/yolo-data-augmentation), [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning), and exporting automatically.
 
 ```python
 from ultralytics import YOLO
@@ -91,7 +91,7 @@ results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 model.export(format="engine")
 ```
 
-This well-maintained ecosystem is backed by extensive [documentation](https://docs.ultralytics.com/) and seamless integration with tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases/) for [experiment tracking](https://www.ultralytics.com/glossary/experiment-tracking).
+This well-maintained ecosystem is backed by extensive [documentation](https://docs.ultralytics.com/) and seamless integration with tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases) for [experiment tracking](https://www.ultralytics.com/glossary/experiment-tracking).
 
 ## Ideal Use Cases
 
@@ -104,9 +104,9 @@ Choosing between these models often depends on the specifics of the deployment e
 
 ### When to use YOLO11
 
-- **Production Deployments:** For commercial applications in [smart retail](https://www.ultralytics.com/solutions/ai-in-retail) or [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system/), where robust, maintained code and high accuracy are non-negotiable.
+- **Production Deployments:** For commercial applications in [smart retail](https://www.ultralytics.com/solutions/ai-in-retail) or [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system), where robust, maintained code and high accuracy are non-negotiable.
 - **Multi-Task Pipelines:** When a project requires tracking objects, estimating human poses, and segmenting instances using a single, unified framework.
-- **Resource-Constrained Edge Devices:** Because of its low parameter count and high throughput, YOLO11 is ideal for deployment on [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) or mobile edge nodes via [CoreML](https://docs.ultralytics.com/integrations/coreml/) and [NCNN](https://docs.ultralytics.com/integrations/ncnn/).
+- **Resource-Constrained Edge Devices:** Because of its low parameter count and high throughput, YOLO11 is ideal for deployment on [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) or mobile edge nodes via [CoreML](https://docs.ultralytics.com/integrations/coreml) and [NCNN](https://docs.ultralytics.com/integrations/ncnn).
 
 ## Looking Ahead: The YOLO26 Advantage
 
@@ -114,9 +114,9 @@ While YOLO11 represents a massive leap over YOLOX, the field of computer vision 
 
 Released in January 2026, YOLO26 takes the architectural brilliance of YOLO11 and introduces several groundbreaking features:
 
-- **End-to-End NMS-Free Design:** YOLO26 eliminates Non-Maximum Suppression (NMS) post-processing, natively streaming inference for faster, simpler deployment pipelines (a concept first explored in [YOLOv10](https://docs.ultralytics.com/models/yolov10/)).
+- **End-to-End NMS-Free Design:** YOLO26 eliminates Non-Maximum Suppression (NMS) post-processing, natively streaming inference for faster, simpler deployment pipelines (a concept first explored in [YOLOv10](https://docs.ultralytics.com/models/yolov10)).
 - **Up to 43% Faster CPU Inference:** Through the removal of Distribution Focal Loss (DFL), YOLO26 is vastly more efficient on CPUs and low-power edge devices.
 - **MuSGD Optimizer:** Inspired by LLM training innovations from Moonshot AI, the MuSGD optimizer ensures highly stable training runs and rapid convergence.
-- **Advanced Loss Functions:** Utilizing ProgLoss + STAL, YOLO26 achieves notable improvements in small-object recognition, which is critical for [drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) and autonomous robotics.
+- **Advanced Loss Functions:** Utilizing ProgLoss + STAL, YOLO26 achieves notable improvements in small-object recognition, which is critical for [drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and autonomous robotics.
 
-For the vast majority of modern computer vision tasks, upgrading your pipeline to leverage [YOLO26](https://docs.ultralytics.com/models/yolo26/) will provide the absolute best balance of speed, accuracy, and deployment simplicity.
+For the vast majority of modern computer vision tasks, upgrading your pipeline to leverage [YOLO26](https://docs.ultralytics.com/models/yolo26) will provide the absolute best balance of speed, accuracy, and deployment simplicity.

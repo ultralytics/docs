@@ -19,11 +19,11 @@ Released in the spring of 2024, YOLOv10 introduced a novel approach to the tradi
 - **Date:** May 23, 2024
 - **Research Paper:** [arXiv:2405.14458](https://arxiv.org/abs/2405.14458)
 - **Source Code:** [THU-MIG/yolov10 on GitHub](https://github.com/THU-MIG/yolov10)
-- **Documentation:** [YOLOv10 Docs](https://docs.ultralytics.com/models/yolov10/)
+- **Documentation:** [YOLOv10 Docs](https://docs.ultralytics.com/models/yolov10)
 
 The standout innovation of YOLOv10 is its consistent dual assignments strategy, which enables NMS-free training. Traditional object detectors rely heavily on [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) to filter out redundant bounding box predictions. By removing this step, YOLOv10 achieves true end-to-end detection, reducing inference latency and simplifying deployment on hardware accelerators like [Neural Processing Units (NPUs)](https://en.wikipedia.org/wiki/AI_accelerator) where custom NMS operations are notoriously difficult to optimize.
 
-[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10/){ .md-button }
+[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10){ .md-button }
 
 ## YOLO11: Ecosystem-Driven Versatility and Performance
 
@@ -35,20 +35,20 @@ Launched later in the same year, YOLO11 represents the continuous refinement of 
 - **Source Code:** [Ultralytics on GitHub](https://github.com/ultralytics/ultralytics)
 - **Platform Integration:** [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo11)
 
-YOLO11 is designed for production. While it excels at standard bounding box detection, its true strength lies in its **versatility**. Unlike YOLOv10, which is primarily focused on object detection, YOLO11 natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), [image classification](https://docs.ultralytics.com/tasks/classify/), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) tasks using a unified architecture. It boasts remarkably low **memory requirements** during training, making it highly accessible for teams working with consumer-grade [GPUs](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) compared to heavier, transformer-based architectures.
+YOLO11 is designed for production. While it excels at standard bounding box detection, its true strength lies in its **versatility**. Unlike YOLOv10, which is primarily focused on object detection, YOLO11 natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), [image classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) tasks using a unified architecture. It boasts remarkably low **memory requirements** during training, making it highly accessible for teams working with consumer-grade [GPUs](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) compared to heavier, transformer-based architectures.
 
 [Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 ## Performance and Metrics Comparison
 
-When comparing these models side-by-side, it is essential to look at how they perform across different scale variants on standard benchmarks like the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/).
+When comparing these models side-by-side, it is essential to look at how they perform across different scale variants on standard benchmarks like the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco).
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "YOLO11"]'></canvas>
 
-The table below highlights the performance differences. YOLO11 frequently edges out YOLOv10 in mAP across most size categories while maintaining highly competitive [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) inference speeds.
+The table below highlights the performance differences. YOLO11 frequently edges out YOLOv10 in mAP across most size categories while maintaining highly competitive [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) inference speeds.
 
 | Model    | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | -------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -67,7 +67,7 @@ The table below highlights the performance differences. YOLO11 frequently edges 
 
 !!! tip "Hardware Acceleration"
 
-    To reproduce these rapid inference speeds locally, ensure you export your models to optimized formats like [OpenVINO](https://docs.ultralytics.com/integrations/openvino/) for Intel CPUs or TensorRT for NVIDIA GPUs.
+    To reproduce these rapid inference speeds locally, ensure you export your models to optimized formats like [OpenVINO](https://docs.ultralytics.com/integrations/openvino) for Intel CPUs or TensorRT for NVIDIA GPUs.
 
 ## Architectural Deep Dive
 
@@ -75,13 +75,13 @@ The table below highlights the performance differences. YOLO11 frequently edges 
 
 YOLOv10's architecture emphasizes reducing computational redundancy. By optimizing the backbone and neck designs using a holistic efficiency-accuracy driven strategy, the authors from Tsinghua University managed to lower the parameter count significantly in the mid-tier models (like YOLOv10m) compared to previous iterations.
 
-However, **Training Efficiency** is a major hallmark of Ultralytics models. YOLO11 utilizes the highly refined `ultralytics` Python package, which abstracts away complex [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning/). This framework automatically handles advanced data augmentations, learning rate scheduling, and multi-GPU distributed training out of the box. YOLO11's architecture also exhibits excellent gradient flow, resulting in faster convergence and lower VRAM usage during the training phase.
+However, **Training Efficiency** is a major hallmark of Ultralytics models. YOLO11 utilizes the highly refined `ultralytics` Python package, which abstracts away complex [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning). This framework automatically handles advanced data augmentations, learning rate scheduling, and multi-GPU distributed training out of the box. YOLO11's architecture also exhibits excellent gradient flow, resulting in faster convergence and lower VRAM usage during the training phase.
 
 ### Ease of Use and The Ecosystem Advantage
 
 A critical factor for enterprise adoption is the **Well-Maintained Ecosystem**. Research repositories, while groundbreaking, often become dormant after the initial paper publication. The Ultralytics ecosystem, backing YOLO11, provides a seamless, end-to-end developer experience.
 
-Integrating seamlessly with tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases/) for experiment tracking and [Roboflow](https://docs.ultralytics.com/integrations/roboflow/) for dataset management, YOLO11 accelerates the transition from prototype to production. The **Ease of Use** is evident in the streamlined API, allowing developers to train and export models with just a few lines of code.
+Integrating seamlessly with tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases) for experiment tracking and [Roboflow](https://docs.ultralytics.com/integrations/roboflow) for dataset management, YOLO11 accelerates the transition from prototype to production. The **Ease of Use** is evident in the streamlined API, allowing developers to train and export models with just a few lines of code.
 
 ```python
 from ultralytics import YOLO
@@ -112,21 +112,21 @@ YOLOv10 is a strong choice for:
 
 YOLO11 is recommended for:
 
-- **Production Edge Deployment:** Commercial applications on devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) or [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/) where reliability and active maintenance are paramount.
-- **Multi-Task Vision Applications:** Projects requiring [detection](https://docs.ultralytics.com/tasks/detect/), [segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [OBB](https://docs.ultralytics.com/tasks/obb/) within a single unified framework.
-- **Rapid Prototyping and Deployment:** Teams that need to move quickly from data collection to production using the streamlined [Ultralytics Python API](https://docs.ultralytics.com/usage/python/).
+- **Production Edge Deployment:** Commercial applications on devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) or [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson) where reliability and active maintenance are paramount.
+- **Multi-Task Vision Applications:** Projects requiring [detection](https://docs.ultralytics.com/tasks/detect), [segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [OBB](https://docs.ultralytics.com/tasks/obb) within a single unified framework.
+- **Rapid Prototyping and Deployment:** Teams that need to move quickly from data collection to production using the streamlined [Ultralytics Python API](https://docs.ultralytics.com/usage/python).
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## Exploring Other Architectures
 
-While YOLOv10 and YOLO11 are excellent choices, your specific use case might benefit from other architectures available in the documentation. For sequence-based reasoning, transformer models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) provide high accuracy, though they typically demand higher memory requirements. Conversely, if you need zero-shot capabilities for identifying novel classes without retraining, [YOLO-World](https://docs.ultralytics.com/models/yolo-world/) offers an open-vocabulary approach driven by natural language prompts.
+While YOLOv10 and YOLO11 are excellent choices, your specific use case might benefit from other architectures available in the documentation. For sequence-based reasoning, transformer models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) provide high accuracy, though they typically demand higher memory requirements. Conversely, if you need zero-shot capabilities for identifying novel classes without retraining, [YOLO-World](https://docs.ultralytics.com/models/yolo-world) offers an open-vocabulary approach driven by natural language prompts.
 
 ## The Next Generation: YOLO26
 

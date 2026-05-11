@@ -23,27 +23,27 @@ Developed by Ultralytics, YOLO26 represents a massive generational leap for the 
 - **Organization:** [Ultralytics](https://www.ultralytics.com/)
 - **Date:** 2026-01-14
 - **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
-- **Docs:** [YOLO26 Official Documentation](https://docs.ultralytics.com/models/yolo26/)
+- **Docs:** [YOLO26 Official Documentation](https://docs.ultralytics.com/models/yolo26)
 
 ### Architectural Innovations and Strengths
 
-YOLO26 introduces several groundbreaking features that differentiate it not only from Transformer models but also from earlier iterations like [YOLO11](https://docs.ultralytics.com/models/yolo11/):
+YOLO26 introduces several groundbreaking features that differentiate it not only from Transformer models but also from earlier iterations like [YOLO11](https://docs.ultralytics.com/models/yolo11):
 
-- **End-to-End NMS-Free Design:** YOLO26 eliminates traditional Non-Maximum Suppression (NMS) during post-processing. Pioneered in models like [YOLOv10](https://docs.ultralytics.com/models/yolov10/), this natively end-to-end approach reduces inference latency variance and simplifies deployment logic, particularly on edge hardware.
-- **Up to 43% Faster CPU Inference:** Recognizing the growing need for decentralized AI, YOLO26 is highly optimized for devices lacking dedicated GPUs, such as the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/).
+- **End-to-End NMS-Free Design:** YOLO26 eliminates traditional Non-Maximum Suppression (NMS) during post-processing. Pioneered in models like [YOLOv10](https://docs.ultralytics.com/models/yolov10), this natively end-to-end approach reduces inference latency variance and simplifies deployment logic, particularly on edge hardware.
+- **Up to 43% Faster CPU Inference:** Recognizing the growing need for decentralized AI, YOLO26 is highly optimized for devices lacking dedicated GPUs, such as the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi).
 - **DFL Removal:** By stripping out the Distribution Focal Loss (DFL), YOLO26 offers a simplified export process and vastly improved compatibility with low-power edge devices and microcontrollers.
 - **MuSGD Optimizer:** Bridging the gap between Large Language Model (LLM) training and computer vision, YOLO26 utilizes the MuSGD optimizer. This hybrid of SGD and Muon—inspired by Moonshot AI's Kimi K2—ensures robust training stability and faster convergence.
-- **ProgLoss + STAL:** Advanced loss functions bring notable improvements to small-object recognition. This is critical for industries relying on [aerial imagery analysis](https://docs.ultralytics.com/datasets/detect/visdrone/) and Internet of Things (IoT) sensors.
+- **ProgLoss + STAL:** Advanced loss functions bring notable improvements to small-object recognition. This is critical for industries relying on [aerial imagery analysis](https://docs.ultralytics.com/datasets/detect/visdrone) and Internet of Things (IoT) sensors.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ### Versatility Across Vision Tasks
 
-Unlike models limited strictly to bounding boxes, YOLO26 is a versatile powerhouse. It incorporates task-specific improvements, such as semantic segmentation loss and multi-scale proto for [instance segmentation](https://docs.ultralytics.com/tasks/segment/), Residual Log-Likelihood Estimation (RLE) for [pose estimation](https://docs.ultralytics.com/tasks/pose/), and specialized angle loss to resolve boundary issues in [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) tasks.
+Unlike models limited strictly to bounding boxes, YOLO26 is a versatile powerhouse. It incorporates task-specific improvements, such as semantic segmentation loss and multi-scale proto for [instance segmentation](https://docs.ultralytics.com/tasks/segment), Residual Log-Likelihood Estimation (RLE) for [pose estimation](https://docs.ultralytics.com/tasks/pose), and specialized angle loss to resolve boundary issues in [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) tasks.
 
 !!! tip "Edge Deployment Strategy"
 
-    When deploying to edge devices, utilize the `YOLO26n` (Nano) or `YOLO26s` (Small) variants. Exporting these models to [CoreML](https://docs.ultralytics.com/integrations/coreml/) or [TFLite](https://docs.ultralytics.com/integrations/tflite/) is frictionless thanks to the DFL removal and NMS-free architecture, guaranteeing smooth real-time performance on iOS and Android.
+    When deploying to edge devices, utilize the `YOLO26n` (Nano) or `YOLO26s` (Small) variants. Exporting these models to [CoreML](https://docs.ultralytics.com/integrations/coreml) or [TFLite](https://docs.ultralytics.com/integrations/tflite) is frictionless thanks to the DFL removal and NMS-free architecture, guaranteeing smooth real-time performance on iOS and Android.
 
 ## RTDETRv2: Enhancing Real-Time Detection Transformers
 
@@ -63,7 +63,7 @@ RTDETRv2 employs a Transformer-based architecture, which inherently processes im
 - **Bag-of-Freebies:** The v2 iteration introduces a series of optimized training techniques (bag-of-freebies) that improve the baseline performance without adding inference cost.
 - **Global Context Awareness:** Because of the Transformer attention layers, RTDETRv2 is naturally adept at understanding complex scenes where global context is necessary to distinguish overlapping or occluded objects.
 
-[Learn more about RTDETR](https://docs.ultralytics.com/models/rtdetr/){ .md-button }
+[Learn more about RTDETR](https://docs.ultralytics.com/models/rtdetr){ .md-button }
 
 ### Limitations of Transformer Models
 
@@ -98,7 +98,7 @@ YOLO26 is a strong choice for:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ### When to Choose RT-DETR
 
@@ -114,7 +114,7 @@ Choosing the right machine learning architecture is only part of the equation; t
 
 ### Ease of Use and Training Efficiency
 
-The [Ultralytics Python API](https://docs.ultralytics.com/usage/python/) offers a remarkably streamlined experience. Training complex models no longer requires verbose boilerplate code. Furthermore, YOLO26's training efficiency is substantially better, utilizing far less GPU VRAM than the memory-intensive attention mechanisms of RTDETRv2, allowing for larger batch sizes even on consumer-grade hardware.
+The [Ultralytics Python API](https://docs.ultralytics.com/usage/python) offers a remarkably streamlined experience. Training complex models no longer requires verbose boilerplate code. Furthermore, YOLO26's training efficiency is substantially better, utilizing far less GPU VRAM than the memory-intensive attention mechanisms of RTDETRv2, allowing for larger batch sizes even on consumer-grade hardware.
 
 ```python
 from ultralytics import YOLO
@@ -134,7 +134,7 @@ model.export(format="onnx")
 
 ### A Well-Maintained Ecosystem
 
-By utilizing Ultralytics models, developers gain access to an actively maintained framework that integrates natively with modern tracking tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases/) and [Comet ML](https://docs.ultralytics.com/integrations/comet/). For those who prefer a no-code approach, the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26) facilitates cloud training, dataset management, and one-click deployment.
+By utilizing Ultralytics models, developers gain access to an actively maintained framework that integrates natively with modern tracking tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases) and [Comet ML](https://docs.ultralytics.com/integrations/comet). For those who prefer a no-code approach, the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26) facilitates cloud training, dataset management, and one-click deployment.
 
 ### Performance Balance
 
@@ -142,4 +142,4 @@ YOLO26 strikes an unparalleled balance between inference speed and accuracy. The
 
 ## Other Models in the Ecosystem
 
-While YOLO26 and RTDETRv2 cover the cutting edge of real-time detection, developers maintaining legacy pipelines or exploring different efficiency curves might also consider [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) for established enterprise environments, or explore other architectures like [EfficientDet](https://docs.ultralytics.com/compare/efficientdet-vs-yolov8/). However, for any new initiative, YOLO26 stands as the definitive recommendation.
+While YOLO26 and RTDETRv2 cover the cutting edge of real-time detection, developers maintaining legacy pipelines or exploring different efficiency curves might also consider [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) for established enterprise environments, or explore other architectures like [EfficientDet](https://docs.ultralytics.com/compare/efficientdet-vs-yolov8). However, for any new initiative, YOLO26 stands as the definitive recommendation.

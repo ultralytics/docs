@@ -6,7 +6,7 @@ keywords: RTDETRv2,PP-YOLOE+,object detection,model comparison,Vision Transforme
 
 # RTDETRv2 vs. PP-YOLOE+: A Technical Comparison of Object Detection Models
 
-The rapidly evolving field of computer vision has produced diverse architectural approaches to solve complex [real-time object detection](https://docs.ultralytics.com/tasks/detect/) challenges. Among the most notable recent advancements are **RTDETRv2** and **PP-YOLOE+**, two powerful models that approach visual recognition from fundamentally different design philosophies. While both models aim to provide high-performance detection, their underlying mechanics, training paradigms, and ideal deployment scenarios vary significantly.
+The rapidly evolving field of computer vision has produced diverse architectural approaches to solve complex [real-time object detection](https://docs.ultralytics.com/tasks/detect) challenges. Among the most notable recent advancements are **RTDETRv2** and **PP-YOLOE+**, two powerful models that approach visual recognition from fundamentally different design philosophies. While both models aim to provide high-performance detection, their underlying mechanics, training paradigms, and ideal deployment scenarios vary significantly.
 
 This comprehensive guide delves into the technical nuances of both models, comparing their architectures, performance metrics, and ecosystem support to help developers and researchers choose the optimal solution for their specific deployment needs.
 
@@ -29,7 +29,7 @@ Date: 2024-07-24
 Arxiv: [2407.17140](https://arxiv.org/abs/2407.17140)  
 GitHub: [RT-DETR Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 
-[Learn more about RTDETRv2](https://docs.ultralytics.com/models/rtdetr/){ .md-button }
+[Learn more about RTDETRv2](https://docs.ultralytics.com/models/rtdetr){ .md-button }
 
 ### PP-YOLOE+
 
@@ -45,7 +45,7 @@ GitHub: [PaddleDetection Repository](https://github.com/PaddlePaddle/PaddleDetec
 
 !!! tip "Ecosystem Integration"
 
-    While both models have their standalone research repositories, you can easily experiment with RTDETRv2 directly within the [Ultralytics Python package](https://docs.ultralytics.com/usage/python/), benefiting from a unified API and streamlined export options.
+    While both models have their standalone research repositories, you can easily experiment with RTDETRv2 directly within the [Ultralytics Python package](https://docs.ultralytics.com/usage/python), benefiting from a unified API and streamlined export options.
 
 ## Architectural Differences
 
@@ -57,7 +57,7 @@ Conversely, RTDETRv2 employs a Hybrid Encoder and a Transformer Decoder. This al
 
 ## Performance Metrics and Comparison
 
-When evaluating [YOLO performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics/), it is crucial to balance accuracy (mAP) against computational cost (FLOPs) and inference speed. The table below highlights the performance of both models across various sizes.
+When evaluating [YOLO performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics), it is crucial to balance accuracy (mAP) against computational cost (FLOPs) and inference speed. The table below highlights the performance of both models across various sizes.
 
 | Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -84,13 +84,13 @@ YOLO26 synthesizes the best aspects of both CNNs and Transformers. It adopts the
 
     Unlike heavy transformer models that demand substantial CUDA memory, YOLO26 features **DFL Removal** (Distribution Focal Loss) and is specifically optimized for edge computing, delivering up to **43% faster CPU inference** compared to previous generations.
 
-Additionally, YOLO26 is not limited to simple object detection. It is natively versatile, supporting [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb/) out of the box, whereas PP-YOLOE+ is primarily focused on bounding box detection.
+Additionally, YOLO26 is not limited to simple object detection. It is natively versatile, supporting [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb) out of the box, whereas PP-YOLOE+ is primarily focused on bounding box detection.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Training Methodologies and Ecosystem
 
-Training efficiency and ease of use are where the [Ultralytics ecosystem](https://docs.ultralytics.com/platform/) truly shines compared to standalone research repositories. While PP-YOLOE+ relies on the PaddlePaddle framework and RTDETRv2 often requires complex environment setups, integrating models through Ultralytics provides a seamless experience.
+Training efficiency and ease of use are where the [Ultralytics ecosystem](https://docs.ultralytics.com/platform) truly shines compared to standalone research repositories. While PP-YOLOE+ relies on the PaddlePaddle framework and RTDETRv2 often requires complex environment setups, integrating models through Ultralytics provides a seamless experience.
 
 With the Ultralytics API, you benefit from lower memory requirements during training, automated dataset handling, and simplified hyperparameter tuning. Furthermore, deploying models to production formats like [ONNX](https://onnxruntime.ai/) or [TensorRT](https://developer.nvidia.com/tensorrt) can be accomplished with a single command.
 
@@ -148,11 +148,11 @@ PP-YOLOE+ is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## Conclusion
 

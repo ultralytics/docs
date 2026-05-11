@@ -17,7 +17,7 @@ This guide provides a comprehensive technical comparison of these two models, an
 
 ## RTDETRv2: Real-Time Detection Transformers
 
-RTDETRv2 builds upon the original [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) architecture, aiming to combine the global context understanding of Vision Transformers with the real-time speed requirements traditionally dominated by YOLO models.
+RTDETRv2 builds upon the original [RT-DETR](https://docs.ultralytics.com/models/rtdetr) architecture, aiming to combine the global context understanding of Vision Transformers with the real-time speed requirements traditionally dominated by YOLO models.
 
 **Key Characteristics:**
 
@@ -37,7 +37,7 @@ RTDETRv2 utilizes an end-to-end transformer architecture that inherently avoids 
 
 - **Global Context:** The [attention mechanism](https://www.ultralytics.com/glossary/attention-mechanism) allows the model to excel in complex, cluttered environments.
 - **NMS-Free:** Directly predicts object coordinates, simplifying the deployment pipeline.
-- **High Accuracy:** Achieves excellent [mean average precision (mAP)](https://docs.ultralytics.com/guides/yolo-performance-metrics/) on the COCO dataset.
+- **High Accuracy:** Achieves excellent [mean average precision (mAP)](https://docs.ultralytics.com/guides/yolo-performance-metrics) on the COCO dataset.
 
 **Weaknesses:**
 
@@ -72,9 +72,9 @@ The core innovation of YOLOv10 is its consistent dual assignments for NMS-free t
 
 **Weaknesses:**
 
-- **First-Generation Concept:** As the first YOLO to implement this specific NMS-free architecture, it laid the groundwork but left room for the multi-task versatility and optimization seen in subsequent models like [YOLO11](https://docs.ultralytics.com/models/yolo11/) and YOLO26.
+- **First-Generation Concept:** As the first YOLO to implement this specific NMS-free architecture, it laid the groundwork but left room for the multi-task versatility and optimization seen in subsequent models like [YOLO11](https://docs.ultralytics.com/models/yolo11) and YOLO26.
 
-[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10/){ .md-button }
+[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10){ .md-button }
 
 ## Performance Comparison
 
@@ -122,11 +122,11 @@ YOLOv10 is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultralytics Advantage: Introducing YOLO26
 
@@ -139,13 +139,13 @@ For developers seeking the absolute state-of-the-art in 2026, **[Ultralytics YOL
 - **MuSGD Optimizer:** A hybrid of SGD and Muon (inspired by LLM training innovations), this novel optimizer provides more stable training and significantly faster convergence compared to traditional methods.
 - **Up to 43% Faster CPU Inference:** Carefully optimized for environments without dedicated GPUs, democratizing high-performance vision AI.
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, which is critical for [applications using drones](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations) and IoT sensors.
-- **Unmatched Versatility:** Unlike models limited to bounding boxes, YOLO26 supports a full suite of tasks including [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), [image classification](https://docs.ultralytics.com/tasks/classify/), and [OBB detection](https://docs.ultralytics.com/tasks/obb/), complete with task-specific improvements like Residual Log-Likelihood Estimation (RLE) for Pose.
+- **Unmatched Versatility:** Unlike models limited to bounding boxes, YOLO26 supports a full suite of tasks including [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), [image classification](https://docs.ultralytics.com/tasks/classify), and [OBB detection](https://docs.ultralytics.com/tasks/obb), complete with task-specific improvements like Residual Log-Likelihood Estimation (RLE) for Pose.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ### Seamless Implementation with Python
 
-Training and deploying these models using the [Ultralytics Python API](https://docs.ultralytics.com/usage/python/) is designed to be frictionless. Memory requirements are notably lower during training compared to transformer-heavy architectures, allowing you to train powerful models on standard hardware.
+Training and deploying these models using the [Ultralytics Python API](https://docs.ultralytics.com/usage/python) is designed to be frictionless. Memory requirements are notably lower during training compared to transformer-heavy architectures, allowing you to train powerful models on standard hardware.
 
 ```python
 from ultralytics import YOLO
@@ -161,4 +161,4 @@ results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 model.export(format="onnx", simplify=True)
 ```
 
-Whether you are implementing [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system/) or conducting [medical image analysis](https://www.ultralytics.com/glossary/medical-image-analysis), choosing a model backed by the active Ultralytics community ensures you have the tools, [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning/) guides, and continuous updates needed to succeed. While YOLOv10 and RTDETRv2 paved the way for NMS-free architectures, YOLO26 perfects the formula, offering the best balance of performance, versatility, and production readiness.
+Whether you are implementing [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system) or conducting [medical image analysis](https://www.ultralytics.com/glossary/medical-image-analysis), choosing a model backed by the active Ultralytics community ensures you have the tools, [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning) guides, and continuous updates needed to succeed. While YOLOv10 and RTDETRv2 paved the way for NMS-free architectures, YOLO26 perfects the formula, offering the best balance of performance, versatility, and production readiness.

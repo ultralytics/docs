@@ -91,17 +91,17 @@ EfficientDet is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Modern Alternative: Ultralytics YOLO26
 
-While both DAMO-YOLO and EfficientDet represent significant academic milestones, real-world deployment often requires a more balanced, feature-rich, and developer-friendly approach. This is where [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) sets a new industry standard.
+While both DAMO-YOLO and EfficientDet represent significant academic milestones, real-world deployment often requires a more balanced, feature-rich, and developer-friendly approach. This is where [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) sets a new industry standard.
 
-Released in January 2026, YOLO26 builds upon the legacy of its predecessors, including [Ultralytics YOLO11](https://docs.ultralytics.com/models/yolo11/) and [YOLOv8](https://docs.ultralytics.com/models/yolov8/), delivering a paradigm shift in how we approach [object detection](https://docs.ultralytics.com/tasks/detect/).
+Released in January 2026, YOLO26 builds upon the legacy of its predecessors, including [Ultralytics YOLO11](https://docs.ultralytics.com/models/yolo11) and [YOLOv8](https://docs.ultralytics.com/models/yolov8), delivering a paradigm shift in how we approach [object detection](https://docs.ultralytics.com/tasks/detect).
 
 !!! tip "End-to-End Simplicity"
 
@@ -109,13 +109,13 @@ Released in January 2026, YOLO26 builds upon the legacy of its predecessors, inc
 
 ### Unmatched Performance and Versatility
 
-YOLO26 does not just improve on speed; it redefines training stability and accuracy. It introduces the **MuSGD Optimizer**, a hybrid of SGD and Muon inspired by LLM training innovations, leading to dramatically faster convergence rates and superior training efficiency. Unlike heavy transformer-based alternatives like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/), YOLO26 maintains incredibly low memory requirements, ensuring it can be trained on consumer-grade hardware.
+YOLO26 does not just improve on speed; it redefines training stability and accuracy. It introduces the **MuSGD Optimizer**, a hybrid of SGD and Muon inspired by LLM training innovations, leading to dramatically faster convergence rates and superior training efficiency. Unlike heavy transformer-based alternatives like [RT-DETR](https://docs.ultralytics.com/models/rtdetr), YOLO26 maintains incredibly low memory requirements, ensuring it can be trained on consumer-grade hardware.
 
 Furthermore, YOLO26 incorporates **ProgLoss + STAL**, heavily improving small-object recognition which is vital for use cases like [drone aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and robotics. To optimize for low-power devices, YOLO26 removed the Distribution Focal Loss (DFL), resulting in up to **43% faster CPU inference** compared to previous generations.
 
 ### Ecosystem and Ease of Use
 
-One of the largest hurdles with models like EfficientDet is the complex integration process. In contrast, the [Ultralytics Platform](https://platform.ultralytics.com) offers a well-maintained, end-to-end ecosystem. With a unified API, users can easily pivot between detection, [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), [image classification](https://docs.ultralytics.com/tasks/classify/), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb/).
+One of the largest hurdles with models like EfficientDet is the complex integration process. In contrast, the [Ultralytics Platform](https://platform.ultralytics.com) offers a well-maintained, end-to-end ecosystem. With a unified API, users can easily pivot between detection, [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), [image classification](https://docs.ultralytics.com/tasks/classify), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
 Here is how simple it is to train and run inference with YOLO26 using the Ultralytics Python package:
 
@@ -136,6 +136,6 @@ predictions = model.predict("image.jpg")
 
 ## Conclusion
 
-While exploring [DAMO-YOLO vs EfficientDet](https://docs.ultralytics.com/compare/damo-yolo-vs-efficientdet/) provides excellent insights into the trade-offs between Neural Architecture Search and compound scaling, modern developers require tools that bridge the gap between academic research and production reality.
+While exploring [DAMO-YOLO vs EfficientDet](https://docs.ultralytics.com/compare/damo-yolo-vs-efficientdet) provides excellent insights into the trade-offs between Neural Architecture Search and compound scaling, modern developers require tools that bridge the gap between academic research and production reality.
 
 For developers prioritizing ease of use, an active open-source community, and an uncompromised balance of speed and accuracy, **Ultralytics YOLO26** is the definitive choice. Its NMS-free architecture, low training overhead, and seamless integration with the comprehensive [Ultralytics ecosystem](https://www.ultralytics.com/) make it the ultimate framework for your next computer vision project.

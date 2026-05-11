@@ -6,7 +6,7 @@ keywords: YOLOv6-3.0, YOLOX, object detection, model comparison, computer vision
 
 # YOLOv6-3.0 vs YOLOX: Evaluating Industrial Object Detectors
 
-The landscape of computer vision has been heavily shaped by models aiming to bridge the gap between academic research and industrial application. When evaluating [object detection](https://docs.ultralytics.com/tasks/detect/) frameworks tailored for high-performance deployment, **YOLOv6-3.0** and **YOLOX** frequently emerge as prominent contenders. Both models introduce distinct architectural philosophies to maximize throughput and precision, yet they differ significantly in their design choices and primary deployment targets.
+The landscape of computer vision has been heavily shaped by models aiming to bridge the gap between academic research and industrial application. When evaluating [object detection](https://docs.ultralytics.com/tasks/detect) frameworks tailored for high-performance deployment, **YOLOv6-3.0** and **YOLOX** frequently emerge as prominent contenders. Both models introduce distinct architectural philosophies to maximize throughput and precision, yet they differ significantly in their design choices and primary deployment targets.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -35,7 +35,7 @@ Furthermore, YOLOv6-3.0 utilizes an Anchor-Aided Training (AAT) strategy. This i
 
     While YOLOv6 excels on dedicated GPUs, its highly specialized architecture can sometimes result in suboptimal latency when deployed on standard CPUs or low-power edge devices.
 
-[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6/){ .md-button }
+[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6){ .md-button }
 
 ## YOLOX: Bridging Research and Industry
 
@@ -51,7 +51,7 @@ Introduced by Megvii, YOLOX represented a significant shift in the YOLO family b
 
 YOLOX successfully integrated an anchor-free mechanism with a decoupled head structure. By separating the classification and regression tasks into distinct pathways, YOLOX significantly improved convergence speed and mitigated the conflicting objectives often found in coupled detection heads.
 
-Additionally, YOLOX introduced strong data augmentation strategies (such as MixUp and Mosaic) natively into its training pipeline, drastically improving its robustness when trained from scratch on standard benchmarks like the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/).
+Additionally, YOLOX introduced strong data augmentation strategies (such as MixUp and Mosaic) natively into its training pipeline, drastically improving its robustness when trained from scratch on standard benchmarks like the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco).
 
 !!! tip "Decoupled Head Advantage"
 
@@ -101,11 +101,11 @@ YOLOX is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultralytics Advantage: Introducing YOLO26
 
@@ -115,17 +115,17 @@ Released in January 2026, YOLO26 represents a paradigm shift. It delivers unpara
 
 ### Key YOLO26 Innovations
 
-- **End-to-End NMS-Free Design:** Building on concepts pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10/), YOLO26 natively eliminates the need for Non-Maximum Suppression (NMS) post-processing. This significantly reduces latency variance and simplifies edge deployment.
+- **End-to-End NMS-Free Design:** Building on concepts pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 natively eliminates the need for Non-Maximum Suppression (NMS) post-processing. This significantly reduces latency variance and simplifies edge deployment.
 - **MuSGD Optimizer:** YOLO26 borrows innovations from LLM training stability, utilizing a hybrid MuSGD optimizer (inspired by Moonshot AI's Kimi K2). This enables incredibly stable training dynamics and faster convergence compared to older optimizers.
 - **Up to 43% Faster CPU Inference:** Unlike YOLOv6, which struggles on non-GPU hardware, YOLO26 is heavily optimized for edge devices. By implementing DFL Removal (Distribution Focal Loss), the output head is simplified, making it incredibly fast on mobile and CPU environments.
 - **ProgLoss + STAL:** Superior loss functions dramatically improve small object detection, an area where older architectures like YOLOX often struggled. This makes YOLO26 ideal for aerial imagery and IoT sensors.
-- **Unmatched Versatility:** While YOLOv6 and YOLOX are strictly detection models, a single YOLO26 architecture natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), [image classification](https://docs.ultralytics.com/tasks/classify/), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/).
+- **Unmatched Versatility:** While YOLOv6 and YOLOX are strictly detection models, a single YOLO26 architecture natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), [image classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ### Ease of Use and Ecosystem Support
 
-Choosing Ultralytics ensures access to a well-maintained, actively developed ecosystem. The Ultralytics Python package offers a "zero-to-hero" experience, featuring extremely low memory requirements during training compared to bulky transformer models, and seamless exports to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx/), [OpenVINO](https://docs.ultralytics.com/integrations/openvino/), and CoreML.
+Choosing Ultralytics ensures access to a well-maintained, actively developed ecosystem. The Ultralytics Python package offers a "zero-to-hero" experience, featuring extremely low memory requirements during training compared to bulky transformer models, and seamless exports to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx), [OpenVINO](https://docs.ultralytics.com/integrations/openvino), and CoreML.
 
 ```python
 from ultralytics import YOLO

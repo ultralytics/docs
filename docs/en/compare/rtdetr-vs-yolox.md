@@ -36,7 +36,7 @@ RTDETRv2 relies heavily on the self-attention mechanisms inherent to transformer
 
 The primary strength of RTDETRv2 lies in its native end-to-end design. By skipping NMS, it avoids the latency spikes often associated with dense overlapping predictions. However, the heavy computational footprint of its transformer blocks means that it demands substantial GPU resources for both training and deployment. This makes it less ideal for resource-constrained edge devices or legacy mobile hardware.
 
-[Learn more about RTDETRv2](https://docs.ultralytics.com/models/rtdetr/){ .md-button }
+[Learn more about RTDETRv2](https://docs.ultralytics.com/models/rtdetr){ .md-button }
 
 ## YOLOX: Advancing Anchor-Free CNNs
 
@@ -83,14 +83,14 @@ While both RTDETRv2 and YOLOX offer unique benefits, modern developers often req
 
 ### Key Innovations of YOLO26
 
-- **End-to-End NMS-Free Design:** Building on concepts first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10/), YOLO26 operates natively without NMS. This delivers the seamless inference of RTDETRv2 without the crushing memory requirements of transformers.
+- **End-to-End NMS-Free Design:** Building on concepts first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 operates natively without NMS. This delivers the seamless inference of RTDETRv2 without the crushing memory requirements of transformers.
 - **MuSGD Optimizer:** Inspired by large language model training innovations, the hybrid MuSGD optimizer (blending SGD and Muon) stabilizes the training process and drastically accelerates convergence.
 - **Up to 43% Faster CPU Inference:** By strategically removing the Distribution Focal Loss (DFL) module, YOLO26 is specifically optimized for edge computing and low-power devices, making it substantially faster on CPUs than previous iterations like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11).
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, addressing a common pain point in aerial imagery and [robotics applications](https://www.ultralytics.com/solutions/ai-in-robotics).
 
 ### Unmatched Versatility and Ecosystem
 
-Beyond raw performance, the [Ultralytics Platform](https://platform.ultralytics.com) offers a comprehensive, zero-to-production ecosystem. Unlike static academic repositories, Ultralytics models are actively maintained and seamlessly support multiple tasks from a single, intuitive API. Whether you are performing [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), tracking poses via [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), or handling rotated objects with [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/), the workflow remains identical.
+Beyond raw performance, the [Ultralytics Platform](https://platform.ultralytics.com) offers a comprehensive, zero-to-production ecosystem. Unlike static academic repositories, Ultralytics models are actively maintained and seamlessly support multiple tasks from a single, intuitive API. Whether you are performing [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), tracking poses via [Pose Estimation](https://docs.ultralytics.com/tasks/pose), or handling rotated objects with [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb), the workflow remains identical.
 
 Furthermore, Ultralytics models are renowned for their low memory requirements during both training and inference, allowing researchers to run larger batch sizes on consumer-grade hardware—a stark contrast to the heavy footprint of transformer-based architectures.
 

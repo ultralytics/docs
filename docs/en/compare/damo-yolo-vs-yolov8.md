@@ -35,7 +35,7 @@ Understanding the origins of these deep learning models provides valuable contex
 **Organization:** [Ultralytics](https://www.ultralytics.com/)  
 **Date:** 2023-01-10  
 **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)  
-**Docs:** [YOLOv8 Documentation](https://docs.ultralytics.com/models/yolov8/)
+**Docs:** [YOLOv8 Documentation](https://docs.ultralytics.com/models/yolov8)
 
 [Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
@@ -113,13 +113,13 @@ DAMO-YOLO is an excellent choice for academic environments studying Neural Archi
 
 For the vast majority of commercial projects, Ultralytics models provide superior performance balance.
 
-- **Smart Retail:** Using YOLOv8's multi-task capabilities to handle both bounding box detection for inventory and [pose estimation](https://docs.ultralytics.com/tasks/pose/) for analyzing customer behavior.
-- **Agriculture:** Employing [instance segmentation](https://docs.ultralytics.com/tasks/segment/) to detect exact plant boundaries and weeds in real-time tractor feeds.
-- **Aerial Imagery:** Leveraging [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/) to accurately track rotated vehicles and ships from drones or satellites.
+- **Smart Retail:** Using YOLOv8's multi-task capabilities to handle both bounding box detection for inventory and [pose estimation](https://docs.ultralytics.com/tasks/pose) for analyzing customer behavior.
+- **Agriculture:** Employing [instance segmentation](https://docs.ultralytics.com/tasks/segment) to detect exact plant boundaries and weeds in real-time tractor feeds.
+- **Aerial Imagery:** Leveraging [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb) to accurately track rotated vehicles and ships from drones or satellites.
 
 !!! note "Other Notable Models"
 
-    If you are exploring the broader landscape, you might also be interested in comparing [YOLOv10](https://docs.ultralytics.com/models/yolov10/) or [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) which bring further advancements to anchor-free detection.
+    If you are exploring the broader landscape, you might also be interested in comparing [YOLOv10](https://docs.ultralytics.com/models/yolov10) or [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) which bring further advancements to anchor-free detection.
 
 ## Future-Proofing: Enter YOLO26
 

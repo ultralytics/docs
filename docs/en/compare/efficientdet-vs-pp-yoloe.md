@@ -124,10 +124,10 @@ predictions = model("https://ultralytics.com/images/bus.jpg")
 model.export(format="onnx")
 ```
 
-Whether you require standard detection, or specialized tasks like instance segmentation and [pose estimation](https://docs.ultralytics.com/tasks/pose/), YOLO26 supports these natively with multi-scale prototypes and Residual Log-Likelihood Estimation (RLE), all within the exact same user-friendly framework.
+Whether you require standard detection, or specialized tasks like instance segmentation and [pose estimation](https://docs.ultralytics.com/tasks/pose), YOLO26 supports these natively with multi-scale prototypes and Residual Log-Likelihood Estimation (RLE), all within the exact same user-friendly framework.
 
 ## Exploring Other Notable Models
 
-If you are evaluating architectures for specific enterprise requirements, it is also worth considering the previous generation [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), which remains a robust, production-tested workhorse. For applications where transformer-based architectures are desired, [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) offers an interesting alternative, though it typically demands higher CUDA memory overhead during training compared to the highly efficient YOLO variants.
+If you are evaluating architectures for specific enterprise requirements, it is also worth considering the previous generation [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), which remains a robust, production-tested workhorse. For applications where transformer-based architectures are desired, [RT-DETR](https://docs.ultralytics.com/models/rtdetr) offers an interesting alternative, though it typically demands higher CUDA memory overhead during training compared to the highly efficient YOLO variants.
 
 In conclusion, while EfficientDet offers principled scaling and PP-YOLOE+ provides excellent GPU throughput within its specific framework, **Ultralytics YOLO26** delivers the most balanced, versatile, and developer-friendly solution available today. Its natively end-to-end architecture and extensive integration capabilities make it the recommended foundation for next-generation vision AI.

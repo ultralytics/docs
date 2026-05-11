@@ -23,7 +23,7 @@ Both models were introduced around the same time but stem from different design 
 - Organization: [Ultralytics](https://www.ultralytics.com/)
 - Date: 2023-01-10
 - GitHub: [Ultralytics GitHub Repository](https://github.com/ultralytics/ultralytics)
-- Docs: [YOLOv8 Official Documentation](https://docs.ultralytics.com/models/yolov8/)
+- Docs: [YOLOv8 Official Documentation](https://docs.ultralytics.com/models/yolov8)
 
 [Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
@@ -43,7 +43,7 @@ Both models were introduced around the same time but stem from different design 
 
 [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) introduced significant improvements over its predecessors, cementing its status as a highly reliable state-of-the-art model. It features an anchor-free detection head, which reduces the number of box predictions and speeds up inference. The architecture utilizes a decoupled head, separating objectness, classification, and regression tasks, leading to more accurate bounding box predictions.
 
-Furthermore, YOLOv8 implements [Distribution Focal Loss (DFL)](https://docs.ultralytics.com/reference/utils/loss/) alongside CIoU loss, enhancing the model's ability to precisely localize object boundaries, especially for smaller or occluded targets. Its streamlined backbone is highly optimized for both GPU and CPU execution.
+Furthermore, YOLOv8 implements [Distribution Focal Loss (DFL)](https://docs.ultralytics.com/reference/utils/loss) alongside CIoU loss, enhancing the model's ability to precisely localize object boundaries, especially for smaller or occluded targets. Its streamlined backbone is highly optimized for both GPU and CPU execution.
 
 ### DAMO-YOLO: Driven by Architecture Search
 
@@ -99,7 +99,7 @@ path = model.export(format="onnx")
 
 ### Versatility Across Vision Tasks
 
-DAMO-YOLO is strictly built for bounding-box object detection. In contrast, the YOLOv8 architecture natively supports multiple tasks. By simply swapping the model weights, developers can perform [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Image Classification](https://docs.ultralytics.com/tasks/classify/), and [Pose Estimation](https://docs.ultralytics.com/tasks/pose/) without changing their underlying deployment codebase. This versatility makes Ultralytics models much more practical for complex applications.
+DAMO-YOLO is strictly built for bounding-box object detection. In contrast, the YOLOv8 architecture natively supports multiple tasks. By simply swapping the model weights, developers can perform [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Image Classification](https://docs.ultralytics.com/tasks/classify), and [Pose Estimation](https://docs.ultralytics.com/tasks/pose) without changing their underlying deployment codebase. This versatility makes Ultralytics models much more practical for complex applications.
 
 ## Real-World Use Cases
 
@@ -107,10 +107,10 @@ DAMO-YOLO is strictly built for bounding-box object detection. In contrast, the 
 
 YOLOv8's combination of speed, accuracy, and ease of deployment makes it ideal for:
 
-- **Smart Retail Analytics:** Performing [object tracking](https://docs.ultralytics.com/modes/track/) to monitor customer behavior or automate inventory checks.
+- **Smart Retail Analytics:** Performing [object tracking](https://docs.ultralytics.com/modes/track) to monitor customer behavior or automate inventory checks.
 - **Agricultural Robotics:** Leveraging its strong performance on varied hardware to identify crops or pests in real-time.
 - **Healthcare Diagnostics:** Using instance segmentation to map anomalies in medical imagery quickly and accurately.
-- **Edge Deployments:** The seamless integration with export formats like [OpenVINO](https://docs.ultralytics.com/integrations/openvino/) and [CoreML](https://docs.ultralytics.com/integrations/coreml/) allows YOLOv8 to shine on constrained devices.
+- **Edge Deployments:** The seamless integration with export formats like [OpenVINO](https://docs.ultralytics.com/integrations/openvino) and [CoreML](https://docs.ultralytics.com/integrations/coreml) allows YOLOv8 to shine on constrained devices.
 
 ### When to use DAMO-YOLO
 
@@ -127,7 +127,7 @@ Choosing between YOLOv8 and DAMO-YOLO depends on your specific project requireme
 
 YOLOv8 is a strong choice for:
 
-- **Versatile Multi-Task Deployment:** Projects requiring a proven model for [detection](https://docs.ultralytics.com/tasks/detect/), [segmentation](https://docs.ultralytics.com/tasks/segment/), [classification](https://docs.ultralytics.com/tasks/classify/), and [pose estimation](https://docs.ultralytics.com/tasks/pose/) within the Ultralytics ecosystem.
+- **Versatile Multi-Task Deployment:** Projects requiring a proven model for [detection](https://docs.ultralytics.com/tasks/detect), [segmentation](https://docs.ultralytics.com/tasks/segment), [classification](https://docs.ultralytics.com/tasks/classify), and [pose estimation](https://docs.ultralytics.com/tasks/pose) within the Ultralytics ecosystem.
 - **Established Production Systems:** Existing production environments already built on the YOLOv8 architecture with stable, well-tested deployment pipelines.
 - **Broad Community and Ecosystem Support:** Applications benefiting from YOLOv8's extensive tutorials, third-party integrations, and active community resources.
 
@@ -141,11 +141,11 @@ DAMO-YOLO is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## Looking Forward: Newer Ultralytics Models
 

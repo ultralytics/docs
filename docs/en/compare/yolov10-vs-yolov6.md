@@ -6,7 +6,7 @@ keywords: YOLOv10, YOLOv6, YOLO comparison, object detection models, computer vi
 
 # YOLOv10 vs. YOLOv6-3.0: A Comprehensive Technical Comparison
 
-In the rapidly evolving landscape of [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv), selecting the optimal [object detection](https://docs.ultralytics.com/tasks/detect/) architecture is crucial for balancing inference speed, model accuracy, and deployment feasibility. This guide provides an in-depth, technical comparison between two formidable models: the academic powerhouse **YOLOv10** and the industrially focused **YOLOv6-3.0**. Both bring unique architectural innovations to the table, solving distinct challenges in the deployment of real-time vision systems.
+In the rapidly evolving landscape of [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv), selecting the optimal [object detection](https://docs.ultralytics.com/tasks/detect) architecture is crucial for balancing inference speed, model accuracy, and deployment feasibility. This guide provides an in-depth, technical comparison between two formidable models: the academic powerhouse **YOLOv10** and the industrially focused **YOLOv6-3.0**. Both bring unique architectural innovations to the table, solving distinct challenges in the deployment of real-time vision systems.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -22,13 +22,13 @@ Released in mid-2024, **YOLOv10** introduced a paradigm shift in the YOLO family
 - **Date:** 2024-05-23
 - **ArXiv:** [2405.14458](https://arxiv.org/abs/2405.14458)
 - **GitHub:** [THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
-- **Docs:** [Ultralytics YOLOv10 Documentation](https://docs.ultralytics.com/models/yolov10/)
+- **Docs:** [Ultralytics YOLOv10 Documentation](https://docs.ultralytics.com/models/yolov10)
 
 ### Architectural Innovations
 
-YOLOv10 achieves its NMS-free capability through a **Consistent Dual Assignment** strategy. During training, the model leverages both one-to-many and one-to-one label assignments, enriching supervision signals. For inference, it strictly relies on the one-to-one head, stripping away the computational overhead associated with traditional bounding box filtering. Furthermore, YOLOv10 integrates a holistic, efficiency-driven design, thoroughly optimizing internal components like the [convolutional neural network](https://www.ultralytics.com/glossary/convolutional-neural-network-cnn) layers to drastically reduce computational redundancy and overall [parameter count](https://docs.ultralytics.com/guides/yolo-performance-metrics/).
+YOLOv10 achieves its NMS-free capability through a **Consistent Dual Assignment** strategy. During training, the model leverages both one-to-many and one-to-one label assignments, enriching supervision signals. For inference, it strictly relies on the one-to-one head, stripping away the computational overhead associated with traditional bounding box filtering. Furthermore, YOLOv10 integrates a holistic, efficiency-driven design, thoroughly optimizing internal components like the [convolutional neural network](https://www.ultralytics.com/glossary/convolutional-neural-network-cnn) layers to drastically reduce computational redundancy and overall [parameter count](https://docs.ultralytics.com/guides/yolo-performance-metrics).
 
-[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10/){ .md-button }
+[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10){ .md-button }
 
 ## YOLOv6-3.0 Overview: The Industrial Workhorse
 
@@ -39,13 +39,13 @@ Developed specifically for industrial applications, **YOLOv6-3.0** prioritizes h
 - **Date:** 2023-01-13
 - **ArXiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
 - **GitHub:** [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
-- **Docs:** [Ultralytics YOLOv6 Documentation](https://docs.ultralytics.com/models/yolov6/)
+- **Docs:** [Ultralytics YOLOv6 Documentation](https://docs.ultralytics.com/models/yolov6)
 
 ### Architectural Innovations
 
-YOLOv6-3.0 distinguishes itself with a heavily optimized **EfficientRep** backbone, structured to maximize inference speeds on hardware accelerators like [NVIDIA GPUs](https://docs.ultralytics.com/guides/nvidia-jetson/). Version 3.0 introduced a **Bi-directional Concatenation (BiC)** module to enhance cross-scale feature fusion. Additionally, it implements an **Anchor-Aided Training (AAT)** strategy that combines the rapid convergence of [anchor-based detectors](https://www.ultralytics.com/glossary/anchor-based-detectors) with the generalization capabilities of anchor-free paradigms.
+YOLOv6-3.0 distinguishes itself with a heavily optimized **EfficientRep** backbone, structured to maximize inference speeds on hardware accelerators like [NVIDIA GPUs](https://docs.ultralytics.com/guides/nvidia-jetson). Version 3.0 introduced a **Bi-directional Concatenation (BiC)** module to enhance cross-scale feature fusion. Additionally, it implements an **Anchor-Aided Training (AAT)** strategy that combines the rapid convergence of [anchor-based detectors](https://www.ultralytics.com/glossary/anchor-based-detectors) with the generalization capabilities of anchor-free paradigms.
 
-[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6/){ .md-button }
+[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6){ .md-button }
 
 ## Performance and Metrics Comparison
 
@@ -65,7 +65,7 @@ When analyzing raw performance, the generations of architectural refinement in Y
 | YOLOv6-3.0m | 640                         | 50.0                       | -                                    | 5.28                                      | 34.9                     | 85.8                    |
 | YOLOv6-3.0l | 640                         | 52.8                       | -                                    | 8.95                                      | 59.6                     | 150.7                   |
 
-While YOLOv6-3.0 retains slight speed advantages in its Nano and Medium variants under pure [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) execution on T4 GPUs, YOLOv10 requires nearly half the memory footprint to achieve superior accuracy, heavily leaning the performance balance in favor of modern, end-to-end architectures.
+While YOLOv6-3.0 retains slight speed advantages in its Nano and Medium variants under pure [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) execution on T4 GPUs, YOLOv10 requires nearly half the memory footprint to achieve superior accuracy, heavily leaning the performance balance in favor of modern, end-to-end architectures.
 
 !!! tip "Memory Efficiency"
 
@@ -76,12 +76,12 @@ While YOLOv6-3.0 retains slight speed advantages in its Nano and Medium variants
 Opting for an [Ultralytics](https://www.ultralytics.com/) model like YOLOv10 goes far beyond raw architecture—it provides access to a meticulously maintained ecosystem that simplifies the entire machine learning lifecycle. YOLOv6, housed in a static research repository, lacks the robust tooling and multi-task versatility that the Ultralytics framework provides out of the box.
 
 - **Ease of Use:** The Ultralytics Python API provides a streamlined user experience, allowing developers to train and export models with just a few lines of code.
-- **Versatility:** Unlike YOLOv6, which strictly specializes in detection, the Ultralytics ecosystem empowers you to perform [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), [Image Classification](https://docs.ultralytics.com/tasks/classify/), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) tracking using a unified interface.
-- **Well-Maintained Ecosystem:** Enjoy frequent updates, strong community support, and seamless integrations with industry standards like [OpenVINO](https://docs.ultralytics.com/integrations/openvino/) and [ONNX](https://docs.ultralytics.com/integrations/onnx/).
+- **Versatility:** Unlike YOLOv6, which strictly specializes in detection, the Ultralytics ecosystem empowers you to perform [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), [Image Classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) tracking using a unified interface.
+- **Well-Maintained Ecosystem:** Enjoy frequent updates, strong community support, and seamless integrations with industry standards like [OpenVINO](https://docs.ultralytics.com/integrations/openvino) and [ONNX](https://docs.ultralytics.com/integrations/onnx).
 
 ### Code Example: Consistent Training Workflows
 
-With the Ultralytics SDK, training models is exceptionally straightforward. The system automatically handles complex [data augmentations](https://docs.ultralytics.com/guides/yolo-data-augmentation/) and device scaling.
+With the Ultralytics SDK, training models is exceptionally straightforward. The system automatically handles complex [data augmentations](https://docs.ultralytics.com/guides/yolo-data-augmentation) and device scaling.
 
 ```python
 from ultralytics import YOLO
@@ -121,11 +121,11 @@ YOLOv6 is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultimate Recommendation: Ultralytics YOLO26
 

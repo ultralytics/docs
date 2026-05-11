@@ -17,7 +17,7 @@ Whether you are building [drone delivery systems](https://www.amazon.com/b?ie=UT
 
 ## Model Lineage and Ecosystem
 
-Both models benefit from the comprehensive [Ultralytics ecosystem](https://github.com/ultralytics/ultralytics), characterized by its straightforward API, continuous maintenance, and a vibrant community. They offer unmatched versatility, naturally supporting [object detection](https://docs.ultralytics.com/tasks/detect/), [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [image classification](https://docs.ultralytics.com/tasks/classify/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) tasks out of the box.
+Both models benefit from the comprehensive [Ultralytics ecosystem](https://github.com/ultralytics/ultralytics), characterized by its straightforward API, continuous maintenance, and a vibrant community. They offer unmatched versatility, naturally supporting [object detection](https://docs.ultralytics.com/tasks/detect), [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) tasks out of the box.
 
 ### YOLO11: The Established Standard
 
@@ -27,7 +27,7 @@ Released in late 2024, YOLO11 refined the advancements of earlier generations, c
 - **Organization:** [Ultralytics](https://www.ultralytics.com/)
 - **Date:** 2024-09-27
 - **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- **Docs:** [YOLO11 Documentation](https://docs.ultralytics.com/models/yolo11/)
+- **Docs:** [YOLO11 Documentation](https://docs.ultralytics.com/models/yolo11)
 
 [Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
@@ -39,7 +39,7 @@ Introduced in early 2026, YOLO26 represents a paradigm shift in edge computing a
 - **Organization:** [Ultralytics](https://www.ultralytics.com/)
 - **Date:** 2026-01-14
 - **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- **Docs:** [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26/)
+- **Docs:** [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26)
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
@@ -53,7 +53,7 @@ While YOLO11 relies on traditional post-processing methods that have powered com
 
 ### End-to-End NMS-Free Design
 
-One of the most significant upgrades in YOLO26 is its natively end-to-end architecture. It eliminates Non-Maximum Suppression (NMS) post-processing, a concept first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10/). Bypassing NMS drastically simplifies the deployment pipeline and guarantees consistent latency, which is essential for real-time applications like [autonomous driving algorithms](https://waymo.com/research/).
+One of the most significant upgrades in YOLO26 is its natively end-to-end architecture. It eliminates Non-Maximum Suppression (NMS) post-processing, a concept first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10). Bypassing NMS drastically simplifies the deployment pipeline and guarantees consistent latency, which is essential for real-time applications like [autonomous driving algorithms](https://waymo.com/research/).
 
 ### DFL Removal for Edge Optimization
 
@@ -89,7 +89,7 @@ As demonstrated, the YOLO26 Nano (YOLO26n) jumps significantly in accuracy while
 
 !!! tip "Exporting for Maximum Speed"
 
-    To squeeze every drop of performance from these models, export them using [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) on NVIDIA hardware or [OpenVINO](https://docs.ultralytics.com/integrations/openvino/) for Intel CPUs. The NMS-free design of YOLO26 makes this export process smoother than ever.
+    To squeeze every drop of performance from these models, export them using [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) on NVIDIA hardware or [OpenVINO](https://docs.ultralytics.com/integrations/openvino) for Intel CPUs. The NMS-free design of YOLO26 makes this export process smoother than ever.
 
 ## Use Cases and Real-World Applications
 
@@ -97,7 +97,7 @@ Choosing between YOLO11 and YOLO26 largely depends on your specific infrastructu
 
 ### Edge Computing and IoT
 
-For applications constrained by power and hardware, such as smart agriculture monitoring via drones or local [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system/), **YOLO26** is the undisputed champion. The removal of DFL and the 43% boost in CPU speed means you can run complex vision models on devices without dedicated [GPUs](https://www.nvidia.com/en-us/geforce/graphics-cards/) while maintaining high frame rates.
+For applications constrained by power and hardware, such as smart agriculture monitoring via drones or local [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system), **YOLO26** is the undisputed champion. The removal of DFL and the 43% boost in CPU speed means you can run complex vision models on devices without dedicated [GPUs](https://www.nvidia.com/en-us/geforce/graphics-cards/) while maintaining high frame rates.
 
 ### Cloud and Enterprise Scale
 
@@ -105,11 +105,11 @@ For applications constrained by power and hardware, such as smart agriculture mo
 
 ### Complex Multi-Tasking
 
-If your project requires pinpoint accuracy on tiny objects—such as detecting defects on a circuit board or tracking distant vehicles in [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone/)—the **ProgLoss + STAL** implementation in **YOLO26** provides a noticeable uplift in recall and precision for those difficult edge cases.
+If your project requires pinpoint accuracy on tiny objects—such as detecting defects on a circuit board or tracking distant vehicles in [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone)—the **ProgLoss + STAL** implementation in **YOLO26** provides a noticeable uplift in recall and precision for those difficult edge cases.
 
 ## Training Efficiency and Memory Requirements
 
-A major advantage of the Ultralytics framework is its incredibly low memory footprint during training. Unlike massive vision transformers like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) or the older [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) which can consume vast amounts of CUDA memory, both YOLO11 and YOLO26 are optimized to train efficiently on consumer-grade hardware.
+A major advantage of the Ultralytics framework is its incredibly low memory footprint during training. Unlike massive vision transformers like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) or the older [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) which can consume vast amounts of CUDA memory, both YOLO11 and YOLO26 are optimized to train efficiently on consumer-grade hardware.
 
 The integration of the MuSGD optimizer in YOLO26 further enhances this by ensuring that the model finds the optimal weights faster, reducing overall GPU compute hours and [cloud computing costs](https://cloud.google.com/products/compute).
 
@@ -134,7 +134,7 @@ model.export(format="onnx")
 
 ## Exploring Alternative Architectures
 
-While YOLO26 represents the pinnacle of real-time detection, exploring other models within the Ultralytics documentation can be beneficial. For users tied to legacy environments, earlier architectures like [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5) still provide robust performance. For zero-shot capabilities where defining classes beforehand isn't possible, [YOLO-World](https://docs.ultralytics.com/models/yolo-world/) offers open-vocabulary detection powered by text prompts.
+While YOLO26 represents the pinnacle of real-time detection, exploring other models within the Ultralytics documentation can be beneficial. For users tied to legacy environments, earlier architectures like [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5) still provide robust performance. For zero-shot capabilities where defining classes beforehand isn't possible, [YOLO-World](https://docs.ultralytics.com/models/yolo-world) offers open-vocabulary detection powered by text prompts.
 
 ## Conclusion
 

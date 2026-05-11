@@ -39,9 +39,9 @@ Developed by Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao, YOLOv7
 - **Date:** 2022-07-06
 - **Arxiv:** [2207.02696](https://arxiv.org/abs/2207.02696)
 - **GitHub:** [YOLOv7 Repository](https://github.com/WongKinYiu/yolov7)
-- **Docs:** [Ultralytics YOLOv7 Docs](https://docs.ultralytics.com/models/yolov7/)
+- **Docs:** [Ultralytics YOLOv7 Docs](https://docs.ultralytics.com/models/yolov7)
 
-[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7/){ .md-button }
+[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 
 ## Architectural Innovations
 
@@ -51,11 +51,11 @@ PP-YOLOE+ relies heavily on an anchor-free paradigm, making the deployment proce
 
 ### YOLOv7 Architecture
 
-YOLOv7 took a different approach by introducing the Extended Efficient Layer Aggregation Network (E-ELAN). This architecture allows the network to learn more diverse features without destroying the original gradient path, leading to better convergence. YOLOv7 also heavily utilizes model re-parameterization—specifically, planned re-parameterized convolutions—which merges convolutional layers during inference to speed up execution without sacrificing accuracy. This makes YOLOv7 exceptionally strong in tasks like [multi-object tracking](https://www.ultralytics.com/glossary/multi-object-tracking-mot) and complex [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system/).
+YOLOv7 took a different approach by introducing the Extended Efficient Layer Aggregation Network (E-ELAN). This architecture allows the network to learn more diverse features without destroying the original gradient path, leading to better convergence. YOLOv7 also heavily utilizes model re-parameterization—specifically, planned re-parameterized convolutions—which merges convolutional layers during inference to speed up execution without sacrificing accuracy. This makes YOLOv7 exceptionally strong in tasks like [multi-object tracking](https://www.ultralytics.com/glossary/multi-object-tracking-mot) and complex [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system).
 
 !!! note "Ecosystem Differences"
 
-    While PP-YOLOE+ is tightly integrated with Baidu's PaddlePaddle framework, YOLOv7 was built in [PyTorch](https://www.ultralytics.com/glossary/pytorch), which historically offers a larger community and broader out-of-the-box compatibility with deployment pipelines like [ONNX](https://docs.ultralytics.com/integrations/onnx/) and [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/).
+    While PP-YOLOE+ is tightly integrated with Baidu's PaddlePaddle framework, YOLOv7 was built in [PyTorch](https://www.ultralytics.com/glossary/pytorch), which historically offers a larger community and broader out-of-the-box compatibility with deployment pipelines like [ONNX](https://docs.ultralytics.com/integrations/onnx) and [TensorRT](https://docs.ultralytics.com/integrations/tensorrt).
 
 ## Performance Analysis
 
@@ -80,7 +80,7 @@ When training and deploying these models, the framework you choose is just as im
 
 - **Well-Maintained Ecosystem:** Ultralytics YOLO models benefit from a continually updated ecosystem, robust documentation, and an active community.
 - **Memory Requirements:** Ultralytics heavily optimizes data loading and training regimes. Training Ultralytics YOLO models typically requires far less CUDA memory compared to heavy transformer-based architectures, allowing developers to utilize larger [batch sizes](https://www.ultralytics.com/glossary/batch-size) on consumer-grade hardware.
-- **Training Efficiency:** Leveraging robust [data augmentation strategies](https://docs.ultralytics.com/guides/yolo-data-augmentation/) and built-in hyperparameter tuning, Ultralytics ensures that models converge quickly with readily available pre-trained weights.
+- **Training Efficiency:** Leveraging robust [data augmentation strategies](https://docs.ultralytics.com/guides/yolo-data-augmentation) and built-in hyperparameter tuning, Ultralytics ensures that models converge quickly with readily available pre-trained weights.
 
 ### Simple API Implementation
 
@@ -105,7 +105,7 @@ While PP-YOLOE+ and YOLOv7 are milestones in object detection, the landscape of 
 
 **Why YOLO26 Outperforms Older Architectures:**
 
-- **End-to-End NMS-Free Design:** YOLO26 is natively end-to-end. By eliminating Non-Maximum Suppression (NMS) post-processing, it guarantees predictable, deterministic inference latency—a breakthrough first seen in [YOLOv10](https://docs.ultralytics.com/models/yolov10/).
+- **End-to-End NMS-Free Design:** YOLO26 is natively end-to-end. By eliminating Non-Maximum Suppression (NMS) post-processing, it guarantees predictable, deterministic inference latency—a breakthrough first seen in [YOLOv10](https://docs.ultralytics.com/models/yolov10).
 - **DFL Removal:** The removal of Distribution Focal Loss simplifies the export process and significantly improves compatibility for low-power edge devices.
 - **Up to 43% Faster CPU Inference:** For scenarios lacking dedicated GPUs—such as [smart city IoT sensors](https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities)—YOLO26 is heavily optimized to run efficiently directly on CPUs.
 - **MuSGD Optimizer:** Inspired by advanced LLM training techniques (like Moonshot AI's Kimi K2), YOLO26 uses a hybrid of SGD and Muon for incredibly stable training and fast convergence.
@@ -121,11 +121,11 @@ PP-YOLOE+ shines when you are deeply entrenched in the Baidu and PaddlePaddle ec
 
 ### When to use YOLOv7
 
-YOLOv7 remains an excellent choice for generic high-performance inference, particularly when deploying on NVIDIA hardware utilizing [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/). Its integration into the PyTorch ecosystem makes it highly versatile for academic research and custom commercial pipelines, such as [real-time crowd management](https://www.ultralytics.com/blog/vision-ai-in-crowd-management) or complex [pose estimation](https://docs.ultralytics.com/tasks/pose/) tasks where structural integrity of the network is paramount.
+YOLOv7 remains an excellent choice for generic high-performance inference, particularly when deploying on NVIDIA hardware utilizing [TensorRT](https://docs.ultralytics.com/integrations/tensorrt). Its integration into the PyTorch ecosystem makes it highly versatile for academic research and custom commercial pipelines, such as [real-time crowd management](https://www.ultralytics.com/blog/vision-ai-in-crowd-management) or complex [pose estimation](https://docs.ultralytics.com/tasks/pose) tasks where structural integrity of the network is paramount.
 
 ### Other Models to Consider
 
-Depending on your exact needs, you might also be interested in comparing these architectures against [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) for broad, production-ready flexibility, or [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) if your project requires the specific advantages of vision transformers over traditional convolutional networks.
+Depending on your exact needs, you might also be interested in comparing these architectures against [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) for broad, production-ready flexibility, or [RT-DETR](https://docs.ultralytics.com/models/rtdetr) if your project requires the specific advantages of vision transformers over traditional convolutional networks.
 
 ## Conclusion
 

@@ -29,9 +29,9 @@ You can explore the source code on the [YOLOv5 GitHub repository](https://github
 ### YOLOv7
 
 Introduced by Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao from the Institute of Information Science, Academia Sinica, Taiwan on July 6, 2022. YOLOv7 focused heavily on architectural innovations like Extended Efficient Layer Aggregation Networks (E-ELAN) and a trainable "bag-of-freebies" to push the state-of-the-art in accuracy.
-Details can be found in their [official Arxiv paper](https://arxiv.org/abs/2207.02696) and the [YOLOv7 GitHub repository](https://github.com/WongKinYiu/yolov7). For seamless integration, check out the [Ultralytics YOLOv7 documentation](https://docs.ultralytics.com/models/yolov7/).
+Details can be found in their [official Arxiv paper](https://arxiv.org/abs/2207.02696) and the [YOLOv7 GitHub repository](https://github.com/WongKinYiu/yolov7). For seamless integration, check out the [Ultralytics YOLOv7 documentation](https://docs.ultralytics.com/models/yolov7).
 
-[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7/){ .md-button }
+[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 
 !!! tip "Seamless Experimentation"
 
@@ -41,7 +41,7 @@ Details can be found in their [official Arxiv paper](https://arxiv.org/abs/2207.
 
 ### Ultralytics YOLOv5 Design
 
-YOLOv5 utilizes a modified CSPDarknet53 backbone paired with a Path Aggregation Network (PANet) neck. This design is highly optimized for rapid [feature extraction](https://www.ultralytics.com/glossary/feature-extraction) and memory efficiency. Unlike older architectures or heavy transformer models, YOLOv5 requires significantly less CUDA memory during training, allowing for larger [batch sizes](https://www.ultralytics.com/glossary/batch-size) on standard consumer-grade GPUs. Furthermore, the Ultralytics framework inherently supports a wide variety of tasks beyond standard bounding boxes, including [image segmentation](https://docs.ultralytics.com/tasks/segment/) and [image classification](https://docs.ultralytics.com/tasks/classify/).
+YOLOv5 utilizes a modified CSPDarknet53 backbone paired with a Path Aggregation Network (PANet) neck. This design is highly optimized for rapid [feature extraction](https://www.ultralytics.com/glossary/feature-extraction) and memory efficiency. Unlike older architectures or heavy transformer models, YOLOv5 requires significantly less CUDA memory during training, allowing for larger [batch sizes](https://www.ultralytics.com/glossary/batch-size) on standard consumer-grade GPUs. Furthermore, the Ultralytics framework inherently supports a wide variety of tasks beyond standard bounding boxes, including [image segmentation](https://docs.ultralytics.com/tasks/segment) and [image classification](https://docs.ultralytics.com/tasks/classify).
 
 ### YOLOv7 Design
 
@@ -49,7 +49,7 @@ YOLOv7 introduced several structural re-parameterizations and the E-ELAN archite
 
 ## Performance Analysis
 
-When comparing these models, developers must balance mAP<sup>val</sup>, inference speed, and computational complexity (FLOPs). The table below demonstrates the performance of both architectures evaluated on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/).
+When comparing these models, developers must balance mAP<sup>val</sup>, inference speed, and computational complexity (FLOPs). The table below demonstrates the performance of both architectures evaluated on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco).
 
 | Model   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -73,8 +73,8 @@ When comparing these models, developers must balance mAP<sup>val</sup>, inferenc
 A model's architecture is only half the equation; the ecosystem surrounding it dictates its real-world viability. This is where Ultralytics models truly shine.
 
 **Ease of Use:** Ultralytics provides a unified, highly intuitive Python API. You can train, validate, and deploy models with minimal boilerplate, backed by extensive [official documentation](https://docs.ultralytics.com/).
-**Well-Maintained Ecosystem:** Active development ensures constant updates, bug fixes, and seamless integration with modern tracking tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases/).
-**Training Efficiency:** Utilizing optimized data loaders and [smart caching](https://docs.ultralytics.com/guides/preprocessing_annotated_data/), YOLOv5 drastically reduces training times. Moreover, ready-to-use pre-trained weights accelerate transfer learning across various domains.
+**Well-Maintained Ecosystem:** Active development ensures constant updates, bug fixes, and seamless integration with modern tracking tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases).
+**Training Efficiency:** Utilizing optimized data loaders and [smart caching](https://docs.ultralytics.com/guides/preprocessing_annotated_data), YOLOv5 drastically reduces training times. Moreover, ready-to-use pre-trained weights accelerate transfer learning across various domains.
 
 ### Code Example: Streamlined Training
 
@@ -102,9 +102,9 @@ success = model.export(format="onnx")
 
 ### When to Choose YOLOv5
 
-- **Production Deployments:** Ideal for commercial applications requiring high stability, straightforward [model deployment options](https://docs.ultralytics.com/guides/model-deployment-options/), and wide cross-platform compatibility.
+- **Production Deployments:** Ideal for commercial applications requiring high stability, straightforward [model deployment options](https://docs.ultralytics.com/guides/model-deployment-options), and wide cross-platform compatibility.
 - **Edge Devices:** The smaller variants (YOLOv5n and YOLOv5s) run exceptionally well on mobile phones and embedded systems.
-- **Multi-Task Requirements:** If your project needs to evolve from simple detection to [pose estimation](https://docs.ultralytics.com/tasks/pose/) or segmentation using a unified framework.
+- **Multi-Task Requirements:** If your project needs to evolve from simple detection to [pose estimation](https://docs.ultralytics.com/tasks/pose) or segmentation using a unified framework.
 
 !!! info "Exploring Other Architectures"
 
@@ -122,10 +122,10 @@ YOLO26 introduces several paradigm-shifting features:
 - **MuSGD Optimizer:** Inspired by Moonshot AI's Kimi K2, this revolutionary optimizer merges the stability of standard SGD with the accelerated momentum of Muon, bringing advanced LLM training innovations directly into computer vision.
 - **Enhanced CPU Speed:** By strategically removing the Distribution Focal Loss (DFL), YOLO26 achieves up to **43% faster CPU inference**, making it the undisputed champion for edge and low-power IoT device deployment.
 - **ProgLoss + STAL:** These advanced loss functions yield massive improvements in small-object recognition, which is critical for aerial imagery and precision robotics.
-- **Task-Specific Improvements:** Featuring Semantic segmentation loss for mask generation, Residual Log-Likelihood Estimation (RLE) for Pose tracking, and specialized angle loss to resolve tricky [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) boundary issues.
+- **Task-Specific Improvements:** Featuring Semantic segmentation loss for mask generation, Residual Log-Likelihood Estimation (RLE) for Pose tracking, and specialized angle loss to resolve tricky [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) boundary issues.
 
 ## Conclusion
 
 Both YOLOv5 and YOLOv7 offer robust solutions for real-time object detection. YOLOv7 remains a strong choice for raw accuracy on high-compute hardware, while YOLOv5 stands out as the ultimate developer-friendly tool, offering an exceptional balance of speed, efficiency, and a world-class ecosystem.
 
-However, for developers looking to future-proof their pipelines and achieve the ultimate combination of speed, simplicity, and state-of-the-art accuracy, we highly recommend migrating to [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/). It encapsulates the legendary ease-of-use of the Ultralytics platform while delivering groundbreaking architectural innovations.
+However, for developers looking to future-proof their pipelines and achieve the ultimate combination of speed, simplicity, and state-of-the-art accuracy, we highly recommend migrating to [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26). It encapsulates the legendary ease-of-use of the Ultralytics platform while delivering groundbreaking architectural innovations.

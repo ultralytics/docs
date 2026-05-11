@@ -27,7 +27,7 @@ YOLO11 represents a significant leap forward in optimizing parameter usage. It r
 - **Organization:** [Ultralytics](https://www.ultralytics.com/)
 - **Date:** 2024-09-27
 - **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
-- **Documentation:** [YOLO11 Docs](https://docs.ultralytics.com/models/yolo11/)
+- **Documentation:** [YOLO11 Docs](https://docs.ultralytics.com/models/yolo11)
 
 [Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
@@ -39,7 +39,7 @@ Launched a year earlier, YOLOv8 pioneered the transition to an anchor-free detec
 - **Organization:** [Ultralytics](https://www.ultralytics.com/)
 - **Date:** 2023-01-10
 - **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
-- **Documentation:** [YOLOv8 Docs](https://docs.ultralytics.com/models/yolov8/)
+- **Documentation:** [YOLOv8 Docs](https://docs.ultralytics.com/models/yolov8)
 
 [Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
@@ -79,11 +79,11 @@ The `ultralytics` Python package provides a streamlined API that allows engineer
 
 ### Training Efficiency and Memory Requirements
 
-Unlike heavy [Vision Transformers](https://arxiv.org/abs/2010.11929) (like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/)), Ultralytics YOLO models are renowned for their low memory usage during training. This memory efficiency enables developers to train state-of-the-art networks on consumer-grade GPUs or cloud environments like [Google Colab](https://colab.research.google.com/) without facing out-of-memory errors.
+Unlike heavy [Vision Transformers](https://arxiv.org/abs/2010.11929) (like [RT-DETR](https://docs.ultralytics.com/models/rtdetr)), Ultralytics YOLO models are renowned for their low memory usage during training. This memory efficiency enables developers to train state-of-the-art networks on consumer-grade GPUs or cloud environments like [Google Colab](https://colab.research.google.com/) without facing out-of-memory errors.
 
 ### Versatility Across Vision Tasks
 
-Both YOLO11 and YOLOv8 are true multi-task learners. Beyond standard bounding box [object detection](https://docs.ultralytics.com/tasks/detect/), they natively support [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [image classification](https://docs.ultralytics.com/tasks/classify/), human [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/) for aerial imagery.
+Both YOLO11 and YOLOv8 are true multi-task learners. Beyond standard bounding box [object detection](https://docs.ultralytics.com/tasks/detect), they natively support [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), human [pose estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb) for aerial imagery.
 
 ## Use Cases and Recommendations
 
@@ -93,25 +93,25 @@ Choosing between YOLO11 and YOLOv8 depends on your specific project requirements
 
 YOLO11 is a strong choice for:
 
-- **Production Edge Deployment:** Commercial applications on devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) or [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/) where reliability and active maintenance are paramount.
-- **Multi-Task Vision Applications:** Projects requiring [detection](https://docs.ultralytics.com/tasks/detect/), [segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [OBB](https://docs.ultralytics.com/tasks/obb/) within a single unified framework.
-- **Rapid Prototyping and Deployment:** Teams that need to move quickly from data collection to production using the streamlined [Ultralytics Python API](https://docs.ultralytics.com/usage/python/).
+- **Production Edge Deployment:** Commercial applications on devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) or [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson) where reliability and active maintenance are paramount.
+- **Multi-Task Vision Applications:** Projects requiring [detection](https://docs.ultralytics.com/tasks/detect), [segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [OBB](https://docs.ultralytics.com/tasks/obb) within a single unified framework.
+- **Rapid Prototyping and Deployment:** Teams that need to move quickly from data collection to production using the streamlined [Ultralytics Python API](https://docs.ultralytics.com/usage/python).
 
 ### When to Choose YOLOv8
 
 YOLOv8 is recommended for:
 
-- **Versatile Multi-Task Deployment:** Projects requiring a proven model for [detection](https://docs.ultralytics.com/tasks/detect/), [segmentation](https://docs.ultralytics.com/tasks/segment/), [classification](https://docs.ultralytics.com/tasks/classify/), and [pose estimation](https://docs.ultralytics.com/tasks/pose/) within the Ultralytics ecosystem.
+- **Versatile Multi-Task Deployment:** Projects requiring a proven model for [detection](https://docs.ultralytics.com/tasks/detect), [segmentation](https://docs.ultralytics.com/tasks/segment), [classification](https://docs.ultralytics.com/tasks/classify), and [pose estimation](https://docs.ultralytics.com/tasks/pose) within the Ultralytics ecosystem.
 - **Established Production Systems:** Existing production environments already built on the YOLOv8 architecture with stable, well-tested deployment pipelines.
 - **Broad Community and Ecosystem Support:** Applications benefiting from YOLOv8's extensive tutorials, third-party integrations, and active community resources.
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## Code Example: Getting Started
 
@@ -146,9 +146,9 @@ While YOLO11 represents a mature and highly capable architecture, the rapid pace
 
 YOLO26 pushes the boundaries of computer vision with several groundbreaking features:
 
-- **End-to-End NMS-Free Design:** Building on concepts explored in [YOLOv10](https://docs.ultralytics.com/models/yolov10/), YOLO26 natively eliminates Non-Maximum Suppression (NMS) post-processing, resulting in lower, more predictable latency across all deployment hardware.
+- **End-to-End NMS-Free Design:** Building on concepts explored in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 natively eliminates Non-Maximum Suppression (NMS) post-processing, resulting in lower, more predictable latency across all deployment hardware.
 - **Up to 43% Faster CPU Inference:** By completely removing the Distribution Focal Loss (DFL) branch, YOLO26 is specifically optimized for [edge computing devices](https://www.ultralytics.com/glossary/edge-ai) that lack powerful GPUs.
 - **MuSGD Optimizer:** Inspired by large language model (LLM) training techniques, YOLO26 utilizes a hybrid MuSGD optimizer, ensuring remarkably stable and rapid training convergence.
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in tiny and heavily occluded object recognition, essential for autonomous robotics and drone-based analytics.
 
-Whether you rely on the proven reliability of YOLOv8, the optimized architecture of YOLO11, or the next-generation capabilities of YOLO26, the [Ultralytics Platform](https://platform.ultralytics.com) ensures you have the tools necessary to bring your vision AI applications from concept to production seamlessly. Ensure you explore the extensive [integrations](https://docs.ultralytics.com/integrations/) available to connect your models with enterprise workflows and analytics dashboards.
+Whether you rely on the proven reliability of YOLOv8, the optimized architecture of YOLO11, or the next-generation capabilities of YOLO26, the [Ultralytics Platform](https://platform.ultralytics.com) ensures you have the tools necessary to bring your vision AI applications from concept to production seamlessly. Ensure you explore the extensive [integrations](https://docs.ultralytics.com/integrations) available to connect your models with enterprise workflows and analytics dashboards.

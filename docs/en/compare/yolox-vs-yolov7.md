@@ -6,7 +6,7 @@ keywords: YOLOX, YOLOv7, object detection, computer vision, model comparison, an
 
 # YOLOX vs YOLOv7: A Comprehensive Technical Comparison
 
-The evolution of real-time [object detection](https://docs.ultralytics.com/tasks/detect/) has been driven by continuous architectural breakthroughs. Two significant milestones in this journey are **YOLOX** and **YOLOv7**. Released within a year of each other, both models introduced novel approaches to the standard object detection paradigm, significantly improving the trade-off between speed and [accuracy](https://www.ultralytics.com/glossary/accuracy).
+The evolution of real-time [object detection](https://docs.ultralytics.com/tasks/detect) has been driven by continuous architectural breakthroughs. Two significant milestones in this journey are **YOLOX** and **YOLOv7**. Released within a year of each other, both models introduced novel approaches to the standard object detection paradigm, significantly improving the trade-off between speed and [accuracy](https://www.ultralytics.com/glossary/accuracy).
 
 This page provides an in-depth technical analysis of YOLOX and YOLOv7, comparing their architectures, performance metrics, and ideal use cases to help developers choose the right tool for their computer vision deployments.
 
@@ -49,13 +49,13 @@ Released in July 2022 by researchers at the Institute of Information Science, Ac
 - **Date:** 2022-07-06
 - **Research Paper:** [arXiv:2207.02696](https://arxiv.org/abs/2207.02696)
 - **Source Code:** [WongKinYiu YOLOv7 GitHub](https://github.com/WongKinYiu/yolov7)
-- **Documentation:** [Ultralytics YOLOv7 Docs](https://docs.ultralytics.com/models/yolov7/)
+- **Documentation:** [Ultralytics YOLOv7 Docs](https://docs.ultralytics.com/models/yolov7)
 
 ### Architectural Innovations
 
 YOLOv7's architecture is built around the Extended Efficient Layer Aggregation Network (E-ELAN), which allows the model to learn more diverse features continuously without degrading the gradient path. Furthermore, YOLOv7 utilized model re-parameterization techniques, enabling complex multi-branch training networks to be simplified into faster, single-path networks during inference.
 
-[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7/){ .md-button }
+[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 
 ## Performance Comparison
 
@@ -76,8 +76,8 @@ When evaluating these models for real-world applications, understanding their pe
 ### Analysis
 
 - **Accuracy:** YOLOv7 generally achieves a higher [mAP](https://www.ultralytics.com/glossary/mean-average-precision-map) compared to the equivalent YOLOX models. For instance, YOLOv7x achieves 53.1 mAP compared to YOLOXx's 51.1.
-- **Speed:** While both models are highly optimized for GPU execution using [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), YOLOv7's E-ELAN architecture provides slightly better throughput for high-end applications, though YOLOX maintains excellent latency on smaller edge devices.
-- **Versatility:** YOLOv7 expanded its repertoire beyond bounding boxes by natively providing weights for [instance segmentation](https://docs.ultralytics.com/tasks/segment/) and [pose estimation](https://docs.ultralytics.com/tasks/pose/), making it more versatile than the base YOLOX repository.
+- **Speed:** While both models are highly optimized for GPU execution using [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), YOLOv7's E-ELAN architecture provides slightly better throughput for high-end applications, though YOLOX maintains excellent latency on smaller edge devices.
+- **Versatility:** YOLOv7 expanded its repertoire beyond bounding boxes by natively providing weights for [instance segmentation](https://docs.ultralytics.com/tasks/segment) and [pose estimation](https://docs.ultralytics.com/tasks/pose), making it more versatile than the base YOLOX repository.
 
 ## Real-World Applications
 
@@ -85,7 +85,7 @@ Choosing between these models often comes down to your specific deployment envir
 
 ### Edge Computing and IoT
 
-For constrained edge devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) or older mobile processors, **YOLOX-Nano** and **YOLOX-Tiny** are highly attractive. Their minimal parameter count and anchor-free nature make them easier to deploy in low-power environments for tasks like basic motion tracking or smart doorbell applications.
+For constrained edge devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) or older mobile processors, **YOLOX-Nano** and **YOLOX-Tiny** are highly attractive. Their minimal parameter count and anchor-free nature make them easier to deploy in low-power environments for tasks like basic motion tracking or smart doorbell applications.
 
 ### High-Fidelity Video Analytics
 
@@ -113,11 +113,11 @@ YOLOv7 is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultralytics Advantage
 
@@ -125,11 +125,11 @@ While both YOLOX and YOLOv7 are powerful research implementations, moving from a
 
 Ultralytics models provide a **unified Python API**, treating model training, validation, and deployment as streamlined, standardized tasks. You avoid the headache of managing complex third-party dependencies or custom C++ operators common in older architectures.
 
-Furthermore, Ultralytics YOLO models require significantly **less CUDA memory** during training compared to transformer-based detectors like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/). This allows practitioners to utilize larger [batch sizes](https://www.ultralytics.com/glossary/batch-size), stabilizing training and accelerating convergence on custom datasets.
+Furthermore, Ultralytics YOLO models require significantly **less CUDA memory** during training compared to transformer-based detectors like [RT-DETR](https://docs.ultralytics.com/models/rtdetr). This allows practitioners to utilize larger [batch sizes](https://www.ultralytics.com/glossary/batch-size), stabilizing training and accelerating convergence on custom datasets.
 
 !!! tip "Supported Integrations"
 
-    Ultralytics natively supports exporting models to industry-standard formats like [ONNX](https://docs.ultralytics.com/integrations/onnx/), [OpenVINO](https://docs.ultralytics.com/integrations/openvino/), and [CoreML](https://docs.ultralytics.com/integrations/coreml/) with a simple boolean flag, vastly simplifying the [model deployment process](https://docs.ultralytics.com/guides/model-deployment-options/).
+    Ultralytics natively supports exporting models to industry-standard formats like [ONNX](https://docs.ultralytics.com/integrations/onnx), [OpenVINO](https://docs.ultralytics.com/integrations/openvino), and [CoreML](https://docs.ultralytics.com/integrations/coreml) with a simple boolean flag, vastly simplifying the [model deployment process](https://docs.ultralytics.com/guides/model-deployment-options).
 
 ## Code Example: Training with Ultralytics
 
@@ -159,7 +159,7 @@ While YOLOv7 and YOLOX represent important historical steps, the state-of-the-ar
 - **End-to-End NMS-Free Design:** YOLO26 natively eliminates [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing. This drastically reduces latency bottlenecks and guarantees deterministic execution times across varied hardware setups.
 - **Up to 43% Faster CPU Inference:** By removing Distribution Focal Loss (DFL) and optimizing network depth, YOLO26 is heavily tailored for edge devices lacking dedicated GPU hardware.
 - **MuSGD Optimizer:** Inspired by advanced LLM training techniques, the MuSGD optimizer (a hybrid of SGD and Muon) offers exceptional training stability and faster convergence.
-- **Improved Small Object Detection:** The integration of the ProgLoss + STAL loss functions provides significant improvements in recognizing small, distant objects—critical for [drone mapping](https://docs.ultralytics.com/datasets/detect/visdrone/) and security surveillance.
-- **Native Task Support:** YOLO26 comprehensively supports [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/), instance segmentation, and pose estimation natively within the same streamlined API.
+- **Improved Small Object Detection:** The integration of the ProgLoss + STAL loss functions provides significant improvements in recognizing small, distant objects—critical for [drone mapping](https://docs.ultralytics.com/datasets/detect/visdrone) and security surveillance.
+- **Native Task Support:** YOLO26 comprehensively supports [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb), instance segmentation, and pose estimation natively within the same streamlined API.
 
-For any modern developer starting a new computer vision project today, evaluating [Ultralytics YOLO26 on the Platform](https://platform.ultralytics.com/ultralytics/yolo26) is the recommended path to achieving the absolute best balance of speed, accuracy, and deployment simplicity. For those upgrading from previous generations like [YOLO11](https://docs.ultralytics.com/models/yolo11/) or [YOLOv8](https://docs.ultralytics.com/models/yolov8/), the transition requires changing only the model string, instantly unlocking superior capabilities.
+For any modern developer starting a new computer vision project today, evaluating [Ultralytics YOLO26 on the Platform](https://platform.ultralytics.com/ultralytics/yolo26) is the recommended path to achieving the absolute best balance of speed, accuracy, and deployment simplicity. For those upgrading from previous generations like [YOLO11](https://docs.ultralytics.com/models/yolo11) or [YOLOv8](https://docs.ultralytics.com/models/yolov8), the transition requires changing only the model string, instantly unlocking superior capabilities.
