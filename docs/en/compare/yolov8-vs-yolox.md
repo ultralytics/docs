@@ -6,7 +6,7 @@ keywords: YOLOv8, YOLOX, object detection, model comparison, Ultralytics, comput
 
 # YOLOv8 vs YOLOX: Analyzing Anchor-Free Object Detection Models
 
-The landscape of computer vision has been heavily shaped by the continuous evolution of real-time object detection architectures. Two prominent milestones in this journey are [Ultralytics YOLOv8](https://docs.ultralytics.com/models/yolov8/) and YOLOX. While both models embrace an anchor-free design paradigm to streamline bounding box predictions, they represent different eras and philosophies in deep learning research and deployment ecosystem development.
+The landscape of computer vision has been heavily shaped by the continuous evolution of real-time object detection architectures. Two prominent milestones in this journey are [Ultralytics YOLOv8](https://docs.ultralytics.com/models/yolov8) and YOLOX. While both models embrace an anchor-free design paradigm to streamline bounding box predictions, they represent different eras and philosophies in deep learning research and deployment ecosystem development.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -21,9 +21,9 @@ Understanding the origins and design goals of each framework provides critical c
 
 ### Ultralytics YOLOv8
 
-Developed by Glenn Jocher, Ayush Chaurasia, and Jing Qiu at Ultralytics and released on January 10, 2023, YOLOv8 marked a significant leap in the Ultralytics ecosystem. Building upon the massive success of [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5), YOLOv8 introduced a highly refined, state-of-the-art architecture capable of handling a diverse array of tasks natively, including [object detection](https://docs.ultralytics.com/tasks/detect/), [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [image classification](https://docs.ultralytics.com/tasks/classify/), and [pose estimation](https://docs.ultralytics.com/tasks/pose/).
+Developed by Glenn Jocher, Ayush Chaurasia, and Jing Qiu at Ultralytics and released on January 10, 2023, YOLOv8 marked a significant leap in the Ultralytics ecosystem. Building upon the massive success of [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5), YOLOv8 introduced a highly refined, state-of-the-art architecture capable of handling a diverse array of tasks natively, including [object detection](https://docs.ultralytics.com/tasks/detect), [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), and [pose estimation](https://docs.ultralytics.com/tasks/pose).
 
-Its primary advantage lies in the well-maintained Ultralytics ecosystem, which provides a seamless "zero-to-hero" experience with a unified Python API, extensive documentation, and native integrations with MLOps tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases/) and [Comet](https://docs.ultralytics.com/integrations/comet/).
+Its primary advantage lies in the well-maintained Ultralytics ecosystem, which provides a seamless "zero-to-hero" experience with a unified Python API, extensive documentation, and native integrations with MLOps tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases) and [Comet](https://docs.ultralytics.com/integrations/comet).
 
 [Explore YOLOv8 on the Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
@@ -96,13 +96,13 @@ metrics = model.val()
 model.export(format="onnx")
 ```
 
-This API standardizes workflows across detection, segmentation, and [oriented bounding box (OBB)](https://docs.ultralytics.com/tasks/obb/) tasks, drastically reducing time-to-market for production applications. Furthermore, built-in [export functionalities](https://docs.ultralytics.com/modes/export/) allow seamless conversion to [ONNX](https://docs.ultralytics.com/integrations/onnx/), [OpenVINO](https://docs.ultralytics.com/integrations/openvino/), and CoreML without writing custom C++ operators.
+This API standardizes workflows across detection, segmentation, and [oriented bounding box (OBB)](https://docs.ultralytics.com/tasks/obb) tasks, drastically reducing time-to-market for production applications. Furthermore, built-in [export functionalities](https://docs.ultralytics.com/modes/export) allow seamless conversion to [ONNX](https://docs.ultralytics.com/integrations/onnx), [OpenVINO](https://docs.ultralytics.com/integrations/openvino), and CoreML without writing custom C++ operators.
 
 ## Ideal Use Cases
 
 Choosing between these architectures depends on your project constraints, though YOLOv8 provides a much more flexible foundation.
 
-- **High-Speed Edge Analytics:** For real-time processing on devices like the [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/), YOLOv8 offers an unmatched balance of speed and accuracy, easily deployable via its native TensorRT integration.
+- **High-Speed Edge Analytics:** For real-time processing on devices like the [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson), YOLOv8 offers an unmatched balance of speed and accuracy, easily deployable via its native TensorRT integration.
 - **Academic Research:** YOLOX remains a valuable educational tool for researchers studying the transition from anchor-based to anchor-free methodologies within PyTorch.
 - **Complex Multi-Task Applications:** Applications requiring simultaneous object tracking and instance segmentation will heavily favor YOLOv8, as these capabilities are built directly into the Ultralytics library.
 

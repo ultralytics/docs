@@ -24,11 +24,11 @@ Introduced in mid-2022, YOLOv7 pushed the boundaries of what was possible on GPU
 - **Date:** 2022-07-06
 - **Arxiv:** [2207.02696](https://arxiv.org/abs/2207.02696)
 - **GitHub:** [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
-- **Docs:** [Ultralytics YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7/)
+- **Docs:** [Ultralytics YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7)
 
 YOLOv7 introduced the concept of trainable "bag-of-freebies," which heavily utilized re-parameterization techniques and extended efficient layer aggregation networks (E-ELAN). This allowed the model to learn more diverse features and continuously improve the learning capability of the network without destroying the original gradient path. While it achieved an impressive state-of-the-art benchmark on COCO at the time, its architecture remains heavily reliant on anchor-based outputs and requires complex [Non-Maximum Suppression (NMS)](https://en.wikipedia.org/wiki/NMS) post-processing, which can introduce latency bottlenecks during deployment.
 
-[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7/){ .md-button }
+[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 
 ## YOLO26: The Edge-First Vision AI Standard
 
@@ -44,12 +44,12 @@ Released in January 2026, Ultralytics YOLO26 represents a paradigm shift, entire
 
 YOLO26 is built from the ground up to solve modern engineering challenges. Its architecture brings several critical innovations that significantly outpace its predecessors:
 
-- **End-to-End NMS-Free Design:** YOLO26 eliminates NMS post-processing natively, a breakthrough approach first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10/). This results in a faster, much simpler deployment pipeline, avoiding the variable latency typically caused by crowded scenes.
+- **End-to-End NMS-Free Design:** YOLO26 eliminates NMS post-processing natively, a breakthrough approach first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10). This results in a faster, much simpler deployment pipeline, avoiding the variable latency typically caused by crowded scenes.
 - **DFL Removal:** By removing the Distribution Focal Loss (DFL), the model is radically simplified for export, offering vastly better compatibility with edge devices and low-power IoT hardware.
 - **Up to 43% Faster CPU Inference:** Thanks to the architectural simplifications and structural pruning, YOLO26 is specifically optimized for edge computing and devices without dedicated GPUs, easily outperforming older architectures on standard processors.
 - **MuSGD Optimizer:** Inspired by large language model training techniques (specifically Moonshot AI's Kimi K2), YOLO26 uses the MuSGD optimizer—a hybrid of [Stochastic Gradient Descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent) and Muon. This brings unparalleled training stability and much faster convergence to computer vision tasks.
-- **ProgLoss + STAL:** The introduction of these advanced loss functions yields notable improvements in small-object recognition, which is critical for [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone/), robotics, and automated quality inspection.
-- **Task-Specific Improvements:** Beyond standard [object detection](https://docs.ultralytics.com/tasks/detect/), YOLO26 introduces multi-scale proto and specialized semantic segmentation loss for [segmentation tasks](https://docs.ultralytics.com/tasks/segment/), Residual Log-Likelihood Estimation (RLE) for [pose estimation](https://docs.ultralytics.com/tasks/pose/), and specialized angle loss algorithms to resolve boundary issues in [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/).
+- **ProgLoss + STAL:** The introduction of these advanced loss functions yields notable improvements in small-object recognition, which is critical for [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone), robotics, and automated quality inspection.
+- **Task-Specific Improvements:** Beyond standard [object detection](https://docs.ultralytics.com/tasks/detect), YOLO26 introduces multi-scale proto and specialized semantic segmentation loss for [segmentation tasks](https://docs.ultralytics.com/tasks/segment), Residual Log-Likelihood Estimation (RLE) for [pose estimation](https://docs.ultralytics.com/tasks/pose), and specialized angle loss algorithms to resolve boundary issues in [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
@@ -121,6 +121,6 @@ Choosing the right architecture depends entirely on your production constraints.
 YOLOv7 remains a valuable tool for academic benchmarking against 2022 standards. If your infrastructure utilizes deep legacy [CUDA pipelines](https://developer.nvidia.com/cuda) heavily hardcoded to YOLOv7's specific anchor outputs and you cannot allocate resources for refactoring, it will continue to function as a robust baseline detector.
 
 **When to choose YOLO26:**
-For any new project, YOLO26 is the definitive choice. Its NMS-free architecture makes it perfect for low-latency [autonomous navigation](https://docs.ultralytics.com/datasets/detect/argoverse/) and real-time security systems. The removal of DFL and massive CPU speed boosts make it the undisputed champion for edge AI deployments, such as deploying on a [Raspberry Pi](https://www.raspberrypi.org/) or inside consumer electronics. Furthermore, the ProgLoss + STAL enhancements make it highly adept at detecting tiny anomalies in manufacturing quality assurance or satellite imaging.
+For any new project, YOLO26 is the definitive choice. Its NMS-free architecture makes it perfect for low-latency [autonomous navigation](https://docs.ultralytics.com/datasets/detect/argoverse) and real-time security systems. The removal of DFL and massive CPU speed boosts make it the undisputed champion for edge AI deployments, such as deploying on a [Raspberry Pi](https://www.raspberrypi.org/) or inside consumer electronics. Furthermore, the ProgLoss + STAL enhancements make it highly adept at detecting tiny anomalies in manufacturing quality assurance or satellite imaging.
 
 Ultimately, YOLO26 provides developers with an unmatched blend of accuracy, speed, and simplicity, backed by the comprehensive support of the open-source community.

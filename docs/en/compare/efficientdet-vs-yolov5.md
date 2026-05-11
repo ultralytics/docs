@@ -29,7 +29,7 @@ Introduced by Google Research, EfficientDet was designed to systematically scale
 
 ### Architectural Innovations
 
-EfficientDet leverages the EfficientNet classification model as its backbone, utilizing a compound scaling method that uniformly scales network width, depth, and resolution. Its most notable contribution to [object detection](https://docs.ultralytics.com/tasks/detect/) is the introduction of the Bi-directional Feature Pyramid Network (BiFPN). Unlike standard Feature Pyramid Networks that simply aggregate features top-down, BiFPN allows for complex, bidirectional cross-scale connections and introduces learnable weights to determine the importance of different input features.
+EfficientDet leverages the EfficientNet classification model as its backbone, utilizing a compound scaling method that uniformly scales network width, depth, and resolution. Its most notable contribution to [object detection](https://docs.ultralytics.com/tasks/detect) is the introduction of the Bi-directional Feature Pyramid Network (BiFPN). Unlike standard Feature Pyramid Networks that simply aggregate features top-down, BiFPN allows for complex, bidirectional cross-scale connections and introduces learnable weights to determine the importance of different input features.
 
 While highly accurate, EfficientDet relies heavily on the [TensorFlow](https://www.tensorflow.org/) ecosystem and specific AutoML libraries. This dependency can sometimes make it cumbersome to integrate into custom, lightweight deployment pipelines or environments that favor dynamic computational graphs.
 
@@ -45,19 +45,19 @@ Released shortly after EfficientDet, [Ultralytics YOLOv5](https://platform.ultra
 - **Organization:** [Ultralytics](https://www.ultralytics.com/)
 - **Date:** June 26, 2020
 - **GitHub:** [ultralytics/yolov5](https://github.com/ultralytics/yolov5)
-- **Docs:** [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5/)
+- **Docs:** [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5)
 
 ### Architectural Innovations
 
 YOLOv5 introduced significant upgrades over its predecessors, utilizing a CSPDarknet (Cross-Stage Partial) backbone that significantly enhances gradient flow while reducing the overall parameter count. Furthermore, YOLOv5 incorporates Auto-Learning Anchor Boxes, which automatically calculate the optimal bounding box priors based on your specific custom training data, eliminating the need for manual hyperparameter tuning.
 
-YOLOv5 also heavily utilizes [Mosaic Data Augmentation](https://docs.ultralytics.com/reference/data/augment/), blending four disparate images into a single training tile. This greatly improves the model's ability to detect small objects and generalizes contextual understanding, making it highly robust in varied environments.
+YOLOv5 also heavily utilizes [Mosaic Data Augmentation](https://docs.ultralytics.com/reference/data/augment), blending four disparate images into a single training tile. This greatly improves the model's ability to detect small objects and generalizes contextual understanding, making it highly robust in varied environments.
 
 [Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
 
 ## Performance and Benchmarks
 
-Evaluating models on standard benchmarks like the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/) is crucial for understanding the trade-offs between precision and speed. The table below illustrates how different sizes of EfficientDet and YOLOv5 perform under standardized conditions.
+Evaluating models on standard benchmarks like the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco) is crucial for understanding the trade-offs between precision and speed. The table below illustrates how different sizes of EfficientDet and YOLOv5 perform under standardized conditions.
 
 | Model           | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | --------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -84,13 +84,13 @@ Additionally, YOLOv5 models demonstrate much lower CUDA memory requirements duri
 
 !!! tip "Maximizing Hardware Efficiency"
 
-    To extract the maximum frames-per-second (FPS) out of your YOLOv5 model on edge devices, export your PyTorch weights to TensorRT for NVIDIA GPUs or [OpenVINO](https://docs.ultralytics.com/integrations/openvino/) for Intel CPUs. This step can often double your inference speed.
+    To extract the maximum frames-per-second (FPS) out of your YOLOv5 model on edge devices, export your PyTorch weights to TensorRT for NVIDIA GPUs or [OpenVINO](https://docs.ultralytics.com/integrations/openvino) for Intel CPUs. This step can often double your inference speed.
 
 ## Training Ecosystem and Developer Experience
 
 The true advantage of the Ultralytics ecosystem lies in its streamlined user experience. While EfficientDet requires deep knowledge of the TensorFlow object detection API, YOLOv5 provides a consistent, simple Python API.
 
-The well-maintained [Ultralytics ecosystem](https://docs.ultralytics.com/integrations/) ensures developers have access to frequent updates, active community support, and seamless integrations with experiment tracking tools like Weights & Biases and ClearML.
+The well-maintained [Ultralytics ecosystem](https://docs.ultralytics.com/integrations) ensures developers have access to frequent updates, active community support, and seamless integrations with experiment tracking tools like Weights & Biases and ClearML.
 
 ### Code Example: Getting Started with YOLOv5
 
@@ -111,7 +111,7 @@ results[0].show()
 
 ## Versatility and Real-World Applications
 
-EfficientDet is strictly an object detection framework, which limits its utility in complex vision pipelines. On the other hand, YOLOv5 has evolved to support multiple computer vision tasks. Modern releases of the model support highly accurate [instance segmentation](https://docs.ultralytics.com/tasks/segment/) and [image classification](https://docs.ultralytics.com/tasks/classify/), allowing developers to consolidate their machine learning stack.
+EfficientDet is strictly an object detection framework, which limits its utility in complex vision pipelines. On the other hand, YOLOv5 has evolved to support multiple computer vision tasks. Modern releases of the model support highly accurate [instance segmentation](https://docs.ultralytics.com/tasks/segment) and [image classification](https://docs.ultralytics.com/tasks/classify), allowing developers to consolidate their machine learning stack.
 
 ### Ideal Use Cases
 
@@ -132,7 +132,7 @@ YOLO26 redefines the Pareto frontier of speed and accuracy, introducing groundbr
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, which is critical for aerial imagery and robotics.
 - **DFL Removal:** By stripping out Distribution Focal Loss, the model head is greatly simplified, leading to better compatibility when exporting to legacy or highly constrained edge hardware.
 
-For teams deploying multi-task pipelines, YOLO26 also introduces task-specific upgrades, such as multi-scale proto for segmentation and specialized angle loss for [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb/). To explore other modern alternatives within the ecosystem, you can also review [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or the YOLOv8 architecture.
+For teams deploying multi-task pipelines, YOLO26 also introduces task-specific upgrades, such as multi-scale proto for segmentation and specialized angle loss for [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb). To explore other modern alternatives within the ecosystem, you can also review [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or the YOLOv8 architecture.
 
 ## Conclusion
 

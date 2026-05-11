@@ -23,7 +23,7 @@ Released in early 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/ul
 - **Organization:** [Ultralytics](https://www.ultralytics.com/)
 - **Date:** 2026-01-14
 - **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
-- **Docs:** [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26/)
+- **Docs:** [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26)
 
 ### Architecture and Innovations
 
@@ -35,7 +35,7 @@ Additionally, the removal of Distribution Focal Loss (DFL) streamlines the expor
 
     Thanks to architectural simplifications and the removal of DFL, YOLO26 achieves up to **43% faster CPU inference**, making it the ideal choice for resource-constrained edge devices like the [Raspberry Pi](https://www.raspberrypi.org/) or [NVIDIA Jetson Nano](https://developer.nvidia.com/embedded/jetson-nano-developer-kit).
 
-For detecting highly challenging items in scenes like [drone aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone/), YOLO26 utilizes the updated **ProgLoss + STAL** loss functions. These provide notable improvements in small-object recognition recall. Furthermore, it boasts task-specific enhancements, including multi-scale proto for [instance segmentation](https://docs.ultralytics.com/tasks/segment/), Residual Log-Likelihood Estimation (RLE) for [pose estimation](https://docs.ultralytics.com/tasks/pose/), and specialized angle loss for detecting [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/).
+For detecting highly challenging items in scenes like [drone aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone), YOLO26 utilizes the updated **ProgLoss + STAL** loss functions. These provide notable improvements in small-object recognition recall. Furthermore, it boasts task-specific enhancements, including multi-scale proto for [instance segmentation](https://docs.ultralytics.com/tasks/segment), Residual Log-Likelihood Estimation (RLE) for [pose estimation](https://docs.ultralytics.com/tasks/pose), and specialized angle loss for detecting [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
@@ -50,7 +50,7 @@ Introduced in early 2024, YOLOv9 brought theoretical advancements to the way neu
 - **Date:** 2024-02-21
 - **Arxiv:** [YOLOv9 Paper](https://arxiv.org/abs/2402.13616)
 - **GitHub:** [YOLOv9 Repository](https://github.com/WongKinYiu/yolov9)
-- **Docs:** [YOLOv9 Documentation](https://docs.ultralytics.com/models/yolov9/)
+- **Docs:** [YOLOv9 Documentation](https://docs.ultralytics.com/models/yolov9)
 
 ### Architecture and Strengths
 
@@ -58,13 +58,13 @@ YOLOv9 is built around the concept of Programmable Gradient Information (PGI) an
 
 ### Limitations
 
-Despite its excellent parameter efficiency, YOLOv9 relies heavily on traditional NMS for bounding box post-processing, which can create computational bottlenecks during inference on edge devices. Furthermore, the official repository is largely focused on object detection, requiring significant custom engineering to adapt it for specialized tasks like [tracking](https://docs.ultralytics.com/modes/track/) or pose estimation.
+Despite its excellent parameter efficiency, YOLOv9 relies heavily on traditional NMS for bounding box post-processing, which can create computational bottlenecks during inference on edge devices. Furthermore, the official repository is largely focused on object detection, requiring significant custom engineering to adapt it for specialized tasks like [tracking](https://docs.ultralytics.com/modes/track) or pose estimation.
 
-[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9/){ .md-button }
+[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9){ .md-button }
 
 ## Performance Comparison
 
-When evaluating these models for real-world deployment, balancing accuracy (mAP), inference speed, and memory usage is critical. Ultralytics models are renowned for their low memory requirements during both training and inference, requiring far less [CUDA memory](https://developer.nvidia.com/cuda) than transformer-based alternatives like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/).
+When evaluating these models for real-world deployment, balancing accuracy (mAP), inference speed, and memory usage is critical. Ultralytics models are renowned for their low memory requirements during both training and inference, requiring far less [CUDA memory](https://developer.nvidia.com/cuda) than transformer-based alternatives like [RT-DETR](https://docs.ultralytics.com/models/rtdetr).
 
 Below is a direct comparison of YOLO26 and YOLOv9 performance on the [COCO dataset](https://cocodataset.org/). Best values in each column are highlighted in **bold**.
 
@@ -94,7 +94,7 @@ YOLO26 is a strong choice for:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ### When to Choose YOLOv9
 
@@ -110,7 +110,7 @@ Choosing a model involves more than just reading an accuracy benchmark; the surr
 
 ### Ease of Use and Ecosystem
 
-The [Ultralytics Python API](https://docs.ultralytics.com/usage/python/) offers a seamless "zero-to-hero" experience. Instead of cloning complex repositories or manually configuring distributed training scripts, developers can install the package via `pip` and start training immediately. The actively maintained [Ultralytics ecosystem](https://platform.ultralytics.com/deploy/inference/) guarantees frequent updates, automated integrations with ML platforms like [Weights & Biases](https://wandb.ai/site), and extensive documentation.
+The [Ultralytics Python API](https://docs.ultralytics.com/usage/python) offers a seamless "zero-to-hero" experience. Instead of cloning complex repositories or manually configuring distributed training scripts, developers can install the package via `pip` and start training immediately. The actively maintained [Ultralytics ecosystem](https://platform.ultralytics.com/deploy/inference/) guarantees frequent updates, automated integrations with ML platforms like [Weights & Biases](https://wandb.ai/site), and extensive documentation.
 
 !!! note "Other Ultralytics Models"
 
@@ -118,7 +118,7 @@ The [Ultralytics Python API](https://docs.ultralytics.com/usage/python/) offers 
 
 ### Versatility Across Vision Tasks
 
-While YOLOv9 is primarily a detection engine, YOLO26 is a general-purpose vision tool. Using a single unified syntax, you can easily pivot from object detection to pixel-perfect [image segmentation](https://docs.ultralytics.com/tasks/segment/) or whole-image [classification](https://docs.ultralytics.com/tasks/classify/). This versatility reduces the technical debt of maintaining multiple disjointed codebases for different computer vision features.
+While YOLOv9 is primarily a detection engine, YOLO26 is a general-purpose vision tool. Using a single unified syntax, you can easily pivot from object detection to pixel-perfect [image segmentation](https://docs.ultralytics.com/tasks/segment) or whole-image [classification](https://docs.ultralytics.com/tasks/classify). This versatility reduces the technical debt of maintaining multiple disjointed codebases for different computer vision features.
 
 ### Efficient Training and Deployment
 

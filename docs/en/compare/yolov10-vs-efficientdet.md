@@ -6,7 +6,7 @@ keywords: YOLOv10, EfficientDet, object detection, model comparison, real-time d
 
 # YOLOv10 vs EfficientDet: Comparing Real-Time Object Detection Architectures
 
-Selecting the optimal neural network for [object detection](https://docs.ultralytics.com/tasks/detect/) is a critical decision that dictates the success of modern computer vision systems. Two prominent architectures that have significantly influenced the field are **YOLOv10** and **EfficientDet**. While both aim to maximize accuracy while minimizing computational overhead, they take vastly different architectural approaches to achieve these goals.
+Selecting the optimal neural network for [object detection](https://docs.ultralytics.com/tasks/detect) is a critical decision that dictates the success of modern computer vision systems. Two prominent architectures that have significantly influenced the field are **YOLOv10** and **EfficientDet**. While both aim to maximize accuracy while minimizing computational overhead, they take vastly different architectural approaches to achieve these goals.
 
 This comprehensive guide dives into their unique designs, training methodologies, and deployment characteristics, helping developers and ML engineers make data-driven decisions for [vision AI applications](https://www.ultralytics.com/blog/exploring-various-types-of-data-for-vision-ai-applications). We will examine how they perform on hardware ranging from embedded [edge AI devices](https://www.ultralytics.com/glossary/edge-ai) to powerful cloud GPUs.
 
@@ -30,7 +30,7 @@ YOLOv10 introduces consistent dual assignments for NMS-free training. During tra
 - **Date:** 2024-05-23
 - **Paper:** [YOLOv10: Real-Time End-to-End Object Detection](https://arxiv.org/abs/2405.14458)
 - **GitHub:** [THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
-- **Docs:** [YOLOv10 Documentation](https://docs.ultralytics.com/models/yolov10/)
+- **Docs:** [YOLOv10 Documentation](https://docs.ultralytics.com/models/yolov10)
 
 !!! tip "Streamlined Deployment"
 
@@ -39,14 +39,14 @@ YOLOv10 introduces consistent dual assignments for NMS-free training. During tra
 **Strengths:**
 
 - **Predictable Inference:** The removal of NMS ensures consistent inference times regardless of the number of objects in the scene.
-- **Lower Memory Usage:** Compared to transformer-based models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/), YOLOv10 enjoys significantly lower memory requirements during both training and inference.
-- **Excellent Speed/Accuracy Trade-off:** Specifically optimized for low-latency scenarios without sacrificing [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics/).
+- **Lower Memory Usage:** Compared to transformer-based models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr), YOLOv10 enjoys significantly lower memory requirements during both training and inference.
+- **Excellent Speed/Accuracy Trade-off:** Specifically optimized for low-latency scenarios without sacrificing [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics).
 
 **Weaknesses:**
 
-- **Single Task Focus:** Unlike the broader [Ultralytics ecosystem](https://docs.ultralytics.com/), the original YOLOv10 repository is heavily focused on detection, lacking native support for [instance segmentation](https://docs.ultralytics.com/tasks/segment/) or [pose estimation](https://docs.ultralytics.com/tasks/pose/).
+- **Single Task Focus:** Unlike the broader [Ultralytics ecosystem](https://docs.ultralytics.com/), the original YOLOv10 repository is heavily focused on detection, lacking native support for [instance segmentation](https://docs.ultralytics.com/tasks/segment) or [pose estimation](https://docs.ultralytics.com/tasks/pose).
 
-[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10/){ .md-button }
+[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10){ .md-button }
 
 ## EfficientDet: Scalable and Balanced
 
@@ -123,11 +123,11 @@ EfficientDet is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Modern Standard: Enter Ultralytics YOLO26
 
@@ -137,11 +137,11 @@ While YOLOv10 introduced the groundbreaking NMS-free paradigm and EfficientDet s
 
 1. **End-to-End NMS-Free Design:** YOLO26 natively adopts the end-to-end NMS-free architecture pioneered in YOLOv10, streamlining deployment and accelerating inference.
 2. **Up to 43% Faster CPU Inference:** For edge devices lacking dedicated accelerators, YOLO26 is specifically optimized to run efficiently on standard CPUs.
-3. **Advanced MuSGD Optimizer:** Inspired by LLM training innovations, YOLO26 utilizes a hybrid of SGD and Muon for incredibly stable training and rapid convergence, vastly improving [training efficiency](https://docs.ultralytics.com/guides/model-training-tips/) compared to EfficientDet.
+3. **Advanced MuSGD Optimizer:** Inspired by LLM training innovations, YOLO26 utilizes a hybrid of SGD and Muon for incredibly stable training and rapid convergence, vastly improving [training efficiency](https://docs.ultralytics.com/guides/model-training-tips) compared to EfficientDet.
 4. **ProgLoss + STAL:** These improved loss functions deliver remarkable boosts in small-object recognition, a traditional weak point for both YOLOv10 and EfficientDet.
 5. **DFL Removal:** By removing Distribution Focal Loss, YOLO26 exports seamlessly to nearly any hardware format, including [OpenVINO](https://docs.openvino.ai/) and CoreML.
 
-Furthermore, YOLO26 provides unmatched **versatility**. While EfficientDet and YOLOv10 are strictly detection models, YOLO26 seamlessly handles [oriented bounding boxes](https://docs.ultralytics.com/tasks/obb/), [image classification](https://docs.ultralytics.com/tasks/classify/), and instance segmentation using the same intuitive [Ultralytics Python package](https://docs.ultralytics.com/usage/python/).
+Furthermore, YOLO26 provides unmatched **versatility**. While EfficientDet and YOLOv10 are strictly detection models, YOLO26 seamlessly handles [oriented bounding boxes](https://docs.ultralytics.com/tasks/obb), [image classification](https://docs.ultralytics.com/tasks/classify), and instance segmentation using the same intuitive [Ultralytics Python package](https://docs.ultralytics.com/usage/python).
 
 !!! tip "Well-Maintained Ecosystem"
 
@@ -149,7 +149,7 @@ Furthermore, YOLO26 provides unmatched **versatility**. While EfficientDet and Y
 
 ### Ease of Use with Ultralytics
 
-The well-maintained ecosystem provided by Ultralytics ensures a smooth developer experience. Training a model, validating it, and exporting it to [TensorRT integration](https://docs.ultralytics.com/integrations/tensorrt/) takes only a few lines of code.
+The well-maintained ecosystem provided by Ultralytics ensures a smooth developer experience. Training a model, validating it, and exporting it to [TensorRT integration](https://docs.ultralytics.com/integrations/tensorrt) takes only a few lines of code.
 
 ```python
 from ultralytics import YOLO

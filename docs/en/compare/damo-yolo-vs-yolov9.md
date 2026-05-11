@@ -53,9 +53,9 @@ Introduced as a solution to information loss in deep convolutional networks, YOL
 - **Release Date:** February 21, 2024
 - **Arxiv Paper:** [YOLOv9 Research Paper](https://arxiv.org/abs/2402.13616)
 - **Official GitHub:** [WongKinYiu/yolov9 Repository](https://github.com/WongKinYiu/yolov9)
-- **Documentation:** [YOLOv9 Ultralytics Docs](https://docs.ultralytics.com/models/yolov9/)
+- **Documentation:** [YOLOv9 Ultralytics Docs](https://docs.ultralytics.com/models/yolov9)
 
-[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9/){ .md-button }
+[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9){ .md-button }
 
 ## Architectural Innovations
 
@@ -127,15 +127,15 @@ YOLOv9 is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultralytics Advantage: Advancing to YOLO26
 
-For users comparing legacy architectures, transitioning to the modern Ultralytics ecosystem—specifically the [latest YOLO26 models](https://docs.ultralytics.com/models/yolo26/)—provides an unparalleled advantage.
+For users comparing legacy architectures, transitioning to the modern Ultralytics ecosystem—specifically the [latest YOLO26 models](https://docs.ultralytics.com/models/yolo26)—provides an unparalleled advantage.
 
 YOLO26 fundamentally alters the deployment landscape through its **End-to-End NMS-Free Design**. By entirely eliminating Non-Maximum Suppression (NMS) post-processing, it delivers faster, dramatically simpler deployment architectures. Coupled with the removal of Distribution Focal Loss (DFL), YOLO26 offers superior compatibility for edge and low-power devices.
 
@@ -158,4 +158,4 @@ results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 model.export(format="onnx")
 ```
 
-Whether you require advanced [instance segmentation](https://docs.ultralytics.com/tasks/segment/), highly accurate [pose estimation](https://docs.ultralytics.com/tasks/pose/), or standard bounding box detection, the versatility of the Ultralytics framework ensures that your team spends less time configuring deep learning environments and more time deploying robust AI solutions. With specialized task improvements like **ProgLoss + STAL** for enhanced small-object recognition, YOLO26 stands as the premier choice for the next generation of vision applications.
+Whether you require advanced [instance segmentation](https://docs.ultralytics.com/tasks/segment), highly accurate [pose estimation](https://docs.ultralytics.com/tasks/pose), or standard bounding box detection, the versatility of the Ultralytics framework ensures that your team spends less time configuring deep learning environments and more time deploying robust AI solutions. With specialized task improvements like **ProgLoss + STAL** for enhanced small-object recognition, YOLO26 stands as the premier choice for the next generation of vision applications.

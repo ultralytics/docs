@@ -25,7 +25,7 @@ Released in 2020, YOLOv5 revolutionized the accessibility of object detection. B
 - **Organization:** [Ultralytics](https://www.ultralytics.com/)
 - **Date:** 2020-06-26
 - **GitHub:** [https://github.com/ultralytics/yolov5](https://github.com/ultralytics/yolov5)
-- **Docs:** [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5/)
+- **Docs:** [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5)
 
 YOLOv5 established the foundation for the highly maintained Ultralytics ecosystem. It introduced aggressive data augmentation techniques, efficient training loops, and highly optimized export paths to edge formats like [CoreML](https://developer.apple.com/documentation/coreml) and [ONNX](https://onnx.ai/). Its ease of use and low memory requirements during training made it a staple for startups and researchers worldwide.
 
@@ -39,7 +39,7 @@ Fast forward to January 2026, **Ultralytics YOLO26** represents the pinnacle of 
 - **Organization:** [Ultralytics](https://www.ultralytics.com/)
 - **Date:** 2026-01-14
 - **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- **Docs:** [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26/)
+- **Docs:** [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26)
 
 YOLO26 sets a new benchmark for performance balance, offering state-of-the-art accuracy while being explicitly engineered to dominate edge computing scenarios.
 
@@ -47,7 +47,7 @@ YOLO26 sets a new benchmark for performance balance, offering state-of-the-art a
 
 !!! tip "Other Ultralytics Models"
 
-    If you are migrating an older codebase, you might also be interested in comparing YOLOv5 with [YOLO11](https://docs.ultralytics.com/models/yolo11/), the previous generation model that introduced initial support for diverse tasks like Pose Estimation and Oriented Bounding Boxes (OBB).
+    If you are migrating an older codebase, you might also be interested in comparing YOLOv5 with [YOLO11](https://docs.ultralytics.com/models/yolo11), the previous generation model that introduced initial support for diverse tasks like Pose Estimation and Oriented Bounding Boxes (OBB).
 
 ## Architectural Breakthroughs in YOLO26
 
@@ -80,13 +80,13 @@ _Note: The YOLO26 Nano (YOLO26n) achieves a staggering 40.9 mAP compared to YOLO
 
 ## Versatility and Task Support
 
-YOLOv5 is primarily renowned for [object detection](https://docs.ultralytics.com/tasks/detect/). While later updates introduced basic segmentation, YOLO26 was built from the ground up to be a unified multi-task engine.
+YOLOv5 is primarily renowned for [object detection](https://docs.ultralytics.com/tasks/detect). While later updates introduced basic segmentation, YOLO26 was built from the ground up to be a unified multi-task engine.
 
 YOLO26 inherently supports:
 
 - **Instance Segmentation:** Featuring task-specific multi-scale protos and semantic segmentation loss.
 - **Pose Estimation:** Utilizing Residual Log-Likelihood Estimation (RLE) for highly accurate keypoint detection.
-- **Oriented Bounding Boxes (OBB):** Including specialized angle loss to resolve boundary discontinuity issues, critical for [satellite image analysis](https://docs.ultralytics.com/datasets/obb/dota-v2/).
+- **Oriented Bounding Boxes (OBB):** Including specialized angle loss to resolve boundary discontinuity issues, critical for [satellite image analysis](https://docs.ultralytics.com/datasets/obb/dota-v2).
 - **Image Classification:** Standard full-image categorization.
 
 !!! info "Ecosystem Integration"
@@ -139,9 +139,9 @@ yolo predict model=yolo26n.engine source=path/to/video.mp4
 
 For any modern computer vision project, **YOLO26 is the undisputed recommendation**.
 
-- **Edge AI and IoT:** Its 43% faster CPU inference and removal of DFL make it perfect for deployment on a [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) or mobile devices.
-- **High-Speed Pipelines:** The NMS-free architecture ensures stable, predictable latency which is crucial for autonomous robotics and real-time [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system/).
-- **Complex Scenarios:** If your application requires tracking small objects (e.g., [drone monitoring](https://docs.ultralytics.com/datasets/detect/visdrone/)) or rotating objects (OBB), YOLO26's advanced loss functions (ProgLoss + STAL) provide a massive accuracy advantage.
+- **Edge AI and IoT:** Its 43% faster CPU inference and removal of DFL make it perfect for deployment on a [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) or mobile devices.
+- **High-Speed Pipelines:** The NMS-free architecture ensures stable, predictable latency which is crucial for autonomous robotics and real-time [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system).
+- **Complex Scenarios:** If your application requires tracking small objects (e.g., [drone monitoring](https://docs.ultralytics.com/datasets/detect/visdrone)) or rotating objects (OBB), YOLO26's advanced loss functions (ProgLoss + STAL) provide a massive accuracy advantage.
 
 ### When to choose YOLOv5
 

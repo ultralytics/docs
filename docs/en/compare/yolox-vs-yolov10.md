@@ -35,9 +35,9 @@ Organization: [Tsinghua University](https://www.tsinghua.edu.cn/en/)
 Date: 2024-05-23  
 Arxiv: [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)  
 GitHub: [https://github.com/THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)  
-Docs: [https://docs.ultralytics.com/models/yolov10/](https://docs.ultralytics.com/models/yolov10/)
+Docs: [https://docs.ultralytics.com/models/yolov10/](https://docs.ultralytics.com/models/yolov10)
 
-[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10/){ .md-button }
+[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10){ .md-button }
 
 ## Architectural Innovations
 
@@ -53,7 +53,7 @@ While YOLOX simplified the detection head, it still relied on NMS to filter out 
 
 !!! note "The Impact of Removing NMS"
 
-    Non-Maximum Suppression is often a complex operation to accelerate on Neural Processing Units (NPUs). By removing it, YOLOv10 allows the entire model graph to execute seamlessly on specialized hardware, drastically improving compatibility with optimization frameworks like [OpenVINO](https://docs.ultralytics.com/integrations/openvino/) and TensorRT.
+    Non-Maximum Suppression is often a complex operation to accelerate on Neural Processing Units (NPUs). By removing it, YOLOv10 allows the entire model graph to execute seamlessly on specialized hardware, drastically improving compatibility with optimization frameworks like [OpenVINO](https://docs.ultralytics.com/integrations/openvino) and TensorRT.
 
 ## Performance Metrics and Comparison
 
@@ -77,13 +77,13 @@ When evaluating models for production, balancing accuracy with computational ove
 
 ### Analyzing the Data
 
-The metrics clearly demonstrate YOLOv10's generational leap. For instance, YOLOv10-S achieves a [mean Average Precision](https://docs.ultralytics.com/guides/yolo-performance-metrics/) of 46.7% compared to YOLOX-m's 46.9%, but does so using less than a third of the parameters (7.2M vs 25.3M) and significantly fewer FLOPs. Furthermore, the top-tier YOLOv10-X model pushes the mAP to 54.4%, making it highly competitive for demanding accuracy tasks while remaining faster than the older YOLOX-x architecture.
+The metrics clearly demonstrate YOLOv10's generational leap. For instance, YOLOv10-S achieves a [mean Average Precision](https://docs.ultralytics.com/guides/yolo-performance-metrics) of 46.7% compared to YOLOX-m's 46.9%, but does so using less than a third of the parameters (7.2M vs 25.3M) and significantly fewer FLOPs. Furthermore, the top-tier YOLOv10-X model pushes the mAP to 54.4%, making it highly competitive for demanding accuracy tasks while remaining faster than the older YOLOX-x architecture.
 
 ## The Ultralytics Ecosystem Advantage
 
 While YOLOX remains a robust open-source research implementation, adopting YOLOv10 provides immediate access to the well-maintained ecosystem provided by Ultralytics. Choosing an Ultralytics-supported model ensures a streamlined user experience characterized by a simple API and extensive documentation.
 
-Developers benefit heavily from the framework's memory requirements; training Ultralytics models typically consumes far less CUDA memory than heavy transformer-based alternatives like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/). This efficient training footprint allows for larger batch sizes on consumer-grade hardware, accelerating the time from data collection to model deployment. Furthermore, the framework offers unmatched versatility, allowing users to switch seamlessly between [object detection](https://docs.ultralytics.com/tasks/detect/), [instance segmentation](https://docs.ultralytics.com/tasks/segment/), and [pose estimation](https://docs.ultralytics.com/tasks/pose/) with minimal code changes.
+Developers benefit heavily from the framework's memory requirements; training Ultralytics models typically consumes far less CUDA memory than heavy transformer-based alternatives like [RT-DETR](https://docs.ultralytics.com/models/rtdetr). This efficient training footprint allows for larger batch sizes on consumer-grade hardware, accelerating the time from data collection to model deployment. Furthermore, the framework offers unmatched versatility, allowing users to switch seamlessly between [object detection](https://docs.ultralytics.com/tasks/detect), [instance segmentation](https://docs.ultralytics.com/tasks/segment), and [pose estimation](https://docs.ultralytics.com/tasks/pose) with minimal code changes.
 
 ### Training and Inference Example
 
@@ -105,7 +105,7 @@ predictions = model.predict("https://ultralytics.com/images/bus.jpg")
 model.export(format="engine", half=True)
 ```
 
-By leveraging built-in export routines, converting models to formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) or [ONNX](https://docs.ultralytics.com/integrations/onnx/) requires just a single line of code, entirely bypassing complex compilation hurdles.
+By leveraging built-in export routines, converting models to formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) or [ONNX](https://docs.ultralytics.com/integrations/onnx) requires just a single line of code, entirely bypassing complex compilation hurdles.
 
 ## Ideal Use Cases and Deployment Scenarios
 

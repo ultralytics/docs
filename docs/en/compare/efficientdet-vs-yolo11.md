@@ -17,7 +17,7 @@ Whether you are targeting millisecond latency on [edge AI](https://www.ultralyti
 
 ## Model Profiles and Technical Details
 
-Understanding the lineage and underlying design philosophy of each architecture helps contextualize their performance in real-world [object detection](https://docs.ultralytics.com/tasks/detect/) tasks.
+Understanding the lineage and underlying design philosophy of each architecture helps contextualize their performance in real-world [object detection](https://docs.ultralytics.com/tasks/detect) tasks.
 
 ### EfficientDet
 
@@ -40,7 +40,7 @@ YOLO11 represents a significant evolution in the Ultralytics ecosystem, pushing 
 - **Organization:** [Ultralytics](https://www.ultralytics.com/)
 - **Date:** 2024-09-27
 - **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- **Docs:** [https://docs.ultralytics.com/models/yolo11/](https://docs.ultralytics.com/models/yolo11/)
+- **Docs:** [https://docs.ultralytics.com/models/yolo11/](https://docs.ultralytics.com/models/yolo11)
 
 [Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
@@ -54,7 +54,7 @@ YOLO11, on the other hand, utilizes an optimized C2f module and an advanced anch
 
 !!! tip "Multi-Task Versatility"
 
-    While EfficientDet is strictly an object detector, YOLO11 boasts extreme versatility. A single YOLO11 architecture natively supports [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Image Classification](https://docs.ultralytics.com/tasks/classify/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/).
+    While EfficientDet is strictly an object detector, YOLO11 boasts extreme versatility. A single YOLO11 architecture natively supports [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Image Classification](https://docs.ultralytics.com/tasks/classify), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
 ## Performance Benchmarks
 
@@ -89,11 +89,11 @@ The developer experience is often as critical as the model's theoretical capabil
 
 EfficientDet relies heavily on the legacy [TensorFlow](https://www.tensorflow.org/) ecosystem and complex AutoML libraries. Setting up a custom training pipeline involves steep learning curves, intricate dependency management, and manual configuration of anchors and [loss functions](https://www.ultralytics.com/glossary/loss-function).
 
-Conversely, Ultralytics offers an unparalleled ease of use. Backed by a well-maintained PyTorch ecosystem, training a YOLO model requires just a few lines of code. The framework automatically manages [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning/), advanced data augmentations, and optimal learning rate scheduling out of the box.
+Conversely, Ultralytics offers an unparalleled ease of use. Backed by a well-maintained PyTorch ecosystem, training a YOLO model requires just a few lines of code. The framework automatically manages [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning), advanced data augmentations, and optimal learning rate scheduling out of the box.
 
 ### Code Example: Getting Started with Ultralytics
 
-This robust, production-ready snippet demonstrates how straightforward training and inference are within the [Python API](https://docs.ultralytics.com/usage/python/).
+This robust, production-ready snippet demonstrates how straightforward training and inference are within the [Python API](https://docs.ultralytics.com/usage/python).
 
 ```python
 from ultralytics import YOLO
@@ -115,15 +115,15 @@ results[0].show()
 EfficientDet remains a viable choice for research environments heavily entrenched in TensorFlow pipelines or specific CPU-bound constraints where early architectures like d0 perform adequately.
 
 **When to use YOLO11:**
-YOLO11 is the definitive choice for modern enterprise deployments. Its exceptional speed makes it perfect for [autonomous vehicles](https://www.ultralytics.com/blog/ai-in-self-driving-cars), real-time sports analytics, and high-throughput manufacturing defect detection. Furthermore, its lower memory usage enables flexible deployment on resource-constrained hardware like the [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/).
+YOLO11 is the definitive choice for modern enterprise deployments. Its exceptional speed makes it perfect for [autonomous vehicles](https://www.ultralytics.com/blog/ai-in-self-driving-cars), real-time sports analytics, and high-throughput manufacturing defect detection. Furthermore, its lower memory usage enables flexible deployment on resource-constrained hardware like the [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson).
 
 ## Looking Forward: The YOLO26 Upgrade
 
 While YOLO11 is exceptionally capable, developers starting new projects should evaluate other Ultralytics architectures like the proven [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) or the newly released [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). Released in early 2026, YOLO26 takes the foundation of YOLO11 and introduces several groundbreaking innovations:
 
-- **End-to-End NMS-Free Design:** Building on the legacy of [YOLOv10](https://docs.ultralytics.com/models/yolov10/), YOLO26 completely eliminates Non-Maximum Suppression (NMS) during post-processing, slashing latency and simplifying deployment pipelines.
+- **End-to-End NMS-Free Design:** Building on the legacy of [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 completely eliminates Non-Maximum Suppression (NMS) during post-processing, slashing latency and simplifying deployment pipelines.
 - **MuSGD Optimizer:** A hybrid optimizer blending standard SGD with Muon (inspired by large language model training), drastically improving training stability.
 - **Up to 43% Faster CPU Inference:** Specific optimizations make YOLO26 incredibly potent on edge devices lacking discrete GPUs.
 - **ProgLoss + STAL:** Advanced loss functions that remarkably improve small-object detection, critical for aerial imagery and robotics.
 
-Explore the broader landscape of vision architectures, including transformer-based detectors like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/), in our comprehensive [Ultralytics Docs](https://docs.ultralytics.com/).
+Explore the broader landscape of vision architectures, including transformer-based detectors like [RT-DETR](https://docs.ultralytics.com/models/rtdetr), in our comprehensive [Ultralytics Docs](https://docs.ultralytics.com/).

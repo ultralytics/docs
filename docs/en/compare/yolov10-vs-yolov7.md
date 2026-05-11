@@ -6,14 +6,14 @@ keywords: YOLOv10, YOLOv7, object detection, model comparison, AI, deep learning
 
 # YOLOv10 vs YOLOv7: The Evolution of Real-Time Object Detection
 
-The rapid progression of computer vision over the last few years has yielded increasingly efficient architectures for real-time applications. Comparing [YOLOv10](https://docs.ultralytics.com/models/yolov10/) and [YOLOv7](https://docs.ultralytics.com/models/yolov7/) highlights a crucial transition period in this evolution. While YOLOv7 introduced highly effective training strategies and architectural scaling, YOLOv10 revolutionized deployment by eliminating the longstanding reliance on Non-Maximum Suppression (NMS).
+The rapid progression of computer vision over the last few years has yielded increasingly efficient architectures for real-time applications. Comparing [YOLOv10](https://docs.ultralytics.com/models/yolov10) and [YOLOv7](https://docs.ultralytics.com/models/yolov7) highlights a crucial transition period in this evolution. While YOLOv7 introduced highly effective training strategies and architectural scaling, YOLOv10 revolutionized deployment by eliminating the longstanding reliance on Non-Maximum Suppression (NMS).
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "YOLOv7"]'></canvas>
 
-Both models pushed the boundaries of [object detection](https://docs.ultralytics.com/tasks/detect/) upon their respective releases, yet the modern [Ultralytics ecosystem](https://platform.ultralytics.com) and the introduction of next-generation models like YOLO26 offer far superior workflows for today's AI practitioners.
+Both models pushed the boundaries of [object detection](https://docs.ultralytics.com/tasks/detect) upon their respective releases, yet the modern [Ultralytics ecosystem](https://platform.ultralytics.com) and the introduction of next-generation models like YOLO26 offer far superior workflows for today's AI practitioners.
 
 ## Model Profiles and Origins
 
@@ -26,9 +26,9 @@ Understanding the origins of these models provides valuable context regarding th
 - Date: 2024-05-23
 - Arxiv: [YOLOv10: Real-Time End-to-End Object Detection](https://arxiv.org/abs/2405.14458)
 - GitHub: [THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
-- Docs: [Ultralytics YOLOv10 Documentation](https://docs.ultralytics.com/models/yolov10/)
+- Docs: [Ultralytics YOLOv10 Documentation](https://docs.ultralytics.com/models/yolov10)
 
-[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10/){ .md-button }
+[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10){ .md-button }
 
 ### YOLOv7 Details
 
@@ -37,9 +37,9 @@ Understanding the origins of these models provides valuable context regarding th
 - Date: 2022-07-06
 - Arxiv: [YOLOv7: Trainable bag-of-freebies sets new state-of-the-art](https://arxiv.org/abs/2207.02696)
 - GitHub: [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
-- Docs: [Ultralytics YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7/)
+- Docs: [Ultralytics YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7)
 
-[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7/){ .md-button }
+[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 
 ## Architectural Innovations
 
@@ -49,7 +49,7 @@ Released in 2022, YOLOv7 focused heavily on optimizing gradient pathways. It int
 
 ### The YOLOv10 Breakthrough
 
-YOLOv10 addressed the NMS bottleneck directly. By introducing consistent dual assignments during training, the Tsinghua University team enabled NMS-free end-to-end detection. This dual-head approach uses one branch with one-to-many assignments for rich supervisory signals during training, and another branch with one-to-one assignments for NMS-free inference. This architectural shift ensures consistent, ultra-low [inference latency](https://docs.ultralytics.com/guides/yolo-performance-metrics/) suitable for high-speed video analytics. Furthermore, YOLOv10 employs a holistic efficiency-accuracy driven model design, stripping away computational redundancy found in earlier generations.
+YOLOv10 addressed the NMS bottleneck directly. By introducing consistent dual assignments during training, the Tsinghua University team enabled NMS-free end-to-end detection. This dual-head approach uses one branch with one-to-many assignments for rich supervisory signals during training, and another branch with one-to-one assignments for NMS-free inference. This architectural shift ensures consistent, ultra-low [inference latency](https://docs.ultralytics.com/guides/yolo-performance-metrics) suitable for high-speed video analytics. Furthermore, YOLOv10 employs a holistic efficiency-accuracy driven model design, stripping away computational redundancy found in earlier generations.
 
 !!! tip "Post-Processing Impact"
 
@@ -57,7 +57,7 @@ YOLOv10 addressed the NMS bottleneck directly. By introducing consistent dual as
 
 ## Performance Comparison
 
-When comparing raw metrics on the [MS COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/), the generational gap becomes evident. YOLOv10 achieves a much more favorable trade-off between parameters, computational requirements, and accuracy.
+When comparing raw metrics on the [MS COCO dataset](https://docs.ultralytics.com/datasets/detect/coco), the generational gap becomes evident. YOLOv10 achieves a much more favorable trade-off between parameters, computational requirements, and accuracy.
 
 | Model    | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | -------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -71,7 +71,7 @@ When comparing raw metrics on the [MS COCO dataset](https://docs.ultralytics.com
 | YOLOv7l  | 640                         | 51.4                       | -                                    | 6.84                                      | 36.9                     | 104.7                   |
 | YOLOv7x  | 640                         | 53.1                       | -                                    | 11.57                                     | 71.3                     | 189.9                   |
 
-As seen above, YOLOv10x delivers a superior mAP of 54.4% compared to YOLOv7x's 53.1%, while using roughly 20% fewer parameters. Furthermore, the lightweight YOLOv10 models (Nano and Small) offer exceptional [TensorRT deployment](https://docs.ultralytics.com/integrations/tensorrt/) speeds, making them highly attractive for mobile deployment.
+As seen above, YOLOv10x delivers a superior mAP of 54.4% compared to YOLOv7x's 53.1%, while using roughly 20% fewer parameters. Furthermore, the lightweight YOLOv10 models (Nano and Small) offer exceptional [TensorRT deployment](https://docs.ultralytics.com/integrations/tensorrt) speeds, making them highly attractive for mobile deployment.
 
 ## The Ultralytics Ecosystem Advantage
 
@@ -83,11 +83,11 @@ Both YOLOv10 and YOLOv7 can be accessed via the standard Ultralytics Python pack
 
 ### Unmatched Versatility
 
-While older repositories often focus strictly on bounding box detection, the integrated Ultralytics framework seamlessly supports a massive variety of tasks. Whether you are performing [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), or [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) detection, the workflow remains identical.
+While older repositories often focus strictly on bounding box detection, the integrated Ultralytics framework seamlessly supports a massive variety of tasks. Whether you are performing [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), or [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection, the workflow remains identical.
 
 ### Code Example: Consistent Training Workflows
 
-The following code snippet demonstrates the seamless training process, which automatically handles [data augmentation](https://docs.ultralytics.com/guides/yolo-data-augmentation/) and learning rate scheduling:
+The following code snippet demonstrates the seamless training process, which automatically handles [data augmentation](https://docs.ultralytics.com/guides/yolo-data-augmentation) and learning rate scheduling:
 
 ```python
 from ultralytics import YOLO
@@ -124,11 +124,11 @@ YOLOv7 is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The New Standard: Introducing YOLO26
 
@@ -163,6 +163,6 @@ YOLOv10 shines in scenarios requiring strict, unchanging latency. Because it is 
 
 ### When to use YOLO26
 
-YOLO26 is the definitive choice for any greenfield project. From deploying sophisticated [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system/) on a basic Raspberry Pi to running massive cloud-based video analytics, its superior CPU speeds and advanced small-object detection make it vastly superior to older generations.
+YOLO26 is the definitive choice for any greenfield project. From deploying sophisticated [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system) on a basic Raspberry Pi to running massive cloud-based video analytics, its superior CPU speeds and advanced small-object detection make it vastly superior to older generations.
 
-For developers interested in exploring alternative modern architectures, we also provide extensive support for transformer-based detectors like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) and previous generational staples like [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11).
+For developers interested in exploring alternative modern architectures, we also provide extensive support for transformer-based detectors like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) and previous generational staples like [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11).

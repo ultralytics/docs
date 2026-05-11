@@ -23,7 +23,7 @@ Released on July 6, 2022, by researchers Chien-Yao Wang, Alexey Bochkovskiy, and
 
 YOLOv7 leverages an extended efficient layer aggregation network (E-ELAN) to guide the network in learning diverse features without destroying the original gradient path. This makes it a robust choice for academic research benchmarks and systems heavily reliant on standard high-end GPUs.
 
-[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7/){ .md-button }
+[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 
 ### YOLOv10: Real-Time End-to-End Detection
 
@@ -31,11 +31,11 @@ Developed by Ao Wang and his team at [Tsinghua University](https://www.tsinghua.
 
 YOLOv10 introduced consistent dual assignments for NMS-free training, fundamentally altering the post-processing pipeline. By deploying a holistic efficiency-accuracy driven model design strategy, YOLOv10 reduces computational redundancy. This results in an architecture uniquely tailored for edge devices requiring extremely low latency.
 
-[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10/){ .md-button }
+[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10){ .md-button }
 
 !!! tip "NMS-Free Architecture"
 
-    The removal of Non-Maximum Suppression (NMS) in YOLOv10 allows the entire model to be exported as a single computational graph. This vastly simplifies deployment using runtimes like [TensorRT](https://developer.nvidia.com/tensorrt) or [OpenVINO](https://docs.ultralytics.com/integrations/openvino/).
+    The removal of Non-Maximum Suppression (NMS) in YOLOv10 allows the entire model to be exported as a single computational graph. This vastly simplifies deployment using runtimes like [TensorRT](https://developer.nvidia.com/tensorrt) or [OpenVINO](https://docs.ultralytics.com/integrations/openvino).
 
 ## Performance and Metrics Comparison
 
@@ -74,9 +74,9 @@ The NMS-free, lightweight design of YOLOv10 shines in constrained environments. 
 While both models have strong academic roots, their true potential is unlocked when utilized within the unified [Ultralytics Platform](https://platform.ultralytics.com). Developing computer vision models from scratch is notoriously difficult, but the Ultralytics ecosystem provides an unparalleled experience for machine learning engineers.
 
 - **Ease of Use:** The Ultralytics Python API provides a unified interface. You can train, validate, and export models with just a few lines of code, avoiding the complex dependency nightmares associated with typical academic repositories.
-- **Well-Maintained Ecosystem:** Ultralytics guarantees that the underlying code is actively developed. Users benefit from seamless integrations with popular ML tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases/) for logging, or [Hugging Face](https://docs.ultralytics.com/integrations/gradio/) for fast web demos.
+- **Well-Maintained Ecosystem:** Ultralytics guarantees that the underlying code is actively developed. Users benefit from seamless integrations with popular ML tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases) for logging, or [Hugging Face](https://docs.ultralytics.com/integrations/gradio) for fast web demos.
 - **Memory Requirements:** Transformer-based object detectors often consume massive amounts of CUDA memory during training. In contrast, Ultralytics YOLO models require far less memory, allowing for much larger [batch sizes](https://www.ultralytics.com/glossary/batch-size) on consumer-grade hardware.
-- **Versatility:** The Ultralytics pipeline is not restricted to standard bounding boxes. It seamlessly supports [pose estimation](https://docs.ultralytics.com/tasks/pose/), [instance segmentation](https://docs.ultralytics.com/tasks/segment/), and oriented bounding boxes across supported model families like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8).
+- **Versatility:** The Ultralytics pipeline is not restricted to standard bounding boxes. It seamlessly supports [pose estimation](https://docs.ultralytics.com/tasks/pose), [instance segmentation](https://docs.ultralytics.com/tasks/segment), and oriented bounding boxes across supported model families like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8).
 
 ### Streamlined Training Example
 
@@ -120,11 +120,11 @@ YOLOv10 is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Future: Introducing YOLO26
 

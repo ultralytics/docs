@@ -21,7 +21,7 @@ Both models approach the challenge of identifying and localizing objects in an i
 
 ### Ultralytics YOLOv8
 
-Released by Ultralytics in January 2023, YOLOv8 represented a major leap forward in the YOLO family line. Authored by Glenn Jocher, Ayush Chaurasia, and Jing Qiu, it was designed from the ground up to support multiple vision tasks seamlessly, including [object detection](https://docs.ultralytics.com/tasks/detect/), [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and image classification.
+Released by Ultralytics in January 2023, YOLOv8 represented a major leap forward in the YOLO family line. Authored by Glenn Jocher, Ayush Chaurasia, and Jing Qiu, it was designed from the ground up to support multiple vision tasks seamlessly, including [object detection](https://docs.ultralytics.com/tasks/detect), [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), and image classification.
 
 The architecture introduces an anchor-free detection head, which heavily reduces the number of box predictions and speeds up Non-Maximum Suppression (NMS). Its backbone utilizes a novel **C2f module** (Cross-Stage Partial bottleneck with two convolutions) to improve gradient flow during training while maintaining a lightweight footprint. This makes YOLOv8 exceptionally efficient when compiled to formats like [NVIDIA TensorRT](https://developer.nvidia.com/tensorrt) or [ONNX](https://onnx.ai/).
 
@@ -29,7 +29,7 @@ The architecture introduces an anchor-free detection head, which heavily reduces
 
 ### EfficientDet
 
-Authored by Mingxing Tan, Ruoming Pang, and Quoc V. Le at Google and released in late 2019, EfficientDet focuses on scalable efficiency. Described in their [official Arxiv paper](https://arxiv.org/abs/1911.09070), the model heavily leverages the [AutoML ecosystem](https://cloud.google.com/automl).
+Authored by Mingxing Tan, Ruoming Pang, and Quoc V. Le at Google and released in late 2019, EfficientDet focuses on scalable efficiency. Described in their [official Arxiv paper](https://arxiv.org/abs/1911.09070), the model heavily leverages the [AutoML ecosystem](https://cloud.google.com/products/gemini-enterprise-agent-platform).
 
 The defining characteristic of EfficientDet is its **Bi-directional Feature Pyramid Network (BiFPN)**, which enables easy and fast multi-scale feature fusion. Combined with an EfficientNet backbone, the architecture uses a compound scaling method that uniformly scales the resolution, depth, and width for all backbone, feature network, and box/class prediction networks at the same time. While this results in excellent parameter efficiency, the complex network topology often struggles to achieve optimal real-time speeds on standard GPUs.
 
@@ -37,7 +37,7 @@ The defining characteristic of EfficientDet is its **Bi-directional Feature Pyra
 
 ## Performance and Metrics Comparison
 
-When comparing object detectors, [mean Average Precision (mAP)](https://docs.ultralytics.com/guides/yolo-performance-metrics/) and inference latency are the primary benchmarks. The table below illustrates how the YOLOv8 variants and the EfficientDet (d0-d7) family compare across standard metrics on datasets like [COCO](https://cocodataset.org/).
+When comparing object detectors, [mean Average Precision (mAP)](https://docs.ultralytics.com/guides/yolo-performance-metrics) and inference latency are the primary benchmarks. The table below illustrates how the YOLOv8 variants and the EfficientDet (d0-d7) family compare across standard metrics on datasets like [COCO](https://cocodataset.org/).
 
 | Model           | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | --------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -68,7 +68,7 @@ EfficientDet relies heavily on [TensorFlow](https://www.tensorflow.org/) and spe
 
 In contrast, **Ultralytics YOLOv8** is built natively on [PyTorch](https://pytorch.org/), offering unmatched ease of use. Developers can initiate complex training loops with a single line of Python code or CLI command. Furthermore, the model memory requirements during training are heavily optimized; YOLOv8 allows developers with modest consumer GPUs to train robust models without encountering out-of-memory (OOM) errors that frequently plague transformer-heavy architectures.
 
-The seamless integration with the [Ultralytics Platform](https://platform.ultralytics.com) takes this a step further, providing a no-code interface for dataset annotation, model training, and one-click cloud deployment. Features like automatic [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning/) ensure that you always get the best possible accuracy for your custom datasets.
+The seamless integration with the [Ultralytics Platform](https://platform.ultralytics.com) takes this a step further, providing a no-code interface for dataset annotation, model training, and one-click cloud deployment. Features like automatic [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning) ensure that you always get the best possible accuracy for your custom datasets.
 
 ### Python Code Example: YOLOv8 Inference
 
@@ -101,14 +101,14 @@ Furthermore, YOLO26 incorporates several groundbreaking training innovations:
 - **MuSGD Optimizer:** Inspired by advanced LLM training techniques, this hybrid of SGD and Muon ensures highly stable training and vastly accelerated convergence rates.
 - **Up to 43% Faster CPU Inference:** Thanks to the NMS removal and a heavily optimized backbone, YOLO26 achieves unprecedented speeds on CPU-only edge devices without relying on dedicated NPUs.
 - **ProgLoss + STAL:** These advanced loss functions deliver a notable leap in small-object recognition accuracy, making YOLO26 indispensable for aerial imagery and precision IoT sensors.
-- **DFL Removal:** The Distribution Focal Loss has been completely removed to drastically simplify the export process to formats like [OpenVINO](https://docs.ultralytics.com/integrations/openvino/) and CoreML.
+- **DFL Removal:** The Distribution Focal Loss has been completely removed to drastically simplify the export process to formats like [OpenVINO](https://docs.ultralytics.com/integrations/openvino) and CoreML.
 
 ## Use Cases and Recommendations
 
 Selecting between these architectures ultimately depends on your deployment constraints and legacy requirements.
 
-- **Choose Ultralytics YOLOv8 if:** You are building modern, versatile computer vision applications that demand high accuracy, real-time GPU inference, and a frictionless developer experience. Its strong performance across [classification, segmentation, and detection tasks](https://docs.ultralytics.com/tasks/) makes it a powerful multi-tool for retail analytics, robotics, and security systems.
+- **Choose Ultralytics YOLOv8 if:** You are building modern, versatile computer vision applications that demand high accuracy, real-time GPU inference, and a frictionless developer experience. Its strong performance across [classification, segmentation, and detection tasks](https://docs.ultralytics.com/tasks) makes it a powerful multi-tool for retail analytics, robotics, and security systems.
 - **Choose EfficientDet if:** You are locked into legacy TensorFlow workflows and your primary concern is minimizing parameter counts and theoretical FLOPs, perhaps for research purposes rather than strict real-time industrial deployment.
 - **Choose Ultralytics YOLO26 if:** You are starting a new project and require the absolute best. Its native end-to-end NMS-free architecture makes it the ultimate choice for both ultra-fast edge deployments and heavy cloud processing.
 
-If you are exploring other highly capable frameworks within the Ultralytics ecosystem, you may also consider [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) for balanced legacy performance or [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) for a transformer-based approach to real-time detection.
+If you are exploring other highly capable frameworks within the Ultralytics ecosystem, you may also consider [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) for balanced legacy performance or [RT-DETR](https://docs.ultralytics.com/models/rtdetr) for a transformer-based approach to real-time detection.

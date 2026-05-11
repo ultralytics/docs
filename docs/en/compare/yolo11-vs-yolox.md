@@ -25,9 +25,9 @@ Released in September 2024 by Glenn Jocher and Jing Qiu at [Ultralytics](https:/
 - **Organization:** Ultralytics
 - **Date:** 2024-09-27
 - **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- **Docs:** [https://docs.ultralytics.com/models/yolo11/](https://docs.ultralytics.com/models/yolo11/)
+- **Docs:** [https://docs.ultralytics.com/models/yolo11/](https://docs.ultralytics.com/models/yolo11)
 
-YOLO11 goes beyond standard bounding boxes, natively supporting [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [image classification](https://docs.ultralytics.com/tasks/classify/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) detection. Its refined architecture optimizes feature extraction to ensure better feature retention across complex spatial hierarchies.
+YOLO11 goes beyond standard bounding boxes, natively supporting [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection. Its refined architecture optimizes feature extraction to ensure better feature retention across complex spatial hierarchies.
 
 [Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
@@ -52,7 +52,7 @@ YOLOX introduced a decoupled head and an anchor-free paradigm, which significant
 
 ## Performance and Metrics
 
-When evaluating detection models, examining the balance of parameters, computational cost (FLOPs), and mean Average Precision (mAP) is crucial for real-world [model deployment](https://docs.ultralytics.com/guides/model-deployment-options/).
+When evaluating detection models, examining the balance of parameters, computational cost (FLOPs), and mean Average Precision (mAP) is crucial for real-world [model deployment](https://docs.ultralytics.com/guides/model-deployment-options).
 
 | Model     | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | --------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -75,9 +75,9 @@ As seen in the table, **YOLO11x** significantly outperforms **YOLOXx** in absolu
 
 ### The Ultralytics Advantage
 
-One of the most profound differences between YOLO11 and YOLOX lies in usability. YOLOX operates primarily as a research codebase, requiring complex environment configuration, manual compilation of C++ operators, and verbose command-line arguments to initiate [custom dataset training](https://docs.ultralytics.com/guides/custom-trainer/).
+One of the most profound differences between YOLO11 and YOLOX lies in usability. YOLOX operates primarily as a research codebase, requiring complex environment configuration, manual compilation of C++ operators, and verbose command-line arguments to initiate [custom dataset training](https://docs.ultralytics.com/guides/custom-trainer).
 
-In stark contrast, YOLO11 is fully integrated into the Ultralytics Python package, providing a streamlined, "zero-to-hero" workflow. The [Ultralytics Platform](https://docs.ultralytics.com/platform/) offers extensive tools for data annotation, experiment tracking, and cloud-based training, abstracting away the boilerplate so engineers can focus on model performance.
+In stark contrast, YOLO11 is fully integrated into the Ultralytics Python package, providing a streamlined, "zero-to-hero" workflow. The [Ultralytics Platform](https://docs.ultralytics.com/platform) offers extensive tools for data annotation, experiment tracking, and cloud-based training, abstracting away the boilerplate so engineers can focus on model performance.
 
 ```python
 from ultralytics import YOLO
@@ -92,7 +92,7 @@ results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 model.export(format="onnx")
 ```
 
-Furthermore, exporting an Ultralytics model to formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), CoreML, or [OpenVINO](https://docs.ultralytics.com/integrations/openvino/) requires only a single command, whereas legacy repositories often mandate complex third-party tools or manual graph surgeries.
+Furthermore, exporting an Ultralytics model to formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), CoreML, or [OpenVINO](https://docs.ultralytics.com/integrations/openvino) requires only a single command, whereas legacy repositories often mandate complex third-party tools or manual graph surgeries.
 
 ## Real-World Use Cases
 
@@ -106,7 +106,7 @@ For nearly all modern production scenarios, YOLO11 provides a far superior exper
 
 - **Smart Cities and Retail:** Due to its exceptional speed-to-accuracy ratio, YOLO11 handles crowded scenes effortlessly, powering [automated retail analytics](https://www.ultralytics.com/blog/ai-in-retail-enhancing-customer-experience-using-computer-vision) and traffic management systems without requiring massive GPU clusters.
 - **Edge Computing:** The high memory efficiency and robust export options make YOLO11 perfect for [edge AI deployments](https://www.ultralytics.com/glossary/edge-ai) on devices like Raspberry Pi or NVIDIA Jetson platforms.
-- **Complex Pipelines:** If a project demands combining object detection with [pose keypoints](https://docs.ultralytics.com/tasks/pose/) (e.g., sports analytics) or precise instance segmentation (e.g., medical imaging), YOLO11 handles all tasks natively through one unified API.
+- **Complex Pipelines:** If a project demands combining object detection with [pose keypoints](https://docs.ultralytics.com/tasks/pose) (e.g., sports analytics) or precise instance segmentation (e.g., medical imaging), YOLO11 handles all tasks natively through one unified API.
 
 ## Use Cases and Recommendations
 
@@ -116,9 +116,9 @@ Choosing between YOLO11 and YOLOX depends on your specific project requirements,
 
 YOLO11 is a strong choice for:
 
-- **Production Edge Deployment:** Commercial applications on devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) or [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/) where reliability and active maintenance are paramount.
-- **Multi-Task Vision Applications:** Projects requiring [detection](https://docs.ultralytics.com/tasks/detect/), [segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [OBB](https://docs.ultralytics.com/tasks/obb/) within a single unified framework.
-- **Rapid Prototyping and Deployment:** Teams that need to move quickly from data collection to production using the streamlined [Ultralytics Python API](https://docs.ultralytics.com/usage/python/).
+- **Production Edge Deployment:** Commercial applications on devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) or [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson) where reliability and active maintenance are paramount.
+- **Multi-Task Vision Applications:** Projects requiring [detection](https://docs.ultralytics.com/tasks/detect), [segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [OBB](https://docs.ultralytics.com/tasks/obb) within a single unified framework.
+- **Rapid Prototyping and Deployment:** Teams that need to move quickly from data collection to production using the streamlined [Ultralytics Python API](https://docs.ultralytics.com/usage/python).
 
 ### When to Choose YOLOX
 
@@ -130,22 +130,22 @@ YOLOX is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## Looking Ahead: The Power of YOLO26
 
 While YOLO11 stands as an exceptional choice, the landscape of AI continually accelerates. For teams seeking the absolute pinnacle of efficiency and stability, **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** (released January 2026) is the ultimate recommendation for new computer vision projects.
 
-YOLO26 represents a massive leap forward by implementing an **End-to-End NMS-Free Design**. By eliminating [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing, it completely removes latency variability, dramatically simplifying deployment logic—a concept first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10/).
+YOLO26 represents a massive leap forward by implementing an **End-to-End NMS-Free Design**. By eliminating [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing, it completely removes latency variability, dramatically simplifying deployment logic—a concept first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10).
 
-Furthermore, YOLO26 features **DFL Removal** (Distribution Focal Loss), optimizing the architecture to achieve up to **43% faster CPU inference**, making it the undisputed champion for low-power and edge devices. Training stability is also supercharged via the **MuSGD Optimizer**—an LLM-inspired hybrid of SGD and Muon that accelerates convergence. Combined with advanced loss functions like **ProgLoss + STAL**, YOLO26 excels at detecting small objects in challenging environments like [drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) and IoT edge sensors.
+Furthermore, YOLO26 features **DFL Removal** (Distribution Focal Loss), optimizing the architecture to achieve up to **43% faster CPU inference**, making it the undisputed champion for low-power and edge devices. Training stability is also supercharged via the **MuSGD Optimizer**—an LLM-inspired hybrid of SGD and Muon that accelerates convergence. Combined with advanced loss functions like **ProgLoss + STAL**, YOLO26 excels at detecting small objects in challenging environments like [drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and IoT edge sensors.
 
 !!! tip "Further Exploration"
 
-    Looking to expand your knowledge of object detection architectures? Explore the open-vocabulary capabilities of [YOLO-World](https://docs.ultralytics.com/models/yolo-world/) or dive into the transformer-based [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) model documented in the Ultralytics ecosystem.
+    Looking to expand your knowledge of object detection architectures? Explore the open-vocabulary capabilities of [YOLO-World](https://docs.ultralytics.com/models/yolo-world) or dive into the transformer-based [RT-DETR](https://docs.ultralytics.com/models/rtdetr) model documented in the Ultralytics ecosystem.
 
 In conclusion, while YOLOX introduced important architectural concepts in 2021, the comprehensive toolset, memory efficiency, and cutting-edge performance of YOLO11—and especially the revolutionary architecture of YOLO26—make the Ultralytics ecosystem the clear choice for researchers and enterprise developers today.

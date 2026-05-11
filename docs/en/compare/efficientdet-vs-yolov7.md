@@ -8,7 +8,7 @@ keywords: EfficientDet, YOLOv7, object detection, model comparison, EfficientDet
 
 Selecting the most effective neural network architecture is critical to the success of any [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) initiative. As the demand for high-performance AI solutions accelerates, comparing established models like EfficientDet and YOLOv7 becomes essential for developers aiming to optimize both accuracy and computational efficiency.
 
-This comprehensive technical analysis explores the architectural nuances, [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics/), and ideal deployment scenarios for both models. Additionally, we will illustrate why the integrated ecosystem provided by Ultralytics—culminating in the state-of-the-art [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)—offers a superior alternative for modern computer vision tasks.
+This comprehensive technical analysis explores the architectural nuances, [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics), and ideal deployment scenarios for both models. Additionally, we will illustrate why the integrated ecosystem provided by Ultralytics—culminating in the state-of-the-art [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)—offers a superior alternative for modern computer vision tasks.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -59,7 +59,7 @@ YOLOv7 excels in real-time scenarios, such as [video analytics](https://www.ultr
 
 Despite its impressive speed, YOLOv7 still relies on Non-Maximum Suppression (NMS) for post-processing, which can introduce variable latency in crowded scenes. Furthermore, its memory footprint during training is notably larger than newer generations, requiring more robust hardware to handle large batch sizes.
 
-[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7/){ .md-button }
+[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 
 ## Performance and Metrics Comparison
 
@@ -105,20 +105,20 @@ YOLOv7 is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultralytics Advantage
 
 Choosing the right architecture goes beyond just raw metrics; it involves evaluating the entire machine learning lifecycle. The [Ultralytics ecosystem](https://docs.ultralytics.com/) provides an unparalleled developer experience, significantly lowering the barrier to entry for robust AI deployments.
 
 - **Ease of Use:** Ultralytics provides a highly unified Python API. Developers can train, validate, and export models in just a few lines of code, removing the need to manage complex, fragmented codebases typical of EfficientDet.
-- **Well-Maintained Ecosystem:** Benefiting from rapid updates, extensive documentation, and an active community, Ultralytics ensures compatibility with the latest [deployment frameworks](https://docs.ultralytics.com/guides/model-deployment-options/) like TensorRT and OpenVINO.
+- **Well-Maintained Ecosystem:** Benefiting from rapid updates, extensive documentation, and an active community, Ultralytics ensures compatibility with the latest [deployment frameworks](https://docs.ultralytics.com/guides/model-deployment-options) like TensorRT and OpenVINO.
 - **Memory Requirements:** By utilizing highly optimized PyTorch data loaders and streamlined network structures, Ultralytics YOLO models require significantly less CUDA memory during training compared to multi-branch networks and transformer-heavy models.
-- **Versatility:** Unlike older architectures strictly tied to bounding box detection, Ultralytics models are multi-task powerhouses supporting [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/).
+- **Versatility:** Unlike older architectures strictly tied to bounding box detection, Ultralytics models are multi-task powerhouses supporting [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
 ### Training Efficiency with Ultralytics
 
@@ -143,11 +143,11 @@ While YOLOv7 and EfficientDet laid the groundwork for modern computer vision, th
 
 ### Key YOLO26 Innovations
 
-- **End-to-End NMS-Free Design:** Building on the foundations laid by [YOLOv10](https://docs.ultralytics.com/models/yolov10/), YOLO26 is natively end-to-end. By entirely eliminating Non-Maximum Suppression (NMS) post-processing, it delivers lower, more consistent latency, which is crucial for safety-critical systems like autonomous driving.
+- **End-to-End NMS-Free Design:** Building on the foundations laid by [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 is natively end-to-end. By entirely eliminating Non-Maximum Suppression (NMS) post-processing, it delivers lower, more consistent latency, which is crucial for safety-critical systems like autonomous driving.
 - **Up to 43% Faster CPU Inference:** Thanks to the **removal of Distribution Focal Loss (DFL)**, YOLO26 features a drastically simplified export process and unparalleled speed on edge devices like the Raspberry Pi, making it the undisputed champion of edge computing.
 - **MuSGD Optimizer:** YOLO26 incorporates the revolutionary MuSGD Optimizer—a hybrid of SGD and Muon inspired by LLM training innovations from Moonshot AI. This leads to remarkably stable training dynamics and much faster convergence rates.
-- **ProgLoss + STAL:** The integration of Progressive Loss and Scale-Targeted Alignment Loss heavily improves the model's ability to detect tiny objects, solving a massive pain point for drone imagery and [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system/).
-- **Task-Specific Improvements:** YOLO26 isn't just a detector. It features a Semantic segmentation loss and multi-scale proto for flawless [segmentation](https://docs.ultralytics.com/tasks/segment/), Residual Log-Likelihood Estimation (RLE) for hyper-accurate [pose tracking](https://docs.ultralytics.com/tasks/pose/), and specialized angle loss for resolving [OBB](https://docs.ultralytics.com/tasks/obb/) boundary ambiguities.
+- **ProgLoss + STAL:** The integration of Progressive Loss and Scale-Targeted Alignment Loss heavily improves the model's ability to detect tiny objects, solving a massive pain point for drone imagery and [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system).
+- **Task-Specific Improvements:** YOLO26 isn't just a detector. It features a Semantic segmentation loss and multi-scale proto for flawless [segmentation](https://docs.ultralytics.com/tasks/segment), Residual Log-Likelihood Estimation (RLE) for hyper-accurate [pose tracking](https://docs.ultralytics.com/tasks/pose), and specialized angle loss for resolving [OBB](https://docs.ultralytics.com/tasks/obb) boundary ambiguities.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
@@ -155,6 +155,6 @@ While YOLOv7 and EfficientDet laid the groundwork for modern computer vision, th
 
 While YOLO26 represents the pinnacle of current technology, the Ultralytics ecosystem supports a variety of models tailored for different use cases.
 
-For developers managing legacy systems that still require traditional anchor-free scaling, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains a robust, highly supported option within the Ultralytics platform. Additionally, for scenarios explicitly demanding transformer-based architectures, [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) offers real-time detection utilizing vision transformers, bridging the gap between high-end attention mechanisms and real-time execution speeds.
+For developers managing legacy systems that still require traditional anchor-free scaling, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains a robust, highly supported option within the Ultralytics platform. Additionally, for scenarios explicitly demanding transformer-based architectures, [RT-DETR](https://docs.ultralytics.com/models/rtdetr) offers real-time detection utilizing vision transformers, bridging the gap between high-end attention mechanisms and real-time execution speeds.
 
-In conclusion, while EfficientDet provides academic insights into compound scaling and YOLOv7 offers strong baseline real-time performance, modern enterprises are best served by adopting the [Ultralytics Platform](https://docs.ultralytics.com/platform/). By leveraging YOLO26, teams can ensure maximum performance, minimal training friction, and future-proof their AI deployments.
+In conclusion, while EfficientDet provides academic insights into compound scaling and YOLOv7 offers strong baseline real-time performance, modern enterprises are best served by adopting the [Ultralytics Platform](https://docs.ultralytics.com/platform). By leveraging YOLO26, teams can ensure maximum performance, minimal training friction, and future-proof their AI deployments.

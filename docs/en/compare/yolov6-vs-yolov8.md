@@ -22,7 +22,7 @@ Developed by the Vision AI Department at [Meituan](https://en.wikipedia.org/wiki
 - **Date:** 2023-01-13
 - **Arxiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
 - **GitHub:** [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
-- **Docs:** [Ultralytics YOLOv6 Documentation](https://docs.ultralytics.com/models/yolov6/)
+- **Docs:** [Ultralytics YOLOv6 Documentation](https://docs.ultralytics.com/models/yolov6)
 
 ### Architectural Focus
 
@@ -30,7 +30,7 @@ YOLOv6-3.0 leverages an **EfficientRep** backbone, a hardware-friendly architect
 
 During the training phase, YOLOv6 incorporates an Anchor-Aided Training (AAT) strategy. This hybrid approach attempts to capture the benefits of both anchor-based and anchor-free paradigms while maintaining an anchor-free inference pipeline. While highly effective for dedicated [TensorRT](https://developer.nvidia.com/tensorrt) deployments, this specialization can result in higher latency on CPU-only edge devices.
 
-[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6/){ .md-button }
+[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6){ .md-button }
 
 ## Ultralytics YOLOv8: The Versatile Multi-Task Standard
 
@@ -44,9 +44,9 @@ Released by Ultralytics, YOLOv8 represents a paradigm shift from specialized bou
 
 ### Architectural Highlights
 
-YOLOv8 natively features a decoupled head structure that separates objectness, classification, and regression tasks, significantly improving convergence speed. Its anchor-free design eliminates the need for manual anchor box configuration, ensuring robust generalization across highly diverse [computer vision datasets](https://docs.ultralytics.com/datasets/detect/).
+YOLOv8 natively features a decoupled head structure that separates objectness, classification, and regression tasks, significantly improving convergence speed. Its anchor-free design eliminates the need for manual anchor box configuration, ensuring robust generalization across highly diverse [computer vision datasets](https://docs.ultralytics.com/datasets/detect).
 
-The model integrates the advanced **C2f module** (Cross-Stage Partial bottleneck with two convolutions), replacing older C3 blocks. This enhances gradient flow and feature representation without inflating the computational budget. Crucially, YOLOv8 is not just a detection engine; it natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), [image classification](https://docs.ultralytics.com/tasks/classify/), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) tasks within a single API.
+The model integrates the advanced **C2f module** (Cross-Stage Partial bottleneck with two convolutions), replacing older C3 blocks. This enhances gradient flow and feature representation without inflating the computational budget. Crucially, YOLOv8 is not just a detection engine; it natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), [image classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) tasks within a single API.
 
 [Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
@@ -87,33 +87,33 @@ YOLOv6 is a strong choice for:
 
 YOLOv8 is recommended for:
 
-- **Versatile Multi-Task Deployment:** Projects requiring a proven model for [detection](https://docs.ultralytics.com/tasks/detect/), [segmentation](https://docs.ultralytics.com/tasks/segment/), [classification](https://docs.ultralytics.com/tasks/classify/), and [pose estimation](https://docs.ultralytics.com/tasks/pose/) within the Ultralytics ecosystem.
+- **Versatile Multi-Task Deployment:** Projects requiring a proven model for [detection](https://docs.ultralytics.com/tasks/detect), [segmentation](https://docs.ultralytics.com/tasks/segment), [classification](https://docs.ultralytics.com/tasks/classify), and [pose estimation](https://docs.ultralytics.com/tasks/pose) within the Ultralytics ecosystem.
 - **Established Production Systems:** Existing production environments already built on the YOLOv8 architecture with stable, well-tested deployment pipelines.
 - **Broad Community and Ecosystem Support:** Applications benefiting from YOLOv8's extensive tutorials, third-party integrations, and active community resources.
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultralytics Advantage: Ecosystem and Ease of Use
 
 While raw inference speed is important, the lifecycle of a machine learning project involves data management, training, exporting, and monitoring. The integrated [Ultralytics Platform](https://platform.ultralytics.com/) provides a seamless "zero-to-hero" experience that research-only repositories struggle to match.
 
 - **Well-Maintained Ecosystem:** Ultralytics provides frequent updates, ensuring compatibility with the latest [PyTorch](https://pytorch.org/) releases and hardware drivers.
-- **Ease of Use:** A unified Python API allows developers to train and export models to formats like [ONNX](https://onnx.ai/) and [OpenVINO](https://docs.ultralytics.com/integrations/openvino/) with a single line of code.
-- **Lower Memory Requirements:** Ultralytics models are highly optimized to minimize CUDA memory usage during training, making advanced AI accessible on consumer-grade hardware—a stark contrast to memory-hungry transformer architectures like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/).
+- **Ease of Use:** A unified Python API allows developers to train and export models to formats like [ONNX](https://onnx.ai/) and [OpenVINO](https://docs.ultralytics.com/integrations/openvino) with a single line of code.
+- **Lower Memory Requirements:** Ultralytics models are highly optimized to minimize CUDA memory usage during training, making advanced AI accessible on consumer-grade hardware—a stark contrast to memory-hungry transformer architectures like [RT-DETR](https://docs.ultralytics.com/models/rtdetr).
 
 ## Looking Forward: The Ultimate Upgrade to YOLO26
 
-For developers seeking the pinnacle of performance and modern deployment capabilities, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) (released January 2026) is the recommended standard. It builds upon the successes of YOLOv8 and the previous [YOLO11](https://docs.ultralytics.com/models/yolo11/) generation, introducing revolutionary architectural improvements:
+For developers seeking the pinnacle of performance and modern deployment capabilities, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) (released January 2026) is the recommended standard. It builds upon the successes of YOLOv8 and the previous [YOLO11](https://docs.ultralytics.com/models/yolo11) generation, introducing revolutionary architectural improvements:
 
-- **End-to-End NMS-Free Design:** YOLO26 natively eliminates Non-Maximum Suppression (NMS) post-processing, a concept pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10/). This streamlines deployment logic and reduces latency variance.
+- **End-to-End NMS-Free Design:** YOLO26 natively eliminates Non-Maximum Suppression (NMS) post-processing, a concept pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10). This streamlines deployment logic and reduces latency variance.
 - **MuSGD Optimizer:** Inspired by large language model innovations like Moonshot AI's Kimi K2, the new MuSGD optimizer (a hybrid of SGD and Muon) stabilizes training and accelerates convergence across diverse datasets.
-- **DFL Removal & CPU Speed:** By removing Distribution Focal Loss (DFL), YOLO26 simplifies its export graph. This optimization unlocks **up to 43% faster CPU inference**, making it the absolute best choice for [mobile and IoT edge computing](https://docs.ultralytics.com/guides/model-deployment-options/).
+- **DFL Removal & CPU Speed:** By removing Distribution Focal Loss (DFL), YOLO26 simplifies its export graph. This optimization unlocks **up to 43% faster CPU inference**, making it the absolute best choice for [mobile and IoT edge computing](https://docs.ultralytics.com/guides/model-deployment-options).
 - **ProgLoss + STAL:** Advanced loss functions deliver notable improvements in small-object recognition, which is critical for aerial drone imagery and robotics.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
@@ -148,4 +148,4 @@ print(f"Model exported successfully to: {export_path}")
 
 Choosing the right architecture dictates the long-term maintainability of your pipeline. **YOLOv6-3.0** serves as a specialized tool for industrial pipelines with heavy GPU accelerators. However, **Ultralytics YOLOv8** provides a superior balance of multi-task versatility, lower parameter counts, and an unmatched training ecosystem.
 
-For new implementations, upgrading to **YOLO26** via the [Ultralytics Platform](https://platform.ultralytics.com) ensures you are utilizing the absolute fastest, natively end-to-end, NMS-free architecture available today, future-proofing your [AI deployment strategies](https://docs.ultralytics.com/guides/model-deployment-practices/).
+For new implementations, upgrading to **YOLO26** via the [Ultralytics Platform](https://platform.ultralytics.com) ensures you are utilizing the absolute fastest, natively end-to-end, NMS-free architecture available today, future-proofing your [AI deployment strategies](https://docs.ultralytics.com/guides/model-deployment-practices).

@@ -8,7 +8,7 @@ keywords: YOLOX, RTDETRv2, object detection, YOLOX vs RTDETRv2, performance comp
 
 Choosing the optimal architecture for [computer vision applications](https://www.ultralytics.com/glossary/computer-vision-cv) requires a careful balance of accuracy, inference speed, and deployment feasibility. In this comprehensive technical analysis, we explore the fundamental differences between **YOLOX**, a highly successful anchor-free CNN architecture, and **RTDETRv2**, a state-of-the-art real-time detection transformer.
 
-While both models have made significant contributions to the field of [object detection](https://docs.ultralytics.com/tasks/detect/), developers building production-ready applications often find that modern alternatives like [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) provide superior training efficiency, lower memory requirements, and a more robust deployment ecosystem.
+While both models have made significant contributions to the field of [object detection](https://docs.ultralytics.com/tasks/detect), developers building production-ready applications often find that modern alternatives like [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) provide superior training efficiency, lower memory requirements, and a more robust deployment ecosystem.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -47,13 +47,13 @@ Building upon the foundation of its predecessor, RTDETRv2 leverages the power of
 
 RTDETRv2 fundamentally reimagines the detection pipeline by utilizing a transformer-based architecture that natively bypasses Non-Maximum Suppression (NMS). This is achieved through a hybrid encoder and IoU-aware query selection, which improves the initialization of object queries. The model effectively handles multi-scale features, allowing it to capture intricate details in complex environments, such as [traffic video detection at nighttime](https://www.ultralytics.com/blog/traffic-video-detection-at-nighttime-a-look-at-why-accuracy-is-key).
 
-However, transformers are inherently resource-intensive. Training RTDETRv2 typically demands significantly more GPU memory and compute cycles than CNN-based alternatives, which can be a hurdle for teams operating within strict budget constraints or those requiring frequent [model tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning/).
+However, transformers are inherently resource-intensive. Training RTDETRv2 typically demands significantly more GPU memory and compute cycles than CNN-based alternatives, which can be a hurdle for teams operating within strict budget constraints or those requiring frequent [model tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning).
 
-[Learn more about RTDETR](https://docs.ultralytics.com/models/rtdetr/){ .md-button }
+[Learn more about RTDETR](https://docs.ultralytics.com/models/rtdetr){ .md-button }
 
 ## Performance Comparison Table
 
-To objectively evaluate these architectures, we examine their performance on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/). The table below illustrates the trade-offs between accuracy ([mAP](https://www.ultralytics.com/glossary/mean-average-precision-map)), parameter count, and computational complexity.
+To objectively evaluate these architectures, we examine their performance on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco). The table below illustrates the trade-offs between accuracy ([mAP](https://www.ultralytics.com/glossary/mean-average-precision-map)), parameter count, and computational complexity.
 
 | Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -93,11 +93,11 @@ RT-DETR is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultralytics Advantage: YOLO26
 
@@ -109,7 +109,7 @@ Taking inspiration from transformer models while retaining the efficiency of CNN
 
 ### 2. Up to 43% Faster CPU Inference
 
-Unlike transformer architectures like RTDETRv2 which heavily rely on high-end GPUs, YOLO26 is specifically optimized for [edge computing environments](https://www.ultralytics.com/glossary/edge-computing). Through the removal of Distribution Focal Loss (DFL), YOLO26 streamlines model export and achieves up to 43% faster CPU inference, making it the ideal choice for integration into hardware like the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) or standard mobile devices.
+Unlike transformer architectures like RTDETRv2 which heavily rely on high-end GPUs, YOLO26 is specifically optimized for [edge computing environments](https://www.ultralytics.com/glossary/edge-computing). Through the removal of Distribution Focal Loss (DFL), YOLO26 streamlines model export and achieves up to 43% faster CPU inference, making it the ideal choice for integration into hardware like the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) or standard mobile devices.
 
 ### 3. Training Efficiency with MuSGD
 
@@ -117,7 +117,7 @@ Training transformer models often leads to excessive [CUDA memory consumption](h
 
 ### 4. Unmatched Ecosystem and Versatility
 
-The [Ultralytics ecosystem](https://docs.ultralytics.com/) provides an intuitive, streamlined developer experience. With extensive documentation, active community support, and the cloud-powered [Ultralytics Platform](https://platform.ultralytics.com), managing the complete AI lifecycle has never been easier. Furthermore, YOLO26 is highly versatile. While RTDETRv2 focuses on object detection, YOLO26 seamlessly supports [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), [image classification](https://docs.ultralytics.com/tasks/classify/), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) tasks natively. Enhanced by the new **ProgLoss + STAL** loss functions, YOLO26 also excels at small-object recognition, a critical feature for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and [industrial defect detection](https://www.ultralytics.com/blog/how-vision-ai-enhances-defect-detection-on-production-lines).
+The [Ultralytics ecosystem](https://docs.ultralytics.com/) provides an intuitive, streamlined developer experience. With extensive documentation, active community support, and the cloud-powered [Ultralytics Platform](https://platform.ultralytics.com), managing the complete AI lifecycle has never been easier. Furthermore, YOLO26 is highly versatile. While RTDETRv2 focuses on object detection, YOLO26 seamlessly supports [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), [image classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) tasks natively. Enhanced by the new **ProgLoss + STAL** loss functions, YOLO26 also excels at small-object recognition, a critical feature for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and [industrial defect detection](https://www.ultralytics.com/blog/how-vision-ai-enhances-defect-detection-on-production-lines).
 
 !!! tip "Other Supported Models"
 

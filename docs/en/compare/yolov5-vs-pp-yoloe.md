@@ -27,11 +27,11 @@ Released in mid-2020, [Ultralytics YOLOv5](https://platform.ultralytics.com/ultr
 - Organization: [Ultralytics](https://www.ultralytics.com)
 - Date: 2020-06-26
 - GitHub: [ultralytics/yolov5](https://github.com/ultralytics/yolov5)
-- Docs: [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5/)
+- Docs: [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5)
 
 YOLOv5 utilizes a modified CSPDarknet backbone, which efficiently captures rich feature representations while maintaining a lightweight parameter count. It introduced auto-learning anchor boxes, automatically calculating the optimal anchor dimensions for custom datasets before training even begins. Furthermore, its integration of mosaic data augmentation significantly enhances the model's ability to detect smaller objects and generalize across complex spatial contexts.
 
-One of the greatest strengths of YOLOv5 is its incredible versatility. Unlike standard object detectors, the YOLOv5 family seamlessly supports [image classification](https://docs.ultralytics.com/tasks/classify/), [instance segmentation](https://docs.ultralytics.com/tasks/segment/), and bounding box detection within a unified API. Its highly optimized architecture also translates to substantially lower memory usage during training and inference compared to heavy transformer-based networks.
+One of the greatest strengths of YOLOv5 is its incredible versatility. Unlike standard object detectors, the YOLOv5 family seamlessly supports [image classification](https://docs.ultralytics.com/tasks/classify), [instance segmentation](https://docs.ultralytics.com/tasks/segment), and bounding box detection within a unified API. Its highly optimized architecture also translates to substantially lower memory usage during training and inference compared to heavy transformer-based networks.
 
 [Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
 
@@ -54,7 +54,7 @@ PP-YOLOE+ relies on an anchor-free paradigm and utilizes a CSPRepResNet backbone
 
 ## Performance and Benchmarks
 
-When evaluating these models for production, understanding the trade-offs between precision, inference speed, and parameter footprint is crucial. The table below outlines key [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics/) across different size variants.
+When evaluating these models for production, understanding the trade-offs between precision, inference speed, and parameter footprint is crucial. The table below outlines key [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics) across different size variants.
 
 | Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -74,13 +74,13 @@ While PP-YOLOE+ achieves high accuracy limits, YOLOv5 consistently demonstrates 
 
 !!! tip "Memory Efficiency"
 
-    Ultralytics models are specifically engineered for training efficiency. Compared to heavy vision transformers like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/), YOLOv5 uses significantly less CUDA memory, enabling you to train on larger batch sizes or consumer-grade hardware.
+    Ultralytics models are specifically engineered for training efficiency. Compared to heavy vision transformers like [RT-DETR](https://docs.ultralytics.com/models/rtdetr), YOLOv5 uses significantly less CUDA memory, enabling you to train on larger batch sizes or consumer-grade hardware.
 
 ## The Ultralytics Advantage: Ecosystem and Ease of Use
 
 The true value of a machine learning architecture extends beyond raw numbers; it encompasses the entire developer experience. The [Ultralytics Platform](https://platform.ultralytics.com) and its corresponding open-source tools provide a highly refined, well-maintained ecosystem that drastically accelerates development cycles.
 
-- **Ease of Use:** Ultralytics abstracts away complex boilerplate code. You can train, validate, and test models via an intuitive [Python API](https://docs.ultralytics.com/usage/python/) or CLI.
+- **Ease of Use:** Ultralytics abstracts away complex boilerplate code. You can train, validate, and test models via an intuitive [Python API](https://docs.ultralytics.com/usage/python) or CLI.
 - **Deployment Flexibility:** Exporting models is incredibly straightforward. With a single command, you can convert your trained YOLOv5 weights to formats like [ONNX](https://onnx.ai/), [TensorRT](https://developer.nvidia.com/tensorrt), or OpenVINO, ensuring broad compatibility across edge and cloud environments.
 - **Active Community:** The vibrant community guarantees frequent updates, extensive documentation, and robust solutions to common computer vision challenges.
 
@@ -116,7 +116,7 @@ YOLOv5 is a strong choice for:
 
 - **Proven Production Systems:** Existing deployments where YOLOv5's long track record of stability, extensive documentation, and massive community support are valued.
 - **Resource-Constrained Training:** Environments with limited GPU resources where YOLOv5's efficient training pipeline and lower memory requirements are advantageous.
-- **Extensive Export Format Support:** Projects requiring deployment across many formats including [ONNX](https://docs.ultralytics.com/integrations/onnx/), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), [CoreML](https://docs.ultralytics.com/integrations/coreml/), and [TFLite](https://docs.ultralytics.com/integrations/tflite/).
+- **Extensive Export Format Support:** Projects requiring deployment across many formats including [ONNX](https://docs.ultralytics.com/integrations/onnx), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), [CoreML](https://docs.ultralytics.com/integrations/coreml), and [TFLite](https://docs.ultralytics.com/integrations/tflite).
 
 ### When to Choose PP-YOLOE+
 
@@ -128,11 +128,11 @@ PP-YOLOE+ is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## Alternative State-of-the-Art Models to Consider
 
@@ -142,10 +142,10 @@ While YOLOv5 is a robust and proven standard, the field of computer vision moves
 
 Released in January 2026, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the absolute pinnacle of our research. It delivers massive improvements in both accuracy and speed. Key innovations include:
 
-- **End-to-End NMS-Free Design:** Building on concepts from [YOLOv10](https://docs.ultralytics.com/models/yolov10/), YOLO26 natively eliminates Non-Maximum Suppression (NMS) post-processing, cutting latency and simplifying deployment logic.
+- **End-to-End NMS-Free Design:** Building on concepts from [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 natively eliminates Non-Maximum Suppression (NMS) post-processing, cutting latency and simplifying deployment logic.
 - **DFL Removal:** By stripping out Distribution Focal Loss, YOLO26 achieves up to 43% faster CPU inference, making it incredibly powerful for low-power edge devices.
 - **MuSGD Optimizer:** Inspired by advanced LLM training techniques, this hybrid of SGD and Muon ensures exceptionally stable training runs and faster convergence.
-- **ProgLoss + STAL:** These advanced loss functions deliver notable improvements in small-object recognition, which is critical for [drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) and smart agriculture.
+- **ProgLoss + STAL:** These advanced loss functions deliver notable improvements in small-object recognition, which is critical for [drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and smart agriculture.
 
 Additionally, you might consider [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), which offers excellent performance and serves as a highly reliable bridge between legacy systems and the bleeding-edge capabilities of YOLO26.
 
@@ -154,7 +154,7 @@ Additionally, you might consider [YOLO11](https://platform.ultralytics.com/ultra
 The choice between YOLOv5 and PP-YOLOE+ ultimately depends on your deployment environment and project constraints.
 
 **Ideal YOLOv5 Applications:**
-YOLOv5's minimal resource requirements and incredible ease of use make it the premier choice for [edge AI](https://www.ultralytics.com/glossary/edge-ai). It excels in applications requiring high frame rates on limited hardware, such as real-time [robotics](https://www.ultralytics.com/glossary/robotics), mobile application integration, and multi-camera traffic monitoring systems. Its ability to simultaneously handle [pose estimation](https://docs.ultralytics.com/tasks/pose/) and [oriented bounding box (OBB)](https://docs.ultralytics.com/tasks/obb/) tasks within the same framework makes it highly adaptable.
+YOLOv5's minimal resource requirements and incredible ease of use make it the premier choice for [edge AI](https://www.ultralytics.com/glossary/edge-ai). It excels in applications requiring high frame rates on limited hardware, such as real-time [robotics](https://www.ultralytics.com/glossary/robotics), mobile application integration, and multi-camera traffic monitoring systems. Its ability to simultaneously handle [pose estimation](https://docs.ultralytics.com/tasks/pose) and [oriented bounding box (OBB)](https://docs.ultralytics.com/tasks/obb) tasks within the same framework makes it highly adaptable.
 
 **Ideal PP-YOLOE+ Applications:**
 PP-YOLOE+ is best suited for scenarios where absolute maximum accuracy on static imagery is prioritized over real-time processing constraints. It finds niche usage in industrial inspection pipelines, particularly within Asian manufacturing sectors that have pre-established technical stacks heavily invested in the Baidu and PaddlePaddle ecosystem.

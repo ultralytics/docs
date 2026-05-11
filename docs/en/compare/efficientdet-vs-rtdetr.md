@@ -17,7 +17,7 @@ By understanding the trade-offs between legacy efficiency and modern transformer
 
 ## Understanding EfficientDet
 
-EfficientDet revolutionized [object detection](https://docs.ultralytics.com/tasks/detect/) by introducing a principled approach to model scaling.
+EfficientDet revolutionized [object detection](https://docs.ultralytics.com/tasks/detect) by introducing a principled approach to model scaling.
 
 - **Authors:** Mingxing Tan, Ruoming Pang, and Quoc V. Le
 - **Organization:** [Google](https://ai.google/)
@@ -40,7 +40,7 @@ However, EfficientDet relies on standard non-maximum suppression (NMS) during po
 
 !!! info "Legacy Support"
 
-    While EfficientDet paved the way for scalable networks, deploying these models on modern NPUs often requires extensive manual optimization. For streamlined deployments, newer [Ultralytics models](https://docs.ultralytics.com/models/) offer 1-click export functionality.
+    While EfficientDet paved the way for scalable networks, deploying these models on modern NPUs often requires extensive manual optimization. For streamlined deployments, newer [Ultralytics models](https://docs.ultralytics.com/models) offer 1-click export functionality.
 
 ## Exploring RTDETRv2
 
@@ -55,11 +55,11 @@ RTDETRv2 represents the evolution of transformer-based architectures, shifting t
 
 ### Advancements in Transformers
 
-[RTDETRv2](https://docs.ultralytics.com/models/rtdetr/) builds upon the Real-Time Detection Transformer (RT-DETR) baseline. It leverages global attention mechanisms, enabling the model to understand complex scene contexts without the localized constraints of standard convolutions. The most significant architectural advantage is its natively NMS-free design. By predicting objects directly from the input image, it simplifies the inference pipeline, avoiding the heuristic tuning required by NMS post-processing.
+[RTDETRv2](https://docs.ultralytics.com/models/rtdetr) builds upon the Real-Time Detection Transformer (RT-DETR) baseline. It leverages global attention mechanisms, enabling the model to understand complex scene contexts without the localized constraints of standard convolutions. The most significant architectural advantage is its natively NMS-free design. By predicting objects directly from the input image, it simplifies the inference pipeline, avoiding the heuristic tuning required by NMS post-processing.
 
 ### Strengths and Weaknesses
 
-RTDETRv2 excels in high-density environments where overlapping objects confuse traditional CNNs. It is highly accurate on complex benchmark [datasets like COCO](https://docs.ultralytics.com/datasets/detect/coco/).
+RTDETRv2 excels in high-density environments where overlapping objects confuse traditional CNNs. It is highly accurate on complex benchmark [datasets like COCO](https://docs.ultralytics.com/datasets/detect/coco).
 
 Despite its accuracy, transformer models naturally demand substantial memory. The training efficiency is notably lower; it requires significantly more epochs and higher [CUDA](https://developer.nvidia.com/cuda/toolkit) memory footprints to converge compared to CNNs. This makes RTDETRv2 less ideal for developers operating with constrained cloud budgets or those needing rapid rapid prototyping.
 
@@ -71,7 +71,7 @@ Despite its accuracy, transformer models naturally demand substantial memory. Th
 
 ## Performance Benchmark Comparison
 
-Understanding the raw [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics/) is vital for model selection. The following table showcases the comparison between EfficientDet and RTDETRv2 across various sizes.
+Understanding the raw [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics) is vital for model selection. The following table showcases the comparison between EfficientDet and RTDETRv2 across various sizes.
 
 | Model           | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | --------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -111,11 +111,11 @@ RT-DETR is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultralytics Advantage: Introducing YOLO26
 
@@ -128,9 +128,9 @@ YOLO26 stands out by combining the streamlined ecosystem [Ultralytics](https://w
 - **End-to-End NMS-Free Design:** Taking inspiration from transformers like RTDETRv2, YOLO26 is natively end-to-end. It eliminates NMS post-processing, guaranteeing faster, simpler deployment pipelines without the massive parameter bloat of pure transformers.
 - **MuSGD Optimizer:** Inspired by large language model training innovations (like Moonshot AI's Kimi K2), YOLO26 utilizes a hybrid of SGD and Muon. This brings unprecedented training stability and significantly faster convergence rates compared to the prolonged schedules required by RTDETRv2.
 - **Optimized for Edge:** With up to **43% faster CPU inference**, YOLO26 is built for [edge AI](https://www.ultralytics.com/glossary/edge-ai). It easily outperforms heavy transformer models on constrained hardware like mobile phones and smart cameras.
-- **DFL Removal:** The removal of Distribution Focal Loss simplifies the model graph, facilitating seamless [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) and [ONNX](https://docs.ultralytics.com/integrations/onnx/) exports.
+- **DFL Removal:** The removal of Distribution Focal Loss simplifies the model graph, facilitating seamless [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) and [ONNX](https://docs.ultralytics.com/integrations/onnx) exports.
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, solving a common bottleneck in aerial imagery and robotics.
-- **Versatility:** Unlike RTDETRv2, which primarily focuses on detection, YOLO26 natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), [image classification](https://docs.ultralytics.com/tasks/classify/), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb/) with task-specific improvements like RLE for pose and specialized angle loss for OBB.
+- **Versatility:** Unlike RTDETRv2, which primarily focuses on detection, YOLO26 natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), [image classification](https://docs.ultralytics.com/tasks/classify), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb) with task-specific improvements like RLE for pose and specialized angle loss for OBB.
 
 !!! tip "Integrated Ecosystem"
 
@@ -138,7 +138,7 @@ YOLO26 stands out by combining the streamlined ecosystem [Ultralytics](https://w
 
 ### Code Simplicity with Ultralytics
 
-The well-maintained [Ultralytics Python API](https://docs.ultralytics.com/usage/python/) makes model training and inference trivial. Developers can easily benchmark models or launch training scripts with minimal boilerplate code.
+The well-maintained [Ultralytics Python API](https://docs.ultralytics.com/usage/python) makes model training and inference trivial. Developers can easily benchmark models or launch training scripts with minimal boilerplate code.
 
 ```python
 from ultralytics import YOLO
@@ -153,4 +153,4 @@ results = model.train(data="coco8.yaml", epochs=50, imgsz=640)
 predictions = model.predict("image.jpg")
 ```
 
-For those managing legacy infrastructure, the highly acclaimed [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) remains a stable and powerful choice, showcasing the long-term reliability of the Ultralytics ecosystem. Whether you are running complex [real-time tracking](https://docs.ultralytics.com/modes/track/) algorithms or simple defect detection, upgrading to YOLO26 ensures your system is future-proof, highly accurate, and memory-efficient.
+For those managing legacy infrastructure, the highly acclaimed [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) remains a stable and powerful choice, showcasing the long-term reliability of the Ultralytics ecosystem. Whether you are running complex [real-time tracking](https://docs.ultralytics.com/modes/track) algorithms or simple defect detection, upgrading to YOLO26 ensures your system is future-proof, highly accurate, and memory-efficient.

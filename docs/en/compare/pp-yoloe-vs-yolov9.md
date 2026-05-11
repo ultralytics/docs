@@ -6,9 +6,9 @@ keywords: PP-YOLOE+, YOLOv9, object detection, model comparison, computer vision
 
 # PP-YOLOE+ vs. YOLOv9: A Technical Deep Dive into Modern Object Detection
 
-The landscape of real-time computer vision is constantly shifting, with researchers and developers continuously pushing the boundaries of accuracy and inference speed. When comparing [PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md) and [YOLOv9](https://docs.ultralytics.com/models/yolov9/), we are looking at two distinct philosophies in model architecture and ecosystem design.
+The landscape of real-time computer vision is constantly shifting, with researchers and developers continuously pushing the boundaries of accuracy and inference speed. When comparing [PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md) and [YOLOv9](https://docs.ultralytics.com/models/yolov9), we are looking at two distinct philosophies in model architecture and ecosystem design.
 
-This comprehensive technical comparison analyzes their architectural innovations, performance metrics, training methodologies, and ideal use cases to help you choose the right [object detection](https://docs.ultralytics.com/tasks/detect/) model for your next deployment.
+This comprehensive technical comparison analyzes their architectural innovations, performance metrics, training methodologies, and ideal use cases to help you choose the right [object detection](https://docs.ultralytics.com/tasks/detect) model for your next deployment.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -17,7 +17,7 @@ This comprehensive technical comparison analyzes their architectural innovations
 
 ## Model Lineage and Technical Foundations
 
-Understanding the origins and architectural choices of these models is crucial for determining their fit within your [computer vision projects](https://docs.ultralytics.com/guides/steps-of-a-cv-project/).
+Understanding the origins and architectural choices of these models is crucial for determining their fit within your [computer vision projects](https://docs.ultralytics.com/guides/steps-of-a-cv-project).
 
 ### PP-YOLOE+ Overview
 
@@ -45,15 +45,15 @@ Introduced by Chien-Yao Wang and Hong-Yuan Mark Liao from the Institute of Infor
 
 YOLOv9's major breakthrough is Programmable Gradient Information (PGI), which prevents data loss as features pass through deep neural networks. Combined with the Generalized Efficient Layer Aggregation Network (GELAN), YOLOv9 maximizes parameter efficiency and computational flow. Furthermore, it is natively integrated into the [Ultralytics ecosystem](https://docs.ultralytics.com/), making it highly accessible for both research and commercial applications.
 
-[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9/){ .md-button }
+[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9){ .md-button }
 
 !!! note "Other Ultralytics Models"
 
-    If you are exploring state-of-the-art options, you might also be interested in [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [RT-DETR](https://docs.ultralytics.com/models/rtdetr/), which offer varying balances of transformer-based precision and real-time edge performance.
+    If you are exploring state-of-the-art options, you might also be interested in [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [RT-DETR](https://docs.ultralytics.com/models/rtdetr), which offer varying balances of transformer-based precision and real-time edge performance.
 
 ## Performance and Metrics Comparison
 
-When analyzing raw performance, YOLOv9 demonstrates exceptional parameter efficiency. It achieves comparable or superior accuracy while requiring fewer parameters and FLOPs, translating to lower VRAM requirements during [model training](https://docs.ultralytics.com/modes/train/).
+When analyzing raw performance, YOLOv9 demonstrates exceptional parameter efficiency. It achieves comparable or superior accuracy while requiring fewer parameters and FLOPs, translating to lower VRAM requirements during [model training](https://docs.ultralytics.com/modes/train).
 
 | Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -75,7 +75,7 @@ As seen in the table, YOLOv9c achieves a strong 53.0 mAP with significantly fewe
 
 The defining advantage of YOLOv9 lies in its seamless integration with the well-maintained Ultralytics ecosystem. While PP-YOLOE+ requires navigating complex PaddlePaddle configuration files, YOLOv9 benefits from a streamlined Python API.
 
-The [Ultralytics Python API](https://docs.ultralytics.com/usage/python/) allows developers to load pre-trained weights, manage [data augmentation](https://docs.ultralytics.com/reference/data/augment/), and initiate training with minimal boilerplate code.
+The [Ultralytics Python API](https://docs.ultralytics.com/usage/python) allows developers to load pre-trained weights, manage [data augmentation](https://docs.ultralytics.com/reference/data/augment), and initiate training with minimal boilerplate code.
 
 ```python
 from ultralytics import YOLO
@@ -93,11 +93,11 @@ results = model("https://ultralytics.com/images/bus.jpg")
 model.export(format="onnx")
 ```
 
-Furthermore, the Ultralytics ecosystem provides unmatched versatility. Beyond bounding box detection, the framework natively supports [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) detection. This makes adapting your model to complex real-world pipelines incredibly efficient.
+Furthermore, the Ultralytics ecosystem provides unmatched versatility. Beyond bounding box detection, the framework natively supports [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection. This makes adapting your model to complex real-world pipelines incredibly efficient.
 
 !!! tip "Export Options"
 
-    Models trained using the Ultralytics framework can be exported to multiple formats, including [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) and [OpenVINO](https://docs.ultralytics.com/integrations/openvino/), ensuring highly optimized inference across diverse hardware.
+    Models trained using the Ultralytics framework can be exported to multiple formats, including [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) and [OpenVINO](https://docs.ultralytics.com/integrations/openvino), ensuring highly optimized inference across diverse hardware.
 
 ## Use Cases and Recommendations
 
@@ -121,11 +121,11 @@ YOLOv9 is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## Looking Forward: The YOLO26 Advantage
 
@@ -144,7 +144,7 @@ You can easily train and deploy YOLO26 models through the [Ultralytics Platform]
 
 Choosing between these architectures often comes down to your target deployment environment.
 
-**PP-YOLOE+** is frequently deployed in industrial manufacturing centers, particularly in regions where the [PaddlePaddle integration](https://docs.ultralytics.com/integrations/paddlepaddle/) and Baidu's hardware stack are deeply embedded into enterprise infrastructure. It excels in static image analysis where absolute precision is prioritized over strict real-time constraints.
+**PP-YOLOE+** is frequently deployed in industrial manufacturing centers, particularly in regions where the [PaddlePaddle integration](https://docs.ultralytics.com/integrations/paddlepaddle) and Baidu's hardware stack are deeply embedded into enterprise infrastructure. It excels in static image analysis where absolute precision is prioritized over strict real-time constraints.
 
 **YOLOv9** excels in dynamic environments requiring rapid [real-time inference](https://www.ultralytics.com/blog/real-time-inferences-in-vision-ai-solutions-are-making-an-impact). Its superior parameter efficiency makes it ideal for autonomous drone navigation and edge-based security systems. Furthermore, its lower VRAM consumption lowers the barrier to entry for researchers training on consumer-grade GPUs.
 

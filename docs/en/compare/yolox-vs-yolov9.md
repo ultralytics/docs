@@ -32,7 +32,7 @@ YOLOX introduced several key changes to the standard detection pipeline. It impl
 
 ### Strengths and Limitations
 
-The primary strength of YOLOX lies in its simplified design. The anchor-free mechanism means developers spend less time running clustering algorithms to find optimal anchor sizes for their specific data. However, as an older architecture natively built without recent advancements in self-attention or gradient pathing, it struggles to match the parameter efficiency of newer networks. It also lacks native support for advanced tasks like [instance segmentation](https://docs.ultralytics.com/tasks/segment/) and [pose estimation](https://docs.ultralytics.com/tasks/pose/) within a unified API.
+The primary strength of YOLOX lies in its simplified design. The anchor-free mechanism means developers spend less time running clustering algorithms to find optimal anchor sizes for their specific data. However, as an older architecture natively built without recent advancements in self-attention or gradient pathing, it struggles to match the parameter efficiency of newer networks. It also lacks native support for advanced tasks like [instance segmentation](https://docs.ultralytics.com/tasks/segment) and [pose estimation](https://docs.ultralytics.com/tasks/pose) within a unified API.
 
 [Learn more about YOLOX](https://github.com/Megvii-BaseDetection/YOLOX){ .md-button }
 
@@ -45,7 +45,7 @@ Fast forward to 2024, YOLOv9 introduced a highly theoretical approach to solving
 - **Release Date:** February 21, 2024
 - **Reference:** [Arxiv Paper](https://arxiv.org/abs/2402.13616)
 - **Source Code:** [YOLOv9 GitHub Repository](https://github.com/WongKinYiu/yolov9)
-- **Documentation:** [Ultralytics YOLOv9 Docs](https://docs.ultralytics.com/models/yolov9/)
+- **Documentation:** [Ultralytics YOLOv9 Docs](https://docs.ultralytics.com/models/yolov9)
 
 ### Architectural Innovations
 
@@ -53,9 +53,9 @@ YOLOv9's defining feature is Programmable Gradient Information (PGI), which ensu
 
 ### Strengths and Limitations
 
-YOLOv9 excels in pushing the theoretical limits of [model accuracy](https://docs.ultralytics.com/guides/yolo-performance-metrics/). It yields fantastic mAP scores on COCO, making it a favorite for researchers. However, despite its efficiency, YOLOv9 still relies on traditional Non-Maximum Suppression (NMS) for post-processing, which introduces latency spikes during inference. For engineers focused on deploying AI to [edge devices](https://docs.ultralytics.com/guides/model-deployment-options/), managing NMS logic adds unnecessary complexity to the deployment pipeline.
+YOLOv9 excels in pushing the theoretical limits of [model accuracy](https://docs.ultralytics.com/guides/yolo-performance-metrics). It yields fantastic mAP scores on COCO, making it a favorite for researchers. However, despite its efficiency, YOLOv9 still relies on traditional Non-Maximum Suppression (NMS) for post-processing, which introduces latency spikes during inference. For engineers focused on deploying AI to [edge devices](https://docs.ultralytics.com/guides/model-deployment-options), managing NMS logic adds unnecessary complexity to the deployment pipeline.
 
-[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9/){ .md-button }
+[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9){ .md-button }
 
 !!! tip "Post-Processing Bottlenecks"
 
@@ -90,11 +90,11 @@ While evaluating historical models like YOLOX and YOLOv9 provides valuable conte
 
 YOLO26 completely solves the post-processing bottlenecks of its predecessors with a **native end-to-end NMS-free design**, ensuring simpler deployment across all hardware. Furthermore, by removing Distribution Focal Loss (DFL) and integrating the novel **MuSGD Optimizer**—a hybrid of Stochastic Gradient Descent and Muon—YOLO26 achieves unprecedented training stability.
 
-For developers deploying to constrained environments like the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/), YOLO26 delivers up to **43% faster CPU inference**. It also introduces **ProgLoss + STAL** loss functions, resulting in dramatic improvements in small-object recognition, which is critical for [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) and drone analytics.
+For developers deploying to constrained environments like the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi), YOLO26 delivers up to **43% faster CPU inference**. It also introduces **ProgLoss + STAL** loss functions, resulting in dramatic improvements in small-object recognition, which is critical for [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and drone analytics.
 
 ### Streamlined Development Ecosystem
 
-Unlike standalone research repositories, the Ultralytics ecosystem provides an unparalleled developer experience. Utilizing the [Ultralytics Python API](https://docs.ultralytics.com/usage/python/), engineers can drastically reduce boilerplate code. Furthermore, memory requirements are kept highly optimized, meaning you can train robust models using less GPU VRAM compared to heavily attention-based architectures.
+Unlike standalone research repositories, the Ultralytics ecosystem provides an unparalleled developer experience. Utilizing the [Ultralytics Python API](https://docs.ultralytics.com/usage/python), engineers can drastically reduce boilerplate code. Furthermore, memory requirements are kept highly optimized, meaning you can train robust models using less GPU VRAM compared to heavily attention-based architectures.
 
 ```python
 from ultralytics import YOLO
@@ -109,7 +109,7 @@ results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 model.export(format="engine", half=True)  # Exports to TensorRT
 ```
 
-Beyond detection, YOLO26 seamlessly supports a multitude of tasks within the exact same framework. Whether you need precise [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/) for satellite imaging or fine-grained pixel masks for [medical imaging applications](https://docs.ultralytics.com/datasets/detect/brain-tumor/), the workflow remains identical. For teams invested in previous generation workflows, [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) is also available and fully supported.
+Beyond detection, YOLO26 seamlessly supports a multitude of tasks within the exact same framework. Whether you need precise [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb) for satellite imaging or fine-grained pixel masks for [medical imaging applications](https://docs.ultralytics.com/datasets/detect/brain-tumor), the workflow remains identical. For teams invested in previous generation workflows, [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) is also available and fully supported.
 
 ## Ideal Use Cases and Deployment Strategies
 
@@ -117,7 +117,7 @@ Choosing the right architecture depends entirely on your target deployment envir
 
 ### Edge Computing and Robotics
 
-For low-power devices, relying on models that require heavy post-processing can cripple performance. While YOLOX-Nano is incredibly small, its accuracy is often insufficient for safety-critical tasks. YOLO26 is the definitive choice here; its lack of DFL and NMS allows it to run smoothly on raw CPU threads, making it perfect for autonomous robotics or [smart parking management](https://docs.ultralytics.com/guides/parking-management/).
+For low-power devices, relying on models that require heavy post-processing can cripple performance. While YOLOX-Nano is incredibly small, its accuracy is often insufficient for safety-critical tasks. YOLO26 is the definitive choice here; its lack of DFL and NMS allows it to run smoothly on raw CPU threads, making it perfect for autonomous robotics or [smart parking management](https://docs.ultralytics.com/guides/parking-management).
 
 ### Academic Benchmarking
 
@@ -125,6 +125,6 @@ If the sole goal is analyzing gradient flow and studying deep network bottleneck
 
 ### Enterprise Video Analytics
 
-For large-scale video processing tasks like [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system/) or traffic monitoring, speed and versatile export capabilities are paramount. The native export tools provided by the Ultralytics framework allow teams to compile YOLO26 directly to [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) or [OpenVINO](https://docs.ultralytics.com/integrations/openvino/) in a single command, drastically reducing time-to-market.
+For large-scale video processing tasks like [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system) or traffic monitoring, speed and versatile export capabilities are paramount. The native export tools provided by the Ultralytics framework allow teams to compile YOLO26 directly to [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) or [OpenVINO](https://docs.ultralytics.com/integrations/openvino) in a single command, drastically reducing time-to-market.
 
 By leveraging the comprehensive features of the Ultralytics ecosystem, machine learning teams can bypass the complexities of raw research codebases and focus directly on building scalable, real-world AI applications.

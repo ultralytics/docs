@@ -6,7 +6,7 @@ keywords: YOLOv6-3.0, PP-YOLOE+, object detection, model comparison, computer vi
 
 # YOLOv6-3.0 vs PP-YOLOE+: Evaluating Industrial Object Detectors
 
-When selecting a framework for real-time [object detection](https://docs.ultralytics.com/tasks/detect/), machine learning engineers frequently evaluate a variety of high-performance architectures. Two notable models in the landscape of industrial applications are **YOLOv6-3.0** and **PP-YOLOE+**. Both models have pushed the boundaries of accuracy and speed, yet they are tailored for slightly different ecosystems and deployment hardware.
+When selecting a framework for real-time [object detection](https://docs.ultralytics.com/tasks/detect), machine learning engineers frequently evaluate a variety of high-performance architectures. Two notable models in the landscape of industrial applications are **YOLOv6-3.0** and **PP-YOLOE+**. Both models have pushed the boundaries of accuracy and speed, yet they are tailored for slightly different ecosystems and deployment hardware.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -29,7 +29,7 @@ Developed by the Vision AI Department at **Meituan**, YOLOv6-3.0 is heavily opti
 
 YOLOv6-3.0 utilizes an **EfficientRep** backbone, specifically designed to maximize utilization of hardware accelerators like NVIDIA GPUs. The architecture introduces a **Bi-directional Concatenation (BiC)** module within the neck, significantly improving the fusion of multi-scale features. Furthermore, it incorporates an **Anchor-Aided Training (AAT)** strategy. This hybrid approach enjoys the robust convergence characteristics of [anchor-based networks](https://www.ultralytics.com/glossary/anchor-boxes) during the training phase, while discarding the anchors during inference to maintain the high speed typical of anchor-free paradigms.
 
-[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6/){ .md-button }
+[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6){ .md-button }
 
 ## PP-YOLOE+: PaddlePaddle's Detection Champion
 
@@ -43,7 +43,7 @@ YOLOv6-3.0 utilizes an **EfficientRep** backbone, specifically designed to maxim
 
 ### Architectural Innovations
 
-PP-YOLOE+ is an **anchor-free** detector that introduces a dynamic label assignment strategy known as TAL (Task Alignment Learning). It utilizes a CSPRepResNet backbone, which efficiently captures semantic features while maintaining computational efficiency. The model is highly optimized for deployment via TensorRT and OpenVINO, making it a strong contender for edge and server deployments, provided the user is comfortable navigating the [PaddlePaddle API](https://docs.ultralytics.com/integrations/paddlepaddle/).
+PP-YOLOE+ is an **anchor-free** detector that introduces a dynamic label assignment strategy known as TAL (Task Alignment Learning). It utilizes a CSPRepResNet backbone, which efficiently captures semantic features while maintaining computational efficiency. The model is highly optimized for deployment via TensorRT and OpenVINO, making it a strong contender for edge and server deployments, provided the user is comfortable navigating the [PaddlePaddle API](https://docs.ultralytics.com/integrations/paddlepaddle).
 
 [Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md){ .md-button }
 
@@ -53,7 +53,7 @@ PP-YOLOE+ is an **anchor-free** detector that introduces a dynamic label assignm
 
 ## Performance Comparison
 
-Evaluating these models requires looking at their balance of [mean average precision (mAP)](https://docs.ultralytics.com/guides/yolo-performance-metrics/) and inference speed. The table below highlights their performance on the COCO validation dataset.
+Evaluating these models requires looking at their balance of [mean average precision (mAP)](https://docs.ultralytics.com/guides/yolo-performance-metrics) and inference speed. The table below highlights their performance on the COCO validation dataset.
 
 | Model       | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ----------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -72,15 +72,15 @@ While both models show strong performance, YOLOv6-3.0 generally maintains a slig
 
 ## The Ultralytics Advantage: Introducing YOLO26
 
-While YOLOv6-3.0 and PP-YOLOE+ are highly capable, the rapid evolution of [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) demands architectures that offer not just raw speed, but also exceptional ease of use, lower memory requirements, and a unified ecosystem. This is where **Ultralytics YOLO** models, particularly [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and the cutting-edge **[YOLO26](https://docs.ultralytics.com/models/yolo26/)**, redefine the state-of-the-art.
+While YOLOv6-3.0 and PP-YOLOE+ are highly capable, the rapid evolution of [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) demands architectures that offer not just raw speed, but also exceptional ease of use, lower memory requirements, and a unified ecosystem. This is where **Ultralytics YOLO** models, particularly [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and the cutting-edge **[YOLO26](https://docs.ultralytics.com/models/yolo26)**, redefine the state-of-the-art.
 
 Released in January 2026, **YOLO26** establishes a new benchmark for edge-first and cloud-ready vision AI, offering significant advantages over legacy models:
 
-- **End-to-End NMS-Free Design:** Building on the foundations laid by [YOLOv10](https://docs.ultralytics.com/models/yolov10/), YOLO26 natively eliminates Non-Maximum Suppression (NMS) during post-processing. This significantly simplifies deployment logic and reduces latency variability in crowded scenes.
+- **End-to-End NMS-Free Design:** Building on the foundations laid by [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 natively eliminates Non-Maximum Suppression (NMS) during post-processing. This significantly simplifies deployment logic and reduces latency variability in crowded scenes.
 - **Up to 43% Faster CPU Inference:** By strategically removing Distribution Focal Loss (DFL), YOLO26 drastically accelerates CPU performance, making it vastly superior to YOLOv6 or PP-YOLOE+ for IoT devices and mobile applications.
 - **MuSGD Optimizer:** Inspired by advanced LLM training techniques (like Moonshot AI's Kimi K2), the hybrid **MuSGD** optimizer delivers incredibly stable and efficient training, converging faster than traditional SGD or AdamW.
-- **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, a critical factor for [drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) and aerial surveillance.
-- **Versatility Across Tasks:** Unlike YOLOv6-3.0 which is heavily focused on detection, YOLO26 supports [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), [classification](https://docs.ultralytics.com/tasks/classify/), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) detection out-of-the-box.
+- **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, a critical factor for [drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and aerial surveillance.
+- **Versatility Across Tasks:** Unlike YOLOv6-3.0 which is heavily focused on detection, YOLO26 supports [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), [classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection out-of-the-box.
 
 ### Streamlined Training Ecosystem
 
@@ -104,7 +104,7 @@ metrics = model.val()
 path = model.export(format="engine")
 ```
 
-This simple API, combined with lower memory usage during training compared to transformer-heavy models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/), democratizes high-performance AI.
+This simple API, combined with lower memory usage during training compared to transformer-heavy models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr), democratizes high-performance AI.
 
 ## Ideal Use Cases and Deployment Strategies
 
@@ -113,7 +113,7 @@ Choosing the right model dictates the success of your deployment pipeline.
 ### When to use YOLOv6-3.0
 
 - **High-Speed Manufacturing:** Environments where industrial cameras feed directly into dedicated NVIDIA T4 or A100 GPUs, requiring consistent inference under 5ms.
-- **Server-Side Video Analytics:** Processing multiple dense video streams where pure [GPU throughput](https://docs.ultralytics.com/guides/optimizing-openvino-latency-vs-throughput-modes/) is the primary bottleneck.
+- **Server-Side Video Analytics:** Processing multiple dense video streams where pure [GPU throughput](https://docs.ultralytics.com/guides/optimizing-openvino-latency-vs-throughput-modes) is the primary bottleneck.
 
 ### When to use PP-YOLOE+
 
@@ -123,7 +123,7 @@ Choosing the right model dictates the success of your deployment pipeline.
 ### When to Choose Ultralytics YOLO26
 
 - **Edge and IoT Devices:** With its NMS-free design and DFL removal, YOLO26 is the undisputed choice for deployments on Raspberry Pi, NXP, or mobile CPUs.
-- **Multi-Task Applications:** Projects requiring simultaneous [object tracking](https://docs.ultralytics.com/modes/track/), pose estimation, or segmentation using a unified API.
-- **Rapid Prototyping to Production:** Teams leveraging the [Ultralytics Platform](https://platform.ultralytics.com/) for streamlined [dataset annotation](https://docs.ultralytics.com/platform/data/annotation/), hyperparameter tuning, and one-click [model deployment](https://docs.ultralytics.com/guides/model-deployment-options/).
+- **Multi-Task Applications:** Projects requiring simultaneous [object tracking](https://docs.ultralytics.com/modes/track), pose estimation, or segmentation using a unified API.
+- **Rapid Prototyping to Production:** Teams leveraging the [Ultralytics Platform](https://platform.ultralytics.com/) for streamlined [dataset annotation](https://docs.ultralytics.com/platform/data/annotation), hyperparameter tuning, and one-click [model deployment](https://docs.ultralytics.com/guides/model-deployment-options).
 
-For developers looking to explore the broader landscape of detection models, frameworks like [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) and [DAMO-YOLO](https://docs.ultralytics.com/compare/damo-yolo-vs-yolov6/) also offer unique architectural approaches worth reviewing in the Ultralytics documentation.
+For developers looking to explore the broader landscape of detection models, frameworks like [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) and [DAMO-YOLO](https://docs.ultralytics.com/compare/damo-yolo-vs-yolov6) also offer unique architectural approaches worth reviewing in the Ultralytics documentation.

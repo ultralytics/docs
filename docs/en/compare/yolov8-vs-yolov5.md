@@ -6,7 +6,7 @@ keywords: YOLOv8, YOLOv5, object detection, YOLO comparison, computer vision, mo
 
 # YOLOv8 vs. YOLOv5: A Comprehensive Technical Comparison
 
-Choosing the right computer vision architecture is a critical step in building robust machine learning pipelines. In this detailed technical comparison, we explore the differences between two of the most popular models in the vision AI ecosystem: **YOLOv8** and **YOLOv5**. Both models were developed by Ultralytics and have significantly shaped the landscape of real-time [object detection](https://docs.ultralytics.com/tasks/detect/), setting industry standards for speed, accuracy, and ease of use.
+Choosing the right computer vision architecture is a critical step in building robust machine learning pipelines. In this detailed technical comparison, we explore the differences between two of the most popular models in the vision AI ecosystem: **YOLOv8** and **YOLOv5**. Both models were developed by Ultralytics and have significantly shaped the landscape of real-time [object detection](https://docs.ultralytics.com/tasks/detect), setting industry standards for speed, accuracy, and ease of use.
 
 Whether you are deploying to edge devices or scaling cloud inference, understanding the architectural shifts, performance metrics, and training methodologies of these models will help you make an informed decision for your [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) projects.
 
@@ -17,13 +17,13 @@ Whether you are deploying to edge devices or scaling cloud inference, understand
 
 ## Ultralytics YOLOv8: The Versatile Standard
 
-Released in early 2023, YOLOv8 represented a major architectural shift from its predecessors. It was designed from the ground up to serve as a unified framework capable of handling multiple vision tasks natively, including [instance segmentation](https://docs.ultralytics.com/tasks/segment/), image classification, and [pose estimation](https://docs.ultralytics.com/tasks/pose/).
+Released in early 2023, YOLOv8 represented a major architectural shift from its predecessors. It was designed from the ground up to serve as a unified framework capable of handling multiple vision tasks natively, including [instance segmentation](https://docs.ultralytics.com/tasks/segment), image classification, and [pose estimation](https://docs.ultralytics.com/tasks/pose).
 
 - **Authors:** Glenn Jocher, Ayush Chaurasia, and Jing Qiu
 - **Organization:** [Ultralytics](https://www.ultralytics.com/)
 - **Date:** 2023-01-10
 - **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- **Docs:** [YOLOv8 Documentation](https://docs.ultralytics.com/models/yolov8/)
+- **Docs:** [YOLOv8 Documentation](https://docs.ultralytics.com/models/yolov8)
 
 ### Architecture and Methodologies
 
@@ -33,7 +33,7 @@ The architecture features a **C2f module** (Cross-Stage Partial bottleneck with 
 
 !!! tip "Memory Efficiency"
 
-    Ultralytics YOLO models, including YOLOv8, are optimized for lower CUDA memory usage during training compared to many Transformer-based alternatives like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/). This allows developers to use larger batch sizes on standard consumer GPUs like the NVIDIA RTX series.
+    Ultralytics YOLO models, including YOLOv8, are optimized for lower CUDA memory usage during training compared to many Transformer-based alternatives like [RT-DETR](https://docs.ultralytics.com/models/rtdetr). This allows developers to use larger batch sizes on standard consumer GPUs like the NVIDIA RTX series.
 
 ### Strengths and Weaknesses
 
@@ -57,7 +57,7 @@ Introduced in 2020, YOLOv5 brought YOLO to the [PyTorch](https://pytorch.org/) e
 - **Organization:** [Ultralytics](https://www.ultralytics.com/)
 - **Date:** 2020-06-26
 - **GitHub:** [ultralytics/yolov5](https://github.com/ultralytics/yolov5)
-- **Docs:** [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5/)
+- **Docs:** [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5)
 
 ### Architecture and Methodologies
 
@@ -82,7 +82,7 @@ YOLOv5 incorporates the **C3 module**, which efficiently extracts features while
 
 ## Performance Comparison
 
-When evaluating these models, achieving a favorable trade-off between speed and accuracy is paramount. The table below outlines the performance metrics of both architectures evaluated on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/). CPU speeds were measured using [ONNX](https://onnx.ai/), while GPU speeds were tested using [TensorRT](https://developer.nvidia.com/tensorrt).
+When evaluating these models, achieving a favorable trade-off between speed and accuracy is paramount. The table below outlines the performance metrics of both architectures evaluated on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco). CPU speeds were measured using [ONNX](https://onnx.ai/), while GPU speeds were tested using [TensorRT](https://developer.nvidia.com/tensorrt).
 
 | Model   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -104,7 +104,7 @@ While YOLOv5 retains a slight edge in parameter count and absolute raw speed for
 
 A defining characteristic of modern Ultralytics models is the well-maintained ecosystem surrounding them. The transition from YOLOv5 to YOLOv8 brought the introduction of the unified `ultralytics` pip package, creating a highly streamlined user experience.
 
-Developers can seamlessly handle [model training](https://docs.ultralytics.com/modes/train/), validation, prediction, and export with just a few lines of Python code, bypassing the complex boilerplate scripts historically required in deep learning projects.
+Developers can seamlessly handle [model training](https://docs.ultralytics.com/modes/train), validation, prediction, and export with just a few lines of Python code, bypassing the complex boilerplate scripts historically required in deep learning projects.
 
 ```python
 from ultralytics import YOLO
@@ -124,10 +124,10 @@ Furthermore, integration with tools like [Ultralytics Platform](https://platform
 ## Ideal Use Cases
 
 **When to choose YOLOv5:**
-If you are maintaining legacy systems, running inference on severely constrained CPUs like a [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/), or working on a project where saving every fraction of a megabyte in model size is critical, YOLOv5 remains a reliable workhorse.
+If you are maintaining legacy systems, running inference on severely constrained CPUs like a [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi), or working on a project where saving every fraction of a megabyte in model size is critical, YOLOv5 remains a reliable workhorse.
 
 **When to choose YOLOv8:**
-For virtually all new projects starting today, YOLOv8 is highly recommended over YOLOv5. Its advanced architecture handles complex tracking, [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb/), and segmentation effortlessly. It is ideal for modern applications spanning from autonomous robotics to medical image analysis and smart city infrastructure.
+For virtually all new projects starting today, YOLOv8 is highly recommended over YOLOv5. Its advanced architecture handles complex tracking, [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb), and segmentation effortlessly. It is ideal for modern applications spanning from autonomous robotics to medical image analysis and smart city infrastructure.
 
 !!! info "Looking for the Latest State-of-the-Art?"
 
@@ -139,4 +139,4 @@ For virtually all new projects starting today, YOLOv8 is highly recommended over
     *   **DFL Removal:** Distribution Focal Loss has been removed for simplified export and enhanced edge device compatibility.
     *   **ProgLoss + STAL:** Advanced loss functions that drive notable improvements in small-object recognition, which is critical for aerial imagery and IoT.
 
-By leveraging the comprehensive documentation and tools provided by Ultralytics, you can easily deploy YOLOv8, or explore the cutting-edge YOLO26, to solve complex visual challenges with unprecedented speed and accuracy. For further learning, consider exploring our guides on [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning/) and [model deployment practices](https://docs.ultralytics.com/guides/model-deployment-practices/).
+By leveraging the comprehensive documentation and tools provided by Ultralytics, you can easily deploy YOLOv8, or explore the cutting-edge YOLO26, to solve complex visual challenges with unprecedented speed and accuracy. For further learning, consider exploring our guides on [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning) and [model deployment practices](https://docs.ultralytics.com/guides/model-deployment-practices).

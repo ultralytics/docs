@@ -26,9 +26,9 @@ Developed by the researchers who maintained the CSPNet and Scaled-YOLOv4 archite
 - **Date:** 2022-07-06
 - **Arxiv:** [https://arxiv.org/abs/2207.02696](https://arxiv.org/abs/2207.02696)
 - **GitHub:** [https://github.com/WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
-- **Docs:** [Ultralytics YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7/)
+- **Docs:** [Ultralytics YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7)
 
-[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7/){ .md-button }
+[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 
 ### YOLOX Details
 
@@ -86,8 +86,8 @@ A crucial factor for researchers and developers is the ease of implementation. H
 Today, the most effective way to utilize these architectures is through the well-maintained Ultralytics ecosystem. Ultralytics provides a unified, highly intuitive Python API that drastically simplifies training, validation, and deployment.
 
 - **Ease of Use:** With just a few lines of code, you can initiate a training loop, mitigating the steep learning curve associated with raw PyTorch implementations.
-- **Training Efficiency:** Ultralytics YOLO models inherently utilize lower memory during training compared to heavy transformer models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/). This allows developers to maximize batch sizes on consumer hardware.
-- **Versatility:** Beyond simple bounding boxes, the ecosystem effortlessly extends to tasks like [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/) and [Pose Estimation](https://docs.ultralytics.com/tasks/pose/).
+- **Training Efficiency:** Ultralytics YOLO models inherently utilize lower memory during training compared to heavy transformer models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr). This allows developers to maximize batch sizes on consumer hardware.
+- **Versatility:** Beyond simple bounding boxes, the ecosystem effortlessly extends to tasks like [Instance Segmentation](https://docs.ultralytics.com/tasks/segment) and [Pose Estimation](https://docs.ultralytics.com/tasks/pose).
 
 Here is a 100% runnable example demonstrating how to train a model utilizing the Ultralytics API:
 
@@ -110,13 +110,13 @@ results = model.train(
 model.export(format="onnx")
 ```
 
-By standardizing the [export pipeline](https://docs.ultralytics.com/modes/export/), developers can effortlessly transition their weights to formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) or [ONNX](https://docs.ultralytics.com/integrations/onnx/), ensuring high-speed inference on target hardware.
+By standardizing the [export pipeline](https://docs.ultralytics.com/modes/export), developers can effortlessly transition their weights to formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) or [ONNX](https://docs.ultralytics.com/integrations/onnx), ensuring high-speed inference on target hardware.
 
 ## Ideal Use Cases and Real-World Applications
 
 Choosing between YOLOX and YOLOv7 largely depends on deployment targets:
 
-- **YOLOX for Edge AI:** The YOLOX-Nano and YOLOX-Tiny variants are highly suitable for deployment on low-power devices. If you are building a smart security camera on a [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/), the simple anchor-free convolutions of YOLOX translate easily to edge accelerators.
+- **YOLOX for Edge AI:** The YOLOX-Nano and YOLOX-Tiny variants are highly suitable for deployment on low-power devices. If you are building a smart security camera on a [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi), the simple anchor-free convolutions of YOLOX translate easily to edge accelerators.
 - **YOLOv7 for High-Fidelity Analytics:** If you are processing high-resolution satellite imagery or executing complex [manufacturing quality control](https://www.ultralytics.com/blog/improving-manufacturing-with-computer-vision), the high mAP of YOLOv7x, powered by high-end NVIDIA GPUs, ensures that even the smallest anomalies are detected.
 
 ## The Future: Upgrading to Ultralytics YOLO26
@@ -125,13 +125,13 @@ While YOLOv7 and YOLOX were groundbreaking at their inception, the computer visi
 
 Here is why upgrading is highly recommended:
 
-- **End-to-End NMS-Free Design:** YOLO26 natively eliminates Non-Maximum Suppression (NMS) during post-processing. Pioneered initially in [YOLOv10](https://docs.ultralytics.com/models/yolov10/), this ensures consistently low latency, simplifying deployment on devices lacking NMS hardware support.
+- **End-to-End NMS-Free Design:** YOLO26 natively eliminates Non-Maximum Suppression (NMS) during post-processing. Pioneered initially in [YOLOv10](https://docs.ultralytics.com/models/yolov10), this ensures consistently low latency, simplifying deployment on devices lacking NMS hardware support.
 - **DFL Removal:** By removing Distribution Focal Loss, YOLO26 achieves vastly better compatibility with low-power edge devices and straightforward ONNX exports.
 - **MuSGD Optimizer:** Inspired by LLM training innovations, YOLO26 leverages a hybrid MuSGD optimizer, ensuring faster convergence and incredibly stable training dynamics.
 - **Up to 43% Faster CPU Inference:** Optimized heavily for real-world hardware, YOLO26 thrives on standard CPUs without requiring expensive GPU infrastructure.
-- **ProgLoss + STAL:** These advanced loss functions drastically improve small-object recognition, a critical feature for [aerial drone inspections](https://docs.ultralytics.com/datasets/detect/visdrone/) and sophisticated IoT networks.
+- **ProgLoss + STAL:** These advanced loss functions drastically improve small-object recognition, a critical feature for [aerial drone inspections](https://docs.ultralytics.com/datasets/detect/visdrone) and sophisticated IoT networks.
 
-For developers seeking the best performance balance across [object detection](https://docs.ultralytics.com/tasks/detect/), segmentation, and beyond, deploying models via the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26) provides an unparalleled, zero-friction experience.
+For developers seeking the best performance balance across [object detection](https://docs.ultralytics.com/tasks/detect), segmentation, and beyond, deploying models via the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26) provides an unparalleled, zero-friction experience.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 

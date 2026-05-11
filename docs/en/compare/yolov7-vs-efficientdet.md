@@ -23,9 +23,9 @@ Organization: [Institute of Information Science, Academia Sinica, Taiwan](https:
 Date: 2022-07-06  
 Arxiv: [YOLOv7: Trainable bag-of-freebies sets new state-of-the-art for real-time object detectors](https://arxiv.org/abs/2207.02696)  
 GitHub: [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)  
-Docs: [Ultralytics YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7/)
+Docs: [Ultralytics YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7)
 
-[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7/){ .md-button }
+[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 
 **EfficientDet**  
 Authors: Mingxing Tan, Ruoming Pang, and Quoc V. Le  
@@ -38,7 +38,7 @@ GitHub: [Google AutoML EfficientDet](https://github.com/google/automl/tree/maste
 
 ## Architectural Differences and Balanced Analysis
 
-Understanding the fundamental structural differences between these networks is crucial for effective [model deployment](https://docs.ultralytics.com/guides/model-deployment-options/).
+Understanding the fundamental structural differences between these networks is crucial for effective [model deployment](https://docs.ultralytics.com/guides/model-deployment-options).
 
 ### EfficientDet: Compound Scaling and BiFPN
 
@@ -62,7 +62,7 @@ YOLOv7 prioritized [real-time inference](https://www.ultralytics.com/glossary/re
 
 ## Performance Metrics and Benchmarks
 
-The table below contrasts key [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics/) enabling developers to assess the trade-offs between speed, parameter count, and accuracy.
+The table below contrasts key [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics) enabling developers to assess the trade-offs between speed, parameter count, and accuracy.
 
 | Model           | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | --------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -78,24 +78,24 @@ The table below contrasts key [performance metrics](https://docs.ultralytics.com
 | EfficientDet-d6 | 640                         | 52.6                       | 92.8                                 | 89.29                                     | 51.9                     | 226.0                   |
 | EfficientDet-d7 | 640                         | **53.7**                   | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
 
-As shown, while EfficientDet-d7 achieves a high mAP, its [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) speed severely lags behind YOLOv7 variants, highlighting the latter's dominance in GPU-accelerated [real-time object detection](https://www.ultralytics.com/glossary/real-time-inference).
+As shown, while EfficientDet-d7 achieves a high mAP, its [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) speed severely lags behind YOLOv7 variants, highlighting the latter's dominance in GPU-accelerated [real-time object detection](https://www.ultralytics.com/glossary/real-time-inference).
 
 ## The Evolution of Object Detection: YOLO26
 
 While YOLOv7 and EfficientDet laid vital groundwork, the landscape of [vision AI](https://www.ultralytics.com/blog/a-quick-overview-of-vision-ai-and-how-it-works) evolves rapidly. For modern applications requiring the absolute pinnacle of efficiency and accuracy, we highly recommend upgrading to **YOLO26**, released in January 2026.
 
-YOLO26 addresses the inherent limitations of previous generations, offering unprecedented [versatility](https://docs.ultralytics.com/tasks/) across [object detection](https://docs.ultralytics.com/tasks/detect/), [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [image classification](https://docs.ultralytics.com/tasks/classify/), and [pose estimation](https://docs.ultralytics.com/tasks/pose/).
+YOLO26 addresses the inherent limitations of previous generations, offering unprecedented [versatility](https://docs.ultralytics.com/tasks) across [object detection](https://docs.ultralytics.com/tasks/detect), [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), and [pose estimation](https://docs.ultralytics.com/tasks/pose).
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ### Key YOLO26 Innovations
 
-- **End-to-End NMS-Free Design:** YOLO26 natively eliminates Non-Maximum Suppression (NMS) post-processing. Pioneered initially in [YOLOv10](https://docs.ultralytics.com/models/yolov10/), this simplifies deployment logic and guarantees consistent, low-latency execution regardless of object density.
+- **End-to-End NMS-Free Design:** YOLO26 natively eliminates Non-Maximum Suppression (NMS) post-processing. Pioneered initially in [YOLOv10](https://docs.ultralytics.com/models/yolov10), this simplifies deployment logic and guarantees consistent, low-latency execution regardless of object density.
 - **DFL Removal:** By removing the Distribution Focal Loss (DFL), the model architecture is vastly simplified, enhancing compatibility with highly constrained [edge computing](https://www.ultralytics.com/glossary/edge-computing) environments.
 - **Up to 43% Faster CPU Inference:** Heavily optimized for environments lacking dedicated GPUs, making it exponentially faster than EfficientDet on lightweight hardware.
-- **MuSGD Optimizer:** Inspired by large language model techniques (such as Moonshot AI's Kimi K2), this hybrid of SGD and Muon brings LLM-level stability and rapid convergence to [computer vision training](https://docs.ultralytics.com/modes/train/).
+- **MuSGD Optimizer:** Inspired by large language model techniques (such as Moonshot AI's Kimi K2), this hybrid of SGD and Muon brings LLM-level stability and rapid convergence to [computer vision training](https://docs.ultralytics.com/modes/train).
 - **ProgLoss + STAL:** These advanced loss functions deliver remarkable improvements in small-object recognition, a critical feature for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and [drone applications](https://www.ultralytics.com/blog/build-ai-powered-drone-applications-with-ultralytics-yolo11).
-- **Task-Specific Improvements:** Includes Semantic segmentation loss and multi-scale proto for segmentation tasks, Residual Log-Likelihood Estimation (RLE) for complex Pose estimation, and a specialized angle loss tailored to fix [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) boundary issues.
+- **Task-Specific Improvements:** Includes Semantic segmentation loss and multi-scale proto for segmentation tasks, Residual Log-Likelihood Estimation (RLE) for complex Pose estimation, and a specialized angle loss tailored to fix [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) boundary issues.
 
 For teams currently using legacy systems, transitioning to the [Ultralytics Platform](https://platform.ultralytics.com/) unlocks a streamlined workflow where these cutting-edge models can be trained and deployed with ease. Developers may also explore previous robust iterations like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) depending on specific backward-compatibility requirements.
 
@@ -103,11 +103,11 @@ For teams currently using legacy systems, transitioning to the [Ultralytics Plat
 
 One of the defining characteristics of Ultralytics models is the sheer **Ease of Use**. Unlike the complex, multi-dependency setup required for EfficientDet's TensorFlow AutoML environments, Ultralytics provides a simple, Pythonic API.
 
-This environment minimizes [CUDA memory usage](https://docs.ultralytics.com/guides/yolo-performance-metrics/) during training, ensuring that even large datasets can be processed efficiently without Out-Of-Memory (OOM) errors commonly seen in bulky [Transformer-based](https://www.ultralytics.com/glossary/transformer) architectures.
+This environment minimizes [CUDA memory usage](https://docs.ultralytics.com/guides/yolo-performance-metrics) during training, ensuring that even large datasets can be processed efficiently without Out-Of-Memory (OOM) errors commonly seen in bulky [Transformer-based](https://www.ultralytics.com/glossary/transformer) architectures.
 
 ### Code Example: Getting Started with Ultralytics
 
-The following snippet demonstrates how developers can leverage the [Ultralytics package](https://docs.ultralytics.com/usage/python/) to train a state-of-the-art YOLO26 model seamlessly out of the box.
+The following snippet demonstrates how developers can leverage the [Ultralytics package](https://docs.ultralytics.com/usage/python) to train a state-of-the-art YOLO26 model seamlessly out of the box.
 
 ```python
 from ultralytics import YOLO
@@ -134,7 +134,7 @@ model.export(format="openvino")
 
 !!! tip "Exporting for Production"
 
-    Models trained via the Ultralytics API can be instantly exported to various production formats like [OpenVINO](https://docs.ultralytics.com/integrations/openvino/) or [ONNX](https://docs.ultralytics.com/integrations/onnx/), ensuring high throughput regardless of your target hardware.
+    Models trained via the Ultralytics API can be instantly exported to various production formats like [OpenVINO](https://docs.ultralytics.com/integrations/openvino) or [ONNX](https://docs.ultralytics.com/integrations/onnx), ensuring high throughput regardless of your target hardware.
 
 ## Ideal Use Cases and Real-World Applications
 

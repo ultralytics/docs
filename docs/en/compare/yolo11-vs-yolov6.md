@@ -6,7 +6,7 @@ keywords: YOLO11, YOLOv6-3.0, object detection, model comparison, computer visio
 
 # YOLO11 vs YOLOv6-3.0: A Comprehensive Technical Comparison
 
-The field of [computer vision](https://en.wikipedia.org/wiki/Computer_vision) evolves rapidly, and selecting the right model architecture is a critical decision for machine learning practitioners. Two significant milestones in the progression of real-time [object detection](https://docs.ultralytics.com/tasks/detect/) are **YOLO11** and **YOLOv6-3.0**. While both models offer impressive capabilities for extracting insights from visual data, they were developed with different primary objectives and design philosophies.
+The field of [computer vision](https://en.wikipedia.org/wiki/Computer_vision) evolves rapidly, and selecting the right model architecture is a critical decision for machine learning practitioners. Two significant milestones in the progression of real-time [object detection](https://docs.ultralytics.com/tasks/detect) are **YOLO11** and **YOLOv6-3.0**. While both models offer impressive capabilities for extracting insights from visual data, they were developed with different primary objectives and design philosophies.
 
 This guide provides an in-depth technical analysis comparing their architectures, performance metrics, and ideal deployment scenarios to help you make an informed decision for your next AI project.
 
@@ -27,7 +27,7 @@ Developed natively within the Ultralytics ecosystem, YOLO11 was engineered to pr
 - **Organization:** [Ultralytics](https://www.ultralytics.com/)
 - **Date:** 2024-09-27
 - **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
-- **Docs:** [YOLO11 Documentation](https://docs.ultralytics.com/models/yolo11/)
+- **Docs:** [YOLO11 Documentation](https://docs.ultralytics.com/models/yolo11)
 
 [Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
@@ -40,15 +40,15 @@ YOLOv6-3.0 was explicitly tailored for industrial applications where dedicated [
 - **Date:** 2023-01-13
 - **Arxiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
 - **GitHub:** [Meituan YOLOv6 Repository](https://github.com/meituan/YOLOv6)
-- **Docs:** [YOLOv6 Documentation](https://docs.ultralytics.com/models/yolov6/)
+- **Docs:** [YOLOv6 Documentation](https://docs.ultralytics.com/models/yolov6)
 
-[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6/){ .md-button }
+[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6){ .md-button }
 
 ## Architectural Differences
 
 The underlying architecture dictates how a model learns and scales. Both frameworks introduce unique enhancements to the classic YOLO formula.
 
-YOLO11 builds upon years of research to deliver an architecture that is incredibly parameter-efficient. It features an advanced backbone and a generalized head capable of handling diverse computer vision tasks—such as [instance segmentation](https://docs.ultralytics.com/tasks/segment/) and [pose estimation](https://docs.ultralytics.com/tasks/pose/)—without requiring massive structural overhauls. Furthermore, YOLO11 boasts exceptionally low [CUDA](https://developer.nvidia.com/cuda) memory requirements during training, setting it apart from bulkier [transformer models](<https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)>) like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/).
+YOLO11 builds upon years of research to deliver an architecture that is incredibly parameter-efficient. It features an advanced backbone and a generalized head capable of handling diverse computer vision tasks—such as [instance segmentation](https://docs.ultralytics.com/tasks/segment) and [pose estimation](https://docs.ultralytics.com/tasks/pose)—without requiring massive structural overhauls. Furthermore, YOLO11 boasts exceptionally low [CUDA](https://developer.nvidia.com/cuda) memory requirements during training, setting it apart from bulkier [transformer models](<https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)>) like [RT-DETR](https://docs.ultralytics.com/models/rtdetr).
 
 Conversely, YOLOv6-3.0 employs a Bi-directional Concatenation (BiC) module and an Anchor-Aided Training (AAT) strategy. These mechanisms are designed to improve localization accuracy. The architecture is primarily decoupled and heavily quantized to favor INT8 [model inference](https://en.wikipedia.org/wiki/Inference), making it a strong contender for high-speed manufacturing lines running legacy GPU stacks.
 
@@ -73,7 +73,7 @@ When evaluating models, [mean Average Precision (mAP)](https://www.ultralytics.c
 | YOLOv6-3.0m | 640                         | 50.0                       | -                                    | 5.28                                      | 34.9                     | 85.8                    |
 | YOLOv6-3.0l | 640                         | 52.8                       | -                                    | 8.95                                      | 59.6                     | 150.7                   |
 
-As demonstrated, YOLO11 consistently achieves higher accuracy (mAP) with significantly fewer parameters and FLOPs across equivalent tiers. This parameter efficiency translates directly to lower memory requirements during both [model training](https://docs.ultralytics.com/modes/train/) and inference.
+As demonstrated, YOLO11 consistently achieves higher accuracy (mAP) with significantly fewer parameters and FLOPs across equivalent tiers. This parameter efficiency translates directly to lower memory requirements during both [model training](https://docs.ultralytics.com/modes/train) and inference.
 
 ## The Ultralytics Advantage
 
@@ -81,7 +81,7 @@ Choosing a model is about more than just raw metrics; it is about the entire [ma
 
 1. **Ease of Use:** The Ultralytics Python API allows you to train, validate, and export models with just a few lines of code. There is no need to manually configure complex dependency trees.
 2. **Well-Maintained Ecosystem:** Ultralytics provides a unified ecosystem that receives frequent updates. By utilizing the [Ultralytics Platform](https://platform.ultralytics.com/), developers gain access to collaborative dataset annotation, cloud training, and seamless model monitoring.
-3. **Versatility:** Unlike YOLOv6-3.0, which is primarily a bounding box detector, YOLO11 natively supports [image classification](https://docs.ultralytics.com/tasks/classify/) and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb/), allowing you to consolidate your technology stack.
+3. **Versatility:** Unlike YOLOv6-3.0, which is primarily a bounding box detector, YOLO11 natively supports [image classification](https://docs.ultralytics.com/tasks/classify) and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb), allowing you to consolidate your technology stack.
 4. **Training Efficiency:** Leveraging modern optimizations and auto-batching, YOLO11 trains efficiently on consumer-grade hardware, democratizing access to state-of-the-art vision AI.
 
 ### Code Example: Training and Inference
@@ -120,13 +120,13 @@ While YOLO11 represents a massive leap forward, Ultralytics continually pushes t
 
 YOLO26 introduces several groundbreaking features designed specifically for modern deployment challenges:
 
-- **End-to-End NMS-Free Design:** Building on concepts pioneered by [YOLOv10](https://docs.ultralytics.com/models/yolov10/), YOLO26 is natively end-to-end. It completely eliminates Non-Maximum Suppression (NMS) post-processing, resulting in faster, drastically simpler deployment pipelines.
+- **End-to-End NMS-Free Design:** Building on concepts pioneered by [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 is natively end-to-end. It completely eliminates Non-Maximum Suppression (NMS) post-processing, resulting in faster, drastically simpler deployment pipelines.
 - **DFL Removal:** By removing Distribution Focal Loss, YOLO26 simplifies the network head, greatly enhancing compatibility with low-power [Internet of Things (IoT)](https://en.wikipedia.org/wiki/Internet_of_things) and edge devices.
 - **MuSGD Optimizer:** Inspired by large language model (LLM) training innovations (such as Moonshot AI's Kimi K2), YOLO26 utilizes a hybrid Muon-SGD optimizer, ensuring unmatched training stability and faster convergence.
 - **Up to 43% Faster CPU Inference:** For applications running without dedicated GPU accelerators, YOLO26 has been heavily optimized for raw CPU throughput.
-- **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, which is critical for [drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) and aerial surveillance.
+- **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, which is critical for [drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and aerial surveillance.
 - **Task-Specific Improvements:** YOLO26 includes customized enhancements across all tasks, such as multi-scale prototyping for segmentation and Residual Log-Likelihood Estimation (RLE) for pose estimation.
 
 If you are starting a new computer vision initiative today, leveraging the [Ultralytics Platform](https://platform.ultralytics.com/) to train a YOLO26 model will ensure your application is built on the most efficient, accurate, and future-proof architecture available.
 
-For developers interested in exploring open-vocabulary detection, you can also review our documentation on [YOLO-World](https://docs.ultralytics.com/models/yolo-world/).
+For developers interested in exploring open-vocabulary detection, you can also review our documentation on [YOLO-World](https://docs.ultralytics.com/models/yolo-world).

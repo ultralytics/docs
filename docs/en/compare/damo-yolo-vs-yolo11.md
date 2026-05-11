@@ -21,7 +21,7 @@ Authors: Glenn Jocher and Jing Qiu
 Organization: [Ultralytics](https://www.ultralytics.com)  
 Date: 2024-09-27  
 GitHub: [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)  
-Docs: [YOLO11 Documentation](https://docs.ultralytics.com/models/yolo11/)
+Docs: [YOLO11 Documentation](https://docs.ultralytics.com/models/yolo11)
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -34,7 +34,7 @@ The underlying architecture of an object detection model dictates its inference 
 
 **DAMO-YOLO** introduces several academic innovations, heavily relying on Neural Architecture Search (NAS) to automatically design its backbone. It utilizes an efficient RepGFPN (Reparameterized Generalized Feature Pyramid Network) to enhance feature fusion and a ZeroHead design that significantly scales down the heavy prediction head often found in previous architectures. While this NAS-driven approach allows DAMO-YOLO to achieve specific efficiencies on selected GPUs, the resulting architectures can sometimes lack the flexibility needed to generalize seamlessly across diverse edge devices.
 
-In contrast, **YOLO11** builds upon years of foundational research to deliver a highly optimized, handcrafted architecture. It focuses on a streamlined backbone and a highly efficient neck that reduces redundant computations. One of the primary advantages of YOLO11 is its refined parameter efficiency; it achieves high feature representation without the heavy VRAM requirements typical of transformer-based models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/). This makes YOLO11 exceptionally versatile, capable of running smoothly on consumer-grade GPUs, mobile devices, and specialized edge accelerators.
+In contrast, **YOLO11** builds upon years of foundational research to deliver a highly optimized, handcrafted architecture. It focuses on a streamlined backbone and a highly efficient neck that reduces redundant computations. One of the primary advantages of YOLO11 is its refined parameter efficiency; it achieves high feature representation without the heavy VRAM requirements typical of transformer-based models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr). This makes YOLO11 exceptionally versatile, capable of running smoothly on consumer-grade GPUs, mobile devices, and specialized edge accelerators.
 
 ## Performance and Metrics
 
@@ -63,7 +63,7 @@ The training pipeline is where developers spend the majority of their time, maki
 
 DAMO-YOLO employs a multi-stage training process heavily dependent on knowledge distillation. It utilizes AlignedOTA (Optimal Transport Assignment) for label assignment and often requires training a larger "teacher" model to distill knowledge into the smaller "student" models. This methodology drastically increases the [CUDA memory](https://developer.nvidia.com/cuda) footprint and the overall compute time required to achieve optimal convergence.
 
-Conversely, the Ultralytics ecosystem abstracts away the complexity of model training. YOLO11 is designed for exceptional ease of use, featuring a streamlined Python API and comprehensive [CLI interfaces](https://docs.ultralytics.com/usage/cli/) that allow engineers to initiate training on custom datasets with a single command. The training pipeline is inherently resource-efficient, minimizing memory spikes so that even larger models can be trained on standard hardware.
+Conversely, the Ultralytics ecosystem abstracts away the complexity of model training. YOLO11 is designed for exceptional ease of use, featuring a streamlined Python API and comprehensive [CLI interfaces](https://docs.ultralytics.com/usage/cli) that allow engineers to initiate training on custom datasets with a single command. The training pipeline is inherently resource-efficient, minimizing memory spikes so that even larger models can be trained on standard hardware.
 
 !!! tip "Streamlined Training with Ultralytics"
 
@@ -96,13 +96,13 @@ DAMO-YOLO is strictly an object detection framework. It excels in academic resea
 
 ### The Ultralytics Advantage
 
-Ultralytics models, including YOLO11, shine in real-world commercial applications due to their unparalleled versatility and well-maintained ecosystem. Unlike DAMO-YOLO, the Ultralytics framework supports multi-modal tasks natively. From [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/) in medical imaging to [Pose Estimation](https://docs.ultralytics.com/tasks/pose/) for biomechanical analysis in sports, a single, unified codebase handles it all.
+Ultralytics models, including YOLO11, shine in real-world commercial applications due to their unparalleled versatility and well-maintained ecosystem. Unlike DAMO-YOLO, the Ultralytics framework supports multi-modal tasks natively. From [Instance Segmentation](https://docs.ultralytics.com/tasks/segment) in medical imaging to [Pose Estimation](https://docs.ultralytics.com/tasks/pose) for biomechanical analysis in sports, a single, unified codebase handles it all.
 
 Industries leveraging YOLO11 include:
 
 - **Smart Agriculture:** Utilizing object detection to monitor crop health and automate harvesting machinery.
 - **Retail Analytics:** Implementing [smart surveillance](https://www.ultralytics.com/blog/smart-surveillance-ultralytics-yolo11) to analyze customer traffic and automate inventory management.
-- **Logistics and Supply Chain:** High-speed barcode and package detection using [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/) on fast-moving conveyor belts.
+- **Logistics and Supply Chain:** High-speed barcode and package detection using [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb) on fast-moving conveyor belts.
 
 ## Use Cases and Recommendations
 
@@ -120,17 +120,17 @@ DAMO-YOLO is a strong choice for:
 
 YOLO11 is recommended for:
 
-- **Production Edge Deployment:** Commercial applications on devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) or [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/) where reliability and active maintenance are paramount.
-- **Multi-Task Vision Applications:** Projects requiring [detection](https://docs.ultralytics.com/tasks/detect/), [segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [OBB](https://docs.ultralytics.com/tasks/obb/) within a single unified framework.
-- **Rapid Prototyping and Deployment:** Teams that need to move quickly from data collection to production using the streamlined [Ultralytics Python API](https://docs.ultralytics.com/usage/python/).
+- **Production Edge Deployment:** Commercial applications on devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) or [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson) where reliability and active maintenance are paramount.
+- **Multi-Task Vision Applications:** Projects requiring [detection](https://docs.ultralytics.com/tasks/detect), [segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [OBB](https://docs.ultralytics.com/tasks/obb) within a single unified framework.
+- **Rapid Prototyping and Deployment:** Teams that need to move quickly from data collection to production using the streamlined [Ultralytics Python API](https://docs.ultralytics.com/usage/python).
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Next Generation: Introducing YOLO26
 
@@ -147,6 +147,6 @@ Released in January 2026, YOLO26 introduces several groundbreaking advancements:
 
 ## Conclusion
 
-Both DAMO-YOLO and YOLO11 have contributed significantly to the advancement of fast, accurate computer vision. While DAMO-YOLO offers interesting academic insights into architecture search and distillation, Ultralytics YOLO11 (and the groundbreaking [YOLO26](https://docs.ultralytics.com/models/yolo26/)) provides a superior developer experience.
+Both DAMO-YOLO and YOLO11 have contributed significantly to the advancement of fast, accurate computer vision. While DAMO-YOLO offers interesting academic insights into architecture search and distillation, Ultralytics YOLO11 (and the groundbreaking [YOLO26](https://docs.ultralytics.com/models/yolo26)) provides a superior developer experience.
 
-With lower memory requirements, extensive documentation, multi-task capabilities, and integration with the powerful [Ultralytics Platform](https://platform.ultralytics.com), Ultralytics models remain the top recommendation for researchers and enterprise engineers looking to build robust, scalable AI solutions. For those exploring other advanced architectures, comparing [YOLO26 vs RT-DETR](https://docs.ultralytics.com/compare/yolo26-vs-rtdetr/) offers additional insights into transformer-based alternatives.
+With lower memory requirements, extensive documentation, multi-task capabilities, and integration with the powerful [Ultralytics Platform](https://platform.ultralytics.com), Ultralytics models remain the top recommendation for researchers and enterprise engineers looking to build robust, scalable AI solutions. For those exploring other advanced architectures, comparing [YOLO26 vs RT-DETR](https://docs.ultralytics.com/compare/yolo26-vs-rtdetr) offers additional insights into transformer-based alternatives.

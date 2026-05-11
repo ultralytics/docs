@@ -23,7 +23,7 @@ Before diving into architectural nuances, let's establish the foundational detai
 - Organization: [Ultralytics](https://www.ultralytics.com/)
 - Date: 2026-01-14
 - GitHub: [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- Docs: [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26/)
+- Docs: [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26)
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
@@ -33,13 +33,13 @@ Before diving into architectural nuances, let's establish the foundational detai
 - Organization: [Ultralytics](https://www.ultralytics.com/)
 - Date: 2020-06-26
 - GitHub: [https://github.com/ultralytics/yolov5](https://github.com/ultralytics/yolov5)
-- Docs: [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5/)
+- Docs: [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5)
 
 [Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
 
 !!! tip "Exploring Other Options"
 
-    While this guide focuses on YOLO26 and YOLOv5, developers migrating legacy systems might also be interested in comparing [YOLO11](https://docs.ultralytics.com/models/yolo11/) or the pioneering NMS-free architecture of [YOLOv10](https://docs.ultralytics.com/models/yolov10/). Both offer excellent stepping stones for specific deployment environments.
+    While this guide focuses on YOLO26 and YOLOv5, developers migrating legacy systems might also be interested in comparing [YOLO11](https://docs.ultralytics.com/models/yolo11) or the pioneering NMS-free architecture of [YOLOv10](https://docs.ultralytics.com/models/yolov10). Both offer excellent stepping stones for specific deployment environments.
 
 ## Architectural Innovations
 
@@ -89,7 +89,7 @@ predictions = model("https://ultralytics.com/images/bus.jpg")
 predictions[0].show()
 ```
 
-This simple script allows developers to rapidly iterate on [custom datasets](https://docs.ultralytics.com/datasets/), seamlessly moving from data ingestion to a production-ready model.
+This simple script allows developers to rapidly iterate on [custom datasets](https://docs.ultralytics.com/datasets), seamlessly moving from data ingestion to a production-ready model.
 
 !!! note "Deployment Made Easy"
 
@@ -103,7 +103,7 @@ YOLOv5 remains a reliable workhorse for legacy systems. If you have an existing 
 
 ### When to Use YOLO26
 
-YOLO26 is the definitive choice for modern computer vision projects. Its versatility far outstrips its predecessor. While YOLOv5 primarily focuses on detection (with later segmentation additions), YOLO26 offers deep, native support for [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), [Image Classification](https://docs.ultralytics.com/tasks/classify/), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/).
+YOLO26 is the definitive choice for modern computer vision projects. Its versatility far outstrips its predecessor. While YOLOv5 primarily focuses on detection (with later segmentation additions), YOLO26 offers deep, native support for [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), [Image Classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
 YOLO26 introduces **Task-Specific Improvements**, such as a specialized semantic segmentation loss, Residual Log-Likelihood Estimation (RLE) for ultra-precise pose keypoints, and advanced angle loss for OBB to solve tricky boundary issues.
 

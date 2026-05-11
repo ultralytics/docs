@@ -8,7 +8,7 @@ keywords: YOLOv10,YOLOv9,Ultralytics,object detection,real-time AI,computer visi
 
 The evolution of real-time computer vision has been marked by continuous breakthroughs in speed, accuracy, and architectural efficiency. When evaluating modern solutions for your next deployment, comparing **YOLOv10** and **YOLOv9** offers a fascinating look at two distinct approaches to solving deep learning bottlenecks. While YOLOv9 focuses on maximizing gradient information flow during training, YOLOv10 pioneers a native end-to-end design that completely eliminates traditional post-processing hurdles.
 
-This comprehensive guide analyzes their architectural innovations, [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics/), and ideal use cases to help developers and researchers choose the optimal model for their specific computer vision tasks.
+This comprehensive guide analyzes their architectural innovations, [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics), and ideal use cases to help developers and researchers choose the optimal model for their specific computer vision tasks.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -24,21 +24,21 @@ Developed to address the latency bottlenecks of traditional object detectors, YO
 - **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
 - **Organization:** Tsinghua University
 - **Date:** May 23, 2024
-- **Links:** [Arxiv Publication](https://arxiv.org/abs/2405.14458), [GitHub Repository](https://github.com/THU-MIG/yolov10), [Ultralytics Docs](https://docs.ultralytics.com/models/yolov10/)
+- **Links:** [Arxiv Publication](https://arxiv.org/abs/2405.14458), [GitHub Repository](https://github.com/THU-MIG/yolov10), [Ultralytics Docs](https://docs.ultralytics.com/models/yolov10)
 
-[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10/){ .md-button }
+[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10){ .md-button }
 
 ### Architecture and Strengths
 
-YOLOv10's most significant contribution to the field is its consistent dual-assignment strategy for NMS-free training. By eliminating NMS, the model drastically reduces inference latency, especially on edge devices where post-processing can bottleneck the entire pipeline. It optimizes various components from both efficiency and accuracy perspectives, resulting in a model that boasts a remarkable [trade-off between speed and parameters](https://en.wikipedia.org/wiki/Pareto_efficiency). For instance, the YOLOv10-S variant is exceptionally fast, making it highly suitable for high-speed [video analytics](https://docs.ultralytics.com/guides/analytics/) and real-time robotic navigation.
+YOLOv10's most significant contribution to the field is its consistent dual-assignment strategy for NMS-free training. By eliminating NMS, the model drastically reduces inference latency, especially on edge devices where post-processing can bottleneck the entire pipeline. It optimizes various components from both efficiency and accuracy perspectives, resulting in a model that boasts a remarkable [trade-off between speed and parameters](https://en.wikipedia.org/wiki/Pareto_efficiency). For instance, the YOLOv10-S variant is exceptionally fast, making it highly suitable for high-speed [video analytics](https://docs.ultralytics.com/guides/analytics) and real-time robotic navigation.
 
 ### Weaknesses
 
-While the NMS-free design is groundbreaking for bounding box detection, YOLOv10 is primarily optimized as a pure object detector. It lacks the out-of-the-box versatility of newer ecosystems that natively support [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/) or [Pose Estimation](https://docs.ultralytics.com/tasks/pose/). Furthermore, early implementations required careful export handling to ensure operations like `cv2` were fully optimized out of the inference graph.
+While the NMS-free design is groundbreaking for bounding box detection, YOLOv10 is primarily optimized as a pure object detector. It lacks the out-of-the-box versatility of newer ecosystems that natively support [Instance Segmentation](https://docs.ultralytics.com/tasks/segment) or [Pose Estimation](https://docs.ultralytics.com/tasks/pose). Furthermore, early implementations required careful export handling to ensure operations like `cv2` were fully optimized out of the inference graph.
 
 !!! tip "Exporting YOLOv10"
 
-    When preparing YOLOv10 for production, always ensure you export the model to optimized formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) or ONNX. Running raw PyTorch weights in deployment can result in slower-than-expected inference due to unoptimized graph operations.
+    When preparing YOLOv10 for production, always ensure you export the model to optimized formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) or ONNX. Running raw PyTorch weights in deployment can result in slower-than-expected inference due to unoptimized graph operations.
 
 ## YOLOv9: Programmable Gradient Information
 
@@ -49,9 +49,9 @@ Prior to YOLOv10, YOLOv9 introduced novel architectural concepts to solve the in
 - **Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao
 - **Organization:** Institute of Information Science, Academia Sinica, Taiwan
 - **Date:** February 21, 2024
-- **Links:** [Arxiv Publication](https://arxiv.org/abs/2402.13616), [GitHub Repository](https://github.com/WongKinYiu/yolov9), [Ultralytics Docs](https://docs.ultralytics.com/models/yolov9/)
+- **Links:** [Arxiv Publication](https://arxiv.org/abs/2402.13616), [GitHub Repository](https://github.com/WongKinYiu/yolov9), [Ultralytics Docs](https://docs.ultralytics.com/models/yolov9)
 
-[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9/){ .md-button }
+[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9){ .md-button }
 
 ### Architecture and Strengths
 
@@ -96,7 +96,7 @@ While YOLOv9 and YOLOv10 are impressive milestones, the machine learning landsca
 
 !!! note "The Ultralytics Ecosystem Advantage"
 
-    Choosing an Ultralytics model like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or YOLO26 provides unparalleled ease of use. You gain access to active development, a thriving community, and frequent updates that ensure your models remain compatible with the latest inference engines like [OpenVINO](https://docs.ultralytics.com/integrations/openvino/) and CoreML.
+    Choosing an Ultralytics model like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or YOLO26 provides unparalleled ease of use. You gain access to active development, a thriving community, and frequent updates that ensure your models remain compatible with the latest inference engines like [OpenVINO](https://docs.ultralytics.com/integrations/openvino) and CoreML.
 
 ## Practical Implementation
 
@@ -140,11 +140,11 @@ YOLOv9 is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## Conclusion
 

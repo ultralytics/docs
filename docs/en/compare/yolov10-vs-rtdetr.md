@@ -26,17 +26,17 @@ Developed by researchers at Tsinghua University, YOLOv10 focuses heavily on arch
 - Date: 2024-05-23
 - ArXiv: [YOLOv10 Paper](https://arxiv.org/abs/2405.14458)
 - GitHub: [THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
-- Docs: [YOLOv10 Documentation](https://docs.ultralytics.com/models/yolov10/)
+- Docs: [YOLOv10 Documentation](https://docs.ultralytics.com/models/yolov10)
 
 ### Architecture and Methodologies
 
-YOLOv10's primary breakthrough is its holistic efficiency-accuracy driven model design. It optimizes various components from both perspectives, greatly reducing computational overhead. The consistent dual assignments strategy allows the model to train without relying on NMS, which translates to a streamlined, end-to-end deployment pipeline. This is particularly beneficial when exporting models to edge formats like [ONNX](https://docs.ultralytics.com/integrations/onnx/) or [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), where post-processing operations can introduce unexpected latency.
+YOLOv10's primary breakthrough is its holistic efficiency-accuracy driven model design. It optimizes various components from both perspectives, greatly reducing computational overhead. The consistent dual assignments strategy allows the model to train without relying on NMS, which translates to a streamlined, end-to-end deployment pipeline. This is particularly beneficial when exporting models to edge formats like [ONNX](https://docs.ultralytics.com/integrations/onnx) or [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), where post-processing operations can introduce unexpected latency.
 
 ### Strengths and Weaknesses
 
-The model boasts exceptional speed-accuracy trade-offs, especially in the smaller variants (N and S). Its minimal latency makes it ideal for high-speed edge environments. However, while YOLOv10 excels at raw detection speed, it remains a specialized detection-only model. Teams requiring [instance segmentation](https://docs.ultralytics.com/tasks/segment/) or [pose estimation](https://docs.ultralytics.com/tasks/pose/) will need to look towards more versatile frameworks.
+The model boasts exceptional speed-accuracy trade-offs, especially in the smaller variants (N and S). Its minimal latency makes it ideal for high-speed edge environments. However, while YOLOv10 excels at raw detection speed, it remains a specialized detection-only model. Teams requiring [instance segmentation](https://docs.ultralytics.com/tasks/segment) or [pose estimation](https://docs.ultralytics.com/tasks/pose) will need to look towards more versatile frameworks.
 
-[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10/){ .md-button }
+[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10){ .md-button }
 
 ## RTDETRv2: Refining the Detection Transformer
 
@@ -49,7 +49,7 @@ Building upon the original Real-Time Detection Transformer, RTDETRv2 incorporate
 - Date: 2024-07-24
 - ArXiv: [RTDETRv2 Paper](https://arxiv.org/abs/2407.17140)
 - GitHub: [lyuwenyu/RT-DETR](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
-- Docs: [RTDETRv2 Documentation](https://docs.ultralytics.com/models/rtdetr/)
+- Docs: [RTDETRv2 Documentation](https://docs.ultralytics.com/models/rtdetr)
 
 ### Architecture and Methodologies
 
@@ -59,11 +59,11 @@ RTDETRv2 utilizes a hybrid architecture, combining a Convolutional Neural Networ
 
 The transformer architecture provides excellent accuracy, particularly on larger parameter scales, and natively outputs final detections without NMS. However, this comes at a cost. Transformer models traditionally require significantly more CUDA memory during training and can be slower to converge compared to pure CNN architectures. While RTDETRv2 has improved inference speeds, it generally consumes more memory than lightweight YOLO variants.
 
-[Learn more about RTDETRv2](https://docs.ultralytics.com/models/rtdetr/){ .md-button }
+[Learn more about RTDETRv2](https://docs.ultralytics.com/models/rtdetr){ .md-button }
 
 ## Performance Comparison
 
-Evaluating the performance metrics provides a clearer picture of where each model excels. The following table highlights their capabilities on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/):
+Evaluating the performance metrics provides a clearer picture of where each model excels. The following table highlights their capabilities on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco):
 
 | Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -103,11 +103,11 @@ RT-DETR is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultralytics Advantage: Ecosystem and Innovation
 
@@ -121,7 +121,7 @@ For developers seeking the absolute best performance, [Ultralytics YOLO26](https
 
     YOLO26 brings LLM training innovations to computer vision via the **MuSGD Optimizer** (a hybrid of SGD and Muon), resulting in more stable training and faster convergence. It also boasts up to **43% Faster CPU Inference**, making it the premier choice for edge computing.
 
-Furthermore, YOLO26 introduces **ProgLoss + STAL** for notable improvements in small-object recognition, and unlike the specialized YOLOv10, it offers extreme versatility. It natively supports [object detection](https://docs.ultralytics.com/tasks/detect/), segmentation, pose, and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb/) with task-specific improvements like semantic segmentation loss and Residual Log-Likelihood Estimation (RLE) for pose. Furthermore, the removal of Distribution Focal Loss (DFL) ensures simplified export and better low-power device compatibility.
+Furthermore, YOLO26 introduces **ProgLoss + STAL** for notable improvements in small-object recognition, and unlike the specialized YOLOv10, it offers extreme versatility. It natively supports [object detection](https://docs.ultralytics.com/tasks/detect), segmentation, pose, and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb) with task-specific improvements like semantic segmentation loss and Residual Log-Likelihood Estimation (RLE) for pose. Furthermore, the removal of Distribution Focal Loss (DFL) ensures simplified export and better low-power device compatibility.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
@@ -141,7 +141,7 @@ model_rtdetr = RTDETR("rtdetr-l.pt")
 results = model_rtdetr.predict("https://ultralytics.com/images/bus.jpg")
 ```
 
-The well-maintained ecosystem provides tools for easy [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning/) and integrates flawlessly with extensive tracking solutions and [model deployment options](https://docs.ultralytics.com/guides/model-deployment-options/).
+The well-maintained ecosystem provides tools for easy [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning) and integrates flawlessly with extensive tracking solutions and [model deployment options](https://docs.ultralytics.com/guides/model-deployment-options).
 
 ## Conclusion
 

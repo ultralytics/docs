@@ -6,7 +6,7 @@ keywords: YOLOv6, EfficientDet, object detection, model comparison, YOLOv6-3.0, 
 
 # YOLOv6-3.0 vs. EfficientDet: A Comprehensive Technical Comparison
 
-Choosing the optimal architecture for [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) projects requires a deep understanding of the trade-offs between speed, accuracy, and deployment feasibility. This comparison page provides an in-depth analysis of two distinct object detection models: YOLOv6-3.0 and EfficientDet. While both models have contributed significantly to the field, modern edge deployments and rapid prototyping often benefit from more unified frameworks like the [Ultralytics Platform](https://docs.ultralytics.com/platform/).
+Choosing the optimal architecture for [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) projects requires a deep understanding of the trade-offs between speed, accuracy, and deployment feasibility. This comparison page provides an in-depth analysis of two distinct object detection models: YOLOv6-3.0 and EfficientDet. While both models have contributed significantly to the field, modern edge deployments and rapid prototyping often benefit from more unified frameworks like the [Ultralytics Platform](https://docs.ultralytics.com/platform).
 
 Below is an interactive chart visualizing the performance differences between these models to help you understand their respective latency and accuracy profiles.
 
@@ -33,7 +33,7 @@ The YOLOv6-3.0 architecture relies on a Bi-directional Concatenation (BiC) modul
 
 YOLOv6-3.0 shines in environments where dedicated GPU hardware is available, offering incredibly fast [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) using TensorRT. However, its heavy reliance on specific hardware optimizations can lead to suboptimal performance on CPU-only [edge AI devices](https://www.ultralytics.com/glossary/edge-ai). Additionally, while it supports some quantization, the ecosystem lacks the overarching simplicity found in modern Ultralytics frameworks.
 
-[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6/){ .md-button }
+[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6){ .md-button }
 
 ## EfficientDet: Scalable AutoML Architecture
 
@@ -51,7 +51,7 @@ EfficientDet introduced the Bi-directional Feature Pyramid Network (BiFPN), whic
 
 ### Strengths and Weaknesses
 
-EfficientDet is highly parameter-efficient. It achieves strong [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) with relatively few parameters compared to older object detectors. However, the architecture is deeply entrenched in legacy TensorFlow ecosystems. This results in complex dependency management, slower training cycles, and higher [memory requirements](https://docs.ultralytics.com/guides/yolo-performance-metrics/) during training compared to optimized PyTorch implementations. Furthermore, its inference speed on modern GPUs is significantly slower than modern YOLO architectures.
+EfficientDet is highly parameter-efficient. It achieves strong [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) with relatively few parameters compared to older object detectors. However, the architecture is deeply entrenched in legacy TensorFlow ecosystems. This results in complex dependency management, slower training cycles, and higher [memory requirements](https://docs.ultralytics.com/guides/yolo-performance-metrics) during training compared to optimized PyTorch implementations. Furthermore, its inference speed on modern GPUs is significantly slower than modern YOLO architectures.
 
 [Learn more about EfficientDet](https://github.com/google/automl/tree/master/efficientdet){ .md-button }
 
@@ -89,7 +89,7 @@ Unlike EfficientDet, which requires navigating complex TensorFlow configurations
 
 ### Unmatched Versatility
 
-YOLOv6-3.0 and EfficientDet are primarily bound to [object detection](https://docs.ultralytics.com/tasks/detect/). In contrast, modern Ultralytics architectures are inherently multi-modal. A single interface allows you to train models for [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), [Image Classification](https://docs.ultralytics.com/tasks/classify/), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) tasks.
+YOLOv6-3.0 and EfficientDet are primarily bound to [object detection](https://docs.ultralytics.com/tasks/detect). In contrast, modern Ultralytics architectures are inherently multi-modal. A single interface allows you to train models for [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), [Image Classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) tasks.
 
 ### Introducing Ultralytics YOLO26
 
@@ -124,11 +124,11 @@ EfficientDet is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## Implementation Example: Training YOLO26
 
@@ -156,11 +156,11 @@ prediction = model("https://ultralytics.com/images/bus.jpg")
 If you are exploring the broader landscape of computer vision models, consider these alternatives:
 
 - **[YOLO11](https://platform.ultralytics.com/ultralytics/yolo11):** The highly successful predecessor to YOLO26, offering robust multi-task capabilities and extensive community support.
-- **[YOLOv10](https://docs.ultralytics.com/models/yolov10/):** The first YOLO architecture to introduce NMS-free training, paving the way for modern end-to-end detection.
-- **[RT-DETR](https://docs.ultralytics.com/models/rtdetr/):** For scenarios where transformer-based architectures and attention mechanisms are preferred over traditional CNNs.
+- **[YOLOv10](https://docs.ultralytics.com/models/yolov10):** The first YOLO architecture to introduce NMS-free training, paving the way for modern end-to-end detection.
+- **[RT-DETR](https://docs.ultralytics.com/models/rtdetr):** For scenarios where transformer-based architectures and attention mechanisms are preferred over traditional CNNs.
 
 ## Conclusion
 
 While **YOLOv6-3.0** provides excellent industrial GPU throughput and **EfficientDet** showcases the potential of AutoML in crafting scalable parameter-efficient networks, both models exhibit limitations in ease of deployment and modern multi-task versatility.
 
-For the vast majority of real-world applications—from mobile edge deployment to cloud-based analytics—the **Ultralytics ecosystem** delivers an unparalleled [performance balance](https://docs.ultralytics.com/guides/yolo-performance-metrics/). By adopting **YOLO26**, developers gain access to cutting-edge NMS-free inference, advanced loss functions for small objects, and a unified, well-documented training pipeline that dramatically accelerates the path from prototype to production.
+For the vast majority of real-world applications—from mobile edge deployment to cloud-based analytics—the **Ultralytics ecosystem** delivers an unparalleled [performance balance](https://docs.ultralytics.com/guides/yolo-performance-metrics). By adopting **YOLO26**, developers gain access to cutting-edge NMS-free inference, advanced loss functions for small objects, and a unified, well-documented training pipeline that dramatically accelerates the path from prototype to production.

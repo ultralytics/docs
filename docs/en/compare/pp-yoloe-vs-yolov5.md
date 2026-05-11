@@ -34,7 +34,7 @@ Both models stem from highly capable engineering teams but target slightly diffe
 - Organization: [Ultralytics](https://www.ultralytics.com/)
 - Date: 2020-06-26
 - GitHub: [https://github.com/ultralytics/yolov5](https://github.com/ultralytics/yolov5)
-- Docs: [https://docs.ultralytics.com/models/yolov5/](https://docs.ultralytics.com/models/yolov5/)
+- Docs: [https://docs.ultralytics.com/models/yolov5/](https://docs.ultralytics.com/models/yolov5)
 
 [Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
 
@@ -74,7 +74,7 @@ Evaluating these models requires looking at the trade-off between mean Average P
 | YOLOv5l    | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
 | YOLOv5x    | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
 
-While PP-YOLOE+ achieves highly competitive mAP scores at the larger scales (such as the X variant), **YOLOv5 provides superior speed and lower parameter counts** at the smaller end of the spectrum. The YOLOv5 Nano (`YOLOv5n`) requires a mere 2.6 million parameters, making it highly suitable for constrained edge devices where memory requirements are strict. Furthermore, training YOLO models typically consumes less CUDA memory compared to heavy transformer-based alternatives like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/).
+While PP-YOLOE+ achieves highly competitive mAP scores at the larger scales (such as the X variant), **YOLOv5 provides superior speed and lower parameter counts** at the smaller end of the spectrum. The YOLOv5 Nano (`YOLOv5n`) requires a mere 2.6 million parameters, making it highly suitable for constrained edge devices where memory requirements are strict. Furthermore, training YOLO models typically consumes less CUDA memory compared to heavy transformer-based alternatives like [RT-DETR](https://docs.ultralytics.com/models/rtdetr).
 
 ## The Ultralytics Advantage
 
@@ -82,11 +82,11 @@ When choosing an architecture, raw metrics are only part of the equation. The de
 
 ### Unmatched Ease of Use
 
-The [Python API](https://docs.ultralytics.com/usage/python/) for Ultralytics abstracts away complex boilerplate code. Developers can initiate training, validate performance, and deploy models seamlessly. The documentation is extensive, highly maintained, and supported by a massive global open-source community.
+The [Python API](https://docs.ultralytics.com/usage/python) for Ultralytics abstracts away complex boilerplate code. Developers can initiate training, validate performance, and deploy models seamlessly. The documentation is extensive, highly maintained, and supported by a massive global open-source community.
 
 ### Versatility Across Tasks
 
-While PP-YOLOE+ is a dedicated object detector, the Ultralytics ecosystem allows users to tackle multiple computer vision tasks under a single unified API. With YOLOv5, and its successors, you can effortlessly transition from standard bounding boxes to [Image Segmentation](https://docs.ultralytics.com/tasks/segment/) and classification workflows.
+While PP-YOLOE+ is a dedicated object detector, the Ultralytics ecosystem allows users to tackle multiple computer vision tasks under a single unified API. With YOLOv5, and its successors, you can effortlessly transition from standard bounding boxes to [Image Segmentation](https://docs.ultralytics.com/tasks/segment) and classification workflows.
 
 ### Code Example: Training YOLOv5
 
@@ -112,7 +112,7 @@ predictions[0].show()
 If your organization is deeply embedded within the Baidu software stack or relies heavily on specialized hardware that mandates the PaddlePaddle framework, PP-YOLOE+ is a solid performer. It is frequently utilized in specialized manufacturing pipelines across Asia where legacy integration with Paddle exists.
 
 **When to choose YOLOv5:**
-For the vast majority of international developers, researchers, and enterprises, YOLOv5 remains a powerhouse. Its PyTorch roots mean it is instantly compatible with tools like [Weights & Biases](https://wandb.ai/site) for tracking, and it exports cleanly to [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) for NVIDIA GPU acceleration or CoreML for Apple devices. It excels in diverse fields ranging from agricultural crop monitoring to high-speed drone navigation.
+For the vast majority of international developers, researchers, and enterprises, YOLOv5 remains a powerhouse. Its PyTorch roots mean it is instantly compatible with tools like [Weights & Biases](https://wandb.ai/site) for tracking, and it exports cleanly to [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) for NVIDIA GPU acceleration or CoreML for Apple devices. It excels in diverse fields ranging from agricultural crop monitoring to high-speed drone navigation.
 
 ## The Future of Detection: Ultralytics YOLO26
 
@@ -125,6 +125,6 @@ While YOLOv5 is an iconic model, the frontier of computer vision has advanced. F
 - **End-to-End NMS-Free Design:** YOLO26 eliminates Non-Maximum Suppression post-processing entirely. This reduces latency variability and simplifies the deployment pipeline drastically.
 - **Up to 43% Faster CPU Inference:** By strategically removing Distribution Focal Loss (DFL), YOLO26 dramatically increases speed on edge devices without GPUs.
 - **MuSGD Optimizer:** Inspired by leading Large Language Models, this hybrid optimizer stabilizes training dynamics and allows for much faster convergence on custom datasets.
-- **Task-Specific Enhancements:** Features advanced loss functions like ProgLoss and STAL, yielding unprecedented accuracy on tiny objects. It natively supports [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) detection for aerial imagery.
+- **Task-Specific Enhancements:** Features advanced loss functions like ProgLoss and STAL, yielding unprecedented accuracy on tiny objects. It natively supports [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection for aerial imagery.
 
-If you are exploring state-of-the-art vision models, you may also be interested in comparing the previous generation [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or transformer-based approaches like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/). Ultimately, the robust ecosystem, combined with cutting-edge architectural advancements, cements Ultralytics as the premier choice for modern computer vision tasks.
+If you are exploring state-of-the-art vision models, you may also be interested in comparing the previous generation [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or transformer-based approaches like [RT-DETR](https://docs.ultralytics.com/models/rtdetr). Ultimately, the robust ecosystem, combined with cutting-edge architectural advancements, cements Ultralytics as the premier choice for modern computer vision tasks.

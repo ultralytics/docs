@@ -22,7 +22,7 @@ Authors: Glenn Jocher and Jing Qiu
 Organization: [Ultralytics](https://www.ultralytics.com)  
 Date: 2024-09-27  
 GitHub: [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)  
-Docs: [https://docs.ultralytics.com/models/yolo11/](https://docs.ultralytics.com/models/yolo11/)
+Docs: [https://docs.ultralytics.com/models/yolo11/](https://docs.ultralytics.com/models/yolo11)
 
 [Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
@@ -32,9 +32,9 @@ Organization: [Institute of Information Science, Academia Sinica, Taiwan](https:
 Date: 2022-07-06  
 Arxiv: [https://arxiv.org/abs/2207.02696](https://arxiv.org/abs/2207.02696)  
 GitHub: [https://github.com/WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)  
-Docs: [https://docs.ultralytics.com/models/yolov7/](https://docs.ultralytics.com/models/yolov7/)
+Docs: [https://docs.ultralytics.com/models/yolov7/](https://docs.ultralytics.com/models/yolov7)
 
-[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7/){ .md-button }
+[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 
 ## Architectural Differences
 
@@ -96,11 +96,11 @@ In contrast, a typical YOLOv7 training command looks like this, requiring carefu
 python train.py --workers 8 --device 0 --batch-size 32 --data data/coco.yaml --img 640 640 --cfg cfg/training/yolov7.yaml --weights 'yolov7_training.pt'
 ```
 
-YOLO11 also provides immense versatility. While YOLOv7 requires entirely different codebases or heavy modifications to support tasks beyond detection (like pose or segmentation), YOLO11 handles [object detection](https://docs.ultralytics.com/tasks/detect/), [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [image classification](https://docs.ultralytics.com/tasks/classify/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/) detection via a single, cohesive framework.
+YOLO11 also provides immense versatility. While YOLOv7 requires entirely different codebases or heavy modifications to support tasks beyond detection (like pose or segmentation), YOLO11 handles [object detection](https://docs.ultralytics.com/tasks/detect), [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection via a single, cohesive framework.
 
 !!! note "Exporting Made Easy"
 
-    Exporting YOLO11 to formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) or [OpenVINO](https://docs.ultralytics.com/integrations/openvino/) requires just a single command, mitigating the typical operator support issues encountered with legacy models.
+    Exporting YOLO11 to formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) or [OpenVINO](https://docs.ultralytics.com/integrations/openvino) requires just a single command, mitigating the typical operator support issues encountered with legacy models.
 
 ## Real-World Applications and Ideal Use Cases
 
@@ -125,4 +125,4 @@ Released in January 2026, YOLO26 introduces an end-to-end NMS-Free Design, compl
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
-For users interested in specialized alternative structures, exploring the transformer-based [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) or the dynamic open-vocabulary [YOLO-World](https://docs.ultralytics.com/models/yolo-world/) models may also yield beneficial results for diverse computer vision deployments.
+For users interested in specialized alternative structures, exploring the transformer-based [RT-DETR](https://docs.ultralytics.com/models/rtdetr) or the dynamic open-vocabulary [YOLO-World](https://docs.ultralytics.com/models/yolo-world) models may also yield beneficial results for diverse computer vision deployments.

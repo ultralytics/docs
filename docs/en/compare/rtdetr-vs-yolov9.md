@@ -26,7 +26,7 @@ Developed by researchers at Baidu, RTDETRv2 builds upon the original RT-DETR by 
 
 A defining characteristic of RTDETRv2 is its natively **end-to-end NMS-free design**. By completely removing Non-Maximum Suppression (NMS) during post-processing, the model stabilizes inference latency and simplifies the deployment pipeline. The global attention mechanism allows the model to excel in complex scene understanding and dense crowds, as it evaluates the entire image context simultaneously.
 
-[Learn more about RTDETRv2](https://docs.ultralytics.com/models/rtdetr/){ .md-button }
+[Learn more about RTDETRv2](https://docs.ultralytics.com/models/rtdetr){ .md-button }
 
 ### YOLOv9: Programmable Gradient Information
 
@@ -39,7 +39,7 @@ YOLOv9, a highly efficient CNN-based architecture, tackles the information bottl
 
 YOLOv9 relies on the proven [convolutional neural network](https://en.wikipedia.org/wiki/Convolutional_neural_network) foundations but maximizes parameter efficiency. By retaining crucial information during the feed-forward process, it ensures reliable weight updates, resulting in an incredibly lightweight yet highly accurate model. However, unlike RTDETRv2, YOLOv9 still relies on standard NMS post-processing.
 
-[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9/){ .md-button }
+[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9){ .md-button }
 
 ## Performance and Resource Efficiency
 
@@ -68,11 +68,11 @@ Transformers like RTDETRv2 are notoriously memory-intensive during training, oft
 
 ## The Ultralytics Advantage: Ecosystem and Ease of Use
 
-While researching standalone repositories like the official RTDETRv2 or YOLOv9 GitHub pages can be highly educational, production environments demand stability, ease of use, and a well-maintained ecosystem. Integrating these models through the [Ultralytics Python API](https://docs.ultralytics.com/usage/python/) offers a seamless developer experience.
+While researching standalone repositories like the official RTDETRv2 or YOLOv9 GitHub pages can be highly educational, production environments demand stability, ease of use, and a well-maintained ecosystem. Integrating these models through the [Ultralytics Python API](https://docs.ultralytics.com/usage/python) offers a seamless developer experience.
 
 ### Unified API and Versatility
 
-The Ultralytics framework abstracts away the complexities of data loading, augmentations, and distributed training. Furthermore, while the original RTDETRv2 is strictly focused on detection, the Ultralytics ecosystem allows users to easily transition between [Object Detection](https://docs.ultralytics.com/tasks/detect/), [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), and [Pose Estimation](https://docs.ultralytics.com/tasks/pose/).
+The Ultralytics framework abstracts away the complexities of data loading, augmentations, and distributed training. Furthermore, while the original RTDETRv2 is strictly focused on detection, the Ultralytics ecosystem allows users to easily transition between [Object Detection](https://docs.ultralytics.com/tasks/detect), [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), and [Pose Estimation](https://docs.ultralytics.com/tasks/pose).
 
 ```python
 from ultralytics import RTDETR, YOLO
@@ -89,7 +89,7 @@ results = model_rtdetr.predict("https://ultralytics.com/images/bus.jpg")
 model_yolo.export(format="engine")
 ```
 
-With robust documentation, automatic [experiment tracking](https://docs.ultralytics.com/integrations/comet/), and seamless [export capabilities](https://docs.ultralytics.com/modes/export/) to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx/), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), and OpenVINO, Ultralytics drastically reduces the time from prototype to production.
+With robust documentation, automatic [experiment tracking](https://docs.ultralytics.com/integrations/comet), and seamless [export capabilities](https://docs.ultralytics.com/modes/export) to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), and OpenVINO, Ultralytics drastically reduces the time from prototype to production.
 
 ## Ideal Use Cases
 
@@ -106,7 +106,7 @@ Thanks to its global attention mechanism, RTDETRv2 is a powerhouse for **server-
 YOLOv9 is a champion of **resource-constrained edge deployments**. Its computational efficiency makes it ideal for:
 
 - **Robotics:** Real-time navigation and obstacle avoidance where minimal latency is required.
-- **Smart City IoT:** Deploying on edge devices like the [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/) for traffic monitoring.
+- **Smart City IoT:** Deploying on edge devices like the [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson) for traffic monitoring.
 - **Industrial Inspection:** High-speed assembly line quality control requiring high frames-per-second (FPS).
 
 ## The Future: Enter Ultralytics YOLO26

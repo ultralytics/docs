@@ -26,9 +26,9 @@ Developed to resolve long-standing latency bottlenecks, YOLOv10 introduced a nat
 - **Date:** May 23, 2024
 - **ArXiv:** [2405.14458](https://arxiv.org/abs/2405.14458)
 - **GitHub:** [THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
-- **Docs:** [Ultralytics YOLOv10 Documentation](https://docs.ultralytics.com/models/yolov10/)
+- **Docs:** [Ultralytics YOLOv10 Documentation](https://docs.ultralytics.com/models/yolov10)
 
-[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10/){ .md-button }
+[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10){ .md-button }
 
 ### YOLOX: Bridging the Research and Industry Gap
 
@@ -51,7 +51,7 @@ Both frameworks diverge from traditional anchor-based detectors, but they solve 
 
 YOLOX brought several crucial updates to the ecosystem back in 2021. Its primary contribution was shifting to an **anchor-free detector** design. By eliminating predefined anchor boxes, YOLOX heavily reduced the number of design parameters and heuristic tuning required for different datasets.
 
-Furthermore, YOLOX employs a **decoupled head**, separating the classification and regression tasks. This resolved the conflict between the two objectives, significantly accelerating convergence during training. It also utilizes **SimOTA** for advanced label assignment, improving the handling of crowded scenes and occlusions common in the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/).
+Furthermore, YOLOX employs a **decoupled head**, separating the classification and regression tasks. This resolved the conflict between the two objectives, significantly accelerating convergence during training. It also utilizes **SimOTA** for advanced label assignment, improving the handling of crowded scenes and occlusions common in the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco).
 
 !!! tip "Anchor-Free Advantage"
 
@@ -83,7 +83,7 @@ Evaluating these models on hardware like the NVIDIA T4 GPU reveals distinct adva
 | YOLOXl    | 640                         | 49.7                       | -                                    | 9.04                                      | 54.2                     | 155.6                   |
 | YOLOXx    | 640                         | 51.1                       | -                                    | 16.1                                      | 99.1                     | 281.9                   |
 
-As seen above, YOLOv10 scales exceptionally well. The `YOLOv10x` variant achieves the highest accuracy (**54.4 mAP**), while the `YOLOv10n` variant delivers the fastest inference using [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) integration. Conversely, the legacy YOLOX nano model features the smallest overall footprint for heavily constrained environments.
+As seen above, YOLOv10 scales exceptionally well. The `YOLOv10x` variant achieves the highest accuracy (**54.4 mAP**), while the `YOLOv10n` variant delivers the fastest inference using [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) integration. Conversely, the legacy YOLOX nano model features the smallest overall footprint for heavily constrained environments.
 
 ## Training Methodologies and Resource Requirements
 
@@ -91,7 +91,7 @@ When implementing models for production, the training ecosystem and resource dem
 
 YOLOX often relies on older environment configurations that can be cumbersome to manage. Furthermore, its legacy codebase requires more boilerplate code to achieve multi-GPU distributed training or mixed-precision optimization.
 
-In contrast, YOLOv10 integrates smoothly with modern PyTorch workflows, but it is the **Ultralytics ecosystem** that truly transforms the developer experience. Ultralytics models are characterized by significantly lower CUDA memory usage during training compared to transformer-based architectures like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/).
+In contrast, YOLOv10 integrates smoothly with modern PyTorch workflows, but it is the **Ultralytics ecosystem** that truly transforms the developer experience. Ultralytics models are characterized by significantly lower CUDA memory usage during training compared to transformer-based architectures like [RT-DETR](https://docs.ultralytics.com/models/rtdetr).
 
 ### Code Example: Streamlined Training
 
@@ -113,7 +113,7 @@ metrics = model.val()
 model.export(format="onnx")
 ```
 
-This simple syntax provides immediate access to [automatic mixed precision](https://www.ultralytics.com/glossary/mixed-precision), automated data augmentation, and integration with tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases/) out of the box.
+This simple syntax provides immediate access to [automatic mixed precision](https://www.ultralytics.com/glossary/mixed-precision), automated data augmentation, and integration with tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases) out of the box.
 
 ## Use Cases and Recommendations
 
@@ -137,11 +137,11 @@ YOLOX is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Future of Vision AI: Enter YOLO26
 
@@ -154,7 +154,7 @@ YOLO26 stands out by introducing several massive leaps forward:
 - **Up to 43% Faster CPU Inference:** By strategically removing Distribution Focal Loss (DFL), YOLO26 achieves vastly superior performance on edge devices without GPUs.
 - **MuSGD Optimizer:** Inspired by LLM training stability, this novel hybrid of SGD and Muon ensures faster convergence and highly stable training runs.
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, a critical factor for aerial imagery and IoT sensors.
-- **Unmatched Versatility:** Unlike YOLOX, which is strictly an object detector, YOLO26 natively supports [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), [Image Classification](https://docs.ultralytics.com/tasks/classify/), and [OBB Detection](https://docs.ultralytics.com/tasks/obb/) within a single, unified library.
+- **Unmatched Versatility:** Unlike YOLOX, which is strictly an object detector, YOLO26 natively supports [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), [Image Classification](https://docs.ultralytics.com/tasks/classify), and [OBB Detection](https://docs.ultralytics.com/tasks/obb) within a single, unified library.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
@@ -168,7 +168,7 @@ Choosing the right model dictates the success of real-world deployments across v
 
 ### High-Speed Video Analytics
 
-For processing dense video feeds, such as smart city traffic management, **YOLOv10** provides a significant advantage due to its NMS-free post-processing. Eliminating the NMS bottleneck allows for consistent low latency, making it ideal to pair with tracking algorithms like [BoT-SORT](https://docs.ultralytics.com/reference/trackers/bot_sort/).
+For processing dense video feeds, such as smart city traffic management, **YOLOv10** provides a significant advantage due to its NMS-free post-processing. Eliminating the NMS bottleneck allows for consistent low latency, making it ideal to pair with tracking algorithms like [BoT-SORT](https://docs.ultralytics.com/reference/trackers/bot_sort).
 
 ### Legacy Edge Deployment
 
@@ -178,4 +178,4 @@ For older academic setups or legacy Android applications heavily optimized for p
 
 For next-generation hardware deployments, such as robotics, drones, and retail shelf analysis, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) is the ultimate solution. Its drastically reduced CPU latency and superior small-object detection make it uniquely qualified for autonomous navigation and granular inventory management.
 
-For additional comparisons to expand your deep learning toolkit, you can also explore how these models stack up against alternatives like the flexible [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or the transformer-powered [RT-DETR](https://docs.ultralytics.com/compare/rtdetr-vs-yolov10/).
+For additional comparisons to expand your deep learning toolkit, you can also explore how these models stack up against alternatives like the flexible [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or the transformer-powered [RT-DETR](https://docs.ultralytics.com/compare/rtdetr-vs-yolov10).

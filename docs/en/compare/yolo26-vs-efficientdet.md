@@ -21,9 +21,9 @@ Whether your deployment targets high-throughput cloud servers or latency-constra
 **Organization:** [Ultralytics](https://www.ultralytics.com/)  
 **Date:** 2026-01-14  
 **GitHub:** [Ultralytics GitHub](https://github.com/ultralytics/ultralytics)  
-**Docs:** [YOLO26 Official Documentation](https://docs.ultralytics.com/models/yolo26/)
+**Docs:** [YOLO26 Official Documentation](https://docs.ultralytics.com/models/yolo26)
 
-Released in early 2026, [YOLO26](https://docs.ultralytics.com/models/yolo26/) represents the latest evolution in the YOLO family, specifically engineered to provide an unparalleled user experience and top-tier [mean Average Precision (mAP)](https://docs.ultralytics.com/guides/yolo-performance-metrics/). Designed from the ground up for modern hardware, it offers exceptional versatility across [object detection](https://docs.ultralytics.com/tasks/detect/), [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [image classification](https://docs.ultralytics.com/tasks/classify/), and [pose estimation](https://docs.ultralytics.com/tasks/pose/).
+Released in early 2026, [YOLO26](https://docs.ultralytics.com/models/yolo26) represents the latest evolution in the YOLO family, specifically engineered to provide an unparalleled user experience and top-tier [mean Average Precision (mAP)](https://docs.ultralytics.com/guides/yolo-performance-metrics). Designed from the ground up for modern hardware, it offers exceptional versatility across [object detection](https://docs.ultralytics.com/tasks/detect), [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), and [pose estimation](https://docs.ultralytics.com/tasks/pose).
 
 YOLO26 introduces several groundbreaking features that drastically improve both training stability and inference speeds:
 
@@ -35,7 +35,7 @@ YOLO26 introduces several groundbreaking features that drastically improve both 
 
 !!! tip "Streamlined Exporting"
 
-    Thanks to the DFL removal and NMS-free architecture, exporting YOLO26 models to edge-friendly formats like [NVIDIA TensorRT](https://developer.nvidia.com/tensorrt) or [Intel OpenVINO](https://docs.ultralytics.com/integrations/openvino/) requires virtually no custom plugin development.
+    Thanks to the DFL removal and NMS-free architecture, exporting YOLO26 models to edge-friendly formats like [NVIDIA TensorRT](https://developer.nvidia.com/tensorrt) or [Intel OpenVINO](https://docs.ultralytics.com/integrations/openvino) requires virtually no custom plugin development.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
@@ -54,7 +54,7 @@ Key innovations of EfficientDet include:
 - **BiFPN (Bi-directional Feature Pyramid Network):** A mechanism that allows easy and fast multi-scale feature fusion, enabling the network to better understand objects of varying sizes.
 - **Compound Scaling:** A heuristic method to scale up resolution, depth, and width uniformly, creating a family of models from d0 (smallest) to d7 (largest).
 
-While EfficientDet remains a robust choice for strict bounding box detection, it generally lacks the modern multi-task versatility (such as native [OBB tasks](https://docs.ultralytics.com/tasks/obb/)) and the streamlined, unified [Python](https://www.python.org/) ecosystem that modern developers expect.
+While EfficientDet remains a robust choice for strict bounding box detection, it generally lacks the modern multi-task versatility (such as native [OBB tasks](https://docs.ultralytics.com/tasks/obb)) and the streamlined, unified [Python](https://www.python.org/) ecosystem that modern developers expect.
 
 [Learn more about EfficientDet](https://github.com/google/automl/tree/master/efficientdet#readme){ .md-button }
 
@@ -83,7 +83,7 @@ As shown above, YOLO26 establishes a superior performance balance. The YOLO26x m
 
 ## Training Efficiency and The Ecosystem Advantage
 
-A major distinction between the two architectures lies in their development environments. EfficientDet is deeply embedded within the Google AutoML and TensorFlow ecosystem, which, while powerful, can introduce steep learning curves and rigid configurations for custom datasets like [DOTAv1](https://docs.ultralytics.com/datasets/obb/dota-v2/).
+A major distinction between the two architectures lies in their development environments. EfficientDet is deeply embedded within the Google AutoML and TensorFlow ecosystem, which, while powerful, can introduce steep learning curves and rigid configurations for custom datasets like [DOTAv1](https://docs.ultralytics.com/datasets/obb/dota-v2).
 
 Conversely, Ultralytics offers an incredibly well-maintained ecosystem built on [PyTorch](https://pytorch.org/). The memory usage during training is strictly optimized, allowing engineers to train robust models without requiring excessive VRAM allocations common in transformer-based networks.
 
@@ -118,7 +118,7 @@ model.export(format="engine")
 **When to use YOLO26:**
 
 - **Edge Computing & Mobile:** With up to 43% faster CPU inference and no NMS overhead, YOLO26 excels on devices with strictly constrained compute budgets like Raspberry Pis or mobile phones.
-- **Multitasking:** When a single pipeline requires bounding boxes, [segmentation masks](https://docs.ultralytics.com/tasks/segment/), and tracking, the versatility of YOLO26 is unmatched.
+- **Multitasking:** When a single pipeline requires bounding boxes, [segmentation masks](https://docs.ultralytics.com/tasks/segment), and tracking, the versatility of YOLO26 is unmatched.
 - **Drone & Aerial Imagery:** The combination of ProgLoss and STAL greatly enhances the detection of extremely small objects from high altitudes.
 
 **When to use EfficientDet:**
@@ -128,6 +128,6 @@ model.export(format="engine")
 
 ## Exploring Other Alternatives
 
-While this guide focuses heavily on the [YOLO26 vs EfficientDet](https://docs.ultralytics.com/compare/efficientdet-vs-yolo26/) paradigm, the broader Ultralytics ecosystem houses other incredible architectures. If your application relies heavily on transformers, [RT-DETR](https://docs.ultralytics.com/models/rtdetr/) offers real-time transformer-based detection. Alternatively, if you are supporting legacy systems, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains fully supported and highly effective. For a broader overview, visit the [Ultralytics Model Comparisons Hub](https://docs.ultralytics.com/compare/).
+While this guide focuses heavily on the [YOLO26 vs EfficientDet](https://docs.ultralytics.com/compare/efficientdet-vs-yolo26) paradigm, the broader Ultralytics ecosystem houses other incredible architectures. If your application relies heavily on transformers, [RT-DETR](https://docs.ultralytics.com/models/rtdetr) offers real-time transformer-based detection. Alternatively, if you are supporting legacy systems, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains fully supported and highly effective. For a broader overview, visit the [Ultralytics Model Comparisons Hub](https://docs.ultralytics.com/compare).
 
 Ultimately, for any modern computer vision pipeline built today, the sheer speed, ease of use, and state-of-the-art accuracy of **YOLO26** make it the undisputed recommendation for researchers and developers alike.

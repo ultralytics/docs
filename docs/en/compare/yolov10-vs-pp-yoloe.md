@@ -8,7 +8,7 @@ keywords: YOLOv10,PP-YOLOE+,object detection,model comparison,computer vision,Ul
 
 In the rapidly evolving landscape of [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv), choosing the optimal architecture for real-time object detection is crucial for balancing accuracy, inference speed, and deployment efficiency. Two notable contenders in this arena are **YOLOv10** and **PP-YOLOE+**. While both models offer robust capabilities, they originate from different design philosophies and ecosystem integrations.
 
-This technical guide provides an in-depth analysis of these two architectures, exploring their [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics/), structural differences, and ideal real-world applications. By understanding the nuances of each, machine learning engineers and researchers can make informed decisions for their deployment pipelines.
+This technical guide provides an in-depth analysis of these two architectures, exploring their [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics), structural differences, and ideal real-world applications. By understanding the nuances of each, machine learning engineers and researchers can make informed decisions for their deployment pipelines.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -26,15 +26,15 @@ Developed by researchers at Tsinghua University, YOLOv10 introduced a significan
 - **Date:** 2024-05-23
 - **Arxiv:** [2405.14458](https://arxiv.org/abs/2405.14458)
 - **GitHub:** [THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
-- **Docs:** [YOLOv10 Documentation](https://docs.ultralytics.com/models/yolov10/)
+- **Docs:** [YOLOv10 Documentation](https://docs.ultralytics.com/models/yolov10)
 
 ### Architectural Strengths and Weaknesses
 
 YOLOv10's standout feature is its consistent dual assignments for NMS-free training, which allows it to predict bounding boxes directly without relying on heuristic thresholding. This results in an excellent balance of speed and precision, particularly for the smaller model variants. The architecture also employs a holistic efficiency-accuracy driven design, minimizing computational redundancy.
 
-However, as a strictly detection-focused model, it lacks the native versatility found in models that support [instance segmentation](https://docs.ultralytics.com/tasks/segment/) or [pose estimation](https://docs.ultralytics.com/tasks/pose/) out of the box.
+However, as a strictly detection-focused model, it lacks the native versatility found in models that support [instance segmentation](https://docs.ultralytics.com/tasks/segment) or [pose estimation](https://docs.ultralytics.com/tasks/pose) out of the box.
 
-[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10/){ .md-button }
+[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10){ .md-button }
 
 ## PP-YOLOE+: The PaddlePaddle Powerhouse
 
@@ -53,7 +53,7 @@ PP-YOLOE+ is an upgraded version of the original PP-YOLOE, developed by Baidu's 
 
 PP-YOLOE+ utilizes a scalable backbone and a powerful neck design (CSPRepResNet) that significantly boosts feature extraction. Its training methodology relies heavily on large-scale datasets like Objects365 for pre-training, which contributes to its impressive accuracy, particularly on the larger `x` and `l` variants.
 
-The primary drawback of PP-YOLOE+ is its deep entanglement with the PaddlePaddle framework. For teams accustomed to PyTorch or the unified Ultralytics ecosystem, adopting PP-YOLOE+ can introduce friction. Furthermore, its larger parameter count leads to higher memory requirements during training compared to equivalent [Ultralytics YOLO models](https://docs.ultralytics.com/models/).
+The primary drawback of PP-YOLOE+ is its deep entanglement with the PaddlePaddle framework. For teams accustomed to PyTorch or the unified Ultralytics ecosystem, adopting PP-YOLOE+ can introduce friction. Furthermore, its larger parameter count leads to higher memory requirements during training compared to equivalent [Ultralytics YOLO models](https://docs.ultralytics.com/models).
 
 [Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/tree/release/2.8.1/configs/ppyoloe){ .md-button }
 
@@ -100,11 +100,11 @@ PP-YOLOE+ is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultralytics Advantage and the Future: YOLO26
 
@@ -117,13 +117,13 @@ While YOLOv10 and PP-YOLOE+ offer specialized benefits, the modern standard for 
 ### Key Innovations in YOLO26
 
 - **End-to-End NMS-Free Design:** By eliminating post-processing latency, YOLO26 guarantees stable, high-speed inferences, vital for [autonomous vehicles](https://www.ultralytics.com/glossary/autonomous-vehicles) and rapid robotics.
-- **Edge-First Optimizations:** The removal of Distribution Focal Loss (DFL) simplifies model [export formats](https://docs.ultralytics.com/modes/export/) and yields up to **43% faster CPU inference** over previous generations.
+- **Edge-First Optimizations:** The removal of Distribution Focal Loss (DFL) simplifies model [export formats](https://docs.ultralytics.com/modes/export) and yields up to **43% faster CPU inference** over previous generations.
 - **Advanced Training Dynamics:** Leveraging the new **MuSGD Optimizer**—a hybrid of SGD and Muon—YOLO26 brings LLM training stability to vision tasks, converging faster and more reliably.
 - **Enhanced Accuracy via ProgLoss + STAL:** These advanced loss functions specifically target complex scenarios, offering exceptional gains in small-object detection crucial for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and [agriculture](https://www.ultralytics.com/solutions/ai-in-agriculture).
 
 ### Unmatched Versatility
 
-Unlike PP-YOLOE+ which focuses on detection, YOLO26 handles [image classification](https://docs.ultralytics.com/tasks/classify/), [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb/), pose estimation, and segmentation from a single, unified codebase. You can easily manage [datasets](https://docs.ultralytics.com/datasets/), train, and deploy models directly via the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26).
+Unlike PP-YOLOE+ which focuses on detection, YOLO26 handles [image classification](https://docs.ultralytics.com/tasks/classify), [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb), pose estimation, and segmentation from a single, unified codebase. You can easily manage [datasets](https://docs.ultralytics.com/datasets), train, and deploy models directly via the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26).
 
 ```python
 from ultralytics import YOLO
@@ -144,8 +144,8 @@ Selecting the right model heavily depends on deployment constraints:
 
 - **PP-YOLOE+** shines in specific industrial deployments across Asia where the Baidu hardware-software stack is pre-established. It handles static, high-resolution [quality inspection in manufacturing](https://www.ultralytics.com/blog/quality-inspection-in-manufacturing-traditional-vs-deep-learning-methods) well.
 - **YOLOv10** is optimal for dense [crowd management](https://www.ultralytics.com/blog/vision-ai-in-crowd-management) and environments where removing NMS drops latency variability, making real-time tracking more consistent.
-- **Ultralytics YOLO26** remains the definitive choice for enterprise-wide scaling. Whether analyzing traffic in [smart cities](https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities) or deploying to ultra-low-power edge nodes like the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/), its minimal memory footprint, comprehensive documentation, and unified training pipeline ensure rapid ROI.
+- **Ultralytics YOLO26** remains the definitive choice for enterprise-wide scaling. Whether analyzing traffic in [smart cities](https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities) or deploying to ultra-low-power edge nodes like the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi), its minimal memory footprint, comprehensive documentation, and unified training pipeline ensure rapid ROI.
 
-For those interested in exploring older supported architectures or transformer alternatives within the ecosystem, see the documentations for [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or [RT-DETR](https://docs.ultralytics.com/models/rtdetr/).
+For those interested in exploring older supported architectures or transformer alternatives within the ecosystem, see the documentations for [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or [RT-DETR](https://docs.ultralytics.com/models/rtdetr).
 
 Ultimately, a well-maintained ecosystem combined with a simple API ensures that developers spend less time debugging configuration files and more time solving real-world [vision AI](https://www.ultralytics.com/blog-category/vision-ai) problems.

@@ -61,7 +61,7 @@ RTDETRv2 leverages a hybrid architecture, combining a CNN backbone for feature e
 
 The transformer architecture makes RTDETRv2 highly effective in scenarios where understanding global context is crucial. However, transformer models typically demand significantly higher CUDA memory during both training and inference compared to lightweight CNNs. It is best suited for environments with unconstrained hardware, such as cloud-based [video analytics](https://www.ultralytics.com/blog/behind-the-scenes-of-vision-ai-in-streaming) running on powerful GPU servers.
 
-[Learn more about RTDETR](https://docs.ultralytics.com/models/rtdetr/){ .md-button }
+[Learn more about RTDETR](https://docs.ultralytics.com/models/rtdetr){ .md-button }
 
 ## Performance and Metrics Comparison
 
@@ -104,11 +104,11 @@ RT-DETR is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultralytics Advantage: Introducing YOLO26
 
@@ -130,7 +130,7 @@ YOLO26 introduces several pioneering enhancements that outclass traditional CNNs
 
 !!! note "Task-Specific Versatility"
 
-    Unlike specialized object detectors, YOLO26 is highly versatile, supporting [Instance Segmentation](https://docs.ultralytics.com/tasks/segment/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), [Classification](https://docs.ultralytics.com/tasks/classify/), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb/). It includes tailored enhancements like RLE for Pose and specialized angle loss for OBB.
+    Unlike specialized object detectors, YOLO26 is highly versatile, supporting [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), [Classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb). It includes tailored enhancements like RLE for Pose and specialized angle loss for OBB.
 
 ### Unmatched Ease of Use
 
@@ -157,7 +157,7 @@ model_yolo.export(format="engine", half=True)
 
 Lower memory requirements typical of Ultralytics YOLO models mean you can train faster and deploy on cheaper hardware compared to transformer-based counterparts. Furthermore, active development and world-class documentation ensure your production pipelines remain stable.
 
-For teams exploring alternatives, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains a highly supported and exceptionally capable predecessor within the ecosystem, providing an excellent baseline for legacy hardware integrations. You might also find it useful to read our comparison on [YOLO11 vs RTDETR](https://docs.ultralytics.com/compare/yolo11-vs-rtdetr/).
+For teams exploring alternatives, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains a highly supported and exceptionally capable predecessor within the ecosystem, providing an excellent baseline for legacy hardware integrations. You might also find it useful to read our comparison on [YOLO11 vs RTDETR](https://docs.ultralytics.com/compare/yolo11-vs-rtdetr).
 
 ## Summary
 

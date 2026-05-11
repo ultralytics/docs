@@ -17,7 +17,7 @@ Whether your project requires deployment on constrained [edge AI](https://www.ul
 
 ## Exploring YOLOv10
 
-Introduced by researchers at Tsinghua University, [YOLOv10](https://docs.ultralytics.com/models/yolov10/) revolutionized the YOLO family by introducing a natively end-to-end approach, effectively eliminating the need for Non-Maximum Suppression (NMS) during post-processing.
+Introduced by researchers at Tsinghua University, [YOLOv10](https://docs.ultralytics.com/models/yolov10) revolutionized the YOLO family by introducing a natively end-to-end approach, effectively eliminating the need for Non-Maximum Suppression (NMS) during post-processing.
 
 **YOLOv10 Details:**
 
@@ -26,7 +26,7 @@ Introduced by researchers at Tsinghua University, [YOLOv10](https://docs.ultraly
 - Date: 2024-05-23
 - Arxiv: [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)
 - GitHub: [https://github.com/THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
-- Docs: [https://docs.ultralytics.com/models/yolov10/](https://docs.ultralytics.com/models/yolov10/)
+- Docs: [https://docs.ultralytics.com/models/yolov10/](https://docs.ultralytics.com/models/yolov10)
 
 ### Key Architectural Features
 
@@ -36,13 +36,13 @@ Furthermore, the model employs a **Holistic Efficiency-Accuracy Driven Design**.
 
 !!! tip "Streamlined Export for Production"
 
-    Because YOLOv10 removes NMS operations from the inference graph, exporting the model to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx/) or [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/) is highly simplified, making it exceptionally well-suited for edge deployments.
+    Because YOLOv10 removes NMS operations from the inference graph, exporting the model to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx) or [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) is highly simplified, making it exceptionally well-suited for edge deployments.
 
-[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10/){ .md-button }
+[Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10){ .md-button }
 
 ### Usage Example
 
-YOLOv10 is deeply integrated into the Ultralytics ecosystem, making it incredibly easy to use via the [Ultralytics Python package](https://docs.ultralytics.com/quickstart/).
+YOLOv10 is deeply integrated into the Ultralytics ecosystem, making it incredibly easy to use via the [Ultralytics Python package](https://docs.ultralytics.com/quickstart).
 
 ```python
 from ultralytics import YOLO
@@ -122,11 +122,11 @@ DAMO-YOLO is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultralytics Advantage
 
@@ -138,15 +138,15 @@ Unlike standalone academic repositories that often face abandonment, Ultralytics
 
 ### Training Efficiency and Memory Requirements
 
-Training large models can quickly become computationally expensive. The Ultralytics YOLO architectures are historically known for their low CUDA memory footprint during training and inference. This efficiency allows developers to train models on consumer-grade hardware or cost-effective cloud instances without running into out-of-memory errors that are common when working with transformer-based models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/).
+Training large models can quickly become computationally expensive. The Ultralytics YOLO architectures are historically known for their low CUDA memory footprint during training and inference. This efficiency allows developers to train models on consumer-grade hardware or cost-effective cloud instances without running into out-of-memory errors that are common when working with transformer-based models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr).
 
 !!! note "Experiment Tracking"
 
-    Ultralytics natively integrates with top MLOps tools. You can easily track your model training progress using integrations with [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases/), [Comet](https://docs.ultralytics.com/integrations/comet/), or [ClearML](https://docs.ultralytics.com/integrations/clearml/) with zero additional boilerplate code.
+    Ultralytics natively integrates with top MLOps tools. You can easily track your model training progress using integrations with [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases), [Comet](https://docs.ultralytics.com/integrations/comet), or [ClearML](https://docs.ultralytics.com/integrations/clearml) with zero additional boilerplate code.
 
 ### Versatility Across Tasks
 
-A significant limitation of many specialized detection models is their narrow focus. Within the Ultralytics ecosystem, you are not limited to just object detection. The tools seamlessly extend to multiple [computer vision tasks](https://docs.ultralytics.com/tasks/), including [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [image classification](https://docs.ultralytics.com/tasks/classify/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [oriented bounding box (OBB) detection](https://docs.ultralytics.com/tasks/obb/).
+A significant limitation of many specialized detection models is their narrow focus. Within the Ultralytics ecosystem, you are not limited to just object detection. The tools seamlessly extend to multiple [computer vision tasks](https://docs.ultralytics.com/tasks), including [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding box (OBB) detection](https://docs.ultralytics.com/tasks/obb).
 
 ## Looking Ahead: The YOLO26 Evolution
 
@@ -161,4 +161,4 @@ Key advancements in YOLO26 include:
 - **MuSGD Optimizer:** A hybrid of SGD and Muon, bringing advanced LLM training stability and faster convergence directly into computer vision.
 - **ProgLoss + STAL:** Drastically improved loss functions that offer notable enhancements in small-object recognition, which is essential for use cases like [agriculture](https://www.ultralytics.com/solutions/ai-in-agriculture) and remote sensing.
 
-By utilizing the newly revamped [Ultralytics Platform](https://docs.ultralytics.com/platform/), developers can seamlessly annotate, train, and deploy next-generation models like YOLO26 in just a few clicks, ensuring your computer vision pipeline is both cutting-edge and future-proof.
+By utilizing the newly revamped [Ultralytics Platform](https://docs.ultralytics.com/platform), developers can seamlessly annotate, train, and deploy next-generation models like YOLO26 in just a few clicks, ensuring your computer vision pipeline is both cutting-edge and future-proof.

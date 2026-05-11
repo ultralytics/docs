@@ -40,7 +40,7 @@ Developed by the Vision AI Department at Meituan, YOLOv6-3.0 is tailored specifi
 
 YOLOv6 aims to maximize processing speed on GPUs like the [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/). It uses custom quantization methods and specialized backbones to achieve its performance, making it a strong candidate for backend server processing where batch inference is heavily utilized.
 
-[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6/){ .md-button }
+[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6){ .md-button }
 
 ## Architectural Differences
 
@@ -54,7 +54,7 @@ YOLOv5 utilizes a highly optimized CSPDarknet backbone combined with a Path Aggr
 
     Ultralytics models are specifically engineered for training efficiency. You can often train a YOLOv5 model on a single mid-range GPU, making it highly accessible for researchers and startups alike.
 
-Furthermore, YOLOv5 is not just an object detector. Its architecture seamlessly extends to other tasks, offering robust out-of-the-box support for [image segmentation](https://docs.ultralytics.com/tasks/segment/) and [image classification](https://docs.ultralytics.com/tasks/classify/).
+Furthermore, YOLOv5 is not just an object detector. Its architecture seamlessly extends to other tasks, offering robust out-of-the-box support for [image segmentation](https://docs.ultralytics.com/tasks/segment) and [image classification](https://docs.ultralytics.com/tasks/classify).
 
 ### The YOLOv6-3.0 Architecture
 
@@ -64,7 +64,7 @@ During training, YOLOv6 uses an Anchor-Aided Training (AAT) strategy to stabiliz
 
 ## Performance Analysis
 
-When evaluating these models, raw speed and accuracy metrics are vital. Below is a comparative table highlighting the performance of various model sizes on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/).
+When evaluating these models, raw speed and accuracy metrics are vital. Below is a comparative table highlighting the performance of various model sizes on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco).
 
 | Model       | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ----------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -85,7 +85,7 @@ While YOLOv6-3.0 achieves higher mAP scores in its larger variants, YOLOv5 maint
 
 The true defining factor for many engineering teams is the ecosystem surrounding the model.
 
-YOLOv6 is an impressive research repository, but it requires substantial boilerplate code to deploy across varying formats. In contrast, Ultralytics offers a well-maintained ecosystem characterized by a streamlined user experience. Through the unified Python API and the intuitive [Ultralytics Platform](https://platform.ultralytics.com), developers gain access to seamless dataset management, one-click training, and direct exports to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx/) and [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/).
+YOLOv6 is an impressive research repository, but it requires substantial boilerplate code to deploy across varying formats. In contrast, Ultralytics offers a well-maintained ecosystem characterized by a streamlined user experience. Through the unified Python API and the intuitive [Ultralytics Platform](https://platform.ultralytics.com), developers gain access to seamless dataset management, one-click training, and direct exports to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx) and [TensorRT](https://docs.ultralytics.com/integrations/tensorrt).
 
 ### Code Example: Unified Ultralytics API
 
@@ -117,7 +117,7 @@ YOLOv5 is a strong choice for:
 
 - **Proven Production Systems:** Existing deployments where YOLOv5's long track record of stability, extensive documentation, and massive community support are valued.
 - **Resource-Constrained Training:** Environments with limited GPU resources where YOLOv5's efficient training pipeline and lower memory requirements are advantageous.
-- **Extensive Export Format Support:** Projects requiring deployment across many formats including [ONNX](https://docs.ultralytics.com/integrations/onnx/), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt/), [CoreML](https://docs.ultralytics.com/integrations/coreml/), and [TFLite](https://docs.ultralytics.com/integrations/tflite/).
+- **Extensive Export Format Support:** Projects requiring deployment across many formats including [ONNX](https://docs.ultralytics.com/integrations/onnx), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), [CoreML](https://docs.ultralytics.com/integrations/coreml), and [TFLite](https://docs.ultralytics.com/integrations/tflite).
 
 ### When to Choose YOLOv6
 
@@ -129,11 +129,11 @@ YOLOv6 is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## Moving Forward: The YOLO26 Advantage
 
@@ -144,9 +144,9 @@ Released in January 2026, [YOLO26](https://platform.ultralytics.com/ultralytics/
 - **End-to-End NMS-Free Design:** YOLO26 eliminates Non-Maximum Suppression post-processing, dramatically reducing latency variance and simplifying deployment logic.
 - **Up to 43% Faster CPU Inference:** With DFL removal and an optimized head, it drastically outperforms previous generations on edge and low-power devices.
 - **MuSGD Optimizer:** Leveraging LLM training innovations, the new MuSGD optimizer ensures highly stable training and remarkably fast convergence.
-- **Advanced Versatility:** YOLO26 seamlessly handles [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb/), [Pose Estimation](https://docs.ultralytics.com/tasks/pose/), and Segmentation with specialized task losses like ProgLoss and STAL for unparalleled small-object recognition.
+- **Advanced Versatility:** YOLO26 seamlessly handles [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), and Segmentation with specialized task losses like ProgLoss and STAL for unparalleled small-object recognition.
 
-If you are exploring other options within the Ultralytics ecosystem, you might also consider the general-purpose [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or the innovative [YOLO-World](https://docs.ultralytics.com/models/yolo-world/) for open-vocabulary detection tasks.
+If you are exploring other options within the Ultralytics ecosystem, you might also consider the general-purpose [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or the innovative [YOLO-World](https://docs.ultralytics.com/models/yolo-world) for open-vocabulary detection tasks.
 
 ## Conclusion
 

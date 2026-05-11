@@ -2,7 +2,7 @@
 
 # 📚 Ultralytics Docs
 
-Welcome to Ultralytics Docs, your comprehensive resource for understanding and utilizing our state-of-the-art [machine learning](https://www.ultralytics.com/glossary/machine-learning-ml) tools and models, including [Ultralytics YOLO](https://docs.ultralytics.com/models/yolov8/). These documents are actively maintained and deployed to [https://docs.ultralytics.com](https://docs.ultralytics.com/) for easy access.
+Welcome to Ultralytics Docs, your comprehensive resource for understanding and utilizing our state-of-the-art [machine learning](https://www.ultralytics.com/glossary/machine-learning-ml) tools and models, including [Ultralytics YOLO](https://docs.ultralytics.com/models/yolov8). These documents are actively maintained and deployed to [https://docs.ultralytics.com](https://docs.ultralytics.com/) for easy access.
 
 [![Ultralytics Actions](https://github.com/ultralytics/docs/actions/workflows/format.yml/badge.svg)](https://github.com/ultralytics/docs/actions/workflows/format.yml)
 [![jsDelivr hits](https://data.jsdelivr.com/v1/package/gh/ultralytics/llm/badge?style=rounded)](https://www.jsdelivr.com/package/gh/ultralytics/llm)
@@ -121,7 +121,7 @@ To deploy your MkDocs documentation site, choose a hosting provider and configur
 
 ## 💡 Contribute
 
-We deeply value contributions from the open-source community to enhance Ultralytics projects. Your input helps drive innovation in [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) and [AI](https://www.ultralytics.com/glossary/artificial-intelligence-ai)! Please review our [Contributing Guide](https://docs.ultralytics.com/help/contributing/) for detailed information on how to get involved. You can also share your feedback and ideas through our quick [Survey](https://www.ultralytics.com/survey?utm_source=github&utm_medium=social&utm_campaign=Survey). A heartfelt thank you 🙏 to all our contributors for their dedication and support!
+We deeply value contributions from the open-source community to enhance Ultralytics projects. Your input helps drive innovation in [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) and [AI](https://www.ultralytics.com/glossary/artificial-intelligence-ai)! Please review our [Contributing Guide](https://docs.ultralytics.com/help/contributing) for detailed information on how to get involved. You can also share your feedback and ideas through our quick [Survey](https://www.ultralytics.com/survey?utm_source=github&utm_medium=social&utm_campaign=Survey). A heartfelt thank you 🙏 to all our contributors for their dedication and support!
 
 [![Ultralytics open-source contributors](https://raw.githubusercontent.com/ultralytics/assets/main/im/image-contributors.png)](https://github.com/ultralytics/ultralytics/graphs/contributors)
 
@@ -132,11 +132,11 @@ We look forward to your contributions!
 Ultralytics Docs are available under two licensing options to accommodate different usage scenarios:
 
 - **AGPL-3.0 License**: Ideal for students, researchers, and enthusiasts involved in academic pursuits and open collaboration. See the [LICENSE](https://github.com/ultralytics/docs/blob/main/LICENSE) file for full details. This license promotes sharing improvements back with the community, fostering an open and collaborative environment.
-- **Enterprise License**: Designed for commercial applications, this license allows seamless integration of Ultralytics software and [AI models](https://docs.ultralytics.com/models/) into commercial products and services without the open-source requirements of AGPL-3.0. Visit [Ultralytics Licensing](https://www.ultralytics.com/license) for more information on obtaining an Enterprise License.
+- **Enterprise License**: Designed for commercial applications, this license allows seamless integration of Ultralytics software and [AI models](https://docs.ultralytics.com/models) into commercial products and services without the open-source requirements of AGPL-3.0. Visit [Ultralytics Licensing](https://www.ultralytics.com/license) for more information on obtaining an Enterprise License.
 
 ## ✉️ Contact
 
-For bug reports, feature requests, and other issues related to the documentation, please use [GitHub Issues](https://github.com/ultralytics/docs/issues). For discussions, questions, and community support regarding Ultralytics software, the [Ultralytics Platform](https://docs.ultralytics.com/platform/quickstart/), and more, join the conversation with peers and the Ultralytics team on our [Discord server](https://discord.com/invite/ultralytics)!
+For bug reports, feature requests, and other issues related to the documentation, please use [GitHub Issues](https://github.com/ultralytics/docs/issues). For discussions, questions, and community support regarding Ultralytics software, the [Ultralytics Platform](https://docs.ultralytics.com/platform/quickstart), and more, join the conversation with peers and the Ultralytics team on our [Discord server](https://discord.com/invite/ultralytics)!
 
 <br>
 <div align="center">

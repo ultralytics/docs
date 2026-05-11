@@ -8,7 +8,7 @@ keywords: YOLOv5, RTDETRv2, object detection comparison, YOLOv5 vs RTDETRv2, Ult
 
 The evolution of [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) has been largely defined by the relentless pursuit of balancing accuracy with real-time inference speed. When comparing RTDETRv2 and Ultralytics YOLOv5, developers are essentially weighing the sophisticated global context capabilities of transformer architectures against the highly optimized, battle-tested efficiency of Convolutional Neural Networks (CNNs).
 
-This guide provides an in-depth technical analysis of these two prominent architectures, detailing their performance metrics, training methodologies, memory requirements, and ideal deployment scenarios to help you choose the best [object detection](https://docs.ultralytics.com/tasks/detect/) model for your specific use case.
+This guide provides an in-depth technical analysis of these two prominent architectures, detailing their performance metrics, training methodologies, memory requirements, and ideal deployment scenarios to help you choose the best [object detection](https://docs.ultralytics.com/tasks/detect) model for your specific use case.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -39,13 +39,13 @@ Ultralytics YOLOv5 fundamentally changed the landscape of applied machine learni
 - **Author:** Glenn Jocher
 - **Organization:** Ultralytics
 - **Date:** June 26, 2020
-- **Links:** [Official Documentation](https://docs.ultralytics.com/models/yolov5/), [GitHub Repository](https://github.com/ultralytics/yolov5)
+- **Links:** [Official Documentation](https://docs.ultralytics.com/models/yolov5), [GitHub Repository](https://github.com/ultralytics/yolov5)
 
 ### Ecosystem and Performance Balance
 
 YOLOv5 is built entirely on the [PyTorch](https://pytorch.org/) framework and relies on an immensely efficient CNN architecture. It was designed from the ground up for **ease of use**, featuring a streamlined API and some of the most extensive documentation in the AI industry.
 
-The greatest advantage of YOLOv5 lies in its unmatched versatility and low memory requirements. Training a YOLOv5 model requires drastically less VRAM than transformer-based models, making it accessible to researchers and engineers with limited hardware budgets. Furthermore, while RTDETRv2 focuses exclusively on bounding box detection, YOLOv5 has evolved into a versatile powerhouse supporting [instance segmentation](https://docs.ultralytics.com/tasks/segment/) and [image classification](https://docs.ultralytics.com/tasks/classify/).
+The greatest advantage of YOLOv5 lies in its unmatched versatility and low memory requirements. Training a YOLOv5 model requires drastically less VRAM than transformer-based models, making it accessible to researchers and engineers with limited hardware budgets. Furthermore, while RTDETRv2 focuses exclusively on bounding box detection, YOLOv5 has evolved into a versatile powerhouse supporting [instance segmentation](https://docs.ultralytics.com/tasks/segment) and [image classification](https://docs.ultralytics.com/tasks/classify).
 
 !!! tip "Enterprise Model Management"
 
@@ -55,7 +55,7 @@ The greatest advantage of YOLOv5 lies in its unmatched versatility and low memor
 
 ## Performance and Metrics Comparison
 
-When analyzing raw performance on the standard [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/), we can see clear distinctions in how these models prioritize resources.
+When analyzing raw performance on the standard [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco), we can see clear distinctions in how these models prioritize resources.
 
 | Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -97,7 +97,7 @@ results_rtdetr = model_rtdetr("https://ultralytics.com/images/bus.jpg")
 results_yolo[0].show()
 ```
 
-By leveraging the Ultralytics library, developers automatically gain access to a well-maintained ecosystem featuring [experiment tracking integrations](https://docs.ultralytics.com/integrations/weights-biases/) (like Weights & Biases and Comet ML) and one-click exports to deployment formats like [ONNX](https://onnx.ai/) and [OpenVINO](https://docs.ultralytics.com/integrations/openvino/).
+By leveraging the Ultralytics library, developers automatically gain access to a well-maintained ecosystem featuring [experiment tracking integrations](https://docs.ultralytics.com/integrations/weights-biases) (like Weights & Biases and Comet ML) and one-click exports to deployment formats like [ONNX](https://onnx.ai/) and [OpenVINO](https://docs.ultralytics.com/integrations/openvino).
 
 ## Real-World Applications and Ideal Use Cases
 
@@ -112,12 +112,12 @@ RTDETRv2 is best suited for environments where hardware limitations are non-exis
 
 YOLOv5 is the undeniable champion for practical, real-world deployment across diverse hardware.
 
-- **Edge AI Devices:** Deploying [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system/) on Raspberry Pi or NVIDIA Jetson devices where memory is strictly limited.
+- **Edge AI Devices:** Deploying [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system) on Raspberry Pi or NVIDIA Jetson devices where memory is strictly limited.
 - **Mobile Applications:** Running fast, real-time bounding box and segmentation inference directly on smartphones via CoreML or TFLite.
 - **High-Speed Industrial Manufacturing:** Inspecting parts on rapid production lines where millisecond latency is critical to operational success.
 
 !!! note "Exploring Other Ultralytics Models"
 
-    While YOLOv5 is a legendary model, the Ultralytics ecosystem continually pushes the boundaries of AI. If you are comparing models for a new project in 2026, you should consider exploring the state-of-the-art [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). YOLO26 incorporates a native **End-to-End NMS-Free Design** (similar to transformers but with CNN speed), features the revolutionary **MuSGD Optimizer** for incredibly stable training, and delivers up to 43% faster CPU inference. Alternatively, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains a fantastic, highly supported choice for versatile deployments requiring [Pose Estimation](https://docs.ultralytics.com/tasks/pose/) and [OBB detection](https://docs.ultralytics.com/tasks/obb/).
+    While YOLOv5 is a legendary model, the Ultralytics ecosystem continually pushes the boundaries of AI. If you are comparing models for a new project in 2026, you should consider exploring the state-of-the-art [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). YOLO26 incorporates a native **End-to-End NMS-Free Design** (similar to transformers but with CNN speed), features the revolutionary **MuSGD Optimizer** for incredibly stable training, and delivers up to 43% faster CPU inference. Alternatively, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains a fantastic, highly supported choice for versatile deployments requiring [Pose Estimation](https://docs.ultralytics.com/tasks/pose) and [OBB detection](https://docs.ultralytics.com/tasks/obb).
 
 Ultimately, while RTDETRv2 pushes the accuracy ceiling using transformer layers, the Ultralytics YOLO framework provides an unmatched balance of speed, lightweight memory requirements, and a brilliantly engineered developer experience that dramatically reduces the time from prototype to production.

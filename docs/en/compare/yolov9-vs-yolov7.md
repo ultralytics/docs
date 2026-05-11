@@ -8,7 +8,7 @@ keywords: YOLOv9, YOLOv7, object detection, AI models, technical comparison, neu
 
 The evolution of real-time [object detection](https://en.wikipedia.org/wiki/Object_detection) has been driven by a continuous quest to balance computational efficiency with high accuracy. Two landmark architectures in this journey are YOLOv9 and YOLOv7, both developed by researchers at the Institute of Information Science, Academia Sinica in Taiwan. While YOLOv7 introduced revolutionary trainable bag-of-freebies, the newer YOLOv9 tackles deep learning information bottlenecks head-on.
 
-This comprehensive technical comparison explores the architectural differences, [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics/), and ideal deployment scenarios for both models, helping ML engineers and researchers choose the right tool for their computer vision pipelines.
+This comprehensive technical comparison explores the architectural differences, [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics), and ideal deployment scenarios for both models, helping ML engineers and researchers choose the right tool for their computer vision pipelines.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -32,7 +32,7 @@ When comparing these models, raw performance and efficiency are critical factors
 
 !!! tip "Performance Balance"
 
-    Notice how YOLOv9c achieves roughly the same accuracy (53.0 mAP) as YOLOv7x (53.1 mAP) while utilizing significantly fewer parameters (25.3M vs 71.3M) and FLOPs. This demonstrates the [Performance Balance](https://docs.ultralytics.com/guides/yolo-performance-metrics/) improvements in modern architectures.
+    Notice how YOLOv9c achieves roughly the same accuracy (53.0 mAP) as YOLOv7x (53.1 mAP) while utilizing significantly fewer parameters (25.3M vs 71.3M) and FLOPs. This demonstrates the [Performance Balance](https://docs.ultralytics.com/guides/yolo-performance-metrics) improvements in modern architectures.
 
 ## YOLOv9: Solving the Information Bottleneck
 
@@ -51,7 +51,7 @@ YOLOv9 introduces the Generalized Efficient Layer Aggregation Network (GELAN) an
 
 The main strength of YOLOv9 is its ability to extract subtle features without immense computational overhead, making it incredibly capable for tasks requiring high feature fidelity, like [medical image analysis](https://www.ultralytics.com/glossary/medical-image-analysis). However, the complex PGI structure during training can make custom architectural modifications more challenging for beginners compared to more unified frameworks.
 
-[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9/){ .md-button }
+[Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9){ .md-button }
 
 ## YOLOv7: The Bag-of-Freebies Pioneer
 
@@ -68,9 +68,9 @@ YOLOv7's core contribution is the Extended Efficient Layer Aggregation Network (
 
 ### Strengths and Limitations
 
-YOLOv7 is highly optimized for real-time edge processing and remains a staple in legacy systems and older [CUDA environments](https://developer.nvidia.com/cuda/toolkit). Its primary limitation today is its larger parameter size compared to newer models. As shown in the performance table, achieving top-tier accuracy requires the heavy YOLOv7x model, which demands substantially more [GPU memory](https://docs.ultralytics.com/guides/yolo-performance-metrics/) than equivalent modern architectures.
+YOLOv7 is highly optimized for real-time edge processing and remains a staple in legacy systems and older [CUDA environments](https://developer.nvidia.com/cuda/toolkit). Its primary limitation today is its larger parameter size compared to newer models. As shown in the performance table, achieving top-tier accuracy requires the heavy YOLOv7x model, which demands substantially more [GPU memory](https://docs.ultralytics.com/guides/yolo-performance-metrics) than equivalent modern architectures.
 
-[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7/){ .md-button }
+[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 
 ## The Ultralytics Advantage: Streamlined Deployment
 
@@ -86,9 +86,9 @@ If you are starting a new computer vision project, we highly recommend exploring
 - **Up to 43% Faster CPU Inference:** Optimized for [edge computing](https://www.ultralytics.com/glossary/edge-computing) environments, ensuring your application runs smoothly even without dedicated GPUs.
 - **MuSGD Optimizer:** A hybrid optimizer inspired by LLM training, delivering highly stable convergence and reducing training time.
 - **DFL Removal:** Simplified model export by removing Distribution Focal Loss, enhancing compatibility with low-power mobile devices.
-- **ProgLoss + STAL:** Drastically improves performance on small object detection, making it the premier choice for [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) and surveillance.
+- **ProgLoss + STAL:** Drastically improves performance on small object detection, making it the premier choice for [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and surveillance.
 
-Other popular alternatives within the ecosystem include [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) and [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), both of which offer massive versatility across tasks like [instance segmentation](https://docs.ultralytics.com/tasks/segment/) and [pose estimation](https://docs.ultralytics.com/tasks/pose/).
+Other popular alternatives within the ecosystem include [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) and [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), both of which offer massive versatility across tasks like [instance segmentation](https://docs.ultralytics.com/tasks/segment) and [pose estimation](https://docs.ultralytics.com/tasks/pose).
 
 ### Implementation Example
 

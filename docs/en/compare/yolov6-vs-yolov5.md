@@ -22,7 +22,7 @@ Developed by the Vision AI Department at [Meituan](https://en.wikipedia.org/wiki
 - **Date:** 2023-01-13
 - **Arxiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
 - **GitHub:** [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
-- **Docs:** [YOLOv6 Documentation](https://docs.ultralytics.com/models/yolov6/)
+- **Docs:** [YOLOv6 Documentation](https://docs.ultralytics.com/models/yolov6)
 
 ### Architectural Strengths
 
@@ -30,7 +30,7 @@ YOLOv6-3.0 introduces several structural optimizations designed for speed. The m
 
 During the training phase, the model incorporates an **Anchor-Aided Training (AAT)** strategy. This approach attempts to marry the stability of anchor-based training with the speed of anchor-free inference. Additionally, its neck architecture uses a **Bi-directional Concatenation (BiC)** module to improve feature fusion across different scales. While highly optimized for high-end server GPUs using [TensorRT](https://developer.nvidia.com/tensorrt), this specialization can sometimes result in increased latency on CPU-only or low-power edge devices.
 
-[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6/){ .md-button }
+[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6){ .md-button }
 
 ## Ultralytics YOLOv5: The Pioneer of Accessible Vision AI
 
@@ -46,7 +46,7 @@ Released by Ultralytics, YOLOv5 set a new standard for ease of use, training eff
 
 The defining characteristic of YOLOv5 is its **Ease of Use**. Built natively on the [PyTorch](https://pytorch.org/) framework, the repository provides a unified Python API that drastically simplifies the [machine learning](https://www.ultralytics.com/glossary/machine-learning-ml) lifecycle. From dataset configuration to final deployment, the integrated ecosystem ensures that developers spend less time debugging environments and more time building applications.
 
-YOLOv5 is not just limited to [object detection](https://docs.ultralytics.com/tasks/detect/). It boasts exceptional **Versatility**, natively supporting [image classification](https://docs.ultralytics.com/tasks/classify/) and [instance segmentation](https://docs.ultralytics.com/tasks/segment/). Furthermore, it offers unparalleled **Training Efficiency**, featuring smart caching, automated data loaders, and built-in support for distributed multi-GPU training.
+YOLOv5 is not just limited to [object detection](https://docs.ultralytics.com/tasks/detect). It boasts exceptional **Versatility**, natively supporting [image classification](https://docs.ultralytics.com/tasks/classify) and [instance segmentation](https://docs.ultralytics.com/tasks/segment). Furthermore, it offers unparalleled **Training Efficiency**, featuring smart caching, automated data loaders, and built-in support for distributed multi-GPU training.
 
 !!! tip "Memory Efficiency in Ultralytics Models"
 
@@ -101,7 +101,7 @@ model.export(format="onnx")
 Choosing between these architectures often depends on your specific infrastructure constraints:
 
 - **When to deploy YOLOv6-3.0:** Ideal for automated manufacturing lines and high-throughput server analytics where dedicated NVIDIA GPUs are available and latency must be minimal. Its architecture thrives in environments where TensorRT optimizations can be fully utilized.
-- **When to deploy YOLOv5:** The perfect choice for rapid prototyping, cross-platform deployment, and teams looking for a unified pipeline. Its diverse export capabilities make it ideal for retail analytics on edge devices, agricultural drone monitoring, and [pose estimation](https://docs.ultralytics.com/tasks/pose/) in fitness applications.
+- **When to deploy YOLOv5:** The perfect choice for rapid prototyping, cross-platform deployment, and teams looking for a unified pipeline. Its diverse export capabilities make it ideal for retail analytics on edge devices, agricultural drone monitoring, and [pose estimation](https://docs.ultralytics.com/tasks/pose) in fitness applications.
 
 ## The Future of Object Detection: Enter YOLO26
 

@@ -23,7 +23,7 @@ Understanding the origins and design philosophies behind these models provides c
 - **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2020-06-26
 - **GitHub:** [YOLOv5 Repository](https://github.com/ultralytics/yolov5)
-- **Docs:** [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5/)
+- **Docs:** [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5)
 
 [Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
 
@@ -34,13 +34,13 @@ Understanding the origins and design philosophies behind these models provides c
 - **Date:** 2022-07-06
 - **Arxiv:** [YOLOv7 Paper](https://arxiv.org/abs/2207.02696)
 - **GitHub:** [YOLOv7 Repository](https://github.com/WongKinYiu/yolov7)
-- **Docs:** [YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7/)
+- **Docs:** [YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7)
 
-[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7/){ .md-button }
+[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 
 !!! tip "Explore More Architectures"
 
-    Interested in how these models stack up against others? Check out our comparisons like [YOLOv5 vs YOLO11](https://docs.ultralytics.com/compare/yolo11-vs-yolov5/) or [YOLOv7 vs EfficientDet](https://docs.ultralytics.com/compare/yolov7-vs-efficientdet/) to expand your understanding of the object detection ecosystem.
+    Interested in how these models stack up against others? Check out our comparisons like [YOLOv5 vs YOLO11](https://docs.ultralytics.com/compare/yolo11-vs-yolov5) or [YOLOv7 vs EfficientDet](https://docs.ultralytics.com/compare/yolov7-vs-efficientdet) to expand your understanding of the object detection ecosystem.
 
 ## Architectural Innovations and Differences
 
@@ -48,7 +48,7 @@ Understanding the origins and design philosophies behind these models provides c
 
 Introduced by Ultralytics in 2020, YOLOv5 brought a paradigm shift by natively utilizing the [PyTorch](https://pytorch.org/) framework, significantly lowering the barrier to entry for researchers and developers. Its architecture relies on a Modified CSPDarknet53 backbone, integrating Cross Stage Partial (CSP) networks to reduce parameter count while maintaining gradient flow.
 
-One of its greatest strengths is its **Memory requirements**. Compared to older two-stage detectors or heavy transformer models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/), YOLOv5 requires substantially less CUDA memory during training, allowing for larger batch sizes on standard consumer-grade GPUs. Furthermore, its natively integrated **Versatility** supports [image classification](https://docs.ultralytics.com/tasks/classify/), [object detection](https://docs.ultralytics.com/tasks/detect/), and [image segmentation](https://docs.ultralytics.com/tasks/segment/) seamlessly.
+One of its greatest strengths is its **Memory requirements**. Compared to older two-stage detectors or heavy transformer models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr), YOLOv5 requires substantially less CUDA memory during training, allowing for larger batch sizes on standard consumer-grade GPUs. Furthermore, its natively integrated **Versatility** supports [image classification](https://docs.ultralytics.com/tasks/classify), [object detection](https://docs.ultralytics.com/tasks/detect), and [image segmentation](https://docs.ultralytics.com/tasks/segment) seamlessly.
 
 ### YOLOv7: Pushing the Limits of Real-Time Accuracy
 
@@ -78,7 +78,7 @@ While YOLOv7 achieves higher absolute mAP scores on larger variants, YOLOv5 offe
 A model's utility extends beyond its raw architecture; the ecosystem surrounding it dictates how quickly it can be deployed to production. This is where Ultralytics models shine.
 
 - **Ease of Use:** The [Ultralytics Platform](https://platform.ultralytics.com) and its unified Python API provide a streamlined user experience, simple syntax, and extensive documentation. Training a custom dataset requires zero boilerplate code.
-- **Well-Maintained Ecosystem:** Ultralytics benefits from active development, frequent updates, and strong community support. Integrations with tools like [Comet ML](https://docs.ultralytics.com/integrations/comet/) and [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases/) are baked right in.
+- **Well-Maintained Ecosystem:** Ultralytics benefits from active development, frequent updates, and strong community support. Integrations with tools like [Comet ML](https://docs.ultralytics.com/integrations/comet) and [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases) are baked right in.
 - **Training Efficiency:** Data loaders, smart caching, and multi-GPU support make Ultralytics models exceptionally efficient to train. Readily available pre-trained weights dramatically accelerate [transfer learning](https://www.ultralytics.com/glossary/transfer-learning).
 
 ### Code Example: Getting Started
@@ -114,7 +114,7 @@ YOLOv7 remains a strong candidate for academic benchmarking or specific legacy G
 
 YOLOv5 is heavily favored for production environments due to its exceptional stability. It is the go-to choice for:
 
-- **Mobile and Edge Computing:** Deploying YOLOv5n to iOS via [CoreML](https://docs.ultralytics.com/integrations/coreml/) or Android via [TFLite](https://docs.ultralytics.com/integrations/tflite/).
+- **Mobile and Edge Computing:** Deploying YOLOv5n to iOS via [CoreML](https://docs.ultralytics.com/integrations/coreml) or Android via [TFLite](https://docs.ultralytics.com/integrations/tflite).
 - **Agile Startups:** Teams needing rapid iteration cycles benefit from the seamless [Ultralytics Platform](https://platform.ultralytics.com) integration for dataset management and cloud training.
 - **Multi-Task Environments:** Systems requiring simultaneous object detection, classification, and segmentation.
 

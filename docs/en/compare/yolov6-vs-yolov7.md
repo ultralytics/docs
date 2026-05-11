@@ -31,7 +31,7 @@ YOLOv6-3.0 relies on an **EfficientRep** backbone, a hardware-friendly architect
 
 Furthermore, YOLOv6-3.0 implements an **Anchor-Aided Training (AAT)** strategy. This approach combines the rich gradient signals of anchor-based training with the streamlined deployment benefits of anchor-free inference, helping the model converge more stably without sacrificing post-processing speed.
 
-[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6/){ .md-button }
+[Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6){ .md-button }
 
 !!! info "Hardware Considerations"
 
@@ -53,7 +53,7 @@ The core of YOLOv7 is its **Extended Efficient Layer Aggregation Network (E-ELAN
 
 YOLOv7 also heavily utilizes model re-parameterization, merging convolutional layers with batch normalization during inference. This reduces the parameter count and speeds up the forward pass when deployed using frameworks like [NVIDIA TensorRT](https://developer.nvidia.com/tensorrt) or [ONNX](https://onnx.ai/).
 
-[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7/){ .md-button }
+[Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 
 ## Performance Comparison
 
@@ -93,33 +93,33 @@ YOLOv7 is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone/) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultralytics Advantage: Stepping into the Future
 
-While YOLOv6-3.0 and YOLOv7 represent significant milestones, integrating disparate repositories into production pipelines often presents challenges in [model deployment](https://docs.ultralytics.com/guides/model-deployment-options/) and hyperparameter tuning. The **Ultralytics ecosystem** resolves these pain points by offering a streamlined, unified interface.
+While YOLOv6-3.0 and YOLOv7 represent significant milestones, integrating disparate repositories into production pipelines often presents challenges in [model deployment](https://docs.ultralytics.com/guides/model-deployment-options) and hyperparameter tuning. The **Ultralytics ecosystem** resolves these pain points by offering a streamlined, unified interface.
 
 ### Why Choose Ultralytics?
 
 - **Ease of Use:** The Ultralytics Python API allows developers to load, train, and export models with just a few lines of code. Switching from an older model to the latest architecture requires changing only a single string.
 - **Well-Maintained Ecosystem:** Ultralytics provides frequent updates, active community support, and robust [documentation](https://docs.ultralytics.com/).
-- **Versatility:** Unlike earlier models that focused primarily on bounding boxes, Ultralytics models natively support multi-task learning, including [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb/).
-- **Memory Requirements:** Ultralytics YOLO models maintain lower memory usage during training compared to transformer-based architectures like [RT-DETR](https://docs.ultralytics.com/models/rtdetr/), allowing researchers to train effectively on consumer-grade hardware.
+- **Versatility:** Unlike earlier models that focused primarily on bounding boxes, Ultralytics models natively support multi-task learning, including [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
+- **Memory Requirements:** Ultralytics YOLO models maintain lower memory usage during training compared to transformer-based architectures like [RT-DETR](https://docs.ultralytics.com/models/rtdetr), allowing researchers to train effectively on consumer-grade hardware.
 
 ### Upgrading to YOLO26
 
-For developers seeking the pinnacle of performance, **YOLO26** (released January 2026) fundamentally shifts the paradigm of [object detection](https://docs.ultralytics.com/tasks/detect/). It introduces a fully **End-to-End NMS-Free Design**, eliminating complex post-processing logic and severely reducing latency variance on edge devices.
+For developers seeking the pinnacle of performance, **YOLO26** (released January 2026) fundamentally shifts the paradigm of [object detection](https://docs.ultralytics.com/tasks/detect). It introduces a fully **End-to-End NMS-Free Design**, eliminating complex post-processing logic and severely reducing latency variance on edge devices.
 
 Key innovations in YOLO26 include:
 
 - **MuSGD Optimizer:** A sophisticated hybrid of SGD and Muon that ensures incredibly stable training dynamics and faster convergence.
 - **DFL Removal:** By stripping out Distribution Focal Loss, YOLO26 simplifies export compatibility and boosts performance on low-power devices.
 - **ProgLoss + STAL:** Advanced loss functions that yield notable improvements in small-object recognition.
-- **Unrivaled Speed:** Achieves up to 43% faster CPU inference compared to previous generations, making it perfect for embedded systems like the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) or [Apple CoreML](https://docs.ultralytics.com/integrations/coreml/) deployments.
+- **Unrivaled Speed:** Achieves up to 43% faster CPU inference compared to previous generations, making it perfect for embedded systems like the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) or [Apple CoreML](https://docs.ultralytics.com/integrations/coreml) deployments.
 
 Other highly capable models within the ecosystem include [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8), both of which offer excellent performance balance for legacy hardware integrations.
 
