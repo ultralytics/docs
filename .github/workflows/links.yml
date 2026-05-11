@@ -128,8 +128,11 @@ jobs:
           rm -rf "$SPELLCHECK_ROOT"
           mkdir "$SPELLCHECK_ROOT"
           cp -R "${{ matrix.website }}" "$SPELLCHECK_ROOT/"
+          # Also strip avatar-fallback elements: their text is auto-generated
+          # 2-letter contributor initials (e.g. "BU" for Burhan-Q) that codespell
+          # would otherwise flag as typos on every page.
           find "$SPELLCHECK_ROOT/${{ matrix.website }}" -type f -name "*.html" \
-            -exec perl -0pi -e 's#<script\b[^>]*>.*?</script>##gis; s#<style\b[^>]*>.*?</style>##gis' {} +
+            -exec perl -0pi -e 's#<script\b[^>]*>.*?</script>##gis; s#<style\b[^>]*>.*?</style>##gis; s#<([a-z]+)\b[^>]*\bdata-slot="avatar-fallback"[^>]*>.*?</\1>##gis' {} +
           CODESPELL_OUTPUT=$(find "$SPELLCHECK_ROOT/${{ matrix.website }}" -type f -name "*.html" -print0 | xargs -0 codespell \
             --builtin clear,rare,informal,en-GB_to_en-US \
             --uri-ignore-words-list "*" \
