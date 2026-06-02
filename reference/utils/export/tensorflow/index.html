@@ -113,7 +113,7 @@
 <span></span>            <span class="s2">"onnx_graphsurgeon&gt;=0.3.26"</span><span class="p">,</span>  <span class="c1"># required by 'onnx2tf' package</span>
 <span></span>            <span class="s2">"ai-edge-litert&gt;=1.2.0"</span> <span class="o">+</span> <span class="p">(</span><span class="s2">",&lt;1.4.0"</span> <span class="k">if</span> <span class="n">MACOS</span> <span class="k">else</span> <span class="s2">""</span><span class="p">),</span>  <span class="c1"># required by 'onnx2tf' package</span>
 <span></span>            <span class="s2">"onnx&gt;=1.12.0,&lt;2.0.0"</span><span class="p">,</span>
-<span></span>            <span class="s2">"onnx2tf&gt;=1.26.3,&lt;1.29.0"</span><span class="p">,</span>  <span class="c1"># pin to avoid h5py build issues on aarch64</span>
+<span></span>            <span class="sa">f</span><span class="s2">"onnx2tf</span><span class="si">{</span><span class="s1">'&gt;=2.3.0,&lt;2.3.16'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">IS_PYTHON_MINIMUM_3_13</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">'&gt;=1.26.3,&lt;1.29.0'</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
 <span></span>            <span class="s2">"onnxslim&gt;=0.1.82"</span><span class="p">,</span>
 <span></span>            <span class="s2">"onnxruntime-gpu"</span> <span class="k">if</span> <span class="n">cuda</span> <span class="k">else</span> <span class="s2">"onnxruntime"</span><span class="p">,</span>
 <span></span>            <span class="s2">"protobuf&gt;=6.31.1,&lt;7.0.0"</span>
