@@ -1568,7 +1568,7 @@
 <span></span><span class="sd">        &gt;&gt;&gt; augmented_img = labels["img"]</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">img</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span>
-<span></span>    <span class="k">if</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>  <span class="c1"># only apply to RGB images</span>
+<span></span>    <span class="k">if</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>  <span class="c1"># only apply to 3-channel (BGR) images</span>
 <span></span>        <span class="k">return</span> <span class="n">labels</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hgain</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">sgain</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">vgain</span><span class="p">:</span>
 <span></span>        <span class="n">dtype</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">dtype</span>  <span class="c1"># uint8</span>

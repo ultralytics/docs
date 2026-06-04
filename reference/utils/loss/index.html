@@ -1139,7 +1139,7 @@ predicted masks from the prototype masks and predicted mask coefficients.</p></d
 <span></span>        <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
 <span></span>
 <span></span>    <span class="c1"># Pboxes</span>
-<span></span>    <span class="n">pred_bboxes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bbox_decode</span><span class="p">(</span><span class="n">anchor_points</span><span class="p">,</span> <span class="n">pred_distri</span><span class="p">,</span> <span class="n">pred_angle</span><span class="p">)</span>  <span class="c1"># xyxy, (b, h*w, 4)</span>
+<span></span>    <span class="n">pred_bboxes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bbox_decode</span><span class="p">(</span><span class="n">anchor_points</span><span class="p">,</span> <span class="n">pred_distri</span><span class="p">,</span> <span class="n">pred_angle</span><span class="p">)</span>  <span class="c1"># xywhr, (b, h*w, 5)</span>
 <span></span>
 <span></span>    <span class="n">bboxes_for_assigner</span> <span class="o">=</span> <span class="n">pred_bboxes</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
 <span></span>    <span class="c1"># Only the first four elements need to be scaled</span>
