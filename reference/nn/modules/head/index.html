@@ -228,7 +228,7 @@
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (torch.Tensor, torch.Tensor, torch.Tensor): Top scores, class indices, and filtered indices.</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="n">batch_size</span><span class="p">,</span> <span class="n">anchors</span><span class="p">,</span> <span class="n">nc</span> <span class="o">=</span> <span class="n">scores</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># i.e. shape(16,8400,84)</span>
+<span></span>    <span class="n">batch_size</span><span class="p">,</span> <span class="n">anchors</span><span class="p">,</span> <span class="n">nc</span> <span class="o">=</span> <span class="n">scores</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># i.e. shape(16,8400,80)</span>
 <span></span>    <span class="c1"># Use max_det directly during export for TensorRT compatibility (requires k to be constant),</span>
 <span></span>    <span class="c1"># otherwise use min(max_det, anchors) for safety with small inputs during Python inference</span>
 <span></span>    <span class="n">k</span> <span class="o">=</span> <span class="n">max_det</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">export</span> <span class="k">else</span> <span class="nb">min</span><span class="p">(</span><span class="n">max_det</span><span class="p">,</span> <span class="n">anchors</span><span class="p">)</span>

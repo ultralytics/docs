@@ -51,7 +51,7 @@
 <span></span><span class="w">    </span><span class="sd">"""Compute dot-product scores between hs and prompt."""</span>
 <span></span>    <span class="c1"># hs has shape (num_layer, bs, num_query, d_model)</span>
 <span></span>    <span class="c1"># prompt has shape (seq, bs, d_model)</span>
-<span></span>    <span class="c1"># prompt_mask has shape (bs, seq), where 1 is valid and 0 is padding</span>
+<span></span>    <span class="c1"># prompt_mask has shape (bs, seq), where 1 is padding and 0 is valid</span>
 <span></span>    <span class="k">assert</span> <span class="n">hs</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">==</span> <span class="mi">4</span> <span class="ow">and</span> <span class="n">prompt</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">prompt_mask</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span>
 <span></span>
 <span></span>    <span class="c1"># apply MLP on prompt if specified</span>

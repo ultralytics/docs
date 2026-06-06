@@ -1151,7 +1151,7 @@
 <span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">)</span>
 <span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">output</span> <span class="o">=</span> <span class="n">patch_embed</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span></span><span class="n">torch</span><span class="o">.</span><span class="n">Size</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">768</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">14</span><span class="p">])</span>
+<span></span><span class="n">torch</span><span class="o">.</span><span class="n">Size</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">768</span><span class="p">])</span>
 </code></pre></div><details><summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary><a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/models/sam/modules/blocks.py#L1017-L1066"><i aria-hidden="true" class="fa-brands fa-github" style="margin-right:6px;"></i>View on GitHub</a><div class="highlight"><pre><span></span><code><span></span><span class="k">class</span><span class="w"> </span><span class="nc">PatchEmbed</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Image to Patch Embedding module for vision transformer architectures.</span>
 <span></span>
@@ -1170,7 +1170,7 @@
 <span></span><span class="sd">        &gt;&gt;&gt; x = torch.randn(1, 3, 224, 224)</span>
 <span></span><span class="sd">        &gt;&gt;&gt; output = patch_embed(x)</span>
 <span></span><span class="sd">        &gt;&gt;&gt; print(output.shape)</span>
-<span></span><span class="sd">        torch.Size([1, 768, 14, 14])</span>
+<span></span><span class="sd">        torch.Size([1, 14, 14, 768])</span>
 <span></span><span class="sd">    """</span>
 <span></span>
 <span></span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
