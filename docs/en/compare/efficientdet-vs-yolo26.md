@@ -42,7 +42,7 @@ EfficientDet was built around the BiFPN (Bi-directional Feature Pyramid Network)
 
 In contrast, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) represents the absolute cutting edge of real-time computer vision. It introduces several groundbreaking architectural improvements designed specifically for modern deployment pipelines:
 
-- **End-to-End NMS-Free Design:** YOLO26 is natively end-to-end, completely eliminating the need for Non-Maximum Suppression (NMS) post-processing. This breakthrough approach, first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10/), ensures faster, simpler deployment logic and drastically reduces latency variance on edge chips.
+- **End-to-End NMS-Free Design:** YOLO26 is natively end-to-end, completely eliminating the need for Non-Maximum Suppression (NMS) post-processing. This breakthrough approach, first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), ensures faster, simpler deployment logic and drastically reduces latency variance on edge chips.
 - **DFL Removal:** By removing the Distribution Focal Loss (DFL), YOLO26 simplifies the output head, leading to superior compatibility with edge computing and low-power devices.
 - **MuSGD Optimizer:** Inspired by large language model innovations like Moonshot AI's Kimi K2, YOLO26 utilizes the MuSGD optimizer—a hybrid of SGD and Muon. This delivers dramatically more stable training and faster convergence than standard optimizers.
 - **ProgLoss + STAL:** The introduction of Progressive Loss combined with Scale-aware Task-aligned Learning (STAL) provides notable improvements in small-object recognition, which is highly critical for [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and robotics.
