@@ -28,7 +28,7 @@ GitHub: [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
 
 ### Architecture and Strengths
 
-YOLOv7 thrives on its Extended Efficient Layer Aggregation Network (E-ELAN) architecture. This structural design enables the model to learn more diverse features without destroying the original gradient path. Furthermore, it incorporates planned re-parameterized convolutions, which optimize inference speed without degrading accuracy. Its decoupled head structure allows it to achieve impressive trade-offs between speed and accuracy, making it highly suitable for [real-time object detection](https://docs.ultralytics.com/tasks/detect) tasks on server-grade GPUs.
+YOLOv7 thrives on its Extended Efficient Layer Aggregation Network (E-ELAN) architecture. This structural design enables the model to learn more diverse features without destroying the original gradient path. Furthermore, it incorporates planned re-parameterized convolutions, which optimize inference speed without degrading accuracy. Its trainable bag-of-freebies approach allows it to achieve impressive trade-offs between speed and accuracy, making it highly suitable for [real-time object detection](https://docs.ultralytics.com/tasks/detect) tasks on server-grade GPUs.
 
 YOLOv7 is also highly versatile. Beyond standard bounding box detection, the repository offers branches for [pose estimation](https://docs.ultralytics.com/tasks/pose) and [instance segmentation](https://docs.ultralytics.com/tasks/segment), demonstrating its adaptability.
 

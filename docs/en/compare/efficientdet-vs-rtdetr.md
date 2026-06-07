@@ -61,7 +61,7 @@ RTDETRv2 represents the evolution of transformer-based architectures, shifting t
 
 RTDETRv2 excels in high-density environments where overlapping objects confuse traditional CNNs. It is highly accurate on complex benchmark [datasets like COCO](https://docs.ultralytics.com/datasets/detect/coco).
 
-Despite its accuracy, transformer models naturally demand substantial memory. The training efficiency is notably lower; it requires significantly more epochs and higher [CUDA](https://developer.nvidia.com/cuda/toolkit) memory footprints to converge compared to CNNs. This makes RTDETRv2 less ideal for developers operating with constrained cloud budgets or those needing rapid rapid prototyping.
+Despite its accuracy, transformer models naturally demand substantial memory. The training efficiency is notably lower; it requires significantly more epochs and higher [CUDA](https://developer.nvidia.com/cuda/toolkit) memory footprints to converge compared to CNNs. This makes RTDETRv2 less ideal for developers operating with constrained cloud budgets or those needing rapid prototyping.
 
 [Learn more about RTDETRv2](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch){ .md-button }
 

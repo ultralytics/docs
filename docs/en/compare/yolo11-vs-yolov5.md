@@ -25,7 +25,7 @@ Both models reflect Ultralytics' commitment to open-source collaboration, robust
 - Organization: [Ultralytics](https://www.ultralytics.com/)
 - Date: 2024-09-27
 - GitHub: [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- Docs: [YOLO11 Documentation](https://platform.ultralytics.com/ultralytics/yolo11)
+- Docs: [YOLO11 Documentation](https://docs.ultralytics.com/models/yolo11)
 
 [Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
@@ -35,7 +35,7 @@ Both models reflect Ultralytics' commitment to open-source collaboration, robust
 - Organization: [Ultralytics](https://www.ultralytics.com/)
 - Date: 2020-06-26
 - GitHub: [ultralytics/yolov5](https://github.com/ultralytics/yolov5)
-- Docs: [YOLOv5 Documentation](https://platform.ultralytics.com/ultralytics/yolov5)
+- Docs: [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5)
 
 [Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
 

@@ -55,7 +55,7 @@ YOLOv8 introduced a streamlined CNN backbone that moved away from traditional an
 
 ### Memory Requirements and Training Efficiency
 
-One of the most notable advantages of both YOLOv8 and YOLO11 is their **low memory requirements** during training. Unlike heavy vision transformers that can easily exhaust VRAM on consumer hardware, these models are optimized for accessible [PyTorch](https://pytorch.org/) training on standard GPUs. YOLO11 achieves a substantial reduction in total parameters—up to 22% fewer parameters in the large (L) variant compared to YOLOv8—while simultaneously increasing its Mean Average Precision (mAP). This means faster epochs and a lower carbon footprint for model training.
+One of the most notable advantages of both YOLOv8 and YOLO11 is their **low memory requirements** during training. Unlike heavy vision transformers that can easily exhaust VRAM on consumer hardware, these models are optimized for accessible [PyTorch](https://pytorch.org/) training on standard GPUs. YOLO11 achieves a substantial reduction in total parameters—up to 42% fewer parameters in the large (L) variant compared to YOLOv8—while simultaneously increasing its Mean Average Precision (mAP). This means faster epochs and a lower carbon footprint for model training.
 
 ## Performance Metrics
 

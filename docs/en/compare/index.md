@@ -94,7 +94,7 @@ Explore our in-depth technical comparisons to understand specific architectural 
 
 ### [YOLO26](../models/yolo26.md) vs
 
-YOLO26 is the latest Ultralytics model featuring NMS-free end-to-end detection, the MuSGD optimizer, and up to 43% faster CPU inference. It's optimized for edge deployment while achieving state-of-the-art accuracy.
+[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) is the latest Ultralytics model featuring NMS-free end-to-end detection, the MuSGD optimizer, and up to 43% faster CPU inference. It's optimized for edge deployment while achieving state-of-the-art accuracy.
 
 - [YOLO26 vs YOLO11](yolo26-vs-yolo11.md)
 - [YOLO26 vs YOLOv10](yolo26-vs-yolov10.md)
@@ -111,7 +111,7 @@ YOLO26 is the latest Ultralytics model featuring NMS-free end-to-end detection, 
 
 ### [YOLO11](../models/yolo11.md) vs
 
-YOLO11 builds upon the success of its predecessors with cutting-edge research. It features an improved backbone and neck architecture for better feature extraction and optimized efficiency.
+[YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) builds upon the success of its predecessors with cutting-edge research. It features an improved backbone and neck architecture for better feature extraction and optimized efficiency.
 
 - [YOLO11 vs YOLO26](yolo11-vs-yolo26.md)
 - [YOLO11 vs YOLOv10](yolo11-vs-yolov10.md)
@@ -162,7 +162,7 @@ YOLOv9 introduces Programmable Gradient Information (PGI) and the Generalized Ef
 
 ### [YOLOv8](../models/yolov8.md) vs
 
-Ultralytics YOLOv8 remains a highly popular choice, featuring advanced backbone and neck architectures and an anchor-free split head for optimal accuracy-speed tradeoffs.
+[Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) remains a highly popular choice, featuring advanced backbone and neck architectures and an anchor-free split head for optimal accuracy-speed tradeoffs.
 
 - [YOLOv8 vs YOLO26](yolov8-vs-yolo26.md)
 - [YOLOv8 vs YOLO11](yolov8-vs-yolo11.md)
@@ -213,7 +213,7 @@ Meituan's YOLOv6 is designed for industrial applications, featuring Bi-direction
 
 ### [YOLOv5](../models/yolov5.md) vs
 
-Ultralytics YOLOv5 is celebrated for its ease of use, stability, and speed. It remains a robust choice for projects requiring broad device compatibility.
+[Ultralytics YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5) is celebrated for its ease of use, stability, and speed. It remains a robust choice for projects requiring broad device compatibility.
 
 - [YOLOv5 vs YOLO26](yolov5-vs-yolo26.md)
 - [YOLOv5 vs YOLO11](yolov5-vs-yolo11.md)
@@ -245,7 +245,7 @@ RT-DETR (Real-Time Detection Transformer) leverages vision transformers to achie
 - [RT-DETR vs YOLOX](rtdetr-vs-yolox.md)
 - [RT-DETR vs EfficientDet](rtdetr-vs-efficientdet.md)
 
-### [PP-YOLOE+](../models/yoloe.md) vs
+### PP-YOLOE+ vs
 
 PP-YOLOE+, developed by Baidu, uses Task Alignment Learning (TAL) and a decoupled head to balance efficiency and accuracy.
 

@@ -117,7 +117,7 @@ Selecting between YOLOX and YOLO26 ultimately depends on your deployment constra
 
 ### Where YOLOX Excels
 
-YOLOX remains a viable candidate for specific academic benchmarks and legacy systems heavily deeply integrated with the MegEngine framework. Its historical significance makes it a popular baseline for researching [anchor-free detectors](https://www.ultralytics.com/glossary/anchor-free-detectors) and custom assignment strategies.
+YOLOX remains a viable candidate for specific academic benchmarks and legacy systems deeply integrated with the MegEngine framework. Its historical significance makes it a popular baseline for researching [anchor-free detectors](https://www.ultralytics.com/glossary/anchor-free-detectors) and custom assignment strategies.
 
 ### Where YOLO26 Excels
 

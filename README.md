@@ -21,7 +21,7 @@ Welcome to Ultralytics Docs, your comprehensive resource for understanding and u
 [![Downloads](https://static.pepy.tech/badge/ultralytics)](https://clickpy.clickhouse.com/dashboard/ultralytics)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/ultralytics?logo=python&logoColor=gold)](https://pypi.org/project/ultralytics/)
 
-To install the `ultralytics` package in developer mode, which allows you to modify the source code directly, ensure you have [Git](https://git-scm.com/downloads/) and [Python](https://www.python.org/downloads/) 3.9 or later installed on your system. Then, follow these steps:
+To install the `ultralytics` package in developer mode, which allows you to modify the source code directly, ensure you have [Git](https://git-scm.com/downloads/) and [Python](https://www.python.org/downloads/) 3.8 or later installed on your system. Then, follow these steps:
 
 1.  Clone the `ultralytics` repository to your local machine using Git:
 
@@ -104,7 +104,7 @@ If your documentation supports multiple languages, follow these steps to build a
 To deploy your MkDocs documentation site, choose a hosting provider and configure your deployment method. Common options include [GitHub Pages](https://pages.github.com/), GitLab Pages, or other static site hosting services like [Netlify](https://www.netlify.com/) or [Vercel](https://vercel.com/).
 
 - Configure deployment settings within your `mkdocs.yml` file.
-- Use the `mkdocs deploy` command specific to your chosen provider to build and deploy your site.
+- Use the deployment method specific to your chosen provider to build and deploy your site.
 
 * **GitHub Pages Deployment Example:**
   If deploying to GitHub Pages, you can use the built-in command:
