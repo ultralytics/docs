@@ -144,7 +144,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## Looking Forward: The Arrival of YOLO26
 
-If you are beginning a new project, you should also consider the next generation of vision AI: **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**. Released in January 2026, YOLO26 incorporates the best of both worlds. It introduces an **End-to-End NMS-Free Design** (first pioneered in [YOLOv10](https://platform.ultralytics.com/ultralytics/yolov10)), completely eliminating post-processing latency just like RTDETRv2, but with the unmatched speed of a CNN.
+If you are beginning a new project, you should also consider the next generation of vision AI: **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**. Released in January 2026, YOLO26 incorporates the best of both worlds. It introduces an **End-to-End NMS-Free Design** (first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10/)), completely eliminating post-processing latency just like RTDETRv2, but with the unmatched speed of a CNN.
 
 YOLO26 features the **MuSGD Optimizer**—inspired by LLM training innovations—for incredibly stable and fast convergence, and delivers up to **43% Faster CPU Inference** by removing Distribution Focal Loss (DFL). With its specialized **ProgLoss + STAL** loss functions vastly improving small-object recognition, YOLO26 is the ultimate recommendation for any modern computer vision pipeline.
 

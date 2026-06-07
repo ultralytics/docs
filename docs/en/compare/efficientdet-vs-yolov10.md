@@ -79,7 +79,7 @@ _Note: The YOLOv10n variant requires significantly fewer parameters (2.3M) and a
 
 ## Why Choose Ultralytics for Model Deployment?
 
-While both models have historical and structural significance, integrating them into modern pipelines can be a challenge. This is where the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolov10) shines. By providing a unified ecosystem, Ultralytics simplifies the entire lifecycle—from [data annotation](https://docs.ultralytics.com/platform/data/annotation) to deployment.
+While both models have historical and structural significance, integrating them into modern pipelines can be a challenge. This is where the [Ultralytics Platform](https://platform.ultralytics.com/) shines. By providing a unified ecosystem, Ultralytics simplifies the entire lifecycle—from [data annotation](https://docs.ultralytics.com/platform/data/annotation) to deployment.
 
 1. **Ease of Use:** The Ultralytics Python package offers a single interface for [model training](https://docs.ultralytics.com/modes/train), [validation](https://docs.ultralytics.com/modes/val), and export, replacing hundreds of lines of boilerplate code with concise commands.
 2. **Ecosystem and Versatility:** While EfficientDet is heavily specialized for detection, Ultralytics YOLO models naturally extend to [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb), and Classification.
