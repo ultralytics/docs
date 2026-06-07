@@ -58,7 +58,7 @@ PP-YOLOE+ relies heavily on the [PaddlePaddle framework](https://github.com/Padd
 
 ### YOLO11 Architecture
 
-Ultralytics YOLO11 is built natively on [PyTorch](https://pytorch.org/), the industry standard for modern deep learning. Its architecture focuses heavily on a **Performance Balance**, achieving a favorable trade-off between speed and accuracy suitable for diverse real-world deployment scenarios. YOLO11 features an optimized C2f module for better gradient flow and a decoupled head that efficiently handles classification and regression tasks separately. Furthermore, YOLO11 is engineered for lower memory requirements, boasting significantly lower memory usage during training and inference compared to complex transformer models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr).
+Ultralytics YOLO11 is built natively on [PyTorch](https://pytorch.org/), the industry standard for modern deep learning. Its architecture focuses heavily on a **Performance Balance**, achieving a favorable trade-off between speed and accuracy suitable for diverse real-world deployment scenarios. YOLO11 features an optimized C3k2 module for better gradient flow and a decoupled head that efficiently handles classification and regression tasks separately. Furthermore, YOLO11 is engineered for lower memory requirements, boasting significantly lower memory usage during training and inference compared to complex transformer models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr).
 
 ### Performance Metrics Table
 

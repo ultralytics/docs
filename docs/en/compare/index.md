@@ -245,7 +245,7 @@ RT-DETR (Real-Time Detection Transformer) leverages vision transformers to achie
 - [RT-DETR vs YOLOX](rtdetr-vs-yolox.md)
 - [RT-DETR vs EfficientDet](rtdetr-vs-efficientdet.md)
 
-### [PP-YOLOE+](../models/yoloe.md) vs
+### PP-YOLOE+ vs
 
 PP-YOLOE+, developed by Baidu, uses Task Alignment Learning (TAL) and a decoupled head to balance efficiency and accuracy.
 

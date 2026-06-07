@@ -49,7 +49,7 @@ Links: [Arxiv](https://arxiv.org/abs/1911.09070), [GitHub](https://github.com/go
 
 The innovation behind EfficientDet lies in two key areas: the Bi-directional Feature Pyramid Network (BiFPN) and a compound scaling method. BiFPN allows for simple and fast multi-scale [feature extraction](https://www.ultralytics.com/glossary/feature-extraction) by introducing learnable weights to learn the importance of different input features, while repeatedly applying top-down and bottom-up multi-scale feature fusion. The compound scaling method uniformly scales the resolution, depth, and width of the network simultaneously.
 
-EfficientDet models range from the ultra-lightweight D0 to the massive D7. This makes them highly versatile for [edge AI](https://www.ultralytics.com/glossary/edge-ai) deployments where developers must balance tight computational budgets with accuracy requirements, such as early mobile [augmented reality](https://www.ultralytics.com/glossary/merged-reality) applications.
+EfficientDet models range from the ultra-lightweight D0 to the massive D7. This makes them highly versatile for [edge AI](https://www.ultralytics.com/glossary/edge-ai) deployments where developers must balance tight computational budgets with accuracy requirements, such as early mobile [augmented reality](https://en.wikipedia.org/wiki/Augmented_reality) applications.
 
 ### Limitations
 

@@ -50,7 +50,7 @@ The architectural differences between these two models highlight the divergence 
 
 EfficientDet leverages the EfficientNet backbone and introduces BiFPN, which allows for top-down and bottom-up multi-scale feature fusion. It uses a compound scaling method that uniformly scales the resolution, depth, and width for all backbone, feature network, and box/class prediction networks simultaneously. While highly effective for maximizing [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map), the complex routing in BiFPN can sometimes bottleneck memory bandwidth during inference.
 
-YOLO11, on the other hand, utilizes an optimized C2f module and an advanced anchor-free detection head. This streamlined approach minimizes overhead during feature extraction. Ultralytics engineered YOLO11 to maximize GPU hardware utilization, resulting in significantly lower memory requirements during both training and inference compared to older architectures or heavy [transformer](https://www.ultralytics.com/glossary/transformer) models.
+YOLO11, on the other hand, utilizes an optimized C3k2 module and an advanced anchor-free detection head. This streamlined approach minimizes overhead during feature extraction. Ultralytics engineered YOLO11 to maximize GPU hardware utilization, resulting in significantly lower memory requirements during both training and inference compared to older architectures or heavy [transformer](https://www.ultralytics.com/glossary/transformer) models.
 
 !!! tip "Multi-Task Versatility"
 

@@ -40,13 +40,13 @@ Released in January 2026, **Ultralytics YOLO26** represents a paradigm shift. It
 - **Organization:** [Ultralytics](https://www.ultralytics.com/)
 - **Date:** 2026-01-14
 - **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- **Docs:** [YOLO26 Documentation](https://platform.ultralytics.com/ultralytics/yolo26)
+- **Docs:** [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26)
 
 ### Key Architectural Breakthroughs
 
 YOLO26 introduces several pioneering advancements that set it apart from previous generations:
 
-- **End-to-End NMS-Free Design:** Building on concepts first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 is natively end-to-end. It completely eliminates [Non-Maximum Suppression (NMS)](https://en.wikipedia.org/wiki/NMS) post-processing, resulting in a dramatic reduction in latency variability and drastically simpler deployment logic.
+- **End-to-End NMS-Free Design:** Building on concepts first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 is natively end-to-end. It completely eliminates [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing, resulting in a dramatic reduction in latency variability and drastically simpler deployment logic.
 - **Up to 43% Faster CPU Inference:** Optimized explicitly for edge computing, YOLO26 excels on devices without GPUs, making it ideal for mobile phones, IoT sensors, and robotics.
 - **DFL Removal:** The Distribution Focal Loss has been removed, simplifying the model export process and enhancing compatibility with low-power edge devices.
 - **MuSGD Optimizer:** Inspired by LLM training innovations like Moonshot AI's Kimi K2, the new MuSGD optimizer (a hybrid of [Stochastic Gradient Descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent) and Muon) brings large-scale stability to vision tasks, ensuring faster convergence.

@@ -23,7 +23,7 @@ Released in the summer of 2020, YOLOv5 marked a pivotal shift in the YOLO lineag
 - **Organization:** [Ultralytics](https://www.ultralytics.com/)
 - **Date:** 2020-06-26
 - **GitHub:** <https://github.com/ultralytics/yolov5>
-- **Docs:** <https://platform.ultralytics.com/ultralytics/yolov5>
+- **Docs:** <https://docs.ultralytics.com/models/yolov5>
 
 ### Architectural Innovations
 

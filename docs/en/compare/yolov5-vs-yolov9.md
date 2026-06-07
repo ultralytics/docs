@@ -27,7 +27,7 @@ Developed by Glenn Jocher and released by [Ultralytics](https://www.ultralytics.
 - **Organization:** [Ultralytics](https://www.ultralytics.com/)
 - **Date:** 2020-06-26
 - **GitHub:** [YOLOv5 Repository](https://github.com/ultralytics/yolov5)
-- **Docs:** [YOLOv5 Platform Overview](https://platform.ultralytics.com/ultralytics/yolov5)
+- **Docs:** [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5)
 
 YOLOv5 is renowned for its **Ease of Use** and stable performance across diverse hardware environments. It supports not just detection, but also [image classification](https://docs.ultralytics.com/tasks/classify) and [instance segmentation](https://docs.ultralytics.com/tasks/segment).
 

@@ -24,9 +24,9 @@ Understanding the lineage and theoretical foundations of these models is crucial
 Introduced on February 21, 2024, YOLOv9 tackles the theoretical issue of information loss as data passes through deep neural networks.
 
 - **Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao
-- **Organization:**[Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)
-- **Reference:**[YOLOv9 arXiv Paper](https://arxiv.org/abs/2402.13616)
-- **Repository:**[YOLOv9 GitHub](https://github.com/WongKinYiu/yolov9)
+- **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)
+- **Reference:** [YOLOv9 arXiv Paper](https://arxiv.org/abs/2402.13616)
+- **Repository:** [YOLOv9 GitHub](https://github.com/WongKinYiu/yolov9)
 
 YOLOv9 introduces the **Generalized Efficient Layer Aggregation Network (GELAN)**, which maximizes parameter utilization by combining the strengths of CSPNet and ELAN. Furthermore, it employs **Programmable Gradient Information (PGI)**, an auxiliary supervision mechanism ensuring deep layers retain critical spatial information. This makes YOLOv9 exceptionally strong for tasks demanding high feature fidelity, such as [medical image analysis](https://www.ultralytics.com/glossary/medical-image-analysis) or distant surveillance.
 
@@ -37,9 +37,9 @@ YOLOv9 introduces the **Generalized Efficient Layer Aggregation Network (GELAN)*
 Released shortly after on May 23, 2024, YOLOv10 reimagines the deployment pipeline by eliminating one of the most notorious latency bottlenecks in object detection: Non-Maximum Suppression (NMS).
 
 - **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
-- **Organization:**[Tsinghua University](https://www.tsinghua.edu.cn/en/)
-- **Reference:**[YOLOv10 arXiv Paper](https://arxiv.org/abs/2405.14458)
-- **Repository:**[YOLOv10 GitHub](https://github.com/THU-MIG/yolov10)
+- **Organization:** [Tsinghua University](https://www.tsinghua.edu.cn/en/)
+- **Reference:** [YOLOv10 arXiv Paper](https://arxiv.org/abs/2405.14458)
+- **Repository:** [YOLOv10 GitHub](https://github.com/THU-MIG/yolov10)
 
 YOLOv10 utilizes **consistent dual assignments** during training, allowing for a natively **NMS-free design**. This removes post-processing overhead during inference, drastically reducing latency. Combined with a holistic efficiency-accuracy driven model design, YOLOv10 achieves an outstanding balance, lowering computational overhead (FLOPs) while maintaining competitive precision, making it highly attractive for [edge computing](https://www.ultralytics.com/glossary/edge-computing) applications.
 

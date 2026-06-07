@@ -76,7 +76,7 @@ The table below provides a direct comparison of the models trained on the standa
 | YOLOv7l | 640                         | 51.4                       | -                                    | 6.84                                      | 36.9                     | 104.7                   |
 | YOLOv7x | 640                         | 53.1                       | -                                    | 11.57                                     | 71.3                     | 189.9                   |
 
-_Note: YOLO26x outperforms YOLOv7x in mAP by an impressive margin (57.5 vs 53.1) while requiring approximately 22% fewer parameters and fewer FLOPs._
+_Note: YOLO26x outperforms YOLOv7x in mAP by an impressive margin (57.5 vs 53.1) while requiring approximately 22% fewer parameters._
 
 ## The Ultralytics Ecosystem Advantage
 
