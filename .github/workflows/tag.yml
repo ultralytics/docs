@@ -36,6 +36,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
+          filter: blob:none # full commit/tag history for describe/log, no historical site blobs (gh-pages history is ~2GB)
           token: ${{ secrets._GITHUB_TOKEN }}
 
       - name: Git config
