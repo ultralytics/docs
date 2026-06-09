@@ -403,7 +403,7 @@ setup completes.</p></div><details><summary>Source code in <code>ultralytics/uti
 <span></span>    <span class="n">system</span> <span class="o">=</span> <span class="p">{}</span>
 <span></span>    <span class="k">try</span><span class="p">:</span>
 <span></span>        <span class="k">if</span> <span class="ow">not</span> <span class="n">ctx</span><span class="p">[</span><span class="s2">"system_logger"</span><span class="p">]:</span>
-<span></span>            <span class="n">ctx</span><span class="p">[</span><span class="s2">"system_logger"</span><span class="p">]</span> <span class="o">=</span> <span class="n">SystemLogger</span><span class="p">()</span>
+<span></span>            <span class="n">ctx</span><span class="p">[</span><span class="s2">"system_logger"</span><span class="p">]</span> <span class="o">=</span> <span class="n">SystemLogger</span><span class="p">(</span><span class="n">all_drives</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span></span>        <span class="n">system</span> <span class="o">=</span> <span class="n">ctx</span><span class="p">[</span><span class="s2">"system_logger"</span><span class="p">]</span><span class="o">.</span><span class="n">get_metrics</span><span class="p">(</span><span class="n">rates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span></span>    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
 <span></span>        <span class="k">pass</span>
