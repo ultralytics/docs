@@ -15,13 +15,13 @@ Welcome to Ultralytics Docs, your comprehensive resource for understanding and u
 [![Ultralytics Forums](https://img.shields.io/discourse/users?server=https%3A%2F%2Fcommunity.ultralytics.com&logo=discourse&label=Forums&color=blue)](https://community.ultralytics.com/)
 [![Ultralytics Reddit](https://img.shields.io/reddit/subreddit-subscribers/ultralytics?style=flat&logo=reddit&logoColor=white&label=Reddit&color=blue)](https://reddit.com/r/ultralytics)
 
-## 🛠️ Installation
+## 🛠️ Ultralytics Package
 
 [![PyPI - Version](https://img.shields.io/pypi/v/ultralytics?logo=pypi&logoColor=white)](https://pypi.org/project/ultralytics/)
 [![Downloads](https://static.pepy.tech/badge/ultralytics)](https://clickpy.clickhouse.com/dashboard/ultralytics)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/ultralytics?logo=python&logoColor=gold)](https://pypi.org/project/ultralytics/)
 
-To install the `ultralytics` package in developer mode, which allows you to modify the source code directly, ensure you have [Git](https://git-scm.com/downloads/) and [Python](https://www.python.org/downloads/) 3.8 or later installed on your system. Then, follow these steps:
+The badges above track the core `ultralytics` Python package documented by this site. To install that package in developer mode, which allows you to modify the source code directly, ensure you have [Git](https://git-scm.com/downloads/) and [Python](https://www.python.org/downloads/) 3.8 or later installed on your system. Then, follow these steps:
 
 1.  Clone the `ultralytics` repository to your local machine using Git:
 
@@ -50,74 +50,27 @@ To install the `ultralytics` package in developer mode, which allows you to modi
 - **[GitHub Pages](https://pages.github.com/)** - Hosting and deployment
 - **[GitHub Actions](https://github.com/features/actions)** - CI/CD automation
 
-## 🚀 Building and Serving Locally
+## 🔧 Repository Tooling
 
-The `mkdocs serve` command builds and serves a local version of your [MkDocs](https://www.mkdocs.org/) documentation. This is highly useful during development and testing to preview changes in real-time.
+This repository contains selected documentation Markdown plus maintenance workflows for downloaded website checks, domain checks, and sitemap submissions. Install the lightweight Python dependencies before running repository utilities locally:
 
 ```bash
-mkdocs serve
+pip install -r requirements.txt
 ```
 
-- **Command Breakdown:**
-  - `mkdocs`: The main MkDocs command-line interface tool.
-  - `serve`: The subcommand used to build and locally serve your documentation site.
-- **Note:**
-  - `mkdocs serve` includes live reloading, automatically updating the preview in your browser as you save changes to the documentation files.
-  - To stop the local server, simply press `CTRL+C` in your terminal.
+For example, `utils/check_image_sizes.py` is used by the website link-check workflow to flag oversized images in downloaded pages.
 
-## 🌍 Building and Serving Multi-Language
+## 🌍 Website Checks
 
-If your documentation supports multiple languages, follow these steps to build and preview all versions:
+The live documentation at [docs.ultralytics.com](https://docs.ultralytics.com/) is maintained with scheduled and manual workflows in `.github/workflows/`:
 
-1.  Stage all new or modified language Markdown (`.md`) files using Git:
+- `links.yml` downloads rendered pages for `www.ultralytics.com`, `docs.ultralytics.com`, and `handbook.ultralytics.com`, then checks links, spelling, and large images.
+- `links_local.yml` checks repository Markdown and HTML links, with an optional broader link scan on manual runs.
+- `check_domains.yml` verifies Ultralytics domain redirects.
+- `download_websites.yml` can download public website pages for inspection.
+- `sitemaps.yml` submits sitemaps and changed URLs after successful Pages deployments.
 
-    ```bash
-    git add docs/**/*.md -f
-    ```
-
-2.  Build all language versions into the `/site` directory. This script ensures that relevant root-level files are included and clears the previous build:
-
-    ```bash
-    # Clear existing /site directory to prevent conflicts
-    rm -rf site
-
-    # Build the default language site using the primary config file
-    mkdocs build -f docs/mkdocs.yml
-
-    # Loop through each language-specific config file and build its site
-    for file in docs/mkdocs_*.yml; do
-      echo "Building MkDocs site with $file"
-      mkdocs build -f "$file"
-    done
-    ```
-
-3.  To preview the complete multi-language site locally, navigate into the build output directory and start a simple [Python HTTP server](https://docs.python.org/3/library/http.server.html):
-    ```bash
-    cd site
-    python -m http.server
-    # Open http://localhost:8000 in your preferred web browser
-    ```
-    Access the live preview site at `http://localhost:8000`.
-
-## 📤 Deploying Your Documentation Site
-
-To deploy your MkDocs documentation site, choose a hosting provider and configure your deployment method. Common options include [GitHub Pages](https://pages.github.com/), GitLab Pages, or other static site hosting services like [Netlify](https://www.netlify.com/) or [Vercel](https://vercel.com/).
-
-- Configure deployment settings within your `mkdocs.yml` file.
-- Use the deployment method specific to your chosen provider to build and deploy your site.
-
-* **GitHub Pages Deployment Example:**
-  If deploying to GitHub Pages, you can use the built-in command:
-
-  ```bash
-  mkdocs gh-deploy
-  ```
-
-  After deployment, you might need to update the "Custom domain" settings in your repository's settings page if you wish to use a personalized URL.
-
-  ![GitHub Pages Custom Domain Setting](https://user-images.githubusercontent.com/26833433/210150206-9e86dcd7-10af-43e4-9eb2-9518b3799eac.png)
-
-- For detailed instructions on various deployment methods, consult the official [MkDocs Deploying your docs guide](https://www.mkdocs.org/user-guide/deploying-your-docs/).
+This repository does not currently include local `mkdocs*.yml` configuration files, so README instructions should use the workflows above rather than local MkDocs build commands.
 
 ## 💡 Contribute
 
