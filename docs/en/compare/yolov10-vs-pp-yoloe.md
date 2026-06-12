@@ -148,4 +148,4 @@ Selecting the right model heavily depends on deployment constraints:
 
 For those interested in exploring older supported architectures or transformer alternatives within the ecosystem, see the documentations for [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or [RT-DETR](https://docs.ultralytics.com/models/rtdetr).
 
-Ultimately, a well-maintained ecosystem combined with a simple API ensures that developers spend less time debugging configuration files and more time solving real-world [vision AI](https://www.ultralytics.com/blog-category/vision-ai) problems.
+Ultimately, a well-maintained ecosystem combined with a simple API ensures that developers spend less time debugging configuration files and more time solving real-world [vision AI](https://www.ultralytics.com/blog) problems.

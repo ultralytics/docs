@@ -78,7 +78,7 @@ As seen above, the `YOLO26m` model achieves equivalent accuracy (53.1 mAP) to th
 
 Deploying legacy models often involves wrestling with complex third-party repositories, dependency hell, and manual export scripts. By contrast, the [Ultralytics Platform](https://platform.ultralytics.com) offers a well-maintained, cohesive ecosystem that streamlines the entire machine learning lifecycle.
 
-- **Ease of Use:** With an intuitive Python API and exhaustive documentation, you can annotate, train, and deploy models in minutes. Exporting to formats like [ONNX](https://onnx.ai/) or [CoreML](https://developer.apple.com/machine-learning/core-ml/) requires just a single line of code.
+- **Ease of Use:** With an intuitive Python API and exhaustive documentation, you can annotate, train, and deploy models in minutes. Exporting to formats like [ONNX](https://onnx.ai/) or [CoreML](https://developer.apple.com/documentation/coreml/) requires just a single line of code.
 - **Memory Requirements:** Ultralytics models are renowned for their low memory usage. Unlike some bulky vision transformers, YOLO26 can easily be fine-tuned on standard hardware without running into out-of-memory (OOM) errors.
 - **Versatility:** While YOLOv7 was primarily an object detector (with some experimental branches for other tasks), YOLO26 is a natively unified framework handling detection, classification, tracking, pose, and OBB with equal proficiency.
 

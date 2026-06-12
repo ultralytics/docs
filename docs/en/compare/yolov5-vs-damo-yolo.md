@@ -111,7 +111,7 @@ Ultralytics also provides built-in support for [experiment tracking](https://doc
 
 ## Real-World Use Cases
 
-- **YOLOv5** excels in fast-paced production environments. Its straightforward exportability makes it the prime choice for [smart retail analytics](https://www.ultralytics.com/blog/ai-in-retail-enhancing-customer-experience-using-computer-vision), high-speed manufacturing defect detection, and integration into mobile applications via [CoreML](https://developer.apple.com/machine-learning/core-ml/).
+- **YOLOv5** excels in fast-paced production environments. Its straightforward exportability makes it the prime choice for [smart retail analytics](https://www.ultralytics.com/blog/ai-in-retail-enhancing-customer-experience-using-computer-vision), high-speed manufacturing defect detection, and integration into mobile applications via [CoreML](https://developer.apple.com/documentation/coreml/).
 - **DAMO-YOLO** is highly suitable for strict academic benchmarking and scenarios where vast computational resources are available to execute long, distilled training runs aimed at squeezing out fractional mAP improvements for specific, fixed hardware targets.
 
 ## Use Cases and Recommendations

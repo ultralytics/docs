@@ -77,7 +77,7 @@ Furthermore, YOLO11 boasts extreme versatility. By simply changing the model suf
 
 !!! info "Simplified Exports"
 
-    Exporting YOLO11 to edge formats like [Apple CoreML](https://developer.apple.com/machine-learning/core-ml/) or [Intel OpenVINO frameworks](https://docs.openvino.ai/) requires just a single `.export()` command, avoiding the complex graph-surgery often required by older generation models.
+    Exporting YOLO11 to edge formats like [Apple CoreML](https://developer.apple.com/documentation/coreml/) or [Intel OpenVINO frameworks](https://docs.openvino.ai/) requires just a single `.export()` command, avoiding the complex graph-surgery often required by older generation models.
 
 ## Ideal Deployment Scenarios
 

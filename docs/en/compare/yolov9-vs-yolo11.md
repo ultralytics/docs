@@ -99,7 +99,7 @@ YOLOv9 focuses predominantly on bounding box detection. In contrast, YOLO11 is a
 
 ### Seamless Deployment
 
-Using the Ultralytics ecosystem allows developers to seamlessly [export models](https://docs.ultralytics.com/modes/export) to an array of formats with a single line of [Python](https://www.python.org/) code. Whether targeting [ONNX](https://onnx.ai/), [OpenVINO](https://docs.openvino.ai/), [TFLite](https://ai.google.dev/edge/litert), or [CoreML](https://developer.apple.com/machine-learning/core-ml/), the transition from training to production is effortless.
+Using the Ultralytics ecosystem allows developers to seamlessly [export models](https://docs.ultralytics.com/modes/export) to an array of formats with a single line of [Python](https://www.python.org/) code. Whether targeting [ONNX](https://onnx.ai/), [OpenVINO](https://docs.openvino.ai/), [TFLite](https://developers.google.com/edge/litert), or [CoreML](https://developer.apple.com/documentation/coreml/), the transition from training to production is effortless.
 
 ```python
 from ultralytics import YOLO

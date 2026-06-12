@@ -93,7 +93,7 @@ This simple script allows developers to rapidly iterate on [custom datasets](htt
 
 !!! note "Deployment Made Easy"
 
-    Using the [Ultralytics Platform](https://platform.ultralytics.com), you can automatically export your trained YOLO26 models to formats like [CoreML](https://developer.apple.com/machine-learning/core-ml/) or [TensorFlow Lite](https://ai.google.dev/edge/litert) without writing a single line of conversion code.
+    Using the [Ultralytics Platform](https://platform.ultralytics.com), you can automatically export your trained YOLO26 models to formats like [CoreML](https://developer.apple.com/documentation/coreml/) or [TensorFlow Lite](https://developers.google.com/edge/litert) without writing a single line of conversion code.
 
 ## Versatility and Ideal Use Cases
 
