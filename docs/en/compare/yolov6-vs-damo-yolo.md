@@ -74,7 +74,7 @@ With the release of **YOLO26**, Ultralytics has redefined state-of-the-art visio
 
 ### Key Innovations in YOLO26
 
-- **End-to-End NMS-Free Design:** Building on concepts pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 natively eliminates Non-Maximum Suppression (NMS) post-processing. This drastically reduces latency variance and simplifies deployment on edge devices via [CoreML](https://developer.apple.com/machine-learning/core-ml/) or [TFLite](https://ai.google.dev/edge/litert).
+- **End-to-End NMS-Free Design:** Building on concepts pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 natively eliminates Non-Maximum Suppression (NMS) post-processing. This drastically reduces latency variance and simplifies deployment on edge devices via [CoreML](https://developer.apple.com/documentation/coreml/) or [TFLite](https://developers.google.com/edge/litert).
 - **DFL Removal:** By removing Distribution Focal Loss, YOLO26 simplifies the export process and significantly enhances compatibility with low-power microcontrollers and edge hardware.
 - **Up to 43% Faster CPU Inference:** For applications lacking dedicated GPU hardware, YOLO26's CPU optimizations deliver unparalleled speed, outperforming heavily GPU-reliant models like YOLOv6.
 - **MuSGD Optimizer:** Inspired by LLM training techniques like Moonshot AI's Kimi K2, YOLO26 utilizes the MuSGD optimizer (a hybrid of SGD and Muon) to guarantee stable training and rapid convergence.

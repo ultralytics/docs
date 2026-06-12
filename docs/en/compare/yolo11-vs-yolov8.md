@@ -115,7 +115,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## Code Example: Getting Started
 
-Deploying and training an Ultralytics model is incredibly intuitive. The following example demonstrates how to load a pre-trained YOLO11 model, fine-tune it on a custom dataset, and export it for edge deployment using [Apple CoreML](https://developer.apple.com/machine-learning/core-ml/):
+Deploying and training an Ultralytics model is incredibly intuitive. The following example demonstrates how to load a pre-trained YOLO11 model, fine-tune it on a custom dataset, and export it for edge deployment using [Apple CoreML](https://developer.apple.com/documentation/coreml/):
 
 ```python
 from ultralytics import YOLO

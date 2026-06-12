@@ -27,7 +27,7 @@ Released in early 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/ul
 
 ### Architecture and Innovations
 
-YOLO26 fundamentally redesigns the post-processing pipeline by introducing an **End-to-End NMS-Free Design**. By eliminating the need for Non-Maximum Suppression (NMS), the model achieves dramatically lower latency variability. This makes deploying to mobile and edge platforms significantly easier, especially when exporting to frameworks like [ONNX](https://onnx.ai/) and [Apple CoreML](https://developer.apple.com/machine-learning/core-ml/).
+YOLO26 fundamentally redesigns the post-processing pipeline by introducing an **End-to-End NMS-Free Design**. By eliminating the need for Non-Maximum Suppression (NMS), the model achieves dramatically lower latency variability. This makes deploying to mobile and edge platforms significantly easier, especially when exporting to frameworks like [ONNX](https://onnx.ai/) and [Apple CoreML](https://developer.apple.com/documentation/coreml/).
 
 Additionally, the removal of Distribution Focal Loss (DFL) streamlines the export process and boosts compatibility with low-power microcontrollers. To improve training stability, YOLO26 integrates the novel **MuSGD Optimizer**, a hybrid of Stochastic Gradient Descent (SGD) and Muon (inspired by innovations in Large Language Model training). This results in faster convergence and more robust feature extraction across difficult datasets.
 
@@ -122,7 +122,7 @@ While YOLOv9 is primarily a detection engine, YOLO26 is a general-purpose vision
 
 ### Efficient Training and Deployment
 
-Training efficiency is a cornerstone of the Ultralytics philosophy. YOLO26 utilizes readily available pre-trained weights and boasts significantly lower memory usage compared to bulky vision transformers. Once trained, built-in export pipelines allow for one-click conversions to optimized formats like [TensorRT](https://developer.nvidia.com/tensorrt) or [TensorFlow Lite](https://ai.google.dev/edge/litert), smoothing the path to production.
+Training efficiency is a cornerstone of the Ultralytics philosophy. YOLO26 utilizes readily available pre-trained weights and boasts significantly lower memory usage compared to bulky vision transformers. Once trained, built-in export pipelines allow for one-click conversions to optimized formats like [TensorRT](https://developer.nvidia.com/tensorrt) or [TensorFlow Lite](https://developers.google.com/edge/litert), smoothing the path to production.
 
 ## Code Example: Getting Started with YOLO26
 

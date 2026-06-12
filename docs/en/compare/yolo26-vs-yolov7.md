@@ -51,7 +51,7 @@ The architectural philosophies behind YOLO26 and YOLOv7 diverge significantly, r
 
 Released in 2026, YOLO26 fundamentally rethinks the deployment pipeline. Its most significant breakthrough is the **End-to-End NMS-Free Design**. By eliminating [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing, YOLO26 drastically reduces latency variability, a concept that was first successfully piloted in [YOLOv10](https://docs.ultralytics.com/models/yolov10). This ensures consistent frame rates even in densely populated scenes, which is critical for autonomous robotics and traffic monitoring.
 
-Furthermore, YOLO26 completely removes Distribution Focal Loss (DFL). This **DFL Removal** simplifies the export process to formats like [ONNX](https://onnx.ai/) and [Apple CoreML](https://developer.apple.com/machine-learning/core-ml/), achieving up to **43% faster CPU inference**.
+Furthermore, YOLO26 completely removes Distribution Focal Loss (DFL). This **DFL Removal** simplifies the export process to formats like [ONNX](https://onnx.ai/) and [Apple CoreML](https://developer.apple.com/documentation/coreml/), achieving up to **43% faster CPU inference**.
 
 Training stability is another major focus. The introduction of the **MuSGD Optimizer**—a hybrid of standard [Stochastic Gradient Descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent) and Muon (inspired by the training dynamics of Kimi K2)—brings advanced LLM training stability to computer vision. Combined with **ProgLoss + STAL** loss functions, YOLO26 excels at small-object recognition, a historic challenge for real-time detectors.
 
@@ -82,7 +82,7 @@ _Note: YOLO26x outperforms YOLOv7x in mAP by an impressive margin (57.5 vs 53.1)
 
 A primary reason developers consistently choose YOLO26 is its deep integration into the [Ultralytics Platform](https://docs.ultralytics.com/platform). Unlike the standalone scripts required for older architectures, Ultralytics provides a seamless, unified workflow.
 
-1. **Ease of Use:** The Python API allows users to load, train, and deploy models in just a few lines of code. Exporting to mobile formats like [TensorFlow Lite](https://ai.google.dev/edge/litert) requires merely changing a single argument.
+1. **Ease of Use:** The Python API allows users to load, train, and deploy models in just a few lines of code. Exporting to mobile formats like [TensorFlow Lite](https://developers.google.com/edge/litert) requires merely changing a single argument.
 2. **Memory Requirements:** Ultralytics models are meticulously engineered for training efficiency. They require significantly less CUDA memory compared to heavy vision transformer models, allowing researchers to run larger batch sizes on consumer hardware.
 3. **Versatility:** While YOLOv7 requires entirely different repositories for different tasks, YOLO26 natively supports [Image Classification](https://docs.ultralytics.com/tasks/classify), [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection from a single, cohesive library. It even includes task-specific loss functions, such as Residual Log-Likelihood Estimation (RLE) for human pose pipelines.
 4. **Active Development:** The Ultralytics open-source community provides frequent updates, ensuring rapid resolution of edge cases and continuous compatibility with the latest [PyTorch](https://pytorch.org/) releases.
