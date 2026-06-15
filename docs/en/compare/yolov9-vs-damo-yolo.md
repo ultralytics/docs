@@ -4,7 +4,7 @@ description: Compare YOLOv9 and DAMO-YOLO. Discover their architecture, performa
 keywords: YOLOv9, DAMO-YOLO, object detection, neural networks, AI comparison, real-time detection, model efficiency, computer vision, YOLO comparison, Ultralytics
 ---
 
-# YOLOv9 vs. DAMO-YOLO: A Technical Comparison of Object Detection Models
+# YOLOv9 vs DAMO-YOLO
 
 The rapid evolution of computer vision has produced an array of powerful architectures tailored for varying deployment constraints and accuracy requirements. Two notable entries in this space are **YOLOv9**, celebrated for its robust handling of information bottlenecks, and **DAMO-YOLO**, which focuses heavily on Neural Architecture Search (NAS) and efficient feature pyramids.
 

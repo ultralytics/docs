@@ -4,7 +4,7 @@ description: Discover key differences between YOLOv8 and YOLOv5. Compare speed, 
 keywords: YOLOv8, YOLOv5, object detection, YOLO comparison, computer vision, model comparison, speed, accuracy, Ultralytics, deep learning
 ---
 
-# YOLOv8 vs. YOLOv5: A Comprehensive Technical Comparison
+# YOLOv8 vs YOLOv5
 
 Choosing the right computer vision architecture is a critical step in building robust machine learning pipelines. In this detailed technical comparison, we explore the differences between two of the most popular models in the vision AI ecosystem: **YOLOv8** and **YOLOv5**. Both models were developed by Ultralytics and have significantly shaped the landscape of real-time [object detection](https://docs.ultralytics.com/tasks/detect), setting industry standards for speed, accuracy, and ease of use.
 

@@ -4,7 +4,7 @@ description: Compare YOLOv10 and DAMO-YOLO object detection models. Explore arch
 keywords: YOLOv10, DAMO-YOLO, object detection comparison, YOLO models, DAMO-YOLO performance, YOLOv10 features, computer vision models, real-time object detection
 ---
 
-# DAMO-YOLO vs YOLOv10: Evolution of Efficient Real-Time Object Detection
+# DAMO-YOLO vs YOLOv10
 
 The field of computer vision has witnessed a rapid evolution in real-time [object detection](https://docs.ultralytics.com/tasks/detect) architectures. When comparing **DAMO-YOLO** and **YOLOv10**, we observe two distinct philosophies in model design: automated architecture search versus end-to-end NMS-free optimization. While both push the boundaries of accuracy and speed, their underlying structures and ideal use cases differ significantly.
 

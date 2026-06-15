@@ -4,7 +4,7 @@ description: Compare YOLOv10 and YOLOX for object detection. Explore architectur
 keywords: YOLOv10, YOLOX, object detection, Ultralytics, real-time, model comparison, benchmark, computer vision, deep learning, AI
 ---
 
-# YOLOX vs YOLOv10: Comparing Anchor-Free and NMS-Free Real-Time Object Detection
+# YOLOX vs YOLOv10
 
 The evolution of real-time computer vision models has been marked by significant architectural leaps. Two pivotal milestones in this journey are YOLOX and YOLOv10. Released in 2021, YOLOX successfully bridged the gap between academic research and industrial application by introducing a highly effective anchor-free design. Three years later, YOLOv10 revolutionized the field by eliminating the need for Non-Maximum Suppression (NMS) during post-processing, pushing the boundaries of efficiency and speed.
 

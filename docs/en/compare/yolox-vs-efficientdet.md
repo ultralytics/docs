@@ -4,7 +4,7 @@ description: Compare YOLOX and EfficientDet for object detection. Explore archit
 keywords: YOLOX, EfficientDet, object detection, model comparison, deep learning, computer vision, performance benchmark, Ultralytics
 ---
 
-# YOLOX vs. EfficientDet: Evaluating Anchor-Free and Scalable Object Detection
+# YOLOX vs EfficientDet
 
 The evolution of [object detection](https://docs.ultralytics.com/tasks/detect) has been driven by the constant pursuit of balancing speed, accuracy, and computational efficiency. Two landmark models that significantly influenced this trajectory are YOLOX and EfficientDet. While YOLOX introduced a highly optimized anchor-free design to the YOLO family, EfficientDet focused on a scalable architecture utilizing compound scaling and BiFPN. This guide provides a detailed technical comparison of their architectures, performance metrics, and training methodologies, while also introducing modern alternatives like the cutting-edge [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) model.
 

@@ -4,7 +4,7 @@ description: Compare EfficientDet vs YOLOv8 for object detection. Explore their 
 keywords: EfficientDet, YOLOv8, model comparison, object detection, computer vision, machine learning, EfficientDet vs YOLOv8, Ultralytics models, real-time detection
 ---
 
-# EfficientDet vs YOLOv8: A Technical Comparison of Object Detection Architectures
+# EfficientDet vs YOLOv8
 
 The field of [computer vision](https://en.wikipedia.org/wiki/Computer_vision) is constantly evolving, with new architectures frequently pushing the boundaries of what is possible. Choosing the right neural network architecture is critical for balancing accuracy, latency, and resource consumption. In this comprehensive technical analysis, we will compare two powerhouse models in the object detection arena: **EfficientDet** by Google and **Ultralytics YOLOv8**.
 

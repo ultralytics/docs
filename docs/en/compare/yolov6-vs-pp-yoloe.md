@@ -4,7 +4,7 @@ description: Compare YOLOv6-3.0 and PP-YOLOE+ models. Explore performance, archi
 keywords: YOLOv6-3.0, PP-YOLOE+, object detection, model comparison, computer vision, AI models, inference speed, accuracy, architecture, benchmarking
 ---
 
-# YOLOv6-3.0 vs PP-YOLOE+: Evaluating Industrial Object Detectors
+# YOLOv6-3.0 vs PP-YOLOE+
 
 When selecting a framework for real-time [object detection](https://docs.ultralytics.com/tasks/detect), machine learning engineers frequently evaluate a variety of high-performance architectures. Two notable models in the landscape of industrial applications are **YOLOv6-3.0** and **PP-YOLOE+**. Both models have pushed the boundaries of accuracy and speed, yet they are tailored for slightly different ecosystems and deployment hardware.
 

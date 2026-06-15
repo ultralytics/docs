@@ -4,7 +4,7 @@ description: Compare EfficientDet and DAMO-YOLO object detection models in terms
 keywords: EfficientDet, DAMO-YOLO, object detection, model comparison, EfficientNet, BiFPN, real-time inference, AI, computer vision, deep learning, Ultralytics
 ---
 
-# EfficientDet vs DAMO-YOLO: A Technical Comparison of Object Detection Architectures
+# EfficientDet vs DAMO-YOLO
 
 When building scalable [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) pipelines, selecting the right model architecture is a critical decision that influences both deployment feasibility and detection accuracy. This guide provides an in-depth, technical comparison between two well-known architectures in the visual recognition landscape: EfficientDet and DAMO-YOLO.
 

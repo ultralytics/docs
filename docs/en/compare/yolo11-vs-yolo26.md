@@ -4,7 +4,7 @@ description: Technical comparison of Ultralytics YOLO11 and YOLO26 - NMS-free, C
 keywords: Ultralytics,YOLO11,YOLO26,YOLO,NMS-free,CPU-optimized,MuSGD,object detection,real-time detection,edge AI,edge deployment,Raspberry Pi,ONNX,TensorRT,mAP,small object detection,robotics
 ---
 
-# YOLO11 vs YOLO26: The Evolution of Next-Generation Vision AI
+# YOLO11 vs YOLO26
 
 The rapid evolution of computer vision continually pushes the boundaries of speed, accuracy, and deployment efficiency. In the landscape of real-time object detection, [Ultralytics](https://www.ultralytics.com) consistently sets the standard. This technical comparison explores the transition from the highly successful **YOLO11** to the cutting-edge **YOLO26**, analyzing their architectures, performance metrics, and ideal deployment scenarios.
 

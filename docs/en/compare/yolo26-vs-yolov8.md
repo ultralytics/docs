@@ -4,7 +4,7 @@ description: Compare YOLO26 vs YOLOv8 architecture, benchmarks (mAP, latency), t
 keywords: YOLO26, YOLOv8, YOLO comparison, object detection, NMS-free, end-to-end detection, MuSGD, ProgLoss, STAL, DFL removal, model benchmarks, mAP, inference speed, edge deployment, ONNX, TensorRT, Ultralytics, mobile AI, embedded vision
 ---
 
-# YOLO26 vs YOLOv8: Advancements in Next-Generation Object Detection
+# YOLO26 vs YOLOv8
 
 The evolution of computer vision has been defined by the pursuit of real-time performance without sacrificing accuracy. As developers and researchers navigate the landscape of modern [machine learning](https://en.wikipedia.org/wiki/Machine_learning), choosing the right model architecture is critical. This comprehensive technical comparison explores the generational leap from **[Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8)**, a wildly popular architecture that redefined the standard in 2023, to the cutting-edge **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**, released in January 2026.
 

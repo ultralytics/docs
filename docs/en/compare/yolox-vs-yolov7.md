@@ -4,7 +4,7 @@ description: Discover the differences between YOLOX and YOLOv7, two top computer
 keywords: YOLOX, YOLOv7, object detection, computer vision, model comparison, anchor-free, YOLO models, machine learning, AI performance
 ---
 
-# YOLOX vs YOLOv7: A Comprehensive Technical Comparison
+# YOLOX vs YOLOv7
 
 The evolution of real-time [object detection](https://docs.ultralytics.com/tasks/detect) has been driven by continuous architectural breakthroughs. Two significant milestones in this journey are **YOLOX** and **YOLOv7**. Released within a year of each other, both models introduced novel approaches to the standard object detection paradigm, significantly improving the trade-off between speed and [accuracy](https://www.ultralytics.com/glossary/accuracy).
 

@@ -4,7 +4,7 @@ description: Discover the key differences between YOLOX and RTDETRv2. Compare pe
 keywords: YOLOX, RTDETRv2, object detection, YOLOX vs RTDETRv2, performance comparison, Ultralytics, machine learning, computer vision, object detection models
 ---
 
-# YOLOX vs. RTDETRv2: Evaluating the Evolution of Real-Time Object Detection Models
+# YOLOX vs RTDETRv2
 
 Choosing the optimal architecture for [computer vision applications](https://www.ultralytics.com/glossary/computer-vision-cv) requires a careful balance of accuracy, inference speed, and deployment feasibility. In this comprehensive technical analysis, we explore the fundamental differences between **YOLOX**, a highly successful anchor-free CNN architecture, and **RTDETRv2**, a state-of-the-art real-time detection transformer.
 

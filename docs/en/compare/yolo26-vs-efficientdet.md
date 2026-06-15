@@ -4,7 +4,7 @@ description: Compare Ultralytics YOLO26 vs EfficientDet architecture, mAP & late
 keywords: YOLO26, EfficientDet, Ultralytics, object detection, real-time detection, NMS-free, mAP, inference speed, CPU inference, edge AI, model benchmarks, TensorRT, ONNX, MuSGD, ProgLoss, small object detection, model comparison, deployment, computer vision, deep learning
 ---
 
-# YOLO26 vs EfficientDet: A Technical Comparison of Modern Object Detection Architectures
+# YOLO26 vs EfficientDet
 
 Choosing the right neural network architecture is critical for the success of any [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) application. This technical guide explores the trade-offs, performance metrics, and architectural innovations of two prominent models: the cutting-edge [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) and Google's well-established EfficientDet.
 

@@ -4,7 +4,7 @@ description: Compare YOLOX and YOLOv6-3.0 for object detection. Learn about arch
 keywords: YOLOX, YOLOv6-3.0, object detection, model comparison, performance benchmarks, real-time detection, machine learning, computer vision
 ---
 
-# YOLOX vs. YOLOv6-3.0: A Comprehensive Guide to Anchor-Free and Industrial Object Detection
+# YOLOX vs YOLOv6-3.0
 
 The evolution of [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) has been largely defined by the rapid advancements in the YOLO series. Choosing the right architecture for your deployment often comes down to balancing raw throughput, architectural simplicity, and training efficiency. Two notable milestones in this journey are the anchor-free research focus of YOLOX and the highly optimized industrial throughput of YOLOv6-3.0.
 

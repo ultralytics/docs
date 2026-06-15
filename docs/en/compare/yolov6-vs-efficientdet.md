@@ -4,7 +4,7 @@ description: Explore a detailed comparison of YOLOv6-3.0 and EfficientDet includ
 keywords: YOLOv6, EfficientDet, object detection, model comparison, YOLOv6-3.0, EfficientDet-d7, computer vision, benchmarks, architecture, real-time detection
 ---
 
-# YOLOv6-3.0 vs. EfficientDet: A Comprehensive Technical Comparison
+# YOLOv6-3.0 vs EfficientDet
 
 Choosing the optimal architecture for [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) projects requires a deep understanding of the trade-offs between speed, accuracy, and deployment feasibility. This comparison page provides an in-depth analysis of two distinct object detection models: YOLOv6-3.0 and EfficientDet. While both models have contributed significantly to the field, modern edge deployments and rapid prototyping often benefit from more unified frameworks like the [Ultralytics Platform](https://docs.ultralytics.com/platform).
 

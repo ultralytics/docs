@@ -4,7 +4,7 @@ description: Explore EfficientDet and YOLOv6-3.0 in a detailed comparison coveri
 keywords: EfficientDet, YOLOv6, object detection, computer vision, model comparison, EfficientNet, BiFPN, real-time detection, performance benchmarks
 ---
 
-# EfficientDet vs YOLOv6-3.0: A Comprehensive Guide to Industrial Object Detection
+# EfficientDet vs YOLOv6-3.0
 
 Choosing the right neural network architecture is the cornerstone of any successful [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) initiative. This deep dive provides a highly technical comparison between two pivotal models in the [object detection](https://docs.ultralytics.com/tasks/detect) landscape: Google's EfficientDet and Meituan's YOLOv6-3.0.
 

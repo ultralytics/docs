@@ -4,7 +4,7 @@ description: Compare YOLOv5 and YOLOX object detection models. Explore performan
 keywords: YOLOv5, YOLOX, object detection, model comparison, computer vision, Ultralytics, anchor-based, anchor-free, real-time detection, AI models
 ---
 
-# YOLOv5 vs YOLOX: A Comprehensive Technical Comparison
+# YOLOv5 vs YOLOX
 
 The evolution of real-time computer vision has seen numerous milestones, with different architectures pushing the boundaries of speed and accuracy. Two highly influential models in this space are **YOLOv5** and **YOLOX**. While both are renowned for their high performance in object detection, they take fundamentally different architectural approaches.
 

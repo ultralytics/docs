@@ -4,7 +4,7 @@ description: Compare YOLOv5 and RTDETRv2 for object detection. Explore their arc
 keywords: YOLOv5, RTDETRv2, object detection, model comparison, Ultralytics, computer vision, machine learning, real-time detection, Vision Transformers, AI models
 ---
 
-# YOLOv5 vs RTDETRv2: Evaluating CNN vs. Transformer Architectures for Object Detection
+# YOLOv5 vs RTDETRv2
 
 The landscape of [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) has expanded significantly over the past few years, offering developers a wide array of architectures to tackle complex visual tasks. Among the most popular paradigms are Convolutional Neural Networks (CNNs) and Detection Transformers (DETRs).
 

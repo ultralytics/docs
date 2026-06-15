@@ -4,7 +4,7 @@ description: Compare YOLOv5 and EfficientDet for object detection. Explore archi
 keywords: YOLOv5, EfficientDet, object detection, model comparison, computer vision, performance metrics, Ultralytics, real-time detection, deep learning
 ---
 
-# YOLOv5 vs. EfficientDet: Evaluating Real-Time Object Detection Architectures
+# YOLOv5 vs EfficientDet
 
 When embarking on a new [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) project, choosing the right neural network architecture is one of the most consequential decisions you will make. This guide provides an in-depth technical comparison between **Ultralytics YOLOv5** and Google's **EfficientDet**. By analyzing their architectures, performance metrics, and training ecosystems, we aim to help developers and researchers identify the best [object detection](https://docs.ultralytics.com/tasks/detect) model for their specific deployment environments.
 

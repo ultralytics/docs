@@ -4,7 +4,7 @@ description: Discover the key differences, performance benchmarks, and use cases
 keywords: YOLOv10, DAMO-YOLO, object detection, YOLO comparison, computer vision, model benchmarking, NMS-free training, neural architecture search, RepGFPN, real-time detection, Ultralytics
 ---
 
-# YOLOv10 vs DAMO-YOLO: A Technical Comparison of Real-Time Object Detectors
+# YOLOv10 vs DAMO-YOLO
 
 When building modern [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) pipelines, selecting the right real-time object detection architecture is critical. In this comprehensive technical analysis, we explore the architectures, performance metrics, and ideal use cases for **YOLOv10** and **DAMO-YOLO**. Both models represent significant leaps in object detection capabilities, but they take different architectural paths to achieve their goals.
 

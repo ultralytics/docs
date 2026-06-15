@@ -4,7 +4,7 @@ description: Compare YOLOv5 and YOLOv6-3.0 models. Explore benchmarks, architect
 keywords: YOLOv5, YOLOv6-3.0, object detection, model comparison, computer vision, mAP, inference speed, real-time detection, Ultralytics, YOLO models
 ---
 
-# YOLOv6-3.0 vs. YOLOv5: A Comprehensive Technical Comparison
+# YOLOv6-3.0 vs YOLOv5
 
 The evolution of real-time object detection has seen multiple architectures optimized for different deployment scenarios. In this deep dive, we compare two prominent models: the industry-focused **YOLOv6-3.0** and the foundational, highly versatile **Ultralytics YOLOv5**. Understanding the architectural choices, performance metrics, and ecosystem support of each will help you select the optimal [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) framework for your real-world applications.
 

@@ -4,7 +4,7 @@ description: Compare YOLOv5 and YOLOv9 - performance, architecture, and use case
 keywords: YOLOv5, YOLOv9, object detection, model comparison, performance metrics, real-time detection, computer vision, Ultralytics, machine learning
 ---
 
-# YOLOv5 vs. YOLOv9: An In-Depth Technical Comparison
+# YOLOv5 vs YOLOv9
 
 The landscape of computer vision and real-time object detection has seen remarkable advancements over the past few years. Navigating the choice between established, battle-tested models and newer research architectures is a common challenge for machine learning engineers. This guide provides a comprehensive technical comparison between two highly influential models in the YOLO family: **YOLOv5** and **YOLOv9**.
 

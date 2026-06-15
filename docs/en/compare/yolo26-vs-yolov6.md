@@ -4,7 +4,7 @@ description: Compare Ultralytics YOLO26 vs YOLOv6-3.0 — architecture, NMS-free
 keywords: YOLO26, YOLOv6-3.0, Ultralytics, YOLO comparison, NMS-free, CPU inference, edge AI, mobile deployment, real-time object detection, mAP benchmarks, ONNX export, MuSGD, DFL removal, robotics
 ---
 
-# YOLO26 vs YOLOv6-3.0: A Comprehensive Guide to Real-Time Object Detection
+# YOLO26 vs YOLOv6-3.0
 
 The evolution of computer vision continues to accelerate, offering developers powerful new tools for [machine learning](https://www.ultralytics.com/glossary/machine-learning-ml) applications. Choosing the right architecture for deployment often dictates the success of a project. In this technical comparison, we will explore the key differences between the cutting-edge YOLO26 and the heavily industrialized YOLOv6-3.0, evaluating their architectures, training methodologies, and ideal deployment scenarios.
 

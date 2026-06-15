@@ -4,7 +4,7 @@ description: Compare Ultralytics YOLO26 and RTDETRv2 — architecture, mAP, CPU/
 keywords: YOLO26, RTDETRv2, YOLO26 vs RTDETRv2, Ultralytics, object detection, model comparison, real-time detection, COCO benchmark, mAP, inference speed, edge deployment, NMS-free, transformer detector, CNN detector, RT-DETR
 ---
 
-# YOLO26 vs RTDETRv2: A Comprehensive Comparison of Modern Object Detection Architectures
+# YOLO26 vs RTDETRv2
 
 The landscape of computer vision is constantly evolving, presenting practitioners with a critical choice: should you leverage highly optimized Convolutional Neural Networks (CNNs) or adopt the newer Transformer-based architectures? Two prominent contenders in this arena are the cutting-edge [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) and Baidu's [RTDETRv2](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch). Both models push the boundaries of real-time object detection but rely on fundamentally different architectural philosophies.
 

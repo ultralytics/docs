@@ -4,7 +4,7 @@ description: Discover the key differences between YOLOv5 and RTDETRv2, from arch
 keywords: YOLOv5, RTDETRv2, object detection comparison, YOLOv5 vs RTDETRv2, Ultralytics models, model performance, computer vision, object detection, RTDETR, YOLOv5 features, transformer architecture
 ---
 
-# RTDETRv2 vs. YOLOv5: Evaluating Real-Time Detection Transformers and CNNs
+# RTDETRv2 vs YOLOv5
 
 The evolution of [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) has been largely defined by the relentless pursuit of balancing accuracy with real-time inference speed. When comparing RTDETRv2 and Ultralytics YOLOv5, developers are essentially weighing the sophisticated global context capabilities of transformer architectures against the highly optimized, battle-tested efficiency of Convolutional Neural Networks (CNNs).
 
