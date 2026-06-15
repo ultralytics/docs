@@ -39,7 +39,7 @@ YOLOX emerged as an anchor-free version of the traditional YOLO design, offering
 - **Date:** July 18, 2021
 - **ArXiv:** [2107.08430](https://arxiv.org/abs/2107.08430)
 - **GitHub:** [Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
-- **Docs:** [YOLOX Official Documentation](https://yolox.readthedocs.io/en/latest/)
+- **Docs:** [YOLOX Official Documentation](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
 [Learn more about YOLOX](https://github.com/Megvii-BaseDetection/YOLOX){ .md-button }
 

@@ -42,7 +42,7 @@ One of the greatest strengths of YOLOv5 is its well-maintained ecosystem. It boa
 - **Date:** 2021-07-18
 - **Arxiv:** [YOLOX: Exceeding YOLO Series in 2021](https://arxiv.org/abs/2107.08430)
 - **GitHub:** [Megvii YOLOX Repository](https://github.com/Megvii-BaseDetection/YOLOX)
-- **Documentation:** [YOLOX ReadTheDocs](https://yolox.readthedocs.io/en/latest/)
+- **Documentation:** [YOLOX GitHub Docs](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
 Developed by researchers at Megvii, YOLOX took a different path by introducing an anchor-free design to the YOLO family. By eliminating anchor boxes, YOLOX simplifies the detection head and significantly reduces the number of heuristic parameters that need manual tuning during training.
 

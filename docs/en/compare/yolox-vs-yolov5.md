@@ -21,7 +21,7 @@ Both models emerged during a period of rapid advancement in real-time object det
 
 Released by researchers Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun at [Megvii](https://en.megvii.com/) on July 18, 2021, YOLOX introduced a significant shift by moving away from traditional anchor boxes. Documented in their [Arxiv technical report](https://arxiv.org/abs/2107.08430), YOLOX integrated an anchor-free design with a decoupled head and the SimOTA label assignment strategy. This design aimed to bridge the gap between academic research and industrial application, offering strong performance on standard datasets.
 
-[Learn more about YOLOX](https://yolox.readthedocs.io/en/latest/){ .md-button }
+[Learn more about YOLOX](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs){ .md-button }
 
 ### YOLOv5: The Standard for Production Vision AI
 

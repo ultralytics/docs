@@ -25,7 +25,7 @@ Organization: [Megvii](https://en.megvii.com/)
 Date: 2021-07-18  
 Arxiv: [YOLOX: Exceeding YOLO Series in 2021](https://arxiv.org/abs/2107.08430)  
 GitHub: [Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)  
-Docs: [YOLOX Documentation](https://yolox.readthedocs.io/en/latest/)
+Docs: [YOLOX Documentation](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
 ### Architectural Highlights
 

@@ -39,7 +39,7 @@ YOLOX took a different path by shifting the paradigm back to anchor-free detecti
 - **Date:** 2021-07-18
 - **Arxiv:** [https://arxiv.org/abs/2107.08430](https://arxiv.org/abs/2107.08430)
 - **GitHub:** [https://github.com/Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
-- **Docs:** [YOLOX Official Docs](https://yolox.readthedocs.io/en/latest/)
+- **Docs:** [YOLOX Official Docs](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
 [Learn more about YOLOX](https://github.com/Megvii-BaseDetection/YOLOX){ .md-button }
 

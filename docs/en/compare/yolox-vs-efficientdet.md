@@ -19,9 +19,9 @@ Before diving into their structural differences, it is important to understand t
 - **Date:** July 18, 2021
 - **ArXiv:** [YOLOX: Exceeding YOLO Series in 2021](https://arxiv.org/abs/2107.08430)
 - **GitHub:** [Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
-- **Documentation:** [YOLOX Official Docs](https://yolox.readthedocs.io/en/latest/)
+- **Documentation:** [YOLOX Official Docs](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
-[Learn more about YOLOX](https://yolox.readthedocs.io/en/latest/){ .md-button }
+[Learn more about YOLOX](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs){ .md-button }
 
 **EfficientDet Details:**
 

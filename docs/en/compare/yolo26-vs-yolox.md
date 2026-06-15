@@ -36,9 +36,9 @@ Understanding the origins and core philosophies of these models is essential for
 - **Date:** 2021-07-18
 - **Arxiv:** [YOLOX Technical Report](https://arxiv.org/abs/2107.08430)
 - **GitHub:** [YOLOX GitHub Repository](https://github.com/Megvii-BaseDetection/YOLOX)
-- **Docs:** [YOLOX Documentation](https://yolox.readthedocs.io/en/latest/)
+- **Docs:** [YOLOX Documentation](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
-[Learn more about YOLOX](https://yolox.readthedocs.io/en/latest/){ .md-button }
+[Learn more about YOLOX](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs){ .md-button }
 
 **YOLOX** was a major step forward, introducing a decoupled head and an anchor-free architecture alongside the SimOTA label assignment strategy. It offered an excellent balance of speed and accuracy at the time of its release, making it a popular choice for many legacy systems.
 

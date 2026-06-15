@@ -23,7 +23,7 @@ Developed by Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun at [Megvi
 
 YOLOX integrates a decoupled head, separating classification and regression tasks, which significantly improves convergence speed during training. Additionally, it introduced advanced label assignment strategies like SimOTA to dynamically assign positive samples. This makes the model highly efficient, especially in [edge AI](https://www.ultralytics.com/glossary/edge-ai) environments where computational resources are strictly limited.
 
-[Learn more about YOLOX](https://yolox.readthedocs.io/en/latest/){ .md-button }
+[Learn more about YOLOX](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs){ .md-button }
 
 ### PP-YOLOE+: High-Performance Industrial Detection
 

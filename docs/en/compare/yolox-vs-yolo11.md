@@ -27,7 +27,7 @@ YOLOX departed from traditional anchor-based detection by adopting a decoupled h
 
 While YOLOX offers excellent accuracy for its time, it primarily focuses on bounding box object detection and lacks native support for other complex vision tasks out of the box.
 
-[Learn more about YOLOX](https://yolox.readthedocs.io/en/latest/){ .md-button }
+[Learn more about YOLOX](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs){ .md-button }
 
 !!! note "Anchor-Free Design"
 

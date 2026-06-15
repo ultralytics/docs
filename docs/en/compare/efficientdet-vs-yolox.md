@@ -45,7 +45,7 @@ Released two years later, YOLOX sought to bridge the gap between academic resear
 - **Date:** 2021-07-18
 - **ArXiv:** [2107.08430](https://arxiv.org/abs/2107.08430)
 - **GitHub:** [Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
-- **Docs:** [YOLOX Documentation](https://yolox.readthedocs.io/en/latest/)
+- **Docs:** [YOLOX Documentation](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
 ### Architectural Highlights
 
@@ -53,7 +53,7 @@ YOLOX significantly simplified the object detection paradigm. By switching to an
 
 Despite these advancements, managing YOLOX repositories often requires compiling manual C++ extensions and navigating complex dependencies, which can hinder rapid [model deployment](https://docs.ultralytics.com/guides/model-deployment-options) for less experienced teams.
 
-[Learn more about YOLOX](https://yolox.readthedocs.io/en/latest/){ .md-button }
+[Learn more about YOLOX](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs){ .md-button }
 
 ## Performance Comparison
 

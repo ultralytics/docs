@@ -45,7 +45,7 @@ Developed to bridge the gap between academic research and industrial application
 - **Authors:** Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun
 - **Organization:** Megvii
 - **Date:** July 18, 2021
-- **Links:** [Arxiv Paper](https://arxiv.org/abs/2107.08430), [Official GitHub](https://github.com/Megvii-BaseDetection/YOLOX), [Documentation](https://yolox.readthedocs.io/en/latest/)
+- **Links:** [Arxiv Paper](https://arxiv.org/abs/2107.08430), [Official GitHub](https://github.com/Megvii-BaseDetection/YOLOX), [Documentation](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
 ### Architecture and Design
 

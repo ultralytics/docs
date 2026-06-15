@@ -24,7 +24,7 @@ Organization: [Megvii](https://en.megvii.com/)
 Date: 2021-07-18  
 Arxiv: [2107.08430](https://arxiv.org/abs/2107.08430)  
 GitHub: [Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)  
-Docs: [YOLOX ReadTheDocs](https://yolox.readthedocs.io/en/latest/)
+Docs: [YOLOX GitHub Docs](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
 Introduced in mid-2021, YOLOX represented a major shift by adopting an anchor-free design coupled with a decoupled head and the advanced label assignment strategy known as SimOTA. By stepping away from the traditional anchor box mechanisms that dominated previous architectures, YOLOX successfully bridged the gap between academic research and industrial application, offering an elegant yet highly effective framework for [object detection](https://docs.ultralytics.com/tasks/detect).
 

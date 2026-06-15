@@ -29,7 +29,7 @@ YOLOX introduced several core structural shifts that drastically improved upon i
 
     YOLOX's decoupled head design heavily influenced subsequent generations of object detectors, becoming a standard feature in many modern models.
 
-[Learn more about YOLOX](https://yolox.readthedocs.io/en/latest/){ .md-button }
+[Learn more about YOLOX](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs){ .md-button }
 
 ## DAMO-YOLO: Automated Architecture Search at Scale
 

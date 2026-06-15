@@ -24,7 +24,7 @@ Released in mid-2021, YOLOX was a major step forward in bridging the gap between
 - **Release Date:** July 18, 2021
 - **Reference:** [Arxiv Paper](https://arxiv.org/abs/2107.08430)
 - **Source Code:** [YOLOX GitHub Repository](https://github.com/Megvii-BaseDetection/YOLOX)
-- **Documentation:** [YOLOX Official Docs](https://yolox.readthedocs.io/en/latest/)
+- **Documentation:** [YOLOX Official Docs](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
 ### Architectural Innovations
 

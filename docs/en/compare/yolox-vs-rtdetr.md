@@ -22,7 +22,7 @@ YOLOX emerged as a highly popular anchor-free adaptation of the YOLO series, int
 - **Authors:** Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun
 - **Organization:** [Megvii](https://en.megvii.com/)
 - **Date:** July 18, 2021
-- **Links:** [Arxiv](https://arxiv.org/abs/2107.08430), [GitHub](https://github.com/Megvii-BaseDetection/YOLOX), [Docs](https://yolox.readthedocs.io/en/latest/)
+- **Links:** [Arxiv](https://arxiv.org/abs/2107.08430), [GitHub](https://github.com/Megvii-BaseDetection/YOLOX), [Docs](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
 ### Architectural Innovations
 

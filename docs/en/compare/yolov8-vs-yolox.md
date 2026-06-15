@@ -33,7 +33,7 @@ Introduced by Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun from Meg
 
 While highly influential in 2021, the [YOLOX GitHub repository](https://github.com/Megvii-BaseDetection/YOLOX) remains a primarily research-focused codebase. It lacks the extensive task versatility and polished deployment pipelines found in modern frameworks, requiring more manual configuration for production deployment.
 
-[View the YOLOX Documentation](https://yolox.readthedocs.io/en/latest/){ .md-button }
+[View the YOLOX Documentation](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs){ .md-button }
 
 ## Architectural Innovations
 
