@@ -1,10 +1,11 @@
 ---
+title: DAMO-YOLO vs YOLOv6-3.0 Comparison
 comments: true
 description: Compare DAMO-YOLO and YOLOv6-3.0 for object detection. Discover their architectures, performance, and use cases to choose the best model for your needs.
 keywords: DAMO-YOLO, YOLOv6-3.0, object detection, model comparison, real-time detection, performance metrics, computer vision, architecture, scalability
 ---
 
-# DAMO-YOLO vs YOLOv6-3.0: A Comprehensive Comparison of Industrial Object Detectors
+# DAMO-YOLO vs YOLOv6-3.0
 
 The rapid evolution of computer vision has produced highly specialized architectures tailored for industrial applications. Among these, two heavyweights stand out for their focus on real-time performance and deployment efficiency: **DAMO-YOLO** and **YOLOv6-3.0**. This page provides an in-depth technical comparison of their architectures, performance metrics, and training methodologies to help you navigate your deployment choices.
 

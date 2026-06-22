@@ -1,10 +1,11 @@
 ---
+title: YOLOX vs YOLO26 Comparison
 comments: true
 description: Compare YOLOX and YOLO26 for object detection. Explore architectures, metrics, and use cases to select the right model for your needs.
 keywords: YOLOX, YOLO26, object detection, model comparison, performance metrics, computer vision, YOLO, anchor-free, NMS-free, COCO dataset
 ---
 
-# YOLOX vs YOLO26: The Evolution from Anchor-Free to End-to-End Object Detection
+# YOLOX vs YOLO26
 
 The field of computer vision has witnessed incredible transformations over the past decade. Two significant milestones in this journey are the release of YOLOX, which popularized anchor-free architectures, and the recent introduction of [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26), which completely redefines real-time performance with a natively end-to-end, NMS-free design. This comprehensive comparison explores their architectures, performance metrics, and ideal deployment scenarios to help developers make informed decisions for their next AI project.
 
@@ -24,7 +25,7 @@ Organization: [Megvii](https://en.megvii.com/)
 Date: 2021-07-18  
 Arxiv: [2107.08430](https://arxiv.org/abs/2107.08430)  
 GitHub: [Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)  
-Docs: [YOLOX ReadTheDocs](https://yolox.readthedocs.io/en/latest/)
+Docs: [YOLOX GitHub Docs](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
 Introduced in mid-2021, YOLOX represented a major shift by adopting an anchor-free design coupled with a decoupled head and the advanced label assignment strategy known as SimOTA. By stepping away from the traditional anchor box mechanisms that dominated previous architectures, YOLOX successfully bridged the gap between academic research and industrial application, offering an elegant yet highly effective framework for [object detection](https://docs.ultralytics.com/tasks/detect).
 

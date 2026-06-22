@@ -1,10 +1,11 @@
 ---
+title: RTDETRv2 vs YOLOv8 Comparison
 comments: true
 description: Compare RTDETRv2 and YOLOv8 for object detection. Explore architecture, performance, and use cases to select the best model for your needs.
 keywords: RTDETRv2, YOLOv8, object detection, computer vision, model comparison, deep learning, transformer architecture, real-time AI, Ultralytics
 ---
 
-# RTDETRv2 vs YOLOv8: A Technical Comparison of Real-Time Vision Architectures
+# RTDETRv2 vs YOLOv8
 
 The landscape of computer vision is constantly shifting, often highlighted by the ongoing rivalry between traditional Convolutional Neural Networks (CNNs) and newer Transformer-based architectures. In this comprehensive technical comparison, we examine how **RTDETRv2**, a leading vision transformer, stacks up against **Ultralytics YOLOv8**, one of the most widely adopted and versatile CNN models in the industry. Both models offer powerful capabilities for engineers and researchers, but their underlying architectures lead to distinct differences in training methodologies, deployment constraints, and overall performance.
 

@@ -1,10 +1,11 @@
 ---
+title: YOLOv5 vs YOLOX Comparison
 comments: true
 description: Compare YOLOv5 and YOLOX object detection models. Explore performance metrics, strengths, weaknesses, and use cases to choose the best fit for your needs.
 keywords: YOLOv5, YOLOX, object detection, model comparison, computer vision, Ultralytics, anchor-based, anchor-free, real-time detection, AI models
 ---
 
-# YOLOv5 vs YOLOX: A Comprehensive Technical Comparison
+# YOLOv5 vs YOLOX
 
 The evolution of real-time computer vision has seen numerous milestones, with different architectures pushing the boundaries of speed and accuracy. Two highly influential models in this space are **YOLOv5** and **YOLOX**. While both are renowned for their high performance in object detection, they take fundamentally different architectural approaches.
 
@@ -42,7 +43,7 @@ One of the greatest strengths of YOLOv5 is its well-maintained ecosystem. It boa
 - **Date:** 2021-07-18
 - **Arxiv:** [YOLOX: Exceeding YOLO Series in 2021](https://arxiv.org/abs/2107.08430)
 - **GitHub:** [Megvii YOLOX Repository](https://github.com/Megvii-BaseDetection/YOLOX)
-- **Documentation:** [YOLOX ReadTheDocs](https://yolox.readthedocs.io/en/latest/)
+- **Documentation:** [YOLOX GitHub Docs](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
 Developed by researchers at Megvii, YOLOX took a different path by introducing an anchor-free design to the YOLO family. By eliminating anchor boxes, YOLOX simplifies the detection head and significantly reduces the number of heuristic parameters that need manual tuning during training.
 

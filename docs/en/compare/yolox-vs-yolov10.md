@@ -1,10 +1,11 @@
 ---
+title: YOLOX vs YOLOv10 Comparison
 comments: true
 description: Compare YOLOv10 and YOLOX for object detection. Explore architecture, benchmarks, and use cases to choose the best real-time detection model for your needs.
 keywords: YOLOv10, YOLOX, object detection, Ultralytics, real-time, model comparison, benchmark, computer vision, deep learning, AI
 ---
 
-# YOLOX vs YOLOv10: Comparing Anchor-Free and NMS-Free Real-Time Object Detection
+# YOLOX vs YOLOv10
 
 The evolution of real-time computer vision models has been marked by significant architectural leaps. Two pivotal milestones in this journey are YOLOX and YOLOv10. Released in 2021, YOLOX successfully bridged the gap between academic research and industrial application by introducing a highly effective anchor-free design. Three years later, YOLOv10 revolutionized the field by eliminating the need for Non-Maximum Suppression (NMS) during post-processing, pushing the boundaries of efficiency and speed.
 
@@ -25,7 +26,7 @@ Organization: [Megvii](https://en.megvii.com/)
 Date: 2021-07-18  
 Arxiv: [https://arxiv.org/abs/2107.08430](https://arxiv.org/abs/2107.08430)  
 GitHub: [https://github.com/Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)  
-Docs: [https://yolox.readthedocs.io/en/latest/](https://yolox.readthedocs.io/en/latest/)
+Docs: [https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
 [Learn more about YOLOX](https://github.com/Megvii-BaseDetection/YOLOX){ .md-button }
 

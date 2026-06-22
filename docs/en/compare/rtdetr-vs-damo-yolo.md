@@ -1,10 +1,11 @@
 ---
+title: RTDETRv2 vs DAMO-YOLO Comparison
 comments: true
 description: Discover a detailed comparison of RTDETRv2 and DAMO-YOLO for object detection. Learn about their performance, strengths, and ideal use cases.
 keywords: RTDETRv2,DAMO-YOLO,object detection,model comparison,Ultralytics,computer vision,real-time detection,AI models,deep learning
 ---
 
-# RTDETRv2 vs. DAMO-YOLO: A Comprehensive Guide to Modern Real-Time Object Detection
+# RTDETRv2 vs DAMO-YOLO
 
 The landscape of computer vision is constantly evolving, with researchers and engineers striving to build models that perfectly balance speed, accuracy, and efficiency. Two prominent architectures that have made significant waves in this space are RTDETRv2, developed by Baidu, and DAMO-YOLO, crafted by Alibaba Group. Both models push the boundaries of real-time [object detection](https://en.wikipedia.org/wiki/Object_detection), yet they adopt fundamentally different architectural philosophies to achieve their impressive results.
 

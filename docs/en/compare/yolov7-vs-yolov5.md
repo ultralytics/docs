@@ -1,10 +1,11 @@
 ---
+title: YOLOv7 vs YOLOv5 Comparison
 comments: true
 description: Explore a detailed comparison of YOLOv7 and YOLOv5. Learn their key features, performance metrics, strengths, and use cases to choose the right model.
 keywords: YOLOv7, YOLOv5, object detection, model comparison, YOLO models, machine learning, deep learning, performance benchmarks, architecture, AI models
 ---
 
-# YOLOv7 vs YOLOv5: A Technical Comparison of Real-Time Detectors
+# YOLOv7 vs YOLOv5
 
 When building modern [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) pipelines, selecting the right object detection architecture is critical for balancing accuracy, inference speed, and resource utilization. This comprehensive comparison examines two highly influential models in the computer vision space: YOLOv7 and Ultralytics YOLOv5.
 

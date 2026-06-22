@@ -1,10 +1,11 @@
 ---
+title: YOLOv8 vs YOLO11 Comparison
 comments: true
 description: Compare YOLOv8 and YOLO11 for object detection. Explore their performance, architecture, and best-use cases to find the right model for your needs.
 keywords: YOLOv8, YOLO11, object detection, Ultralytics, YOLO comparison, machine learning, computer vision, inference speed, model accuracy
 ---
 
-# YOLOv8 vs YOLO11: A Comprehensive Technical Comparison of Real-Time Vision Models
+# YOLOv8 vs YOLO11
 
 The rapid evolution of computer vision has been heavily driven by continuous advancements in real-time object detection frameworks. For developers and researchers navigating the modern landscape, choosing the right model is critical to balancing accuracy, speed, and resource efficiency. In this technical comparison, we will explore the differences between two foundational models from the [Ultralytics](https://www.ultralytics.com) ecosystem: [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) and [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11).
 

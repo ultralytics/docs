@@ -1,10 +1,11 @@
 ---
+title: YOLOX vs DAMO-YOLO Comparison
 comments: true
 description: Compare YOLOX and DAMO-YOLO object detection models. Explore architecture, performance, use cases, and choose the best fit for your project.
 keywords: YOLOX, DAMO-YOLO, object detection, model comparison, YOLO models, deep learning, computer vision, machine learning, AI, real-time detection
 ---
 
-# YOLOX vs DAMO-YOLO: Comparing Anchor-Free and NAS-Driven Object Detectors
+# YOLOX vs DAMO-YOLO
 
 The evolution of real-time object detection has seen numerous paradigms shift, from anchor-based to anchor-free architectures, and from manually designed backbones to automated neural architecture search (NAS). In this comprehensive technical comparison, we will analyze two significant milestones in this journey: **YOLOX** and **DAMO-YOLO**. We will explore their architectural innovations, training methodologies, and performance trade-offs, while also highlighting how the modern [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) provides an unparalleled alternative for modern developers.
 
@@ -29,7 +30,7 @@ YOLOX introduced several core structural shifts that drastically improved upon i
 
     YOLOX's decoupled head design heavily influenced subsequent generations of object detectors, becoming a standard feature in many modern models.
 
-[Learn more about YOLOX](https://yolox.readthedocs.io/en/latest/){ .md-button }
+[Learn more about YOLOX](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs){ .md-button }
 
 ## DAMO-YOLO: Automated Architecture Search at Scale
 

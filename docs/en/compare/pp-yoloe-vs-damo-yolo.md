@@ -1,10 +1,11 @@
 ---
+title: PP-YOLOE+ vs DAMO-YOLO Comparison
 comments: true
 description: Compare PP-YOLOE+ and DAMO-YOLO for object detection. Learn their strengths, weaknesses, and performance metrics to choose the right model.
 keywords: PP-YOLOE+, DAMO-YOLO, object detection, model comparison, computer vision, PaddlePaddle, Neural Architecture Search, Ultralytics YOLO, AI performance
 ---
 
-# PP-YOLOE+ vs. DAMO-YOLO: A Comprehensive Technical Comparison
+# PP-YOLOE+ vs DAMO-YOLO
 
 The continuous evolution of computer vision has produced an array of highly specialized architectures for real-time object detection. When evaluating models for industrial and research applications, two prominent frameworks from 2022 often enter the discussion: **PP-YOLOE+** by Baidu and **DAMO-YOLO** by Alibaba Group. Both models pushed the boundaries of anchor-free detection by introducing novel backbones, advanced label assignment strategies, and specialized feature fusion techniques.
 

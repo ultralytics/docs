@@ -1,10 +1,11 @@
 ---
+title: YOLO26 vs YOLOX Comparison
 comments: true
 description: Compare Ultralytics YOLO26 and YOLOX benchmarks, NMS-free architecture, MuSGD optimizer, CPU/TensorRT speeds, and edge deployment for real-time object detection.
 keywords: YOLO26, YOLOX, Ultralytics, object detection, real-time detection, edge AI, NMS-free, end-to-end detection, MuSGD, inference latency, ONNX, TensorRT, model benchmark, deployment, small object detection, robotics, drone navigation, smart retail, model comparison, export
 ---
 
-# YOLO26 vs YOLOX: A New Era of Anchor-Free Object Detection
+# YOLO26 vs YOLOX
 
 The evolution of computer vision has been marked by significant architectural leaps. In 2021, YOLOX introduced a highly influential anchor-free paradigm that bridged the gap between academic research and industrial application. Fast forward to 2026, and the landscape has been redefined by [Ultralytics YOLO](https://www.ultralytics.com/yolo), specifically with the release of YOLO26. This comprehensive comparison explores how YOLO26 builds upon historical innovations to deliver unmatched performance, versatility, and ease of use.
 
@@ -36,9 +37,9 @@ Understanding the origins and core philosophies of these models is essential for
 - **Date:** 2021-07-18
 - **Arxiv:** [YOLOX Technical Report](https://arxiv.org/abs/2107.08430)
 - **GitHub:** [YOLOX GitHub Repository](https://github.com/Megvii-BaseDetection/YOLOX)
-- **Docs:** [YOLOX Documentation](https://yolox.readthedocs.io/en/latest/)
+- **Docs:** [YOLOX Documentation](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
-[Learn more about YOLOX](https://yolox.readthedocs.io/en/latest/){ .md-button }
+[Learn more about YOLOX](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs){ .md-button }
 
 **YOLOX** was a major step forward, introducing a decoupled head and an anchor-free architecture alongside the SimOTA label assignment strategy. It offered an excellent balance of speed and accuracy at the time of its release, making it a popular choice for many legacy systems.
 

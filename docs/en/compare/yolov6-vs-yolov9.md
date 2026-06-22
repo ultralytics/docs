@@ -1,10 +1,11 @@
 ---
+title: YOLOv6-3.0 vs YOLOv9 Comparison
 comments: true
 description: Explore a detailed comparison of YOLOv6-3.0 vs YOLOv9, highlighting performance, architecture, metrics, and use cases to choose the best object detection model.
 keywords: YOLOv6, YOLOv9, object detection, model comparison, performance metrics, computer vision, neural networks, Ultralytics, real-time detection
 ---
 
-# YOLOv6-3.0 vs. YOLOv9: A Technical Deep Dive into Modern Object Detection
+# YOLOv6-3.0 vs YOLOv9
 
 The landscape of real-time object detection continues to evolve, driven by demands for higher accuracy, lower latency, and better hardware utilization. This comprehensive comparison examines two significant milestones in the field: **YOLOv6-3.0**, developed for industrial throughput, and **YOLOv9**, which introduced novel architectures to overcome deep learning information bottlenecks.
 

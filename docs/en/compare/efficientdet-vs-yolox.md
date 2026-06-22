@@ -1,10 +1,11 @@
 ---
+title: EfficientDet vs YOLOX Comparison
 comments: true
 description: Explore a detailed comparison of EfficientDet and YOLOX models. Learn about their architectures, performance, use cases, and which fits your needs best.
 keywords: EfficientDet, YOLOX, object detection, model comparison, EfficientDet vs YOLOX, machine learning, computer vision, deep learning, neural networks, object detection models
 ---
 
-# EfficientDet vs YOLOX: A Comprehensive Object Detection Comparison
+# EfficientDet vs YOLOX
 
 When architecting a modern [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) pipeline, selecting the right model is a critical decision that dictates both accuracy and real-time viability. This technical guide provides an in-depth comparison between two pivotal architectures in the evolution of neural networks: Google's EfficientDet and Megvii's YOLOX. We will analyze their architectural paradigms, evaluate their benchmarked performance, and explore how they measure up against state-of-the-art solutions like the newly released [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26).
 
@@ -45,7 +46,7 @@ Released two years later, YOLOX sought to bridge the gap between academic resear
 - **Date:** 2021-07-18
 - **ArXiv:** [2107.08430](https://arxiv.org/abs/2107.08430)
 - **GitHub:** [Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
-- **Docs:** [YOLOX Documentation](https://yolox.readthedocs.io/en/latest/)
+- **Docs:** [YOLOX Documentation](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
 ### Architectural Highlights
 
@@ -53,7 +54,7 @@ YOLOX significantly simplified the object detection paradigm. By switching to an
 
 Despite these advancements, managing YOLOX repositories often requires compiling manual C++ extensions and navigating complex dependencies, which can hinder rapid [model deployment](https://docs.ultralytics.com/guides/model-deployment-options) for less experienced teams.
 
-[Learn more about YOLOX](https://yolox.readthedocs.io/en/latest/){ .md-button }
+[Learn more about YOLOX](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs){ .md-button }
 
 ## Performance Comparison
 

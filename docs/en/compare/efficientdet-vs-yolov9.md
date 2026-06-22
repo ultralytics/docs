@@ -1,10 +1,11 @@
 ---
+title: EfficientDet vs YOLOv9 Comparison
 comments: true
 description: Compare EfficientDet and YOLOv9 models in accuracy, speed, and use cases. Learn which object detection model suits your vision project best.
 keywords: EfficientDet, YOLOv9, object detection comparison, computer vision, model performance, AI benchmarks, real-time detection, edge deployments
 ---
 
-# EfficientDet vs. YOLOv9: Architecture, Performance, and Edge Deployment
+# EfficientDet vs YOLOv9
 
 The landscape of computer vision has been shaped by continuous breakthroughs in neural network design. Finding the right balance between computational efficiency and detection accuracy is critical when selecting a model. Google's **EfficientDet** established a strong baseline in 2019 by introducing scalable architectures, while **YOLOv9**, released in 2024, pushed the boundaries of [object detection](https://docs.ultralytics.com/tasks/detect) using Programmable Gradient Information (PGI).
 

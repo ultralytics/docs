@@ -1,10 +1,11 @@
 ---
+title: RTDETRv2 vs YOLOv10 Comparison
 comments: true
 description: Compare RTDETRv2 and YOLOv10 for object detection. Explore their features, performance, and ideal applications to choose the best model for your project.
 keywords: RTDETRv2, YOLOv10, object detection, AI models, Vision Transformer, real-time detection, YOLO, Ultralytics, model comparison, computer vision
 ---
 
-# RTDETRv2 vs YOLOv10: Advancements in NMS-Free Real-Time Object Detection
+# RTDETRv2 vs YOLOv10
 
 The evolution of [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) has been largely driven by the relentless pursuit of balancing speed and accuracy. Traditionally, real-time [object detection](https://www.ultralytics.com/glossary/object-detection) pipelines have relied on Non-Maximum Suppression (NMS) as a post-processing step to filter out overlapping bounding boxes. However, NMS introduces latency bottlenecks and complex hyperparameter tuning. Recently, two distinct architectural approaches have emerged to solve this issue natively: Transformer-based models like RTDETRv2 and CNN-based models like YOLOv10.
 

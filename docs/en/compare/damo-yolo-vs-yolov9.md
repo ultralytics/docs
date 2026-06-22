@@ -1,10 +1,11 @@
 ---
+title: DAMO-YOLO vs YOLOv9 Comparison
 comments: true
 description: Explore a detailed technical comparison between DAMO-YOLO and YOLOv9, covering architecture, performance, and use cases for object detection applications.
 keywords: DAMO-YOLO, YOLOv9, object detection, model comparison, YOLO series, deep learning, computer vision, mAP, real-time detection
 ---
 
-# DAMO-YOLO vs. YOLOv9: A Comprehensive Technical Comparison of Modern Object Detection Architectures
+# DAMO-YOLO vs YOLOv9
 
 The landscape of real-time object detection continues to evolve at a breakneck pace. As engineering teams and researchers strive for the perfect balance of accuracy, inference speed, and computational efficiency, two notable architectures have emerged from the research community: **DAMO-YOLO** and **YOLOv9**. Both models introduce significant architectural innovations aimed at pushing the boundaries of what is possible in computer vision.
 

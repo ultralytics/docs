@@ -1,10 +1,11 @@
 ---
+title: YOLOX vs PP-YOLOE+ Comparison
 comments: true
 description: Compare YOLOX and PP-YOLOE+, two anchor-free object detection models. Explore performance, architecture, and use cases to choose the best fit.
 keywords: YOLOX,PP-YOLOE,object detection,anchor-free models,AI comparison,YOLO models,computer vision,performance metrics,YOLOX features,PP-YOLOE+ use cases
 ---
 
-# YOLOX vs. PP-YOLOE+: A Comprehensive Technical Comparison
+# YOLOX vs PP-YOLOE+
 
 When designing a robust [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) pipeline, selecting the appropriate object detection model is a critical decision. The landscape of real-time object detectors is highly competitive, with numerous architectures striving to offer the ultimate balance between inference speed and detection accuracy. In this technical comparison, we will evaluate two prominent models: YOLOX and PP-YOLOE+. By examining their architectural designs, training methodologies, and performance metrics, we aim to provide developers and researchers with the insights needed to choose the right tool for their deployment environments.
 
@@ -23,7 +24,7 @@ Developed by Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun at [Megvi
 
 YOLOX integrates a decoupled head, separating classification and regression tasks, which significantly improves convergence speed during training. Additionally, it introduced advanced label assignment strategies like SimOTA to dynamically assign positive samples. This makes the model highly efficient, especially in [edge AI](https://www.ultralytics.com/glossary/edge-ai) environments where computational resources are strictly limited.
 
-[Learn more about YOLOX](https://yolox.readthedocs.io/en/latest/){ .md-button }
+[Learn more about YOLOX](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs){ .md-button }
 
 ### PP-YOLOE+: High-Performance Industrial Detection
 

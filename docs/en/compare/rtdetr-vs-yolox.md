@@ -1,10 +1,11 @@
 ---
+title: RTDETRv2 vs YOLOX Comparison
 comments: true
 description: Compare RTDETRv2 & YOLOX object detection models. Discover their strengths, performance, and use cases to choose the best model for your project.
 keywords: RTDETRv2,YOLOX,object detection,model comparison,Vision Transformers,real-time detection,Yolo models,Ultralytics computer vision
 ---
 
-# RTDETRv2 vs YOLOX: An In-Depth Technical Comparison of Modern Object Detectors
+# RTDETRv2 vs YOLOX
 
 The landscape of computer vision has evolved rapidly, offering developers and researchers an array of architectures to choose from when building vision-based systems. Two notable milestones in this journey are the transformer-based **RTDETRv2** and the CNN-based **YOLOX**. While both models have contributed significantly to the field of real-time object detection, they represent fundamentally different approaches to solving visual recognition problems.
 
@@ -45,7 +46,7 @@ Developed to bridge the gap between academic research and industrial application
 - **Authors:** Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun
 - **Organization:** Megvii
 - **Date:** July 18, 2021
-- **Links:** [Arxiv Paper](https://arxiv.org/abs/2107.08430), [Official GitHub](https://github.com/Megvii-BaseDetection/YOLOX), [Documentation](https://yolox.readthedocs.io/en/latest/)
+- **Links:** [Arxiv Paper](https://arxiv.org/abs/2107.08430), [Official GitHub](https://github.com/Megvii-BaseDetection/YOLOX), [Documentation](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
 ### Architecture and Design
 

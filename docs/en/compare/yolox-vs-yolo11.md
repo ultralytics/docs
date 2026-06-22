@@ -1,10 +1,11 @@
 ---
+title: YOLOX vs YOLO11 Comparison
 comments: true
 description: Compare YOLO11 and YOLOX for object detection. Explore benchmarks, architectures, and use cases to choose the best model for your project.
 keywords: YOLO11, YOLOX, object detection, model comparison, computer vision, real-time detection, deep learning, architecture comparison, Ultralytics, AI models
 ---
 
-# YOLOX vs YOLO11: A Deep Dive into High-Performance Object Detection
+# YOLOX vs YOLO11
 
 The evolution of computer vision has been heavily driven by the pursuit of real-time object detection frameworks that balance high accuracy with inference speed. Among the most notable milestones in this journey are [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) and [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11). While both models have made significant contributions to the field, their underlying architectures, design philosophies, and developer ecosystems differ substantially.
 
@@ -27,7 +28,7 @@ YOLOX departed from traditional anchor-based detection by adopting a decoupled h
 
 While YOLOX offers excellent accuracy for its time, it primarily focuses on bounding box object detection and lacks native support for other complex vision tasks out of the box.
 
-[Learn more about YOLOX](https://yolox.readthedocs.io/en/latest/){ .md-button }
+[Learn more about YOLOX](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs){ .md-button }
 
 !!! note "Anchor-Free Design"
 

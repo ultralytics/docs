@@ -1,10 +1,11 @@
 ---
+title: YOLOv6-3.0 vs RTDETRv2 Comparison
 comments: true
 description: Compare YOLOv6 and RTDETR for object detection. Explore their architectures, performances, and use cases to choose your optimal computer vision model.
 keywords: YOLOv6, RTDETR, object detection, model comparison, YOLO, Vision Transformers, CNN, real-time detection, Ultralytics, computer vision
 ---
 
-# YOLOv6-3.0 vs RTDETRv2: A Duel Between Industrial CNNs and Real-Time Transformers
+# YOLOv6-3.0 vs RTDETRv2
 
 Choosing the optimal architecture for [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) applications requires balancing speed, accuracy, and deployment constraints. In this comprehensive technical breakdown, we analyze **YOLOv6-3.0**, an industrial-grade Convolutional Neural Network (CNN) engineered for high-throughput GPU environments, against **RTDETRv2**, a state-of-the-art transformer-based model bringing attention mechanisms to real-time object detection.
 

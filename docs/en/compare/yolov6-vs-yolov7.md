@@ -1,10 +1,11 @@
 ---
+title: YOLOv6-3.0 vs YOLOv7 Comparison
 comments: true
 description: Compare YOLOv6-3.0 and YOLOv7 models for object detection. Explore architecture, performance benchmarks, use cases, and find the best for your needs.
 keywords: YOLOv6, YOLOv7, object detection, model comparison, computer vision, machine learning, performance benchmarks, YOLO models
 ---
 
-# YOLOv6-3.0 vs YOLOv7: Navigating Real-Time Object Detection Architectures
+# YOLOv6-3.0 vs YOLOv7
 
 The evolution of real-time computer vision has been marked by rapid advancements in architectural efficiency and training methodologies. Two prominent models that significantly impacted the landscape are **YOLOv6-3.0** and **YOLOv7**. Both frameworks introduced novel techniques to balance inference speed with detection accuracy, targeting deployments ranging from high-end server GPUs to edge devices.
 

@@ -1,10 +1,11 @@
 ---
+title: YOLOX vs YOLOv9 Comparison
 comments: true
 description: Compare YOLOX and YOLOv9 for object detection. Explore performance, architecture, and use cases to choose the best model for your vision tasks.
 keywords: YOLOX, YOLOv9, object detection, model comparison, computer vision, AI models, deep learning, performance benchmarks, architecture, real-time detection
 ---
 
-# YOLOX vs. YOLOv9: Comparing Anchor-Free Designs to Programmable Gradients
+# YOLOX vs YOLOv9
 
 The landscape of computer vision has been shaped by continuous architectural breakthroughs that balance computational efficiency with high precision. When evaluating real-time object detection models, the comparison between Megvii's YOLOX and Academia Sinica's YOLOv9 highlights two distinct philosophies in deep learning development. While one pioneered a simplified anchor-free paradigm, the other introduced advanced gradient routing techniques to maximize information retention.
 
@@ -24,7 +25,7 @@ Released in mid-2021, YOLOX was a major step forward in bridging the gap between
 - **Release Date:** July 18, 2021
 - **Reference:** [Arxiv Paper](https://arxiv.org/abs/2107.08430)
 - **Source Code:** [YOLOX GitHub Repository](https://github.com/Megvii-BaseDetection/YOLOX)
-- **Documentation:** [YOLOX Official Docs](https://yolox.readthedocs.io/en/latest/)
+- **Documentation:** [YOLOX Official Docs](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
 ### Architectural Innovations
 

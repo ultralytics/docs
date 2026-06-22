@@ -1,10 +1,11 @@
 ---
+title: EfficientDet vs YOLOv5 Comparison
 comments: true
 description: Explore a detailed technical comparison of EfficientDet and YOLOv5. Learn their strengths, weaknesses, and ideal use cases for object detection.
 keywords: EfficientDet, YOLOv5, object detection, model comparison, computer vision, Ultralytics, performance metrics, inference speed, mAP, architecture
 ---
 
-# EfficientDet vs YOLOv5: A Comprehensive Technical Comparison
+# EfficientDet vs YOLOv5
 
 Selecting the optimal neural network architecture is a defining step in any [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) initiative. The balance between inference latency, parameter efficiency, and detection accuracy dictates how well a model will perform in the real world. This comprehensive technical guide provides an in-depth analysis of two highly influential object detection frameworks: Google's EfficientDet and Ultralytics YOLOv5.
 

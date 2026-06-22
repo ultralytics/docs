@@ -1,10 +1,11 @@
 ---
+title: YOLOX vs EfficientDet Comparison
 comments: true
 description: Compare YOLOX and EfficientDet for object detection. Explore architecture, performance, and use cases to pick the best model for your needs.
 keywords: YOLOX, EfficientDet, object detection, model comparison, deep learning, computer vision, performance benchmark, Ultralytics
 ---
 
-# YOLOX vs. EfficientDet: Evaluating Anchor-Free and Scalable Object Detection
+# YOLOX vs EfficientDet
 
 The evolution of [object detection](https://docs.ultralytics.com/tasks/detect) has been driven by the constant pursuit of balancing speed, accuracy, and computational efficiency. Two landmark models that significantly influenced this trajectory are YOLOX and EfficientDet. While YOLOX introduced a highly optimized anchor-free design to the YOLO family, EfficientDet focused on a scalable architecture utilizing compound scaling and BiFPN. This guide provides a detailed technical comparison of their architectures, performance metrics, and training methodologies, while also introducing modern alternatives like the cutting-edge [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) model.
 
@@ -19,9 +20,9 @@ Before diving into their structural differences, it is important to understand t
 - **Date:** July 18, 2021
 - **ArXiv:** [YOLOX: Exceeding YOLO Series in 2021](https://arxiv.org/abs/2107.08430)
 - **GitHub:** [Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
-- **Documentation:** [YOLOX Official Docs](https://yolox.readthedocs.io/en/latest/)
+- **Documentation:** [YOLOX Official Docs](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
-[Learn more about YOLOX](https://yolox.readthedocs.io/en/latest/){ .md-button }
+[Learn more about YOLOX](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs){ .md-button }
 
 **EfficientDet Details:**
 

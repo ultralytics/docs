@@ -1,10 +1,11 @@
 ---
+title: PP-YOLOE+ vs YOLOv9 Comparison
 comments: true
 description: Explore the differences between PP-YOLOE+ and YOLOv9 with detailed architecture, performance benchmarks, and use case analysis for object detection.
 keywords: PP-YOLOE+, YOLOv9, object detection, model comparison, computer vision, anchor-free detector, programmable gradient information, AI models, benchmarking
 ---
 
-# PP-YOLOE+ vs. YOLOv9: A Technical Deep Dive into Modern Object Detection
+# PP-YOLOE+ vs YOLOv9
 
 The landscape of real-time computer vision is constantly shifting, with researchers and developers continuously pushing the boundaries of accuracy and inference speed. When comparing [PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md) and [YOLOv9](https://docs.ultralytics.com/models/yolov9), we are looking at two distinct philosophies in model architecture and ecosystem design.
 

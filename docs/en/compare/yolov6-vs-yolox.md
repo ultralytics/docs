@@ -1,10 +1,11 @@
 ---
+title: YOLOv6-3.0 vs YOLOX Comparison
 comments: true
 description: Compare YOLOv6-3.0 and YOLOX architectures, performance, and applications. Find the best object detection model for your computer vision needs.
 keywords: YOLOv6-3.0, YOLOX, object detection, model comparison, computer vision, performance metrics, real-time applications, deep learning
 ---
 
-# YOLOv6-3.0 vs YOLOX: Evaluating Industrial Object Detectors
+# YOLOv6-3.0 vs YOLOX
 
 The landscape of computer vision has been heavily shaped by models aiming to bridge the gap between academic research and industrial application. When evaluating [object detection](https://docs.ultralytics.com/tasks/detect) frameworks tailored for high-performance deployment, **YOLOv6-3.0** and **YOLOX** frequently emerge as prominent contenders. Both models introduce distinct architectural philosophies to maximize throughput and precision, yet they differ significantly in their design choices and primary deployment targets.
 

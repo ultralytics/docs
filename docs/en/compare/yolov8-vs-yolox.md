@@ -1,10 +1,11 @@
 ---
+title: YOLOv8 vs YOLOX Comparison
 comments: true
 description: Compare YOLOv8 and YOLOX models for object detection. Discover strengths, weaknesses, benchmarks, and choose the right model for your application.
 keywords: YOLOv8, YOLOX, object detection, model comparison, Ultralytics, computer vision, anchor-free models, AI benchmarks
 ---
 
-# YOLOv8 vs YOLOX: Analyzing Anchor-Free Object Detection Models
+# YOLOv8 vs YOLOX
 
 The landscape of computer vision has been heavily shaped by the continuous evolution of real-time object detection architectures. Two prominent milestones in this journey are [Ultralytics YOLOv8](https://docs.ultralytics.com/models/yolov8) and YOLOX. While both models embrace an anchor-free design paradigm to streamline bounding box predictions, they represent different eras and philosophies in deep learning research and deployment ecosystem development.
 
@@ -33,7 +34,7 @@ Introduced by Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun from Meg
 
 While highly influential in 2021, the [YOLOX GitHub repository](https://github.com/Megvii-BaseDetection/YOLOX) remains a primarily research-focused codebase. It lacks the extensive task versatility and polished deployment pipelines found in modern frameworks, requiring more manual configuration for production deployment.
 
-[View the YOLOX Documentation](https://yolox.readthedocs.io/en/latest/){ .md-button }
+[View the YOLOX Documentation](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs){ .md-button }
 
 ## Architectural Innovations
 

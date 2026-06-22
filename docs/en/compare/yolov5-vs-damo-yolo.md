@@ -1,10 +1,11 @@
 ---
+title: YOLOv5 vs DAMO-YOLO Comparison
 comments: true
 description: Explore a detailed comparison of YOLOv5 and DAMO-YOLO, including architecture, accuracy, speed, and use cases for optimal object detection solutions.
 keywords: YOLOv5, DAMO-YOLO, object detection, computer vision, Ultralytics, model comparison, AI, real-time AI, deep learning
 ---
 
-# YOLOv5 vs. DAMO-YOLO: A Comprehensive Technical Comparison
+# YOLOv5 vs DAMO-YOLO
 
 The landscape of real-time [computer vision](https://en.wikipedia.org/wiki/Computer_vision) is continuously evolving, with researchers and engineers striving for the perfect balance of accuracy, speed, and usability. Two prominent models that have shaped this journey are **Ultralytics YOLOv5** and Alibaba's **DAMO-YOLO**.
 

@@ -1,10 +1,11 @@
 ---
+title: YOLOX vs YOLOv8 Comparison
 comments: true
 description: Compare YOLOX and YOLOv8 for object detection. Explore their strengths, weaknesses, and benchmarks to make the best model choice for your needs.
 keywords: YOLOX, YOLOv8, object detection, model comparison, YOLO models, computer vision, machine learning, performance benchmarks, YOLO architecture
 ---
 
-# YOLOX vs YOLOv8: Comprehensive Architectural and Performance Comparison
+# YOLOX vs YOLOv8
 
 The field of computer vision has witnessed remarkable advancements in real-time object detection over the past few years. As researchers and engineers continuously push the boundaries of accuracy and speed, navigating the landscape of available models can be challenging. This comprehensive guide provides an in-depth technical comparison between two highly influential architectures: YOLOX and Ultralytics YOLOv8.
 
@@ -25,7 +26,7 @@ Organization: [Megvii](https://en.megvii.com/)
 Date: 2021-07-18  
 Arxiv: [YOLOX: Exceeding YOLO Series in 2021](https://arxiv.org/abs/2107.08430)  
 GitHub: [Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)  
-Docs: [YOLOX Documentation](https://yolox.readthedocs.io/en/latest/)
+Docs: [YOLOX Documentation](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
 ### Architectural Highlights
 

@@ -1,10 +1,11 @@
 ---
+title: YOLOv10 vs EfficientDet Comparison
 comments: true
 description: Compare YOLOv10 and EfficientDet for object detection. Explore performance, use cases, and strengths to choose the best model for your needs.
 keywords: YOLOv10, EfficientDet, object detection, model comparison, real-time detection, computer vision, edge devices, accuracy, performance metrics
 ---
 
-# YOLOv10 vs EfficientDet: Comparing Real-Time Object Detection Architectures
+# YOLOv10 vs EfficientDet
 
 Selecting the optimal neural network for [object detection](https://docs.ultralytics.com/tasks/detect) is a critical decision that dictates the success of modern computer vision systems. Two prominent architectures that have significantly influenced the field are **YOLOv10** and **EfficientDet**. While both aim to maximize accuracy while minimizing computational overhead, they take vastly different architectural approaches to achieve these goals.
 

@@ -1,10 +1,11 @@
 ---
+title: YOLOv8 vs PP-YOLOE+ Comparison
 comments: true
 description: Discover the key differences between YOLOv8 and PP-YOLOE+ in this technical comparison. Learn which model suits your object detection needs best.
 keywords: YOLOv8, PP-YOLOE+, object detection, computer vision, model comparison, YOLO models, Ultralytics, PaddlePaddle, deep learning
 ---
 
-# YOLOv8 vs. PP-YOLOE+: Evaluating Modern Real-Time Object Detection Architectures
+# YOLOv8 vs PP-YOLOE+
 
 In the rapidly evolving field of [computer vision](https://en.wikipedia.org/wiki/Computer_vision), selecting the right model for [object detection](https://en.wikipedia.org/wiki/Object_detection) is critical for achieving a balance between inference speed and accuracy. Two prominent models that have significantly impacted the industry are [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) and [PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md). This guide provides a comprehensive technical comparison to help developers and machine learning engineers understand the nuances of their architectures, performance metrics, and ideal deployment scenarios.
 

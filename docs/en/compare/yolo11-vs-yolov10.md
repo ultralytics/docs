@@ -1,10 +1,11 @@
 ---
+title: YOLO11 vs YOLOv10 Comparison
 comments: true
 description: Detailed technical comparison of YOLO11 and YOLOv10 for real-time object detection, covering performance, architecture, and ideal use cases.
 keywords: YOLO11, YOLOv10, Ultralytics comparison, object detection models, real-time AI, model architecture, performance benchmarks, computer vision
 ---
 
-# YOLO11 vs YOLOv10: A Comprehensive Technical Comparison of Real-Time Object Detectors
+# YOLO11 vs YOLOv10
 
 The landscape of real-time computer vision is constantly evolving, with new architectures pushing the boundaries of what is possible on both edge devices and cloud infrastructure. In this detailed technical analysis, we explore the nuances between two pivotal models in the domain: [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv10](https://docs.ultralytics.com/models/yolov10). Both represent significant leaps in [object detection](https://docs.ultralytics.com/tasks/detect) capabilities, yet they adopt fundamentally different architectural philosophies to achieve their performance.
 

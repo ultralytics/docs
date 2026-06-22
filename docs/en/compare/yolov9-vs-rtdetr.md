@@ -1,10 +1,11 @@
 ---
+title: YOLOv9 vs RTDETRv2 Comparison
 comments: true
 description: Compare YOLOv9 and RTDETRv2 for object detection. Explore speed, accuracy, use cases, and architectures to choose the best for your project.
 keywords: YOLOv9, RTDETRv2, object detection, model comparison, AI models, computer vision, YOLO, real-time detection, transformers, efficiency
 ---
 
-# YOLOv9 vs. RTDETRv2: A Technical Deep Dive into Modern Object Detection
+# YOLOv9 vs RTDETRv2
 
 The landscape of real-time [object detection](https://docs.ultralytics.com/tasks/detect) has experienced a paradigm shift in recent years. Two distinct architectural philosophies have emerged to dominate the field: highly optimized Convolutional Neural Networks (CNNs) and real-time Detection Transformers (DETRs). Representing the pinnacle of these two approaches are **YOLOv9** and **RTDETRv2**.
 

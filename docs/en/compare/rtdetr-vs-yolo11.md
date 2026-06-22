@@ -1,10 +1,11 @@
 ---
+title: RTDETRv2 vs YOLO11 Comparison
 comments: true
 description: Explore the technical comparison of RTDETRv2 and YOLO11. Discover strengths, weaknesses, and ideal use cases to choose the best detection model.
 keywords: RTDETRv2, YOLO11, object detection, model comparison, computer vision, real-time detection, accuracy, performance metrics, Ultralytics
 ---
 
-# RTDETRv2 vs. YOLO11: A Deep Dive into Real-Time Object Detection Architectures
+# RTDETRv2 vs YOLO11
 
 The landscape of computer vision is constantly evolving, with new architectures pushing the boundaries of what is possible on edge devices and cloud servers. Two of the most prominent contenders in the current real-time object detection space are **RTDETRv2** and **YOLO11**. While both models deliver exceptional performance, they represent fundamentally different architectural philosophies: the Transformer-based approach versus the highly optimized Convolutional Neural Network (CNN).
 

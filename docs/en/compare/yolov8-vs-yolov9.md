@@ -1,10 +1,11 @@
 ---
+title: YOLOv8 vs YOLOv9 Comparison
 comments: true
 description: Compare YOLOv8 and YOLOv9 models for object detection. Explore their accuracy, speed, resources, and use cases to choose the best model for your needs.
 keywords: YOLOv8, YOLOv9, object detection, model comparison, Ultralytics, performance metrics, real-time AI, computer vision, YOLO series
 ---
 
-# YOLOv8 vs. YOLOv9: A Comprehensive Technical Comparison of Real-Time Object Detectors
+# YOLOv8 vs YOLOv9
 
 The evolution of real-time object detection has been characterized by a constant push for better accuracy, lower latency, and improved hardware utilization. Two major milestones in this journey are [Ultralytics YOLOv8](https://docs.ultralytics.com/models/yolov8) and [YOLOv9](https://docs.ultralytics.com/models/yolov9). While both models represent state-of-the-art capabilities in [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv), they cater to different deployment needs, architectural philosophies, and developer ecosystems.
 

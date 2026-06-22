@@ -1,10 +1,11 @@
 ---
+title: YOLOv7 vs YOLOX Comparison
 comments: true
 description: Explore YOLOv7 vs YOLOX in this detailed comparison. Learn their architectures, performance metrics, and best use cases for object detection.
 keywords: YOLOv7, YOLOX, object detection, YOLO comparison, YOLO models, computer vision, model benchmarks, real-time AI, machine learning
 ---
 
-# YOLOv7 and YOLOX: A Technical Analysis of Real-Time Detectors
+# YOLOv7 vs YOLOX
 
 The evolution of computer vision has been marked by rapid advancements in real-time object detection. Two pivotal milestones in this journey are YOLOv7 and YOLOX. While both models pushed the boundaries of speed and accuracy, they adopted different architectural philosophies to achieve their results. This guide provides a comprehensive technical comparison between these two powerful models, helping you choose the right architecture for your computer vision projects.
 
@@ -39,7 +40,7 @@ YOLOX took a different path by shifting the paradigm back to anchor-free detecti
 - **Date:** 2021-07-18
 - **Arxiv:** [https://arxiv.org/abs/2107.08430](https://arxiv.org/abs/2107.08430)
 - **GitHub:** [https://github.com/Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
-- **Docs:** [YOLOX Official Docs](https://yolox.readthedocs.io/en/latest/)
+- **Docs:** [YOLOX Official Docs](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
 [Learn more about YOLOX](https://github.com/Megvii-BaseDetection/YOLOX){ .md-button }
 

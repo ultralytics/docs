@@ -1,10 +1,11 @@
 ---
+title: YOLOv8 vs YOLOv7 Comparison
 comments: true
 description: Explore a detailed comparison of YOLOv8 and YOLOv7 models. Learn their strengths, performance benchmarks, and ideal use cases for object detection.
 keywords: YOLOv8, YOLOv7, object detection, computer vision, model comparison, YOLO performance, AI models, machine learning, Ultralytics
 ---
 
-# YOLOv8 vs YOLOv7: A Comprehensive Technical Comparison
+# YOLOv8 vs YOLOv7
 
 The field of computer vision is constantly evolving, with new architectures pushing the boundaries of what is possible in real-time object detection. In this deep dive, we compare two highly influential models: **Ultralytics YOLOv8** and **YOLOv7**. Both models have significantly impacted the developer community and academic research, offering unique approaches to solving complex visual tasks.
 

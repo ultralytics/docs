@@ -1,10 +1,11 @@
 ---
+title: YOLO11 vs RTDETRv2 Comparison
 comments: true
 description: Compare RTDETRv2's accuracy with YOLO11's speed in this detailed analysis of top object detection models. Decide the best fit for your projects.
 keywords: RTDETRv2, YOLO11, object detection, Ultralytics, Vision Transformer, YOLO, computer vision, real-time detection, model comparison
 ---
 
-# YOLO11 vs RTDETRv2: Comparing the Evolution of CNNs and Vision Transformers
+# YOLO11 vs RTDETRv2
 
 The landscape of computer vision has expanded rapidly, offering developers a myriad of choices for building robust vision-based applications. In the realm of real-time object detection, the debate between Convolutional Neural Networks (CNNs) and Vision Transformers (ViTs) is more prominent than ever. This technical comparison delves into two leading architectures: **YOLO11**, representing the pinnacle of highly optimized CNN frameworks, and **RTDETRv2**, a powerful iteration of the Detection Transformer family.
 

@@ -1,10 +1,11 @@
 ---
+title: PP-YOLOE+ vs YOLOX Comparison
 comments: true
 description: Discover the key differences between PP-YOLOE+ and YOLOX models in architecture, performance, and applications for streamlined object detection.
 keywords: PP-YOLOE+, YOLOX, object detection, anchor-free models, model comparison, performance benchmarks, decoupled detection head, machine learning, computer vision
 ---
 
-# PP-YOLOE+ vs YOLOX: Navigating the Evolution of Real-Time Object Detectors
+# PP-YOLOE+ vs YOLOX
 
 The landscape of [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) has been significantly shaped by the rapid evolution of object detection models. Among the notable milestones in this journey are PP-YOLOE+ and YOLOX, two architectures that pushed the boundaries of real-time performance and accuracy. Understanding their architectural nuances, performance trade-offs, and ideal deployment scenarios is crucial for researchers and developers building the next generation of visual recognition systems.
 
@@ -35,7 +36,7 @@ Before diving into the technical architectures, it is helpful to contextualize t
 - Date: 2021-07-18
 - Arxiv: [https://arxiv.org/abs/2107.08430](https://arxiv.org/abs/2107.08430)
 - GitHub: [https://github.com/Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
-- Docs: [YOLOX Official Documentation](https://yolox.readthedocs.io/en/latest/)
+- Docs: [YOLOX Official Documentation](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
 [Learn more about YOLOX](https://github.com/Megvii-BaseDetection/YOLOX){ .md-button }
 

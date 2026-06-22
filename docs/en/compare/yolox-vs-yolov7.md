@@ -1,10 +1,11 @@
 ---
+title: YOLOX vs YOLOv7 Comparison
 comments: true
 description: Discover the differences between YOLOX and YOLOv7, two top computer vision models. Learn about their architecture, performance, and ideal use cases.
 keywords: YOLOX, YOLOv7, object detection, computer vision, model comparison, anchor-free, YOLO models, machine learning, AI performance
 ---
 
-# YOLOX vs YOLOv7: A Comprehensive Technical Comparison
+# YOLOX vs YOLOv7
 
 The evolution of real-time [object detection](https://docs.ultralytics.com/tasks/detect) has been driven by continuous architectural breakthroughs. Two significant milestones in this journey are **YOLOX** and **YOLOv7**. Released within a year of each other, both models introduced novel approaches to the standard object detection paradigm, significantly improving the trade-off between speed and [accuracy](https://www.ultralytics.com/glossary/accuracy).
 
@@ -26,13 +27,13 @@ Introduced by researchers at Megvii in July 2021, YOLOX represented a major shif
 - **Date:** 2021-07-18
 - **Research Paper:** [arXiv:2107.08430](https://arxiv.org/abs/2107.08430)
 - **Source Code:** [Megvii YOLOX GitHub](https://github.com/Megvii-BaseDetection/YOLOX)
-- **Documentation:** [YOLOX ReadTheDocs](https://yolox.readthedocs.io/en/latest/)
+- **Documentation:** [YOLOX GitHub Docs](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
 ### Architectural Innovations
 
 YOLOX introduced an **anchor-free** approach, which drastically reduced the number of design parameters and heuristic tweaking required for custom datasets. It implemented a decoupled head, separating the classification and regression tasks, which improved convergence speed and accuracy. Additionally, YOLOX utilized advanced [data augmentation](https://www.ultralytics.com/glossary/data-augmentation) strategies like MixUp and Mosaic to enhance model robustness.
 
-[Learn more about YOLOX](https://yolox.readthedocs.io/en/latest/){ .md-button }
+[Learn more about YOLOX](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs){ .md-button }
 
 !!! note "Anchor-Free Advantage"
 

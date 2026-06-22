@@ -1,10 +1,11 @@
 ---
+title: YOLOv7 vs YOLOv10 Comparison
 comments: true
 description: Discover the key differences between YOLOv7 and YOLOv10, from architecture to performance benchmarks, to choose the optimal model for your needs.
 keywords: YOLOv7, YOLOv10, object detection, model comparison, performance benchmarks, computer vision, Ultralytics YOLO, edge deployment, real-time AI
 ---
 
-# YOLOv7 vs YOLOv10: The Evolution of Real-Time Object Detection
+# YOLOv7 vs YOLOv10
 
 The field of computer vision has witnessed remarkable advancements over the past few years, with the YOLO (You Only Look Once) family of models leading the charge in real-time object detection. Choosing the right architecture for your computer vision projects requires a deep understanding of the available options. In this comprehensive technical comparison, we will explore the key differences between two landmark architectures: **YOLOv7** and **YOLOv10**.
 
