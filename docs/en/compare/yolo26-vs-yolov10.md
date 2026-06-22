@@ -1,4 +1,5 @@
 ---
+title: YOLO26 vs YOLOv10 Comparison
 comments: true
 description: Technical comparison of Ultralytics YOLO26 and YOLOv10 — NMS-free end-to-end detection, CPU/edge speed, accuracy, architecture, and deployment tips.
 keywords: YOLO26, YOLOv10, Ultralytics, object detection, NMS-free, end-to-end detection, edge AI, CPU inference, model comparison, ONNX, TensorRT, deployment, instance segmentation, pose estimation, MuSGD, ProgLoss, DFL removal, benchmark, computer vision, real-time detection

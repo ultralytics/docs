@@ -1,4 +1,5 @@
 ---
+title: YOLO11 vs YOLOv5 Comparison
 comments: true
 description: Explore the comprehensive comparison between YOLO11 and YOLOv5. Learn about their architectures, performance metrics, use cases, and strengths.
 keywords: YOLO11 vs YOLOv5,Yolo comparison,Yolo models,object detection,Yolo performance,Yolo benchmarks,Ultralytics,Yolo architecture

@@ -1,4 +1,5 @@
 ---
+title: DAMO-YOLO vs YOLOX Comparison
 comments: true
 description: Explore a detailed comparison of DAMO-YOLO and YOLOX, analyzing architecture, performance, and use cases for object detection applications.
 keywords: DAMO-YOLO, YOLOX, object detection, model comparison, YOLO, computer vision, NAS backbone, RepGFPN, ZeroHead, SimOTA, anchor-free detection

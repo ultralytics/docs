@@ -1,4 +1,5 @@
 ---
+title: YOLOv7 vs YOLOv5 Comparison
 comments: true
 description: Explore a detailed comparison of YOLOv7 and YOLOv5. Learn their key features, performance metrics, strengths, and use cases to choose the right model.
 keywords: YOLOv7, YOLOv5, object detection, model comparison, YOLO models, machine learning, deep learning, performance benchmarks, architecture, AI models

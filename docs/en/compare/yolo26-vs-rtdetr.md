@@ -1,4 +1,5 @@
 ---
+title: YOLO26 vs RTDETRv2 Comparison
 comments: true
 description: Compare Ultralytics YOLO26 and RTDETRv2 — architecture, mAP, CPU/GPU speed, benchmarks and deployment guidance to choose the right 2026 object detector.
 keywords: YOLO26, RTDETRv2, YOLO26 vs RTDETRv2, Ultralytics, object detection, model comparison, real-time detection, COCO benchmark, mAP, inference speed, edge deployment, NMS-free, transformer detector, CNN detector, RT-DETR

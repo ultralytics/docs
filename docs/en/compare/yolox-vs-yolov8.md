@@ -1,4 +1,5 @@
 ---
+title: YOLOX vs YOLOv8 Comparison
 comments: true
 description: Compare YOLOX and YOLOv8 for object detection. Explore their strengths, weaknesses, and benchmarks to make the best model choice for your needs.
 keywords: YOLOX, YOLOv8, object detection, model comparison, YOLO models, computer vision, machine learning, performance benchmarks, YOLO architecture

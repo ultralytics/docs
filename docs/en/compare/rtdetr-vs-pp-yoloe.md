@@ -1,4 +1,5 @@
 ---
+title: RTDETRv2 vs PP-YOLOE+ Comparison
 comments: true
 description: Explore the key differences between RTDETRv2 and PP-YOLOE+, two leading object detection models. Compare architectures, performance, and use cases.
 keywords: RTDETRv2,PP-YOLOE+,object detection,model comparison,Vision Transformer,YOLO,real-time detection,AI,Ultralytics,deep learning

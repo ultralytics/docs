@@ -1,4 +1,5 @@
 ---
+title: YOLO26 vs YOLOv9 Comparison
 comments: true
 description: Compare YOLO26 vs YOLOv9 NMS-free YOLO26, MuSGD optimizer, ProgLoss/STAL, CPU & edge performance, accuracy benchmarks and deployment tips.
 keywords: YOLO26, YOLOv9, Ultralytics, NMS-free, MuSGD, ProgLoss, STAL, edge inference, CPU acceleration, real-time object detection, ONNX, TensorRT, benchmarks, deployment, Raspberry Pi, model comparison

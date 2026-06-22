@@ -1,4 +1,5 @@
 ---
+title: YOLOv5 vs PP-YOLOE+ Comparison
 comments: true
 description: Compare YOLOv5 and PP-YOLOE+ object detection models. Explore their architecture, performance, and use cases to choose the best fit for your project.
 keywords: YOLOv5, PP-YOLOE+, object detection, computer vision, machine learning, model comparison, YOLO models, PaddlePaddle, AI, technical comparison

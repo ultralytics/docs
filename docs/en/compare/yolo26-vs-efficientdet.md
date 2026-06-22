@@ -1,4 +1,5 @@
 ---
+title: YOLO26 vs EfficientDet Comparison
 comments: true
 description: Compare Ultralytics YOLO26 vs EfficientDet architecture, mAP & latency benchmarks, NMS-free design, and best deployment use cases for edge and cloud.
 keywords: YOLO26, EfficientDet, Ultralytics, object detection, real-time detection, NMS-free, mAP, inference speed, CPU inference, edge AI, model benchmarks, TensorRT, ONNX, MuSGD, ProgLoss, small object detection, model comparison, deployment, computer vision, deep learning

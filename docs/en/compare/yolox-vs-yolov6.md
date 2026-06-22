@@ -1,4 +1,5 @@
 ---
+title: YOLOX vs YOLOv6-3.0 Comparison
 comments: true
 description: Compare YOLOX and YOLOv6-3.0 for object detection. Learn about architecture, performance, and applications to choose the best model for your needs.
 keywords: YOLOX, YOLOv6-3.0, object detection, model comparison, performance benchmarks, real-time detection, machine learning, computer vision

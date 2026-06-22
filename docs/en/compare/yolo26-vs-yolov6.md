@@ -1,4 +1,5 @@
 ---
+title: YOLO26 vs YOLOv6-3.0 Comparison
 comments: true
 description: Compare Ultralytics YOLO26 vs YOLOv6-3.0 — architecture, NMS-free CPU speedups, mAP benchmarks, and deployment guidance for edge, mobile, and robotics.
 keywords: YOLO26, YOLOv6-3.0, Ultralytics, YOLO comparison, NMS-free, CPU inference, edge AI, mobile deployment, real-time object detection, mAP benchmarks, ONNX export, MuSGD, DFL removal, robotics

@@ -1,4 +1,5 @@
 ---
+title: EfficientDet vs YOLO26 Comparison
 comments: true
 description: Compare EfficientDet and YOLO26 for object detection. Explore architecture, performance, and use cases to make an informed choice for your projects.
 keywords: EfficientDet, YOLO26, object detection, model comparison, BiFPN, NMS-free, computer vision, real-time detection, efficient models, Ultralytics

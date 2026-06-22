@@ -1,4 +1,5 @@
 ---
+title: PP-YOLOE+ vs YOLO26 Comparison
 comments: true
 description: Compare PP-YOLOE+ and YOLO26 for object detection. Explore architecture, performance, strengths, and use cases to choose the right model.
 keywords: PP-YOLOE+, YOLO26, object detection, model comparison, computer vision, performance metrics, Ultralytics, real-time detection, deep learning

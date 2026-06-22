@@ -1,4 +1,5 @@
 ---
+title: YOLO26 vs YOLO11 Comparison
 comments: true
 description: Compare Ultralytics YOLO26 and YOLO11 performance, architecture, CPU inference, NMS-free design, and best-use cases to pick the right model for edge and production.
 keywords: YOLO26, YOLO11, Ultralytics, object detection, NMS-free, end-to-end detection, CPU inference, edge AI, MuSGD, ProgLoss, small object detection, model comparison, YOLO comparison, ONNX export, real-time detection

@@ -1,4 +1,5 @@
 ---
+title: YOLOv10 vs YOLOv6-3.0 Comparison
 comments: true
 description: Discover the key differences between YOLOv10 and YOLOv6-3.0, including architecture, performance benchmarks, and ideal use cases for object detection.
 keywords: YOLOv10, YOLOv6, YOLO comparison, object detection models, computer vision, deep learning, benchmark, NMS-free, model architecture, Ultralytics

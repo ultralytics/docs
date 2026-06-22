@@ -1,4 +1,5 @@
 ---
+title: YOLO11 vs YOLOv8 Comparison
 comments: true
 description: Compare YOLO11 and YOLOv8 architectures, performance, use cases, and benchmarks. Discover which YOLO model fits your object detection needs.
 keywords: YOLO11, YOLOv8, object detection, model comparison, performance benchmarks, YOLO series, computer vision, Ultralytics YOLO, YOLO architecture

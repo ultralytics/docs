@@ -1,4 +1,5 @@
 ---
+title: YOLOv10 vs YOLO26 Comparison
 comments: true
 description: Explore a detailed technical comparison of YOLOv10 and YOLO26, including architecture, performance benchmarks, and ideal applications for object detection.
 keywords: YOLOv10, YOLO26, object detection, model comparison, YOLOv10 vs YOLO26, computer vision, technical comparison, Ultralytics, performance benchmarks

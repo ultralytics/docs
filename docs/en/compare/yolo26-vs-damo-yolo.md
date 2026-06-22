@@ -1,4 +1,5 @@
 ---
+title: YOLO26 vs DAMO-YOLO Comparison
 comments: true
 description: Compare Ultralytics YOLO26 and DAMO-YOLO architecture, accuracy, inference speed, and edge deployment (NMS-free, MuSGD, ONNX). Choose the best real-time object detector.
 keywords: YOLO26, DAMO-YOLO, Ultralytics, object detection, real-time detection, NMS-free, MuSGD, Neural Architecture Search, NAS, edge deployment, ONNX, TensorRT, inference speed, CPU performance, model comparison, detection benchmarks, small object detection, deployment, computer vision, YOLO

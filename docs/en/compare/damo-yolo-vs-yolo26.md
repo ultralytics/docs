@@ -1,4 +1,5 @@
 ---
+title: DAMO-YOLO vs YOLO26 Comparison
 comments: true
 description: Compare DAMO-YOLO and YOLO26 for object detection. Explore architectures, benchmarks, and use cases to select the best model for your needs.
 keywords: DAMO-YOLO,YOLO26,object detection,DAMO-YOLOm,YOLO26,AI models,computer vision,model comparison,efficient AI,deep learning

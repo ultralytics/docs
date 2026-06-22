@@ -1,4 +1,5 @@
 ---
+title: YOLO26 vs YOLOv5 Comparison
 comments: true
 description: Compare YOLO26 vs YOLOv5 architectures, benchmarks, NMS-free inference, MuSGD optimizer, and recommended use cases for edge, robotics, and legacy systems.
 keywords: YOLO26, YOLOv5, object detection, real-time detection, Ultralytics, NMS-free, MuSGD, edge AI, CPU inference, benchmarks, small object detection, pose estimation, OBB, ONNX, TensorRT, model comparison

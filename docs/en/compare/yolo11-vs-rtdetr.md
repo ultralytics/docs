@@ -1,4 +1,5 @@
 ---
+title: YOLO11 vs RTDETRv2 Comparison
 comments: true
 description: Compare RTDETRv2's accuracy with YOLO11's speed in this detailed analysis of top object detection models. Decide the best fit for your projects.
 keywords: RTDETRv2, YOLO11, object detection, Ultralytics, Vision Transformer, YOLO, computer vision, real-time detection, model comparison

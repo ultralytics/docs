@@ -1,4 +1,5 @@
 ---
+title: YOLOX vs YOLO26 Comparison
 comments: true
 description: Compare YOLOX and YOLO26 for object detection. Explore architectures, metrics, and use cases to select the right model for your needs.
 keywords: YOLOX, YOLO26, object detection, model comparison, performance metrics, computer vision, YOLO, anchor-free, NMS-free, COCO dataset

@@ -1,4 +1,5 @@
 ---
+title: YOLO26 vs PP-YOLOE+ Comparison
 comments: true
 description: Detailed comparison of Ultralytics YOLO26 vs PP-YOLOE+ benchmarks, architecture, CPU/GPU inference, and deployment guidance to pick the optimal object detection model.
 keywords: YOLO26, PP-YOLOE+, Ultralytics, object detection, model comparison, benchmark, mAP, inference speed, CPU inference, GPU inference, edge AI, NMS-free, anchor-free, PaddlePaddle, TensorRT, deployment, pose estimation, segmentation, real-time detection

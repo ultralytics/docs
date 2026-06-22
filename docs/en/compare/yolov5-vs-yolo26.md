@@ -1,4 +1,5 @@
 ---
+title: YOLOv5 vs YOLO26 Comparison
 comments: true
 description: Explore a detailed comparison of YOLOv5 and YOLO26 including benchmarks, architectures, and applications for optimal object detection model choice.
 keywords: YOLOv5, YOLO26, object detection, model comparison, YOLOv5, YOLO26, computer vision, benchmarks, architecture, real-time detection

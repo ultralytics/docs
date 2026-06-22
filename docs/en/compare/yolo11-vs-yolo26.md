@@ -1,4 +1,5 @@
 ---
+title: YOLO11 vs YOLO26 Comparison
 comments: true
 description: Technical comparison of Ultralytics YOLO11 and YOLO26 - NMS-free, CPU-optimized YOLO26 with MuSGD. Speed, mAP, and deployment guidance for edge, cloud, and robotics.
 keywords: Ultralytics,YOLO11,YOLO26,YOLO,NMS-free,CPU-optimized,MuSGD,object detection,real-time detection,edge AI,edge deployment,Raspberry Pi,ONNX,TensorRT,mAP,small object detection,robotics

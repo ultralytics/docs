@@ -1,4 +1,5 @@
 ---
+title: YOLO26 vs YOLOv8 Comparison
 comments: true
 description: Compare YOLO26 vs YOLOv8 architecture, benchmarks (mAP, latency), training innovations, and deployment tips for edge, mobile, and cloud vision applications.
 keywords: YOLO26, YOLOv8, YOLO comparison, object detection, NMS-free, end-to-end detection, MuSGD, ProgLoss, STAL, DFL removal, model benchmarks, mAP, inference speed, edge deployment, ONNX, TensorRT, Ultralytics, mobile AI, embedded vision

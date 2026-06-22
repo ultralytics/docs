@@ -1,4 +1,5 @@
 ---
+title: RTDETRv2 vs YOLOv8 Comparison
 comments: true
 description: Compare RTDETRv2 and YOLOv8 for object detection. Explore architecture, performance, and use cases to select the best model for your needs.
 keywords: RTDETRv2, YOLOv8, object detection, computer vision, model comparison, deep learning, transformer architecture, real-time AI, Ultralytics

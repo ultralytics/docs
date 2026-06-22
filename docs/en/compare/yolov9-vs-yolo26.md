@@ -1,4 +1,5 @@
 ---
+title: YOLOv9 vs YOLO26 Comparison
 comments: true
 description: Compare YOLOv9 and YOLO26 for object detection. Explore performance, architecture, and ideal use cases to choose the best model for your needs.
 keywords: YOLOv9, YOLO26, object detection, model comparison, real-time detection, computer vision, edge devices, accuracy, performance metrics

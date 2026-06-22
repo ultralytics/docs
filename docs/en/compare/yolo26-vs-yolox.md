@@ -1,4 +1,5 @@
 ---
+title: YOLO26 vs YOLOX Comparison
 comments: true
 description: Compare Ultralytics YOLO26 and YOLOX benchmarks, NMS-free architecture, MuSGD optimizer, CPU/TensorRT speeds, and edge deployment for real-time object detection.
 keywords: YOLO26, YOLOX, Ultralytics, object detection, real-time detection, edge AI, NMS-free, end-to-end detection, MuSGD, inference latency, ONNX, TensorRT, model benchmark, deployment, small object detection, robotics, drone navigation, smart retail, model comparison, export

@@ -1,4 +1,5 @@
 ---
+title: YOLOv5 vs YOLOv6-3.0 Comparison
 comments: true
 description: Compare YOLOv5 and YOLOv6-3.0 object detection models. Explore their architecture, performance, and applications to choose the best fit for your needs.
 keywords: YOLOv5, YOLOv6-3.0, object detection, model comparison, computer vision, Ultralytics, Meituan, YOLO series, performance benchmarks, real-time detection

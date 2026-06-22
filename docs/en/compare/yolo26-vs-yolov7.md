@@ -1,4 +1,5 @@
 ---
+title: YOLO26 vs YOLOv7 Comparison
 comments: true
 description: Compare YOLO26 vs YOLOv7 NMS-free YOLO26, CPU-optimized performance, mAP & latency benchmarks, architecture differences, and deployment guidance for edge vs GPU.
 keywords: YOLO26, YOLOv7, Ultralytics, object detection, NMS-free, end-to-end detection, CPU optimized, edge AI, model comparison, mAP, inference speed, ONNX, TensorRT, MuSGD, deployment, YOLO26n, YOLO26l, YOLO26x, YOLOv7l, bag-of-freebies

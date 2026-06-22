@@ -1,4 +1,5 @@
 ---
+title: RTDETRv2 vs YOLO26 Comparison
 comments: true
 description: Compare RTDETRv2 and YOLO26 for object detection. Explore architecture, performance, and use cases to pick the best model for your needs.
 keywords: RTDETRv2, YOLO26, object detection, model comparison, deep learning, computer vision, performance benchmark, Ultralytics

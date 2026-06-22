@@ -1,4 +1,5 @@
 ---
+title: YOLOv6-3.0 vs YOLO26 Comparison
 comments: true
 description: Compare YOLOv6-3.0 and YOLO26 for object detection. Discover their performance, features, strengths, and use cases to choose the best model for your needs.
 keywords: YOLOv6-3.0, YOLO26, object detection, model comparison, computer vision, benchmark, real-time detection, AI models, machine learning

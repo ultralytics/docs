@@ -1,4 +1,5 @@
 ---
+title: YOLOv8 vs YOLO26 Comparison
 comments: true
 description: Compare YOLOv8 and YOLO26 for object detection. Explore their architectures, performance benchmarks, and ideal use cases to choose the best model.
 keywords: YOLOv8,YOLO26,object detection,model comparison,YOLO,Ultralytics,deep learning,computer vision,benchmarking,real-time detection
