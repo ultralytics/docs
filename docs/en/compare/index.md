@@ -27,20 +27,24 @@ Not sure where to start? Use this decision tree to narrow down the architecture 
 
 ```mermaid
 graph TD
-    A[Start: Define Project Needs] --> B{Deployment Hardware?}
-    B -- "Edge / Mobile (CPU/NPU)" --> C{Latency Priority?}
-    B -- "Cloud / GPU" --> D{Accuracy vs Speed?}
+    A[Start: Define Project Needs]:::start --> B{Deployment Hardware?}:::decide
+    B -- "Edge / Mobile (CPU/NPU)" --> C{Latency Priority?}:::decide
+    B -- "Cloud / GPU" --> D{Accuracy vs Speed?}:::decide
 
-    C -- "Extreme Speed (Real-time)" --> E[YOLO26n / YOLO26s]
-    C -- "Balanced Legacy" --> F[YOLO11s / YOLOv8s]
+    C -- "Extreme Speed (Real-time)" --> E[YOLO26n / YOLO26s]:::out
+    C -- "Balanced Legacy" --> F[YOLO11s / YOLOv8s]:::out
 
-    D -- "Max Accuracy (SOTA)" --> G[YOLO26x / YOLO26l]
-    D -- "Balanced Performance" --> H[YOLO26m / YOLO11m]
+    D -- "Max Accuracy (SOTA)" --> G[YOLO26x / YOLO26l]:::out
+    D -- "Balanced Performance" --> H[YOLO26m / YOLO11m]:::out
 
-    A --> I{Specialized Features?}
-    I -- "NMS-Free Inference" --> J[YOLO26 / YOLOv10]
-    I -- "Multitask (Seg/Pose/OBB)" --> K[YOLO26 / YOLO11]
-    I -- "Video Analytics" --> L[YOLO26 + Tracking]
+    A --> I{Specialized Features?}:::decide
+    I -- "NMS-Free Inference" --> J[YOLO26 / YOLOv10]:::out
+    I -- "Multitask (Seg/Pose/OBB)" --> K[YOLO26 / YOLO11]:::out
+    I -- "Video Analytics" --> L[YOLO26 + Tracking]:::out
+
+    classDef start fill:#4CAF50,color:#fff
+    classDef decide fill:#FF9800,color:#fff
+    classDef out fill:#9C27B0,color:#fff
 ```
 
 ## The Current Landscape: YOLO26 and Beyond
