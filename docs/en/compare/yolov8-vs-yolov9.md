@@ -108,7 +108,7 @@ model = YOLO("yolov8s.pt")
 results = model.train(data="custom_dataset.yaml", epochs=100, imgsz=640)
 
 # Export for edge deployment
-model.export(format="engine", half=True)  # TensorRT export
+model.export(format="engine", quantize=16)  # TensorRT export
 ```
 
 This single API dramatically reduces the time from prototype to production. Furthermore, YOLOv8 generally requires lower CUDA memory during training, allowing developers to use larger batch sizes on consumer-grade hardware.

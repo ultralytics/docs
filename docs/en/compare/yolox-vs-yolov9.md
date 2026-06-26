@@ -107,7 +107,7 @@ model = YOLO("yolo26s.pt")
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
 # Easily export to optimized deployment formats
-model.export(format="engine", half=True)  # Exports to TensorRT
+model.export(format="engine", quantize=16)  # Exports to TensorRT
 ```
 
 Beyond detection, YOLO26 seamlessly supports a multitude of tasks within the exact same framework. Whether you need precise [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb) for satellite imaging or fine-grained pixel masks for [medical imaging applications](https://docs.ultralytics.com/datasets/detect/brain-tumor), the workflow remains identical. For teams invested in previous generation workflows, [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) is also available and fully supported.

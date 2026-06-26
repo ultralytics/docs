@@ -103,7 +103,7 @@ results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 predictions = model.predict("https://ultralytics.com/images/bus.jpg")
 
 # Export the model for edge deployment
-model.export(format="engine", half=True)
+model.export(format="engine", quantize=16)
 ```
 
 By leveraging built-in export routines, converting models to formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) or [ONNX](https://docs.ultralytics.com/integrations/onnx) requires just a single line of code, entirely bypassing complex compilation hurdles.

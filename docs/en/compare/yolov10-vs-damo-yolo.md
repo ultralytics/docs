@@ -58,7 +58,7 @@ results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 results = model("https://ultralytics.com/images/bus.jpg")
 
 # Export the model to TensorRT format
-model.export(format="engine", half=True)
+model.export(format="engine", quantize=16)
 ```
 
 ## Exploring DAMO-YOLO
