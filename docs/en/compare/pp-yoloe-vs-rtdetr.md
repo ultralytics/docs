@@ -153,7 +153,7 @@ results = model_yolo("https://ultralytics.com/images/zidane.jpg")
 results[0].show()
 
 # Export for edge deployment in one line
-model_yolo.export(format="engine", half=True)
+model_yolo.export(format="engine", quantize=16)
 ```
 
 Lower memory requirements typical of Ultralytics YOLO models mean you can train faster and deploy on cheaper hardware compared to transformer-based counterparts. Furthermore, active development and world-class documentation ensure your production pipelines remain stable.

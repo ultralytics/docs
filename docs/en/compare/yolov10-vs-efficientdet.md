@@ -166,7 +166,7 @@ results = model("https://ultralytics.com/images/bus.jpg")
 results[0].show()
 
 # Export for rapid deployment
-model.export(format="engine", half=True)
+model.export(format="engine", quantize=16)
 ```
 
 ## Conclusion

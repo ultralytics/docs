@@ -92,7 +92,7 @@ model = YOLO("yolov9c.pt")
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640, device="0")
 
 # Export to ONNX or TensorRT seamlessly
-model.export(format="engine", half=True)
+model.export(format="engine", quantize=16)
 ```
 
 ### Unmatched Versatility Across Vision Tasks
