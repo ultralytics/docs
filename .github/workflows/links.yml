@@ -134,11 +134,11 @@ jobs:
           # 2-letter contributor initials (e.g. "BU" for Burhan-Q) that codespell
           # would otherwise flag as typos on every page.
           find "$SPELLCHECK_ROOT/${{ matrix.website }}" -type f -name "*.html" \
-            -exec perl -0pi -e 's#<script\b[^>]*>.*?</script>##gis; s#<style\b[^>]*>.*?</style>##gis; s#<([a-z]+)\b[^>]*\bdata-slot="avatar-fallback"[^>]*>.*?</\1>##gis' {} +
+            -exec perl -0pi -e 's#<script\b[^>]*>.*?</script>##gis; s#<style\b[^>]*>.*?</style>##gis; s#<([a-z]+)\b[^>]*\bdata-slot="avatar-fallback"[^>]*>.*?</\1>##gis; s#[\x{2019}\x{2018}]#\x27#g' {} +
           CODESPELL_OUTPUT=$(find "$SPELLCHECK_ROOT/${{ matrix.website }}" -type f -name "*.html" -print0 | xargs -0 codespell \
             --builtin clear,rare,informal,en-GB_to_en-US \
             --uri-ignore-words-list "*" \
-            --ignore-words-list "Ain't,grey,writeable,MENAT,Hart,wither,Bund,DED,AKS,VAs,RepResNet,iDenfy,Idenfy,WIT,Smoot,EHR,ROUGE,ALS,iTerm,Carmel,FPR,Hach,Calle,ore,COO,MOT,crate,nd,ned,strack,dota,ane,segway,fo,gool,winn,commend,bloc,nam,afterall,skelton,goin,tread,braket,corse,SoM,couldn't,couldn,nin,cancelled,MapPin,cann,CANN,Programme" \
+            --ignore-words-list "Ain't,grey,writeable,MENAT,Hart,wither,Bund,DED,AKS,VAs,RepResNet,iDenfy,Idenfy,WIT,Smoot,EHR,ROUGE,ALS,iTerm,Carmel,FPR,Hach,Calle,ore,COO,MOT,crate,nd,ned,strack,dota,ane,segway,fo,gool,winn,commend,bloc,nam,afterall,skelton,goin,tread,braket,corse,SoM,couldn't,couldn,nin,cancelled,MapPin,cann,CANN,Vektor,MITRE,Confidencial" \
             --skip "*.pt,*.pth,*.torchscript,*.onnx,*.tflite,*.pb,*.bin,*.param,*.mlmodel,*.engine,*.npy,*.data*,*.csv,*pnnx*,*venv*,*translat*,*lock*,__pycache__*,*.ico,*.jpg,*.png,*.mp4,*.mov,/runs,/.git,./docs/mkdocs_??.yml" \
             2>&1 || true)
 
