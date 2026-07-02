@@ -189,8 +189,6 @@ jobs:
             downloaded_files=$(find ${{ matrix.website }} -type f | wc -l)
             echo "Scanning $downloaded_files downloaded pages for broken links..."
 
-            printf "Results for %s pages, " "$downloaded_files" > summary.txt
-
             rm -rf .lycheecache
             lychee \
             --scheme 'https' \
@@ -206,7 +204,7 @@ jobs:
             --header "Accept-Language: *" \
             --header "Accept-Encoding: *" \
             --root-dir "$(pwd)/${{ matrix.website }}" \
-            './${{ matrix.website }}/**/*.html' | tee -a summary.txt
+            './${{ matrix.website }}/**/*.html' | tee summary.txt
 
             # Remove raw append; we'll print the cleaned version instead
             # cat summary.txt >> $GITHUB_STEP_SUMMARY   # CHANGED: removed
@@ -219,6 +217,7 @@ jobs:
             ESCAPED_SUMMARY=$(grep -v "^\[TIMEOUT\]" summary.txt | \
               grep -v "^\[ERROR\]" | \
               grep -v "^Error:" | \
+              grep -v -E "^Issues found in [0-9]+ inputs\. Find details below\.$" | \
               grep -F -v -f /tmp/skip_pages.txt | tr -d '\r' | \
               sed -E 's/[[:space:]]*\|[[:space:]]*Rejected status code[^:]*:[[:space:]]*/ | /g' | \
               cat -s | \
