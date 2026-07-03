@@ -3,6 +3,7 @@
 # Continuous Integration (CI) GitHub Actions tests broken link checker using https://github.com/lycheeverse/lychee
 # Ignores the following status codes to reduce false positives:
 #   - 401(Vimeo, 'unauthorized')
+#   - 402(Education Times, 'payment required' paywall)
 #   - 403(OpenVINO, 'forbidden')
 #   - 415(ClearML, 'unsupported media type')
 #   - 418(IEEE, "I'm a teapot" anti-bot challenge)
@@ -10,6 +11,8 @@
 #   - 500(Zenodo, 'cached')
 #   - 502(Zenodo, 'bad gateway')
 #   - 999(LinkedIn, 'unknown status code')
+# Also excludes domains whose bot protection rejects CI requests (HTTP/2 resets, connection refusals,
+# timeouts) even though the links load fine in a browser, e.g. mckinsey.com, adobe.com, gdpr.eu.
 
 name: Website links and spellcheck
 
@@ -194,9 +197,10 @@ jobs:
             --scheme 'https' \
             --timeout 60 \
             --insecure \
-            --accept 100..=103,200..=299,302,401,403,415,418,429,500..=599,999 \
+            --accept 100..=103,200..=299,302,401,402,403,415,418,429,500..=599,999 \
             --exclude-all-private \
-            --exclude 'https?://(www\.)?(linkedin\.com|twitter\.com|x\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com|tesla\.com|wellfound\.com|fda\.gov|.*\.run\.app|.*\.cloudfunctions\.net|0\.0\.0\.0:5543/predict/from_files)' \
+            --exclude 'https?://([a-zA-Z0-9-]+\.)*(linkedin\.com|twitter\.com|x\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com|tesla\.com|wellfound\.com|fda\.gov|mckinsey\.com|st\.com|adobe\.com|dhl\.com|avangrid\.com|bhp\.com|businesswire\.com|bmw\.in|intuit\.com|epo\.org|orangepi\.org|gdpr\.eu|mvtec\.com|cv-foundation\.org|ntrs\.nasa\.gov|elib\.dlr\.de|burrsettles\.com|biomecardio\.com|glaze\.cs\.uchicago\.edu|miquido\.com|forensicexpertinvestigation\.com|newspace\.co\.in|agriplanting\.com|revistafuera\.com|ravindersingal\.com|qsdca\.com\.au|videologicanalytics\.com)([:/?#]|$)' \
+            --exclude '(\.run\.app|\.cloudfunctions\.net|0\.0\.0\.0:5543/predict/from_files)' \
             --exclude-path './**/ci.yml' \
             --github-token ${{ secrets.GITHUB_TOKEN }} \
             --header "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
