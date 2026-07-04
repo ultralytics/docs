@@ -35,7 +35,7 @@ After opening a PR:
 ```bash
 uv pip install -r requirements.txt                     # beautifulsoup4, requests, pandas (for utils/)
 python3 utils/check_image_sizes.py <download_dir> <website>  # flag images >750 KB, as links.yml runs it
-lychee --scheme 'https' './**/*.md' './**/*.html'      # PR link check; exact flags in .github/workflows/links_local.yml
+lychee --scheme 'https' './**/*.md' './**/*.html'      # PR link check (simplified); CI adds more flags, see .github/workflows/links_local.yml
 npx prettier --write "**/*.md" "**/*.yml"              # Markdown/YAML formatting
 codespell docs utils README.md                          # spelling
 ```
@@ -53,6 +53,6 @@ The remaining workflows are scheduled website QA: `links.yml` (daily 07:00 UTC, 
 
 - Every `.py`/`.yml` file opens with the `# Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license` header — Ultralytics Actions adds it automatically, so don't add or revert these manually.
 - Ultralytics Actions pushes auto-format commits directly to PR branches; always `git pull --rebase` before pushing.
-- Pairwise compare pages follow a fixed shape: YAML frontmatter (`title`, `comments: true`, `description`, `keywords` — the `index.md` hub omits `title`), a Chart.js `<canvas>` fed by `benchmark.js`, and benchmark tables where **bold** marks the better value; "Learn more" buttons link to platform.ultralytics.com model pages.
+- Pairwise compare pages follow a fixed shape: YAML frontmatter (`title`, `comments: true`, `description`, `keywords` — the `index.md` hub omits `title`), a Chart.js `<canvas>` fed by `benchmark.js`, and benchmark tables where **bold** marks the better value; "Learn more" buttons link to platform.ultralytics.com only for models with Platform pages (YOLO26, YOLO11, YOLOv8, YOLOv5) and to docs.ultralytics.com or GitHub for the rest.
 - Link-checker exclusions live in `.lycheeignore` (one regex per line) and in the `--exclude` lists inside `links.yml`/`links_local.yml`; the bot-protected-domain regex is duplicated verbatim in both workflows and should stay in sync, while the other `--exclude` patterns and `--accept` codes are intentionally workflow-specific.
 - All CI checks hit the live network by design (link checks, domain redirects, sitemap submission); expect occasional flakes from bot-protected domains, handled via the accept-code and exclude lists rather than retry hacks.
