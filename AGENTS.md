@@ -34,7 +34,7 @@ After opening a PR:
 
 ```bash
 uv pip install -r requirements.txt                     # beautifulsoup4, requests, pandas (for utils/)
-python3 utils/check_image_sizes.py <download_dir> <website>  # flag images >750 KB, as links.yml runs it
+uv run python utils/check_image_sizes.py <download_dir> <website>  # flag images >750 KB, as links.yml runs it
 lychee --scheme 'https' './**/*.md' './**/*.html'      # PR link check (simplified); CI adds more flags, see .github/workflows/links_local.yml
 npx prettier --write "**/*.md" "**/*.yml"              # Markdown/YAML formatting
 codespell docs utils README.md                          # spelling
