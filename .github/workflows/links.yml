@@ -221,7 +221,7 @@ jobs:
             ESCAPED_SUMMARY=$(grep -v "^\[TIMEOUT\]" summary.txt | \
               grep -v "^\[ERROR\]" | \
               grep -v "^Error:" | \
-              grep -v -E "^Issues found in [0-9]+ inputs\. Find details below\.$" | \
+              grep -v -E "^Issues found in [0-9]+ inputs?\. Find details below\.$" | \
               grep -F -v -f /tmp/skip_pages.txt | tr -d '\r' | \
               sed -E 's/[[:space:]]*\|[[:space:]]*Rejected status code[^:]*:[[:space:]]*/ | /g' | \
               cat -s | \
