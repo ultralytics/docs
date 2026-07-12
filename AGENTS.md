@@ -41,7 +41,7 @@ codespell docs utils README.md                          # spelling
 ```
 
 - There is no test suite, build, or coverage — PR CI is `links_local.yml` (lychee over all repo `*.md`/`*.html` against the live web, so a dead URL fails CI) plus Ultralytics Actions formatting in `format.yml` (source of truth for Prettier/Ruff/docformatter/codespell settings; it runs them server-side on PRs).
-- Workflows run on `ubuntu-latest` with unpinned Python (`3.x`; `check_domains.yml` uses 3.14); no language floor applies to this repo itself.
+- Workflows run on `ubuntu-latest` with unpinned Python (`3.x`); no language floor applies to this repo itself.
 
 ## Architecture
 

@@ -9,7 +9,6 @@ Welcome to Ultralytics Docs, your comprehensive resource for understanding and u
 
 [![pages-build-deployment](https://github.com/ultralytics/docs/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/ultralytics/docs/actions/workflows/pages/pages-build-deployment)
 [![Check Broken links](https://github.com/ultralytics/docs/actions/workflows/links.yml/badge.svg)](https://github.com/ultralytics/docs/actions/workflows/links.yml)
-[![Check Domains](https://github.com/ultralytics/docs/actions/workflows/check_domains.yml/badge.svg)](https://github.com/ultralytics/docs/actions/workflows/check_domains.yml)
 
 [![Ultralytics Discord](https://img.shields.io/discord/1089800235347353640?logo=discord&logoColor=white&label=Discord&color=blue)](https://discord.com/invite/ultralytics)
 [![Ultralytics Forums](https://img.shields.io/discourse/users?server=https%3A%2F%2Fcommunity.ultralytics.com&logo=discourse&label=Forums&color=blue)](https://community.ultralytics.com/)
@@ -66,9 +65,7 @@ The live documentation at [docs.ultralytics.com](https://docs.ultralytics.com/) 
 
 - `links.yml` downloads rendered pages for `www.ultralytics.com`, `docs.ultralytics.com`, and `handbook.ultralytics.com`, then checks links, spelling, and large images.
 - `links_local.yml` checks repository Markdown and HTML links, with an optional broader link scan on manual runs.
-- `check_domains.yml` verifies Ultralytics domain redirects.
 - `download_websites.yml` can download public website pages for inspection.
-- `sitemaps.yml` submits sitemaps and changed URLs after successful Pages deployments.
 
 This repository does not currently include local `mkdocs*.yml` configuration files, so README instructions should use the workflows above rather than local MkDocs build commands.
 
