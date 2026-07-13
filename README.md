@@ -63,7 +63,7 @@ For example, `utils/check_image_sizes.py` is used by the website link-check work
 
 The live documentation at [docs.ultralytics.com](https://docs.ultralytics.com/) is maintained with scheduled and manual workflows in `.github/workflows/`:
 
-- `links.yml` downloads rendered pages for `www.ultralytics.com`, `docs.ultralytics.com`, and `handbook.ultralytics.com`, then checks links, spelling, and large images.
+- `links.yml` downloads rendered pages for `www.ultralytics.com`, `docs.ultralytics.com`, `academy.ultralytics.com`, and `handbook.ultralytics.com`, then checks links, spelling, and large images.
 - `links_local.yml` checks repository Markdown and HTML links, with an optional broader link scan on manual runs.
 - `download_websites.yml` can download public website pages for inspection.
 
