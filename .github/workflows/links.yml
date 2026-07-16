@@ -213,16 +213,21 @@ jobs:
             --root-dir "$(pwd)/${{ matrix.website }}" \
             './${{ matrix.website }}/**/*.html' | tee summary.txt
 
-            # Two-pass approach to remove timeout and network error entries
-            # First pass: identify pages followed by TIMEOUT or network error entries
-            grep -B1 -E "^\[TIMEOUT\]|^\[ERROR\]|^Error:" summary.txt | grep "\.html\]:$" > /tmp/skip_pages.txt 2>/dev/null || true
-
-            # Second pass: remove TIMEOUT/Error lines, their pages, and squeeze blank lines
-            grep -v "^\[TIMEOUT\]" summary.txt | \
-              grep -v "^\[ERROR\]" | \
-              grep -v "^Error:" | \
-              grep -v -E "^Issues found in [0-9]+ inputs?\. Find details below\.$" | \
-              grep -F -v -f /tmp/skip_pages.txt | tr -d '\r' | \
+            # Keep numeric errors with their page while removing timeout and network errors
+            awk '
+              function flush() {
+                if (errors) {
+                  print page
+                  printf "%s", errors
+                  print ""
+                }
+                errors = ""
+              }
+              /^\[.*\.html\]:$/ { flush(); page = $0; next }
+              /^\[[0-9][0-9][0-9]\] https?:\/\// { errors = errors $0 ORS; next }
+              / Total \(in / { flush(); print }
+              END { flush() }
+            ' summary.txt | tr -d '\r' | \
               sed -E 's/[[:space:]]*\|[[:space:]]*Rejected status code[^:]*:[[:space:]]*/ | /g' | \
               cat -s | \
               sed 's/\[//g; s/\]//g; s/\.html//g; s/"/\\"/g' > /tmp/cleaned_summary.txt
@@ -232,13 +237,12 @@ jobs:
 
             # Prepare limited output for Slack (first 10 errors)
             TOTAL_ERRORS=$(grep -cE '^[0-9]{3} https?://' /tmp/cleaned_summary.txt || true)
-            MODIFIED_OUTPUT=$(awk '
+            SLACK_OUTPUT=$(awk '
               /:$/ { page = $0; sub(/:$/, "", page); next }
-              /^[0-9][0-9][0-9] https?:\/\// { print page "  " $0 }
+              /^[0-9][0-9][0-9] https?:\/\// && shown++ < 10 { print page "  " $0 }
             ' /tmp/cleaned_summary.txt | perl -pe '
               s{(https?://\S+)}{"<$1|" . (length($1) > 80 ? substr($1, 0, 77) . "..." : $1) . ">"}ge
-            ')
-            SLACK_OUTPUT=$(echo "$MODIFIED_OUTPUT" | head -10 | awk '{printf "%s\\n", $0}')
+            ' | awk '{printf "%s\\n", $0}')
             SLACK_HEADER="*${TOTAL_ERRORS} Broken Links*\\n"
             if [ "$TOTAL_ERRORS" -gt 10 ]; then
               SLACK_FOOTER="...$((TOTAL_ERRORS - 10)) more ➜ <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|Action summary>"
@@ -247,7 +251,7 @@ jobs:
             fi
 
             # Cleanup
-            rm -f /tmp/cleaned_summary.txt /tmp/skip_pages.txt
+            rm -f /tmp/cleaned_summary.txt
 
             echo "SUMMARY<<EOF" >> $GITHUB_ENV
             echo "${SLACK_HEADER}${SLACK_OUTPUT}${SLACK_FOOTER}" >> $GITHUB_ENV
