@@ -230,7 +230,7 @@ jobs:
             ' summary.txt | tr -d '\r' | \
               sed -E 's/[[:space:]]*\|[[:space:]]*Rejected status code[^:]*:[[:space:]]*/ | /g' | \
               cat -s | \
-              sed 's/\[//g; s/\]//g; s/\.html:$/:/; s/"/\\"/g' > /tmp/cleaned_summary.txt
+              sed -E 's/^\[([^]]*)\.html\]:$/\1:/; s/^\[([0-9]{3})\] /\1 /; s/"/\\"/g' > /tmp/cleaned_summary.txt
 
             # Keep the full output in Actions
             cat /tmp/cleaned_summary.txt >> "$GITHUB_STEP_SUMMARY"
