@@ -98,11 +98,11 @@ Released in January 2026, YOLO26 establishes a new standard for modern [object d
 3. **Unmatched Hardware Efficiency:** By removing Distribution Focal Loss (DFL), YOLO26 drastically lowers memory requirements. It boasts up to **43% faster CPU inference**, making it the definitive choice for devices lacking dedicated [GPU](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) acceleration.
 4. **Extreme Versatility:** Unlike PP-YOLOE+ which focuses strictly on detection, YOLO26 offers unified support across numerous tasks. It incorporates a specialized semantic segmentation loss for [instance segmentation](https://docs.ultralytics.com/tasks/segment), Residual Log-Likelihood Estimation (RLE) for accurate [pose estimation](https://docs.ultralytics.com/tasks/pose), and advanced angle loss mechanisms for [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ### Seamless Ecosystem Integration
 
-Ultralytics eliminates the frustration of complex framework installations. Using the unified Python API or the intuitive [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n), you can train, validate, and export models with just a few lines of code.
+Ultralytics eliminates the frustration of complex framework installations. Using the unified Python API or the intuitive [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26), you can train, validate, and export models with just a few lines of code.
 
 ```python
 from ultralytics import YOLO
@@ -120,8 +120,8 @@ predictions = model("https://ultralytics.com/images/bus.jpg")
 model.export(format="onnx")
 ```
 
-For users evaluating other robust architectures within the Ultralytics ecosystem, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) remains a highly reliable choice for legacy deployments, while the transformer-based [RT-DETR](https://docs.ultralytics.com/models/rtdetr) provides excellent capabilities for those seeking attention-based solutions.
+For users evaluating other robust architectures within the Ultralytics ecosystem, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains a highly reliable choice for legacy deployments, while the transformer-based [RT-DETR](https://docs.ultralytics.com/models/rtdetr) provides excellent capabilities for those seeking attention-based solutions.
 
 ## Summary
 
-Choosing between YOLOX and PP-YOLOE+ often comes down to your primary framework constraints—whether you prefer PyTorch-based flexibility or deep integration with Baidu's PaddlePaddle. However, for organizations looking to future-proof their AI infrastructure, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) provides a vastly superior alternative. With its revolutionary NMS-free design, lightweight memory footprint, and comprehensive task versatility, YOLO26 empowers teams to build faster, smarter, and more efficient computer vision applications with unprecedented ease.
+Choosing between YOLOX and PP-YOLOE+ often comes down to your primary framework constraints—whether you prefer PyTorch-based flexibility or deep integration with Baidu's PaddlePaddle. However, for organizations looking to future-proof their AI infrastructure, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) provides a vastly superior alternative. With its revolutionary NMS-free design, lightweight memory footprint, and comprehensive task versatility, YOLO26 empowers teams to build faster, smarter, and more efficient computer vision applications with unprecedented ease.

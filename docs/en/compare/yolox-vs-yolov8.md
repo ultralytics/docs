@@ -38,7 +38,7 @@ Furthermore, YOLOX employs the SimOTA label assignment strategy. This dynamic as
 
 ## YOLOv8: The Versatile Ecosystem Standard
 
-Building upon years of continuous research, [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) represents a major evolution in state-of-the-art computer vision models. It was designed from the ground up to be not just an object detector, but a comprehensive, multi-task framework capable of handling a wide array of visual recognition challenges with an incredibly accessible API.
+Building upon years of continuous research, [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) represents a major evolution in state-of-the-art computer vision models. It was designed from the ground up to be not just an object detector, but a comprehensive, multi-task framework capable of handling a wide array of visual recognition challenges with an incredibly accessible API.
 
 **Model Details:**  
 Author: Glenn Jocher, Ayush Chaurasia, and Jing Qiu  
@@ -57,7 +57,7 @@ YOLOv8 introduces a streamlined architecture that replaces the C3 module with th
 
 Beyond standard [object detection](https://docs.ultralytics.com/tasks/detect), YOLOv8 natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb). This multi-task versatility makes it a highly attractive choice for complex production environments where multiple model types must be maintained.
 
-[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n){ .md-button }
+[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
 ## Performance and Metrics Comparison
 
@@ -133,7 +133,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## Looking Ahead: The YOLO26 Architecture
 
-While YOLOv8 provides exceptional balance and usability, the frontier of artificial intelligence continues to advance rapidly. Released in January 2026, **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)** represents the definitive standard for modern edge and cloud deployment, taking the foundational concepts of prior generations and optimizing them relentlessly.
+While YOLOv8 provides exceptional balance and usability, the frontier of artificial intelligence continues to advance rapidly. Released in January 2026, **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** represents the definitive standard for modern edge and cloud deployment, taking the foundational concepts of prior generations and optimizing them relentlessly.
 
 YOLO26 introduces an **end-to-end NMS-free design**, completely eliminating the heuristic non-maximum suppression post-processing step. This breakthrough ensures stable, deterministic latency across diverse deployment targets. Furthermore, by deliberately removing the Distribution Focal Loss (DFL) module, YOLO26 achieves up to **43% faster CPU inference**, making it the absolute best choice for embedded systems and mobile applications.
 
@@ -145,4 +145,4 @@ When evaluating older frameworks against modern solutions, the trajectory is cle
 
 For developers prioritizing a seamless experience, versatile task support, and strong community backing, [YOLOv8](https://docs.ultralytics.com/models/yolov8) remains a highly robust choice. However, for those looking to maximize edge computing performance, eliminate NMS bottlenecks, and achieve the highest possible accuracy with the latest training innovations, **[YOLO26](https://docs.ultralytics.com/models/yolo26)** is overwhelmingly the recommended model for any new computer vision project.
 
-If you are interested in exploring other models within the Ultralytics suite, you may also want to review the performance characteristics of [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) or read up on the pioneering NMS-free concepts originally tested in [YOLOv10](https://docs.ultralytics.com/models/yolov10).
+If you are interested in exploring other models within the Ultralytics suite, you may also want to review the performance characteristics of [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or read up on the pioneering NMS-free concepts originally tested in [YOLOv10](https://docs.ultralytics.com/models/yolov10).

@@ -7,7 +7,7 @@ keywords: YOLO11, YOLOv7, object detection, model comparison, YOLO models, deep 
 
 # YOLOv7 vs YOLO11
 
-The landscape of computer vision has rapidly evolved over the past few years. For developers and researchers choosing the right object detection framework, understanding the architectural and practical differences between generation-defining models is critical. This guide provides a detailed technical comparison between the academic breakthrough of [YOLOv7](https://docs.ultralytics.com/models/yolov7) and the highly refined, production-ready [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n).
+The landscape of computer vision has rapidly evolved over the past few years. For developers and researchers choosing the right object detection framework, understanding the architectural and practical differences between generation-defining models is critical. This guide provides a detailed technical comparison between the academic breakthrough of [YOLOv7](https://docs.ultralytics.com/models/yolov7) and the highly refined, production-ready [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11).
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -22,7 +22,7 @@ The landscape of computer vision has rapidly evolved over the past few years. Fo
 
 **YOLO11**, developed by Glenn Jocher and Jing Qiu at [Ultralytics](https://www.ultralytics.com/about), was released on September 27, 2024. YOLO11 shifts the focus from pure architectural complexity to a holistic, developer-first ecosystem. Hosted on the [Ultralytics GitHub repository](https://github.com/ultralytics/ultralytics), YOLO11 features an optimized anchor-free design that drastically reduces memory consumption during both training and inference. It is natively integrated into the [Ultralytics Platform](https://platform.ultralytics.com), offering unparalleled ease of use from dataset annotation to edge deployment.
 
-[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 !!! tip "Ecosystem Advantage"
 
@@ -99,6 +99,6 @@ Released in January 2026, YOLO26 introduces several groundbreaking features that
 - **MuSGD Optimizer Integration:** Inspired by advanced LLM training techniques from [Moonshot AI](https://www.moonshot.cn/), this hybrid optimizer ensures unprecedented training stability and faster convergence rates.
 - **Superior Small Object Detection:** The introduction of ProgLoss and STAL loss functions provides critical accuracy boosts for identifying minute details, perfect for analyzing [drone aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and complex IoT sensor data.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 For users interested in transformer-based architectures or alternative paradigms, the Ultralytics documentation also covers models like the [RT-DETR transformer detector](https://docs.ultralytics.com/models/rtdetr) and the [YOLO-World open-vocabulary model](https://docs.ultralytics.com/models/yolo-world).

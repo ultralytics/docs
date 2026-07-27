@@ -102,7 +102,7 @@ model.export(format="engine", device=0)
 
 ## The New Standard: Introducing YOLO26
 
-While PP-YOLOE+ and YOLOv7 are milestones in object detection, the landscape of AI evolves rapidly. For any new computer vision project, we strongly recommend [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n). Released in January 2026, YOLO26 represents a massive leap forward in edge-first vision AI.
+While PP-YOLOE+ and YOLOv7 are milestones in object detection, the landscape of AI evolves rapidly. For any new computer vision project, we strongly recommend [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). Released in January 2026, YOLO26 represents a massive leap forward in edge-first vision AI.
 
 **Why YOLO26 Outperforms Older Architectures:**
 
@@ -112,7 +112,7 @@ While PP-YOLOE+ and YOLOv7 are milestones in object detection, the landscape of 
 - **MuSGD Optimizer:** Inspired by advanced LLM training techniques (like Moonshot AI's Kimi K2), YOLO26 uses a hybrid of SGD and Muon for incredibly stable training and fast convergence.
 - **ProgLoss + STAL:** These improved loss functions bring remarkable gains in small-object detection, which is vital for use cases like [drone aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and manufacturing defect detection.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Ideal Use Cases and Deployment Scenarios
 
@@ -126,7 +126,7 @@ YOLOv7 remains an excellent choice for generic high-performance inference, parti
 
 ### Other Models to Consider
 
-Depending on your exact needs, you might also be interested in comparing these architectures against [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) for broad, production-ready flexibility, or [RT-DETR](https://docs.ultralytics.com/models/rtdetr) if your project requires the specific advantages of vision transformers over traditional convolutional networks.
+Depending on your exact needs, you might also be interested in comparing these architectures against [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) for broad, production-ready flexibility, or [RT-DETR](https://docs.ultralytics.com/models/rtdetr) if your project requires the specific advantages of vision transformers over traditional convolutional networks.
 
 ## Conclusion
 

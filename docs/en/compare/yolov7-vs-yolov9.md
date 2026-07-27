@@ -71,7 +71,7 @@ When choosing between architectures, AI engineers must balance accuracy, [infere
 
 !!! tip "Future-Proofing Your Computer Vision Projects"
 
-    While YOLOv7 and YOLOv9 are powerful, the newly released [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) represents the definitive leap forward. YOLO26 introduces a native **end-to-end NMS-free design**, eliminating complex post-processing and boosting CPU inference speeds by up to 43%. By utilizing the novel **MuSGD optimizer** and enhanced **ProgLoss + STAL** loss functions, YOLO26 delivers unparalleled training stability and small-object detection accuracy.
+    While YOLOv7 and YOLOv9 are powerful, the newly released [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the definitive leap forward. YOLO26 introduces a native **end-to-end NMS-free design**, eliminating complex post-processing and boosting CPU inference speeds by up to 43%. By utilizing the novel **MuSGD optimizer** and enhanced **ProgLoss + STAL** loss functions, YOLO26 delivers unparalleled training stability and small-object detection accuracy.
 
 ## The Ultralytics Advantage
 
@@ -133,4 +133,4 @@ The decision between YOLOv7 and YOLOv9 often depends on your specific industry c
 
 Both YOLOv7 and YOLOv9 have cemented their places in computer vision history. YOLOv7 introduced essential optimizations for real-time processing, while YOLOv9 tackled structural deep learning bottlenecks to maximize parameter efficiency.
 
-However, for developers starting new projects today, leveraging the Ultralytics ecosystem—specifically next-generation models like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) and [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)—offers the most favorable trade-off between speed, accuracy, and developer experience. With innovations like the MuSGD optimizer and the removal of Distribution Focal Loss (DFL) for broader hardware compatibility, Ultralytics continues to provide the most accessible and powerful tools for vision AI professionals.
+However, for developers starting new projects today, leveraging the Ultralytics ecosystem—specifically next-generation models like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)—offers the most favorable trade-off between speed, accuracy, and developer experience. With innovations like the MuSGD optimizer and the removal of Distribution Focal Loss (DFL) for broader hardware compatibility, Ultralytics continues to provide the most accessible and powerful tools for vision AI professionals.

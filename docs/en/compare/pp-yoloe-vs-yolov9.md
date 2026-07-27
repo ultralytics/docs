@@ -50,7 +50,7 @@ YOLOv9's major breakthrough is Programmable Gradient Information (PGI), which pr
 
 !!! note "Other Ultralytics Models"
 
-    If you are exploring state-of-the-art options, you might also be interested in [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) and [RT-DETR](https://docs.ultralytics.com/models/rtdetr), which offer varying balances of transformer-based precision and real-time edge performance.
+    If you are exploring state-of-the-art options, you might also be interested in [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [RT-DETR](https://docs.ultralytics.com/models/rtdetr), which offer varying balances of transformer-based precision and real-time edge performance.
 
 ## Performance and Metrics Comparison
 
@@ -130,7 +130,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## Looking Forward: The YOLO26 Advantage
 
-While both PP-YOLOE+ and YOLOv9 are powerful, the newly released [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) represents the definitive next step for production environments. Released in January 2026, YOLO26 establishes a new standard for edge computing and cloud deployments. We highly recommend YOLO26 for all new computer vision projects due to its breakthrough innovations:
+While both PP-YOLOE+ and YOLOv9 are powerful, the newly released [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the definitive next step for production environments. Released in January 2026, YOLO26 establishes a new standard for edge computing and cloud deployments. We highly recommend YOLO26 for all new computer vision projects due to its breakthrough innovations:
 
 - **End-to-End NMS-Free Design:** YOLO26 is natively end-to-end, entirely eliminating the need for Non-Maximum Suppression (NMS) post-processing. This significantly simplifies deployment pipelines and reduces latency.
 - **Up to 43% Faster CPU Inference:** By specifically optimizing the architecture for edge computing, YOLO26 is significantly faster on hardware lacking dedicated GPUs.

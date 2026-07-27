@@ -7,7 +7,7 @@ keywords: YOLOv5, YOLOv7, object detection, model comparison, AI, deep learning,
 
 # YOLOv5 vs YOLOv7
 
-The landscape of computer vision has evolved rapidly over the last few years, driven by the need for faster, more accurate real-time object detection. When choosing the right architecture for your computer vision project, understanding the nuances between popular models like [Ultralytics YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) and YOLOv7 is crucial. This comprehensive technical comparison delves into their architectures, training methodologies, performance metrics, and ideal deployment scenarios to help you make an informed decision.
+The landscape of computer vision has evolved rapidly over the last few years, driven by the need for faster, more accurate real-time object detection. When choosing the right architecture for your computer vision project, understanding the nuances between popular models like [Ultralytics YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5) and YOLOv7 is crucial. This comprehensive technical comparison delves into their architectures, training methodologies, performance metrics, and ideal deployment scenarios to help you make an informed decision.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -26,7 +26,7 @@ Understanding the origins and design philosophies behind these models provides c
 - **GitHub:** [YOLOv5 Repository](https://github.com/ultralytics/yolov5)
 - **Docs:** [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5)
 
-[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu){ .md-button }
+[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
 
 **YOLOv7 Details:**
 
@@ -121,7 +121,7 @@ YOLOv5 is heavily favored for production environments due to its exceptional sta
 
 ## The Future: Moving to YOLO26
 
-While comparing YOLOv5 and YOLOv7 is an excellent exercise in understanding the evolution of vision AI, the state-of-the-art has continued to progress. Released in January 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) represents a monumental leap forward, rendering older architectures largely obsolete for new projects.
+While comparing YOLOv5 and YOLOv7 is an excellent exercise in understanding the evolution of vision AI, the state-of-the-art has continued to progress. Released in January 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents a monumental leap forward, rendering older architectures largely obsolete for new projects.
 
 For developers seeking the pinnacle of performance, YOLO26 offers several groundbreaking advantages over both YOLOv5 and YOLOv7:
 

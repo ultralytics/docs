@@ -117,7 +117,7 @@ YOLOv6-3.0 is the workhorse for high-volume, GPU-accelerated pipelines.
 
 ## The Future: YOLO26
 
-While YOLOv7 and YOLOv6-3.0 are highly capable, the rapid pace of artificial intelligence innovation demands even greater efficiency. Released in January 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) represents a generational leap in computer vision, systematically addressing the limitations of older architectures.
+While YOLOv7 and YOLOv6-3.0 are highly capable, the rapid pace of artificial intelligence innovation demands even greater efficiency. Released in January 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents a generational leap in computer vision, systematically addressing the limitations of older architectures.
 
 If you are starting a new project, **YOLO26 is strongly recommended** over previous generations. It introduces several groundbreaking features:
 

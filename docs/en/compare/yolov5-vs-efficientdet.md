@@ -9,7 +9,7 @@ keywords: YOLOv5, EfficientDet, object detection, model comparison, computer vis
 
 When embarking on a new [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) project, choosing the right neural network architecture is one of the most consequential decisions you will make. This guide provides an in-depth technical comparison between **Ultralytics YOLOv5** and Google's **EfficientDet**. By analyzing their architectures, performance metrics, and training ecosystems, we aim to help developers and researchers identify the best [object detection](https://docs.ultralytics.com/tasks/detect) model for their specific deployment environments.
 
-While EfficientDet introduced novel concepts in compound scaling and feature fusion, [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) revolutionized the industry by democratizing access to high-performance AI through its incredibly intuitive [PyTorch](https://pytorch.org/) implementation, streamlined user experience, and unparalleled balance of speed and accuracy.
+While EfficientDet introduced novel concepts in compound scaling and feature fusion, [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5) revolutionized the industry by democratizing access to high-performance AI through its incredibly intuitive [PyTorch](https://pytorch.org/) implementation, streamlined user experience, and unparalleled balance of speed and accuracy.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -36,7 +36,7 @@ Key advancements include:
 - **Auto-Learning Anchor Boxes:** Before training commences, YOLOv5 analyzes your custom [training data](https://www.ultralytics.com/glossary/training-data) and automatically calculates the optimal [anchor box](https://www.ultralytics.com/glossary/anchor-boxes) dimensions using k-means clustering.
 - **Memory Efficiency:** Compared to heavy transformer-based models, YOLOv5 maintains a significantly lower memory footprint during both training and inference, allowing it to run smoothly on consumer-grade hardware.
 
-[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu){ .md-button }
+[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
 
 ## EfficientDet: Scalable Object Detection
 
@@ -104,9 +104,9 @@ Furthermore, YOLOv5's versatility extends beyond bounding boxes. Through continu
 
 ## The Next Generation: Embracing YOLO26
 
-While YOLOv5 remains a reliable workhorse, the computer vision landscape has advanced. For developers seeking the absolute state-of-the-art in 2026, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) represents the new pinnacle of the Ultralytics lineup.
+While YOLOv5 remains a reliable workhorse, the computer vision landscape has advanced. For developers seeking the absolute state-of-the-art in 2026, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the new pinnacle of the Ultralytics lineup.
 
-Building upon the legacy of its predecessors (like [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) and [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n)), YOLO26 introduces groundbreaking innovations:
+Building upon the legacy of its predecessors (like [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) and [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11)), YOLO26 introduces groundbreaking innovations:
 
 - **End-to-End NMS-Free Design:** YOLO26 natively eliminates the need for Non-Maximum Suppression post-processing. This significantly reduces latency variance and simplifies deployment architecture.
 - **Up to 43% Faster CPU Inference:** Heavily optimized for [edge AI](https://www.ultralytics.com/glossary/edge-ai), it brings unprecedented speeds to low-power edge devices and standard CPUs without dedicated GPUs.

@@ -9,7 +9,7 @@ keywords: RTDETRv2,DAMO-YOLO,object detection,model comparison,Ultralytics,compu
 
 The landscape of computer vision is constantly evolving, with researchers and engineers striving to build models that perfectly balance speed, accuracy, and efficiency. Two prominent architectures that have made significant waves in this space are RTDETRv2, developed by Baidu, and DAMO-YOLO, crafted by Alibaba Group. Both models push the boundaries of real-time [object detection](https://en.wikipedia.org/wiki/Object_detection), yet they adopt fundamentally different architectural philosophies to achieve their impressive results.
 
-In this technical comparison, we will dive deep into their architectures, training methodologies, and real-world deployment capabilities. We will also explore how these models stack up against the broader ecosystem, particularly the highly optimized [Ultralytics Platform](https://platform.ultralytics.com) and the state-of-the-art [YOLO26 architecture](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n).
+In this technical comparison, we will dive deep into their architectures, training methodologies, and real-world deployment capabilities. We will also explore how these models stack up against the broader ecosystem, particularly the highly optimized [Ultralytics Platform](https://platform.ultralytics.com) and the state-of-the-art [YOLO26 architecture](https://platform.ultralytics.com/ultralytics/yolo26).
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -98,13 +98,13 @@ Choosing between these architectures depends entirely on your specific project r
 
 ## The Future: Ultralytics YOLO26
 
-While both RTDETRv2 and DAMO-YOLO have their merits, the field of computer vision advances rapidly. For new projects, the latest **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)** represents the ultimate synthesis of speed, accuracy, and developer experience.
+While both RTDETRv2 and DAMO-YOLO have their merits, the field of computer vision advances rapidly. For new projects, the latest **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** represents the ultimate synthesis of speed, accuracy, and developer experience.
 
 YOLO26 adopts an **End-to-End NMS-Free Design**, capturing the primary benefit of transformers without the massive computational overhead. It incorporates the innovative **MuSGD Optimizer**—inspired by [Large Language Model](https://en.wikipedia.org/wiki/Large_language_model) training—for stable, fast convergence. Furthermore, with **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), YOLO26 achieves up to **43% faster CPU inference**, making it the undisputed champion for [edge computing](https://en.wikipedia.org/wiki/Edge_computing). Additionally, **ProgLoss + STAL** provides improved loss functions with notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery.
 
 Unlike models limited strictly to bounding boxes, the YOLO26 family offers unparalleled versatility, supporting tasks ranging from [instance segmentation](https://docs.ultralytics.com/tasks/segment) and [pose estimation](https://docs.ultralytics.com/tasks/pose) to [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb), all managed seamlessly through the intuitive [Ultralytics Platform](https://platform.ultralytics.com).
 
-[Explore YOLO26 on Platform](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Explore YOLO26 on Platform](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Model Details and References
 

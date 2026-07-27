@@ -148,7 +148,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 While YOLOv10 and YOLOX represent major milestones, the computer vision landscape moves relentlessly forward. For developers starting new projects today, **Ultralytics YOLO26** is the definitive recommendation.
 
-Released in January 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) builds upon the foundational breakthrough of the **end-to-end NMS-free design** pioneered by YOLOv10, refining it for even greater stability and speed.
+Released in January 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) builds upon the foundational breakthrough of the **end-to-end NMS-free design** pioneered by YOLOv10, refining it for even greater stability and speed.
 
 YOLO26 stands out by introducing several massive leaps forward:
 
@@ -157,7 +157,7 @@ YOLO26 stands out by introducing several massive leaps forward:
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, a critical factor for aerial imagery and IoT sensors.
 - **Unmatched Versatility:** Unlike YOLOX, which is strictly an object detector, YOLO26 natively supports [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), [Image Classification](https://docs.ultralytics.com/tasks/classify), and [OBB Detection](https://docs.ultralytics.com/tasks/obb) within a single, unified library.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 !!! tip "Leverage the Ultralytics Platform"
 
@@ -177,6 +177,6 @@ For older academic setups or legacy Android applications heavily optimized for p
 
 ### Modern Edge and IoT Devices
 
-For next-generation hardware deployments, such as robotics, drones, and retail shelf analysis, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) is the ultimate solution. Its drastically reduced CPU latency and superior small-object detection make it uniquely qualified for autonomous navigation and granular inventory management.
+For next-generation hardware deployments, such as robotics, drones, and retail shelf analysis, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) is the ultimate solution. Its drastically reduced CPU latency and superior small-object detection make it uniquely qualified for autonomous navigation and granular inventory management.
 
-For additional comparisons to expand your deep learning toolkit, you can also explore how these models stack up against alternatives like the flexible [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) or the transformer-powered [RT-DETR](https://docs.ultralytics.com/compare/rtdetr-vs-yolov10).
+For additional comparisons to expand your deep learning toolkit, you can also explore how these models stack up against alternatives like the flexible [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or the transformer-powered [RT-DETR](https://docs.ultralytics.com/compare/rtdetr-vs-yolov10).

@@ -109,7 +109,7 @@ Ultralytics models natively support a wide array of vision tasks beyond standard
 
 ### Discover YOLO26: The New Standard
 
-For organizations looking to deploy the ultimate state-of-the-art vision models, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) (released in January 2026) redefines performance boundaries. It significantly outperforms older generations with several critical innovations:
+For organizations looking to deploy the ultimate state-of-the-art vision models, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) (released in January 2026) redefines performance boundaries. It significantly outperforms older generations with several critical innovations:
 
 - **End-to-End NMS-Free Design:** Building on concepts from [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 completely eliminates [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing. This natively end-to-end approach guarantees predictable, ultra-low latency inference, crucial for real-time safety systems.
 - **Up to 43% Faster CPU Inference:** Through the removal of Distribution Focal Loss (DFL) from the architecture, YOLO26 is radically optimized for edge computing and environments lacking dedicated GPU acceleration.
@@ -140,4 +140,4 @@ predict_results = model.predict("https://ultralytics.com/images/bus.jpg")
 model.export(format="onnx")
 ```
 
-For teams deeply integrated into older workflows but seeking modern stability, exploring [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) is also an excellent transitional step, offering comprehensive task versatility backed by the full Ultralytics ecosystem.
+For teams deeply integrated into older workflows but seeking modern stability, exploring [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) is also an excellent transitional step, offering comprehensive task versatility backed by the full Ultralytics ecosystem.

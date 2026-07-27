@@ -26,11 +26,11 @@ This guide provides an in-depth technical analysis of these two models, comparin
 - **GitHub:** [Ultralytics YOLOv5 Repository](https://github.com/ultralytics/yolov5)
 - **Documentation:** [YOLOv5 Official Docs](https://docs.ultralytics.com/models/yolov5)
 
-Introduced by Ultralytics, [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) quickly became an industry standard due to its exceptional balance of performance, ease of use, and memory efficiency. Built natively on the [PyTorch](https://pytorch.org/) framework, YOLOv5 uses an anchor-based architecture. It relies on predefined bounding box shapes to predict object locations, which makes it highly effective for standard object detection tasks.
+Introduced by Ultralytics, [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5) quickly became an industry standard due to its exceptional balance of performance, ease of use, and memory efficiency. Built natively on the [PyTorch](https://pytorch.org/) framework, YOLOv5 uses an anchor-based architecture. It relies on predefined bounding box shapes to predict object locations, which makes it highly effective for standard object detection tasks.
 
 One of the greatest strengths of YOLOv5 is its well-maintained ecosystem. It boasts extensive documentation, an incredibly simple Python API, and native integration with the [Ultralytics Platform](https://platform.ultralytics.com). This allows developers to transition seamlessly from dataset labeling to training and exporting to formats like [ONNX](https://onnx.ai/) and [TensorRT](https://developer.nvidia.com/tensorrt).
 
-[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu){ .md-button }
+[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
 
 !!! note "Ecosystem Advantage"
 
@@ -141,11 +141,11 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## The Future of Vision AI: Enter YOLO26
 
-While both YOLOv5 and YOLOX have cemented their places in computer vision history, the field is rapidly advancing. For developers starting new projects today, Ultralytics highly recommends exploring its latest flagship model, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n).
+While both YOLOv5 and YOLOX have cemented their places in computer vision history, the field is rapidly advancing. For developers starting new projects today, Ultralytics highly recommends exploring its latest flagship model, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26).
 
 Released in January 2026, YOLO26 represents a massive leap forward in both performance and usability. It introduces a breakthrough **end-to-end NMS-free design**, completely eliminating Non-Maximum Suppression post-processing. This significantly reduces latency variability and simplifies deployment logic on low-power devices.
 
-Furthermore, YOLO26 utilizes the novel **MuSGD Optimizer**—a hybrid of SGD and Muon inspired by LLM training innovations—for incredibly stable and fast convergence. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), YOLO26 achieves up to **43% faster CPU inference**, solidifying its position as the ultimate model for modern edge computing, robotics, and IoT applications. Additionally, **ProgLoss + STAL** delivers improved loss functions with notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery. Users interested in previous generations may also look into [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n), though YOLO26 is the undisputed state-of-the-art choice.
+Furthermore, YOLO26 utilizes the novel **MuSGD Optimizer**—a hybrid of SGD and Muon inspired by LLM training innovations—for incredibly stable and fast convergence. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), YOLO26 achieves up to **43% faster CPU inference**, solidifying its position as the ultimate model for modern edge computing, robotics, and IoT applications. Additionally, **ProgLoss + STAL** delivers improved loss functions with notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery. Users interested in previous generations may also look into [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), though YOLO26 is the undisputed state-of-the-art choice.
 
 ## Conclusion
 

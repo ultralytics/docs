@@ -7,7 +7,7 @@ keywords: YOLO11, DAMO-YOLO, object detection, model comparison, Ultralytics, pe
 
 # YOLO11 vs DAMO-YOLO
 
-Choosing the optimal architecture is a critical step in any [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) project. This technical guide provides a comprehensive comparison between two powerful object detection models: [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) and [DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO). We will dive into their architectural innovations, training paradigms, and real-world applicability to help you select the best tool for your deployment needs.
+Choosing the optimal architecture is a critical step in any [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) project. This technical guide provides a comprehensive comparison between two powerful object detection models: [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO). We will dive into their architectural innovations, training paradigms, and real-world applicability to help you select the best tool for your deployment needs.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -26,7 +26,7 @@ Developed by the team at Ultralytics, **YOLO11** represents a highly refined ite
 - **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 - **Docs:** [https://docs.ultralytics.com/models/yolo11/](https://docs.ultralytics.com/models/yolo11)
 
-[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 YOLO11 shines in its versatility. While many traditional models focus solely on bounding boxes, YOLO11 natively supports [object detection](https://docs.ultralytics.com/tasks/detect), [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), and [pose estimation](https://docs.ultralytics.com/tasks/pose). This multi-modal capability allows developers to consolidate their [vision AI](https://www.ultralytics.com/glossary/computer-vision-cv) pipelines under a single, well-maintained framework.
 
@@ -47,7 +47,7 @@ The core philosophy of DAMO-YOLO revolves around rep-parameterization and automa
 
 !!! note "Other Models to Consider"
 
-    While comparing YOLO11 and DAMO-YOLO, consider checking out the newer [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n). It introduces natively end-to-end NMS-free inference and delivers up to 43% faster CPU speeds. You might also explore comparisons involving [YOLOX](https://docs.ultralytics.com/compare/yolox-vs-damo-yolo) or [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n).
+    While comparing YOLO11 and DAMO-YOLO, consider checking out the newer [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). It introduces natively end-to-end NMS-free inference and delivers up to 43% faster CPU speeds. You might also explore comparisons involving [YOLOX](https://docs.ultralytics.com/compare/yolox-vs-damo-yolo) or [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8).
 
 ## Performance and Architecture Comparison
 
@@ -137,6 +137,6 @@ Medical imaging datasets are often relatively small, and avoiding overfitting is
 
 !!! tip "Embracing the Future with YOLO26"
 
-    If you are building a new application from scratch, consider exploring [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n). Released in early 2026, it utilizes a MuSGD Optimizer and ProgLoss functions, delivering exceptional accuracy on tiny objects and providing an **end-to-end NMS-free** pipeline out of the box!
+    If you are building a new application from scratch, consider exploring [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). Released in early 2026, it utilizes a MuSGD Optimizer and ProgLoss functions, delivering exceptional accuracy on tiny objects and providing an **end-to-end NMS-free** pipeline out of the box!
 
 Ultimately, while DAMO-YOLO remains a powerful demonstration of Neural Architecture Search, **YOLO11** and the extended Ultralytics family remain the definitive recommendation for real-world computer vision tasks, prioritizing rapid deployment, developer ease, and top-tier multi-modal performance.

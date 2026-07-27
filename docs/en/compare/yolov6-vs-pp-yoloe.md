@@ -14,7 +14,7 @@ When selecting a framework for real-time [object detection](https://docs.ultraly
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv6-3.0", "PP-YOLOE+"]'></canvas>
 
-This technical comparison provides an in-depth look at their architectures, performance metrics, and training methodologies, while also introducing modern alternatives like [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) that offer superior versatility and ease of use.
+This technical comparison provides an in-depth look at their architectures, performance metrics, and training methodologies, while also introducing modern alternatives like [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) that offer superior versatility and ease of use.
 
 ## YOLOv6-3.0: High-Throughput Industrial Engine
 
@@ -73,7 +73,7 @@ While both models show strong performance, YOLOv6-3.0 generally maintains a slig
 
 ## The Ultralytics Advantage: Introducing YOLO26
 
-While YOLOv6-3.0 and PP-YOLOE+ are highly capable, the rapid evolution of [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) demands architectures that offer not just raw speed, but also exceptional ease of use, lower memory requirements, and a unified ecosystem. This is where **Ultralytics YOLO** models, particularly [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) and the cutting-edge **[YOLO26](https://docs.ultralytics.com/models/yolo26)**, redefine the state-of-the-art.
+While YOLOv6-3.0 and PP-YOLOE+ are highly capable, the rapid evolution of [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) demands architectures that offer not just raw speed, but also exceptional ease of use, lower memory requirements, and a unified ecosystem. This is where **Ultralytics YOLO** models, particularly [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and the cutting-edge **[YOLO26](https://docs.ultralytics.com/models/yolo26)**, redefine the state-of-the-art.
 
 Released in January 2026, **YOLO26** establishes a new benchmark for edge-first and cloud-ready vision AI, offering significant advantages over legacy models:
 

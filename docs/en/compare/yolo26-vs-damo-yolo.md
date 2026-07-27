@@ -7,7 +7,7 @@ keywords: YOLO26, DAMO-YOLO, Ultralytics, object detection, real-time detection,
 
 # YOLO26 vs DAMO-YOLO
 
-When selecting a state-of-the-art computer vision model, finding the optimal balance between inference speed, accuracy, and ease of deployment is critical. This comprehensive guide compares two prominent models in the vision AI landscape: [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) and [DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO). While both architectures push the boundaries of real-time object detection, their underlying design philosophies and intended use cases differ significantly.
+When selecting a state-of-the-art computer vision model, finding the optimal balance between inference speed, accuracy, and ease of deployment is critical. This comprehensive guide compares two prominent models in the vision AI landscape: [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) and [DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO). While both architectures push the boundaries of real-time object detection, their underlying design philosophies and intended use cases differ significantly.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -27,7 +27,7 @@ Key architectural breakthroughs of YOLO26 include:
 - **MuSGD Optimizer:** Inspired by Moonshot AI's Kimi K2, this hybrid of Stochastic Gradient Descent (SGD) and Muon brings LLM training innovations into computer vision, resulting in remarkably stable training and rapid convergence.
 - **ProgLoss + STAL:** These advanced loss functions deliver notable improvements in small-object recognition, which is a critical necessity for drone-based [aerial imagery analysis](https://www.ultralytics.com/blog/using-computer-vision-to-analyze-satellite-imagery) and intricate robotics pipelines.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ### DAMO-YOLO: Neural Architecture Search at Scale
 
@@ -104,7 +104,7 @@ model.export(format="onnx")
 
 !!! note "Exploring Other Models"
 
-    If you are interested in exploring other modern architectures within the Ultralytics ecosystem, the highly capable [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) remains a fantastic choice for legacy pipelines. Alternatively, researchers interested in transformer-based architectures can explore the [RT-DETR](https://docs.ultralytics.com/models/rtdetr) model.
+    If you are interested in exploring other modern architectures within the Ultralytics ecosystem, the highly capable [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains a fantastic choice for legacy pipelines. Alternatively, researchers interested in transformer-based architectures can explore the [RT-DETR](https://docs.ultralytics.com/models/rtdetr) model.
 
 ## Real-World Applications
 

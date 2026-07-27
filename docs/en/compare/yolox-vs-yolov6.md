@@ -14,7 +14,7 @@ The evolution of [computer vision](https://www.ultralytics.com/glossary/computer
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOX", "YOLOv6-3.0"]'></canvas>
 
-This technical comparison breaks down their architectural differences, performance metrics, and ideal use cases, while also introducing the next-generation capabilities of [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) for developers seeking the ultimate edge and cloud deployment solution.
+This technical comparison breaks down their architectural differences, performance metrics, and ideal use cases, while also introducing the next-generation capabilities of [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) for developers seeking the ultimate edge and cloud deployment solution.
 
 ## YOLOX: Bridging Research and Industry
 
@@ -114,14 +114,14 @@ Unlike specialized models, Ultralytics architectures are inherently versatile, s
 
 ### Enter YOLO26: The Ultimate Edge Solution
 
-For teams starting new computer vision projects, we highly recommend upgrading to the newly released **Ultralytics YOLO26**. Building upon the successes of [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n), YOLO26 introduces paradigm-shifting innovations:
+For teams starting new computer vision projects, we highly recommend upgrading to the newly released **Ultralytics YOLO26**. Building upon the successes of [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8), YOLO26 introduces paradigm-shifting innovations:
 
 - **End-to-End NMS-Free Design:** First explored in YOLOv10, YOLO26 natively eliminates the need for [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing. This guarantees deterministic, ultra-low latency inference critical for real-time robotics.
 - **MuSGD Optimizer:** Inspired by LLM training techniques like Moonshot AI's Kimi K2, YOLO26 utilizes the MuSGD optimizer (a hybrid of SGD and Muon) to achieve incredibly stable training dynamics and faster convergence.
 - **Up to 43% Faster CPU Inference:** By removing Distribution Focal Loss (DFL) and streamlining the network head, YOLO26 is heavily optimized for edge devices relying on [CPU execution](https://www.ultralytics.com/glossary/cpu), drastically outperforming YOLOv6 in edge scenarios.
 - **ProgLoss + STAL:** These advanced loss formulations deliver remarkable improvements in [small object detection](https://www.ultralytics.com/blog/exploring-small-object-detection-with-ultralytics-yolo11), making YOLO26 ideal for aerial imagery and microscopic defect inspection.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ### Unified Training Example
 

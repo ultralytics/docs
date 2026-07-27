@@ -133,7 +133,7 @@ results = model.train(data="coco8.yaml", epochs=50, imgsz=640)
 predictions = model.predict("image.jpg")
 ```
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Conclusion
 

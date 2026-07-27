@@ -7,7 +7,7 @@ keywords: YOLO26, YOLOv7, Ultralytics, object detection, NMS-free, end-to-end de
 
 # YOLO26 vs YOLOv7
 
-The evolution of real-time object detection has seen numerous milestones, with [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) and [YOLOv7](https://github.com/WongKinYiu/yolov7) representing two significant leaps in computer vision capabilities. While YOLOv7 introduced the powerful "bag-of-freebies" methodology that redefined accuracy benchmarks in 2022, the newly released YOLO26 architecture pioneers edge-first optimizations, natively end-to-end processing, and stable training dynamics inspired by Large Language Model (LLM) innovations.
+The evolution of real-time object detection has seen numerous milestones, with [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) and [YOLOv7](https://github.com/WongKinYiu/yolov7) representing two significant leaps in computer vision capabilities. While YOLOv7 introduced the powerful "bag-of-freebies" methodology that redefined accuracy benchmarks in 2022, the newly released YOLO26 architecture pioneers edge-first optimizations, natively end-to-end processing, and stable training dynamics inspired by Large Language Model (LLM) innovations.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -28,7 +28,7 @@ Before examining the performance data, it is important to understand the origins
 **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)  
 **Docs:** [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26)
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ### YOLOv7
 
@@ -42,7 +42,7 @@ Before examining the performance data, it is important to understand the origins
 
 !!! note "Alternative Models to Consider"
 
-    If you are exploring the broader ecosystem, you might also be interested in [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) for highly balanced multi-task deployments, or the transformer-based [RT-DETR](https://docs.ultralytics.com/models/rtdetr) for sequence-based detection. Note that older models like [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) and [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) remain fully supported on the Ultralytics Platform for legacy integration.
+    If you are exploring the broader ecosystem, you might also be interested in [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) for highly balanced multi-task deployments, or the transformer-based [RT-DETR](https://docs.ultralytics.com/models/rtdetr) for sequence-based detection. Note that older models like [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) and [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5) remain fully supported on the Ultralytics Platform for legacy integration.
 
 ## Architectural Deep Dive
 

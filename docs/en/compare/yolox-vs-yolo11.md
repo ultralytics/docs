@@ -7,7 +7,7 @@ keywords: YOLO11, YOLOX, object detection, model comparison, computer vision, re
 
 # YOLOX vs YOLO11
 
-The evolution of computer vision has been heavily driven by the pursuit of real-time object detection frameworks that balance high accuracy with inference speed. Among the most notable milestones in this journey are [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) and [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n). While both models have made significant contributions to the field, their underlying architectures, design philosophies, and developer ecosystems differ substantially.
+The evolution of computer vision has been heavily driven by the pursuit of real-time object detection frameworks that balance high accuracy with inference speed. Among the most notable milestones in this journey are [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) and [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11). While both models have made significant contributions to the field, their underlying architectures, design philosophies, and developer ecosystems differ substantially.
 
 This comprehensive technical comparison explores their architectures, performance metrics, training methodologies, and ideal deployment scenarios to help you make an informed decision for your next artificial intelligence project.
 
@@ -42,9 +42,9 @@ Released on September 27, 2024, by Glenn Jocher and Jing Qiu at [Ultralytics](ht
 
 YOLO11 is not just an object detector; it is a unified framework supporting [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding box (OBB)](https://docs.ultralytics.com/tasks/obb) detection. It boasts a highly efficient architecture that prioritizes a seamless balance between speed, parameter count, and accuracy.
 
-Furthermore, YOLO11 is fully integrated into the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n), which provides a streamlined ecosystem for data annotation, model training, and deployment.
+Furthermore, YOLO11 is fully integrated into the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo11), which provides a streamlined ecosystem for data annotation, model training, and deployment.
 
-[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 ## Performance and Metrics Comparison
 
@@ -111,7 +111,7 @@ Choosing between these models often depends on the specifics of the deployment e
 
 ## Looking Ahead: The YOLO26 Advantage
 
-While YOLO11 represents a massive leap over YOLOX, the field of computer vision is advancing rapidly. For developers starting new projects today, **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)** is the definitive recommendation.
+While YOLO11 represents a massive leap over YOLOX, the field of computer vision is advancing rapidly. For developers starting new projects today, **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** is the definitive recommendation.
 
 Released in January 2026, YOLO26 takes the architectural brilliance of YOLO11 and introduces several groundbreaking features:
 

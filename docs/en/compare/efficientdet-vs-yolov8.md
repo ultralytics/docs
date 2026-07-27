@@ -36,14 +36,14 @@ EfficientDet relies on the EfficientNet backbone and introduces a **Bi-direction
 
 ### Ultralytics YOLOv8: The Versatile Standard
 
-Released in early 2023, [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) represented a paradigm shift in the YOLO family, designed not just for bounding box detection, but as a unified framework capable of handling a multitude of vision tasks.
+Released in early 2023, [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) represented a paradigm shift in the YOLO family, designed not just for bounding box detection, but as a unified framework capable of handling a multitude of vision tasks.
 
 - **Authors:** Glenn Jocher, Ayush Chaurasia, and Jing Qiu
 - **Organization:** [Ultralytics](https://www.ultralytics.com/)
 - **Date:** 2023-01-10
 - **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 
-[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n){ .md-button }
+[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
 YOLOv8 introduced an **anchor-free** detection head, eliminating the need to manually configure [anchor boxes](https://en.wikipedia.org/wiki/Bounding_box) based on dataset distributions. This significantly simplifies training. Its architecture features a highly optimized C2f module that improves gradient flow and allows the model to learn richer feature representations. Crucially, YOLOv8 requires significantly lower [GPU memory](https://developer.nvidia.com/cuda/toolkit) during training compared to heavy transformer-based models, democratizing access to high-end AI research.
 
@@ -138,9 +138,9 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## Looking Forward: The YOLO26 Advantage
 
-While YOLOv8 is a fantastic general-purpose model, the computer vision landscape has continued to advance. For users evaluating architectures today, it is highly recommended to explore the newly released [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n), which represents the pinnacle of modern object detection.
+While YOLOv8 is a fantastic general-purpose model, the computer vision landscape has continued to advance. For users evaluating architectures today, it is highly recommended to explore the newly released [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26), which represents the pinnacle of modern object detection.
 
-Released in January 2026, YOLO26 builds upon the successes of its predecessors (including [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) and [YOLOv10](https://docs.ultralytics.com/models/yolov10)) with groundbreaking features:
+Released in January 2026, YOLO26 builds upon the successes of its predecessors (including [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv10](https://docs.ultralytics.com/models/yolov10)) with groundbreaking features:
 
 - **End-to-End NMS-Free Design:** YOLO26 natively eliminates the need for Non-Maximum Suppression (NMS) post-processing, vastly simplifying deployment logic and reducing latency variance.
 - **MuSGD Optimizer:** Integrating innovations from Large Language Model (LLM) training, this hybrid optimizer ensures more stable training and rapid convergence.

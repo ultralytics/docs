@@ -112,7 +112,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 While both RTDETRv2 and EfficientDet have strong merits, modern AI development demands frameworks that offer a seamless [developer experience](https://docs.ultralytics.com/quickstart) alongside cutting-edge performance. The [Ultralytics ecosystem](https://docs.ultralytics.com/) provides a significantly more streamlined approach to computer vision tasks.
 
-If you are exploring state-of-the-art detection, the newly released [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) synthesizes the best aspects of both CNNs and transformers.
+If you are exploring state-of-the-art detection, the newly released [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) synthesizes the best aspects of both CNNs and transformers.
 
 !!! tip "Why Choose YOLO26?"
 

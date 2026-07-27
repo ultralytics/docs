@@ -9,7 +9,7 @@ keywords: YOLOv6, YOLOv9, object detection, model comparison, performance metric
 
 The landscape of real-time object detection continues to evolve, driven by demands for higher accuracy, lower latency, and better hardware utilization. This comprehensive comparison examines two significant milestones in the field: **YOLOv6-3.0**, developed for industrial throughput, and **YOLOv9**, which introduced novel architectures to overcome deep learning information bottlenecks.
 
-While both models offer unique architectural innovations, developers looking for the ultimate balance of performance and deployment simplicity often transition to modern ecosystems. For those starting new projects, the natively end-to-end [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) is the recommended standard, offering state-of-the-art accuracy with a significantly more streamlined developer experience.
+While both models offer unique architectural innovations, developers looking for the ultimate balance of performance and deployment simplicity often transition to modern ecosystems. For those starting new projects, the natively end-to-end [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) is the recommended standard, offering state-of-the-art accuracy with a significantly more streamlined developer experience.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -77,7 +77,7 @@ When comparing these models, it is essential to look at the balance of accuracy,
 
 ## The Ultralytics Advantage: Introducing YOLO26
 
-While YOLOv6-3.0 and YOLOv9 provide robust architectures, production environments demand a well-maintained ecosystem, low memory requirements, and exceptional ease of use. This is where [Ultralytics Platform](https://platform.ultralytics.com/) and models like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) and the cutting-edge YOLO26 excel.
+While YOLOv6-3.0 and YOLOv9 provide robust architectures, production environments demand a well-maintained ecosystem, low memory requirements, and exceptional ease of use. This is where [Ultralytics Platform](https://platform.ultralytics.com/) and models like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and the cutting-edge YOLO26 excel.
 
 Released in early 2026, YOLO26 fundamentally redefines deployment efficiency by eliminating legacy bottlenecks.
 
@@ -92,7 +92,7 @@ Released in early 2026, YOLO26 fundamentally redefines deployment efficiency by 
 3. **ProgLoss + STAL:** Advanced loss functions drastically improve small object detection, which is critical for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and robotics.
 4. **Unmatched Versatility:** While YOLOv6 is purely a detection engine, YOLO26 handles [instance segmentation](https://docs.ultralytics.com/tasks/segment), classification, [pose estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection seamlessly.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ### Seamless Training with Ultralytics
 
@@ -119,4 +119,4 @@ Choosing the right architecture depends entirely on your target deployment envir
 - **Use YOLOv9 for:** Academic research or competitions where wringing out the absolute highest mAP on standardized datasets like COCO is the primary goal.
 - **Use YOLO26 for:** Almost all modern commercial applications. Its NMS-free architecture, low memory footprint, and high-speed CPU inference make it perfect for [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system), smart retail, and real-time [object tracking](https://docs.ultralytics.com/modes/track) on embedded devices.
 
-By leveraging the comprehensive [Ultralytics ecosystem](https://docs.ultralytics.com/), developers can easily experiment with [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n), YOLO11, and YOLO26 to find the perfect performance balance for their specific real-world challenges.
+By leveraging the comprehensive [Ultralytics ecosystem](https://docs.ultralytics.com/), developers can easily experiment with [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8), YOLO11, and YOLO26 to find the perfect performance balance for their specific real-world challenges.

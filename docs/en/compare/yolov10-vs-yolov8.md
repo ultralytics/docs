@@ -42,7 +42,7 @@ Released in early 2023, YOLOv8 quickly became an industry staple due to its robu
 - **Date:** 2023-01-10
 - **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 
-[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n){ .md-button }
+[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
 ## Architectural Innovations
 
@@ -115,7 +115,7 @@ predictions[0].show()
 
 ## The Next Generation: YOLO26
 
-While YOLOv8 and YOLOv10 represent exceptional milestones, the machine learning field is constantly advancing. For developers starting new projects, we strongly recommend leveraging **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)**, the latest flagship model from Ultralytics released in January 2026.
+While YOLOv8 and YOLOv10 represent exceptional milestones, the machine learning field is constantly advancing. For developers starting new projects, we strongly recommend leveraging **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**, the latest flagship model from Ultralytics released in January 2026.
 
 YOLO26 combines the best architectural advancements of the past years into a single, highly optimized framework. It inherits the **End-to-End NMS-Free Design** pioneered by models like YOLOv10, streamlining deployment pipelines and reducing latency variability. Furthermore, YOLO26 introduces the **MuSGD Optimizer**, a hybrid inspired by LLM training stability that ensures faster and more stable convergence.
 
@@ -133,4 +133,4 @@ When deciding between these architectures, consider the specific needs of your d
 - **Choose Ultralytics YOLOv8 if:** You need a highly stable, production-ready model supported by the robust [Ultralytics Platform](https://platform.ultralytics.com/). It is the ideal choice if your project requires multiple tasks (e.g., detecting objects and then segmenting them) using a unified, easy-to-maintain codebase.
 - **Choose YOLO26 (Recommended) if:** You want the ultimate balance of state-of-the-art accuracy, native end-to-end NMS-free efficiency, and the fastest possible speeds on CPU and edge hardware.
 
-If you are exploring the broader landscape, you might also be interested in comparing these models with [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) or checking out specific edge-deployment integrations like [Intel OpenVINO](https://docs.ultralytics.com/integrations/openvino) to further accelerate your vision AI applications. By leveraging the unified tools provided by Ultralytics, deploying robust computer vision solutions has never been more accessible.
+If you are exploring the broader landscape, you might also be interested in comparing these models with [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or checking out specific edge-deployment integrations like [Intel OpenVINO](https://docs.ultralytics.com/integrations/openvino) to further accelerate your vision AI applications. By leveraging the unified tools provided by Ultralytics, deploying robust computer vision solutions has never been more accessible.

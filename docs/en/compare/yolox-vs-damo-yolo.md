@@ -7,7 +7,7 @@ keywords: YOLOX, DAMO-YOLO, object detection, model comparison, YOLO models, dee
 
 # YOLOX vs DAMO-YOLO
 
-The evolution of real-time object detection has seen numerous paradigms shift, from anchor-based to anchor-free architectures, and from manually designed backbones to automated neural architecture search (NAS). In this comprehensive technical comparison, we will analyze two significant milestones in this journey: **YOLOX** and **DAMO-YOLO**. We will explore their architectural innovations, training methodologies, and performance trade-offs, while also highlighting how the modern [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) provides an unparalleled alternative for modern developers.
+The evolution of real-time object detection has seen numerous paradigms shift, from anchor-based to anchor-free architectures, and from manually designed backbones to automated neural architecture search (NAS). In this comprehensive technical comparison, we will analyze two significant milestones in this journey: **YOLOX** and **DAMO-YOLO**. We will explore their architectural innovations, training methodologies, and performance trade-offs, while also highlighting how the modern [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) provides an unparalleled alternative for modern developers.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -130,14 +130,14 @@ results = model("https://ultralytics.com/images/bus.jpg")
 model.export(format="openvino")
 ```
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Other Models to Consider
 
 The computer vision ecosystem is vast. Depending on your specific constraints, you might also want to explore other architectures fully supported by the Ultralytics ecosystem:
 
-- **[YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n):** The highly capable predecessor to YOLO26, known for its robustness in [retail analytics](https://www.ultralytics.com/solutions/ai-in-retail) and [manufacturing quality control](https://www.ultralytics.com/solutions/ai-in-manufacturing).
-- **[YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n):** A legendary, highly stable anchor-free model that popularized widespread edge deployment.
+- **[YOLO11](https://platform.ultralytics.com/ultralytics/yolo11):** The highly capable predecessor to YOLO26, known for its robustness in [retail analytics](https://www.ultralytics.com/solutions/ai-in-retail) and [manufacturing quality control](https://www.ultralytics.com/solutions/ai-in-manufacturing).
+- **[YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8):** A legendary, highly stable anchor-free model that popularized widespread edge deployment.
 - **[RT-DETR](https://docs.ultralytics.com/models/rtdetr):** A Real-Time DEtection TRansformer developed by Baidu, offering an excellent alternative for tasks that benefit heavily from global attention mechanisms, albeit at the cost of higher training memory requirements.
 
 ## Conclusion

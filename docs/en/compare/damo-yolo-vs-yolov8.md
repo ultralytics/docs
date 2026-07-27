@@ -38,7 +38,7 @@ Understanding the origins of these deep learning models provides valuable contex
 **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)  
 **Docs:** [YOLOv8 Documentation](https://docs.ultralytics.com/models/yolov8)
 
-[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n){ .md-button }
+[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
 ## Architectural Innovations
 
@@ -52,7 +52,7 @@ To improve training, the Alibaba team incorporated a ZeroHead design and Aligned
 
 ### YOLOv8: Streamlined and Versatile
 
-Ultralytics took a more developer-first approach with YOLOv8. It shifted from the anchor-based design of [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) to an anchor-free architecture, significantly reducing the number of bounding box predictions and accelerating inference. The introduction of the C2f (Cross-Stage Partial Bottleneck with 2 convolutions) module improved gradient flow and feature representation without adding excessive computational overhead.
+Ultralytics took a more developer-first approach with YOLOv8. It shifted from the anchor-based design of [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5) to an anchor-free architecture, significantly reducing the number of bounding box predictions and accelerating inference. The introduction of the C2f (Cross-Stage Partial Bottleneck with 2 convolutions) module improved gradient flow and feature representation without adding excessive computational overhead.
 
 Unlike models that strictly target bounding boxes, YOLOv8 was designed from the ground up to be multi-modal. A unified [PyTorch](https://pytorch.org/) codebase natively supports instance segmentation, pose estimation, and image classification, saving engineers from piecing together disparate repositories.
 
@@ -120,14 +120,14 @@ For the vast majority of commercial projects, Ultralytics models provide superio
 
 !!! note "Other Notable Models"
 
-    If you are exploring the broader landscape, you might also be interested in comparing [YOLOv10](https://docs.ultralytics.com/models/yolov10) or [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) which bring further advancements to anchor-free detection.
+    If you are exploring the broader landscape, you might also be interested in comparing [YOLOv10](https://docs.ultralytics.com/models/yolov10) or [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) which bring further advancements to anchor-free detection.
 
 ## Future-Proofing: Enter YOLO26
 
-While YOLOv8 remains a foundational model, the field has continued to advance. For all new developments, **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)** is the recommended standard. Released in January 2026, it represents a monumental leap in the Ultralytics lineup.
+While YOLOv8 remains a foundational model, the field has continued to advance. For all new developments, **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** is the recommended standard. Released in January 2026, it represents a monumental leap in the Ultralytics lineup.
 
 YOLO26 pioneers a native **end-to-end NMS-free design**, completely eliminating the traditional Non-Maximum Suppression bottleneck. This structural breakthrough yields up to **43% faster CPU inference**, making it an absolute powerhouse for edge computing and IoT hardware.
 
 Furthermore, YOLO26 introduces the **MuSGD Optimizer**, a hybrid inspired by Large Language Model (LLM) training techniques that guarantees faster convergence and highly stable training loops. Coupled with the new ProgLoss + STAL algorithms, YOLO26 exhibits dramatic improvements in small-object recognition, ensuring that your deployments are not just fast, but uncompromisingly accurate.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }

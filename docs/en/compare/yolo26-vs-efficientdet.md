@@ -7,7 +7,7 @@ keywords: YOLO26, EfficientDet, Ultralytics, object detection, real-time detecti
 
 # YOLO26 vs EfficientDet
 
-Choosing the right neural network architecture is critical for the success of any [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) application. This technical guide explores the trade-offs, performance metrics, and architectural innovations of two prominent models: the cutting-edge [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) and Google's well-established EfficientDet.
+Choosing the right neural network architecture is critical for the success of any [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) application. This technical guide explores the trade-offs, performance metrics, and architectural innovations of two prominent models: the cutting-edge [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) and Google's well-established EfficientDet.
 
 Whether your deployment targets high-throughput cloud servers or latency-constrained [edge AI](https://www.ultralytics.com/glossary/edge-ai) devices, understanding the differences between these architectures ensures an optimal balance of speed, accuracy, and efficiency.
 
@@ -38,7 +38,7 @@ YOLO26 introduces several groundbreaking features that drastically improve both 
 
     Thanks to the DFL removal and NMS-free architecture, exporting YOLO26 models to edge-friendly formats like [NVIDIA TensorRT](https://developer.nvidia.com/tensorrt) or [Intel OpenVINO](https://docs.ultralytics.com/integrations/openvino) requires virtually no custom plugin development.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Architectural Overview: EfficientDet
 
@@ -90,7 +90,7 @@ Conversely, Ultralytics offers an incredibly well-maintained ecosystem built on 
 
 !!! note "Unified Platform Integration"
 
-    Through the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n), developers gain access to an end-to-end MLOps workflow. This includes seamless data annotation, automated hyperparameter tuning, and one-click cloud training, significantly accelerating the path from prototyping to production.
+    Through the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26), developers gain access to an end-to-end MLOps workflow. This includes seamless data annotation, automated hyperparameter tuning, and one-click cloud training, significantly accelerating the path from prototyping to production.
 
 ### Implementation Example
 
@@ -129,6 +129,6 @@ model.export(format="engine")
 
 ## Exploring Other Alternatives
 
-While this guide focuses heavily on the [YOLO26 vs EfficientDet](https://docs.ultralytics.com/compare/efficientdet-vs-yolo26) paradigm, the broader Ultralytics ecosystem houses other incredible architectures. If your application relies heavily on transformers, [RT-DETR](https://docs.ultralytics.com/models/rtdetr) offers real-time transformer-based detection. Alternatively, if you are supporting legacy systems, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) remains fully supported and highly effective. For a broader overview, visit the [Ultralytics Model Comparisons Hub](https://docs.ultralytics.com/compare).
+While this guide focuses heavily on the [YOLO26 vs EfficientDet](https://docs.ultralytics.com/compare/efficientdet-vs-yolo26) paradigm, the broader Ultralytics ecosystem houses other incredible architectures. If your application relies heavily on transformers, [RT-DETR](https://docs.ultralytics.com/models/rtdetr) offers real-time transformer-based detection. Alternatively, if you are supporting legacy systems, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains fully supported and highly effective. For a broader overview, visit the [Ultralytics Model Comparisons Hub](https://docs.ultralytics.com/compare).
 
 Ultimately, for any modern computer vision pipeline built today, the sheer speed, ease of use, and state-of-the-art accuracy of **YOLO26** make it the undisputed recommendation for researchers and developers alike.

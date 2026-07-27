@@ -7,7 +7,7 @@ keywords: YOLO11, YOLOv9, object detection, model comparison, benchmarks, Ultral
 
 # YOLOv9 vs YOLO11
 
-The rapid evolution of computer vision has continuously pushed the boundaries of what is possible in real-time [object detection](https://docs.ultralytics.com/tasks/detect). When comparing leading architectures, **YOLOv9** and **[Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n)** stand out as monumental leaps forward, each serving distinct technical needs. YOLOv9 introduced novel ways to preserve gradient flow during deep network training, while YOLO11 revolutionized the general-purpose vision ecosystem with unmatched efficiency, versatility, and ease of use.
+The rapid evolution of computer vision has continuously pushed the boundaries of what is possible in real-time [object detection](https://docs.ultralytics.com/tasks/detect). When comparing leading architectures, **YOLOv9** and **[Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11)** stand out as monumental leaps forward, each serving distinct technical needs. YOLOv9 introduced novel ways to preserve gradient flow during deep network training, while YOLO11 revolutionized the general-purpose vision ecosystem with unmatched efficiency, versatility, and ease of use.
 
 This comprehensive technical comparison analyzes their architectures, performance metrics, memory requirements, and ideal deployment scenarios to help you select the optimal model for your next AI project.
 
@@ -18,7 +18,7 @@ This comprehensive technical comparison analyzes their architectures, performanc
 
 !!! tip "Future-Proof Your Project with YOLO26"
 
-    While YOLOv9 and YOLO11 are excellent models, the newly released [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) represents the next leap forward. It features an end-to-end NMS-free design for simplified deployment, up to 43% faster CPU inference, and the innovative MuSGD optimizer for rapid convergence. For all new production projects, YOLO26 is highly recommended.
+    While YOLOv9 and YOLO11 are excellent models, the newly released [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the next leap forward. It features an end-to-end NMS-free design for simplified deployment, up to 43% faster CPU inference, and the innovative MuSGD optimizer for rapid convergence. For all new production projects, YOLO26 is highly recommended.
 
 ## Technical Specifications and Authorship
 
@@ -45,7 +45,7 @@ YOLO11 was designed from the ground up for production environments, focusing on 
 - **Date:** September 27, 2024
 - **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 
-[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 ## Architectural Innovations
 
@@ -131,6 +131,6 @@ For developers, engineers, and production teams, **YOLO11 is highly recommended*
 
 ## Looking Ahead: The Next Evolution
 
-While YOLO11 represents the state-of-the-art for its generation, the computer vision landscape continues to advance. Users exploring the boundaries of AI should also look toward **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)**.
+While YOLO11 represents the state-of-the-art for its generation, the computer vision landscape continues to advance. Users exploring the boundaries of AI should also look toward **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**.
 
-Pioneering an end-to-end NMS-free design first explored in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 introduces the MuSGD optimizer (a hybrid of SGD and Muon) for unprecedented training stability. With the removal of Distribution Focal Loss (DFL) to simplify export, and advanced loss mechanisms like ProgLoss and STAL, YOLO26 achieves up to 43% faster CPU inference. For modern projects, it offers the ultimate combination of academic innovation and production-ready reliability. Furthermore, teams upgrading from legacy systems like [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) will find the transition to YOLO26 or YOLO11 entirely frictionless thanks to the unified Ultralytics API.
+Pioneering an end-to-end NMS-free design first explored in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 introduces the MuSGD optimizer (a hybrid of SGD and Muon) for unprecedented training stability. With the removal of Distribution Focal Loss (DFL) to simplify export, and advanced loss mechanisms like ProgLoss and STAL, YOLO26 achieves up to 43% faster CPU inference. For modern projects, it offers the ultimate combination of academic innovation and production-ready reliability. Furthermore, teams upgrading from legacy systems like [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) will find the transition to YOLO26 or YOLO11 entirely frictionless thanks to the unified Ultralytics API.

@@ -42,7 +42,7 @@ YOLOv6-3.0 adopts a hardware-friendly **EfficientRep** backbone specifically tai
 
 **Weaknesses:**
 
-- Primarily a bounding box detector; lacks the out-of-the-box multi-task versatility (e.g., Pose, OBB) found in models like [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n).
+- Primarily a bounding box detector; lacks the out-of-the-box multi-task versatility (e.g., Pose, OBB) found in models like [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11).
 - Heavier reliance on complex Non-Maximum Suppression (NMS) during post-processing, increasing latency variance.
 - Less active ecosystem compared to mainstream frameworks, making updates and community support less predictable.
 
@@ -136,7 +136,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 While YOLOv6-3.0 and RTDETRv2 excel in their specific niches, the modern machine learning landscape demands models that blend speed, accuracy, and developer experience. The [Ultralytics ecosystem](https://platform.ultralytics.com/) addresses these needs perfectly, particularly with the release of **YOLO26**.
 
-Released in January 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) represents the definitive standard for computer vision, drastically outpacing older models like YOLOv8 and community forks like YOLO12.
+Released in January 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the definitive standard for computer vision, drastically outpacing older models like YOLOv8 and community forks like YOLO12.
 
 ### Why YOLO26 Outperforms the Competition
 
@@ -146,7 +146,7 @@ Released in January 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/
 4. **Enhanced Small Object Detection:** The introduction of ProgLoss and STAL loss functions provides a massive leap in detecting small objects—a critical requirement for drone analytics and aerial imagery that YOLOv6 historically struggled with.
 5. **Task Versatility:** Unlike YOLOv6, which focuses strictly on detection, YOLO26 supports multi-modal workflows including [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), [Image Classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb)—all from a single, unified API.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ### Training Efficiency and Ease of Use
 

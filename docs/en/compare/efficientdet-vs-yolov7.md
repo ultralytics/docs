@@ -9,7 +9,7 @@ keywords: EfficientDet, YOLOv7, object detection, model comparison, EfficientDet
 
 Selecting the most effective neural network architecture is critical to the success of any [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) initiative. As the demand for high-performance AI solutions accelerates, comparing established models like EfficientDet and YOLOv7 becomes essential for developers aiming to optimize both accuracy and computational efficiency.
 
-This comprehensive technical analysis explores the architectural nuances, [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics), and ideal deployment scenarios for both models. Additionally, we will illustrate why the integrated ecosystem provided by Ultralytics—culminating in the state-of-the-art [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)—offers a superior alternative for modern computer vision tasks.
+This comprehensive technical analysis explores the architectural nuances, [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics), and ideal deployment scenarios for both models. Additionally, we will illustrate why the integrated ecosystem provided by Ultralytics—culminating in the state-of-the-art [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)—offers a superior alternative for modern computer vision tasks.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -140,7 +140,7 @@ model.export(format="engine")
 
 ## The New Standard: YOLO26
 
-While YOLOv7 and EfficientDet laid the groundwork for modern computer vision, the landscape evolved dramatically with the introduction of [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) in January 2026. Engineered for both extreme accuracy and unparalleled edge performance, YOLO26 is the ultimate recommendation for all new vision projects.
+While YOLOv7 and EfficientDet laid the groundwork for modern computer vision, the landscape evolved dramatically with the introduction of [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) in January 2026. Engineered for both extreme accuracy and unparalleled edge performance, YOLO26 is the ultimate recommendation for all new vision projects.
 
 ### Key YOLO26 Innovations
 
@@ -150,12 +150,12 @@ While YOLOv7 and EfficientDet laid the groundwork for modern computer vision, th
 - **ProgLoss + STAL:** The integration of Progressive Loss and Scale-Targeted Alignment Loss heavily improves the model's ability to detect tiny objects, solving a massive pain point for drone imagery and [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system).
 - **Task-Specific Improvements:** YOLO26 isn't just a detector. It features a Semantic segmentation loss and multi-scale proto for flawless [segmentation](https://docs.ultralytics.com/tasks/segment), Residual Log-Likelihood Estimation (RLE) for hyper-accurate [pose tracking](https://docs.ultralytics.com/tasks/pose), and specialized angle loss for resolving [OBB](https://docs.ultralytics.com/tasks/obb) boundary ambiguities.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Exploring Alternative Models
 
 While YOLO26 represents the pinnacle of current technology, the Ultralytics ecosystem supports a variety of models tailored for different use cases.
 
-For developers managing legacy systems that still require traditional anchor-free scaling, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) remains a robust, highly supported option within the Ultralytics platform. Additionally, for scenarios explicitly demanding transformer-based architectures, [RT-DETR](https://docs.ultralytics.com/models/rtdetr) offers real-time detection utilizing vision transformers, bridging the gap between high-end attention mechanisms and real-time execution speeds.
+For developers managing legacy systems that still require traditional anchor-free scaling, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains a robust, highly supported option within the Ultralytics platform. Additionally, for scenarios explicitly demanding transformer-based architectures, [RT-DETR](https://docs.ultralytics.com/models/rtdetr) offers real-time detection utilizing vision transformers, bridging the gap between high-end attention mechanisms and real-time execution speeds.
 
 In conclusion, while EfficientDet provides academic insights into compound scaling and YOLOv7 offers strong baseline real-time performance, modern enterprises are best served by adopting the [Ultralytics Platform](https://docs.ultralytics.com/platform). By leveraging YOLO26, teams can ensure maximum performance, minimal training friction, and future-proof their AI deployments.

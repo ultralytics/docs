@@ -7,7 +7,7 @@ keywords: RTDETRv2, YOLO26, object detection, model comparison, deep learning, c
 
 # RTDETRv2 vs YOLO26
 
-The landscape of real-time object detection has evolved dramatically, with researchers continually pushing the boundaries of speed, accuracy, and deployment efficiency. Two of the most prominent architectures currently leading this charge are the transformer-based RTDETRv2 and the state-of-the-art Convolutional Neural Network (CNN), [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n). This guide provides an in-depth analysis of their architectures, performance metrics, and ideal use cases to help you choose the right model for your next [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) project.
+The landscape of real-time object detection has evolved dramatically, with researchers continually pushing the boundaries of speed, accuracy, and deployment efficiency. Two of the most prominent architectures currently leading this charge are the transformer-based RTDETRv2 and the state-of-the-art Convolutional Neural Network (CNN), [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). This guide provides an in-depth analysis of their architectures, performance metrics, and ideal use cases to help you choose the right model for your next [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) project.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -59,7 +59,7 @@ YOLO26 introduces several revolutionary features that solve common pain points i
 
     Beyond standard detection, YOLO26 features specialized improvements: Semantic segmentation loss and multi-scale proto for [segmentation tasks](https://docs.ultralytics.com/tasks/segment), Residual Log-Likelihood Estimation (RLE) for [pose estimation](https://docs.ultralytics.com/tasks/pose), and customized angle loss to resolve boundary issues in [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Performance Comparison
 
@@ -136,7 +136,7 @@ YOLO26 is recommended for:
 
 ## Exploring Other Architectures
 
-While YOLO26 represents the current pinnacle of performance, developers might also find value in exploring previous iterations. The highly successful [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) remains a robust, fully supported model for a variety of legacy systems. You can dive deeper into its capabilities by reading our [RTDETR vs YOLO11 comparison](https://docs.ultralytics.com/compare/rtdetr-vs-yolo11). Additionally, if you are analyzing older architectures, checking out the [EfficientDet vs YOLO26 comparison](https://docs.ultralytics.com/compare/efficientdet-vs-yolo26) provides great historical context on how far [object detection architectures](https://www.ultralytics.com/glossary/object-detection-architectures) have progressed.
+While YOLO26 represents the current pinnacle of performance, developers might also find value in exploring previous iterations. The highly successful [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains a robust, fully supported model for a variety of legacy systems. You can dive deeper into its capabilities by reading our [RTDETR vs YOLO11 comparison](https://docs.ultralytics.com/compare/rtdetr-vs-yolo11). Additionally, if you are analyzing older architectures, checking out the [EfficientDet vs YOLO26 comparison](https://docs.ultralytics.com/compare/efficientdet-vs-yolo26) provides great historical context on how far [object detection architectures](https://www.ultralytics.com/glossary/object-detection-architectures) have progressed.
 
 ## Final Thoughts
 

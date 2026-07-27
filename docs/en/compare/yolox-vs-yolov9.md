@@ -9,7 +9,7 @@ keywords: YOLOX, YOLOv9, object detection, model comparison, computer vision, AI
 
 The landscape of computer vision has been shaped by continuous architectural breakthroughs that balance computational efficiency with high precision. When evaluating real-time object detection models, the comparison between Megvii's YOLOX and Academia Sinica's YOLOv9 highlights two distinct philosophies in deep learning development. While one pioneered a simplified anchor-free paradigm, the other introduced advanced gradient routing techniques to maximize information retention.
 
-This technical guide explores their architectural nuances, performance benchmarks, and ideal use cases, while also demonstrating how modern solutions like the [Ultralytics Platform](https://platform.ultralytics.com) and the newly released [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) model provide superior alternatives for production-ready deployments.
+This technical guide explores their architectural nuances, performance benchmarks, and ideal use cases, while also demonstrating how modern solutions like the [Ultralytics Platform](https://platform.ultralytics.com) and the newly released [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) model provide superior alternatives for production-ready deployments.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -85,7 +85,7 @@ While YOLOv9 demonstrates superior accuracy across comparable parameter counts, 
 
 ## The Ultralytics Advantage: Meet YOLO26
 
-While evaluating historical models like YOLOX and YOLOv9 provides valuable context, the current state-of-the-art is defined by [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n). Released in early 2026, YOLO26 fundamentally rearchitects the detection pipeline for modern enterprise environments.
+While evaluating historical models like YOLOX and YOLOv9 provides valuable context, the current state-of-the-art is defined by [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). Released in early 2026, YOLO26 fundamentally rearchitects the detection pipeline for modern enterprise environments.
 
 ### Unmatched Architectural Innovations
 
@@ -110,7 +110,7 @@ results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 model.export(format="engine", quantize=16)  # Exports to TensorRT
 ```
 
-Beyond detection, YOLO26 seamlessly supports a multitude of tasks within the exact same framework. Whether you need precise [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb) for satellite imaging or fine-grained pixel masks for [medical imaging applications](https://docs.ultralytics.com/datasets/detect/brain-tumor), the workflow remains identical. For teams invested in previous generation workflows, [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) is also available and fully supported.
+Beyond detection, YOLO26 seamlessly supports a multitude of tasks within the exact same framework. Whether you need precise [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb) for satellite imaging or fine-grained pixel masks for [medical imaging applications](https://docs.ultralytics.com/datasets/detect/brain-tumor), the workflow remains identical. For teams invested in previous generation workflows, [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) is also available and fully supported.
 
 ## Ideal Use Cases and Deployment Strategies
 

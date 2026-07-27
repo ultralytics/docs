@@ -7,7 +7,7 @@ keywords: PP-YOLOE+, YOLOv8, object detection, computer vision, model comparison
 
 # PP-YOLOE+ vs YOLOv8
 
-The demand for high-performance, real-time [computer vision](https://en.wikipedia.org/wiki/Computer_vision) models has driven rapid innovation across the AI industry. Selecting the right architecture can be the deciding factor between a successful, highly efficient deployment and a cumbersome, resource-heavy pipeline. This technical guide provides an in-depth comparison between **PP-YOLOE+** and **[Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n)**, exploring their underlying architectures, training efficiencies, and ideal deployment scenarios.
+The demand for high-performance, real-time [computer vision](https://en.wikipedia.org/wiki/Computer_vision) models has driven rapid innovation across the AI industry. Selecting the right architecture can be the deciding factor between a successful, highly efficient deployment and a cumbersome, resource-heavy pipeline. This technical guide provides an in-depth comparison between **PP-YOLOE+** and **[Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8)**, exploring their underlying architectures, training efficiencies, and ideal deployment scenarios.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -45,7 +45,7 @@ Released as a massive leap forward by Ultralytics, YOLOv8 established a new stat
 
 YOLOv8 introduced a highly optimized, anchor-free detection head and a revamped C2f building block replacing the older C3 module. This design provides superior gradient flow and allows for incredibly fast [model training](https://docs.ultralytics.com/modes/train). Beyond simple detection, YOLOv8 is a multi-task powerhouse, seamlessly supporting [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), and [pose estimation](https://docs.ultralytics.com/tasks/pose) through the exact same user-friendly API.
 
-[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n){ .md-button }
+[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
 ## Performance and Metrics Comparison
 
@@ -71,7 +71,7 @@ While the largest PP-YOLOE+x model slightly edges out YOLOv8x in mAP, it comes a
 
 When evaluating models, the surrounding ecosystem is as crucial as the raw architecture. PP-YOLOE+ demands navigating complex configuration files and dependencies specific to the PaddlePaddle framework.
 
-Conversely, the Ultralytics experience is designed for maximum developer velocity. The well-maintained ecosystem boasts a simple [Python API](https://docs.ultralytics.com/usage/python) and an incredibly active community. Furthermore, the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) simplifies the entire ML pipeline, offering seamless dataset management, cloud training, and simple exports to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx) and [TensorRT](https://docs.ultralytics.com/integrations/tensorrt).
+Conversely, the Ultralytics experience is designed for maximum developer velocity. The well-maintained ecosystem boasts a simple [Python API](https://docs.ultralytics.com/usage/python) and an incredibly active community. Furthermore, the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolov8) simplifies the entire ML pipeline, offering seamless dataset management, cloud training, and simple exports to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx) and [TensorRT](https://docs.ultralytics.com/integrations/tensorrt).
 
 !!! tip "Streamlined PyTorch Deployment"
 
@@ -127,9 +127,9 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## Moving Beyond YOLOv8: The Dawn of YOLO26
 
-While YOLOv8 remains a robust and reliable choice, developers looking for the absolute cutting edge should consider **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)**. Released in January 2026, YOLO26 takes the foundational principles of YOLO architectures and refines them into the ultimate edge-first AI framework.
+While YOLOv8 remains a robust and reliable choice, developers looking for the absolute cutting edge should consider **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**. Released in January 2026, YOLO26 takes the foundational principles of YOLO architectures and refines them into the ultimate edge-first AI framework.
 
-YOLO26 brings several groundbreaking innovations that surpass both PP-YOLOE+ and previous YOLO generations (including [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n)):
+YOLO26 brings several groundbreaking innovations that surpass both PP-YOLOE+ and previous YOLO generations (including [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11)):
 
 - **End-to-End NMS-Free Design:** Building on concepts from [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 operates natively end-to-end. By eliminating [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing, it delivers consistent, ultra-low latency inference, regardless of how crowded the visual scene is.
 - **Up to 43% Faster CPU Inference:** Through the strategic removal of Distribution Focal Loss (DFL), YOLO26 significantly cuts down on processing overhead, making it drastically faster on edge CPUs—ideal for [smart city](https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities) and IoT applications where expensive GPUs aren't available.

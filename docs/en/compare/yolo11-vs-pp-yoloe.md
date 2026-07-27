@@ -30,7 +30,7 @@ Developed by Ultralytics, YOLO11 represents a highly refined iteration of the YO
 - **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLO11 Documentation](https://docs.ultralytics.com/models/yolo11)
 
-[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 ### PP-YOLOE+ Details
 
@@ -85,7 +85,7 @@ The true value of a model often lies in how easily developers can train it on cu
 
 ### The Ultralytics Advantage
 
-Ultralytics prioritizes a streamlined developer experience. Training YOLO11 is managed through a simple Python API or CLI, abstracting away complex boilerplate code. The [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) further enhances this by providing no-code training, automated dataset management, and single-click exports to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx), CoreML, and [TensorRT](https://docs.ultralytics.com/integrations/tensorrt).
+Ultralytics prioritizes a streamlined developer experience. Training YOLO11 is managed through a simple Python API or CLI, abstracting away complex boilerplate code. The [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo11) further enhances this by providing no-code training, automated dataset management, and single-click exports to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx), CoreML, and [TensorRT](https://docs.ultralytics.com/integrations/tensorrt).
 
 Furthermore, YOLO models are highly memory-efficient during training, avoiding the massive VRAM overheads typical of transformer-based architectures or heavy rep-parameterized models, enabling training on consumer-grade hardware.
 
@@ -116,7 +116,7 @@ Choosing between these models depends on your specific deployment environment.
 
 ## The Next Generation: Introducing YOLO26
 
-While YOLO11 remains incredibly powerful, the field of AI moves fast. For the absolute cutting edge in object detection, Ultralytics has introduced the new **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)**. Released in January 2026, YOLO26 builds upon the successes of its predecessors to deliver unprecedented efficiency and accuracy.
+While YOLO11 remains incredibly powerful, the field of AI moves fast. For the absolute cutting edge in object detection, Ultralytics has introduced the new **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**. Released in January 2026, YOLO26 builds upon the successes of its predecessors to deliver unprecedented efficiency and accuracy.
 
 **Key YOLO26 Innovations:**
 
@@ -126,6 +126,6 @@ While YOLO11 remains incredibly powerful, the field of AI moves fast. For the ab
 - **ProgLoss + STAL:** Improved loss functions drastically enhance small-object recognition, which is critical for [drone applications](https://docs.ultralytics.com/datasets/detect/visdrone) and security surveillance.
 - **DFL Removal:** The removal of Distribution Focal Loss simplifies model export and dramatically improves compatibility across a wide range of edge devices.
 
-For new projects prioritizing speed, seamless export, and maximum accuracy, we highly recommend leveraging the capabilities of YOLO26 via the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n).
+For new projects prioritizing speed, seamless export, and maximum accuracy, we highly recommend leveraging the capabilities of YOLO26 via the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26).
 
-If you are evaluating other architectures, you may also be interested in comparing YOLO11 to [RT-DETR](https://docs.ultralytics.com/compare/rtdetr-vs-yolo11) or exploring how the legacy [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) holds up in modern benchmarks.
+If you are evaluating other architectures, you may also be interested in comparing YOLO11 to [RT-DETR](https://docs.ultralytics.com/compare/rtdetr-vs-yolo11) or exploring how the legacy [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) holds up in modern benchmarks.

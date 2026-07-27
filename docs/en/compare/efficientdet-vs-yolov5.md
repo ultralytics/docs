@@ -38,7 +38,7 @@ While highly accurate, EfficientDet relies heavily on the [TensorFlow](https://w
 
 ## Ultralytics YOLOv5: Democratizing Real-Time AI
 
-Released shortly after EfficientDet, [Ultralytics YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) revolutionized the industry by offering an incredibly accessible, native PyTorch implementation of the YOLO architecture. It set a new standard for developer experience, training efficiency, and real-time deployment flexibility.
+Released shortly after EfficientDet, [Ultralytics YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5) revolutionized the industry by offering an incredibly accessible, native PyTorch implementation of the YOLO architecture. It set a new standard for developer experience, training efficiency, and real-time deployment flexibility.
 
 ### Model Details
 
@@ -54,7 +54,7 @@ YOLOv5 introduced significant upgrades over its predecessors, utilizing a CSPDar
 
 YOLOv5 also heavily utilizes [Mosaic Data Augmentation](https://docs.ultralytics.com/reference/data/augment), blending four disparate images into a single training tile. This greatly improves the model's ability to detect small objects and generalizes contextual understanding, making it highly robust in varied environments.
 
-[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu){ .md-button }
+[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
 
 ## Performance and Benchmarks
 
@@ -121,7 +121,7 @@ EfficientDet is strictly an object detection framework, which limits its utility
 
 ## The Next Generation: Upgrading to YOLO26
 
-While YOLOv5 remains a robust and widely deployed model, the field of AI moves rapidly. For teams starting new projects or seeking the absolute peak of modern performance, Ultralytics has introduced [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n), released in January 2026.
+While YOLOv5 remains a robust and widely deployed model, the field of AI moves rapidly. For teams starting new projects or seeking the absolute peak of modern performance, Ultralytics has introduced [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26), released in January 2026.
 
 YOLO26 redefines the Pareto frontier of speed and accuracy, introducing groundbreaking architectural shifts that make deployment easier and inference faster.
 
@@ -133,7 +133,7 @@ YOLO26 redefines the Pareto frontier of speed and accuracy, introducing groundbr
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, which is critical for aerial imagery and robotics.
 - **DFL Removal:** By stripping out Distribution Focal Loss, the model head is greatly simplified, leading to better compatibility when exporting to legacy or highly constrained edge hardware.
 
-For teams deploying multi-task pipelines, YOLO26 also introduces task-specific upgrades, such as multi-scale proto for segmentation and specialized angle loss for [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb). To explore other modern alternatives within the ecosystem, you can also review [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) or the YOLOv8 architecture.
+For teams deploying multi-task pipelines, YOLO26 also introduces task-specific upgrades, such as multi-scale proto for segmentation and specialized angle loss for [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb). To explore other modern alternatives within the ecosystem, you can also review [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or the YOLOv8 architecture.
 
 ## Conclusion
 

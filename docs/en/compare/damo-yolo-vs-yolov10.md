@@ -143,4 +143,4 @@ Crucially, YOLO26 is not just an object detector. It offers task-specific improv
 
 For centralized management, annotation, and cloud training of YOLO26 models, the [Ultralytics Platform](https://platform.ultralytics.com/) provides an intuitive interface that streamlines the entire computer vision lifecycle.
 
-Developers interested in exploring other recent advancements can also evaluate [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) or the transformer-based [RT-DETR](https://docs.ultralytics.com/models/rtdetr) framework for scenarios requiring distinct architectural solutions.
+Developers interested in exploring other recent advancements can also evaluate [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or the transformer-based [RT-DETR](https://docs.ultralytics.com/models/rtdetr) framework for scenarios requiring distinct architectural solutions.

@@ -56,7 +56,7 @@ Evaluating performance requires looking beyond top-line accuracy to consider the
 
 As the table demonstrates, YOLO11 achieves a highly favorable performance balance. The `YOLO11s` variant, for example, surpasses the `DAMO-YOLOs` in accuracy while maintaining a significantly smaller parameter footprint. This reduction in memory requirements translates directly to lower deployment costs and more agile performance on edge devices.
 
-[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 ## Training Methodologies and Usability
 
@@ -85,7 +85,7 @@ model.train(data="coco8.yaml", epochs=100, imgsz=640, device=0)
 model.export(format="onnx")
 ```
 
-[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 ## Real-World Applications and Versatility
 
@@ -135,7 +135,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## The Next Generation: Introducing YOLO26
 
-While YOLO11 remains a powerful and reliable choice, the computer vision landscape moves quickly. For developers initiating new projects, the latest **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)** model represents the new state-of-the-art.
+While YOLO11 remains a powerful and reliable choice, the computer vision landscape moves quickly. For developers initiating new projects, the latest **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** model represents the new state-of-the-art.
 
 Released in January 2026, YOLO26 introduces several groundbreaking advancements:
 
@@ -144,7 +144,7 @@ Released in January 2026, YOLO26 introduces several groundbreaking advancements:
 - **MuSGD Optimizer:** Integrating LLM training innovations (inspired by Moonshot AI), this hybrid optimizer ensures stable, rapid convergence during training.
 - **Advanced Loss Functions:** Utilizing ProgLoss + STAL, YOLO26 exhibits remarkable improvements in small-object recognition, crucial for aerial imagery and robotics.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Conclusion
 

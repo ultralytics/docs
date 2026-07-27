@@ -7,7 +7,7 @@ keywords: YOLOv9, YOLOv8, object detection, computer vision, YOLO comparison, de
 
 # YOLOv9 vs YOLOv8
 
-The landscape of real-time computer vision has evolved remarkably over the last few years, with each new model pushing the theoretical boundaries of what is possible on edge devices and cloud servers alike. When comparing the newer [YOLOv9 architecture](https://docs.ultralytics.com/models/yolov9) to the highly popular [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) framework, developers are often faced with a choice between cutting-edge theoretical gradient paths and a heavily battle-tested, production-ready ecosystem.
+The landscape of real-time computer vision has evolved remarkably over the last few years, with each new model pushing the theoretical boundaries of what is possible on edge devices and cloud servers alike. When comparing the newer [YOLOv9 architecture](https://docs.ultralytics.com/models/yolov9) to the highly popular [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) framework, developers are often faced with a choice between cutting-edge theoretical gradient paths and a heavily battle-tested, production-ready ecosystem.
 
 This comprehensive guide contrasts these two heavyweights, analyzing their architectural innovations, performance metrics, and ideal deployment scenarios to help you choose the right model for your next artificial intelligence project.
 
@@ -28,7 +28,7 @@ Authored by Chien-Yao Wang and Hong-Yuan Mark Liao at the Institute of Informati
 **Ultralytics YOLOv8**
 Developed by Glenn Jocher, Ayush Chaurasia, and Jing Qiu at Ultralytics, YOLOv8 launched on January 10, 2023. It established itself as an industry standard for versatility, offering a unified API for a massive variety of vision tasks. The source code is maintained within the main [Ultralytics GitHub repository](https://github.com/ultralytics/ultralytics), ensuring continuous updates and long-term stability.
 
-[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n){ .md-button }
+[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
 ## Architectural Innovations
 
@@ -120,17 +120,17 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## Looking Forward: The Arrival of YOLO26
 
-While YOLOv8 and YOLOv9 are both incredibly capable, the computer vision landscape moves quickly. For modern deployments, we highly recommend utilizing **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)**, released in January 2026.
+While YOLOv8 and YOLOv9 are both incredibly capable, the computer vision landscape moves quickly. For modern deployments, we highly recommend utilizing **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**, released in January 2026.
 
 YOLO26 represents a paradigm shift in how object detectors operate in production. It features a native **End-to-End NMS-Free Design**, effectively eliminating the latency and non-deterministic behavior of post-processing. To better support edge and low-power hardware, YOLO26 incorporates complete **DFL Removal** (Distribution Focal Loss), making mobile exports drastically simpler.
 
 Furthermore, YOLO26 utilizes the groundbreaking **MuSGD Optimizer**, a hybrid of SGD and Muon that brings LLM-level training stability to vision tasks, resulting in significantly faster convergence. With up to **43% Faster CPU Inference** and the integration of **ProgLoss + STAL** for vastly improved small-object recognition, YOLO26 is the undisputed choice for new enterprise initiatives.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 !!! info "Alternative Architectures"
 
-    Depending on your hardware constraints, you may also be interested in comparing these models with [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) for balanced general-purpose tasks, or exploring transformer-based models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) for specialized high-fidelity research.
+    Depending on your hardware constraints, you may also be interested in comparing these models with [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) for balanced general-purpose tasks, or exploring transformer-based models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) for specialized high-fidelity research.
 
 ## Real-World Applications and Use Cases
 

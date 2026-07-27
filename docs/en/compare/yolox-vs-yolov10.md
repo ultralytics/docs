@@ -122,7 +122,7 @@ YOLOX still holds value in academic settings where researchers want a clean, dec
 
 ## The Ultimate Standard: Ultralytics YOLO26
 
-While YOLOv10 marked a massive leap by removing NMS, the field of computer vision advances rapidly. For developers aiming to implement the absolute best-in-class performance today, we highly recommend exploring [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n).
+While YOLOv10 marked a massive leap by removing NMS, the field of computer vision advances rapidly. For developers aiming to implement the absolute best-in-class performance today, we highly recommend exploring [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26).
 
 Released as the latest standard in vision AI, YOLO26 takes the foundational ideas of its predecessors and supercharges them. It offers the ultimate performance balance, natively supporting detection, segmentation, pose, and oriented bounding boxes.
 
@@ -135,4 +135,4 @@ Here is why YOLO26 is the recommended choice for modern computer vision pipeline
 - **DFL Removal:** By removing Distribution Focal Loss, YOLO26 simplifies the model graph for frictionless export to edge and low-power devices.
 - **Task-Specific Improvements:** Whether you are using Residual Log-Likelihood Estimation (RLE) for pose estimation or specialized angle loss for OBB, YOLO26 is fine-tuned for every major vision task.
 
-For developers ready to upgrade their pipelines with the most efficient training and deployment tools available, transitioning to the [Ultralytics Platform](https://platform.ultralytics.com) and leveraging YOLO26 guarantees you stay at the cutting edge of artificial intelligence. Users interested in older but stable architectures may also review [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) or [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) for extensive community support and proven robustness.
+For developers ready to upgrade their pipelines with the most efficient training and deployment tools available, transitioning to the [Ultralytics Platform](https://platform.ultralytics.com) and leveraging YOLO26 guarantees you stay at the cutting edge of artificial intelligence. Users interested in older but stable architectures may also review [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) for extensive community support and proven robustness.

@@ -7,7 +7,7 @@ keywords: YOLOX, EfficientDet, object detection, model comparison, deep learning
 
 # YOLOX vs EfficientDet
 
-The evolution of [object detection](https://docs.ultralytics.com/tasks/detect) has been driven by the constant pursuit of balancing speed, accuracy, and computational efficiency. Two landmark models that significantly influenced this trajectory are YOLOX and EfficientDet. While YOLOX introduced a highly optimized anchor-free design to the YOLO family, EfficientDet focused on a scalable architecture utilizing compound scaling and BiFPN. This guide provides a detailed technical comparison of their architectures, performance metrics, and training methodologies, while also introducing modern alternatives like the cutting-edge [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) model.
+The evolution of [object detection](https://docs.ultralytics.com/tasks/detect) has been driven by the constant pursuit of balancing speed, accuracy, and computational efficiency. Two landmark models that significantly influenced this trajectory are YOLOX and EfficientDet. While YOLOX introduced a highly optimized anchor-free design to the YOLO family, EfficientDet focused on a scalable architecture utilizing compound scaling and BiFPN. This guide provides a detailed technical comparison of their architectures, performance metrics, and training methodologies, while also introducing modern alternatives like the cutting-edge [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) model.
 
 ## Model Origins and Technical Details
 
@@ -127,7 +127,7 @@ YOLO26 offers a well-maintained ecosystem and a massive leap forward in both spe
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, which is critical for use cases like [drone operations](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations) and aerial imagery analysis.
 - **Unmatched Versatility:** Unlike YOLOX, which is strictly an object detector, YOLO26 natively supports a wide array of tasks including [instance segmentation](https://docs.ultralytics.com/tasks/segment), image classification, [pose estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ### Ease of Use with the Ultralytics API
 
@@ -164,4 +164,4 @@ YOLOX is suitable for applications requiring a balance of speed and accuracy wit
 
 For almost all modern applications, YOLO26 provides the best solution. Its NMS-free design ensures deterministic latency, making it the perfect candidate for autonomous driving, rapid [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system), and smart city deployments. Furthermore, the robust community support and frequent updates from Ultralytics ensure that developers are never left dealing with deprecated dependencies.
 
-Developers exploring advanced computer vision should also look into other versatile architectures within the Ultralytics ecosystem, such as [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) for stable legacy deployments or specialized models like [FastSAM](https://docs.ultralytics.com/models/fast-sam) for prompt-based segmentation tasks. Utilizing the full suite of Ultralytics tools guarantees a future-proof, highly optimized vision AI pipeline.
+Developers exploring advanced computer vision should also look into other versatile architectures within the Ultralytics ecosystem, such as [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) for stable legacy deployments or specialized models like [FastSAM](https://docs.ultralytics.com/models/fast-sam) for prompt-based segmentation tasks. Utilizing the full suite of Ultralytics tools guarantees a future-proof, highly optimized vision AI pipeline.

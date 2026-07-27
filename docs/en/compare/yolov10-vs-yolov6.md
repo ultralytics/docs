@@ -130,7 +130,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## The Ultimate Recommendation: Ultralytics YOLO26
 
-While YOLOv10 introduced the revolutionary NMS-free concept, and YOLOv6-3.0 optimized GPU throughput, the true state-of-the-art solution for production environments is **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)**.
+While YOLOv10 introduced the revolutionary NMS-free concept, and YOLOv6-3.0 optimized GPU throughput, the true state-of-the-art solution for production environments is **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**.
 
 Released in January 2026, YOLO26 takes the foundational ideas of its predecessors and refines them into the ultimate edge-first vision model.
 
@@ -140,6 +140,6 @@ Released in January 2026, YOLO26 takes the foundational ideas of its predecessor
 - **Unrivaled CPU Speed:** With optimizations tailored specifically for edge devices, YOLO26 achieves up to **43% faster CPU inference** speeds compared to previous generations, leapfrogging the GPU-centric design of YOLOv6-3.0.
 - **ProgLoss + STAL:** Advanced loss functions solve historic struggles with [small object detection](https://www.ultralytics.com/blog/exploring-small-object-detection-with-ultralytics-yolo11), making YOLO26 indispensable for aerial imagery and drone analytics.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
-For users seeking to upgrade their computer vision stack, the transition is simple. Models like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) remain robust, but **YOLO26** paired with the integrated [Ultralytics Platform](https://platform.ultralytics.com/) represents the definitive future of accessible, high-performance artificial intelligence.
+For users seeking to upgrade their computer vision stack, the transition is simple. Models like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remain robust, but **YOLO26** paired with the integrated [Ultralytics Platform](https://platform.ultralytics.com/) represents the definitive future of accessible, high-performance artificial intelligence.

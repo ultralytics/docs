@@ -7,7 +7,7 @@ keywords: YOLOv7, YOLO26, object detection, model comparison, computer vision, d
 
 # YOLOv7 vs YOLO26
 
-The evolution of computer vision has been marked by significant milestones, and comparing legacy architectures with modern state-of-the-art models provides valuable insights for ML Engineers. This technical comparison delves into the differences between the highly influential [YOLOv7](https://github.com/WongKinYiu/yolov7) and the revolutionary [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n), highlighting advancements in architecture, training methodologies, and deployment efficiency.
+The evolution of computer vision has been marked by significant milestones, and comparing legacy architectures with modern state-of-the-art models provides valuable insights for ML Engineers. This technical comparison delves into the differences between the highly influential [YOLOv7](https://github.com/WongKinYiu/yolov7) and the revolutionary [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26), highlighting advancements in architecture, training methodologies, and deployment efficiency.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -41,7 +41,7 @@ Released in January 2026, Ultralytics YOLO26 represents a paradigm shift, entire
 - **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2026-01-14
 - **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- **Platform:** [Ultralytics YOLO26 on Platform](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)
+- **Platform:** [Ultralytics YOLO26 on Platform](https://platform.ultralytics.com/ultralytics/yolo26)
 
 YOLO26 is built from the ground up to solve modern engineering challenges. Its architecture brings several critical innovations that significantly outpace its predecessors:
 
@@ -52,7 +52,7 @@ YOLO26 is built from the ground up to solve modern engineering challenges. Its a
 - **ProgLoss + STAL:** The introduction of these advanced loss functions yields notable improvements in small-object recognition, which is critical for [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone), robotics, and automated quality inspection.
 - **Task-Specific Improvements:** Beyond standard [object detection](https://docs.ultralytics.com/tasks/detect), YOLO26 introduces multi-scale proto and specialized semantic segmentation loss for [segmentation tasks](https://docs.ultralytics.com/tasks/segment), Residual Log-Likelihood Estimation (RLE) for [pose estimation](https://docs.ultralytics.com/tasks/pose), and specialized angle loss algorithms to resolve boundary issues in [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 !!! tip "Migrating to YOLO26"
 
@@ -85,7 +85,7 @@ Deploying legacy models often involves wrestling with complex third-party reposi
 
 !!! note "Other Ultralytics Models"
 
-    While YOLO26 is the recommended standard, developers migrating legacy systems may also explore [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n), another highly capable generation in the Ultralytics lineup that offers excellent stability for long-term support projects.
+    While YOLO26 is the recommended standard, developers migrating legacy systems may also explore [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), another highly capable generation in the Ultralytics lineup that offers excellent stability for long-term support projects.
 
 ### Code Example: Training and Deployment
 

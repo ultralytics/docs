@@ -43,7 +43,7 @@ Released shortly after the inception of the Ultralytics PyTorch repository, YOLO
 
 YOLOv5 is celebrated for its **Ease of Use** and highly **Well-Maintained Ecosystem**. Written entirely in PyTorch, it offered a seamless "zero-to-hero" experience with out-of-the-box support for training, validation, and export to formats like [ONNX](https://onnx.ai/) and [TensorRT](https://developer.nvidia.com/tensorrt). Unlike YOLOv10, which focuses primarily on pure object detection, YOLOv5 demonstrates exceptional **Versatility**, supporting [instance segmentation](https://docs.ultralytics.com/tasks/segment) and [image classification](https://docs.ultralytics.com/tasks/classify) within the same unified Python API.
 
-[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu){ .md-button }
+[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
 
 ## Performance and Metrics Comparison
 
@@ -137,7 +137,7 @@ path = model.export(format="onnx")
 
 ## The Next Generation: Ultralytics YOLO26
 
-If you are starting a new [machine learning](https://www.ultralytics.com/glossary/machine-learning-ml) project today, we strongly recommend evaluating the latest **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)**. Released in January 2026, it represents the absolute state-of-the-art by combining the best innovations of the past five years.
+If you are starting a new [machine learning](https://www.ultralytics.com/glossary/machine-learning-ml) project today, we strongly recommend evaluating the latest **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**. Released in January 2026, it represents the absolute state-of-the-art by combining the best innovations of the past five years.
 
 YOLO26 natively incorporates the **End-to-End NMS-Free Design** pioneered by YOLOv10, ensuring rapid, deterministic deployment. Furthermore, YOLO26 introduces several critical breakthroughs:
 

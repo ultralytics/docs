@@ -7,7 +7,7 @@ keywords: YOLOv9 vs YOLOv5, YOLO comparison, Ultralytics models, YOLO object det
 
 # YOLOv9 vs YOLOv5
 
-The field of computer vision has witnessed tremendous growth, with object detection acting as the backbone for countless industrial and research applications. Choosing the right architecture often requires a careful evaluation of mean Average Precision (mAP), inference speed, and memory overhead. In this comparison, we explore two highly influential models: **YOLOv9**, celebrated for its architectural breakthroughs in gradient information retention, and **[Ultralytics YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu)**, the battle-tested industry standard known for its incredible ease of use and unmatched deployment versatility.
+The field of computer vision has witnessed tremendous growth, with object detection acting as the backbone for countless industrial and research applications. Choosing the right architecture often requires a careful evaluation of mean Average Precision (mAP), inference speed, and memory overhead. In this comparison, we explore two highly influential models: **YOLOv9**, celebrated for its architectural breakthroughs in gradient information retention, and **[Ultralytics YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5)**, the battle-tested industry standard known for its incredible ease of use and unmatched deployment versatility.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -32,7 +32,7 @@ Authored by Glenn Jocher and released by Ultralytics on June 26, 2020, YOLOv5 re
 
 Its crowning achievement, however, is its integration into the broader Ultralytics ecosystem. YOLOv5 is heavily optimized for fast [training efficiency](https://docs.ultralytics.com/guides/model-training-tips) and low-memory environments, making it incredibly stable for edge deployments.
 
-[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu){ .md-button }
+[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
 
 !!! tip "Memory Efficiency"
 
@@ -126,7 +126,7 @@ model.export(format="onnx")
 
 While YOLOv5 and YOLOv9 are excellent models with distinct advantages, the field continues to advance. Users exploring new projects may also want to evaluate the latest iterations from Ultralytics.
 
-- **[YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n):** A powerful, refined evolution of the YOLOv8 lineage offering excellent speed-accuracy balance across all vision tasks.
-- **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n):** Released in 2026, YOLO26 is the ultimate recommendation for modern pipelines. It introduces an **End-to-End NMS-Free Design**, completely eliminating post-processing bottlenecks. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), it achieves up to **43% faster CPU inference**. Training stability is supercharged via the new **MuSGD Optimizer**, and **ProgLoss + STAL** delivers improved loss functions with notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery, making it the most robust architecture for both edge and cloud deployments.
+- **[YOLO11](https://platform.ultralytics.com/ultralytics/yolo11):** A powerful, refined evolution of the YOLOv8 lineage offering excellent speed-accuracy balance across all vision tasks.
+- **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26):** Released in 2026, YOLO26 is the ultimate recommendation for modern pipelines. It introduces an **End-to-End NMS-Free Design**, completely eliminating post-processing bottlenecks. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), it achieves up to **43% faster CPU inference**. Training stability is supercharged via the new **MuSGD Optimizer**, and **ProgLoss + STAL** delivers improved loss functions with notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery, making it the most robust architecture for both edge and cloud deployments.
 
 For teams managing large datasets and complex deployment pipelines, utilizing the [Ultralytics Platform](https://platform.ultralytics.com) offers a no-code solution to train, track, and deploy these cutting-edge models effortlessly.

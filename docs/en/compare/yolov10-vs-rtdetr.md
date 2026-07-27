@@ -116,7 +116,7 @@ While YOLOv10 and RTDETRv2 offer robust detection capabilities, choosing a model
 
 ### The New Standard: Ultralytics YOLO26
 
-For developers seeking the absolute best performance, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) represents the culmination of recent architectural advancements. Released in early 2026, YOLO26 inherits the **End-to-End NMS-Free Design** pioneered by YOLOv10, completely eliminating NMS post-processing for faster, simpler deployment.
+For developers seeking the absolute best performance, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the culmination of recent architectural advancements. Released in early 2026, YOLO26 inherits the **End-to-End NMS-Free Design** pioneered by YOLOv10, completely eliminating NMS post-processing for faster, simpler deployment.
 
 !!! tip "Why Choose YOLO26?"
 
@@ -124,11 +124,11 @@ For developers seeking the absolute best performance, [Ultralytics YOLO26](https
 
 Furthermore, YOLO26 introduces **ProgLoss + STAL** for notable improvements in small-object recognition, and unlike the specialized YOLOv10, it offers extreme versatility. It natively supports [object detection](https://docs.ultralytics.com/tasks/detect), segmentation, pose, and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb) with task-specific improvements like semantic segmentation loss and Residual Log-Likelihood Estimation (RLE) for pose. Furthermore, the removal of Distribution Focal Loss (DFL) ensures simplified export and better low-power device compatibility.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ### Ease of Use and Training Efficiency
 
-Whether you are experimenting with older generation models like [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) or the cutting-edge YOLO26, the streamlined Python API ensures lower memory usage during training and extremely fast workflows.
+Whether you are experimenting with older generation models like [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or the cutting-edge YOLO26, the streamlined Python API ensures lower memory usage during training and extremely fast workflows.
 
 ```python
 from ultralytics import RTDETR, YOLO

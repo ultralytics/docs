@@ -9,7 +9,7 @@ keywords: PP-YOLOE+, DAMO-YOLO, object detection, model comparison, computer vis
 
 The continuous evolution of computer vision has produced an array of highly specialized architectures for real-time object detection. When evaluating models for industrial and research applications, two prominent frameworks from 2022 often enter the discussion: **PP-YOLOE+** by Baidu and **DAMO-YOLO** by Alibaba Group. Both models pushed the boundaries of anchor-free detection by introducing novel backbones, advanced label assignment strategies, and specialized feature fusion techniques.
 
-This guide provides a detailed technical analysis of PP-YOLOE+ and DAMO-YOLO, exploring their architectures, training methodologies, and deployment strengths. We will also examine how these frameworks compare against modern solutions like [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) to help you choose the right tool for your specific deployment constraints.
+This guide provides a detailed technical analysis of PP-YOLOE+ and DAMO-YOLO, exploring their architectures, training methodologies, and deployment strengths. We will also examine how these frameworks compare against modern solutions like [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) to help you choose the right tool for your specific deployment constraints.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -90,11 +90,11 @@ DAMO-YOLO generally achieves lower TensorRT latencies at the nano and tiny scale
 
 While PP-YOLOE+ and DAMO-YOLO represented significant milestones, modern development demands greater versatility, easier training pipelines, and lower memory requirements. The [Ultralytics Platform](https://platform.ultralytics.com/) addresses these needs by offering a zero-friction experience that drastically outpaces the complex distillation and framework-specific setups required by older models.
 
-For developers looking to achieve the best performance balance today, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) provides a revolutionary leap forward in real-world deployment efficiency.
+For developers looking to achieve the best performance balance today, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) provides a revolutionary leap forward in real-world deployment efficiency.
 
 ### Why YOLO26 Leads the Industry
 
-Released in early 2026, YOLO26 builds upon the legacy of [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) by introducing breakthrough technologies tailored for production:
+Released in early 2026, YOLO26 builds upon the legacy of [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) by introducing breakthrough technologies tailored for production:
 
 - **End-to-End NMS-Free Design:** YOLO26 eliminates Non-Maximum Suppression (NMS) post-processing. This translates to simpler deployment logic and consistent, highly predictable inference latencies.
 - **MuSGD Optimizer:** Inspired by large language model training techniques, YOLO26 utilizes a hybrid MuSGD optimizer. This ensures incredibly stable training and rapid convergence, saving valuable GPU hours.
@@ -122,7 +122,7 @@ results = model("https://ultralytics.com/images/bus.jpg")
 model.export(format="onnx")
 ```
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Ideal Use Cases and Recommendations
 
@@ -132,4 +132,4 @@ Selecting the optimal computer vision architecture depends heavily on your team'
 - **Choose DAMO-YOLO** if you are conducting specific research into Neural Architecture Search algorithms, or if you have the engineering resources to maintain complex distillation pipelines to achieve aggressive TensorRT latency targets.
 - **Choose Ultralytics YOLO26** for almost all modern production scenarios. The [Ultralytics ecosystem](https://www.ultralytics.com/) provides unparalleled documentation, lower memory requirements, and a streamlined API. Whether you are building [automated quality control](https://www.ultralytics.com/solutions/ai-in-manufacturing) systems or running real-time tracking on a Raspberry Pi, YOLO26’s NMS-free architecture ensures rapid, stable, and highly accurate results out of the box.
 
-For developers exploring other state-of-the-art solutions, the Ultralytics documentation also provides extensive resources on the widely adopted [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) and the robust [YOLO11](https://docs.ultralytics.com/models/yolo11), ensuring you have the right model for any computer vision challenge.
+For developers exploring other state-of-the-art solutions, the Ultralytics documentation also provides extensive resources on the widely adopted [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) and the robust [YOLO11](https://docs.ultralytics.com/models/yolo11), ensuring you have the right model for any computer vision challenge.

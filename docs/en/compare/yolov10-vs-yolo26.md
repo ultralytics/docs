@@ -32,7 +32,7 @@ The Tsinghua University team introduced a consistent dual assignment strategy fo
 Authors: Glenn Jocher and Jing Qiu  
 Organization: [Ultralytics](https://www.ultralytics.com)  
 Date: 2026-01-14  
-Links: [GitHub Repository](https://github.com/ultralytics/ultralytics) | [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)
+Links: [GitHub Repository](https://github.com/ultralytics/ultralytics) | [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26)
 
 Building upon the NMS-free concepts pioneered earlier, the newly released YOLO26 represents the pinnacle of performance and versatility. Engineered for both academic research and enterprise-grade deployment, it natively incorporates an **end-to-end NMS-free design**, completely eliminating NMS post-processing for faster, simpler deployment across all supported hardware.
 
@@ -40,7 +40,7 @@ YOLO26 introduces several groundbreaking architectural improvements. The removal
 
 Furthermore, training stability and convergence speed have been revolutionized through the use of the **MuSGD Optimizer**, a hybrid of SGD and Muon inspired by LLM training techniques. Combined with advanced loss functions like **ProgLoss + STAL**, YOLO26 boasts notable improvements in small-object recognition. It also introduces task-specific enhancements, including multi-scale prototyping for segmentation, Residual Log-Likelihood Estimation (RLE) for pose estimation, and a specialized angle loss to resolve boundary issues in Oriented Bounding Box (OBB) detection.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 !!! tip "Enterprise Deployment"
 
@@ -108,7 +108,7 @@ While YOLOv10 excels in pure bounding box detection, projects requiring rich vis
 
 !!! note "Alternative Options"
 
-    If your project requires robust open-vocabulary detection, consider exploring [YOLO-World](https://docs.ultralytics.com/models/yolo-world). For users maintaining legacy pipelines, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) remains a fully supported and powerful alternative within the Ultralytics framework.
+    If your project requires robust open-vocabulary detection, consider exploring [YOLO-World](https://docs.ultralytics.com/models/yolo-world). For users maintaining legacy pipelines, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains a fully supported and powerful alternative within the Ultralytics framework.
 
 ## Use Cases and Recommendations
 

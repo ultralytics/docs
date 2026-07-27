@@ -7,7 +7,7 @@ keywords: YOLO11, EfficientDet, object detection, model comparison, YOLO vs Effi
 
 # YOLO11 vs EfficientDet
 
-Selecting the optimal neural network for [computer vision](https://en.wikipedia.org/wiki/Computer_vision) projects requires a deep understanding of the available architectures. This guide provides an in-depth technical comparison between [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) and Google's EfficientDet. We will explore their architectural differences, [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics), training efficiencies, and ideal deployment scenarios to help you make an informed decision for your [machine learning](https://en.wikipedia.org/wiki/Machine_learning) workloads.
+Selecting the optimal neural network for [computer vision](https://en.wikipedia.org/wiki/Computer_vision) projects requires a deep understanding of the available architectures. This guide provides an in-depth technical comparison between [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and Google's EfficientDet. We will explore their architectural differences, [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics), training efficiencies, and ideal deployment scenarios to help you make an informed decision for your [machine learning](https://en.wikipedia.org/wiki/Machine_learning) workloads.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -26,7 +26,7 @@ Date: 2024-09-27
 GitHub: [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)  
 Docs: [https://docs.ultralytics.com/models/yolo11/](https://docs.ultralytics.com/models/yolo11)
 
-[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 ### EfficientDet Details
 
@@ -109,7 +109,7 @@ prediction[0].show()
 
 ## Looking to the Future: The YOLO26 Advantage
 
-While YOLO11 is exceptionally powerful, teams starting new greenfield projects should strongly consider [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n), released in January 2026. YOLO26 represents a paradigm shift in deployment simplicity and edge performance.
+While YOLO11 is exceptionally powerful, teams starting new greenfield projects should strongly consider [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26), released in January 2026. YOLO26 represents a paradigm shift in deployment simplicity and edge performance.
 
 Key YOLO26 innovations include:
 
@@ -121,7 +121,7 @@ Key YOLO26 innovations include:
 
 !!! tip "Alternative Models to Explore"
 
-    If your project has highly specific requirements, you might also want to benchmark the [RT-DETR](https://docs.ultralytics.com/models/rtdetr) model for transformer-based detection, or the widely adopted [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n), which remains a staple in many legacy enterprise deployments.
+    If your project has highly specific requirements, you might also want to benchmark the [RT-DETR](https://docs.ultralytics.com/models/rtdetr) model for transformer-based detection, or the widely adopted [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8), which remains a staple in many legacy enterprise deployments.
 
 ## Use Cases and Recommendations
 

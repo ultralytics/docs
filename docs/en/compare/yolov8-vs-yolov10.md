@@ -32,7 +32,7 @@ YOLOv8 introduced an anchor-free detection head and a revamped CSPDarknet backbo
 
 One of the standout advantages of choosing YOLOv8 is its massive versatility. While many models focus strictly on object detection, YOLOv8 natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb). This makes it a powerhouse for complex, multi-stage pipelines where different types of visual understanding are required simultaneously. Furthermore, its memory requirements during training are heavily optimized compared to transformer-based architectures like [RT-DETR](https://docs.ultralytics.com/models/rtdetr), allowing researchers to train large models on standard consumer GPUs.
 
-[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n){ .md-button }
+[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
 ## Model Overview: YOLOv10
 
@@ -153,6 +153,6 @@ Released in early 2026, [YOLO26](https://docs.ultralytics.com/models/yolo26) rep
 - **CPU Inference Dominance:** YOLO26 delivers up to 43% faster CPU inference compared to previous generations, making it a game-changer for [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) and IoT applications.
 - **ProgLoss + STAL:** These advanced loss functions provide notable improvements in small-object recognition, which is critical for aerial imagery and robotics.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 If you are currently evaluating models, you might also be interested in [YOLO11](https://docs.ultralytics.com/models/yolo11), the direct predecessor to YOLO26, which remains a rock-solid, production-ready framework widely used in enterprise solutions today. However, for maximum future-proofing and performance, exploring the advanced capabilities of the [Ultralytics Platform](https://platform.ultralytics.com/) with YOLO26 is the best path forward for your vision AI strategy.

@@ -41,7 +41,7 @@ Despite its powerful contextual understanding, transformer-based architectures l
 
 ## Model Overview: YOLOv8
 
-Since its release, [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) has established itself as an industry standard for production-grade computer vision tasks, prioritizing a flawless developer experience alongside top-tier accuracy.
+Since its release, [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) has established itself as an industry standard for production-grade computer vision tasks, prioritizing a flawless developer experience alongside top-tier accuracy.
 
 **Key Technical Details:**
 
@@ -58,7 +58,7 @@ YOLOv8 utilizes a highly optimized anchor-free CNN architecture with a decoupled
 
 YOLOv8 does rely on traditional NMS during its post-processing phase. While the Ultralytics engine handles this under the hood efficiently, it technically introduces a slight post-processing latency when compared to natively NMS-free architectures.
 
-[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n){ .md-button }
+[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
 ---
 
@@ -144,8 +144,8 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## Looking Forward: The YOLO26 Advantage
 
-While YOLOv8 remains a legendary milestone, computer vision moves incredibly fast. For teams looking for the absolute cutting edge in 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) represents the next paradigm shift.
+While YOLOv8 remains a legendary milestone, computer vision moves incredibly fast. For teams looking for the absolute cutting edge in 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the next paradigm shift.
 
 If you are drawn to the NMS-free design of RTDETRv2, YOLO26 incorporates a native **End-to-End NMS-Free Design**, combining the post-processing simplicity of transformers with the blazing speed of CNNs. Additionally, YOLO26 utilizes the groundbreaking **MuSGD Optimizer**, bringing LLM-style training stability to vision models for incredibly fast convergence. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), YOLO26 achieves **up to 43% faster CPU inference**. Combined with advanced **ProgLoss + STAL** mechanisms for superior small-object detection, YOLO26 is definitively the recommended upgrade path over both YOLOv8 and RTDETRv2.
 
-For further reading on alternative models, explore our guides on [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) or read the detailed breakdown of [YOLOv10 vs YOLOv8](https://docs.ultralytics.com/compare/yolov10-vs-yolov8) to see how NMS-free architecture evolved in the YOLO family.
+For further reading on alternative models, explore our guides on [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or read the detailed breakdown of [YOLOv10 vs YOLOv8](https://docs.ultralytics.com/compare/yolov10-vs-yolov8) to see how NMS-free architecture evolved in the YOLO family.

@@ -7,7 +7,7 @@ keywords: YOLOv8, YOLO11, object detection, Ultralytics, YOLO comparison, machin
 
 # YOLOv8 vs YOLO11
 
-The rapid evolution of computer vision has been heavily driven by continuous advancements in real-time object detection frameworks. For developers and researchers navigating the modern landscape, choosing the right model is critical to balancing accuracy, speed, and resource efficiency. In this technical comparison, we will explore the differences between two foundational models from the [Ultralytics](https://www.ultralytics.com) ecosystem: [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) and [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n).
+The rapid evolution of computer vision has been heavily driven by continuous advancements in real-time object detection frameworks. For developers and researchers navigating the modern landscape, choosing the right model is critical to balancing accuracy, speed, and resource efficiency. In this technical comparison, we will explore the differences between two foundational models from the [Ultralytics](https://www.ultralytics.com) ecosystem: [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) and [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11).
 
 Both models demonstrate the hallmark features of Ultralytics architectures—**ease of use**, a **well-maintained ecosystem**, and unparalleled **training efficiency** with low memory requirements. Let's dive deep into their architectural designs, performance benchmarks, and ideal deployment scenarios.
 
@@ -29,7 +29,7 @@ Released as a major leap forward in early 2023, YOLOv8 introduced anchor-free de
 - **Date:** 2023-01-10
 - **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 
-[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n){ .md-button }
+[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
 ### Ultralytics YOLO11
 
@@ -40,7 +40,7 @@ Building upon the success of its predecessors, YOLO11 refined the core architect
 - **Date:** 2024-09-27
 - **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 
-[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 !!! tip "Other Architectures"
 
@@ -138,13 +138,13 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## The Cutting Edge: The YOLO26 Advantage
 
-While YOLOv8 and YOLO11 are phenomenal architectures, the landscape of AI never stops moving. For developers aiming for the absolute state-of-the-art in 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) represents the next monumental leap forward.
+While YOLOv8 and YOLO11 are phenomenal architectures, the landscape of AI never stops moving. For developers aiming for the absolute state-of-the-art in 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the next monumental leap forward.
 
 YOLO26 fundamentally reimagines the deployment pipeline. It features an **End-to-End NMS-Free Design**, a breakthrough approach first pioneered in YOLOv10, which eliminates complex post-processing steps. Furthermore, the **DFL Removal** (Distribution Focal Loss) greatly simplifies exporting logic and enhances compatibility with low-power edge devices, resulting in up to **43% faster CPU inference** compared to its predecessors.
 
 Training stability and convergence speeds are dramatically improved by the novel **MuSGD Optimizer**, a hybrid inspired by LLM training techniques. Additionally, new loss formulations like **ProgLoss + STAL** significantly enhance small-object recognition—a historic pain point for IoT and robotics. With task-specific improvements like RLE for pose estimation and multi-scale proto for segmentation, YOLO26 stands unmatched.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 !!! info "Choosing the Right Model"
 

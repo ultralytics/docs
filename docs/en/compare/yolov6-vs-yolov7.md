@@ -9,7 +9,7 @@ keywords: YOLOv6, YOLOv7, object detection, model comparison, computer vision, m
 
 The evolution of real-time computer vision has been marked by rapid advancements in architectural efficiency and training methodologies. Two prominent models that significantly impacted the landscape are **YOLOv6-3.0** and **YOLOv7**. Both frameworks introduced novel techniques to balance inference speed with detection accuracy, targeting deployments ranging from high-end server GPUs to edge devices.
 
-This comprehensive technical comparison explores their architectures, performance metrics, and ideal use cases, while also highlighting how the modern [Ultralytics Platform](https://platform.ultralytics.com) and the latest [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) model build upon these foundational concepts to deliver unparalleled developer experiences.
+This comprehensive technical comparison explores their architectures, performance metrics, and ideal use cases, while also highlighting how the modern [Ultralytics Platform](https://platform.ultralytics.com) and the latest [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) model build upon these foundational concepts to deliver unparalleled developer experiences.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -122,7 +122,7 @@ Key innovations in YOLO26 include:
 - **ProgLoss + STAL:** Advanced loss functions that yield notable improvements in small-object recognition.
 - **Unrivaled Speed:** Achieves up to 43% faster CPU inference compared to previous generations, making it perfect for embedded systems like the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) or [Apple CoreML](https://docs.ultralytics.com/integrations/coreml) deployments.
 
-Other highly capable models within the ecosystem include [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n), both of which offer excellent performance balance for legacy hardware integrations.
+Other highly capable models within the ecosystem include [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8), both of which offer excellent performance balance for legacy hardware integrations.
 
 !!! tip "Future-Proof Your Pipeline"
 

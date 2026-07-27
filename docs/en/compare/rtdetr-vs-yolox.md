@@ -9,7 +9,7 @@ keywords: RTDETRv2,YOLOX,object detection,model comparison,Vision Transformers,r
 
 The landscape of computer vision has evolved rapidly, offering developers and researchers an array of architectures to choose from when building vision-based systems. Two notable milestones in this journey are the transformer-based **RTDETRv2** and the CNN-based **YOLOX**. While both models have contributed significantly to the field of real-time object detection, they represent fundamentally different approaches to solving visual recognition problems.
 
-This comprehensive guide explores the architectural nuances, performance metrics, and ideal deployment scenarios for both models. Furthermore, we will examine how modern alternatives like the cutting-edge [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) build upon these foundations to deliver superior accuracy, efficiency, and ease of use.
+This comprehensive guide explores the architectural nuances, performance metrics, and ideal deployment scenarios for both models. Furthermore, we will examine how modern alternatives like the cutting-edge [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) build upon these foundations to deliver superior accuracy, efficiency, and ease of use.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -80,13 +80,13 @@ As seen in the data, RTDETRv2 achieves a higher maximum accuracy (54.3 mAP) on i
 
 ## The Ultralytics Advantage: Enter YOLO26
 
-While both RTDETRv2 and YOLOX offer unique benefits, modern developers often require a unified solution that combines the best of both worlds—high accuracy, blazingly fast inference, and an accessible ecosystem. The newly released **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)** represents the pinnacle of this evolution.
+While both RTDETRv2 and YOLOX offer unique benefits, modern developers often require a unified solution that combines the best of both worlds—high accuracy, blazingly fast inference, and an accessible ecosystem. The newly released **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** represents the pinnacle of this evolution.
 
 ### Key Innovations of YOLO26
 
 - **End-to-End NMS-Free Design:** Building on concepts first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 operates natively without NMS. This delivers the seamless inference of RTDETRv2 without the crushing memory requirements of transformers.
 - **MuSGD Optimizer:** Inspired by large language model training innovations, the hybrid MuSGD optimizer (blending SGD and Muon) stabilizes the training process and drastically accelerates convergence.
-- **Up to 43% Faster CPU Inference:** By strategically removing the Distribution Focal Loss (DFL) module, YOLO26 is specifically optimized for edge computing and low-power devices, making it substantially faster on CPUs than previous iterations like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n).
+- **Up to 43% Faster CPU Inference:** By strategically removing the Distribution Focal Loss (DFL) module, YOLO26 is specifically optimized for edge computing and low-power devices, making it substantially faster on CPUs than previous iterations like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11).
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, addressing a common pain point in aerial imagery and [robotics applications](https://www.ultralytics.com/solutions/ai-in-robotics).
 
 ### Unmatched Versatility and Ecosystem
@@ -136,4 +136,4 @@ For the vast majority of modern use cases—spanning [smart city infrastructure]
 
     Ready to elevate your computer vision projects? Explore the comprehensive capabilities of the [Ultralytics Platform](https://platform.ultralytics.com) to effortlessly manage data, train models in the cloud, and deploy intelligent applications at scale.
 
-For developers seeking to explore other architectures within the Ultralytics ecosystem, you may also consider checking out [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) for deeply established community integrations or [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) for unparalleled stability in legacy pipelines. However, for pushing the boundaries of what is possible in 2026, YOLO26 remains the industry standard.
+For developers seeking to explore other architectures within the Ultralytics ecosystem, you may also consider checking out [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) for deeply established community integrations or [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5) for unparalleled stability in legacy pipelines. However, for pushing the boundaries of what is possible in 2026, YOLO26 remains the industry standard.

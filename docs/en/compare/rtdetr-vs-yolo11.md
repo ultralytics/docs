@@ -54,7 +54,7 @@ YOLO11 shines in its **Performance Balance**. It achieves an extraordinary trade
 
 Moreover, Ultralytics YOLO models are renowned for their lower memory usage during training and inference. Unlike Transformer models which can easily exhaust VRAM, YOLO11 allows for larger batch sizes on standard GPUs. Furthermore, YOLO11 is not limited to mere object detection; it boasts incredible **Versatility**, featuring native support for [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Image Classification](https://docs.ultralytics.com/tasks/classify), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
-[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 ## Performance and Metrics Comparison
 
@@ -99,7 +99,7 @@ model_yolo.export(format="onnx")
 
 !!! tip "Streamline Your Workflow"
 
-    Training efficiency is paramount in machine learning. Ultralytics models utilize pre-trained weights that converge rapidly. For managing your datasets, training runs, and deployment endpoints without writing code, explore the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) for an integrated MLOps experience.
+    Training efficiency is paramount in machine learning. Ultralytics models utilize pre-trained weights that converge rapidly. For managing your datasets, training runs, and deployment endpoints without writing code, explore the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo11) for an integrated MLOps experience.
 
 ## Real-World Applications
 
@@ -145,7 +145,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## Looking Forward: The Arrival of YOLO26
 
-If you are beginning a new project, you should also consider the next generation of vision AI: **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)**. Released in January 2026, YOLO26 incorporates the best of both worlds. It introduces an **End-to-End NMS-Free Design** (first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10)), completely eliminating post-processing latency just like RTDETRv2, but with the unmatched speed of a CNN.
+If you are beginning a new project, you should also consider the next generation of vision AI: **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**. Released in January 2026, YOLO26 incorporates the best of both worlds. It introduces an **End-to-End NMS-Free Design** (first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10)), completely eliminating post-processing latency just like RTDETRv2, but with the unmatched speed of a CNN.
 
 YOLO26 features the **MuSGD Optimizer**—inspired by LLM training innovations—for incredibly stable and fast convergence, and delivers up to **43% Faster CPU Inference** by removing Distribution Focal Loss (DFL). With its specialized **ProgLoss + STAL** loss functions vastly improving small-object recognition, YOLO26 is the ultimate recommendation for any modern computer vision pipeline.
 

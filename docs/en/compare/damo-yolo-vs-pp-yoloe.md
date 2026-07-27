@@ -60,7 +60,7 @@ PP-YOLOE+ relies on the more traditional, yet highly effective, CSPRepResNet. Wh
 
 !!! tip "Eliminating Post-Processing Delays"
 
-    Both DAMO-YOLO and PP-YOLOE+ require NMS for post-processing bounding boxes. If inference latency is critical, consider using [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n), which features a natively **End-to-End NMS-Free Design**. This breakthrough approach eliminates NMS post-processing for a faster, simpler deployment pipeline.
+    Both DAMO-YOLO and PP-YOLOE+ require NMS for post-processing bounding boxes. If inference latency is critical, consider using [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26), which features a natively **End-to-End NMS-Free Design**. This breakthrough approach eliminates NMS post-processing for a faster, simpler deployment pipeline.
 
 ## Performance and Metrics Analysis
 
@@ -85,7 +85,7 @@ As the table illustrates, DAMO-YOLO generally achieves lower latency on small (s
 
 DAMO-YOLO's reliance on distillation means you often need to train a much larger teacher model before training the smaller student model. This drastically increases the [CUDA memory requirements](https://docs.pytorch.org/docs/stable/notes/cuda.html) and overall computational budget. PP-YOLOE+ simplifies this with standard single-stage training but remains tightly coupled to the PaddlePaddle framework, which may limit flexibility for teams accustomed to PyTorch.
 
-By contrast, the modern [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) model resolves these bottlenecks. Utilizing the new **MuSGD Optimizer**—a hybrid of SGD and Muon inspired by LLM training innovations—YOLO26 achieves faster convergence and highly stable training without requiring convoluted distillation pipelines. Additionally, YOLO models typically require far less CUDA memory during training compared to transformer-based detectors like [RT-DETR](https://docs.ultralytics.com/models/rtdetr).
+By contrast, the modern [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) model resolves these bottlenecks. Utilizing the new **MuSGD Optimizer**—a hybrid of SGD and Muon inspired by LLM training innovations—YOLO26 achieves faster convergence and highly stable training without requiring convoluted distillation pipelines. Additionally, YOLO models typically require far less CUDA memory during training compared to transformer-based detectors like [RT-DETR](https://docs.ultralytics.com/models/rtdetr).
 
 ## Real-World Applications and Ideal Use Cases
 

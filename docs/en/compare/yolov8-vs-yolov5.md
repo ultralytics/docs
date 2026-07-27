@@ -48,7 +48,7 @@ The architecture features a **C2f module** (Cross-Stage Partial bottleneck with 
 
 - The decoupled head and C2f module introduce a slight increase in parameter count and FLOPs for some variants compared to their exact YOLOv5 counterparts.
 
-[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n){ .md-button }
+[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
 ## Ultralytics YOLOv5: The Agile Pioneer
 
@@ -79,7 +79,7 @@ YOLOv5 incorporates the **C3 module**, which efficiently extracts features while
 - Requires anchor box configuration, which can complicate the setup for highly varied or custom datasets.
 - Lower overall accuracy (mAP) compared to modern anchor-free architectures like YOLOv8 and YOLO26.
 
-[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu){ .md-button }
+[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
 
 ## Performance Comparison
 
@@ -132,7 +132,7 @@ For virtually all new projects starting today, YOLOv8 is highly recommended over
 
 !!! info "Looking for the Latest State-of-the-Art?"
 
-    While YOLOv8 is incredibly capable, developers seeking the absolute frontier of performance should consider **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)**. Released in 2026, it introduces several groundbreaking advancements:
+    While YOLOv8 is incredibly capable, developers seeking the absolute frontier of performance should consider **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**. Released in 2026, it introduces several groundbreaking advancements:
 
     *   **End-to-End NMS-Free Design:** Eliminates NMS post-processing for faster, simpler deployment, a concept first pioneered in YOLOv10.
     *   **MuSGD Optimizer:** A hybrid of SGD and Muon that brings LLM training innovations to computer vision, enabling more stable training and faster convergence.

@@ -77,7 +77,7 @@ While PP-YOLOE+x achieves a marginally higher mAP<sup>val</sup> of 54.7% on the 
 
 ## The Ultralytics Advantage: Enter YOLO26
 
-While RTDETRv2 and PP-YOLOE+ are formidable in their own right, the state-of-the-art has continued to evolve. For developers seeking the ultimate balance of speed, accuracy, and ecosystem support, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) represents the new industry standard.
+While RTDETRv2 and PP-YOLOE+ are formidable in their own right, the state-of-the-art has continued to evolve. For developers seeking the ultimate balance of speed, accuracy, and ecosystem support, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the new industry standard.
 
 YOLO26 synthesizes the best aspects of both CNNs and Transformers. It adopts the **End-to-End NMS-Free** design pioneered by modern architectures, effectively eliminating post-processing bottlenecks. Furthermore, it introduces the revolutionary **MuSGD Optimizer**, a hybrid approach inspired by LLM training innovations that ensures highly stable training and rapid convergence.
 
@@ -87,7 +87,7 @@ YOLO26 synthesizes the best aspects of both CNNs and Transformers. It adopts the
 
 Additionally, YOLO26 is not limited to simple object detection. It is natively versatile, supporting [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb) out of the box, whereas PP-YOLOE+ is primarily focused on bounding box detection.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Training Methodologies and Ecosystem
 
@@ -159,4 +159,4 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 Both RTDETRv2 and PP-YOLOE+ have pushed the boundaries of what is possible in computer vision, proving the viability of both transformer and highly optimized CNN architectures. However, the complexity of deploying fragmented research codebases can hinder production timelines.
 
-For modern AI engineers, leveraging the [Ultralytics Platform](https://platform.ultralytics.com/) provides an unmatched advantage. By migrating to seamlessly integrated models like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) or the cutting-edge YOLO26, teams can achieve the highest possible accuracy-to-speed ratios while drastically reducing memory requirements and development overhead.
+For modern AI engineers, leveraging the [Ultralytics Platform](https://platform.ultralytics.com/) provides an unmatched advantage. By migrating to seamlessly integrated models like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or the cutting-edge YOLO26, teams can achieve the highest possible accuracy-to-speed ratios while drastically reducing memory requirements and development overhead.

@@ -7,7 +7,7 @@ keywords: YOLOv8, EfficientDet, object detection, model comparison, computer vis
 
 # YOLOv8 vs EfficientDet
 
-In the rapidly evolving field of [object detection](https://en.wikipedia.org/wiki/Object_detection), selecting the optimal neural network architecture is critical for balancing accuracy, inference speed, and deployment feasibility. This technical deep dive compares two highly influential architectures: **[Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n)**, a versatile standard in the modern computer vision ecosystem, and **EfficientDet**, a foundational model from Google known for its compound scaling strategy.
+In the rapidly evolving field of [object detection](https://en.wikipedia.org/wiki/Object_detection), selecting the optimal neural network architecture is critical for balancing accuracy, inference speed, and deployment feasibility. This technical deep dive compares two highly influential architectures: **[Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8)**, a versatile standard in the modern computer vision ecosystem, and **EfficientDet**, a foundational model from Google known for its compound scaling strategy.
 
 Whether your deployment targets high-performance cloud servers or resource-constrained edge devices, understanding the architectural nuances of these models will guide your project to success.
 
@@ -26,7 +26,7 @@ Released by Ultralytics in January 2023, YOLOv8 represented a major leap forward
 
 The architecture introduces an anchor-free detection head, which heavily reduces the number of box predictions and speeds up Non-Maximum Suppression (NMS). Its backbone utilizes a novel **C2f module** (Cross-Stage Partial bottleneck with two convolutions) to improve gradient flow during training while maintaining a lightweight footprint. This makes YOLOv8 exceptionally efficient when compiled to formats like [NVIDIA TensorRT](https://developer.nvidia.com/tensorrt) or [ONNX](https://onnx.ai/).
 
-[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n){ .md-button }
+[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
 ### EfficientDet
 
@@ -93,7 +93,7 @@ inference_results[0].show()
 
 ## The Next Generation: Upgrading to Ultralytics YOLO26
 
-While YOLOv8 remains a highly capable production model, researchers and developers looking for the bleeding edge of AI performance should evaluate **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)**, released in January 2026.
+While YOLOv8 remains a highly capable production model, researchers and developers looking for the bleeding edge of AI performance should evaluate **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**, released in January 2026.
 
 YOLO26 redefines the object detection paradigm by introducing a native **End-to-End NMS-Free Design**. By eliminating the need for Non-Maximum Suppression during post-processing—a bottleneck that has existed since early YOLO versions—latency variance is practically eliminated. This is a game-changer for deployment on low-power devices.
 
@@ -112,4 +112,4 @@ Selecting between these architectures ultimately depends on your deployment cons
 - **Choose EfficientDet if:** You are locked into legacy TensorFlow workflows and your primary concern is minimizing parameter counts and theoretical FLOPs, perhaps for research purposes rather than strict real-time industrial deployment.
 - **Choose Ultralytics YOLO26 if:** You are starting a new project and require the absolute best. Its native end-to-end NMS-free architecture makes it the ultimate choice for both ultra-fast edge deployments and heavy cloud processing.
 
-If you are exploring other highly capable frameworks within the Ultralytics ecosystem, you may also consider [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) for balanced legacy performance or [RT-DETR](https://docs.ultralytics.com/models/rtdetr) for a transformer-based approach to real-time detection.
+If you are exploring other highly capable frameworks within the Ultralytics ecosystem, you may also consider [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) for balanced legacy performance or [RT-DETR](https://docs.ultralytics.com/models/rtdetr) for a transformer-based approach to real-time detection.

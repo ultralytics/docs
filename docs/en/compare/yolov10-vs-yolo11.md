@@ -7,7 +7,7 @@ keywords: YOLOv10, YOLO11, object detection, model comparison, computer vision, 
 
 # YOLOv10 vs YOLO11
 
-The landscape of computer vision is constantly evolving, with new architectures pushing the boundaries of what is possible in real-time processing. For developers and researchers navigating this fast-paced field, understanding the nuances between cutting-edge models is crucial. This detailed comparison explores the technical differences, performance trade-offs, and ideal use cases for [YOLOv10](https://arxiv.org/abs/2405.14458) and [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n), two highly capable object detection frameworks.
+The landscape of computer vision is constantly evolving, with new architectures pushing the boundaries of what is possible in real-time processing. For developers and researchers navigating this fast-paced field, understanding the nuances between cutting-edge models is crucial. This detailed comparison explores the technical differences, performance trade-offs, and ideal use cases for [YOLOv10](https://arxiv.org/abs/2405.14458) and [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), two highly capable object detection frameworks.
 
 While both models achieve remarkable results on benchmark datasets, their underlying design philosophies and ecosystem integrations differ significantly. By examining their architectures, we can identify which solution best aligns with your deployment constraints and project goals.
 
@@ -34,11 +34,11 @@ Launched later in the same year, YOLO11 represents the continuous refinement of 
 - **Organization:** [Ultralytics](https://www.ultralytics.com/about)
 - **Date:** September 27, 2024
 - **Source Code:** [Ultralytics on GitHub](https://github.com/ultralytics/ultralytics)
-- **Platform Integration:** [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n)
+- **Platform Integration:** [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo11)
 
 YOLO11 is designed for production. While it excels at standard bounding box detection, its true strength lies in its **versatility**. Unlike YOLOv10, which is primarily focused on object detection, YOLO11 natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), [image classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) tasks using a unified architecture. It boasts remarkably low **memory requirements** during training, making it highly accessible for teams working with consumer-grade [GPUs](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) compared to heavier, transformer-based architectures.
 
-[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 ## Performance and Metrics Comparison
 
@@ -131,7 +131,7 @@ While YOLOv10 and YOLO11 are excellent choices, your specific use case might ben
 
 ## The Next Generation: YOLO26
 
-For teams seeking the absolute state-of-the-art, the recently released [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) combines the best features of both models discussed above. Released in January 2026, YOLO26 is the ultimate recommendation for modern deployment scenarios.
+For teams seeking the absolute state-of-the-art, the recently released [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) combines the best features of both models discussed above. Released in January 2026, YOLO26 is the ultimate recommendation for modern deployment scenarios.
 
 Building upon the foundations of its predecessors, YOLO26 natively incorporates an **End-to-End NMS-Free Design**, effectively eliminating the post-processing bottlenecks that YOLOv10 first addressed, but doing so within the robust Ultralytics framework. Furthermore, YOLO26 features **DFL Removal** (Distribution Focal Loss), which drastically simplifies model export graphs and enhances compatibility with edge and low-power IoT devices.
 

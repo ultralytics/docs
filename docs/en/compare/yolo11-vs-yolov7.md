@@ -25,7 +25,7 @@ Date: 2024-09-27
 GitHub: [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)  
 Docs: [https://docs.ultralytics.com/models/yolo11/](https://docs.ultralytics.com/models/yolo11)
 
-[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 **YOLOv7 Details:**  
 Authors: Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao  
@@ -72,7 +72,7 @@ One of the most defining characteristics separating these two architectures is t
 
 **YOLOv7** is fundamentally an academic research repository. Training models often requires complex environment setups, manually managing dependencies, and utilizing long command-line arguments. While it supports cutting-edge experimentation, adapting the [YOLOv7 GitHub repository](https://github.com/WongKinYiu/yolov7) code for custom production environments can be time-consuming.
 
-**YOLO11** completely redefines ease of use. It is fully integrated into the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n), a comprehensive and well-maintained ecosystem offering seamless end-to-end workflows. From data annotation and local training to deployment, the unified Python API and simple command-line interface streamline the entire process.
+**YOLO11** completely redefines ease of use. It is fully integrated into the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo11), a comprehensive and well-maintained ecosystem offering seamless end-to-end workflows. From data annotation and local training to deployment, the unified Python API and simple command-line interface streamline the entire process.
 
 ### Code Comparison
 
@@ -120,10 +120,10 @@ Choosing between YOLOv7 and YOLO11 depends entirely on the project scope and dep
 
 ## The Cutting Edge: Moving Forward with YOLO26
 
-While YOLO11 stands as a highly robust choice, innovation in artificial intelligence never sleeps. For engineers starting new projects today, exploring **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)** is highly recommended.
+While YOLO11 stands as a highly robust choice, innovation in artificial intelligence never sleeps. For engineers starting new projects today, exploring **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** is highly recommended.
 
 Released in January 2026, YOLO26 introduces an end-to-end NMS-Free Design, completely eliminating the latency bottlenecks associated with [Non-Maximum Suppression](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing. Furthermore, YOLO26 incorporates the revolutionary **MuSGD Optimizer**, inspired by LLM training methodologies, to ensure faster convergence. With targeted loss improvements via **ProgLoss + STAL** and up to 43% faster CPU inference due to DFL removal, YOLO26 is specifically optimized for edge computing and represents the current pinnacle of vision AI.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 For users interested in specialized alternative structures, exploring the transformer-based [RT-DETR](https://docs.ultralytics.com/models/rtdetr) or the dynamic open-vocabulary [YOLO-World](https://docs.ultralytics.com/models/yolo-world) models may also yield beneficial results for diverse computer vision deployments.

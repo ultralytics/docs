@@ -7,7 +7,7 @@ keywords: EfficientDet, YOLO26, object detection, model comparison, BiFPN, NMS-f
 
 # EfficientDet vs YOLO26
 
-Choosing the right computer vision architecture is a critical step in building scalable and efficient AI systems. This comprehensive guide provides an in-depth technical comparison between Google's legacy EfficientDet and the state-of-the-art [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n). We evaluate their underlying architectures, performance metrics, and training methodologies to help you select the best model for your specific deployment constraints.
+Choosing the right computer vision architecture is a critical step in building scalable and efficient AI systems. This comprehensive guide provides an in-depth technical comparison between Google's legacy EfficientDet and the state-of-the-art [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). We evaluate their underlying architectures, performance metrics, and training methodologies to help you select the best model for your specific deployment constraints.
 
 ## Model Lineage and Authorship
 
@@ -28,7 +28,7 @@ Organization: [Ultralytics](https://www.ultralytics.com)
 Date: 2026-01-14  
 GitHub: [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -93,7 +93,7 @@ EfficientDet is strictly an [object detection](https://docs.ultralytics.com/task
 
 !!! note "Legacy Support"
 
-    If you are maintaining older systems, Ultralytics still fully supports [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) and older iterations in the exact same API. However, for all new developments, YOLO26 provides the best resource-to-accuracy yield.
+    If you are maintaining older systems, Ultralytics still fully supports [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and older iterations in the exact same API. However, for all new developments, YOLO26 provides the best resource-to-accuracy yield.
 
 ## Use Cases and Recommendations
 

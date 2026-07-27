@@ -155,7 +155,7 @@ predictions[0].show()
 
 While YOLOv7 and YOLOX represent important historical steps, the state-of-the-art moves rapidly. Released in January 2026, **Ultralytics YOLO26** introduces groundbreaking paradigms that supersede previous models.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 - **End-to-End NMS-Free Design:** YOLO26 natively eliminates [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing. This drastically reduces latency bottlenecks and guarantees deterministic execution times across varied hardware setups.
 - **Up to 43% Faster CPU Inference:** By removing Distribution Focal Loss (DFL) and optimizing network depth, YOLO26 is heavily tailored for edge devices lacking dedicated GPU hardware.
@@ -163,4 +163,4 @@ While YOLOv7 and YOLOX represent important historical steps, the state-of-the-ar
 - **Improved Small Object Detection:** The integration of the ProgLoss + STAL loss functions provides significant improvements in recognizing small, distant objects—critical for [drone mapping](https://docs.ultralytics.com/datasets/detect/visdrone) and security surveillance.
 - **Native Task Support:** YOLO26 comprehensively supports [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb), instance segmentation, and pose estimation natively within the same streamlined API.
 
-For any modern developer starting a new computer vision project today, evaluating [Ultralytics YOLO26 on the Platform](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) is the recommended path to achieving the absolute best balance of speed, accuracy, and deployment simplicity. For those upgrading from previous generations like [YOLO11](https://docs.ultralytics.com/models/yolo11) or [YOLOv8](https://docs.ultralytics.com/models/yolov8), the transition requires changing only the model string, instantly unlocking superior capabilities.
+For any modern developer starting a new computer vision project today, evaluating [Ultralytics YOLO26 on the Platform](https://platform.ultralytics.com/ultralytics/yolo26) is the recommended path to achieving the absolute best balance of speed, accuracy, and deployment simplicity. For those upgrading from previous generations like [YOLO11](https://docs.ultralytics.com/models/yolo11) or [YOLOv8](https://docs.ultralytics.com/models/yolov8), the transition requires changing only the model string, instantly unlocking superior capabilities.

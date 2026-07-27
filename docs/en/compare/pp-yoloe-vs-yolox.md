@@ -117,7 +117,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## The Ultralytics Advantage: Enter YOLO26
 
-While PP-YOLOE+ and YOLOX represent excellent research milestones, the modern deployment landscape demands a more cohesive, developer-friendly experience with superior efficiency. This is where [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) completely redefines the standard for modern visual AI.
+While PP-YOLOE+ and YOLOX represent excellent research milestones, the modern deployment landscape demands a more cohesive, developer-friendly experience with superior efficiency. This is where [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) completely redefines the standard for modern visual AI.
 
 For teams looking to transition from isolated research repositories to production-ready systems, Ultralytics offers a robust, well-maintained ecosystem. Training a model no longer requires configuring complex environments; it is as simple as accessing a unified Python API.
 
@@ -129,7 +129,7 @@ For teams looking to transition from isolated research repositories to productio
 - **ProgLoss + STAL:** These advanced loss functions deliver notable improvements in small-object recognition, a critical feature for [drone operations](https://www.ultralytics.com/blog/build-ai-powered-drone-applications-with-ultralytics-yolo11) and highly detailed aerial imagery.
 - **Versatility:** While PP-YOLOE+ and YOLOX focus purely on detection, YOLO26 seamlessly handles [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb) using the exact same intuitive syntax.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ### Streamlined Training with Ultralytics
 
@@ -159,4 +159,4 @@ model.export(format="engine")
 
 Both PP-YOLOE+ and YOLOX have earned their places in computer vision history, offering high accuracy and lightweight anchor-free designs, respectively. However, for organizations building the future of [AI in agriculture](https://www.ultralytics.com/solutions/ai-in-agriculture), smart cities, and retail, the continuous maintenance, ease of use, and native NMS-free architecture of **Ultralytics YOLO26** make it the undisputed choice.
 
-If you are exploring alternative architectures for specific benchmarks, you may also find value in comparing the older [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) or transformer-based options like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) via the comprehensive Ultralytics documentation. By migrating to the unified Ultralytics ecosystem, developers save invaluable time and resources while achieving state-of-the-art results on any edge or cloud deployment.
+If you are exploring alternative architectures for specific benchmarks, you may also find value in comparing the older [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or transformer-based options like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) via the comprehensive Ultralytics documentation. By migrating to the unified Ultralytics ecosystem, developers save invaluable time and resources while achieving state-of-the-art results on any edge or cloud deployment.

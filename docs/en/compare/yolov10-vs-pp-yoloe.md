@@ -124,7 +124,7 @@ While YOLOv10 and PP-YOLOE+ offer specialized benefits, the modern standard for 
 
 ### Unmatched Versatility
 
-Unlike PP-YOLOE+ which focuses on detection, YOLO26 handles [image classification](https://docs.ultralytics.com/tasks/classify), [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb), pose estimation, and segmentation from a single, unified codebase. You can easily manage [datasets](https://docs.ultralytics.com/datasets), train, and deploy models directly via the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n).
+Unlike PP-YOLOE+ which focuses on detection, YOLO26 handles [image classification](https://docs.ultralytics.com/tasks/classify), [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb), pose estimation, and segmentation from a single, unified codebase. You can easily manage [datasets](https://docs.ultralytics.com/datasets), train, and deploy models directly via the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26).
 
 ```python
 from ultralytics import YOLO
@@ -147,6 +147,6 @@ Selecting the right model heavily depends on deployment constraints:
 - **YOLOv10** is optimal for dense [crowd management](https://www.ultralytics.com/blog/vision-ai-in-crowd-management) and environments where removing NMS drops latency variability, making real-time tracking more consistent.
 - **Ultralytics YOLO26** remains the definitive choice for enterprise-wide scaling. Whether analyzing traffic in [smart cities](https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities) or deploying to ultra-low-power edge nodes like the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi), its minimal memory footprint, comprehensive documentation, and unified training pipeline ensure rapid ROI.
 
-For those interested in exploring older supported architectures or transformer alternatives within the ecosystem, see the documentations for [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) or [RT-DETR](https://docs.ultralytics.com/models/rtdetr).
+For those interested in exploring older supported architectures or transformer alternatives within the ecosystem, see the documentations for [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or [RT-DETR](https://docs.ultralytics.com/models/rtdetr).
 
 Ultimately, a well-maintained ecosystem combined with a simple API ensures that developers spend less time debugging configuration files and more time solving real-world [vision AI](https://www.ultralytics.com/blog) problems.

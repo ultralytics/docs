@@ -94,14 +94,14 @@ YOLOv6-3.0 and EfficientDet are primarily bound to [object detection](https://do
 
 ### Introducing Ultralytics YOLO26
 
-For developers seeking the ultimate performance balance, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) represents a paradigm shift. Released in January 2026, it introduces several groundbreaking innovations that outpace both YOLOv6 and EfficientDet:
+For developers seeking the ultimate performance balance, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents a paradigm shift. Released in January 2026, it introduces several groundbreaking innovations that outpace both YOLOv6 and EfficientDet:
 
 - **End-to-End NMS-Free Design:** YOLO26 natively eliminates the need for Non-Maximum Suppression (NMS) post-processing, significantly lowering latency variance and simplifying deployment logic on edge devices.
 - **MuSGD Optimizer:** Inspired by LLM training, this hybrid optimizer ensures stable training and incredibly fast convergence.
 - **Up to 43% Faster CPU Inference:** With the removal of Distribution Focal Loss (DFL), YOLO26 is vastly more efficient on CPUs and low-power IoT devices compared to legacy models.
 - **ProgLoss + STAL:** These advanced loss functions deliver massive improvements in small object recognition, making YOLO26 ideal for drone and aerial imagery applications.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Use Cases and Recommendations
 
@@ -156,7 +156,7 @@ prediction = model("https://ultralytics.com/images/bus.jpg")
 
 If you are exploring the broader landscape of computer vision models, consider these alternatives:
 
-- **[YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n):** The highly successful predecessor to YOLO26, offering robust multi-task capabilities and extensive community support.
+- **[YOLO11](https://platform.ultralytics.com/ultralytics/yolo11):** The highly successful predecessor to YOLO26, offering robust multi-task capabilities and extensive community support.
 - **[YOLOv10](https://docs.ultralytics.com/models/yolov10):** The first YOLO architecture to introduce NMS-free training, paving the way for modern end-to-end detection.
 - **[RT-DETR](https://docs.ultralytics.com/models/rtdetr):** For scenarios where transformer-based architectures and attention mechanisms are preferred over traditional CNNs.
 

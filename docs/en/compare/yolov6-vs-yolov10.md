@@ -106,7 +106,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## The Ultralytics Advantage: Why YOLO26 is the Superior Choice
 
-While YOLOv6-3.0 and YOLOv10 provide solid baseline architectures, modern production environments demand models that blend peak accuracy with extreme usability. This is where the [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) model framework fundamentally outperforms standalone academic releases.
+While YOLOv6-3.0 and YOLOv10 provide solid baseline architectures, modern production environments demand models that blend peak accuracy with extreme usability. This is where the [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) model framework fundamentally outperforms standalone academic releases.
 
 Released in January 2026, YOLO26 incorporates the best innovations from the preceding years and wraps them in a meticulously maintained ecosystem.
 
@@ -147,7 +147,7 @@ predictions = model.predict("https://ultralytics.com/images/bus.jpg")
 model.export(format="onnx")
 ```
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Conclusion and Alternative Options
 
@@ -155,4 +155,4 @@ When choosing between YOLOv6-3.0 and YOLOv10, the decision hinges on the deploym
 
 However, for developers seeking zero-compromise performance backed by comprehensive documentation, cloud logging via the [Ultralytics Platform](https://platform.ultralytics.com), and multi-task versatility, **YOLO26 is the definitive recommendation**.
 
-For legacy infrastructure requirements, teams might also investigate the previous generation [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n), or explore [YOLO-World](https://docs.ultralytics.com/models/yolo-world) for unique open-vocabulary detection capabilities.
+For legacy infrastructure requirements, teams might also investigate the previous generation [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), or explore [YOLO-World](https://docs.ultralytics.com/models/yolo-world) for unique open-vocabulary detection capabilities.

@@ -7,7 +7,7 @@ keywords: YOLO11, EfficientDet, model comparison, object detection, Ultralytics,
 
 # EfficientDet vs YOLO11
 
-Selecting the optimal neural network architecture is the foundation of any successful [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) application. This comprehensive guide provides an in-depth technical comparison between Google's EfficientDet and [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n), analyzing their architectural differences, performance metrics, and ideal deployment scenarios.
+Selecting the optimal neural network architecture is the foundation of any successful [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) application. This comprehensive guide provides an in-depth technical comparison between Google's EfficientDet and [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), analyzing their architectural differences, performance metrics, and ideal deployment scenarios.
 
 Whether you are targeting millisecond latency on [edge AI](https://www.ultralytics.com/glossary/edge-ai) devices or require scalable accuracy for cloud-based inference, understanding the nuances of these models is crucial.
 
@@ -43,7 +43,7 @@ YOLO11 represents a significant evolution in the Ultralytics ecosystem, pushing 
 - **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 - **Docs:** [https://docs.ultralytics.com/models/yolo11/](https://docs.ultralytics.com/models/yolo11)
 
-[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 ## Architectural Comparison
 
@@ -120,7 +120,7 @@ YOLO11 is the definitive choice for modern enterprise deployments. Its exception
 
 ## Looking Forward: The YOLO26 Upgrade
 
-While YOLO11 is exceptionally capable, developers starting new projects should evaluate other Ultralytics architectures like the proven [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) or the newly released [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n). Released in early 2026, YOLO26 takes the foundation of YOLO11 and introduces several groundbreaking innovations:
+While YOLO11 is exceptionally capable, developers starting new projects should evaluate other Ultralytics architectures like the proven [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) or the newly released [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). Released in early 2026, YOLO26 takes the foundation of YOLO11 and introduces several groundbreaking innovations:
 
 - **End-to-End NMS-Free Design:** Building on the legacy of [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 completely eliminates Non-Maximum Suppression (NMS) during post-processing, slashing latency and simplifying deployment pipelines.
 - **MuSGD Optimizer:** A hybrid optimizer blending standard SGD with Muon (inspired by large language model training), drastically improving training stability.

@@ -50,9 +50,9 @@ Developed by researchers at Tsinghua University, YOLOv10 introduced a consistent
 **Date:** 2026-01-14  
 **Authors:** Glenn Jocher and Jing Qiu  
 **Organization:** [Ultralytics](https://www.ultralytics.com/)  
-**Resources:** [GitHub Repository](https://github.com/ultralytics/ultralytics) | [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)
+**Resources:** [GitHub Repository](https://github.com/ultralytics/ultralytics) | [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26)
 
-Released as the successor to [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n), **YOLO26** takes the NMS-free concept to its ultimate realization. It natively integrates end-to-end detection into the highly optimized [Ultralytics Platform](https://platform.ultralytics.com/), providing a complete suite of tools for the modern machine learning pipeline.
+Released as the successor to [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), **YOLO26** takes the NMS-free concept to its ultimate realization. It natively integrates end-to-end detection into the highly optimized [Ultralytics Platform](https://platform.ultralytics.com/), providing a complete suite of tools for the modern machine learning pipeline.
 
 YOLO26 introduces several architectural breakthroughs:
 
@@ -62,7 +62,7 @@ YOLO26 introduces several architectural breakthroughs:
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, which is critical for [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and drone-based [security monitoring](https://www.ultralytics.com/blog/real-time-security-monitoring-with-ai-and-ultralytics-yolo11).
 - **Task-Specific Improvements:** YOLO26 isn't just a detector. It features Semantic Segmentation loss and multi-scale proto for [Segmentation](https://docs.ultralytics.com/tasks/segment), Residual Log-Likelihood Estimation (RLE) for [Pose Estimation](https://docs.ultralytics.com/tasks/pose), and specialized angle loss for [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Performance Analysis and Metrics
 
@@ -93,7 +93,7 @@ When deploying models into production, memory requirements and training efficien
 
 ## Practical Implementation: Code Example
 
-The hallmark of Ultralytics is its industry-leading **Ease of Use**. With an intuitive Python API, migrating from a legacy model like [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) to the cutting-edge YOLO26 requires updating just a single line of code.
+The hallmark of Ultralytics is its industry-leading **Ease of Use**. With an intuitive Python API, migrating from a legacy model like [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) to the cutting-edge YOLO26 requires updating just a single line of code.
 
 Here is a 100% runnable example demonstrating how to train and infer using YOLO26:
 

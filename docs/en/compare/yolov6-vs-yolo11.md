@@ -7,7 +7,7 @@ keywords: YOLO11, YOLOv6-3.0, object detection, model comparison, Ultralytics, c
 
 # YOLOv6-3.0 vs YOLO11
 
-When evaluating computer vision models for high-performance applications, choosing the right architecture is critical. The evolution of vision AI has led to specialized models tailored for distinct environments. This comprehensive guide compares two prominent models in the ecosystem: the industrially focused YOLOv6-3.0 and the highly versatile [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n).
+When evaluating computer vision models for high-performance applications, choosing the right architecture is critical. The evolution of vision AI has led to specialized models tailored for distinct environments. This comprehensive guide compares two prominent models in the ecosystem: the industrially focused YOLOv6-3.0 and the highly versatile [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11).
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -57,7 +57,7 @@ Unlike YOLOv6, which focuses strictly on bounding box detection, Ultralytics YOL
 
     Ultralytics creates a "zero-to-hero" experience. Instead of complex environment setups common in research repositories, you can train, validate, and export models via a unified Python API or command-line interface. The [Ultralytics Platform](https://platform.ultralytics.com/) further simplifies dataset labeling and cloud training.
 
-[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 ## Performance and Technical Comparison
 
@@ -130,7 +130,7 @@ model.export(format="onnx")
 
 ## Looking Forward: The Arrival of YOLO26
 
-While YOLO11 stands tall as a massive leap over legacy architectures, developers seeking the absolute frontier of performance should consider upgrading to the groundbreaking **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)**.
+While YOLO11 stands tall as a massive leap over legacy architectures, developers seeking the absolute frontier of performance should consider upgrading to the groundbreaking **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**.
 
 Released in January 2026, YOLO26 establishes a new standard for AI model efficiency, bringing innovations previously unseen in the computer vision space:
 
@@ -139,10 +139,10 @@ Released in January 2026, YOLO26 establishes a new standard for AI model efficie
 - **CPU Optimized:** By removing the Distribution Focal Loss (DFL), YOLO26 achieves up to 43% faster CPU inference, making it the perfect choice for mobile, IoT, and [edge AI applications](https://www.ultralytics.com/glossary/edge-ai).
 - **Advanced Loss Functions:** Implementations of ProgLoss and STAL drastically improve small-object recognition, vital for aerial imagery and robotics.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## Conclusion and Recommendations
 
 If your deployment environment is strictly confined to heavily engineered industrial GPU pipelines requiring batch inference, **YOLOv6-3.0** remains an interesting tool. However, for the vast majority of real-world scenarios requiring scalable, easy-to-train, and highly accurate models, **Ultralytics YOLO11**—and the cutting-edge **YOLO26**—are the undisputed recommendations.
 
-The Ultralytics ecosystem empowers you to move rapidly from dataset collection to edge deployment, ensuring your projects are future-proof and backed by extensive documentation and community support. For those exploring other efficient architectures, we also recommend checking out [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) for robust, proven legacy support, or dive directly into the next generation with [YOLO26](https://docs.ultralytics.com/models/yolo26).
+The Ultralytics ecosystem empowers you to move rapidly from dataset collection to edge deployment, ensuring your projects are future-proof and backed by extensive documentation and community support. For those exploring other efficient architectures, we also recommend checking out [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) for robust, proven legacy support, or dive directly into the next generation with [YOLO26](https://docs.ultralytics.com/models/yolo26).

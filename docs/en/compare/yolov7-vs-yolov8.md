@@ -45,7 +45,7 @@ Released in early 2023, YOLOv8 completely redefined the developer experience, fo
 - Organization: [Ultralytics](https://www.ultralytics.com)
 - Date: 2023-01-10
 - GitHub: [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- Platform: [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n)
+- Platform: [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8)
 
 **Architecture Highlights:**
 YOLOv8 introduced a natively **anchor-free** detection head, eliminating the need to manually configure anchor boxes based on the [MS COCO dataset](https://cocodataset.org/) or custom data distributions. It incorporates the C2f module to improve gradient flow and uses a decoupled head structure that separates objectness, classification, and regression tasks. This heavily accelerates convergence and boosts accuracy.
@@ -53,7 +53,7 @@ YOLOv8 introduced a natively **anchor-free** detection head, eliminating the nee
 **Strengths and Weaknesses:**
 YOLOv8 boasts exceptional **Memory Requirements** efficiency. It requires significantly less CUDA memory during training compared to YOLOv7 and heavier transformer models, allowing developers to use larger batch sizes. Its primary strength lies in its **Versatility**, natively supporting [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb). The only minor drawback is that extremely specialized legacy pipelines built exclusively for YOLOv7 tensors might require a brief refactoring period.
 
-[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n){ .md-button }
+[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
 !!! tip "Ecosystem Advantage"
 
@@ -121,9 +121,9 @@ Choosing between these architectures often comes down to the specific constraint
 
 ## Looking Forward: The Generational Leap to YOLO26
 
-While YOLOv8 remains a highly robust choice, the field of computer vision moves rapidly. For developers starting entirely new, high-performance projects, Ultralytics recently introduced the next evolution of AI models. It is highly recommended to explore both the deeply refined [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) and the newly released **YOLO26**.
+While YOLOv8 remains a highly robust choice, the field of computer vision moves rapidly. For developers starting entirely new, high-performance projects, Ultralytics recently introduced the next evolution of AI models. It is highly recommended to explore both the deeply refined [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and the newly released **YOLO26**.
 
-Released in January 2026, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) pushes the boundaries of what is possible on edge devices:
+Released in January 2026, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) pushes the boundaries of what is possible on edge devices:
 
 - **End-to-End NMS-Free Design:** YOLO26 is natively end-to-end, completely eliminating Non-Maximum Suppression (NMS) post-processing. This ensures significantly faster, simpler deployment pipelines without the latency bottlenecks of traditional dense prediction models.
 - **DFL Removal:** By removing Distribution Focal Loss, YOLO26 achieves much simpler [model deployment options](https://docs.ultralytics.com/guides/model-deployment-options) and superior edge compatibility.

@@ -9,7 +9,7 @@ keywords: EfficientDet, DAMO-YOLO, object detection, model comparison, Efficient
 
 When building scalable [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) pipelines, selecting the right model architecture is a critical decision that influences both deployment feasibility and detection accuracy. This guide provides an in-depth, technical comparison between two well-known architectures in the visual recognition landscape: EfficientDet and DAMO-YOLO.
 
-While both models brought significant innovations to the field of [object detection](https://www.ultralytics.com/glossary/object-detection), the rapid advancement of vision AI has paved the way for more integrated ecosystems. Throughout this analysis, we will explore the core mechanics of these legacy networks while illustrating why modern solutions like the [Ultralytics Platform](https://docs.ultralytics.com/platform) and [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) have become the industry standard for production environments.
+While both models brought significant innovations to the field of [object detection](https://www.ultralytics.com/glossary/object-detection), the rapid advancement of vision AI has paved the way for more integrated ecosystems. Throughout this analysis, we will explore the core mechanics of these legacy networks while illustrating why modern solutions like the [Ultralytics Platform](https://docs.ultralytics.com/platform) and [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) have become the industry standard for production environments.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -54,7 +54,7 @@ DAMO-YOLO introduces several novel technologies. It utilizes a NAS-generated bac
 
 ### Strengths and Weaknesses
 
-DAMO-YOLO shines in its GPU inference speeds, specifically engineered for deployment on NVIDIA architectures using [TensorRT](https://docs.ultralytics.com/integrations/tensorrt). By stripping away heavy head structures, the model delivers low-latency predictions. Conversely, the automated architecture search can make the model structure opaque and difficult to manually debug or fine-tune for custom edge devices. Unlike the highly versatile [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n), DAMO-YOLO is primarily focused on standard bounding box detection, lacking native support for advanced tasks like [pose estimation](https://docs.ultralytics.com/tasks/pose) or [oriented bounding box (OBB)](https://docs.ultralytics.com/tasks/obb) detection out of the box.
+DAMO-YOLO shines in its GPU inference speeds, specifically engineered for deployment on NVIDIA architectures using [TensorRT](https://docs.ultralytics.com/integrations/tensorrt). By stripping away heavy head structures, the model delivers low-latency predictions. Conversely, the automated architecture search can make the model structure opaque and difficult to manually debug or fine-tune for custom edge devices. Unlike the highly versatile [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), DAMO-YOLO is primarily focused on standard bounding box detection, lacking native support for advanced tasks like [pose estimation](https://docs.ultralytics.com/tasks/pose) or [oriented bounding box (OBB)](https://docs.ultralytics.com/tasks/obb) detection out of the box.
 
 [Learn more about DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md){ .md-button }
 
@@ -133,7 +133,7 @@ model.export(format="onnx")
 
 ### The YOLO26 Revolution
 
-For developers evaluating EfficientDet or DAMO-YOLO, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) represents the ultimate evolutionary step. Released in early 2026, it introduces paradigm-shifting capabilities:
+For developers evaluating EfficientDet or DAMO-YOLO, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the ultimate evolutionary step. Released in early 2026, it introduces paradigm-shifting capabilities:
 
 - **End-to-End NMS-Free Design:** First pioneered by [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 natively eliminates the need for Non-Maximum Suppression (NMS) post-processing. This translates to vastly simpler deployment architectures and consistent latency across diverse hardware.
 - **Up to 43% Faster CPU Inference:** For edge deployments lacking heavy GPUs—scenarios where DAMO-YOLO struggles—YOLO26 is heavily optimized, delivering massive speedups on standard CPUs.
@@ -145,7 +145,7 @@ For developers evaluating EfficientDet or DAMO-YOLO, [Ultralytics YOLO26](https:
 
 Unlike [transformer](https://www.ultralytics.com/glossary/transformer) models or heavily fused NAS networks, Ultralytics models are characterized by their stringent memory efficiency. They consume remarkably lower CUDA memory during training, enabling rapid iteration on consumer-grade hardware.
 
-Furthermore, while EfficientDet and DAMO-YOLO are rigidly constrained to bounding boxes, Ultralytics natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment) and [image classification](https://docs.ultralytics.com/tasks/classify) within the exact same intuitive framework. For users maintaining older projects, [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) remains a rock-solid, widely deployed alternative worth exploring.
+Furthermore, while EfficientDet and DAMO-YOLO are rigidly constrained to bounding boxes, Ultralytics natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment) and [image classification](https://docs.ultralytics.com/tasks/classify) within the exact same intuitive framework. For users maintaining older projects, [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) remains a rock-solid, widely deployed alternative worth exploring.
 
 ## Conclusion
 

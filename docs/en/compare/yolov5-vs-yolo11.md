@@ -30,7 +30,7 @@ Released in the summer of 2020, YOLOv5 quickly became an industry standard due t
 
 YOLOv5 established a strong baseline for ease of use and introduced powerful training methodologies, including advanced mosaic data augmentation and auto-anchoring. It remains incredibly popular for researchers building upon a well-documented, heavily tested codebase.
 
-[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu){ .md-button }
+[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
 
 ### YOLO11: The Unified Vision Framework
 
@@ -44,7 +44,7 @@ Building upon years of feedback and architectural research, YOLO11 was introduce
 
 YOLO11 offers a streamlined user experience through the `ultralytics` Python package, boasting a simple API that unifies [object detection](https://docs.ultralytics.com/tasks/detect), instance segmentation, classification, pose estimation, and oriented bounding boxes (OBB). It achieves a highly favorable trade-off between speed and accuracy, making it ideal for diverse real-world deployment scenarios.
 
-[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 !!! tip "Integrated Platform"
 
@@ -141,7 +141,7 @@ Choosing between these models depends largely on your project's lifecycle stage 
 
 ## The Next Generation: Ultralytics YOLO26
 
-While YOLO11 represents a fantastic balance of speed and accuracy, the field of artificial intelligence evolves rapidly. For developers starting new projects today, we strongly recommend exploring the latest standard in vision AI: **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)**.
+While YOLO11 represents a fantastic balance of speed and accuracy, the field of artificial intelligence evolves rapidly. For developers starting new projects today, we strongly recommend exploring the latest standard in vision AI: **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**.
 
 Released in January 2026, YOLO26 introduces paradigm-shifting advancements designed specifically for modern deployment needs:
 
@@ -151,6 +151,6 @@ Released in January 2026, YOLO26 introduces paradigm-shifting advancements desig
 - **Advanced Loss Functions:** The integration of ProgLoss and STAL yields notable improvements in small-object recognition, which is critical for drone analytics, IoT, and robotics.
 - **Task-Specific Enhancements:** It introduces specialized optimizations, such as Residual Log-Likelihood Estimation (RLE) for Pose and specialized angle loss for [oriented bounding boxes](https://docs.ultralytics.com/tasks/obb), ensuring superior performance across all computer vision tasks.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 For users interested in specialized architectures beyond standard object detection, you might also explore models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) for transformer-based detection, or [YOLO-World](https://docs.ultralytics.com/models/yolo-world) for open-vocabulary tracking and detection. Embracing these well-maintained, highly optimized tools ensures your computer vision pipelines remain efficient, scalable, and ahead of the curve.

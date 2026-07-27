@@ -77,7 +77,7 @@ While both models have strong academic roots, their true potential is unlocked w
 - **Ease of Use:** The Ultralytics Python API provides a unified interface. You can train, validate, and export models with just a few lines of code, avoiding the complex dependency nightmares associated with typical academic repositories.
 - **Well-Maintained Ecosystem:** Ultralytics guarantees that the underlying code is actively developed. Users benefit from seamless integrations with popular ML tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases) for logging, or [Hugging Face](https://docs.ultralytics.com/integrations/gradio) for fast web demos.
 - **Memory Requirements:** Transformer-based object detectors often consume massive amounts of CUDA memory during training. In contrast, Ultralytics YOLO models require far less memory, allowing for much larger [batch sizes](https://www.ultralytics.com/glossary/batch-size) on consumer-grade hardware.
-- **Versatility:** The Ultralytics pipeline is not restricted to standard bounding boxes. It seamlessly supports [pose estimation](https://docs.ultralytics.com/tasks/pose), [instance segmentation](https://docs.ultralytics.com/tasks/segment), and oriented bounding boxes across supported model families like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n).
+- **Versatility:** The Ultralytics pipeline is not restricted to standard bounding boxes. It seamlessly supports [pose estimation](https://docs.ultralytics.com/tasks/pose), [instance segmentation](https://docs.ultralytics.com/tasks/segment), and oriented bounding boxes across supported model families like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8).
 
 ### Streamlined Training Example
 
@@ -131,7 +131,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 While YOLOv7 and YOLOv10 are impressive milestones, the frontier of AI is always advancing. Released in January 2026, **Ultralytics YOLO26** is the undisputed new standard for efficiency and accuracy across all edge and cloud deployment scenarios.
 
-If you are starting a new computer vision project today, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) is the recommended architecture. It builds upon the legacy of its predecessors by incorporating several groundbreaking innovations:
+If you are starting a new computer vision project today, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) is the recommended architecture. It builds upon the legacy of its predecessors by incorporating several groundbreaking innovations:
 
 - **End-to-End NMS-Free Design:** Taking inspiration from YOLOv10, YOLO26 natively eliminates NMS post-processing, securing ultra-low latency inference for deterministic real-time robotics.
 - **Up to 43% Faster CPU Inference:** By strategically removing the Distribution Focal Loss (DFL) module, YOLO26 drastically accelerates execution on non-GPU edge computing hardware, making it a powerhouse for [IoT devices](https://www.ultralytics.com/blog/industrial-iot-iiot-internet-of-things-explained).

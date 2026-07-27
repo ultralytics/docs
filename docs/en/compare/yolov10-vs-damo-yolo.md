@@ -151,9 +151,9 @@ A significant limitation of many specialized detection models is their narrow fo
 
 ## Looking Ahead: The YOLO26 Evolution
 
-While YOLOv10 pioneered NMS-free inference and DAMO-YOLO showcased the power of NAS, the field of computer vision moves rapidly. For developers looking for the ultimate state-of-the-art solution, we recommend checking out [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n).
+While YOLOv10 pioneered NMS-free inference and DAMO-YOLO showcased the power of NAS, the field of computer vision moves rapidly. For developers looking for the ultimate state-of-the-art solution, we recommend checking out [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26).
 
-Released as the definitive successor to [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n), YOLO26 builds upon the NMS-free foundation set by YOLOv10 but takes it significantly further.
+Released as the definitive successor to [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), YOLO26 builds upon the NMS-free foundation set by YOLOv10 but takes it significantly further.
 
 Key advancements in YOLO26 include:
 

@@ -9,7 +9,7 @@ keywords: YOLOv9, DAMO-YOLO, object detection, neural networks, AI comparison, r
 
 The rapid evolution of computer vision has produced an array of powerful architectures tailored for varying deployment constraints and accuracy requirements. Two notable entries in this space are **YOLOv9**, celebrated for its robust handling of information bottlenecks, and **DAMO-YOLO**, which focuses heavily on Neural Architecture Search (NAS) and efficient feature pyramids.
 
-This guide provides an in-depth, technical comparison of YOLOv9 and DAMO-YOLO, highlighting their architectural differences, training methodologies, and ideal deployment scenarios. We will also explore how the [Ultralytics ecosystem](https://docs.ultralytics.com/) provides a seamless path from development to production, and why modern models like [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) have become the recommended standard for new projects.
+This guide provides an in-depth, technical comparison of YOLOv9 and DAMO-YOLO, highlighting their architectural differences, training methodologies, and ideal deployment scenarios. We will also explore how the [Ultralytics ecosystem](https://docs.ultralytics.com/) provides a seamless path from development to production, and why modern models like [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) have become the recommended standard for new projects.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -137,7 +137,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## The Future: Moving to YOLO26
 
-While YOLOv9 and DAMO-YOLO represent strong historical milestones, modern computer vision has shifted towards natively end-to-end architectures. For any new development, **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)** is the recommended standard.
+While YOLOv9 and DAMO-YOLO represent strong historical milestones, modern computer vision has shifted towards natively end-to-end architectures. For any new development, **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** is the recommended standard.
 
 Released in 2026, YOLO26 builds upon the successes of its predecessors, offering a leap in both accuracy and deployment simplicity.
 
@@ -149,7 +149,7 @@ Released in 2026, YOLO26 builds upon the successes of its predecessors, offering
 - **MuSGD Optimizer:** Inspired by LLM training innovations, YOLO26 utilizes a hybrid of SGD and Muon (MuSGD) to guarantee more stable training runs and noticeably faster convergence times.
 - **ProgLoss + STAL:** These advanced loss functions provide remarkable enhancements in small-object recognition, making YOLO26 ideal for high-altitude aerial imagery and IoT devices.
 
-If you are currently researching [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) or [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) for your next project, upgrading to YOLO26 ensures you are utilizing the most optimized, state-of-the-art vision AI framework available today.
+If you are currently researching [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) for your next project, upgrading to YOLO26 ensures you are utilizing the most optimized, state-of-the-art vision AI framework available today.
 
 ## Summary
 

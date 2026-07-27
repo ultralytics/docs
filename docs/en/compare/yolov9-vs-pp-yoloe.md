@@ -111,7 +111,7 @@ This workflow highlights the superior **Training Efficiency** of Ultralytics mod
 
 !!! tip "Explore the Latest in Vision AI"
 
-    While YOLOv9 offers exceptional performance, we strongly recommend considering the newly released **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)** for new projects. YOLO26 features a native **End-to-End NMS-Free Design**, drastically simplifying deployment. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), it delivers up to **43% faster CPU inference** for edge computing. Powered by the **MuSGD Optimizer**, it ensures stable training and fast convergence. Additionally, **ProgLoss + STAL** provides improved loss functions with notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery.
+    While YOLOv9 offers exceptional performance, we strongly recommend considering the newly released **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** for new projects. YOLO26 features a native **End-to-End NMS-Free Design**, drastically simplifying deployment. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), it delivers up to **43% faster CPU inference** for edge computing. Powered by the **MuSGD Optimizer**, it ensures stable training and fast convergence. Additionally, **ProgLoss + STAL** provides improved loss functions with notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery.
 
 ## Versatility and Task Support
 
@@ -119,7 +119,7 @@ Modern computer vision projects rarely stop at simple bounding boxes.
 
 PP-YOLOE+ is primarily engineered for standard object detection. Adapting its architecture for other tasks involves extensive custom engineering.
 
-Conversely, the Ultralytics framework is a multi-task powerhouse. By utilizing a unified API, developers can effortlessly switch from standard object detection to complex [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), highly accurate [Pose Estimation](https://docs.ultralytics.com/tasks/pose), [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection for aerial imagery, and Image [Classification](https://docs.ultralytics.com/tasks/classify). This unparalleled versatility is why enterprise teams consistently choose Ultralytics models like YOLOv9, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n), and YOLO26.
+Conversely, the Ultralytics framework is a multi-task powerhouse. By utilizing a unified API, developers can effortlessly switch from standard object detection to complex [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), highly accurate [Pose Estimation](https://docs.ultralytics.com/tasks/pose), [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection for aerial imagery, and Image [Classification](https://docs.ultralytics.com/tasks/classify). This unparalleled versatility is why enterprise teams consistently choose Ultralytics models like YOLOv9, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), and YOLO26.
 
 ## Ideal Use Cases and Applications
 

@@ -16,7 +16,7 @@ The landscape of computer vision advances rapidly, with new architectures contin
 
 ## YOLO26: The Edge-Optimized Powerhouse
 
-Released in early 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) represents a generational leap in deployment efficiency and model training stability. Designed to be a natively end-to-end framework, it directly addresses the deployment bottlenecks that have historically plagued edge AI applications.
+Released in early 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents a generational leap in deployment efficiency and model training stability. Designed to be a natively end-to-end framework, it directly addresses the deployment bottlenecks that have historically plagued edge AI applications.
 
 **Model Details:**
 
@@ -38,7 +38,7 @@ Additionally, the removal of Distribution Focal Loss (DFL) streamlines the expor
 
 For detecting highly challenging items in scenes like [drone aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone), YOLO26 utilizes the updated **ProgLoss + STAL** loss functions. These provide notable improvements in small-object recognition recall. Furthermore, it boasts task-specific enhancements, including multi-scale proto for [instance segmentation](https://docs.ultralytics.com/tasks/segment), Residual Log-Likelihood Estimation (RLE) for [pose estimation](https://docs.ultralytics.com/tasks/pose), and specialized angle loss for detecting [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ## YOLOv9: Programmable Gradient Information
 
@@ -115,7 +115,7 @@ The [Ultralytics Python API](https://docs.ultralytics.com/usage/python) offers a
 
 !!! note "Other Ultralytics Models"
 
-    If you are interested in exploring other models within the Ultralytics ecosystem, you might also consider comparing [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) or the classic [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n), both of which provide exceptional flexibility for custom applications.
+    If you are interested in exploring other models within the Ultralytics ecosystem, you might also consider comparing [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or the classic [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8), both of which provide exceptional flexibility for custom applications.
 
 ### Versatility Across Vision Tasks
 

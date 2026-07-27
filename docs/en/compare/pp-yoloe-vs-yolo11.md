@@ -43,7 +43,7 @@ YOLO11, created by Ultralytics, represents a significant leap forward in usabili
 - **GitHub:** [Ultralytics GitHub Repository](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLO11 Official Documentation](https://docs.ultralytics.com/models/yolo11)
 
-[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 !!! tip "Did you know?"
 
@@ -138,7 +138,7 @@ Setting up the equivalent pipeline in PaddleDetection requires manually navigati
 
 ## Looking Forward: The Arrival of YOLO26
 
-While YOLO11 remains an exceptionally powerful tool, the field of AI moves rapidly. Released in January 2026, **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)** represents the absolute cutting edge of the Ultralytics lineage and is the recommended model for all new projects.
+While YOLO11 remains an exceptionally powerful tool, the field of AI moves rapidly. Released in January 2026, **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** represents the absolute cutting edge of the Ultralytics lineage and is the recommended model for all new projects.
 
 YOLO26 introduces several groundbreaking innovations:
 

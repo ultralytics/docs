@@ -9,7 +9,7 @@ keywords: EfficientDet, YOLOv6, object detection, computer vision, model compari
 
 Choosing the right neural network architecture is the cornerstone of any successful [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) initiative. This deep dive provides a highly technical comparison between two pivotal models in the [object detection](https://docs.ultralytics.com/tasks/detect) landscape: Google's EfficientDet and Meituan's YOLOv6-3.0.
 
-While both architectures represented major leaps forward upon their respective releases, the rapid evolution of artificial intelligence has introduced more versatile, edge-optimized solutions. Below, we dissect the performance, training methodologies, and architectural nuances of EfficientDet and YOLOv6-3.0, and explore why developers are increasingly migrating to modern ecosystems like [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) for state-of-the-art deployment.
+While both architectures represented major leaps forward upon their respective releases, the rapid evolution of artificial intelligence has introduced more versatile, edge-optimized solutions. Below, we dissect the performance, training methodologies, and architectural nuances of EfficientDet and YOLOv6-3.0, and explore why developers are increasingly migrating to modern ecosystems like [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) for state-of-the-art deployment.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -128,7 +128,7 @@ For developers seeking the absolute peak of performance and ease of use, **Ultra
 
 Unlike EfficientDet, which is confined to bounding box detection, YOLO26 is a natively multi-task learner. The same unified [Python API](https://docs.ultralytics.com/usage/python) supports [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), Image Classification, and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection out of the box, with task-specific improvements like Semantic Segmentation Loss and Residual Log-Likelihood Estimation (RLE) built directly into the architecture.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ### Seamless Code Integration
 
@@ -155,5 +155,5 @@ model.export(format="onnx")
 
 If your project requires supporting older hardware profiles or you are maintaining a legacy codebase, the broader Ultralytics ecosystem has you covered.
 
-- **[Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n):** The immediate predecessor to YOLO26, highly trusted in enterprise environments requiring mature, well-documented pipelines.
-- **[Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n):** The standard-bearer that redefined the developer experience, remaining an excellent choice for general-purpose computer vision tasks integrated deeply with tools like [TensorBoard](https://docs.ultralytics.com/integrations/tensorboard) and [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases).
+- **[Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11):** The immediate predecessor to YOLO26, highly trusted in enterprise environments requiring mature, well-documented pipelines.
+- **[Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8):** The standard-bearer that redefined the developer experience, remaining an excellent choice for general-purpose computer vision tasks integrated deeply with tools like [TensorBoard](https://docs.ultralytics.com/integrations/tensorboard) and [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases).

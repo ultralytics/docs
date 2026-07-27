@@ -112,7 +112,7 @@ Choosing between these models depends on your deployment constraints:
 
 ## Future-Proofing: The Shift to YOLO26
 
-While YOLOv8, YOLOv9, and YOLOv10 are excellent models, developers looking to build modern AI solutions should consider **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)**, released in January 2026.
+While YOLOv8, YOLOv9, and YOLOv10 are excellent models, developers looking to build modern AI solutions should consider **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**, released in January 2026.
 
 YOLO26 represents the ultimate synthesis of previous generations, combining the best aspects of YOLOv9's accuracy and YOLOv10's efficiency.
 
@@ -124,4 +124,4 @@ YOLO26 represents the ultimate synthesis of previous generations, combining the 
 - **DFL Removal:** Distribution Focal Loss was removed to simplify [model export](https://docs.ultralytics.com/modes/export) and boost low-power device compatibility.
 - **ProgLoss + STAL:** These improved loss functions bring notable improvements in small-object recognition, matching or exceeding YOLOv9's capabilities.
 
-For researchers evaluating legacy architectures, [RT-DETR](https://docs.ultralytics.com/models/rtdetr) and [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) are also well-documented alternatives within the Ultralytics ecosystem. However, for maximum versatility across all vision tasks, transitioning to YOLO26 on the [Ultralytics Platform](https://platform.ultralytics.com) ensures you are leveraging the pinnacle of open-source vision AI.
+For researchers evaluating legacy architectures, [RT-DETR](https://docs.ultralytics.com/models/rtdetr) and [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) are also well-documented alternatives within the Ultralytics ecosystem. However, for maximum versatility across all vision tasks, transitioning to YOLO26 on the [Ultralytics Platform](https://platform.ultralytics.com) ensures you are leveraging the pinnacle of open-source vision AI.

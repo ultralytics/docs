@@ -32,7 +32,7 @@ Developed by Glenn Jocher and released by [Ultralytics](https://www.ultralytics.
 
 YOLOv5 is renowned for its **Ease of Use** and stable performance across diverse hardware environments. It supports not just detection, but also [image classification](https://docs.ultralytics.com/tasks/classify) and [instance segmentation](https://docs.ultralytics.com/tasks/segment).
 
-[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu){ .md-button }
+[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
 
 ### YOLOv9
 
@@ -51,7 +51,7 @@ The core of YOLOv9 relies on two major theoretical innovations: Programmable Gra
 
 !!! tip "Future-Proof Your Deployments"
 
-    While YOLOv5 and YOLOv9 are powerful, the newly released [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) represents the ultimate balance of speed and precision. Featuring an end-to-end NMS-free design and up to 43% faster CPU inference, YOLO26 is highly recommended for modern edge computing and production deployments.
+    While YOLOv5 and YOLOv9 are powerful, the newly released [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the ultimate balance of speed and precision. Featuring an end-to-end NMS-free design and up to 43% faster CPU inference, YOLO26 is highly recommended for modern edge computing and production deployments.
 
 ## Architectural and Technical Differences
 
