@@ -7,7 +7,7 @@ keywords: YOLOv5, YOLO26, object detection, model comparison, YOLOv5, YOLO26, co
 
 # YOLOv5 vs YOLO26
 
-The evolution of computer vision has been defined by the continuous push for faster, more accurate, and more accessible models. When comparing [Ultralytics YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5) to the cutting-edge [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26), we are looking at a paradigm shift that bridges the gap between robust legacy systems and the bleeding edge of modern AI deployment.
+The evolution of computer vision has been defined by the continuous push for faster, more accurate, and more accessible models. When comparing [Ultralytics YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) to the cutting-edge [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n), we are looking at a paradigm shift that bridges the gap between robust legacy systems and the bleeding edge of modern AI deployment.
 
 This guide provides a comprehensive technical breakdown of both architectures, highlighting their performance metrics, structural differences, and ideal deployment scenarios.
 
@@ -30,11 +30,11 @@ Released in 2020, YOLOv5 revolutionized the accessibility of object detection. B
 
 YOLOv5 established the foundation for the highly maintained Ultralytics ecosystem. It introduced aggressive data augmentation techniques, efficient training loops, and highly optimized export paths to edge formats like [CoreML](https://developer.apple.com/documentation/coreml) and [ONNX](https://onnx.ai/). Its ease of use and low memory requirements during training made it a staple for startups and researchers worldwide.
 
-[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
+[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu){ .md-button }
 
 ### YOLO26: The Next-Gen Vision AI Standard
 
-Fast forward to January 2026, **Ultralytics YOLO26** represents the pinnacle of real-time vision AI. It natively integrates lessons learned from intervening generations like [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) and [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), while introducing massive breakthroughs inspired by Large Language Model (LLM) training.
+Fast forward to January 2026, **Ultralytics YOLO26** represents the pinnacle of real-time vision AI. It natively integrates lessons learned from intervening generations like [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) and [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n), while introducing massive breakthroughs inspired by Large Language Model (LLM) training.
 
 - **Authors:** Glenn Jocher and Jing Qiu
 - **Organization:** [Ultralytics](https://www.ultralytics.com/)
@@ -44,7 +44,7 @@ Fast forward to January 2026, **Ultralytics YOLO26** represents the pinnacle of 
 
 YOLO26 sets a new benchmark for performance balance, offering state-of-the-art accuracy while being explicitly engineered to dominate edge computing scenarios.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 !!! tip "Other Ultralytics Models"
 

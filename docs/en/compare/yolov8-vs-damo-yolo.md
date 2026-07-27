@@ -26,7 +26,7 @@ Both models were introduced around the same time but stem from different design 
 - GitHub: [Ultralytics GitHub Repository](https://github.com/ultralytics/ultralytics)
 - Docs: [YOLOv8 Official Documentation](https://docs.ultralytics.com/models/yolov8)
 
-[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
+[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n){ .md-button }
 
 ### DAMO-YOLO Details
 
@@ -42,7 +42,7 @@ Both models were introduced around the same time but stem from different design 
 
 ### YOLOv8: Versatile Anchor-Free Design
 
-[Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) introduced significant improvements over its predecessors, cementing its status as a highly reliable state-of-the-art model. It features an anchor-free detection head, which reduces the number of box predictions and speeds up inference. The architecture utilizes a decoupled head, separating objectness, classification, and regression tasks, leading to more accurate bounding box predictions.
+[Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) introduced significant improvements over its predecessors, cementing its status as a highly reliable state-of-the-art model. It features an anchor-free detection head, which reduces the number of box predictions and speeds up inference. The architecture utilizes a decoupled head, separating objectness, classification, and regression tasks, leading to more accurate bounding box predictions.
 
 Furthermore, YOLOv8 implements [Distribution Focal Loss (DFL)](https://docs.ultralytics.com/reference/utils/loss) alongside CIoU loss, enhancing the model's ability to precisely localize object boundaries, especially for smaller or occluded targets. Its streamlined backbone is highly optimized for both GPU and CPU execution.
 
@@ -152,9 +152,9 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 While YOLOv8 remains a highly dependable workhorse, the computer vision field moves rapidly. Users should also consider exploring newer generations:
 
-**YOLO26:** The latest generation, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26), represents a paradigm shift. It introduces a natively **End-to-End NMS-Free Design**, completely eliminating the latency bottlenecks associated with Non-Maximum Suppression post-processing. Powered by the new **MuSGD Optimizer** (a hybrid of SGD and Muon) and specialized **ProgLoss + STAL** loss functions, YOLO26 achieves remarkably stable training and vastly improved small-object recognition. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), architectural tweaks provide up to **43% Faster CPU Inference** compared to previous generations, making it the definitive choice for modern edge computing.
+**YOLO26:** The latest generation, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n), represents a paradigm shift. It introduces a natively **End-to-End NMS-Free Design**, completely eliminating the latency bottlenecks associated with Non-Maximum Suppression post-processing. Powered by the new **MuSGD Optimizer** (a hybrid of SGD and Muon) and specialized **ProgLoss + STAL** loss functions, YOLO26 achieves remarkably stable training and vastly improved small-object recognition. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), architectural tweaks provide up to **43% Faster CPU Inference** compared to previous generations, making it the definitive choice for modern edge computing.
 
-**YOLO11:** Another excellent alternative, [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) offers incremental architectural refinements over YOLOv8 and remains a robust, heavily adopted model in the community.
+**YOLO11:** Another excellent alternative, [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) offers incremental architectural refinements over YOLOv8 and remains a robust, heavily adopted model in the community.
 
 !!! tip "Streamline Your Workflow"
 

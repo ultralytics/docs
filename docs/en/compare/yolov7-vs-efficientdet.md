@@ -7,7 +7,7 @@ keywords: YOLOv7, EfficientDet, object detection, model comparison, computer vis
 
 # YOLOv7 vs EfficientDet
 
-Selecting the optimal neural network architecture is the foundation of any successful [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) project. This guide provides a detailed technical comparison between two pivotal models in the history of [object detection architectures](https://www.ultralytics.com/glossary/object-detection-architectures): **YOLOv7** and **EfficientDet**. By examining their architectural innovations, training methodologies, and ideal deployment scenarios, developers can make informed decisions. We will also explore how modern advancements, particularly the groundbreaking [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26), have redefined the current state-of-the-art.
+Selecting the optimal neural network architecture is the foundation of any successful [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) project. This guide provides a detailed technical comparison between two pivotal models in the history of [object detection architectures](https://www.ultralytics.com/glossary/object-detection-architectures): **YOLOv7** and **EfficientDet**. By examining their architectural innovations, training methodologies, and ideal deployment scenarios, developers can make informed decisions. We will also explore how modern advancements, particularly the groundbreaking [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n), have redefined the current state-of-the-art.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -87,7 +87,7 @@ While YOLOv7 and EfficientDet laid vital groundwork, the landscape of [vision AI
 
 YOLO26 addresses the inherent limitations of previous generations, offering unprecedented [versatility](https://docs.ultralytics.com/tasks) across [object detection](https://docs.ultralytics.com/tasks/detect), [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), and [pose estimation](https://docs.ultralytics.com/tasks/pose).
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 ### Key YOLO26 Innovations
 
@@ -98,7 +98,7 @@ YOLO26 addresses the inherent limitations of previous generations, offering unpr
 - **ProgLoss + STAL:** These advanced loss functions deliver remarkable improvements in small-object recognition, a critical feature for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and [drone applications](https://www.ultralytics.com/blog/build-ai-powered-drone-applications-with-ultralytics-yolo11).
 - **Task-Specific Improvements:** Includes Semantic segmentation loss and multi-scale proto for segmentation tasks, Residual Log-Likelihood Estimation (RLE) for complex Pose estimation, and a specialized angle loss tailored to fix [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) boundary issues.
 
-For teams currently using legacy systems, transitioning to the [Ultralytics Platform](https://platform.ultralytics.com/) unlocks a streamlined workflow where these cutting-edge models can be trained and deployed with ease. Developers may also explore previous robust iterations like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) depending on specific backward-compatibility requirements.
+For teams currently using legacy systems, transitioning to the [Ultralytics Platform](https://platform.ultralytics.com/) unlocks a streamlined workflow where these cutting-edge models can be trained and deployed with ease. Developers may also explore previous robust iterations like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) depending on specific backward-compatibility requirements.
 
 ## Streamlined Training and Ease of Use
 
@@ -160,4 +160,4 @@ For all new deployments, **YOLO26** is the undisputed recommendation. Its unpara
 - **Robotics and Autonomous Systems:** The impressive 43% boost in CPU inference speed ensures highly responsive navigation algorithms for embedded devices.
 - **Agricultural and Aerial Monitoring:** Utilizing ProgLoss and STAL to precisely identify small objects like specific crops or wildlife from high-altitude imagery.
 
-In summary, while EfficientDet and YOLOv7 offer valuable historical context and specific niche utility, the modern computer vision engineer is best served by adopting the [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) architecture, which elegantly resolves previous bottlenecks while pushing the boundaries of what is possible in artificial intelligence.
+In summary, while EfficientDet and YOLOv7 offer valuable historical context and specific niche utility, the modern computer vision engineer is best served by adopting the [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) architecture, which elegantly resolves previous bottlenecks while pushing the boundaries of what is possible in artificial intelligence.

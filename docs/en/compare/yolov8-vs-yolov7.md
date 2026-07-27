@@ -32,7 +32,7 @@ YOLOv8 introduced an innovative **anchor-free** detection head. This fundamental
 
 Additionally, the architecture features the **C2f module** (Cross-Stage Partial bottleneck with two convolutions), a structural upgrade that improves gradient flow and allows the neural network to learn richer feature representations without drastically increasing the computational cost. This makes the model highly efficient when running inference via standard deep learning frameworks like [PyTorch](https://pytorch.org/).
 
-[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
+[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n){ .md-button }
 
 !!! tip "Memory Efficiency"
 
@@ -131,6 +131,6 @@ The architectural differences between the two models dictate their ideal deploym
 
 While YOLOv8 remains a versatile powerhouse, the AI landscape moves rapidly. For teams starting new projects, we highly recommend exploring the latest advancements in the Ultralytics lineup.
 
-The newest generation, **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**, represents the pinnacle of current vision AI. It features an **End-to-End NMS-Free Design**, eliminating Non-Maximum Suppression post-processing for simpler, faster deployment. With the removal of Distribution Focal Loss (DFL) and the introduction of the LLM-inspired **MuSGD Optimizer**, YOLO26 offers more stable training and up to 43% faster CPU inference. Its advanced **ProgLoss + STAL** loss functions drastically improve small-object recognition, making it the ultimate choice for modern edge computing and aerial imagery.
+The newest generation, **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)**, represents the pinnacle of current vision AI. It features an **End-to-End NMS-Free Design**, eliminating Non-Maximum Suppression post-processing for simpler, faster deployment. With the removal of Distribution Focal Loss (DFL) and the introduction of the LLM-inspired **MuSGD Optimizer**, YOLO26 offers more stable training and up to 43% faster CPU inference. Its advanced **ProgLoss + STAL** loss functions drastically improve small-object recognition, making it the ultimate choice for modern edge computing and aerial imagery.
 
-For users transitioning from older systems, the highly capable **[YOLO11](https://platform.ultralytics.com/ultralytics/yolo11)** and the classic **[YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5)** also remain fully supported within the unified Ultralytics ecosystem, ensuring that whatever your hardware constraints, there is a streamlined, high-performance model ready to deploy.
+For users transitioning from older systems, the highly capable **[YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n)** and the classic **[YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu)** also remain fully supported within the unified Ultralytics ecosystem, ensuring that whatever your hardware constraints, there is a streamlined, high-performance model ready to deploy.

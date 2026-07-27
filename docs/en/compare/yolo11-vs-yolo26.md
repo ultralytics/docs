@@ -30,7 +30,7 @@ Released in late 2024, YOLO11 refined the advancements of earlier generations, c
 - **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLO11 Documentation](https://docs.ultralytics.com/models/yolo11)
 
-[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n){ .md-button }
 
 ### YOLO26: The New Frontier
 
@@ -42,11 +42,11 @@ Introduced in early 2026, YOLO26 represents a paradigm shift in edge computing a
 - **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26)
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 !!! note "Managing Data and Deployments"
 
-    Both YOLO11 and YOLO26 are fully integrated with the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26), providing seamless, no-code workflows for dataset annotation, cloud training, and fleet monitoring.
+    Both YOLO11 and YOLO26 are fully integrated with the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n), providing seamless, no-code workflows for dataset annotation, cloud training, and fleet monitoring.
 
 ## Architectural Innovations
 
@@ -110,7 +110,7 @@ If your project requires pinpoint accuracy on tiny objects—such as detecting d
 
 ## Training Efficiency and Memory Requirements
 
-A major advantage of the Ultralytics framework is its incredibly low memory footprint during training. Unlike massive vision transformers like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) or the older [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) which can consume vast amounts of CUDA memory, both YOLO11 and YOLO26 are optimized to train efficiently on consumer-grade hardware.
+A major advantage of the Ultralytics framework is its incredibly low memory footprint during training. Unlike massive vision transformers like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) or the older [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) which can consume vast amounts of CUDA memory, both YOLO11 and YOLO26 are optimized to train efficiently on consumer-grade hardware.
 
 The integration of the MuSGD optimizer in YOLO26 further enhances this by ensuring that the model finds the optimal weights faster, reducing overall GPU compute hours and [cloud computing costs](https://cloud.google.com/products/compute).
 
@@ -135,7 +135,7 @@ model.export(format="onnx")
 
 ## Exploring Alternative Architectures
 
-While YOLO26 represents the pinnacle of real-time detection, exploring other models within the Ultralytics documentation can be beneficial. For users tied to legacy environments, earlier architectures like [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5) still provide robust performance. For zero-shot capabilities where defining classes beforehand isn't possible, [YOLO-World](https://docs.ultralytics.com/models/yolo-world) offers open-vocabulary detection powered by text prompts.
+While YOLO26 represents the pinnacle of real-time detection, exploring other models within the Ultralytics documentation can be beneficial. For users tied to legacy environments, earlier architectures like [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) still provide robust performance. For zero-shot capabilities where defining classes beforehand isn't possible, [YOLO-World](https://docs.ultralytics.com/models/yolo-world) offers open-vocabulary detection powered by text prompts.
 
 ## Conclusion
 

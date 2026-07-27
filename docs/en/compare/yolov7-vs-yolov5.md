@@ -23,9 +23,9 @@ Understanding the origins of these models provides context for their design phil
 ### YOLOv5
 
 Released by Glenn Jocher and the team at [Ultralytics](https://www.ultralytics.com/about) on June 26, 2020, YOLOv5 revolutionized the field by providing a native [PyTorch](https://pytorch.org/) implementation that prioritized usability without sacrificing performance. It quickly became an industry standard due to its incredibly streamlined ecosystem and reliable training dynamics.
-You can explore the source code on the [YOLOv5 GitHub repository](https://github.com/ultralytics/yolov5) or access the model directly via the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolov5).
+You can explore the source code on the [YOLOv5 GitHub repository](https://github.com/ultralytics/yolov5) or access the model directly via the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu).
 
-[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
+[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu){ .md-button }
 
 ### YOLOv7
 
@@ -109,13 +109,13 @@ success = model.export(format="onnx")
 
 !!! info "Exploring Other Architectures"
 
-    Looking for more recent iterations? Consider exploring [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) or [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) for further advancements in anchor-free detection and multi-task learning capabilities.
+    Looking for more recent iterations? Consider exploring [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) or [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) for further advancements in anchor-free detection and multi-task learning capabilities.
 
 ## The Next Generation: Ultralytics YOLO26
 
 While YOLOv5 and YOLOv7 hold vital places in the history of vision AI, the landscape is constantly evolving. Released in January 2026, **Ultralytics YOLO26** represents the absolute cutting edge of object detection technology, superseding previous generations across all metrics.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 YOLO26 introduces several paradigm-shifting features:
 

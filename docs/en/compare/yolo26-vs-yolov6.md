@@ -26,7 +26,7 @@ Before diving into performance metrics, it is helpful to understand the backgrou
 - GitHub: [Ultralytics GitHub Repository](https://github.com/ultralytics/ultralytics)
 - Docs: [YOLO26 Official Documentation](https://docs.ultralytics.com/models/yolo26)
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 **YOLOv6-3.0**
 
@@ -86,7 +86,7 @@ Conversely, YOLOv6-3.0 utilizes a heavy self-distillation strategy. While effect
 
 ### Ecosystem and Ease of Use
 
-One of the largest advantages of choosing YOLO26 is the well-maintained ecosystem of the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26). Ultralytics is famous for its "zero-to-hero" ease of use. Developers can install the Python package and begin training in minutes.
+One of the largest advantages of choosing YOLO26 is the well-maintained ecosystem of the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n). Ultralytics is famous for its "zero-to-hero" ease of use. Developers can install the Python package and begin training in minutes.
 
 In contrast, YOLOv6 requires cloning the research repository, managing dependencies manually, and navigating complex launch scripts, which can slow down deployment for fast-paced engineering teams.
 
@@ -128,7 +128,7 @@ YOLOv6-3.0 shines in tightly controlled industrial environments where servers ar
 
 ## Exploring Other Models
 
-If you are exploring the broader landscape of computer vision, you may also be interested in other models supported by the Ultralytics ecosystem. For instance, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains a fantastic general-purpose model with massive community backing. If you are specifically interested in transformer architectures, the [RT-DETR](https://docs.ultralytics.com/models/rtdetr) model offers robust attention-based performance, though it requires significantly more training memory than YOLO26. For zero-shot capabilities without training, [YOLO-World](https://docs.ultralytics.com/models/yolo-world) provides promptable open-vocabulary detection out of the box.
+If you are exploring the broader landscape of computer vision, you may also be interested in other models supported by the Ultralytics ecosystem. For instance, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) remains a fantastic general-purpose model with massive community backing. If you are specifically interested in transformer architectures, the [RT-DETR](https://docs.ultralytics.com/models/rtdetr) model offers robust attention-based performance, though it requires significantly more training memory than YOLO26. For zero-shot capabilities without training, [YOLO-World](https://docs.ultralytics.com/models/yolo-world) provides promptable open-vocabulary detection out of the box.
 
 ## Summary
 

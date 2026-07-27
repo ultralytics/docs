@@ -37,7 +37,7 @@ Both models stem from highly capable engineering teams but target slightly diffe
 - GitHub: [https://github.com/ultralytics/yolov5](https://github.com/ultralytics/yolov5)
 - Docs: [https://docs.ultralytics.com/models/yolov5/](https://docs.ultralytics.com/models/yolov5)
 
-[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
+[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu){ .md-button }
 
 ## Architectural Comparison
 
@@ -117,9 +117,9 @@ For the vast majority of international developers, researchers, and enterprises,
 
 ## The Future of Detection: Ultralytics YOLO26
 
-While YOLOv5 is an iconic model, the frontier of computer vision has advanced. For all new developments, we strongly recommend transitioning to **YOLO26**, released in January 2026. Available seamlessly via the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26), YOLO26 completely redefines efficiency.
+While YOLOv5 is an iconic model, the frontier of computer vision has advanced. For all new developments, we strongly recommend transitioning to **YOLO26**, released in January 2026. Available seamlessly via the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n), YOLO26 completely redefines efficiency.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 **Key Innovations in YOLO26:**
 
@@ -128,4 +128,4 @@ While YOLOv5 is an iconic model, the frontier of computer vision has advanced. F
 - **MuSGD Optimizer:** Inspired by leading Large Language Models, this hybrid optimizer stabilizes training dynamics and allows for much faster convergence on custom datasets.
 - **Task-Specific Enhancements:** Features advanced loss functions like ProgLoss and STAL, yielding unprecedented accuracy on tiny objects. It natively supports [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection for aerial imagery.
 
-If you are exploring state-of-the-art vision models, you may also be interested in comparing the previous generation [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or transformer-based approaches like [RT-DETR](https://docs.ultralytics.com/models/rtdetr). Ultimately, the robust ecosystem, combined with cutting-edge architectural advancements, cements Ultralytics as the premier choice for modern computer vision tasks.
+If you are exploring state-of-the-art vision models, you may also be interested in comparing the previous generation [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) or transformer-based approaches like [RT-DETR](https://docs.ultralytics.com/models/rtdetr). Ultimately, the robust ecosystem, combined with cutting-edge architectural advancements, cements Ultralytics as the premier choice for modern computer vision tasks.

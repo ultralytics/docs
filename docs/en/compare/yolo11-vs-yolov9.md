@@ -7,7 +7,7 @@ keywords: YOLO11, YOLOv9, model comparison, object detection, computer vision, U
 
 # YOLO11 vs YOLOv9
 
-The landscape of computer vision is constantly evolving, with new architectures pushing the boundaries of what is possible in real-time object detection. Two significant milestones in this journey are [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and YOLOv9. While both models offer exceptional performance, they represent different approaches to solving the core challenges of deep learning inference and training.
+The landscape of computer vision is constantly evolving, with new architectures pushing the boundaries of what is possible in real-time object detection. Two significant milestones in this journey are [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) and YOLOv9. While both models offer exceptional performance, they represent different approaches to solving the core challenges of deep learning inference and training.
 
 This guide provides a comprehensive technical comparison between YOLO11 and YOLOv9, analyzing their architectures, performance metrics, and ideal deployment scenarios to help you choose the right model for your next artificial intelligence project.
 
@@ -28,7 +28,7 @@ YOLO11 is a highly optimized, versatile model designed for production-grade envi
 - **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 - **Docs:** [https://docs.ultralytics.com/models/yolo11/](https://docs.ultralytics.com/models/yolo11)
 
-[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n){ .md-button }
 
 ### YOLOv9
 
@@ -116,7 +116,7 @@ YOLO11 is the ultimate tool for production. Its streamlined [object detection](h
 
 ## The Cutting Edge: Enter YOLO26
 
-While YOLO11 and YOLOv9 are remarkable, the field of artificial intelligence evolves rapidly. For developers starting new projects today, Ultralytics highly recommends [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) (released January 2026), which pushes the boundaries of computer vision even further.
+While YOLO11 and YOLOv9 are remarkable, the field of artificial intelligence evolves rapidly. For developers starting new projects today, Ultralytics highly recommends [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) (released January 2026), which pushes the boundaries of computer vision even further.
 
 YOLO26 combines the best of recent innovations into a production-ready powerhouse:
 
@@ -130,4 +130,4 @@ Users interested in exploring diverse architectures might also want to look into
 
 ## Conclusion
 
-Both YOLO11 and YOLOv9 have cemented their places in the history of computer vision. YOLOv9 offers brilliant architectural innovations for maximum feature retention. However, for the vast majority of real-world deployments—from enterprise AI applications to [mobile edge devices](https://en.wikipedia.org/wiki/Edge_device)—the ease of use, memory efficiency, and versatile task support of YOLO11 provide an unbeatable advantage. And as the industry moves forward, adopting the newer [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) guarantees that your systems are running the absolute fastest and most reliable inference available today.
+Both YOLO11 and YOLOv9 have cemented their places in the history of computer vision. YOLOv9 offers brilliant architectural innovations for maximum feature retention. However, for the vast majority of real-world deployments—from enterprise AI applications to [mobile edge devices](https://en.wikipedia.org/wiki/Edge_device)—the ease of use, memory efficiency, and versatile task support of YOLO11 provide an unbeatable advantage. And as the industry moves forward, adopting the newer [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) guarantees that your systems are running the absolute fastest and most reliable inference available today.

@@ -133,7 +133,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 While both RTDETRv2 and YOLOv10 offer compelling academic advancements, deploying them in real-world scenarios requires a robust, well-maintained software ecosystem. The [Ultralytics Platform](https://platform.ultralytics.com/) provides an unparalleled developer experience, combining ease of use, extensive documentation, and powerful tools for [data annotation](https://www.ultralytics.com/glossary/data-annotation) and deployment.
 
-For developers seeking the absolute state-of-the-art in 2026, **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** is the ultimate recommendation. It synthesizes the best ideas from both architectures while introducing groundbreaking improvements:
+For developers seeking the absolute state-of-the-art in 2026, **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)** is the ultimate recommendation. It synthesizes the best ideas from both architectures while introducing groundbreaking improvements:
 
 - **End-to-End NMS-Free Design:** Building on the concept pioneered by YOLOv10, YOLO26 natively eliminates NMS post-processing, resulting in faster, simpler deployment logic and zero latency variance.
 - **DFL Removal:** By removing the Distribution Focal Loss, YOLO26 simplifies model export and drastically improves compatibility with edge and low-power devices.
@@ -142,7 +142,7 @@ For developers seeking the absolute state-of-the-art in 2026, **[Ultralytics YOL
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, which is critical for [applications using drones](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations) and IoT sensors.
 - **Unmatched Versatility:** Unlike models limited to bounding boxes, YOLO26 supports a full suite of tasks including [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), [image classification](https://docs.ultralytics.com/tasks/classify), and [OBB detection](https://docs.ultralytics.com/tasks/obb), complete with task-specific improvements like Residual Log-Likelihood Estimation (RLE) for Pose.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 ### Seamless Implementation with Python
 

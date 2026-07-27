@@ -7,7 +7,7 @@ keywords: YOLOX, YOLOv5, object detection, anchor-free model, real-time detectio
 
 # YOLOX vs YOLOv5
 
-Selecting the right object detection model is a critical decision that dictates the success of any computer vision project. This guide provides a comprehensive technical comparison between two pivotal models in the AI landscape: Megvii's YOLOX and [Ultralytics YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5). By analyzing their architectures, performance metrics, and training ecosystems, we aim to help developers and researchers make an informed choice for their specific deployment environments.
+Selecting the right object detection model is a critical decision that dictates the success of any computer vision project. This guide provides a comprehensive technical comparison between two pivotal models in the AI landscape: Megvii's YOLOX and [Ultralytics YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu). By analyzing their architectures, performance metrics, and training ecosystems, we aim to help developers and researchers make an informed choice for their specific deployment environments.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -28,7 +28,7 @@ Released by researchers Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Su
 
 Authored by Glenn Jocher and released by Ultralytics on June 26, 2020, YOLOv5 rapidly became the industry standard for deployed computer vision. Built natively on the [PyTorch framework](https://pytorch.org/), it democratized state-of-the-art AI by offering unparalleled ease of use, exceptionally fast training, and a highly polished repository. YOLOv5's architecture focused on a perfect balance of speed, accuracy, and ease of deployment, making it a favorite for everything from edge devices to massive cloud deployments.
 
-[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
+[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu){ .md-button }
 
 ## Architectural Differences
 
@@ -44,7 +44,7 @@ YOLOX employs a decoupled head, meaning the classification and regression tasks 
 
 !!! note "Architectural Evolution"
 
-    While YOLOX championed the decoupled head in 2021, Ultralytics later adopted and perfected decoupled architectures in subsequent models like [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) and the cutting-edge [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26), combining the best of both worlds.
+    While YOLOX championed the decoupled head in 2021, Ultralytics later adopted and perfected decoupled architectures in subsequent models like [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) and the cutting-edge [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n), combining the best of both worlds.
 
 ### Label Assignment Strategy
 
@@ -89,7 +89,7 @@ While YOLOX is strictly an object detection framework, the Ultralytics ecosystem
 
 !!! tip "Continuous Innovation"
 
-    If you require even more advanced tasks like [Pose Estimation](https://docs.ultralytics.com/tasks/pose) or [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection, we highly recommend upgrading to the latest [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) architecture, which supports all these natively with state-of-the-art accuracy.
+    If you require even more advanced tasks like [Pose Estimation](https://docs.ultralytics.com/tasks/pose) or [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection, we highly recommend upgrading to the latest [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) architecture, which supports all these natively with state-of-the-art accuracy.
 
 ## Code Comparison
 
@@ -140,6 +140,6 @@ YOLOv5 is the undisputed champion of practical deployment.
 
 While YOLOv5 is a legendary model, the field of AI advances rapidly. If you are starting a new project today, we strongly advise looking at the latest generation of Ultralytics models.
 
-Released in 2026, **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** represents a massive leap forward. It features an **End-to-End NMS-Free Design**, completely removing the need for Non-Maximum Suppression post-processing, which drastically simplifies deployment logic. By removing Distribution Focal Loss (DFL) and utilizing the cutting-edge **MuSGD Optimizer**, YOLO26 achieves up to **43% faster CPU inference** than previous generations while maintaining higher accuracy, especially on small objects thanks to the new ProgLoss + STAL loss functions.
+Released in 2026, **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)** represents a massive leap forward. It features an **End-to-End NMS-Free Design**, completely removing the need for Non-Maximum Suppression post-processing, which drastically simplifies deployment logic. By removing Distribution Focal Loss (DFL) and utilizing the cutting-edge **MuSGD Optimizer**, YOLO26 achieves up to **43% faster CPU inference** than previous generations while maintaining higher accuracy, especially on small objects thanks to the new ProgLoss + STAL loss functions.
 
 Whether you choose the battle-tested reliability of YOLOv5 or the bleeding-edge performance of YOLO26, the [Ultralytics Platform](https://platform.ultralytics.com) ensures you have the best tools available to bring your computer vision solutions from concept to production seamlessly. Ensure to explore the comprehensive [Ultralytics documentation](https://docs.ultralytics.com/) to unlock the full potential of your AI pipeline.

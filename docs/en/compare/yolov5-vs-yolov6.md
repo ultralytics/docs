@@ -27,7 +27,7 @@ Released in 2020, Ultralytics YOLOv5 quickly became the gold standard for access
 
 YOLOv5 was designed from the ground up to provide a seamless developer experience within the [PyTorch](https://pytorch.org/) ecosystem. It offers a favorable performance balance, achieving excellent mean average precision (mAP) while maintaining high inference speeds suitable for diverse real-world deployment scenarios, from edge devices to cloud servers.
 
-[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
+[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu){ .md-button }
 
 ### YOLOv6-3.0: Industrial Throughput
 
@@ -140,14 +140,14 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 While YOLOv5 remains a reliable workhorse and YOLOv6-3.0 offers strong industrial GPU throughput, the state-of-the-art has evolved. For developers starting new projects today, the recommended path is **Ultralytics YOLO26**.
 
-Released in January 2026, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents a massive leap forward. It inherits the unmatched versatility of the Ultralytics ecosystem while introducing groundbreaking architectural improvements:
+Released in January 2026, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) represents a massive leap forward. It inherits the unmatched versatility of the Ultralytics ecosystem while introducing groundbreaking architectural improvements:
 
 - **End-to-End NMS-Free Design:** YOLO26 eliminates Non-Maximum Suppression post-processing, dramatically reducing latency variance and simplifying deployment logic.
 - **Up to 43% Faster CPU Inference:** With DFL removal and an optimized head, it drastically outperforms previous generations on edge and low-power devices.
 - **MuSGD Optimizer:** Leveraging LLM training innovations, the new MuSGD optimizer ensures highly stable training and remarkably fast convergence.
 - **Advanced Versatility:** YOLO26 seamlessly handles [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), and Segmentation with specialized task losses like ProgLoss and STAL for unparalleled small-object recognition.
 
-If you are exploring other options within the Ultralytics ecosystem, you might also consider the general-purpose [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or the innovative [YOLO-World](https://docs.ultralytics.com/models/yolo-world) for open-vocabulary detection tasks.
+If you are exploring other options within the Ultralytics ecosystem, you might also consider the general-purpose [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) or the innovative [YOLO-World](https://docs.ultralytics.com/models/yolo-world) for open-vocabulary detection tasks.
 
 ## Conclusion
 

@@ -115,7 +115,7 @@ predictions = model.predict("https://ultralytics.com/images/bus.jpg", save=True)
 
 ## The New Standard: Introducing YOLO26
 
-While YOLOv7 and DAMO-YOLO represented significant breakthroughs in 2022, the field of vision AI moves rapidly. For teams initiating new projects today, the recommended model is the cutting-edge [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26), released in January 2026.
+While YOLOv7 and DAMO-YOLO represented significant breakthroughs in 2022, the field of vision AI moves rapidly. For teams initiating new projects today, the recommended model is the cutting-edge [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n), released in January 2026.
 
 YOLO26 brings a generational leap in performance and usability, incorporating state-of-the-art innovations:
 
@@ -125,7 +125,7 @@ YOLO26 brings a generational leap in performance and usability, incorporating st
 - **ProgLoss + STAL:** Incorporates advanced new loss functions that explicitly target and improve small-object recognition, an essential capability for applications in aerial imagery, robotics, and [security monitoring](https://www.ultralytics.com/blog/real-time-security-monitoring-with-ai-and-ultralytics-yolo11).
 - **Task-Specific Improvements:** Beyond standard detection, YOLO26 features tailored enhancements for diverse tasks, including multi-scale prototyping for segmentation, RLE for pose estimation, and specific angle losses for [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 ## Ideal Use Cases
 

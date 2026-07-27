@@ -7,7 +7,7 @@ keywords: PP-YOLOE+, YOLO26, object detection, model comparison, computer vision
 
 # PP-YOLOE+ vs YOLO26
 
-The landscape of real-time computer vision has seen tremendous growth, driven by the need for scalable, efficient, and highly accurate object detection models. Two standout architectures in this space are **PP-YOLOE+**, a powerful detector from the [PaddlePaddle ecosystem](https://github.com/PaddlePaddle/PaddleDetection/), and **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**, the latest state-of-the-art model redefining edge deployment and training efficiency.
+The landscape of real-time computer vision has seen tremendous growth, driven by the need for scalable, efficient, and highly accurate object detection models. Two standout architectures in this space are **PP-YOLOE+**, a powerful detector from the [PaddlePaddle ecosystem](https://github.com/PaddlePaddle/PaddleDetection/), and **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)**, the latest state-of-the-art model redefining edge deployment and training efficiency.
 
 This comprehensive guide compares these two models, highlighting their architectures, [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics), training methodologies, and ideal use cases to help you make an informed decision for your next AI project.
 
@@ -39,7 +39,7 @@ Understanding the origins and design philosophies behind these models provides c
 - **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26)
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 ## Architectural Innovations
 
@@ -55,7 +55,7 @@ Key YOLO26 innovations include:
 
 - **End-to-End NMS-Free Design:** YOLO26 is natively end-to-end, completely eliminating the need for Non-Maximum Suppression ([NMS](https://www.ultralytics.com/glossary/non-maximum-suppression-nms)) post-processing. This breakthrough, first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), ensures consistent inference latency regardless of scene crowding, making deployment significantly simpler.
 - **DFL Removal:** By removing Distribution Focal Loss (DFL), YOLO26 drastically simplifies its output head. This results in far better compatibility with edge devices and microcontrollers.
-- **Up to 43% Faster CPU Inference:** Thanks to the DFL removal and structural optimizations, YOLO26 is heavily optimized for environments without dedicated GPUs, achieving up to 43% faster inference speeds on CPUs compared to [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11).
+- **Up to 43% Faster CPU Inference:** Thanks to the DFL removal and structural optimizations, YOLO26 is heavily optimized for environments without dedicated GPUs, achieving up to 43% faster inference speeds on CPUs compared to [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n).
 - **MuSGD Optimizer:** Inspired by advanced LLM training techniques like those from [Moonshot AI](https://www.moonshot.ai/), YOLO26 introduces a hybrid of SGD and Muon. This brings unparalleled training stability and faster convergence to computer vision tasks.
 - **ProgLoss + STAL:** Advanced loss functions specifically target and improve small-object recognition, which is critical for [drone operations](https://docs.ultralytics.com/datasets/detect/visdrone) and IoT edge sensors.
 
@@ -98,7 +98,7 @@ While raw metrics are important, the developer experience often dictates project
 
 !!! note "Other Ultralytics Models"
 
-    While YOLO26 is the pinnacle of current research, the Ultralytics ecosystem also houses [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8). Both remain highly capable models with massive community support, ideal for users migrating from older, legacy systems.
+    While YOLO26 is the pinnacle of current research, the Ultralytics ecosystem also houses [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n). Both remain highly capable models with massive community support, ideal for users migrating from older, legacy systems.
 
 ### Code Example: Training YOLO26
 

@@ -112,7 +112,7 @@ YOLOv9 is a champion of **resource-constrained edge deployments**. Its computati
 
 ## The Future: Enter Ultralytics YOLO26
 
-While YOLOv9 and RTDETRv2 represent massive leaps forward, the landscape has evolved rapidly. For modern deployments, the newly released **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** represents the ultimate synergy of both architectural philosophies.
+While YOLOv9 and RTDETRv2 represent massive leaps forward, the landscape has evolved rapidly. For modern deployments, the newly released **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)** represents the ultimate synergy of both architectural philosophies.
 
 By taking the best aspects of transformers and CNNs, YOLO26 establishes a new standard:
 
@@ -124,10 +124,10 @@ By taking the best aspects of transformers and CNNs, YOLO26 establishes a new st
 
 For teams looking to start a new computer vision project, we strongly recommend evaluating YOLO26. It provides the NMS-free elegance of a transformer with the blazing speed and training efficiency of a highly optimized YOLO architecture.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 ## Summary
 
 Choosing between RTDETRv2 and YOLOv9 largely comes down to your deployment hardware and specific accuracy needs. RTDETRv2 provides state-of-the-art accuracy and context awareness for server-backed applications, while YOLOv9 offers exceptional efficiency for edge devices.
 
-However, by leveraging the mature Ultralytics ecosystem, developers can effortlessly experiment with both. Furthermore, with the introduction of newer models like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and the natively end-to-end **YOLO26**, finding the perfect balance between high-speed inference, versatile task support, and low memory consumption has never been easier.
+However, by leveraging the mature Ultralytics ecosystem, developers can effortlessly experiment with both. Furthermore, with the introduction of newer models like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) and the natively end-to-end **YOLO26**, finding the perfect balance between high-speed inference, versatile task support, and low memory consumption has never been easier.

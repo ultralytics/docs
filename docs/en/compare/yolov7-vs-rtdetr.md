@@ -94,7 +94,7 @@ Moving from research to production requires robust deployment options. The Ultra
 
 For developers debating between YOLOv7 and RTDETRv2, the optimal path forward is actually the new standard in vision AI: **Ultralytics YOLO26**. Released in January 2026, YOLO26 bridges the gap between the speed of CNNs and the sophisticated reasoning of transformers, while completely eliminating their respective weaknesses.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 YOLO26 introduces groundbreaking innovations tailored for both server and edge deployments:
 
@@ -141,4 +141,4 @@ Choosing the right architecture depends heavily on deployment constraints and ha
 
 !!! tip "Explore More Models"
 
-    Interested in how other architectures stack up? Explore our deep dives into previous generations like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8), or learn how to leverage [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning) to maximize your project's accuracy.
+    Interested in how other architectures stack up? Explore our deep dives into previous generations like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n), or learn how to leverage [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning) to maximize your project's accuracy.

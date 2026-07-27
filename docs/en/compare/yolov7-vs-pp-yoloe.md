@@ -106,7 +106,7 @@ The Ultralytics ecosystem is exceptionally **well-maintained**, featuring freque
 
 ## The Future of Vision AI: YOLO26
 
-As computer vision rapidly evolves, newer architectures have emerged that redefine the standards for speed and efficiency. Released in January 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the pinnacle of this evolution and is the highly recommended choice for all new projects.
+As computer vision rapidly evolves, newer architectures have emerged that redefine the standards for speed and efficiency. Released in January 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) represents the pinnacle of this evolution and is the highly recommended choice for all new projects.
 
 **Key YOLO26 Innovations:**
 
@@ -130,4 +130,4 @@ Choosing between these architectures often depends on the specific deployment en
 - **Robotics Integration:** Ideal for [integrating computer vision in robotics](https://www.ultralytics.com/blog/integrating-computer-vision-in-robotics-with-ultalytics-yolo11), allowing for fast decision-making in dynamic environments.
 - **Academic Research:** Widely supported and frequently used as a reliable baseline in PyTorch-based research.
 
-While older models hold historical significance, transitioning to modern architectures like **YOLO26** or [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) via the [Ultralytics Platform](https://docs.ultralytics.com/platform) ensures access to the latest optimizations, the simplest training workflows, and the broadest multi-task support available today.
+While older models hold historical significance, transitioning to modern architectures like **YOLO26** or [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) via the [Ultralytics Platform](https://docs.ultralytics.com/platform) ensures access to the latest optimizations, the simplest training workflows, and the broadest multi-task support available today.

@@ -136,11 +136,11 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## The Future is Here: Enter Ultralytics YOLO26
 
-While YOLOv10 introduced the revolutionary NMS-free design, the technology has evolved. Released in January 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the definitive state-of-the-art for vision AI. It unifies the best aspects of previous architectures—like the [YOLO11](https://docs.ultralytics.com/models/yolo11) multi-task capabilities and [RT-DETR](https://docs.ultralytics.com/models/rtdetr) stability—into a singular, highly optimized powerhouse.
+While YOLOv10 introduced the revolutionary NMS-free design, the technology has evolved. Released in January 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) represents the definitive state-of-the-art for vision AI. It unifies the best aspects of previous architectures—like the [YOLO11](https://docs.ultralytics.com/models/yolo11) multi-task capabilities and [RT-DETR](https://docs.ultralytics.com/models/rtdetr) stability—into a singular, highly optimized powerhouse.
 
 !!! tip "The YOLO26 Advantage"
 
-    If you are beginning a new project, we highly recommend upgrading to **YOLO26**. It offers unmatched flexibility and ease-of-use via the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26).
+    If you are beginning a new project, we highly recommend upgrading to **YOLO26**. It offers unmatched flexibility and ease-of-use via the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n).
 
 **Key Breakthroughs in YOLO26:**
 
@@ -149,7 +149,7 @@ While YOLOv10 introduced the revolutionary NMS-free design, the technology has e
 - **MuSGD Optimizer:** YOLO26 borrows innovations from Large Language Model (LLM) training. By fusing the stability of SGD with the speed of Muon, it converges faster and more reliably than any predecessor.
 - **ProgLoss + STAL:** Superior loss formulations effectively solve long-standing issues with small-object detection, an area where EfficientDet traditionally struggled.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 ## Conclusion: Matching Models to Use Cases
 

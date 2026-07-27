@@ -9,7 +9,7 @@ keywords: EfficientDet, RTDETRv2, object detection, Ultralytics, EfficientDet co
 
 Choosing the optimal architecture for [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) projects requires navigating a diverse landscape of neural networks. This guide explores a detailed technical comparison between two distinct approaches: EfficientDet, a highly scalable Convolutional Neural Network (CNN) family, and RTDETRv2, a state-of-the-art real-time transformer model. We evaluate their structural differences, training methodologies, and deployment suitability across various hardware environments.
 
-By understanding the trade-offs between legacy efficiency and modern transformer capabilities, developers can make informed decisions. Furthermore, we will explore how modern alternatives like the new [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) bridge the gap, offering unparalleled speed, accuracy, and ease of use.
+By understanding the trade-offs between legacy efficiency and modern transformer capabilities, developers can make informed decisions. Furthermore, we will explore how modern alternatives like the new [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) bridge the gap, offering unparalleled speed, accuracy, and ease of use.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -120,7 +120,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## The Ultralytics Advantage: Introducing YOLO26
 
-While EfficientDet and RTDETRv2 have cemented their places in computer vision history, modern production environments demand a perfect balance of speed, accuracy, and an exceptional developer experience. The recently released [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) synthesizes the best aspects of these disparate architectures.
+While EfficientDet and RTDETRv2 have cemented their places in computer vision history, modern production environments demand a perfect balance of speed, accuracy, and an exceptional developer experience. The recently released [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) synthesizes the best aspects of these disparate architectures.
 
 YOLO26 stands out by combining the streamlined ecosystem [Ultralytics](https://www.ultralytics.com) is known for with groundbreaking internal mechanics.
 
@@ -135,7 +135,7 @@ YOLO26 stands out by combining the streamlined ecosystem [Ultralytics](https://w
 
 !!! tip "Integrated Ecosystem"
 
-    Leveraging the [Ultralytics Platform](https://platform.ultralytics.com), you can manage your datasets, train models like YOLO26 or [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) in the cloud, and deploy them seamlessly via flexible APIs.
+    Leveraging the [Ultralytics Platform](https://platform.ultralytics.com), you can manage your datasets, train models like YOLO26 or [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) in the cloud, and deploy them seamlessly via flexible APIs.
 
 ### Code Simplicity with Ultralytics
 
@@ -154,4 +154,4 @@ results = model.train(data="coco8.yaml", epochs=50, imgsz=640)
 predictions = model.predict("image.jpg")
 ```
 
-For those managing legacy infrastructure, the highly acclaimed [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) remains a stable and powerful choice, showcasing the long-term reliability of the Ultralytics ecosystem. Whether you are running complex [real-time tracking](https://docs.ultralytics.com/modes/track) algorithms or simple defect detection, upgrading to YOLO26 ensures your system is future-proof, highly accurate, and memory-efficient.
+For those managing legacy infrastructure, the highly acclaimed [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) remains a stable and powerful choice, showcasing the long-term reliability of the Ultralytics ecosystem. Whether you are running complex [real-time tracking](https://docs.ultralytics.com/modes/track) algorithms or simple defect detection, upgrading to YOLO26 ensures your system is future-proof, highly accurate, and memory-efficient.

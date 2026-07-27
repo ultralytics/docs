@@ -9,7 +9,7 @@ keywords: YOLOv5, RTDETRv2, object detection, model comparison, Ultralytics, com
 
 The landscape of [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) has expanded significantly over the past few years, offering developers a wide array of architectures to tackle complex visual tasks. Among the most popular paradigms are Convolutional Neural Networks (CNNs) and Detection Transformers (DETRs).
 
-This guide provides an in-depth technical comparison between two pivotal models in these categories: [Ultralytics YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5), a highly efficient and widely adopted CNN-based model, and RTDETRv2, a state-of-the-art transformer-based real-time object detector.
+This guide provides an in-depth technical comparison between two pivotal models in these categories: [Ultralytics YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu), a highly efficient and widely adopted CNN-based model, and RTDETRv2, a state-of-the-art transformer-based real-time object detector.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -39,7 +39,7 @@ Furthermore, YOLOv5 boasts unparalleled **Versatility**. Unlike models strictly 
 
 Because it relies on an older CNN framework, YOLOv5 inherently depends on [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) during post-processing to eliminate duplicate bounding boxes. While highly optimized within the Ultralytics framework, NMS can occasionally introduce latency bottlenecks on specialized edge NPUs.
 
-[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
+[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu){ .md-button }
 
 ## RTDETRv2: Real-Time Transformers by Baidu
 
@@ -145,9 +145,9 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 If you are starting a new vision project today, it is highly recommended to explore the latest generations of Ultralytics models.
 
-While YOLOv5 remains incredibly reliable, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) offers improved accuracy and an expanded set of tasks including [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection.
+While YOLOv5 remains incredibly reliable, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) offers improved accuracy and an expanded set of tasks including [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection.
 
-Even more significantly, the cutting-edge [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) merges the best of both worlds. It implements an **End-to-End NMS-Free Design** (first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10)), eliminating the post-processing overhead while maintaining the efficiency of a CNN. YOLO26 also introduces the **MuSGD Optimizer**, inspired by LLM training innovations, for faster convergence. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), YOLO26 delivers **Up to 43% Faster CPU Inference**, making it the absolute best choice for edge AI. Additionally, **ProgLoss + STAL** provides improved loss functions with notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery.
+Even more significantly, the cutting-edge [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) merges the best of both worlds. It implements an **End-to-End NMS-Free Design** (first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10)), eliminating the post-processing overhead while maintaining the efficiency of a CNN. YOLO26 also introduces the **MuSGD Optimizer**, inspired by LLM training innovations, for faster convergence. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), YOLO26 delivers **Up to 43% Faster CPU Inference**, making it the absolute best choice for edge AI. Additionally, **ProgLoss + STAL** provides improved loss functions with notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery.
 
 ## Conclusion
 

@@ -30,7 +30,7 @@ Developed natively within the Ultralytics ecosystem, YOLO11 was engineered to pr
 - **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLO11 Documentation](https://docs.ultralytics.com/models/yolo11)
 
-[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n){ .md-button }
 
 ### Meituan YOLOv6-3.0
 
@@ -117,7 +117,7 @@ For nearly all modern applications, YOLO11 is the superior choice. Whether you a
 
 ## Looking Ahead: The Cutting-Edge YOLO26
 
-While YOLO11 represents a massive leap forward, Ultralytics continually pushes the boundaries of computer vision. Released in January 2026, the new **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** model series is the absolute state-of-the-art and is the recommended model for all new projects.
+While YOLO11 represents a massive leap forward, Ultralytics continually pushes the boundaries of computer vision. Released in January 2026, the new **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)** model series is the absolute state-of-the-art and is the recommended model for all new projects.
 
 YOLO26 introduces several groundbreaking features designed specifically for modern deployment challenges:
 

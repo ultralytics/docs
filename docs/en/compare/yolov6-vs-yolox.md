@@ -14,7 +14,7 @@ The landscape of computer vision has been heavily shaped by models aiming to bri
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv6-3.0", "YOLOX"]'></canvas>
 
-This comprehensive technical comparison dives into the architectures, performance metrics, and ideal use cases for YOLOv6-3.0 and YOLOX, while also exploring how the next-generation [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) model builds upon and surpasses these innovations.
+This comprehensive technical comparison dives into the architectures, performance metrics, and ideal use cases for YOLOv6-3.0 and YOLOX, while also exploring how the next-generation [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) model builds upon and surpasses these innovations.
 
 ## YOLOv6-3.0: Industrial Throughput
 
@@ -122,7 +122,7 @@ Released in January 2026, YOLO26 represents a paradigm shift. It delivers unpara
 - **ProgLoss + STAL:** Superior loss functions dramatically improve small object detection, an area where older architectures like YOLOX often struggled. This makes YOLO26 ideal for aerial imagery and IoT sensors.
 - **Unmatched Versatility:** While YOLOv6 and YOLOX are strictly detection models, a single YOLO26 architecture natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), [image classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 ### Ease of Use and Ecosystem Support
 
@@ -148,4 +148,4 @@ model.export(format="engine")
 
 When deciding between **YOLOv6-3.0** and **YOLOX**, consider your hardware constraints. If you are building high-throughput video analytics systems backed by robust NVIDIA hardware, YOLOv6-3.0 provides exceptional TensorRT acceleration. Conversely, YOLOX remains a historic favorite for environments that benefit from a fully decoupled, anchor-free design.
 
-However, for developers seeking the ultimate balance of speed, accuracy, and ease of use, upgrading to the **Ultralytics YOLO26** model is the clear path forward. With its end-to-end NMS-free architecture, rapid CPU inference, and comprehensive support via the [Ultralytics ecosystem](https://docs.ultralytics.com/), it easily outpaces legacy industrial CNNs. For users interested in previous highly stable production variants, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) also remains fully supported and widely utilized in enterprise applications.
+However, for developers seeking the ultimate balance of speed, accuracy, and ease of use, upgrading to the **Ultralytics YOLO26** model is the clear path forward. With its end-to-end NMS-free architecture, rapid CPU inference, and comprehensive support via the [Ultralytics ecosystem](https://docs.ultralytics.com/), it easily outpaces legacy industrial CNNs. For users interested in previous highly stable production variants, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) also remains fully supported and widely utilized in enterprise applications.

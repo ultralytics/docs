@@ -7,7 +7,7 @@ keywords: PP-YOLOE+, RTDETRv2, object detection, model comparison, real-time det
 
 # PP-YOLOE+ vs RTDETRv2
 
-The field of computer vision has witnessed a dramatic evolution in recent years, particularly in the realm of real-time object detection. Choosing the right architecture for your deployment can mean the difference between a sluggish, memory-heavy application and a highly optimized, responsive system. In this technical comparison, we explore two prominent models from Baidu: the CNN-based PP-YOLOE+ and the transformer-based RTDETRv2. We will analyze their architectures, performance metrics, and ideal use cases, while also examining how they compare to the state-of-the-art [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) platform.
+The field of computer vision has witnessed a dramatic evolution in recent years, particularly in the realm of real-time object detection. Choosing the right architecture for your deployment can mean the difference between a sluggish, memory-heavy application and a highly optimized, responsive system. In this technical comparison, we explore two prominent models from Baidu: the CNN-based PP-YOLOE+ and the transformer-based RTDETRv2. We will analyze their architectures, performance metrics, and ideal use cases, while also examining how they compare to the state-of-the-art [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) platform.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -127,7 +127,7 @@ YOLO26 introduces several pioneering enhancements that outclass traditional CNNs
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, an area where models like PP-YOLOE+ historically struggle, proving critical for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and drone applications.
 - **DFL Removal:** The removal of Distribution Focal Loss simplifies the export process, ensuring seamless compatibility across various edge and low-power devices.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 !!! note "Task-Specific Versatility"
 
@@ -158,7 +158,7 @@ model_yolo.export(format="engine", quantize=16)
 
 Lower memory requirements typical of Ultralytics YOLO models mean you can train faster and deploy on cheaper hardware compared to transformer-based counterparts. Furthermore, active development and world-class documentation ensure your production pipelines remain stable.
 
-For teams exploring alternatives, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains a highly supported and exceptionally capable predecessor within the ecosystem, providing an excellent baseline for legacy hardware integrations. You might also find it useful to read our comparison on [YOLO11 vs RTDETR](https://docs.ultralytics.com/compare/yolo11-vs-rtdetr).
+For teams exploring alternatives, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) remains a highly supported and exceptionally capable predecessor within the ecosystem, providing an excellent baseline for legacy hardware integrations. You might also find it useful to read our comparison on [YOLO11 vs RTDETR](https://docs.ultralytics.com/compare/yolo11-vs-rtdetr).
 
 ## Summary
 

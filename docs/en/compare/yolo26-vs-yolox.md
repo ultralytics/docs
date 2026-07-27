@@ -26,7 +26,7 @@ Understanding the origins and core philosophies of these models is essential for
 - **GitHub:** [Ultralytics GitHub Repository](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLO26 Official Documentation](https://docs.ultralytics.com/models/yolo26)
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 **YOLO26** represents the pinnacle of modern AI engineering, offering a natively end-to-end design that eliminates complex post-processing bottlenecks. It is heavily optimized for both cloud and edge deployments, featuring an ecosystem that supports diverse tasks seamlessly.
 
@@ -125,6 +125,6 @@ When inspecting infrastructure via drones, detecting minute defects is paramount
 
 ## Exploring Other Models
 
-While YOLO26 represents the current state-of-the-art, the Ultralytics ecosystem offers a variety of models tailored to specific needs. For developers interested in transformer-based architectures, [RT-DETR](https://docs.ultralytics.com/models/rtdetr) provides an alternative approach to end-to-end detection. Additionally, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains a robust, highly tested option for production environments that require extensive historical benchmarking.
+While YOLO26 represents the current state-of-the-art, the Ultralytics ecosystem offers a variety of models tailored to specific needs. For developers interested in transformer-based architectures, [RT-DETR](https://docs.ultralytics.com/models/rtdetr) provides an alternative approach to end-to-end detection. Additionally, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) remains a robust, highly tested option for production environments that require extensive historical benchmarking.
 
 In summary, the transition from YOLOX to YOLO26 illustrates the rapid advancement of the field. By combining an intuitive API, a versatile feature set, and unparalleled efficiency, YOLO26 stands as the premier choice for researchers and developers worldwide.

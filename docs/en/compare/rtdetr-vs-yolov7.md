@@ -7,7 +7,7 @@ keywords: RTDETRv2, YOLOv7, object detection, model comparison, computer vision,
 
 # RTDETRv2 vs YOLOv7
 
-The landscape of [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) has expanded dramatically over the past few years, driven by continuous innovations in both Convolutional Neural Networks (CNNs) and Vision Transformers (ViTs). Choosing the right architecture for your deployment requires understanding the subtle trade-offs between speed, accuracy, and computational overhead. This guide explores the technical differences between two highly regarded architectures: RTDETRv2 and YOLOv7, while also highlighting the modern advancements available in the newer Ultralytics [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26).
+The landscape of [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) has expanded dramatically over the past few years, driven by continuous innovations in both Convolutional Neural Networks (CNNs) and Vision Transformers (ViTs). Choosing the right architecture for your deployment requires understanding the subtle trade-offs between speed, accuracy, and computational overhead. This guide explores the technical differences between two highly regarded architectures: RTDETRv2 and YOLOv7, while also highlighting the modern advancements available in the newer Ultralytics [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n).
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -78,7 +78,7 @@ Evaluating these models requires looking at the delicate balance between mean Av
 
 ## The Modern Solution: Enter YOLO26
 
-While RTDETRv2 and YOLOv7 were pivotal in pushing the boundaries of [computer vision applications](https://www.ultralytics.com/blog/60-impactful-computer-vision-applications), the AI landscape evolves rapidly. Released in January 2026, **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** synthesizes the best aspects of both CNN efficiency and transformer-like NMS-free architectures.
+While RTDETRv2 and YOLOv7 were pivotal in pushing the boundaries of [computer vision applications](https://www.ultralytics.com/blog/60-impactful-computer-vision-applications), the AI landscape evolves rapidly. Released in January 2026, **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)** synthesizes the best aspects of both CNN efficiency and transformer-like NMS-free architectures.
 
 For developers and researchers building new systems, the integrated [Ultralytics Platform](https://docs.ultralytics.com/platform) and Python ecosystem provide a unified experience that significantly reduces technical debt.
 
@@ -93,7 +93,7 @@ For developers and researchers building new systems, the integrated [Ultralytics
 
 ### Streamlined Developer Experience
 
-The true advantage of choosing an Ultralytics model like YOLO26 (or the highly popular [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11)) is the well-maintained ecosystem. Training a custom dataset requires minimal boilerplate code:
+The true advantage of choosing an Ultralytics model like YOLO26 (or the highly popular [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n)) is the well-maintained ecosystem. Training a custom dataset requires minimal boilerplate code:
 
 ```python
 from ultralytics import YOLO
@@ -108,7 +108,7 @@ results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 model.export(format="onnx", dynamic=True)
 ```
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 ## Ideal Use Cases and Applications
 

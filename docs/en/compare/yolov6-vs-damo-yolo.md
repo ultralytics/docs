@@ -71,7 +71,7 @@ YOLOv6-3.0 demonstrates exceptional speed on NVIDIA GPUs utilizing [TensorRT](ht
 
 While YOLOv6-3.0 and DAMO-YOLO are powerful tools, developers often face challenges with complex deployment pipelines, high memory requirements during training, and rigid, single-task architectures. The [Ultralytics ecosystem](https://docs.ultralytics.com/) provides a significantly more streamlined developer experience.
 
-With the release of **YOLO26**, Ultralytics has redefined state-of-the-art vision AI. Released in January 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) pushes the boundaries of efficiency and versatility.
+With the release of **YOLO26**, Ultralytics has redefined state-of-the-art vision AI. Released in January 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) pushes the boundaries of efficiency and versatility.
 
 ### Key Innovations in YOLO26
 
@@ -82,7 +82,7 @@ With the release of **YOLO26**, Ultralytics has redefined state-of-the-art visio
 - **ProgLoss + STAL:** Advanced loss functions dramatically improve small-object recognition, making YOLO26 perfect for [drone operations](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations) and distant target tracking.
 - **Multi-Task Versatility:** Unlike DAMO-YOLO, which is strictly a detector, YOLO26 provides out-of-the-box support for [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose) (via Residual Log-Likelihood Estimation), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb) within a single, unified API.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 !!! tip "Memory Efficient Training"
 
@@ -135,4 +135,4 @@ Both YOLOv6-3.0 and DAMO-YOLO have contributed significantly to the science of r
 
 However, for developers seeking the ultimate blend of accuracy, inference speed, and ecosystem maintainability, the [Ultralytics YOLO](https://www.ultralytics.com/) family remains the premier choice. With the groundbreaking optimizations introduced in **YOLO26**, the barrier to entry for creating enterprise-grade computer vision applications has never been lower.
 
-For further exploration, you might also be interested in comparing these models to other architectures in our documentation, such as [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or transformer-based approaches like [RT-DETR](https://docs.ultralytics.com/models/rtdetr).
+For further exploration, you might also be interested in comparing these models to other architectures in our documentation, such as [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) or transformer-based approaches like [RT-DETR](https://docs.ultralytics.com/models/rtdetr).

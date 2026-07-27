@@ -93,7 +93,7 @@ Choosing between these architectures often depends heavily on your existing tech
 
 ## The Ultralytics Advantage: Introducing YOLO26
 
-While EfficientDet and PP-YOLOE+ are formidable models, the rapid pace of AI innovation demands solutions that offer both cutting-edge performance and unparalleled ease of use. This is where [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) excels, establishing itself as the premier choice for modern computer vision applications.
+While EfficientDet and PP-YOLOE+ are formidable models, the rapid pace of AI innovation demands solutions that offer both cutting-edge performance and unparalleled ease of use. This is where [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) excels, establishing itself as the premier choice for modern computer vision applications.
 
 Released in 2026, YOLO26 completely redefines real-time object detection by introducing a native **End-to-End NMS-Free Design**. By eliminating Non-Maximum Suppression post-processing—a persistent bottleneck in older models—YOLO26 offers drastically simpler deployment and reduces inference latency jitter.
 
@@ -129,6 +129,6 @@ Whether you require standard detection, or specialized tasks like instance segme
 
 ## Exploring Other Notable Models
 
-If you are evaluating architectures for specific enterprise requirements, it is also worth considering the previous generation [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), which remains a robust, production-tested workhorse. For applications where transformer-based architectures are desired, [RT-DETR](https://docs.ultralytics.com/models/rtdetr) offers an interesting alternative, though it typically demands higher CUDA memory overhead during training compared to the highly efficient YOLO variants.
+If you are evaluating architectures for specific enterprise requirements, it is also worth considering the previous generation [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n), which remains a robust, production-tested workhorse. For applications where transformer-based architectures are desired, [RT-DETR](https://docs.ultralytics.com/models/rtdetr) offers an interesting alternative, though it typically demands higher CUDA memory overhead during training compared to the highly efficient YOLO variants.
 
 In conclusion, while EfficientDet offers principled scaling and PP-YOLOE+ provides excellent GPU throughput within its specific framework, **Ultralytics YOLO26** delivers the most balanced, versatile, and developer-friendly solution available today. Its natively end-to-end architecture and extensive integration capabilities make it the recommended foundation for next-generation vision AI.

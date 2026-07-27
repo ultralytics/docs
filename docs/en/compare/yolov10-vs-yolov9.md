@@ -85,7 +85,7 @@ The table below illustrates the core metrics for both models. Notice how YOLOv10
 
 While YOLOv9 and YOLOv10 are impressive milestones, the machine learning landscape moves quickly. For modern production environments, developers increasingly rely on the integrated, well-maintained ecosystem of [Ultralytics Platform](https://platform.ultralytics.com). As of 2026, the clear recommendation for both research and enterprise is the newly released **YOLO26**.
 
-[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) takes the foundational concepts of its predecessors and elevates them through a streamlined user experience, simple API, and exceptionally lower memory requirements during training compared to bulky transformer-based architectures.
+[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) takes the foundational concepts of its predecessors and elevates them through a streamlined user experience, simple API, and exceptionally lower memory requirements during training compared to bulky transformer-based architectures.
 
 ### Key Innovations in YOLO26
 
@@ -97,7 +97,7 @@ While YOLOv9 and YOLOv10 are impressive milestones, the machine learning landsca
 
 !!! note "The Ultralytics Ecosystem Advantage"
 
-    Choosing an Ultralytics model like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or YOLO26 provides unparalleled ease of use. You gain access to active development, a thriving community, and frequent updates that ensure your models remain compatible with the latest inference engines like [OpenVINO](https://docs.ultralytics.com/integrations/openvino) and CoreML.
+    Choosing an Ultralytics model like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) or YOLO26 provides unparalleled ease of use. You gain access to active development, a thriving community, and frequent updates that ensure your models remain compatible with the latest inference engines like [OpenVINO](https://docs.ultralytics.com/integrations/openvino) and CoreML.
 
 ## Practical Implementation
 
@@ -151,4 +151,4 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 Both YOLOv9 and YOLOv10 offer unique advantages. YOLOv9 is a testament to maximizing network parameter efficiency and theoretical gradient flow, resulting in top-tier accuracy. Meanwhile, YOLOv10 serves as the academic pioneer of end-to-end bounding box detection without the latency penalty of NMS.
 
-However, for developers seeking the perfect balance of performance, versatility, and ease of use, upgrading to the latest models is paramount. With its advanced MuSGD optimizer, ProgLoss + STAL functionality for superior small-object detection, and comprehensive multi-task support, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the definitive state-of-the-art solution for any real-world computer vision challenge.
+However, for developers seeking the perfect balance of performance, versatility, and ease of use, upgrading to the latest models is paramount. With its advanced MuSGD optimizer, ProgLoss + STAL functionality for superior small-object detection, and comprehensive multi-task support, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) represents the definitive state-of-the-art solution for any real-world computer vision challenge.

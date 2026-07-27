@@ -108,7 +108,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 While both DAMO-YOLO and YOLOv6-3.0 are highly capable, they suffer from fragmented ecosystems, single-task limitations, and complex deployment pipelines. For modern engineering teams, [Ultralytics models](https://docs.ultralytics.com/models) provide a substantially better developer experience, culminating in the groundbreaking **YOLO26**.
 
-Released in January 2026, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the new standard for edge and cloud deployment, heavily optimizing [memory requirements](https://docs.ultralytics.com/guides/model-training-tips) and computational efficiency.
+Released in January 2026, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) represents the new standard for edge and cloud deployment, heavily optimizing [memory requirements](https://docs.ultralytics.com/guides/model-training-tips) and computational efficiency.
 
 ### Why Choose YOLO26?
 
@@ -118,7 +118,7 @@ Released in January 2026, [YOLO26](https://platform.ultralytics.com/ultralytics/
 4. **Enhanced Accuracy:** Utilizing **ProgLoss + STAL**, YOLO26 sees dramatic improvements in [small object detection](https://www.ultralytics.com/blog/exploring-small-object-detection-with-ultralytics-yolo11), making it the optimal choice for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and defect inspection.
 5. **Unmatched Versatility:** Unlike industrial models that only do bounding boxes, the YOLO26 family supports multi-modal tasks, including [Image Classification](https://docs.ultralytics.com/tasks/classify), [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 ### Seamless Ecosystem Experience
 
@@ -152,4 +152,4 @@ Both DAMO-YOLO and YOLOv6-3.0 are impressive engineering feats that push the bou
 
 For developers and researchers who demand a perfect **performance balance**, multi-task capabilities, and an actively [well-maintained ecosystem](https://www.ultralytics.com/about), Ultralytics **YOLO26** stands unmatched. By blending LLM-inspired optimizers with a clean, NMS-free architecture, YOLO26 simplifies [AI deployment](https://docs.ultralytics.com/guides/model-deployment-options) while delivering state-of-the-art accuracy across edge and cloud environments.
 
-If you're evaluating models for a new computer vision project, we highly recommend exploring the capabilities of the [Ultralytics YOLO](https://www.ultralytics.com/yolo) ecosystem. You may also find it useful to compare these with other architectures like [EfficientDet](https://docs.ultralytics.com/compare/efficientdet-vs-yolov6) or previous milestones like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) to fully grasp the evolution of real-time vision AI.
+If you're evaluating models for a new computer vision project, we highly recommend exploring the capabilities of the [Ultralytics YOLO](https://www.ultralytics.com/yolo) ecosystem. You may also find it useful to compare these with other architectures like [EfficientDet](https://docs.ultralytics.com/compare/efficientdet-vs-yolov6) or previous milestones like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) to fully grasp the evolution of real-time vision AI.

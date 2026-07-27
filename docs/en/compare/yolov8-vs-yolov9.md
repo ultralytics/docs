@@ -30,7 +30,7 @@ Released by the team at [Ultralytics](https://www.ultralytics.com/about), YOLOv8
 - **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 - **Documentation:** [YOLOv8 Docs](https://docs.ultralytics.com/models/yolov8)
 
-[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
+[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n){ .md-button }
 
 ### YOLOv9: Programmable Gradient Information
 
@@ -46,7 +46,7 @@ Developed independently by researchers at Academia Sinica, YOLOv9 focuses heavil
 
 !!! tip "Enterprise Deployment"
 
-    If you are planning a large-scale commercial deployment, consider exploring the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolov8) for simplified cloud training, dataset management, and one-click API endpoints.
+    If you are planning a large-scale commercial deployment, consider exploring the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) for simplified cloud training, dataset management, and one-click API endpoints.
 
 ## Architectural Deep Dive
 
@@ -119,7 +119,7 @@ While YOLOv9 is an excellent bounding box detector, real-world vision AI often r
 
 !!! note "Looking Forward"
 
-    If you are starting a new project, you might also want to evaluate [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or the cutting-edge [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26), which natively feature end-to-end NMS-free designs.
+    If you are starting a new project, you might also want to evaluate [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) or the cutting-edge [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n), which natively feature end-to-end NMS-free designs.
 
 ## Real-World Use Cases
 

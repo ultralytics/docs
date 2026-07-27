@@ -143,10 +143,10 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## The Future: Enter YOLO26
 
-While YOLOv9 represents an impressive milestone, the demands of production environments constantly push the boundaries. The newly released **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** represents the definitive standard for modern vision AI.
+While YOLOv9 represents an impressive milestone, the demands of production environments constantly push the boundaries. The newly released **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)** represents the definitive standard for modern vision AI.
 
 YOLO26 completely revitalizes the deployment pipeline with a native **End-to-End NMS-Free Design**. By eliminating the need for complex Non-Maximum Suppression during post-processing, it delivers significantly lower [inference latency](https://www.ultralytics.com/glossary/inference-latency).
 
 Furthermore, YOLO26 incorporates the groundbreaking **MuSGD Optimizer**, a hybrid of SGD and Muon that borrows innovations from LLM training to provide incredibly stable and rapid convergence. By removing Distribution Focal Loss (DFL), YOLO26 achieves up to **43% faster CPU inference** compared to its predecessors, making it the absolute best choice for edge devices and enterprise deployments. With notable improvements in small-object recognition via ProgLoss and STAL, YOLO26 effectively supersedes both YOLOX and YOLOv9.
 
-For engineers exploring modern architectures, we also recommend checking out [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [RT-DETR](https://docs.ultralytics.com/models/rtdetr) as powerful alternatives within the Ultralytics suite. Ensure your project is future-proofed by leveraging the unparalleled performance of the latest models on the Ultralytics Platform.
+For engineers exploring modern architectures, we also recommend checking out [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) and [RT-DETR](https://docs.ultralytics.com/models/rtdetr) as powerful alternatives within the Ultralytics suite. Ensure your project is future-proofed by leveraging the unparalleled performance of the latest models on the Ultralytics Platform.

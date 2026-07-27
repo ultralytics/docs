@@ -36,7 +36,7 @@ Furthermore, YOLOv8 requires significantly lower [memory requirements](https://d
 
 One of the defining strengths of YOLOv8 is its native versatility. While many models focus solely on bounding boxes, YOLOv8 provides out-of-the-box support for [object detection](https://docs.ultralytics.com/tasks/detect), [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding box (OBB)](https://docs.ultralytics.com/tasks/obb) detection.
 
-[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
+[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n){ .md-button }
 
 ## RTDETRv2 Overview
 
@@ -120,7 +120,7 @@ Furthermore, training efficiency is a hallmark of Ultralytics YOLO models. They 
 
 ## Looking Ahead: The Power of YOLO26
 
-While YOLOv8 remains a powerhouse, developers looking for the absolute cutting edge should consider upgrading to the highly anticipated [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26), released in January 2026. YOLO26 redefines the state-of-the-art with several groundbreaking innovations:
+While YOLOv8 remains a powerhouse, developers looking for the absolute cutting edge should consider upgrading to the highly anticipated [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n), released in January 2026. YOLO26 redefines the state-of-the-art with several groundbreaking innovations:
 
 - **End-to-End NMS-Free Design:** YOLO26 eliminates Non-Maximum Suppression (NMS) post-processing, resulting in faster and more deterministic deployment workflows.
 - **DFL Removal:** The removal of Distribution Focal Loss streamlines the model for enhanced edge and low-power device compatibility.
@@ -128,7 +128,7 @@ While YOLOv8 remains a powerhouse, developers looking for the absolute cutting e
 - **Up to 43% Faster CPU Inference:** Heavily optimized for environments lacking dedicated GPUs.
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, which is critical for aerial imagery and robotics.
 
-Other modern alternatives worth exploring within the Ultralytics suite include [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), which offers robust performance for legacy projects, though YOLO26 is recommended for all new deployments.
+Other modern alternatives worth exploring within the Ultralytics suite include [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n), which offers robust performance for legacy projects, though YOLO26 is recommended for all new deployments.
 
 ## Code Example: Training and Inference
 

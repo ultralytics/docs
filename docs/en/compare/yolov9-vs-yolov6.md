@@ -97,13 +97,13 @@ model.export(format="engine", quantize=16)
 
 ### Unmatched Versatility Across Vision Tasks
 
-While YOLOv6-3.0 is heavily optimized for fast bounding box generation, modern computer vision projects often require a multi-task approach. Ultralytics models are celebrated for their extreme versatility. With tools like [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) and the newer YOLO26, a single framework seamlessly handles [object detection](https://docs.ultralytics.com/tasks/detect), [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
+While YOLOv6-3.0 is heavily optimized for fast bounding box generation, modern computer vision projects often require a multi-task approach. Ultralytics models are celebrated for their extreme versatility. With tools like [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) and the newer YOLO26, a single framework seamlessly handles [object detection](https://docs.ultralytics.com/tasks/detect), [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
 ## Introducing YOLO26: The New Standard
 
-For organizations looking to maximize both performance and ease of deployment, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the ultimate convergence of speed and accuracy.
+For organizations looking to maximize both performance and ease of deployment, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) represents the ultimate convergence of speed and accuracy.
 
-Building on the successes of [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), YOLO26 introduces several paradigm-shifting features:
+Building on the successes of [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n), YOLO26 introduces several paradigm-shifting features:
 
 - **MuSGD Optimizer:** Inspired by Large Language Model (LLM) training techniques like Moonshot AI's Kimi K2, this hybrid optimizer ensures incredibly stable training and fast convergence.
 - **DFL Removal:** By stripping out Distribution Focal Loss, YOLO26 simplifies the export graph, making it significantly more compatible with low-power [edge computing](https://www.ultralytics.com/glossary/edge-computing) chips.

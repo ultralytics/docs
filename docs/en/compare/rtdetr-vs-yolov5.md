@@ -52,7 +52,7 @@ The greatest advantage of YOLOv5 lies in its unmatched versatility and low memor
 
     To experience the ultimate streamlined workflow, you can train, validate, and deploy YOLOv5 directly using the [Ultralytics Platform](https://platform.ultralytics.com). The platform provides cloud training capabilities and zero-code deployment pipelines.
 
-[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
+[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu){ .md-button }
 
 ## Performance and Metrics Comparison
 
@@ -119,6 +119,6 @@ YOLOv5 is the undeniable champion for practical, real-world deployment across di
 
 !!! note "Exploring Other Ultralytics Models"
 
-    While YOLOv5 is a legendary model, the Ultralytics ecosystem continually pushes the boundaries of AI. If you are comparing models for a new project in 2026, you should consider exploring the state-of-the-art [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). YOLO26 incorporates a native **End-to-End NMS-Free Design** (similar to transformers but with CNN speed), features the revolutionary **MuSGD Optimizer** for incredibly stable training, and delivers up to 43% faster CPU inference. Alternatively, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains a fantastic, highly supported choice for versatile deployments requiring [Pose Estimation](https://docs.ultralytics.com/tasks/pose) and [OBB detection](https://docs.ultralytics.com/tasks/obb).
+    While YOLOv5 is a legendary model, the Ultralytics ecosystem continually pushes the boundaries of AI. If you are comparing models for a new project in 2026, you should consider exploring the state-of-the-art [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n). YOLO26 incorporates a native **End-to-End NMS-Free Design** (similar to transformers but with CNN speed), features the revolutionary **MuSGD Optimizer** for incredibly stable training, and delivers up to 43% faster CPU inference. Alternatively, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) remains a fantastic, highly supported choice for versatile deployments requiring [Pose Estimation](https://docs.ultralytics.com/tasks/pose) and [OBB detection](https://docs.ultralytics.com/tasks/obb).
 
 Ultimately, while RTDETRv2 pushes the accuracy ceiling using transformer layers, the Ultralytics YOLO framework provides an unmatched balance of speed, lightweight memory requirements, and a brilliantly engineered developer experience that dramatically reduces the time from prototype to production.

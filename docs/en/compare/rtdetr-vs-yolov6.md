@@ -9,7 +9,7 @@ keywords: RTDETRv2, YOLOv6, object detection, model comparison, Vision Transform
 
 The landscape of computer vision is constantly evolving, presenting developers with a myriad of architectural choices for object detection. Two prominent models that represent divergent approaches are **RTDETRv2**, a state-of-the-art vision transformer, and **YOLOv6-3.0**, a highly optimized Convolutional Neural Network (CNN) tailored for industrial applications.
 
-This comprehensive technical comparison explores their respective architectures, performance metrics, and ideal deployment scenarios. We will also examine how the broader [Ultralytics ecosystem](https://docs.ultralytics.com/) provides a superior developer experience, ultimately looking toward the next-generation capabilities of [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26).
+This comprehensive technical comparison explores their respective architectures, performance metrics, and ideal deployment scenarios. We will also examine how the broader [Ultralytics ecosystem](https://docs.ultralytics.com/) provides a superior developer experience, ultimately looking toward the next-generation capabilities of [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n).
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -108,7 +108,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 Choosing the right model involves more than just raw benchmark numbers; developer experience, deployment flexibility, and ecosystem support are equally crucial. By utilizing models integrated within the Ultralytics platform, users gain significant advantages over static research repositories.
 
 - **Ease of Use:** The `ultralytics` Python package offers a seamless API. Training, validating, and exporting models takes only a few lines of code.
-- **Well-Maintained Ecosystem:** Unlike isolated academic repos, the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolov8) is actively updated. It boasts robust integrations for tools like [ONNX](https://docs.ultralytics.com/integrations/onnx), [OpenVINO](https://docs.ultralytics.com/integrations/openvino), and CoreML.
+- **Well-Maintained Ecosystem:** Unlike isolated academic repos, the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) is actively updated. It boasts robust integrations for tools like [ONNX](https://docs.ultralytics.com/integrations/onnx), [OpenVINO](https://docs.ultralytics.com/integrations/openvino), and CoreML.
 - **Training Efficiency:** Ultralytics models typically consume significantly lower VRAM during training compared to transformer architectures like RTDETRv2, allowing for larger batch sizes on consumer-grade hardware.
 - **Versatility:** Unlike the focused scope of YOLOv6-3.0, Ultralytics models are multi-modal, natively supporting [image classification](https://docs.ultralytics.com/tasks/classify), [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb), and segmentation within a single unified framework.
 
@@ -118,7 +118,7 @@ Choosing the right model involves more than just raw benchmark numbers; develope
 
 ## Enter YOLO26: The Ultimate Solution
 
-While RTDETRv2 and YOLOv6-3.0 offer specific benefits, the field moves rapidly. For teams starting new computer vision projects, we highly recommend **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**, released by Ultralytics in January 2026.
+While RTDETRv2 and YOLOv6-3.0 offer specific benefits, the field moves rapidly. For teams starting new computer vision projects, we highly recommend **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)**, released by Ultralytics in January 2026.
 
 YOLO26 synthesizes the strengths of industrial CNNs and modern transformers while eliminating their respective weaknesses:
 

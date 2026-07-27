@@ -7,7 +7,7 @@ keywords: YOLO26, RTDETRv2, YOLO26 vs RTDETRv2, Ultralytics, object detection, m
 
 # YOLO26 vs RTDETRv2
 
-The landscape of computer vision is constantly evolving, presenting practitioners with a critical choice: should you leverage highly optimized Convolutional Neural Networks (CNNs) or adopt the newer Transformer-based architectures? Two prominent contenders in this arena are the cutting-edge [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) and Baidu's [RTDETRv2](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch). Both models push the boundaries of real-time object detection but rely on fundamentally different architectural philosophies.
+The landscape of computer vision is constantly evolving, presenting practitioners with a critical choice: should you leverage highly optimized Convolutional Neural Networks (CNNs) or adopt the newer Transformer-based architectures? Two prominent contenders in this arena are the cutting-edge [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) and Baidu's [RTDETRv2](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch). Both models push the boundaries of real-time object detection but rely on fundamentally different architectural philosophies.
 
 This guide provides a deep technical dive into both models, comparing their structures, performance metrics, and ideal use cases to help you choose the best foundation for your next computer vision project.
 
@@ -36,7 +36,7 @@ YOLO26 introduces several groundbreaking features that differentiate it not only
 - **MuSGD Optimizer:** Bridging the gap between Large Language Model (LLM) training and computer vision, YOLO26 utilizes the MuSGD optimizer. This hybrid of SGD and Muon—inspired by Moonshot AI's Kimi K2—ensures robust training stability and faster convergence.
 - **ProgLoss + STAL:** Advanced loss functions bring notable improvements to small-object recognition. This is critical for industries relying on [aerial imagery analysis](https://docs.ultralytics.com/datasets/detect/visdrone) and Internet of Things (IoT) sensors.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 ### Versatility Across Vision Tasks
 
@@ -135,7 +135,7 @@ model.export(format="onnx")
 
 ### A Well-Maintained Ecosystem
 
-By utilizing Ultralytics models, developers gain access to an actively maintained framework that integrates natively with modern tracking tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases) and [Comet ML](https://docs.ultralytics.com/integrations/comet). For those who prefer a no-code approach, the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26) facilitates cloud training, dataset management, and one-click deployment.
+By utilizing Ultralytics models, developers gain access to an actively maintained framework that integrates natively with modern tracking tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases) and [Comet ML](https://docs.ultralytics.com/integrations/comet). For those who prefer a no-code approach, the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) facilitates cloud training, dataset management, and one-click deployment.
 
 ### Performance Balance
 
@@ -143,4 +143,4 @@ YOLO26 strikes an unparalleled balance between inference speed and accuracy. The
 
 ## Other Models in the Ecosystem
 
-While YOLO26 and RTDETRv2 cover the cutting edge of real-time detection, developers maintaining legacy pipelines or exploring different efficiency curves might also consider [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) for established enterprise environments, or explore other architectures like [EfficientDet](https://docs.ultralytics.com/compare/efficientdet-vs-yolov8). However, for any new initiative, YOLO26 stands as the definitive recommendation.
+While YOLO26 and RTDETRv2 cover the cutting edge of real-time detection, developers maintaining legacy pipelines or exploring different efficiency curves might also consider [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) for established enterprise environments, or explore other architectures like [EfficientDet](https://docs.ultralytics.com/compare/efficientdet-vs-yolov8). However, for any new initiative, YOLO26 stands as the definitive recommendation.

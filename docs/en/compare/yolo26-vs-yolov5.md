@@ -7,7 +7,7 @@ keywords: YOLO26, YOLOv5, object detection, real-time detection, Ultralytics, NM
 
 # YOLO26 vs YOLOv5
 
-The evolution of computer vision has been defined by the relentless pursuit of speed, accuracy, and accessibility. Choosing the right architecture is critical to the success of any AI project. In this comprehensive guide, we compare two monumental releases from Ultralytics: the pioneering [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5) and the groundbreaking [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). While both have heavily influenced the landscape of real-time [object detection](https://en.wikipedia.org/wiki/Object_detection), their underlying technologies reflect a massive paradigm shift in how neural networks process visual data.
+The evolution of computer vision has been defined by the relentless pursuit of speed, accuracy, and accessibility. Choosing the right architecture is critical to the success of any AI project. In this comprehensive guide, we compare two monumental releases from Ultralytics: the pioneering [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) and the groundbreaking [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n). While both have heavily influenced the landscape of real-time [object detection](https://en.wikipedia.org/wiki/Object_detection), their underlying technologies reflect a massive paradigm shift in how neural networks process visual data.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -26,7 +26,7 @@ Before diving into architectural nuances, let's establish the foundational detai
 - GitHub: [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 - Docs: [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26)
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 **YOLOv5 Details:**
 
@@ -36,7 +36,7 @@ Before diving into architectural nuances, let's establish the foundational detai
 - GitHub: [https://github.com/ultralytics/yolov5](https://github.com/ultralytics/yolov5)
 - Docs: [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5)
 
-[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
+[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu){ .md-button }
 
 !!! tip "Exploring Other Options"
 

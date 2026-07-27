@@ -28,7 +28,7 @@ Introduced by Ultralytics, YOLOv5 has long been recognized for its unmatched bal
 - GitHub: [YOLOv5 Repository](https://github.com/ultralytics/yolov5)
 - Documentation: [YOLOv5 Docs](https://docs.ultralytics.com/models/yolov5)
 
-[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
+[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu){ .md-button }
 
 YOLOv5 relies on an anchor-based detection mechanism combined with a deeply optimized CSPDarknet backbone. This architecture relies heavily on standard operations supported across virtually all inference engines, making it incredibly versatile. Its major strength lies in the [Ultralytics Python SDK](https://docs.ultralytics.com/usage/python), which provides a streamlined user experience, a simple API, and extensive documentation. Additionally, YOLOv5's lower memory requirements compared to transformer-based models mean it trains rapidly on consumer-grade GPUs without the steep VRAM overhead.
 
@@ -143,7 +143,7 @@ YOLO26 merges the reliability of the Ultralytics ecosystem with groundbreaking a
 - **MuSGD Optimizer:** Inspired by LLM training innovations from Moonshot AI, the MuSGD optimizer provides unprecedented stability and rapid convergence.
 - **ProgLoss + STAL:** These novel loss functions drastically improve small-object recognition, vital for fields like drone imagery and robotics.
 
-You can manage, train, and deploy YOLO26 directly via the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26).
+You can manage, train, and deploy YOLO26 directly via the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n).
 
 ## Conclusion
 

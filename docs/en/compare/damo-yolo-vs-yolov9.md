@@ -9,7 +9,7 @@ keywords: DAMO-YOLO, YOLOv9, object detection, model comparison, YOLO series, de
 
 The landscape of real-time object detection continues to evolve at a breakneck pace. As engineering teams and researchers strive for the perfect balance of accuracy, inference speed, and computational efficiency, two notable architectures have emerged from the research community: **DAMO-YOLO** and **YOLOv9**. Both models introduce significant architectural innovations aimed at pushing the boundaries of what is possible in computer vision.
 
-This detailed technical guide provides an in-depth analysis of these two models, comparing their unique architectural approaches, training methodologies, and real-world deployment capabilities. We will also explore how the broader software ecosystem plays a crucial role in modern AI development, highlighting the advantages of integrated platforms like the [Ultralytics Platform](https://platform.ultralytics.com/) and the newer generation of models like [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26).
+This detailed technical guide provides an in-depth analysis of these two models, comparing their unique architectural approaches, training methodologies, and real-world deployment capabilities. We will also explore how the broader software ecosystem plays a crucial role in modern AI development, highlighting the advantages of integrated platforms like the [Ultralytics Platform](https://platform.ultralytics.com/) and the newer generation of models like [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n).
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -22,11 +22,11 @@ While both models represent significant milestones in deep learning research, th
 
 DAMO-YOLO excels in environments where heavy Neural Architecture Search (NAS) can be utilized to squeeze out specific performance profiles, making it an interesting study for customized edge deployment. Conversely, YOLOv9 focuses heavily on solving deep learning information bottlenecks, delivering exceptionally high parameter efficiency.
 
-However, for production-ready deployments, engineering teams consistently recommend leveraging the unified [Ultralytics ecosystem](https://docs.ultralytics.com/). For new projects, the latest **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** model offers the best of both worlds: state-of-the-art accuracy combined with a native end-to-end design that eliminates the need for complex post-processing.
+However, for production-ready deployments, engineering teams consistently recommend leveraging the unified [Ultralytics ecosystem](https://docs.ultralytics.com/). For new projects, the latest **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)** model offers the best of both worlds: state-of-the-art accuracy combined with a native end-to-end design that eliminates the need for complex post-processing.
 
 !!! tip "Future-Proof Your Computer Vision Pipeline"
 
-    While DAMO-YOLO and YOLOv9 are powerful academic models, deploying them in production often requires significant custom engineering. Using [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) provides access to cutting-edge performance with a streamlined, maintainable API.
+    While DAMO-YOLO and YOLOv9 are powerful academic models, deploying them in production often requires significant custom engineering. Using [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) provides access to cutting-edge performance with a streamlined, maintainable API.
 
 ## Technical Specifications and Authorship
 

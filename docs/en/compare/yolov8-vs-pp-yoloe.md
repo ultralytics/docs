@@ -7,7 +7,7 @@ keywords: YOLOv8, PP-YOLOE+, object detection, computer vision, model comparison
 
 # YOLOv8 vs PP-YOLOE+
 
-In the rapidly evolving field of [computer vision](https://en.wikipedia.org/wiki/Computer_vision), selecting the right model for [object detection](https://en.wikipedia.org/wiki/Object_detection) is critical for achieving a balance between inference speed and accuracy. Two prominent models that have significantly impacted the industry are [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) and [PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md). This guide provides a comprehensive technical comparison to help developers and machine learning engineers understand the nuances of their architectures, performance metrics, and ideal deployment scenarios.
+In the rapidly evolving field of [computer vision](https://en.wikipedia.org/wiki/Computer_vision), selecting the right model for [object detection](https://en.wikipedia.org/wiki/Object_detection) is critical for achieving a balance between inference speed and accuracy. Two prominent models that have significantly impacted the industry are [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) and [PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md). This guide provides a comprehensive technical comparison to help developers and machine learning engineers understand the nuances of their architectures, performance metrics, and ideal deployment scenarios.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -24,7 +24,7 @@ Introduced by Ultralytics, YOLOv8 quickly established itself as a cornerstone fo
 - **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLOv8 Documentation](https://docs.ultralytics.com/models/yolov8)
 
-[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
+[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n){ .md-button }
 
 ### Architectural Innovations and Versatility
 
@@ -134,7 +134,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## Looking Forward: The YOLO26 Advantage
 
-For those looking to build future-proof applications, the recently released **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** represents the pinnacle of modern computer vision. Released in January 2026, it supersedes both YOLOv8 and the intermediate [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) by introducing groundbreaking features:
+For those looking to build future-proof applications, the recently released **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)** represents the pinnacle of modern computer vision. Released in January 2026, it supersedes both YOLOv8 and the intermediate [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) by introducing groundbreaking features:
 
 - **End-to-End NMS-Free Design:** YOLO26 natively eliminates the need for Non-Maximum Suppression post-processing, dramatically reducing latency variability and simplifying deployment logic.
 - **MuSGD Optimizer:** Integrating LLM training innovations into vision AI, this hybrid of SGD and [Muon](https://github.com/KellerJordan/Muon) ensures incredibly stable training dynamics and faster convergence.

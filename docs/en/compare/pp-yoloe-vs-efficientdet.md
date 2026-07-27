@@ -9,7 +9,7 @@ keywords: PP-YOLOE+,EfficientDet,object detection,PP-YOLOE+m,EfficientDet-D7,AI 
 
 Choosing the right architecture is a critical step in building robust [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) applications. This technical guide explores the trade-offs between two well-known object detection models: **PP-YOLOE+** and **EfficientDet**. We will break down their architectures, analyze their [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics), and explore their ideal deployment scenarios.
 
-While both models have made significant contributions to the field, we will also discuss how modern alternatives like [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) offer vastly superior memory efficiency, faster inference, and a highly streamlined developer experience.
+While both models have made significant contributions to the field, we will also discuss how modern alternatives like [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) offer vastly superior memory efficiency, faster inference, and a highly streamlined developer experience.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -103,7 +103,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## The Modern Alternative: Ultralytics YOLO26
 
-While PP-YOLOE+ and EfficientDet represent significant historical milestones, developers seeking state-of-the-art accuracy, lower memory consumption, and a streamlined user experience should look to [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26).
+While PP-YOLOE+ and EfficientDet represent significant historical milestones, developers seeking state-of-the-art accuracy, lower memory consumption, and a streamlined user experience should look to [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n).
 
 YOLO26 represents a massive leap forward in object detection, introducing several critical innovations:
 

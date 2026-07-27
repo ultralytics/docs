@@ -53,7 +53,7 @@ YOLO26 introduces several pioneering advancements that set it apart from previou
 - **MuSGD Optimizer:** Inspired by LLM training innovations like Moonshot AI's Kimi K2, the new MuSGD optimizer (a hybrid of [Stochastic Gradient Descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent) and Muon) brings large-scale stability to vision tasks, ensuring faster convergence.
 - **ProgLoss + STAL:** Advanced loss functions yield notable improvements in small-object recognition, a critical enhancement for applications dealing with [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and crowded scenes.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 !!! tip "Multi-Task Capabilities"
 
@@ -89,7 +89,7 @@ Choosing a model involves evaluating the surrounding software ecosystem. Here, t
 
 !!! note "Exploring Alternatives"
 
-    If you are building a generalized machine learning pipeline and wish to explore other robust options within the ecosystem, [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains an exceptionally stable and widely adopted foundation for enterprise deployment.
+    If you are building a generalized machine learning pipeline and wish to explore other robust options within the ecosystem, [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) remains an exceptionally stable and widely adopted foundation for enterprise deployment.
 
 ## Code Example: Training Made Simple
 

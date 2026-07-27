@@ -26,11 +26,11 @@ Introduced by Ultralytics, YOLO11 builds upon years of foundational research to 
 - **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLO11 Documentation](https://docs.ultralytics.com/models/yolo11)
 
-[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n){ .md-button }
 
 ### Architecture and Strengths
 
-YOLO11 features a refined CNN backbone and advanced spatial feature pyramids, making it exceptionally resource-efficient. It thrives in environments with strict hardware constraints, offering a minimal memory footprint during both training and inference. The [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo11) provides native support for YOLO11, enabling streamlined model monitoring, data annotation, and cloud training without needing to stitch together disparate MLops tools.
+YOLO11 features a refined CNN backbone and advanced spatial feature pyramids, making it exceptionally resource-efficient. It thrives in environments with strict hardware constraints, offering a minimal memory footprint during both training and inference. The [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) provides native support for YOLO11, enabling streamlined model monitoring, data annotation, and cloud training without needing to stitch together disparate MLops tools.
 
 For developers targeting [edge computing](https://docs.ultralytics.com/guides/model-deployment-options), YOLO11 boasts ultra-low latency. Its lightweight nature allows it to run efficiently on devices ranging from Raspberry Pis to consumer-grade mobile phones, making it a standard for smart retail, [manufacturing quality control](https://www.ultralytics.com/solutions/ai-in-manufacturing), and automated traffic management.
 
@@ -142,7 +142,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## Looking Ahead: The Power of YOLO26
 
-While YOLO11 stands as an excellent production choice, teams looking for the absolute cutting-edge should strongly consider [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). Released in January 2026, YOLO26 bridges the architectural gap by incorporating an **End-to-End NMS-Free Design** (first pioneered in YOLOv10) directly into its core, eliminating post-processing latency and deployment logic complexity entirely.
+While YOLO11 stands as an excellent production choice, teams looking for the absolute cutting-edge should strongly consider [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n). Released in January 2026, YOLO26 bridges the architectural gap by incorporating an **End-to-End NMS-Free Design** (first pioneered in YOLOv10) directly into its core, eliminating post-processing latency and deployment logic complexity entirely.
 
 YOLO26 also introduces several revolutionary features:
 
@@ -151,6 +151,6 @@ YOLO26 also introduces several revolutionary features:
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, a critical requirement for drone surveillance, [agricultural monitoring](https://www.ultralytics.com/solutions/ai-in-agriculture), and IoT edge sensors.
 - **Up to 43% Faster CPU Inference:** For deployments lacking dedicated GPUs, YOLO26 is specifically optimized for CPU execution, vastly outperforming previous generations.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
-For those interested in exploring a wider range of architectures, the Ultralytics documentation also provides insights into [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8), the widely adopted [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5), and specialized models like [YOLO-World](https://docs.ultralytics.com/models/yolo-world) for open-vocabulary detection applications. Ultimately, whether prioritizing the proven stability of YOLO11 or the breakthrough innovations of YOLO26, the Ultralytics ecosystem delivers unparalleled tools to bring your computer vision solutions to life.
+For those interested in exploring a wider range of architectures, the Ultralytics documentation also provides insights into [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n), the widely adopted [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu), and specialized models like [YOLO-World](https://docs.ultralytics.com/models/yolo-world) for open-vocabulary detection applications. Ultimately, whether prioritizing the proven stability of YOLO11 or the breakthrough innovations of YOLO26, the Ultralytics ecosystem delivers unparalleled tools to bring your computer vision solutions to life.

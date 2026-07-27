@@ -7,7 +7,7 @@ keywords: YOLO26, PP-YOLOE+, Ultralytics, object detection, model comparison, be
 
 # YOLO26 vs PP-YOLOE+
 
-The field of computer vision has witnessed a rapid evolution in real-time object detection models. For ML engineers and researchers looking to deploy the most efficient vision AI models, comparing architectures like [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) and PP-YOLOE+ is critical. This comprehensive guide provides an in-depth analysis of their architectures, training methodologies, performance metrics, and ideal real-world deployment scenarios.
+The field of computer vision has witnessed a rapid evolution in real-time object detection models. For ML engineers and researchers looking to deploy the most efficient vision AI models, comparing architectures like [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) and PP-YOLOE+ is critical. This comprehensive guide provides an in-depth analysis of their architectures, training methodologies, performance metrics, and ideal real-world deployment scenarios.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -27,7 +27,7 @@ Released in January 2026, YOLO26 represents the pinnacle of the Ultralytics ecos
 - GitHub: [Ultralytics GitHub Repository](https://github.com/ultralytics/ultralytics)
 - Docs: [Official YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26)
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 **PP-YOLOE+ Overview**  
 Developed as an evolution of the PP-YOLO series, PP-YOLOE+ is an anchor-free detector heavily optimized for the PaddlePaddle ecosystem. It relies on a CSPRepResNet backbone and an ET-head to improve standard detection metrics.

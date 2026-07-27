@@ -81,7 +81,7 @@ By utilizing the integrated [Ultralytics Platform](https://platform.ultralytics.
 
 ### Future-Proofing with YOLO26
 
-If you are starting a new computer vision project, we highly recommend exploring the newly released **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** over both YOLOv9 and YOLOv7. Released as the new state-of-the-art standard, YOLO26 brings groundbreaking advancements:
+If you are starting a new computer vision project, we highly recommend exploring the newly released **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)** over both YOLOv9 and YOLOv7. Released as the new state-of-the-art standard, YOLO26 brings groundbreaking advancements:
 
 - **End-to-End NMS-Free Design:** Eliminates Non-Maximum Suppression post-processing, dramatically reducing deployment complexity and latency.
 - **Up to 43% Faster CPU Inference:** Optimized for [edge computing](https://www.ultralytics.com/glossary/edge-computing) environments, ensuring your application runs smoothly even without dedicated GPUs.
@@ -89,7 +89,7 @@ If you are starting a new computer vision project, we highly recommend exploring
 - **DFL Removal:** Simplified model export by removing Distribution Focal Loss, enhancing compatibility with low-power mobile devices.
 - **ProgLoss + STAL:** Drastically improves performance on small object detection, making it the premier choice for [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and surveillance.
 
-Other popular alternatives within the ecosystem include [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) and [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), both of which offer massive versatility across tasks like [instance segmentation](https://docs.ultralytics.com/tasks/segment) and [pose estimation](https://docs.ultralytics.com/tasks/pose).
+Other popular alternatives within the ecosystem include [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) and [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n), both of which offer massive versatility across tasks like [instance segmentation](https://docs.ultralytics.com/tasks/segment) and [pose estimation](https://docs.ultralytics.com/tasks/pose).
 
 ### Implementation Example
 

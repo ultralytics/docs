@@ -22,11 +22,11 @@ Understanding the origins and design goals of each framework provides critical c
 
 ### Ultralytics YOLOv8
 
-Developed by Glenn Jocher, Ayush Chaurasia, and Jing Qiu at Ultralytics and released on January 10, 2023, YOLOv8 marked a significant leap in the Ultralytics ecosystem. Building upon the massive success of [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5), YOLOv8 introduced a highly refined, state-of-the-art architecture capable of handling a diverse array of tasks natively, including [object detection](https://docs.ultralytics.com/tasks/detect), [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), and [pose estimation](https://docs.ultralytics.com/tasks/pose).
+Developed by Glenn Jocher, Ayush Chaurasia, and Jing Qiu at Ultralytics and released on January 10, 2023, YOLOv8 marked a significant leap in the Ultralytics ecosystem. Building upon the massive success of [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu), YOLOv8 introduced a highly refined, state-of-the-art architecture capable of handling a diverse array of tasks natively, including [object detection](https://docs.ultralytics.com/tasks/detect), [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), and [pose estimation](https://docs.ultralytics.com/tasks/pose).
 
 Its primary advantage lies in the well-maintained Ultralytics ecosystem, which provides a seamless "zero-to-hero" experience with a unified Python API, extensive documentation, and native integrations with MLOps tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases) and [Comet](https://docs.ultralytics.com/integrations/comet).
 
-[Explore YOLOv8 on the Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
+[Explore YOLOv8 on the Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n){ .md-button }
 
 ### YOLOX
 
@@ -109,11 +109,11 @@ Choosing between these architectures depends on your project constraints, though
 
 ## Looking Forward: Alternative Models
 
-While YOLOv8 is a massive improvement over YOLOX, the field of AI is moving incredibly fast. For users starting new projects, we highly recommend evaluating [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). Released in January 2026, YOLO26 represents the new gold standard for vision AI.
+While YOLOv8 is a massive improvement over YOLOX, the field of AI is moving incredibly fast. For users starting new projects, we highly recommend evaluating [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n). Released in January 2026, YOLO26 represents the new gold standard for vision AI.
 
 YOLO26 features a revolutionary **End-to-End NMS-Free Design**, completely eliminating Non-Maximum Suppression post-processing for simpler deployment pipelines. Coupled with the novel **MuSGD Optimizer** and removal of Distribution Focal Loss (DFL), YOLO26 achieves up to **43% faster CPU inference** compared to YOLOv8. It also introduces **ProgLoss + STAL** loss functions, offering dramatic improvements in small-object recognition critical for aerial imagery and robotics.
 
-Alternatively, users may also consider [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) as another strong, well-supported predecessor within the Ultralytics ecosystem, offering robust performance across diverse tasks.
+Alternatively, users may also consider [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) as another strong, well-supported predecessor within the Ultralytics ecosystem, offering robust performance across diverse tasks.
 
 ## Conclusion
 

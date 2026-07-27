@@ -7,7 +7,7 @@ keywords: EfficientDet, YOLOX, object detection, model comparison, EfficientDet 
 
 # EfficientDet vs YOLOX
 
-When architecting a modern [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) pipeline, selecting the right model is a critical decision that dictates both accuracy and real-time viability. This technical guide provides an in-depth comparison between two pivotal architectures in the evolution of neural networks: Google's EfficientDet and Megvii's YOLOX. We will analyze their architectural paradigms, evaluate their benchmarked performance, and explore how they measure up against state-of-the-art solutions like the newly released [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26).
+When architecting a modern [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) pipeline, selecting the right model is a critical decision that dictates both accuracy and real-time viability. This technical guide provides an in-depth comparison between two pivotal architectures in the evolution of neural networks: Google's EfficientDet and Megvii's YOLOX. We will analyze their architectural paradigms, evaluate their benchmarked performance, and explore how they measure up against state-of-the-art solutions like the newly released [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n).
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -122,7 +122,7 @@ YOLO26 represents a paradigm shift in the YOLO lineage, systematically overcomin
 - **ProgLoss + STAL:** Advanced loss functions bring notable improvements in small-object recognition, a historic weakness for both YOLOX and EfficientDet. This is critical for drone analytics and IoT.
 - **Incredible Versatility:** While EfficientDet and YOLOX are strictly bounding box detectors, YOLO26 natively supports [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose) (via Residual Log-Likelihood Estimation), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 ### Streamlined User Experience and Training Efficiency
 
@@ -145,4 +145,4 @@ model.export(format="openvino")
 
 If you are maintaining a legacy system deeply embedded in the TensorFlow ecosystem, **EfficientDet** remains a stable choice, particularly for scenarios where massive compound scaling is theoretically necessary. Conversely, if you require pure speed on legacy anchor-free codebases, **YOLOX** serves as a fast, reliable detector.
 
-However, for any new project moving into production, the choice is unequivocally **Ultralytics YOLO26** (or the highly stable [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) for legacy enterprise support). By offering an end-to-end NMS-free architecture, vastly improved CPU speeds, and a seamless deployment pipeline through platforms like [OpenVINO](https://docs.openvino.ai/) and TensorRT, YOLO26 ensures your computer vision applications are future-proofed, highly accurate, and incredibly easy to maintain.
+However, for any new project moving into production, the choice is unequivocally **Ultralytics YOLO26** (or the highly stable [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) for legacy enterprise support). By offering an end-to-end NMS-free architecture, vastly improved CPU speeds, and a seamless deployment pipeline through platforms like [OpenVINO](https://docs.openvino.ai/) and TensorRT, YOLO26 ensures your computer vision applications are future-proofed, highly accurate, and incredibly easy to maintain.

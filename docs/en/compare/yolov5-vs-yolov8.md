@@ -38,7 +38,7 @@ YOLOv5 is highly recommended for projects where maximum throughput and minimal r
 
     Due to its widespread adoption, YOLOv5 has incredibly stable export paths to legacy deployment frameworks like [TensorRT](https://developer.nvidia.com/tensorrt) and [ONNX](https://onnx.ai/), making integration into older technology stacks seamless.
 
-[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
+[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu){ .md-button }
 
 ## YOLOv8: The Unified Vision Framework
 
@@ -74,7 +74,7 @@ predictions = model("https://ultralytics.com/images/bus.jpg")
 predictions[0].show()
 ```
 
-[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
+[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n){ .md-button }
 
 ## Detailed Performance Comparison
 

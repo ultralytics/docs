@@ -43,7 +43,7 @@ Ultralytics YOLOv5 is one of the most widely adopted vision architectures in the
 - **GitHub:** [ultralytics/yolov5](https://github.com/ultralytics/yolov5)
 - **Docs:** [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5)
 
-[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
+[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu){ .md-button }
 
 ### The Ecosystem Standard
 
@@ -124,13 +124,13 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 While YOLOv5 is legendary and DAMO-YOLO provides interesting academic insights, the state-of-the-art has evolved. Released in January 2026, **Ultralytics YOLO26** represents a massive leap forward for the vision community.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 YOLO26 addresses the traditional bottlenecks of edge deployment and training instability:
 
 - **End-to-End NMS-Free Design:** YOLO26 natively eliminates Non-Maximum Suppression post-processing. This breakthrough simplifies deployment logic and drastically reduces latency variability, making it ideal for high-speed [robotics](https://www.ultralytics.com/glossary/robotics) and autonomous systems.
 - **MuSGD Optimizer:** Inspired by LLM training innovations (like Moonshot AI's Kimi K2), YOLO26 utilizes the MuSGD optimizer (a hybrid of SGD and Muon). This ensures highly stable training runs and remarkably faster convergence.
-- **Up to 43% Faster CPU Inference:** By strategically removing the Distribution Focal Loss (DFL), YOLO26 achieves vastly superior speeds on CPUs and edge devices compared to its predecessors like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8).
+- **Up to 43% Faster CPU Inference:** By strategically removing the Distribution Focal Loss (DFL), YOLO26 achieves vastly superior speeds on CPUs and edge devices compared to its predecessors like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n).
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, which is critical for analyzing [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and IoT sensor feeds.
 
 ### Code Example: Simplicity in Action

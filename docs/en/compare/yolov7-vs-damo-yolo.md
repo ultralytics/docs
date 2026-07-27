@@ -113,14 +113,14 @@ model.export(format="onnx")
 
 ## The Next Generation: YOLO26
 
-While YOLOv7 remains a strong legacy architecture, the field has advanced rapidly. For new deployments, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) (released January 2026) is the recommended standard, outperforming previous generations in almost every metric.
+While YOLOv7 remains a strong legacy architecture, the field has advanced rapidly. For new deployments, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) (released January 2026) is the recommended standard, outperforming previous generations in almost every metric.
 
 - **End-to-End NMS-Free Design:** First pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 natively eliminates Non-Maximum Suppression (NMS) post-processing. This ensures deterministic, ultra-low latency inference critical for robotics and self-driving technologies.
 - **MuSGD Optimizer:** Inspired by advanced LLM training techniques (like Moonshot AI's Kimi K2), this hybrid optimizer blends SGD and Muon to deliver highly stable training and faster convergence across datasets.
 - **Up to 43% Faster CPU Inference:** By strategically removing Distribution Focal Loss (DFL), YOLO26 significantly boosts performance on edge computing platforms and CPUs.
 - **ProgLoss + STAL:** These advanced loss functions yield substantial improvements in detecting small objects, making YOLO26 exceptionally well-suited for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and detailed surveillance.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 ## Ideal Use Cases
 

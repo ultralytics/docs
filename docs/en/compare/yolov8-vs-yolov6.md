@@ -7,7 +7,7 @@ keywords: YOLOv8, YOLOv6-3.0, object detection, machine learning, computer visio
 
 # YOLOv8 vs YOLOv6-3.0
 
-The landscape of real-time computer vision is constantly evolving, driven by the demand for faster, more accurate, and more versatile models. Two of the most prominent architectures that emerged in early 2023 are [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) and YOLOv6-3.0 by Meituan. Both models push the boundaries of state-of-the-art performance, but they cater to slightly different development philosophies and deployment scenarios.
+The landscape of real-time computer vision is constantly evolving, driven by the demand for faster, more accurate, and more versatile models. Two of the most prominent architectures that emerged in early 2023 are [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) and YOLOv6-3.0 by Meituan. Both models push the boundaries of state-of-the-art performance, but they cater to slightly different development philosophies and deployment scenarios.
 
 This comprehensive guide provides an in-depth analysis of their architectures, performance metrics, and ideal use cases, helping machine learning engineers and researchers choose the right tool for their next [object detection](https://docs.ultralytics.com/tasks/detect) project.
 
@@ -30,7 +30,7 @@ The Ultralytics YOLOv8 architecture represents a unified, multi-task framework d
 - GitHub: [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 - Docs: [https://docs.ultralytics.com/models/yolov8/](https://docs.ultralytics.com/models/yolov8)
 
-[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
+[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n){ .md-button }
 
 ### YOLOv6-3.0 Details
 
@@ -141,20 +141,20 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## Looking Forward: Upgrading to YOLO26
 
-While YOLOv8 and YOLOv6-3.0 are excellent choices, developers beginning new projects are highly encouraged to explore the next-generation [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) model. Released in January 2026, YOLO26 redefines the standard for edge-first vision AI.
+While YOLOv8 and YOLOv6-3.0 are excellent choices, developers beginning new projects are highly encouraged to explore the next-generation [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) model. Released in January 2026, YOLO26 redefines the standard for edge-first vision AI.
 
 YOLO26 introduces an **End-to-End NMS-Free Design**, completely eliminating the need for Non-Maximum Suppression during post-processing. This natively end-to-end approach guarantees faster, simpler deployment logic, particularly in edge environments. Coupled with **DFL Removal** (Distribution Focal Loss), the model head is significantly lighter, leading to **Up to 43% Faster CPU Inference**.
 
 Training stability and convergence speed have also seen massive upgrades thanks to the **MuSGD Optimizer**, a hybrid of SGD and Muon inspired by LLM training methodologies. Additionally, the introduction of **ProgLoss + STAL** significantly boosts small-object recognition, which is critical for drone imagery and dense industrial inspection.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 !!! note "Other Models to Consider"
 
-    Depending on your specific constraints, you may also be interested in exploring [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) for highly balanced legacy workflows or [YOLO-World](https://docs.ultralytics.com/models/yolo-world) for zero-shot, open-vocabulary detection tasks without the need for extensive retraining.
+    Depending on your specific constraints, you may also be interested in exploring [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) for highly balanced legacy workflows or [YOLO-World](https://docs.ultralytics.com/models/yolo-world) for zero-shot, open-vocabulary detection tasks without the need for extensive retraining.
 
 ## Conclusion
 
 Choosing between YOLOv8 and YOLOv6-3.0 ultimately depends on the priorities of your deployment pipeline. YOLOv6-3.0 is a highly capable model for strict TensorRT environments where raw GPU speed is the absolute priority. However, for the vast majority of teams, the **Ultralytics YOLOv8** model presents the superior choice. Its combination of lower training memory requirements, multi-task versatility, and an industry-leading ecosystem provided by the [Ultralytics Platform](https://platform.ultralytics.com/) drastically reduces time-to-market.
 
-For developers who want the absolute peak of modern efficiency, seamlessly transitioning to [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) provides an unparalleled, NMS-free experience that future-proofs any computer vision application.
+For developers who want the absolute peak of modern efficiency, seamlessly transitioning to [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) provides an unparalleled, NMS-free experience that future-proofs any computer vision application.

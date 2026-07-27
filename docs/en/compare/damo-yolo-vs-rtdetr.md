@@ -14,7 +14,7 @@ The rapidly evolving landscape of computer vision has produced an impressive arr
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "RTDETRv2"]'></canvas>
 
-This comprehensive guide dives deep into the technical specifications, architectural innovations, and practical use cases of both models, while also exploring how modern solutions like the [Ultralytics Platform](https://platform.ultralytics.com) and the state-of-the-art [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) have redefined industry standards for deployment and ease of use.
+This comprehensive guide dives deep into the technical specifications, architectural innovations, and practical use cases of both models, while also exploring how modern solutions like the [Ultralytics Platform](https://platform.ultralytics.com) and the state-of-the-art [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) have redefined industry standards for deployment and ease of use.
 
 ## Model Overviews
 
@@ -93,7 +93,7 @@ The recently released **Ultralytics YOLO26** model takes these advantages to the
 - **DFL Removal:** Distribution Focal Loss has been removed to ensure simplified export formats and better compatibility with low-power edge devices.
 - **Unrivaled Versatility:** Unlike competing models limited strictly to detection, YOLO26 includes task-specific improvements across the board, such as specialized angle loss for [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb), semantic segmentation loss for pixel-perfect accuracy, and Residual Log-Likelihood Estimation (RLE) for [Pose estimation](https://docs.ultralytics.com/tasks/pose).
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 !!! note "Memory Efficiency Matters"
 
@@ -128,4 +128,4 @@ Both DAMO-YOLO and RTDETRv2 have undeniably pushed the boundaries of what is pos
 
 However, for developers seeking the ultimate balance of performance, comprehensive documentation, and production readiness, **Ultralytics YOLO models** remain the gold standard. With the introduction of YOLO26, users gain access to transformer-like end-to-end detection, LLM-inspired training efficiency, and unparalleled CPU speeds—all wrapped within an intuitive and robust ecosystem.
 
-If you are evaluating models for your next project, you may also find value in reading our comparisons of [EfficientDet vs RTDETR](https://docs.ultralytics.com/compare/efficientdet-vs-rtdetr), exploring the previous generation [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), or reviewing academic baselines like [YOLOX](https://docs.ultralytics.com/compare/yolox-vs-rtdetr). Start building today by exploring the [Ultralytics quickstart guide](https://docs.ultralytics.com/quickstart).
+If you are evaluating models for your next project, you may also find value in reading our comparisons of [EfficientDet vs RTDETR](https://docs.ultralytics.com/compare/efficientdet-vs-rtdetr), exploring the previous generation [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n), or reviewing academic baselines like [YOLOX](https://docs.ultralytics.com/compare/yolox-vs-rtdetr). Start building today by exploring the [Ultralytics quickstart guide](https://docs.ultralytics.com/quickstart).

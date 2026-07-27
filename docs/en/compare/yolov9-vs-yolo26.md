@@ -7,7 +7,7 @@ keywords: YOLOv9, YOLO26, object detection, model comparison, real-time detectio
 
 # YOLOv9 vs YOLO26
 
-The landscape of real-time [object detection](https://en.wikipedia.org/wiki/Object_detection) has evolved significantly over the past few years. As machine learning practitioners look to deploy models across a variety of hardware, choosing the right architecture is critical. In this comprehensive technical guide, we compare two major milestones in the computer vision field: [YOLOv9](https://arxiv.org/abs/2402.13616), introduced in early 2024 with a focus on gradient path optimizations, and **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**, the latest state-of-the-art framework released in early 2026 that completely redefines edge inference and training stability.
+The landscape of real-time [object detection](https://en.wikipedia.org/wiki/Object_detection) has evolved significantly over the past few years. As machine learning practitioners look to deploy models across a variety of hardware, choosing the right architecture is critical. In this comprehensive technical guide, we compare two major milestones in the computer vision field: [YOLOv9](https://arxiv.org/abs/2402.13616), introduced in early 2024 with a focus on gradient path optimizations, and **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)**, the latest state-of-the-art framework released in early 2026 that completely redefines edge inference and training stability.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -28,7 +28,7 @@ Authored by Chien-Yao Wang and Hong-Yuan Mark Liao from the Institute of Informa
 
 Authored by Glenn Jocher and Jing Qiu at [Ultralytics](https://www.ultralytics.com/), YOLO26 was released on January 14, 2026. Building on the massive success of predecessors like [YOLO11](https://docs.ultralytics.com/models/yolo11) and [YOLOv8](https://docs.ultralytics.com/models/yolov8), YOLO26 was engineered from the ground up to prioritize production readiness, edge deployment, and native end-to-end efficiency.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 !!! tip "Try YOLO26 Today"
 

@@ -9,7 +9,7 @@ keywords: YOLOX, RTDETRv2, object detection, YOLOX vs RTDETRv2, performance comp
 
 Choosing the optimal architecture for [computer vision applications](https://www.ultralytics.com/glossary/computer-vision-cv) requires a careful balance of accuracy, inference speed, and deployment feasibility. In this comprehensive technical analysis, we explore the fundamental differences between **YOLOX**, a highly successful anchor-free CNN architecture, and **RTDETRv2**, a state-of-the-art real-time detection transformer.
 
-While both models have made significant contributions to the field of [object detection](https://docs.ultralytics.com/tasks/detect), developers building production-ready applications often find that modern alternatives like [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) provide superior training efficiency, lower memory requirements, and a more robust deployment ecosystem.
+While both models have made significant contributions to the field of [object detection](https://docs.ultralytics.com/tasks/detect), developers building production-ready applications often find that modern alternatives like [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) provide superior training efficiency, lower memory requirements, and a more robust deployment ecosystem.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -102,7 +102,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## The Ultralytics Advantage: YOLO26
 
-While both YOLOX and RTDETRv2 offer distinct strengths, the newly released [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) redefines the state-of-the-art for vision AI, resolving the historical trade-offs between speed, accuracy, and ease of deployment.
+While both YOLOX and RTDETRv2 offer distinct strengths, the newly released [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) redefines the state-of-the-art for vision AI, resolving the historical trade-offs between speed, accuracy, and ease of deployment.
 
 ### 1. End-to-End NMS-Free Architecture
 
@@ -122,7 +122,7 @@ The [Ultralytics ecosystem](https://docs.ultralytics.com/) provides an intuitive
 
 !!! tip "Other Supported Models"
 
-    The Ultralytics framework also supports the previous generation [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8), allowing users to easily benchmark and transition legacy pipelines.
+    The Ultralytics framework also supports the previous generation [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n), allowing users to easily benchmark and transition legacy pipelines.
 
 ## Seamless Integration with Ultralytics
 

@@ -28,7 +28,7 @@ Both models reflect Ultralytics' commitment to open-source collaboration, robust
 - GitHub: [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 - Docs: [YOLO11 Documentation](https://docs.ultralytics.com/models/yolo11)
 
-[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n){ .md-button }
 
 ### YOLOv5 Details
 
@@ -38,7 +38,7 @@ Both models reflect Ultralytics' commitment to open-source collaboration, robust
 - GitHub: [ultralytics/yolov5](https://github.com/ultralytics/yolov5)
 - Docs: [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5)
 
-[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
+[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu){ .md-button }
 
 ## Architectural Differences
 
@@ -128,7 +128,7 @@ YOLO11 represents the ideal choice for modern production pipelines due to its in
 
 ## Looking Forward: The YOLO26 Architecture
 
-While YOLO11 stands as an exceptional standard, the computer vision frontier continues to advance rapidly. Developers seeking the absolute pinnacle of efficiency should also consider the latest [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) (released January 2026).
+While YOLO11 stands as an exceptional standard, the computer vision frontier continues to advance rapidly. Developers seeking the absolute pinnacle of efficiency should also consider the latest [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) (released January 2026).
 
 YOLO26 represents a massive leap forward, explicitly designed for both edge optimization and enterprise scale. Key innovations include:
 
@@ -138,7 +138,7 @@ YOLO26 represents a massive leap forward, explicitly designed for both edge opti
 - **Up to 43% Faster CPU Inference:** Heavily optimized for IoT deployments and devices without dedicated [GPUs](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit).
 - **ProgLoss + STAL:** Drastically improved loss functions that yield notable improvements in small-object recognition, vital for aerial drone imagery.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 ## Summary
 

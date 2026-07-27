@@ -7,7 +7,7 @@ keywords: YOLOX, YOLO26, object detection, model comparison, performance metrics
 
 # YOLOX vs YOLO26
 
-The field of computer vision has witnessed incredible transformations over the past decade. Two significant milestones in this journey are the release of YOLOX, which popularized anchor-free architectures, and the recent introduction of [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26), which completely redefines real-time performance with a natively end-to-end, NMS-free design. This comprehensive comparison explores their architectures, performance metrics, and ideal deployment scenarios to help developers make informed decisions for their next AI project.
+The field of computer vision has witnessed incredible transformations over the past decade. Two significant milestones in this journey are the release of YOLOX, which popularized anchor-free architectures, and the recent introduction of [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n), which completely redefines real-time performance with a natively end-to-end, NMS-free design. This comprehensive comparison explores their architectures, performance metrics, and ideal deployment scenarios to help developers make informed decisions for their next AI project.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -37,11 +37,11 @@ Authors: Glenn Jocher and Jing Qiu
 Organization: [Ultralytics](https://www.ultralytics.com/)  
 Date: 2026-01-14  
 GitHub: [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)  
-Platform: [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26)
+Platform: [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)
 
 Released in early 2026, **YOLO26** is the culmination of years of iterative improvements, focusing heavily on edge deployment and simplified training pipelines. It introduces an **end-to-end NMS-free design**, completely eliminating the traditional Non-Maximum Suppression post-processing step. This breakthrough drastically simplifies model deployment across diverse hardware. Furthermore, by removing the Distribution Focal Loss (DFL) module, YOLO26 achieves significantly lower latency, cementing its status as the premier choice for modern [computer vision applications](https://www.ultralytics.com/blog/60-impactful-computer-vision-applications).
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 ## Architectural Innovations
 
@@ -152,7 +152,7 @@ YOLO26 is recommended for:
 
 If you are exploring the evolution of computer vision, there are other highly capable models within the Ultralytics family worth investigating:
 
-- **[YOLO11](https://platform.ultralytics.com/ultralytics/yolo11):** The immediate predecessor to YOLO26, offering robust performance and widespread community support for stable production environments.
-- **[YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8):** A heavily battle-tested architecture that set the standard for ease-of-use and flexibility across thousands of real-world deployments.
+- **[YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n):** The immediate predecessor to YOLO26, offering robust performance and widespread community support for stable production environments.
+- **[YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n):** A heavily battle-tested architecture that set the standard for ease-of-use and flexibility across thousands of real-world deployments.
 
 In conclusion, while YOLOX introduced crucial concepts to the object detection landscape, the new **YOLO26** provides a generational leap in speed, accuracy, and deployment simplicity, making it the definitive choice for forward-thinking developers and enterprises.

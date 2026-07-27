@@ -30,7 +30,7 @@ Developed by Glenn Jocher and the team at Ultralytics, YOLOv5 has become an indu
 - **GitHub:** [https://github.com/ultralytics/yolov5](https://github.com/ultralytics/yolov5)
 - **Docs:** [Ultralytics YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5)
 
-[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
+[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu){ .md-button }
 
 ### DAMO-YOLO
 
@@ -151,7 +151,7 @@ If you are starting a new project, it is highly recommended to look towards the 
 
     Released to universal acclaim, YOLO26 is natively end-to-end. It features an **End-to-End NMS-Free Design**, completely eliminating Non-Maximum Suppression post-processing for substantially faster, simpler deployment.
 
-Key innovations in [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) include:
+Key innovations in [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) include:
 
 - **MuSGD Optimizer:** Inspired by LLM training innovations, this hybrid of SGD and Muon ensures highly stable training and rapid convergence.
 - **Up to 43% Faster CPU Inference:** Heavily optimized for edge computing, making it perfect for IoT devices operating without dedicated GPUs.
@@ -167,5 +167,5 @@ We highly recommend utilizing the [Ultralytics Platform](https://platform.ultral
 ### Further Reading
 
 - Explore the transformer-based [RT-DETR](https://docs.ultralytics.com/models/rtdetr) for high-accuracy applications.
-- Learn about the previous generation [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) model.
+- Learn about the previous generation [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) model.
 - Discover how to optimize deployments with [OpenVINO](https://docs.ultralytics.com/integrations/openvino).

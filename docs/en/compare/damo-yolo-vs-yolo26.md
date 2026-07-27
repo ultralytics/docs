@@ -51,7 +51,7 @@ Ultralytics YOLO26 introduces several groundbreaking features that make it the d
 
     YOLO26 includes specialized improvements across multiple modalities: a multi-scale proto for [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), Residual Log-Likelihood Estimation (RLE) for [Pose Estimation](https://docs.ultralytics.com/tasks/pose), and advanced angle loss to mitigate boundary issues in [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 ## Performance Comparison
 
@@ -104,7 +104,7 @@ results[0].show()
 model.export(format="onnx")
 ```
 
-For teams that prefer a no-code environment, [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26) provides an intuitive interface for dataset annotation, cloud training, and seamless deployment.
+For teams that prefer a no-code environment, [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) provides an intuitive interface for dataset annotation, cloud training, and seamless deployment.
 
 ## Real-World Applications
 
@@ -148,4 +148,4 @@ Both architectures represent significant achievements in the field of deep learn
 
 However, for developers, researchers, and enterprises looking for a production-ready solution, **Ultralytics YOLO26** stands out as the superior choice. Its combination of an end-to-end NMS-free design, massive CPU inference gains, multimodal versatility, and integration into the well-maintained Ultralytics ecosystem makes it the most robust and practical tool for solving real-world computer vision challenges today.
 
-For users interested in exploring other models within the Ultralytics ecosystem, comprehensive documentation is available for [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8), and the transformer-based [RT-DETR](https://docs.ultralytics.com/models/rtdetr).
+For users interested in exploring other models within the Ultralytics ecosystem, comprehensive documentation is available for [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n), [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n), and the transformer-based [RT-DETR](https://docs.ultralytics.com/models/rtdetr).

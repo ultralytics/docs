@@ -7,7 +7,7 @@ keywords: YOLO11, YOLOX, object detection, machine learning, computer vision, mo
 
 # YOLO11 vs YOLOX
 
-The field of computer vision has witnessed rapid advancements over the last few years, with real-time object detection models becoming increasingly sophisticated. When choosing an architecture for a production environment or academic research, developers often weigh the trade-offs between legacy milestones and cutting-edge innovations. This comprehensive comparison explores the differences between [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and Megvii's YOLOX, providing deep insights into their architectures, performance metrics, and ideal deployment scenarios.
+The field of computer vision has witnessed rapid advancements over the last few years, with real-time object detection models becoming increasingly sophisticated. When choosing an architecture for a production environment or academic research, developers often weigh the trade-offs between legacy milestones and cutting-edge innovations. This comprehensive comparison explores the differences between [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) and Megvii's YOLOX, providing deep insights into their architectures, performance metrics, and ideal deployment scenarios.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -30,7 +30,7 @@ Released in September 2024 by Glenn Jocher and Jing Qiu at [Ultralytics](https:/
 
 YOLO11 goes beyond standard bounding boxes, natively supporting [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection. Its refined architecture optimizes feature extraction to ensure better feature retention across complex spatial hierarchies.
 
-[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n){ .md-button }
 
 ### YOLOX: The Anchor-Free Pioneer
 
@@ -49,7 +49,7 @@ YOLOX introduced a decoupled head and an anchor-free paradigm, which significant
 
 !!! tip "Did You Know?"
 
-    The anchor-free design popularized by YOLOX inspired many subsequent architectures. Ultralytics incorporated and heavily refined these anchor-free concepts in later iterations like [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) and YOLO11 to provide superior accuracy and deployment flexibility.
+    The anchor-free design popularized by YOLOX inspired many subsequent architectures. Ultralytics incorporated and heavily refined these anchor-free concepts in later iterations like [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) and YOLO11 to provide superior accuracy and deployment flexibility.
 
 ## Performance and Metrics
 
@@ -139,7 +139,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## Looking Ahead: The Power of YOLO26
 
-While YOLO11 stands as an exceptional choice, the landscape of AI continually accelerates. For teams seeking the absolute pinnacle of efficiency and stability, **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** (released January 2026) is the ultimate recommendation for new computer vision projects.
+While YOLO11 stands as an exceptional choice, the landscape of AI continually accelerates. For teams seeking the absolute pinnacle of efficiency and stability, **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)** (released January 2026) is the ultimate recommendation for new computer vision projects.
 
 YOLO26 represents a massive leap forward by implementing an **End-to-End NMS-Free Design**. By eliminating [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing, it completely removes latency variability, dramatically simplifying deployment logic—a concept first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10).
 

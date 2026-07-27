@@ -14,7 +14,7 @@ The landscape of real-time computer vision is constantly evolving. Two notable m
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "YOLOX"]'></canvas>
 
-This comprehensive guide explores the technical nuances of both models and highlights why modern alternatives like the [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) platform offer superior performance and ease of use for today's production environments.
+This comprehensive guide explores the technical nuances of both models and highlights why modern alternatives like the [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) platform offer superior performance and ease of use for today's production environments.
 
 ## Model Overviews
 
@@ -111,7 +111,7 @@ Released in January 2026, YOLO26 is the ultimate recommended model for all [comp
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, making YOLO26 vastly superior for drone footage and robotics.
 - **Versatility:** Unlike DAMO-YOLO, which is strictly for object detection, YOLO26 seamlessly handles [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), [classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb) natively within the same well-maintained ecosystem.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 ### Ease of Use with Ultralytics
 
@@ -143,4 +143,4 @@ Choosing between DAMO-YOLO and YOLOX depends on specific constraints: DAMO-YOLO 
 
 However, for teams seeking a modern, future-proof solution with an active community, the [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) architecture is the definitive choice. Its NMS-free design, rapid CPU inference, and unified API for detection, segmentation, and pose tasks make it unparalleled for transitioning smoothly from research to robust real-world production.
 
-For developers interested in exploring other modern architectures, we also recommend checking out [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or transformer-based models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) available in the comprehensive Ultralytics documentation.
+For developers interested in exploring other modern architectures, we also recommend checking out [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) or transformer-based models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) available in the comprehensive Ultralytics documentation.

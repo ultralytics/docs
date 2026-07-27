@@ -132,7 +132,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## The Modern Standard: Enter Ultralytics YOLO26
 
-While YOLOv10 introduced the groundbreaking NMS-free paradigm and EfficientDet showcased principled scaling, the computer vision landscape has continued to evolve. For developers starting new projects today, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the undisputed state of the art. Released in January 2026, it merges the best of all worlds into a highly polished, production-ready package within the [Ultralytics Platform](https://platform.ultralytics.com).
+While YOLOv10 introduced the groundbreaking NMS-free paradigm and EfficientDet showcased principled scaling, the computer vision landscape has continued to evolve. For developers starting new projects today, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) represents the undisputed state of the art. Released in January 2026, it merges the best of all worlds into a highly polished, production-ready package within the [Ultralytics Platform](https://platform.ultralytics.com).
 
 ### Why YOLO26 Outperforms the Competition
 
@@ -146,7 +146,7 @@ Furthermore, YOLO26 provides unmatched **versatility**. While EfficientDet and Y
 
 !!! tip "Well-Maintained Ecosystem"
 
-    Both [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) remain fully supported within the Ultralytics ecosystem. For the best combination of performance, stability, and long-term support, we recommend using officially maintained Ultralytics models.
+    Both [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) remain fully supported within the Ultralytics ecosystem. For the best combination of performance, stability, and long-term support, we recommend using officially maintained Ultralytics models.
 
 ### Ease of Use with Ultralytics
 

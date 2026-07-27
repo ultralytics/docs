@@ -7,7 +7,7 @@ keywords: YOLO11, YOLOv8, object detection, model comparison, performance benchm
 
 # YOLO11 vs YOLOv8
 
-The field of computer vision has witnessed remarkable advancements with the continuous evolution of object detection architectures. When evaluating models for real-world deployment, developers often compare the strengths of [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and its highly successful predecessor, [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8). Both models have set industry standards for speed, accuracy, and developer experience, but they cater to slightly different project lifecycles and performance thresholds.
+The field of computer vision has witnessed remarkable advancements with the continuous evolution of object detection architectures. When evaluating models for real-world deployment, developers often compare the strengths of [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) and its highly successful predecessor, [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n). Both models have set industry standards for speed, accuracy, and developer experience, but they cater to slightly different project lifecycles and performance thresholds.
 
 This guide provides an in-depth analysis of their architectures, training methodologies, and ideal use cases to help you select the best solution for your [artificial intelligence](https://en.wikipedia.org/wiki/Artificial_intelligence) initiatives.
 
@@ -30,7 +30,7 @@ YOLO11 represents a significant leap forward in optimizing parameter usage. It r
 - **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
 - **Documentation:** [YOLO11 Docs](https://docs.ultralytics.com/models/yolo11)
 
-[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n){ .md-button }
 
 ### YOLOv8 Architecture
 
@@ -42,7 +42,7 @@ Launched a year earlier, YOLOv8 pioneered the transition to an anchor-free detec
 - **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
 - **Documentation:** [YOLOv8 Docs](https://docs.ultralytics.com/models/yolov8)
 
-[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
+[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n){ .md-button }
 
 !!! tip "Design Philosophy"
 
@@ -143,7 +143,7 @@ export_path = model.export(format="coreml")
 
 ## Looking Forward: The Pinnacle of Edge AI with YOLO26
 
-While YOLO11 represents a mature and highly capable architecture, the rapid pace of AI innovation continues. For developers initiating new projects who require the absolute cutting edge in performance, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) (released January 2026) is the ultimate recommendation.
+While YOLO11 represents a mature and highly capable architecture, the rapid pace of AI innovation continues. For developers initiating new projects who require the absolute cutting edge in performance, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) (released January 2026) is the ultimate recommendation.
 
 YOLO26 pushes the boundaries of computer vision with several groundbreaking features:
 

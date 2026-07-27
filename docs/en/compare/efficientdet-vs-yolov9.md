@@ -9,7 +9,7 @@ keywords: EfficientDet, YOLOv9, object detection comparison, computer vision, mo
 
 The landscape of computer vision has been shaped by continuous breakthroughs in neural network design. Finding the right balance between computational efficiency and detection accuracy is critical when selecting a model. Google's **EfficientDet** established a strong baseline in 2019 by introducing scalable architectures, while **YOLOv9**, released in 2024, pushed the boundaries of [object detection](https://docs.ultralytics.com/tasks/detect) using Programmable Gradient Information (PGI).
 
-This guide provides a comprehensive technical comparison between these two models and introduces the modern [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) framework, which offers a robust, end-to-end solution optimized for production environments.
+This guide provides a comprehensive technical comparison between these two models and introduces the modern [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) framework, which offers a robust, end-to-end solution optimized for production environments.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -120,9 +120,9 @@ The [Ultralytics Platform](https://platform.ultralytics.com) offers unparalleled
 - **ProgLoss + STAL:** Superior loss function design drastically boosts accuracy for detecting small objects, making YOLO26 ideal for aerial imagery and IoT networks.
 - **DFL Removal:** Simplified structural design enables frictionless conversion to mobile deployment formats.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
-Other robust options in the Ultralytics ecosystem include [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8), which also provide multi-task versatility such as [instance segmentation](https://docs.ultralytics.com/tasks/segment) and [pose estimation](https://docs.ultralytics.com/tasks/pose).
+Other robust options in the Ultralytics ecosystem include [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n), which also provide multi-task versatility such as [instance segmentation](https://docs.ultralytics.com/tasks/segment) and [pose estimation](https://docs.ultralytics.com/tasks/pose).
 
 ### Simplified Training with the Python SDK
 

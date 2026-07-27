@@ -20,7 +20,7 @@ Both models have significantly impacted the landscape of vision AI, but they app
 
 ### Ultralytics YOLOv5: The Industry Standard
 
-Released in mid-2020, [Ultralytics YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5) revolutionized the accessibility of state-of-the-art vision models. By being the first native [PyTorch](https://pytorch.org/) implementation in the YOLO family, it dramatically lowered the barrier to entry for Python developers and ML engineers worldwide.
+Released in mid-2020, [Ultralytics YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) revolutionized the accessibility of state-of-the-art vision models. By being the first native [PyTorch](https://pytorch.org/) implementation in the YOLO family, it dramatically lowered the barrier to entry for Python developers and ML engineers worldwide.
 
 **YOLOv5 Details:**
 
@@ -34,7 +34,7 @@ YOLOv5 utilizes a modified CSPDarknet backbone, which efficiently captures rich 
 
 One of the greatest strengths of YOLOv5 is its incredible versatility. Unlike standard object detectors, the YOLOv5 family seamlessly supports [image classification](https://docs.ultralytics.com/tasks/classify), [instance segmentation](https://docs.ultralytics.com/tasks/segment), and bounding box detection within a unified API. Its highly optimized architecture also translates to substantially lower memory usage during training and inference compared to heavy transformer-based networks.
 
-[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
+[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu){ .md-button }
 
 ### PP-YOLOE+: The PaddlePaddle Contender
 
@@ -141,14 +141,14 @@ While YOLOv5 is a robust and proven standard, the field of computer vision moves
 
 ### Ultralytics YOLO26
 
-Released in January 2026, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the absolute pinnacle of our research. It delivers massive improvements in both accuracy and speed. Key innovations include:
+Released in January 2026, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) represents the absolute pinnacle of our research. It delivers massive improvements in both accuracy and speed. Key innovations include:
 
 - **End-to-End NMS-Free Design:** Building on concepts from [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 natively eliminates Non-Maximum Suppression (NMS) post-processing, cutting latency and simplifying deployment logic.
 - **DFL Removal:** By stripping out Distribution Focal Loss, YOLO26 achieves up to 43% faster CPU inference, making it incredibly powerful for low-power edge devices.
 - **MuSGD Optimizer:** Inspired by advanced LLM training techniques, this hybrid of SGD and Muon ensures exceptionally stable training runs and faster convergence.
 - **ProgLoss + STAL:** These advanced loss functions deliver notable improvements in small-object recognition, which is critical for [drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and smart agriculture.
 
-Additionally, you might consider [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), which offers excellent performance and serves as a highly reliable bridge between legacy systems and the bleeding-edge capabilities of YOLO26.
+Additionally, you might consider [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n), which offers excellent performance and serves as a highly reliable bridge between legacy systems and the bleeding-edge capabilities of YOLO26.
 
 ## Real-World Use Cases
 

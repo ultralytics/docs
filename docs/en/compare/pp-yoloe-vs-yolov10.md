@@ -7,7 +7,7 @@ keywords: YOLOv10,PP-YOLOE+,object detection,model comparison,Ultralytics,YOLO,P
 
 # PP-YOLOE+ vs YOLOv10
 
-The landscape of computer vision is constantly evolving, with new models pushing the boundaries of what is possible in real-time object detection. In this comprehensive technical comparison, we will examine **PP-YOLOE+** and **YOLOv10**, two highly capable architectures designed for different ecosystems. We will also explore how the broader landscape is shifting towards more unified, easy-to-use platforms like the [Ultralytics Platform](https://platform.ultralytics.com) and the state-of-the-art [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) model.
+The landscape of computer vision is constantly evolving, with new models pushing the boundaries of what is possible in real-time object detection. In this comprehensive technical comparison, we will examine **PP-YOLOE+** and **YOLOv10**, two highly capable architectures designed for different ecosystems. We will also explore how the broader landscape is shifting towards more unified, easy-to-use platforms like the [Ultralytics Platform](https://platform.ultralytics.com) and the state-of-the-art [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) model.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -54,7 +54,7 @@ Released by researchers at Tsinghua University, YOLOv10 brought a significant ar
 
 !!! tip "Considering Advanced Alternatives?"
 
-    If you are exploring the latest innovations in real-time detection, consider reading our guide on [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or the transformer-based [RT-DETR](https://docs.ultralytics.com/models/rtdetr) for high-accuracy vision applications.
+    If you are exploring the latest innovations in real-time detection, consider reading our guide on [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) or the transformer-based [RT-DETR](https://docs.ultralytics.com/models/rtdetr) for high-accuracy vision applications.
 
 ## Performance and Metrics Comparison
 
@@ -100,7 +100,7 @@ Released in January 2026, **Ultralytics YOLO26** represents the pinnacle of comp
 - **ProgLoss + STAL:** These improved loss functions drastically increase performance on small-object recognition, a critical factor for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and [robotics](https://www.ultralytics.com/blog/integrating-computer-vision-in-robotics-with-ultalytics-yolo11).
 - **Task-Specific Improvements:** Unlike YOLOv10, YOLO26 natively supports multi-scale proto for segmentation and Residual Log-Likelihood Estimation (RLE) for pose estimation.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 ## Practical Implementation
 

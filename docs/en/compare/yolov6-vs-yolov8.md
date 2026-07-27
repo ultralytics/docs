@@ -41,7 +41,7 @@ Released by Ultralytics, YOLOv8 represents a paradigm shift from specialized bou
 - **Organization:** [Ultralytics](https://www.ultralytics.com/)
 - **Date:** 2023-01-10
 - **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- **Platform:** [Ultralytics Platform YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8)
+- **Platform:** [Ultralytics Platform YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n)
 
 ### Architectural Highlights
 
@@ -49,7 +49,7 @@ YOLOv8 natively features a decoupled head structure that separates objectness, c
 
 The model integrates the advanced **C2f module** (Cross-Stage Partial bottleneck with two convolutions), replacing older C3 blocks. This enhances gradient flow and feature representation without inflating the computational budget. Crucially, YOLOv8 is not just a detection engine; it natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), [image classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) tasks within a single API.
 
-[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
+[Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n){ .md-button }
 
 ## Performance Comparison
 
@@ -110,14 +110,14 @@ While raw inference speed is important, the lifecycle of a machine learning proj
 
 ## Looking Forward: The Ultimate Upgrade to YOLO26
 
-For developers seeking the pinnacle of performance and modern deployment capabilities, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) (released January 2026) is the recommended standard. It builds upon the successes of YOLOv8 and the previous [YOLO11](https://docs.ultralytics.com/models/yolo11) generation, introducing revolutionary architectural improvements:
+For developers seeking the pinnacle of performance and modern deployment capabilities, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) (released January 2026) is the recommended standard. It builds upon the successes of YOLOv8 and the previous [YOLO11](https://docs.ultralytics.com/models/yolo11) generation, introducing revolutionary architectural improvements:
 
 - **End-to-End NMS-Free Design:** YOLO26 natively eliminates Non-Maximum Suppression (NMS) post-processing, a concept pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10). This streamlines deployment logic and reduces latency variance.
 - **MuSGD Optimizer:** Inspired by large language model innovations like Moonshot AI's Kimi K2, the new MuSGD optimizer (a hybrid of SGD and Muon) stabilizes training and accelerates convergence across diverse datasets.
 - **DFL Removal & CPU Speed:** By removing Distribution Focal Loss (DFL), YOLO26 simplifies its export graph. This optimization unlocks **up to 43% faster CPU inference**, making it the absolute best choice for [mobile and IoT edge computing](https://docs.ultralytics.com/guides/model-deployment-options).
 - **ProgLoss + STAL:** Advanced loss functions deliver notable improvements in small-object recognition, which is critical for aerial drone imagery and robotics.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 ### Seamless Python Training Example
 

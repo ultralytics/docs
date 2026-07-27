@@ -22,7 +22,7 @@ Both models achieve state-of-the-art results, but they cater to slightly differe
 
 - **Choose YOLOv9 if:** You need highly efficient parameter utilization and fast inference on edge devices. YOLOv9 pushes the theoretical limits of CNN efficiency, making it ideal for environments where computational resources are strictly limited.
 - **Choose RTDETRv2 if:** You require the nuanced context understanding that Transformers provide, particularly in scenes with severe occlusion or complex object relationships, and you have the hardware to support a slightly heavier architecture.
-- **Choose YOLO26 (Recommended) if:** You want the absolute best of both worlds. As the newest generation available on the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26), YOLO26 features a native **End-to-End NMS-Free Design** (similar to DETR models but much faster), eliminating post-processing bottlenecks and offering up to 43% faster CPU inference than previous generations.
+- **Choose YOLO26 (Recommended) if:** You want the absolute best of both worlds. As the newest generation available on the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n), YOLO26 features a native **End-to-End NMS-Free Design** (similar to DETR models but much faster), eliminating post-processing bottlenecks and offering up to 43% faster CPU inference than previous generations.
 
 ## Technical Specifications and Authorship
 
@@ -66,7 +66,7 @@ Building upon the success of the original RT-DETR, [RTDETRv2](https://docs.ultra
 
 !!! tip "Native End-to-End Detection"
 
-    While RTDETRv2 leverages Transformers for NMS-free detection, the new [YOLO26 architecture](https://platform.ultralytics.com/ultralytics/yolo26) achieves this natively within a highly optimized CNN structure, providing the same streamlined deployment but with vastly superior edge inference speeds.
+    While RTDETRv2 leverages Transformers for NMS-free detection, the new [YOLO26 architecture](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) achieves this natively within a highly optimized CNN structure, providing the same streamlined deployment but with vastly superior edge inference speeds.
 
 ## Performance Comparison
 
@@ -116,7 +116,7 @@ model_yolo.export(format="openvino")
 
 ### Unmatched Task Versatility
 
-A major limitation of specialized models like RTDETRv2 is their narrow focus on bounding box detection. In contrast, the broader Ultralytics ecosystem, encompassing models like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8), supports a wide array of [computer vision tasks](https://docs.ultralytics.com/tasks). This includes pixel-perfect [instance segmentation](https://docs.ultralytics.com/tasks/segment), skeletal [pose estimation](https://docs.ultralytics.com/tasks/pose), whole-image [classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection for aerial imagery.
+A major limitation of specialized models like RTDETRv2 is their narrow focus on bounding box detection. In contrast, the broader Ultralytics ecosystem, encompassing models like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n), supports a wide array of [computer vision tasks](https://docs.ultralytics.com/tasks). This includes pixel-perfect [instance segmentation](https://docs.ultralytics.com/tasks/segment), skeletal [pose estimation](https://docs.ultralytics.com/tasks/pose), whole-image [classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection for aerial imagery.
 
 ## Real-World Applications
 
@@ -158,7 +158,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## The Future: Enter YOLO26
 
-While YOLOv9 and RTDETRv2 represent massive achievements, the [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) field moves rapidly. For developers looking to start new projects, **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** is the recommended state-of-the-art solution.
+While YOLOv9 and RTDETRv2 represent massive achievements, the [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) field moves rapidly. For developers looking to start new projects, **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)** is the recommended state-of-the-art solution.
 
 Released in 2026, YOLO26 incorporates the best features of both CNNs and DETRs. It features an **End-to-End NMS-Free Design**, completely eliminating post-processing latency—a technique first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10). Furthermore, YOLO26 removes Distribution Focal Loss (DFL) for better edge compatibility and introduces the revolutionary **MuSGD Optimizer**. Inspired by Large Language Model training (specifically Moonshot AI's Kimi K2), this hybrid optimizer ensures unprecedented training stability and faster convergence.
 

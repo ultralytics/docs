@@ -41,7 +41,7 @@ Released by Ultralytics, YOLOv5 set a new standard for ease of use, training eff
 - **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2020-06-26
 - **GitHub:** [ultralytics/yolov5](https://github.com/ultralytics/yolov5)
-- **Platform:** [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolov5)
+- **Platform:** [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu)
 
 ### Ecosystem and Versatility
 
@@ -53,7 +53,7 @@ YOLOv5 is not just limited to [object detection](https://docs.ultralytics.com/ta
 
     When comparing model architectures, memory consumption is a critical factor. Ultralytics YOLO models maintain significantly lower VRAM requirements during both training and inference compared to heavy [transformer models](https://en.wikipedia.org/wiki/Transformer_(deep_learning)), making them highly accessible for developers using consumer-grade hardware or cloud notebooks like [Google Colab](https://colab.research.google.com/).
 
-[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
+[Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu){ .md-button }
 
 ## Performance and Architectural Comparison
 
@@ -106,7 +106,7 @@ Choosing between these architectures often depends on your specific infrastructu
 
 ## The Future of Object Detection: Enter YOLO26
 
-While YOLOv5 and YOLOv6 represent significant milestones, the field of computer vision advances rapidly. For developers starting new projects or seeking the absolute state-of-the-art, we highly recommend upgrading to **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** (released January 2026).
+While YOLOv5 and YOLOv6 represent significant milestones, the field of computer vision advances rapidly. For developers starting new projects or seeking the absolute state-of-the-art, we highly recommend upgrading to **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)** (released January 2026).
 
 YOLO26 redefines edge-first vision AI by introducing a groundbreaking **End-to-End NMS-Free Design**. By eliminating the need for Non-Maximum Suppression post-processing, it simplifies deployment logic and drastically reduces latency variance.
 
@@ -117,9 +117,9 @@ Key innovations in YOLO26 include:
 - **DFL Removal:** The removal of Distribution Focal Loss simplifies the export process and enhances compatibility with low-power edge devices.
 - **ProgLoss + STAL:** Advanced loss functions that significantly boost small-object recognition, crucial for aerial imagery and smart city IoT sensors.
 
-For general-purpose tasks, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) also remains an excellent, fully-supported choice within the Ultralytics family.
+For general-purpose tasks, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) also remains an excellent, fully-supported choice within the Ultralytics family.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 ## Conclusion
 

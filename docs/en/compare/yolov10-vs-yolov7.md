@@ -135,7 +135,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 While YOLOv10 was a massive leap forward in 2024, the computer vision landscape moves incredibly fast. For all new development, we strongly recommend the latest generation model: **Ultralytics YOLO26**. Released in January 2026, it represents the absolute pinnacle of real-time vision AI, heavily superseding both YOLOv7 and YOLOv10.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 YOLO26 brings unprecedented innovations designed specifically for modern deployment environments:
 
@@ -166,4 +166,4 @@ YOLOv10 shines in scenarios requiring strict, unchanging latency. Because it is 
 
 YOLO26 is the definitive choice for any greenfield project. From deploying sophisticated [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system) on a basic Raspberry Pi to running massive cloud-based video analytics, its superior CPU speeds and advanced small-object detection make it vastly superior to older generations.
 
-For developers interested in exploring alternative modern architectures, we also provide extensive support for transformer-based detectors like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) and previous generational staples like [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11).
+For developers interested in exploring alternative modern architectures, we also provide extensive support for transformer-based detectors like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) and previous generational staples like [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n).

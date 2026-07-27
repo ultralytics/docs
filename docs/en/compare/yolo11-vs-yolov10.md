@@ -7,7 +7,7 @@ keywords: YOLO11, YOLOv10, Ultralytics comparison, object detection models, real
 
 # YOLO11 vs YOLOv10
 
-The landscape of real-time computer vision is constantly evolving, with new architectures pushing the boundaries of what is possible on both edge devices and cloud infrastructure. In this detailed technical analysis, we explore the nuances between two pivotal models in the domain: [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv10](https://docs.ultralytics.com/models/yolov10). Both represent significant leaps in [object detection](https://docs.ultralytics.com/tasks/detect) capabilities, yet they adopt fundamentally different architectural philosophies to achieve their performance.
+The landscape of real-time computer vision is constantly evolving, with new architectures pushing the boundaries of what is possible on both edge devices and cloud infrastructure. In this detailed technical analysis, we explore the nuances between two pivotal models in the domain: [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) and [YOLOv10](https://docs.ultralytics.com/models/yolov10). Both represent significant leaps in [object detection](https://docs.ultralytics.com/tasks/detect) capabilities, yet they adopt fundamentally different architectural philosophies to achieve their performance.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>
@@ -30,7 +30,7 @@ One of the standout improvements in YOLO11 is the implementation of the **C3k2 B
 
 YOLO11 utilizes an anchor-free design that minimizes the complexity of hyperparameter tuning, allowing for robust generalization across a vast array of custom datasets. Furthermore, memory requirements during training are significantly lower compared to transformer-based architectures, allowing researchers to train large models efficiently on standard consumer hardware.
 
-[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
+[Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n){ .md-button }
 
 ## Exploring the YOLOv10 Architecture
 
@@ -133,13 +133,13 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## The Next Generation: YOLO26
 
-While YOLOv10 introduced the revolutionary NMS-free paradigm and YOLO11 perfected multi-task versatility, the field of AI moves rapidly. For developers starting new production deployments today, we highly recommend exploring [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26).
+While YOLOv10 introduced the revolutionary NMS-free paradigm and YOLO11 perfected multi-task versatility, the field of AI moves rapidly. For developers starting new production deployments today, we highly recommend exploring [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n).
 
 Released in January 2026, YOLO26 merges the best of both worlds. It natively adopts the **End-to-End NMS-Free Design** pioneered by YOLOv10, drastically simplifying the deployment pipeline and ensuring consistent latency. Furthermore, YOLO26 incorporates specialized edge computing optimizations. By executing the **DFL Removal** (removing Distribution Focal Loss), the architecture guarantees easier exportability and achieves **up to 43% faster CPU inference** compared to legacy models, making it the premier choice for low-power IoT devices and mobile applications.
 
 YOLO26 also brings Large Language Model (LLM) training stability to computer vision via the innovative **MuSGD Optimizer**, a hybrid inspired by cutting-edge AI research. Coupled with the **ProgLoss + STAL** loss functions, YOLO26 delivers unparalleled precision on small objects, which is essential for detailed [traffic video detection](https://www.ultralytics.com/blog/traffic-video-detection-at-nighttime-a-look-at-why-accuracy-is-key) and complex robotic automation.
 
-[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
+[Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n){ .md-button }
 
 ## Conclusion
 
