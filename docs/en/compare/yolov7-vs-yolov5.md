@@ -129,4 +129,4 @@ YOLO26 introduces several paradigm-shifting features:
 
 Both YOLOv5 and YOLOv7 offer robust solutions for real-time object detection. YOLOv7 remains a strong choice for raw accuracy on high-compute hardware, while YOLOv5 stands out as the ultimate developer-friendly tool, offering an exceptional balance of speed, efficiency, and a world-class ecosystem.
 
-However, for developers looking to future-proof their pipelines and achieve the ultimate combination of speed, simplicity, and state-of-the-art accuracy, we highly recommend migrating to [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26). It encapsulates the legendary ease-of-use of the Ultralytics platform while delivering groundbreaking architectural innovations.
+However, for developers looking to future-proof their pipelines and achieve the ultimate combination of speed, simplicity, and state-of-the-art accuracy, we highly recommend migrating to [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). It encapsulates the legendary ease-of-use of the Ultralytics platform while delivering groundbreaking architectural innovations.

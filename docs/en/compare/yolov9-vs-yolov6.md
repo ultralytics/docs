@@ -69,7 +69,7 @@ While YOLOv6-3.0n takes the crown for raw speed on T4 hardware (1.17ms), YOLOv9t
 
 !!! tip "Future-Proof Your Project with YOLO26"
 
-    If you are starting a new computer vision initiative, we highly recommend utilizing **[YOLO26](https://docs.ultralytics.com/models/yolo26)**. Released in 2026, it features a native **End-to-End NMS-Free Design** that completely eliminates post-processing latency, unlocking up to **43% Faster CPU Inference**.
+    If you are starting a new computer vision initiative, we highly recommend utilizing **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**. Released in 2026, it features a native **End-to-End NMS-Free Design** that completely eliminates post-processing latency, unlocking up to **43% Faster CPU Inference**.
 
 ## The Ultralytics Ecosystem Advantage
 

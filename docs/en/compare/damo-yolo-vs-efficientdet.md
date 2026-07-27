@@ -92,7 +92,7 @@ EfficientDet is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
@@ -100,7 +100,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## The Modern Alternative: Ultralytics YOLO26
 
-While both DAMO-YOLO and EfficientDet represent significant academic milestones, real-world deployment often requires a more balanced, feature-rich, and developer-friendly approach. This is where [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) sets a new industry standard.
+While both DAMO-YOLO and EfficientDet represent significant academic milestones, real-world deployment often requires a more balanced, feature-rich, and developer-friendly approach. This is where [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) sets a new industry standard.
 
 Released in January 2026, YOLO26 builds upon the legacy of its predecessors, including [Ultralytics YOLO11](https://docs.ultralytics.com/models/yolo11) and [YOLOv8](https://docs.ultralytics.com/models/yolov8), delivering a paradigm shift in how we approach [object detection](https://docs.ultralytics.com/tasks/detect).
 

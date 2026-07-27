@@ -141,6 +141,6 @@ model.export(format="onnx")
 
 Choosing between DAMO-YOLO and YOLOX depends on specific constraints: DAMO-YOLO offers exceptional speed-to-accuracy ratios on specific GPUs via NAS, while YOLOX provides a clean, anchor-free design ideal for lightweight edge scenarios.
 
-However, for teams seeking a modern, future-proof solution with an active community, the [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) architecture is the definitive choice. Its NMS-free design, rapid CPU inference, and unified API for detection, segmentation, and pose tasks make it unparalleled for transitioning smoothly from research to robust real-world production.
+However, for teams seeking a modern, future-proof solution with an active community, the [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) architecture is the definitive choice. Its NMS-free design, rapid CPU inference, and unified API for detection, segmentation, and pose tasks make it unparalleled for transitioning smoothly from research to robust real-world production.
 
 For developers interested in exploring other modern architectures, we also recommend checking out [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or transformer-based models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) available in the comprehensive Ultralytics documentation.

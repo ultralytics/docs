@@ -104,7 +104,7 @@ YOLOX is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
@@ -112,7 +112,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## The Ultralytics Advantage: Introducing YOLO26
 
-While EfficientDet and YOLOX represented significant leaps in their respective eras, modern computer vision demands greater versatility, streamlined workflows, and uncompromising speed. For developers prioritizing ease of use, lower memory requirements, and a well-maintained ecosystem, we highly recommend upgrading to **[Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26)**, released in January 2026.
+While EfficientDet and YOLOX represented significant leaps in their respective eras, modern computer vision demands greater versatility, streamlined workflows, and uncompromising speed. For developers prioritizing ease of use, lower memory requirements, and a well-maintained ecosystem, we highly recommend upgrading to **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**, released in January 2026.
 
 YOLO26 represents a paradigm shift in the YOLO lineage, systematically overcoming the limitations found in older models like YOLOX and EfficientDet:
 

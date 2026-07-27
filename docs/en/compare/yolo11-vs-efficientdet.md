@@ -145,7 +145,7 @@ EfficientDet is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
@@ -155,4 +155,4 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 EfficientDet was a pioneering architecture that proved the viability of compound scaling in object detection. However, the rapid pace of AI research has brought forth models that are simply more capable, easier to integrate, and faster to run.
 
-With its robust multi-task capabilities, incredible GPU inference speeds, and arguably the most developer-friendly API in the industry, **YOLO11** is the clear winner for modern vision pipelines. For those aiming at the absolute bleeding edge of technology—especially for edge-first deployments—upgrading to [YOLO26](https://docs.ultralytics.com/models/yolo26) provides the ultimate combination of NMS-free speed and unparalleled accuracy.
+With its robust multi-task capabilities, incredible GPU inference speeds, and arguably the most developer-friendly API in the industry, **YOLO11** is the clear winner for modern vision pipelines. For those aiming at the absolute bleeding edge of technology—especially for edge-first deployments—upgrading to [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) provides the ultimate combination of NMS-free speed and unparalleled accuracy.

@@ -110,9 +110,9 @@ While other frameworks might suffer from steep learning curves, Ultralytics prio
 
 ## Beyond v8: Exploring YOLO11 and YOLO26
 
-While YOLOv8 is a highly capable framework, the field of artificial intelligence evolves rapidly. Developers interested in state-of-the-art performance should also explore [YOLO11](https://docs.ultralytics.com/models/yolo11), which builds upon v8 with improved precision and speed.
+While YOLOv8 is a highly capable framework, the field of artificial intelligence evolves rapidly. Developers interested in state-of-the-art performance should also explore [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), which builds upon v8 with improved precision and speed.
 
-For those seeking the absolute bleeding edge of computer vision technology, we highly recommend **[Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26)**. Released in 2026, YOLO26 represents a massive leap forward:
+For those seeking the absolute bleeding edge of computer vision technology, we highly recommend **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**. Released in 2026, YOLO26 represents a massive leap forward:
 
 - **End-to-End NMS-Free Design:** Pioneered originally in experimental architectures, YOLO26 natively eliminates Non-Maximum Suppression post-processing, leading to drastically simpler and faster deployment pipelines.
 - **MuSGD Optimizer:** Inspired by the LLM training innovations seen in models like Kimi K2, YOLO26 utilizes a hybrid optimizer for more stable training and rapid convergence.

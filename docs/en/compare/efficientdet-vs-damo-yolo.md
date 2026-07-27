@@ -104,7 +104,7 @@ DAMO-YOLO is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
@@ -149,4 +149,4 @@ Furthermore, while EfficientDet and DAMO-YOLO are rigidly constrained to boundin
 
 ## Conclusion
 
-Choosing the right vision architecture involves weighing raw theoretical performance against deployment reality. EfficientDet offers a mathematically elegant scaling approach, and DAMO-YOLO delivers compelling raw GPU speeds. However, for teams prioritizing rapid development, reliable deployments, and cutting-edge features, [Ultralytics models](https://docs.ultralytics.com/models) stand clearly ahead. By combining innovations like NMS-free inference and MuSGD optimization, [YOLO26](https://docs.ultralytics.com/models/yolo26) ensures that your computer vision projects are built on the most capable, maintainable, and efficient foundation available today.
+Choosing the right vision architecture involves weighing raw theoretical performance against deployment reality. EfficientDet offers a mathematically elegant scaling approach, and DAMO-YOLO delivers compelling raw GPU speeds. However, for teams prioritizing rapid development, reliable deployments, and cutting-edge features, [Ultralytics models](https://docs.ultralytics.com/models) stand clearly ahead. By combining innovations like NMS-free inference and MuSGD optimization, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) ensures that your computer vision projects are built on the most capable, maintainable, and efficient foundation available today.
