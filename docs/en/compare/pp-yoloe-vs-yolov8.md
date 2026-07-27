@@ -119,7 +119,7 @@ YOLOv8 is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
@@ -136,7 +136,7 @@ YOLO26 brings several groundbreaking innovations that surpass both PP-YOLOE+ and
 - **MuSGD Optimizer:** YOLO26 borrows innovations from Large Language Model (LLM) training. Its hybrid MuSGD optimizer brings unprecedented stability and faster convergence during training.
 - **ProgLoss + STAL:** These advanced loss formulations vastly improve the detection of small and distant objects. This is a game-changer for drone operators monitoring [agricultural fields](https://docs.ultralytics.com/datasets/detect/visdrone) or defect detection on fast-moving manufacturing lines.
 
-For developers starting new computer vision initiatives, [YOLO26](https://docs.ultralytics.com/models/yolo26) is the definitive recommendation.
+For developers starting new computer vision initiatives, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) is the definitive recommendation.
 
 ## Real-World Applications
 

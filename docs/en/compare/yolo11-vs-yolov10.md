@@ -125,7 +125,7 @@ YOLOv10 is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
@@ -145,4 +145,4 @@ YOLO26 also brings Large Language Model (LLM) training stability to computer vis
 
 Choosing the right vision model depends on your specific operational constraints. YOLOv10 stands as a significant milestone in academia, proving that NMS can be effectively eliminated from the detection pipeline. However, for a superior balance of performance, comprehensive task versatility, and seamless deployment tools, **YOLO11** offers a robust, enterprise-ready solution.
 
-For engineers who want the absolute cutting edge—combining end-to-end simplicity with blazing-fast edge performance—migrating to the latest [YOLO26](https://docs.ultralytics.com/models/yolo26) is the ultimate recommendation. By leveraging the comprehensive [Ultralytics Platform](https://platform.ultralytics.com), you ensure your projects are built on a well-maintained, highly efficient, and future-proof foundation.
+For engineers who want the absolute cutting edge—combining end-to-end simplicity with blazing-fast edge performance—migrating to the latest [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) is the ultimate recommendation. By leveraging the comprehensive [Ultralytics Platform](https://platform.ultralytics.com), you ensure your projects are built on a well-maintained, highly efficient, and future-proof foundation.

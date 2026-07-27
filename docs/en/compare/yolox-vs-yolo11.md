@@ -120,4 +120,4 @@ Released in January 2026, YOLO26 takes the architectural brilliance of YOLO11 an
 - **MuSGD Optimizer:** Inspired by LLM training innovations from Moonshot AI, the MuSGD optimizer ensures highly stable training runs and rapid convergence.
 - **Advanced Loss Functions:** Utilizing ProgLoss + STAL, YOLO26 achieves notable improvements in small-object recognition, which is critical for [drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and autonomous robotics.
 
-For the vast majority of modern computer vision tasks, upgrading your pipeline to leverage [YOLO26](https://docs.ultralytics.com/models/yolo26) will provide the absolute best balance of speed, accuracy, and deployment simplicity.
+For the vast majority of modern computer vision tasks, upgrading your pipeline to leverage [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) will provide the absolute best balance of speed, accuracy, and deployment simplicity.

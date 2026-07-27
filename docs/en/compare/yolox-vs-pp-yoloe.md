@@ -79,7 +79,7 @@ PP-YOLOE+ is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
@@ -87,7 +87,7 @@ For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/
 
 ## The Ultralytics Advantage: Introducing YOLO26
 
-While both YOLOX and PP-YOLOE+ offer distinct advantages, the rapid evolution of AI demands tools that combine state-of-the-art accuracy with unparalleled ease of use. This is where [Ultralytics](https://www.ultralytics.com/) models, specifically the recently released [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26), outshine legacy research repositories.
+While both YOLOX and PP-YOLOE+ offer distinct advantages, the rapid evolution of AI demands tools that combine state-of-the-art accuracy with unparalleled ease of use. This is where [Ultralytics](https://www.ultralytics.com/) models, specifically the recently released [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26), outshine legacy research repositories.
 
 Released in January 2026, YOLO26 establishes a new standard for modern [object detection](https://docs.ultralytics.com/tasks/detect) and beyond, offering a developer experience that is simply unmatched by competing frameworks.
 

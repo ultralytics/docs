@@ -127,7 +127,7 @@ YOLO11 is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
@@ -148,6 +148,6 @@ Released in January 2026, YOLO26 introduces several groundbreaking advancements:
 
 ## Conclusion
 
-Both DAMO-YOLO and YOLO11 have contributed significantly to the advancement of fast, accurate computer vision. While DAMO-YOLO offers interesting academic insights into architecture search and distillation, Ultralytics YOLO11 (and the groundbreaking [YOLO26](https://docs.ultralytics.com/models/yolo26)) provides a superior developer experience.
+Both DAMO-YOLO and YOLO11 have contributed significantly to the advancement of fast, accurate computer vision. While DAMO-YOLO offers interesting academic insights into architecture search and distillation, Ultralytics YOLO11 (and the groundbreaking [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)) provides a superior developer experience.
 
 With lower memory requirements, extensive documentation, multi-task capabilities, and integration with the powerful [Ultralytics Platform](https://platform.ultralytics.com), Ultralytics models remain the top recommendation for researchers and enterprise engineers looking to build robust, scalable AI solutions. For those exploring other advanced architectures, comparing [YOLO26 vs RT-DETR](https://docs.ultralytics.com/compare/yolo26-vs-rtdetr) offers additional insights into transformer-based alternatives.

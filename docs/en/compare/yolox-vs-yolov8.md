@@ -125,7 +125,7 @@ YOLOv8 is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
@@ -143,6 +143,6 @@ Training stability is also revolutionized in YOLO26 through the integration of t
 
 When evaluating older frameworks against modern solutions, the trajectory is clear. While YOLOX was an instrumental stepping stone in the transition to anchor-free methodologies, its lack of an integrated, multi-task ecosystem limits its utility in fast-paced production environments.
 
-For developers prioritizing a seamless experience, versatile task support, and strong community backing, [YOLOv8](https://docs.ultralytics.com/models/yolov8) remains a highly robust choice. However, for those looking to maximize edge computing performance, eliminate NMS bottlenecks, and achieve the highest possible accuracy with the latest training innovations, **[YOLO26](https://docs.ultralytics.com/models/yolo26)** is overwhelmingly the recommended model for any new computer vision project.
+For developers prioritizing a seamless experience, versatile task support, and strong community backing, [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) remains a highly robust choice. However, for those looking to maximize edge computing performance, eliminate NMS bottlenecks, and achieve the highest possible accuracy with the latest training innovations, **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** is overwhelmingly the recommended model for any new computer vision project.
 
 If you are interested in exploring other models within the Ultralytics suite, you may also want to review the performance characteristics of [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or read up on the pioneering NMS-free concepts originally tested in [YOLOv10](https://docs.ultralytics.com/models/yolov10).

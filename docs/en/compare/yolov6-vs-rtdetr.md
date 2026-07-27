@@ -126,7 +126,7 @@ RT-DETR is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
@@ -176,4 +176,4 @@ model.export(format="onnx")
 
 Both YOLOv6-3.0 and RTDETRv2 are impressive contributions to the AI community. YOLOv6-3.0 remains a powerful tool for raw GPU industrial automation, and RTDETRv2 proves that transformer architectures can achieve real-time latency while maximizing accuracy.
 
-However, for teams that require a reliable, production-ready framework with active community support, **Ultralytics YOLO models** are consistently the better choice. The seamless integration with platforms like [Hugging Face](https://huggingface.co/) and [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), combined with the incredibly low memory overhead during training, democratizes access to high-end AI. By upgrading to [YOLO26](https://docs.ultralytics.com/models/yolo26), developers can leverage the groundbreaking MuSGD optimizer and NMS-free architecture to build faster, smarter, and more scalable computer vision pipelines.
+However, for teams that require a reliable, production-ready framework with active community support, **Ultralytics YOLO models** are consistently the better choice. The seamless integration with platforms like [Hugging Face](https://huggingface.co/) and [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), combined with the incredibly low memory overhead during training, democratizes access to high-end AI. By upgrading to [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26), developers can leverage the groundbreaking MuSGD optimizer and NMS-free architecture to build faster, smarter, and more scalable computer vision pipelines.

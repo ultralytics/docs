@@ -126,7 +126,7 @@ YOLOv10 is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
@@ -149,4 +149,4 @@ You can manage, train, and deploy YOLO26 directly via the [Ultralytics Platform]
 
 Choosing between YOLOv5 and YOLOv10 often comes down to specific project constraints. YOLOv10 offers excellent mAP for researchers and applications leveraging raw GPU throughput. Conversely, YOLOv5 remains a steadfast, highly compatible workhorse for standard deployments.
 
-However, the field of computer vision is dynamic. To harness the absolute best performance balance, versatility, and ease of use, developers should look to [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26). It encapsulates the speed of NMS-free inference with the robust, well-documented Ultralytics ecosystem, ensuring your vision AI solutions are future-proof. For specialized use cases, developers may also explore [YOLO11](https://docs.ultralytics.com/models/yolo11) for general robustness, or [RT-DETR](https://docs.ultralytics.com/models/rtdetr) for transformer-based precision.
+However, the field of computer vision is dynamic. To harness the absolute best performance balance, versatility, and ease of use, developers should look to [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). It encapsulates the speed of NMS-free inference with the robust, well-documented Ultralytics ecosystem, ensuring your vision AI solutions are future-proof. For specialized use cases, developers may also explore [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) for general robustness, or [RT-DETR](https://docs.ultralytics.com/models/rtdetr) for transformer-based precision.

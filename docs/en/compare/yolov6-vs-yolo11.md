@@ -102,7 +102,7 @@ YOLO11 is recommended for:
 
 ### When to Choose Ultralytics (YOLO26)
 
-For most new projects, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) offers the best combination of performance and developer experience:
+For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
@@ -145,4 +145,4 @@ Released in January 2026, YOLO26 establishes a new standard for AI model efficie
 
 If your deployment environment is strictly confined to heavily engineered industrial GPU pipelines requiring batch inference, **YOLOv6-3.0** remains an interesting tool. However, for the vast majority of real-world scenarios requiring scalable, easy-to-train, and highly accurate models, **Ultralytics YOLO11**—and the cutting-edge **YOLO26**—are the undisputed recommendations.
 
-The Ultralytics ecosystem empowers you to move rapidly from dataset collection to edge deployment, ensuring your projects are future-proof and backed by extensive documentation and community support. For those exploring other efficient architectures, we also recommend checking out [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) for robust, proven legacy support, or dive directly into the next generation with [YOLO26](https://docs.ultralytics.com/models/yolo26).
+The Ultralytics ecosystem empowers you to move rapidly from dataset collection to edge deployment, ensuring your projects are future-proof and backed by extensive documentation and community support. For those exploring other efficient architectures, we also recommend checking out [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) for robust, proven legacy support, or dive directly into the next generation with [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26).
