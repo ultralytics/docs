@@ -2,33 +2,31 @@
 
 This file provides guidance to AI coding agents (Claude Code, etc.) when working with code in this repository. CLAUDE.md is a symlink to this file.
 
+This repository (AGPL-3.0) holds the pairwise model-comparison pages published at https://docs.ultralytics.com/compare/ plus the automated QA workflows that check links, spelling, sitemaps, and image sizes across the Ultralytics websites. The rest of the documentation lives in `ultralytics/ultralytics` under `docs/en/`.
+
 ## Core Principles (CRITICAL)
 
-Respecting these principles is critical for every PR.
+**Less is more. The simplest solution is the best solution.** The action hierarchy for every change: **Delete > Replace > Add**.
 
-**Less is more. The simplest solution is the best solution.**
+1. **Solve at the owner**: Put behavior in the code path that owns or observes it. For fixes, never guard a symptom with a staleness check, initialization flag, skip-first-call branch, or `try/except` around broken logic; relocate the trigger and delete the wrong path. For features, extend the existing owner rather than creating a parallel abstraction.
+2. **Search and reuse first**: Search the whole repository before creating a feature, component, helper, workflow, or utility. Reuse or adapt what exists, consolidate in-scope duplication in the shared owner, and delete duplicate paths. Three similar lines beat a helper nobody else calls.
+3. **Delete and modify existing code before creating new code**: Bugfixes are net-negative by default unless deletion and relocation are demonstrably impossible. A new file must first prove it cannot fit cleanly in an existing owner.
+4. **Keep scope minimal**: Implement only the simplest complete solution. Avoid impossible-state handling, speculative flags, compatibility shims, policy scaffolding, and unrelated cleanup. Tests are out of scope by default — rely on existing coverage and focused validation; only an uncovered, high-risk regression path justifies minimal new test code.
+5. **Ship zero-regression, production-ready changes**: Understand what you remove instead of retaining broken code as insurance. Remove unused imports, functions, types, files, and comments; run relevant cleanup checks; and thoroughly debug and validate the changed owner. Do not break existing features or workflows unless the PR intentionally removes them with evidence.
 
-The action hierarchy for every change: **Delete > Replace > Add**. The best code change is a deletion. The second best is modifying what exists. Adding new code is the last resort.
+**Review gate:** for every addition, the reviewer decides whether deleting or changing existing code would have fixed the problem instead — if it would, that is a blocking finding. A missing or thin PR description is never itself a finding.
 
-1. **Minimal**: The simplest solution that works. Do not over-engineer, over-abstract, or add code just in case. Three similar lines beat a premature abstraction. Avoid error handling for impossible states, feature flags, compatibility shims, or policy scaffolding unless they are truly required.
-2. **Solve at the source**: Do not hack fixes. Solve problems at their root. If something is broken, fix or remove the broken thing. Never patch over a broken abstraction, add workarounds, or add synchronization code for state that should not be duplicated.
-3. **Delete ruthlessly**: When replacing code, delete what it replaced. Remove unused imports, functions, types, files, and commented-out code. Git preserves history. Run the repo's relevant dead-code or cleanup check when available.
-4. **Replace > Add**: Modify existing code over adding new code. Edit existing files, extend existing components or functions with minimal parameters, and reuse existing utilities. If creating a new file, first prove it cannot fit cleanly in an existing file.
-5. **Check existing**: Search the entire repo before creating anything new. If a feature, component, helper, responder, workflow, or utility already solves a similar problem, reuse or adapt it and delete the duplicate path.
-6. **Deduplicate**: Do not duplicate existing code when updating the repo. Consolidate or refactor duplicates you find when it is in scope and low risk.
-7. **Zero Regression**: Do not break existing features or workflows unless the PR intentionally removes them with evidence.
-8. **Production ready**: All changes must be thoroughly debugged, validated, and production ready.
-
-**When fixing bugs, ask: "What can I delete?" before "What can I replace?" before "What should I add?"**
+NEVER push to `main`. NEVER force push. Always start work in a new git worktree (`git worktree add`) on a feature branch and open a PR — never edit the primary checkout directly, it may hold in-flight work.
 
 ## PR Workflow
 
 After opening a PR:
 
 1. Wait for the automated PR review and auto-format commit from Ultralytics Actions (`format.yml`), then pull and address every finding.
-2. Launch an independent adversarial review agent with cold context (just the PR diff and this file) to hunt for bugs, regressions, and Core Principles violations — use the Codex CLI, one fresh `codex exec` run per round. Fix, push, and repeat until a fresh run reports LGTM.
-3. Never fight other commits: Ultralytics Actions pushes auto-format and header commits, and multiple users may work on the same PR. `git pull --rebase` before pushing; never force-push, reset, or revert commits you did not author.
-4. After the PR merges, clean up: remove local worktrees and branches for it, then `git checkout main && git pull`.
+2. Review the full diff in-session against the Core Principles, performance, and the review gate above, then batch the fixes into one commit and push. After each round of bot or human commits, pull and resume the same reviewer on `<last-reviewed-sha>..HEAD` plus anything that delta could have invalidated. Repeat until the local head matches the live head.
+3. Hand off or merge only on a clean final pass: one cold full-diff review returning LGTM with no findings, on a head that is still live at merge time.
+4. Never fight other commits: Ultralytics Actions pushes auto-format and header commits, and multiple users may work on the same PR. `git pull --rebase` before pushing; never reset or revert commits you did not author.
+5. After the PR merges, clean up: remove local worktrees and branches for it, then `git checkout main && git pull`.
 
 ## Commands
 
@@ -45,14 +43,13 @@ codespell docs utils README.md                          # spelling
 
 ## Architecture
 
-This repo sources the live https://docs.ultralytics.com/compare/ pages: 156 pairwise model-comparison Markdown files plus an `index.md` hub in `docs/en/compare/` (the only doc content here) plus website QA automation. The main docs (models, tasks, guides) live in the `ultralytics/ultralytics` repo under `docs/en/`, and the two trees are merged at site build time — relative links like `../models/yolo26.md` in compare pages resolve against the ultralytics repo, so they appear broken locally but are not. There is no mkdocs config here; the site is built outside this repo's main branch, with built HTML landing on the `gh-pages` branch. IndexNow submission is centralized in the private `ultralytics/portal` repository.
+This repo sources the live https://docs.ultralytics.com/compare/ pages: 156 pairwise model-comparison Markdown files plus an `index.md` hub in `docs/en/compare/` (the only doc content here) plus website QA automation. The main docs (models, tasks, guides) live in the `ultralytics/ultralytics` repo under `docs/en/`, and the two trees are merged at site build time — relative links like `../models/yolo26.md` in compare pages resolve against the ultralytics repo, so they appear broken locally but are not. There is no mkdocs config here; the site is built and deployed from the private `ultralytics/portal` repository, which also centralizes IndexNow submission. The legacy `gh-pages` branch holds an older MkDocs build and no longer serves docs.ultralytics.com.
 
 The remaining workflows handle docs-specific website QA and housekeeping: `links.yml` (daily 07:00 UTC, downloads rendered www/docs/academy/handbook sites and checks links with lychee, spelling with codespell, and image sizes with `utils/check_image_sizes.py`, alerting Slack on failures), `links_local.yml` (repo link check on push/PR to `main`/`gh-pages` and daily 00:00 UTC), `download_websites.yml` (manual-only site download), and `stale.yml` (issue/PR staleness, not website QA). Cross-site sitemap submission and domain redirect checks are centralized in the private `ultralytics/portal` repository. Releases are manual: `tag.yml` is `workflow_dispatch`-only and gated to `github.repository == 'ultralytics/docs' && github.actor == 'glenn-jocher'`; there is no version file or package publish.
 
 ## Conventions
 
 - Every `.py`/`.yml` file opens with the `# Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license` header — Ultralytics Actions adds it automatically, so don't add or revert these manually.
-- Ultralytics Actions pushes auto-format commits directly to PR branches; always `git pull --rebase` before pushing.
 - Pairwise compare pages follow a fixed shape: YAML frontmatter (`title`, `comments: true`, `description`, `keywords` — the `index.md` hub omits `title`), a Chart.js `<canvas>` fed by `benchmark.js`, and benchmark tables where **bold** marks the better value; model `{ .md-button }` links (usually "Learn more about <model>") point to platform.ultralytics.com only for models with Platform pages (YOLO26, YOLO11, YOLOv8, YOLOv5) and to docs.ultralytics.com or GitHub for the rest.
 - Link-checker exclusions live in `.lycheeignore` (one regex per line) and in the `--exclude` lists inside `links.yml`/`links_local.yml`; the bot-protected-domain regex is duplicated verbatim in both workflows and should stay in sync, while the other `--exclude` patterns and `--accept` codes are intentionally workflow-specific.
 - All CI checks hit the live network by design (link checks, domain redirects, sitemap submission); expect occasional flakes from bot-protected domains, handled via `ultralytics/actions/retry` wrappers plus the accept-code and exclude lists.
