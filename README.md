@@ -7,7 +7,6 @@ Welcome to Ultralytics Docs, your comprehensive resource for understanding and u
 [![Ultralytics Actions](https://github.com/ultralytics/docs/actions/workflows/format.yml/badge.svg)](https://github.com/ultralytics/docs/actions/workflows/format.yml)
 [![jsDelivr hits](https://data.jsdelivr.com/v1/package/gh/ultralytics/llm/badge?style=rounded)](https://www.jsdelivr.com/package/gh/ultralytics/llm)
 
-[![pages-build-deployment](https://github.com/ultralytics/docs/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/ultralytics/docs/actions/workflows/pages/pages-build-deployment)
 [![Check Broken links](https://github.com/ultralytics/docs/actions/workflows/links.yml/badge.svg)](https://github.com/ultralytics/docs/actions/workflows/links.yml)
 
 [![Ultralytics Discord](https://img.shields.io/discord/1089800235347353640?logo=discord&logoColor=white&label=Discord&color=blue)](https://discord.com/invite/ultralytics)
@@ -44,9 +43,9 @@ The badges above track the core `ultralytics` Python package documented by this 
 
 ## 🧰 Technology Stack
 
-- **[MkDocs](https://www.mkdocs.org/)** - Static site generator for project documentation
+- **[Next.js](https://nextjs.org/)** - Framework that renders the published documentation site
 - **[Ultralytics Chat](https://github.com/ultralytics/llm)** - Realtime conversational AI with open-source [chat.js](https://github.com/ultralytics/llm) implementation
-- **[GitHub Pages](https://pages.github.com/)** - Hosting and deployment
+- **[Vercel](https://vercel.com/)** - Hosting and deployment
 - **[GitHub Actions](https://github.com/features/actions)** - CI/CD automation
 
 ## 🔧 Repository Tooling
@@ -67,7 +66,7 @@ The live documentation at [docs.ultralytics.com](https://docs.ultralytics.com/) 
 - `links_local.yml` checks repository Markdown and HTML links, with an optional broader link scan on manual runs.
 - `download_websites.yml` can download public website pages for inspection.
 
-This repository does not currently include local `mkdocs*.yml` configuration files, so README instructions should use the workflows above rather than local MkDocs build commands.
+The documentation site is built and deployed from the private `ultralytics/portal` repository, so there is no local site build in this repository — use the workflows above to check published pages.
 
 ## 💡 Contribute
 
