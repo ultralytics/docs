@@ -31,11 +31,11 @@ After opening a PR:
 ## Commands
 
 ```bash
-uv pip install -r requirements.txt                     # beautifulsoup4, requests, pandas (for utils/)
-uv run python utils/check_image_sizes.py DOWNLOAD_DIR WEBSITE  # flag images >750 KB, as links.yml runs it
-lychee --scheme 'https' './**/*.md' './**/*.html'      # PR link check (simplified); CI adds more flags, see .github/workflows/links_local.yml
-npx prettier --write "**/*.md" "**/*.yml"              # Markdown/YAML formatting
-codespell docs utils README.md                          # spelling
+uv pip install -r requirements.txt                            # beautifulsoup4, requests, pandas (for utils/)
+uv run python utils/check_image_sizes.py DOWNLOAD_DIR WEBSITE # flag images >750 KB, as links.yml runs it
+lychee --scheme 'https' './**/*.md' './**/*.html'             # PR link check (simplified); CI adds more flags, see .github/workflows/links_local.yml
+npx prettier --write "**/*.md" "**/*.yml"                     # Markdown/YAML formatting
+codespell docs utils README.md                                # spelling
 ```
 
 - There is no test suite, build, or coverage — PR CI is `links_local.yml` (lychee over all repo `*.md`/`*.html` against the live web, so a dead URL fails CI) plus Ultralytics Actions formatting in `format.yml` (source of truth for Prettier/Ruff/docformatter/codespell settings; it runs them server-side on PRs).
