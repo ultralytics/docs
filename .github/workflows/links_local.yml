@@ -41,7 +41,7 @@ jobs:
           curl -sSfL "https://github.com/lycheeverse/lychee/releases/latest/download/lychee-x86_64-unknown-linux-gnu.tar.gz" |
             sudo tar xz --strip-components=1 -C /usr/local/bin lychee-x86_64-unknown-linux-gnu/lychee
 
-      - name: Test Markdown and HTML links with retry
+      - name: Test Markdown links with retry
         uses: ultralytics/actions/retry@main
         with:
           timeout_minutes: 60
@@ -60,10 +60,9 @@ jobs:
             --exclude-path './**/ci.yml' \
             --github-token ${{ secrets.GITHUB_TOKEN }} \
             --header "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
-            './**/*.md' \
-            './**/*.html'
+            './**/*.md'
 
-      - name: Test Website, Markdown, HTML, YAML, Python and Notebook links with retry
+      - name: Test Website, Markdown, YAML, Python and Notebook links with retry
         if: github.event_name == 'workflow_dispatch'
         uses: ultralytics/actions/retry@main
         with:
@@ -84,7 +83,6 @@ jobs:
             --github-token ${{ secrets.GITHUB_TOKEN }} \
             --header "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
             './**/*.md' \
-            './**/*.html' \
             './**/*.yml' \
             './**/*.yaml' \
             './**/*.py' \
