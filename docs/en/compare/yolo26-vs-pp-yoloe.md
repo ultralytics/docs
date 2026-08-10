@@ -9,9 +9,6 @@ keywords: YOLO26, PP-YOLOE+, Ultralytics, object detection, model comparison, be
 
 The field of computer vision has witnessed a rapid evolution in real-time object detection models. For ML engineers and researchers looking to deploy the most efficient vision AI models, comparing architectures like [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) and PP-YOLOE+ is critical. This comprehensive guide provides an in-depth analysis of their architectures, training methodologies, performance metrics, and ideal real-world deployment scenarios.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO26", "PP-YOLOE+"]'></canvas>
 
 ## Model Origins and Metadata

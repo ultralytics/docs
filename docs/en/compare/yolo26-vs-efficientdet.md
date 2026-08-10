@@ -11,9 +11,6 @@ Choosing the right neural network architecture is critical for the success of an
 
 Whether your deployment targets high-throughput cloud servers or latency-constrained [edge AI](https://www.ultralytics.com/glossary/edge-ai) devices, understanding the differences between these architectures ensures an optimal balance of speed, accuracy, and efficiency.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO26", "EfficientDet"]'></canvas>
 
 ## Architectural Overview: YOLO26

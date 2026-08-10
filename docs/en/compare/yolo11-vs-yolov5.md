@@ -11,9 +11,6 @@ Selecting the right neural network architecture is a pivotal decision for any [c
 
 Whether you are deploying lightweight models for [edge AI](https://www.ultralytics.com/glossary/edge-ai) applications or processing high-resolution video streams on cloud GPUs, understanding the architectural nuances, [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics), and ideal use cases for these models will ensure you make a data-driven choice for your specific deployment constraints.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO11", "YOLOv5"]'></canvas>
 
 ## Model Lineage and Technical Details

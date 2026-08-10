@@ -11,9 +11,6 @@ The evolution of [computer vision](https://www.ultralytics.com/glossary/computer
 
 This guide provides an in-depth technical analysis of these two prominent architectures, detailing their performance metrics, training methodologies, memory requirements, and ideal deployment scenarios to help you choose the best [object detection](https://docs.ultralytics.com/tasks/detect) model for your specific use case.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["RTDETRv2", "YOLOv5"]'></canvas>
 
 ## RTDETRv2: The Transformer Approach to Real-Time Detection

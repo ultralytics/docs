@@ -11,9 +11,6 @@ The evolution of real-time object detection has been driven by continuous innova
 
 This technical guide provides an in-depth comparison between two highly capable models: **YOLOv9**, renowned for its deep learning information retention, and **YOLOv6-3.0**, a model specifically tailored for industrial applications.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv9", "YOLOv6-3.0"]'></canvas>
 
 ## YOLOv9 Overview: Maximizing Feature Retention

@@ -11,9 +11,6 @@ Choosing the right computer vision architecture is a critical step in building r
 
 Whether you are deploying to edge devices or scaling cloud inference, understanding the architectural shifts, performance metrics, and training methodologies of these models will help you make an informed decision for your [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) projects.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv8", "YOLOv5"]'></canvas>
 
 ## Ultralytics YOLOv8: The Versatile Standard

@@ -11,9 +11,6 @@ When embarking on a new [computer vision](https://www.ultralytics.com/glossary/c
 
 While EfficientDet introduced novel concepts in compound scaling and feature fusion, [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5) revolutionized the industry by democratizing access to high-performance AI through its incredibly intuitive [PyTorch](https://pytorch.org/) implementation, streamlined user experience, and unparalleled balance of speed and accuracy.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv5", "EfficientDet"]'></canvas>
 
 ## Ultralytics YOLOv5: The Industry Standard for Accessibility

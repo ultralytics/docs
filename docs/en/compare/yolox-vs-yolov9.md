@@ -11,9 +11,6 @@ The landscape of computer vision has been shaped by continuous architectural bre
 
 This technical guide explores their architectural nuances, performance benchmarks, and ideal use cases, while also demonstrating how modern solutions like the [Ultralytics Platform](https://platform.ultralytics.com) and the newly released [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) model provide superior alternatives for production-ready deployments.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOX", "YOLOv9"]'></canvas>
 
 ## YOLOX: Pioneering the Anchor-Free Paradigm

@@ -9,9 +9,6 @@ keywords: YOLOv8 vs YOLOv10, YOLOv8 comparison, YOLOv10 performance, YOLO models
 
 The evolution of real-time [object detection](https://docs.ultralytics.com/tasks/detect) has been moving at an unprecedented pace. As developers and researchers look to integrate the most efficient and accurate computer vision models into their pipelines, comparing leading architectures becomes essential. In this deep dive, we compare Ultralytics YOLOv8 and YOLOv10, examining their architectural differences, performance metrics, and ideal deployment scenarios to help you make an informed decision for your next AI project.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv8", "YOLOv10"]'></canvas>
 
 ## Model Overview: YOLOv8

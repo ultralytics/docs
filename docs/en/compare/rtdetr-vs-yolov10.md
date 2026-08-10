@@ -11,9 +11,6 @@ The evolution of [computer vision](https://www.ultralytics.com/glossary/computer
 
 This guide provides a comprehensive technical comparison of these two models, analyzing their architectures, performance metrics, and ideal use cases, while also highlighting how the latest innovations in the [Ultralytics ecosystem](https://docs.ultralytics.com/) offer the ultimate solution for modern deployment.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["RTDETRv2", "YOLOv10"]'></canvas>
 
 ## RTDETRv2: Real-Time Detection Transformers

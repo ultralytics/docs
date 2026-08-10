@@ -9,9 +9,6 @@ keywords: PP-YOLOE+, YOLOv5, object detection, model comparison, Ultralytics, AI
 
 When choosing the right deep learning framework for computer vision, developers often find themselves comparing the capabilities of different architectures to find the perfect balance of speed, accuracy, and ease of deployment. In this deep dive, we will explore the technical nuances between PP-YOLOE+ and YOLOv5. By analyzing their architectures, performance metrics, and ideal deployment scenarios, you can make an informed decision for your next project, whether it involves real-time robotics, edge deployment, or cloud-based video analytics.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["PP-YOLOE+", "YOLOv5"]'></canvas>
 
 ## Model Origins and Metadata

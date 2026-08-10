@@ -11,9 +11,6 @@ In the rapidly evolving field of [object detection](https://en.wikipedia.org/wik
 
 Whether your deployment targets high-performance cloud servers or resource-constrained edge devices, understanding the architectural nuances of these models will guide your project to success.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv8", "EfficientDet"]'></canvas>
 
 ## Architectural Overview

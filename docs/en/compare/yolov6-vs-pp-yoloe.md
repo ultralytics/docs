@@ -9,9 +9,6 @@ keywords: YOLOv6-3.0, PP-YOLOE+, object detection, model comparison, computer vi
 
 When selecting a framework for real-time [object detection](https://docs.ultralytics.com/tasks/detect), machine learning engineers frequently evaluate a variety of high-performance architectures. Two notable models in the landscape of industrial applications are **YOLOv6-3.0** and **PP-YOLOE+**. Both models have pushed the boundaries of accuracy and speed, yet they are tailored for slightly different ecosystems and deployment hardware.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv6-3.0", "PP-YOLOE+"]'></canvas>
 
 This technical comparison provides an in-depth look at their architectures, performance metrics, and training methodologies, while also introducing modern alternatives like [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) that offer superior versatility and ease of use.

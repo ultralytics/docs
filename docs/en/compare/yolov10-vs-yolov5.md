@@ -11,9 +11,6 @@ Choosing the right neural network architecture is critical for deploying success
 
 This guide evaluates these architectures based on [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map), inference latency, parameter efficiency, and ecosystem support, helping you choose the best model for your deployment needs.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "YOLOv5"]'></canvas>
 
 ## Model Overviews

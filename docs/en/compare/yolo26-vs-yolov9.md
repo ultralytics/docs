@@ -9,9 +9,6 @@ keywords: YOLO26, YOLOv9, Ultralytics, NMS-free, MuSGD, ProgLoss, STAL, edge inf
 
 The landscape of computer vision advances rapidly, with new architectures continuously pushing the boundaries of speed and accuracy. In this technical comparison, we examine the differences between **YOLO26** and **YOLOv9**, two highly influential models in the domain of real-time object detection. While both models offer distinct architectural innovations, understanding their performance trade-offs, deployment capabilities, and hardware requirements is crucial for selecting the right tool for your next vision project.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO26", "YOLOv9"]'></canvas>
 
 ## YOLO26: The Edge-Optimized Powerhouse

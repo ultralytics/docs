@@ -9,9 +9,6 @@ keywords: YOLO11, YOLOv10, Ultralytics comparison, object detection models, real
 
 The landscape of real-time computer vision is constantly evolving, with new architectures pushing the boundaries of what is possible on both edge devices and cloud infrastructure. In this detailed technical analysis, we explore the nuances between two pivotal models in the domain: [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv10](https://docs.ultralytics.com/models/yolov10). Both represent significant leaps in [object detection](https://docs.ultralytics.com/tasks/detect) capabilities, yet they adopt fundamentally different architectural philosophies to achieve their performance.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO11", "YOLOv10"]'></canvas>
 
 ## Unpacking the YOLO11 Architecture

@@ -9,9 +9,6 @@ keywords: EfficientDet, YOLOX, object detection, model comparison, EfficientDet 
 
 When architecting a modern [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) pipeline, selecting the right model is a critical decision that dictates both accuracy and real-time viability. This technical guide provides an in-depth comparison between two pivotal architectures in the evolution of neural networks: Google's EfficientDet and Megvii's YOLOX. We will analyze their architectural paradigms, evaluate their benchmarked performance, and explore how they measure up against state-of-the-art solutions like the newly released [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26).
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["EfficientDet", "YOLOX"]'></canvas>
 
 ## EfficientDet Overview

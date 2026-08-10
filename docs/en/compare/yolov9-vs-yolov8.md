@@ -11,9 +11,6 @@ The landscape of real-time computer vision has evolved remarkably over the last 
 
 This comprehensive guide contrasts these two heavyweights, analyzing their architectural innovations, performance metrics, and ideal deployment scenarios to help you choose the right model for your next artificial intelligence project.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv9", "YOLOv8"]'></canvas>
 
 ## Technical Specifications and Authorship

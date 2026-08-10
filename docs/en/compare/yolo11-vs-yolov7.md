@@ -9,9 +9,6 @@ keywords: YOLO11, YOLOv7, object detection, model comparison, YOLO benchmarks, c
 
 The landscape of [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) continues to evolve at a rapid pace, with real-time object detection remaining at the forefront of AI applications. Choosing the right architecture for your project requires navigating a complex trade-off between speed, accuracy, and ease of deployment. In this guide, we provide a comprehensive technical comparison between two prominent architectures: **Ultralytics YOLO11** and **YOLOv7**.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO11", "YOLOv7"]'></canvas>
 
 ## Model Background and Technical Details

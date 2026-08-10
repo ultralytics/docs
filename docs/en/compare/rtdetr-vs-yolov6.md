@@ -11,9 +11,6 @@ The landscape of computer vision is constantly evolving, presenting developers w
 
 This comprehensive technical comparison explores their respective architectures, performance metrics, and ideal deployment scenarios. We will also examine how the broader [Ultralytics ecosystem](https://docs.ultralytics.com/) provides a superior developer experience, ultimately looking toward the next-generation capabilities of [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26).
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["RTDETRv2", "YOLOv6-3.0"]'></canvas>
 
 ## RTDETRv2: The Vision Transformer Approach

@@ -11,9 +11,6 @@ The evolution of real-time object detection has been characterized by a constant
 
 This comprehensive guide breaks down the technical differences, architectural innovations, and practical deployment considerations to help you choose the right model for your next artificial intelligence project.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv8", "YOLOv9"]'></canvas>
 
 ## Model Lineage and Core Philosophies

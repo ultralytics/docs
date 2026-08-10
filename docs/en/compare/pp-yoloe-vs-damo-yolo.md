@@ -11,9 +11,6 @@ The continuous evolution of computer vision has produced an array of highly spec
 
 This guide provides a detailed technical analysis of PP-YOLOE+ and DAMO-YOLO, exploring their architectures, training methodologies, and deployment strengths. We will also examine how these frameworks compare against modern solutions like [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) to help you choose the right tool for your specific deployment constraints.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["PP-YOLOE+", "DAMO-YOLO"]'></canvas>
 
 ## PP-YOLOE+: Refined Industrial Object Detection

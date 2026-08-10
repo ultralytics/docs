@@ -11,9 +11,6 @@ In the rapidly evolving landscape of [computer vision](https://www.ultralytics.c
 
 This technical guide provides an in-depth analysis of these two architectures, exploring their [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics), structural differences, and ideal real-world applications. By understanding the nuances of each, machine learning engineers and researchers can make informed decisions for their deployment pipelines.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "PP-YOLOE+"]'></canvas>
 
 ## YOLOv10: The Pioneer of NMS-Free Detection

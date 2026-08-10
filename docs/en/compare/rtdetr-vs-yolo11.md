@@ -11,9 +11,6 @@ The landscape of computer vision is constantly evolving, with new architectures 
 
 In this comprehensive technical comparison, we will explore the architectures, performance metrics, training methodologies, and ideal use cases for both models, helping you make an informed decision for your next artificial intelligence application.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["RTDETRv2", "YOLO11"]'></canvas>
 
 ## RTDETRv2: The Transformer-Based Challenger

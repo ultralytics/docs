@@ -11,9 +11,6 @@ The rapid evolution of computer vision has produced an array of powerful archite
 
 This guide provides an in-depth, technical comparison of YOLOv9 and DAMO-YOLO, highlighting their architectural differences, training methodologies, and ideal deployment scenarios. We will also explore how the [Ultralytics ecosystem](https://docs.ultralytics.com/) provides a seamless path from development to production, and why modern models like [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) have become the recommended standard for new projects.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv9", "DAMO-YOLO"]'></canvas>
 
 ## Architectural Deep Dive

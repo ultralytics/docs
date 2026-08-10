@@ -14,9 +14,6 @@ Whether your application demands the millisecond latency of [edge AI](https://ww
 
 Visualizing the relationship between speed and accuracy is essential for identifying the "Pareto frontier" of object detection—models that offer the best accuracy for a given speed constraint. The chart below contrasts key metrics on standard [datasets like COCO](https://docs.ultralytics.com/datasets/detect/coco).
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400"></canvas>
 
 This chart visualizes key [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics) enabling you to quickly assess the trade-offs between different models. Understanding these metrics is fundamental to selecting a model that aligns with your specific deployment constraints.

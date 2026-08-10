@@ -9,9 +9,6 @@ keywords: YOLOv8,DAMO-YOLO,object detection,computer vision,model comparison,YOL
 
 The landscape of computer vision is constantly evolving, with new architectures pushing the boundaries of what is possible on edge devices and massive cloud clusters. In this technical deep dive, we compare two prominent real-time object detection models: **YOLOv8** and **DAMO-YOLO**. By examining their architectures, performance metrics, and training methodologies, ML engineers can make informed decisions for their deployment pipelines.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv8", "DAMO-YOLO"]'></canvas>
 
 ## Model Backgrounds and Origins

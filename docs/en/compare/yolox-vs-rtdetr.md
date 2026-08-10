@@ -11,9 +11,6 @@ Choosing the optimal architecture for [computer vision applications](https://www
 
 While both models have made significant contributions to the field of [object detection](https://docs.ultralytics.com/tasks/detect), developers building production-ready applications often find that modern alternatives like [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) provide superior training efficiency, lower memory requirements, and a more robust deployment ecosystem.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOX", "RTDETRv2"]'></canvas>
 
 ## YOLOX: Bridging the Gap Between Research and Industry

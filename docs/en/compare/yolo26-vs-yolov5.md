@@ -9,9 +9,6 @@ keywords: YOLO26, YOLOv5, object detection, real-time detection, Ultralytics, NM
 
 The evolution of computer vision has been defined by the relentless pursuit of speed, accuracy, and accessibility. Choosing the right architecture is critical to the success of any AI project. In this comprehensive guide, we compare two monumental releases from Ultralytics: the pioneering [YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5) and the groundbreaking [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). While both have heavily influenced the landscape of real-time [object detection](https://en.wikipedia.org/wiki/Object_detection), their underlying technologies reflect a massive paradigm shift in how neural networks process visual data.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO26", "YOLOv5"]'></canvas>
 
 ## Model Overview

@@ -11,9 +11,6 @@ The landscape of computer vision continues to evolve rapidly, heavily influenced
 
 By analyzing their architectural differences, performance metrics, and ideal deployment scenarios, developers can make informed decisions when integrating these vision AI models into their production pipelines.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv7", "RTDETRv2"]'></canvas>
 
 ## YOLOv7: The Bag-of-Freebies CNN Architecture

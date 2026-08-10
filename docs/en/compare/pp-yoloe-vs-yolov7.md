@@ -9,9 +9,6 @@ keywords: PP-YOLOE+, YOLOv7, object detection, AI models, comparison, computer v
 
 When building computer vision pipelines, selecting the right object detection model is critical. Two significant architectures from 2022, PP-YOLOE+ and YOLOv7, introduced powerful advancements in real-time object detection. This technical comparison provides an in-depth look into their architectures, training methodologies, and real-world performance to help you make informed decisions for your applications.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["PP-YOLOE+", "YOLOv7"]'></canvas>
 
 ## Overview of the Models

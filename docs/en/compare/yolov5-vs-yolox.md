@@ -11,9 +11,6 @@ The evolution of real-time computer vision has seen numerous milestones, with di
 
 This guide provides an in-depth technical analysis of these two models, comparing their architectures, performance metrics, training methodologies, and ideal deployment scenarios to help developers and researchers choose the right tool for their vision AI projects.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv5", "YOLOX"]'></canvas>
 
 ## Model Overviews and Architectural Differences

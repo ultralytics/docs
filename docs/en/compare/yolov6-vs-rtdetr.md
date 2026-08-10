@@ -11,9 +11,6 @@ Choosing the optimal architecture for [computer vision](https://www.ultralytics.
 
 While both models present significant milestones in artificial intelligence research, developers looking for the most versatile and efficient pipeline often turn to the robust [Ultralytics Platform](https://platform.ultralytics.com/).
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv6-3.0", "RTDETRv2"]'></canvas>
 
 ---

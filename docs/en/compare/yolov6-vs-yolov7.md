@@ -11,9 +11,6 @@ The evolution of real-time computer vision has been marked by rapid advancements
 
 This comprehensive technical comparison explores their architectures, performance metrics, and ideal use cases, while also highlighting how the modern [Ultralytics Platform](https://platform.ultralytics.com) and the latest [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) model build upon these foundational concepts to deliver unparalleled developer experiences.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv6-3.0", "YOLOv7"]'></canvas>
 
 ## YOLOv6-3.0: Industrial Throughput Optimization

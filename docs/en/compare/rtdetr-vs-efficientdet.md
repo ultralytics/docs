@@ -9,9 +9,6 @@ keywords: RTDETRv2, EfficientDet, object detection, model comparison, Vision Tra
 
 Selecting the optimal neural network architecture is a defining choice for any [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) project. This comprehensive technical comparison dissects two influential object detection models: RTDETRv2, a state-of-the-art transformer-based detector, and EfficientDet, a highly scalable convolutional neural network. We will evaluate their distinct architectures, [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics), training methodologies, and ideal deployment scenarios to help you make data-driven decisions for your AI pipelines.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["RTDETRv2", "EfficientDet"]'></canvas>
 
 ## RTDETRv2: The Real-Time Detection Transformer

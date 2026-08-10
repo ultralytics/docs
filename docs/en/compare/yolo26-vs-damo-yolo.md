@@ -9,9 +9,6 @@ keywords: YOLO26, DAMO-YOLO, Ultralytics, object detection, real-time detection,
 
 When selecting a state-of-the-art computer vision model, finding the optimal balance between inference speed, accuracy, and ease of deployment is critical. This comprehensive guide compares two prominent models in the vision AI landscape: [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) and [DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO). While both architectures push the boundaries of real-time object detection, their underlying design philosophies and intended use cases differ significantly.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO26", "DAMO-YOLO"]'></canvas>
 
 ## Architectural Innovations and Design

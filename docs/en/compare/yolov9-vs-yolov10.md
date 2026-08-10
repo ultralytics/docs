@@ -11,9 +11,6 @@ The landscape of real-time computer vision has seen immense advancements, driven
 
 This comprehensive technical comparison explores their architectures, performance metrics, and ideal deployment scenarios, helping you navigate the complexities of modern [object detection](https://docs.ultralytics.com/tasks/detect) ecosystems.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv9", "YOLOv10"]'></canvas>
 
 ## Model Origins and Architectural Breakthroughs

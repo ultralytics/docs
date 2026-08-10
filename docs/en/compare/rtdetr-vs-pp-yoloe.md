@@ -11,9 +11,6 @@ The rapidly evolving field of computer vision has produced diverse architectural
 
 This comprehensive guide delves into the technical nuances of both models, comparing their architectures, performance metrics, and ecosystem support to help developers and researchers choose the optimal solution for their specific deployment needs.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["RTDETRv2", "PP-YOLOE+"]'></canvas>
 
 ## Model Overviews

@@ -11,9 +11,6 @@ The landscape of computer vision has been shaped by continuous breakthroughs in 
 
 This guide provides a comprehensive technical comparison between these two models and introduces the modern [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) framework, which offers a robust, end-to-end solution optimized for production environments.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["EfficientDet", "YOLOv9"]'></canvas>
 
 ## Model Architectures and Innovations

@@ -11,9 +11,6 @@ The field of computer vision has witnessed remarkable advancements with the cont
 
 This guide provides an in-depth analysis of their architectures, training methodologies, and ideal use cases to help you select the best solution for your [artificial intelligence](https://en.wikipedia.org/wiki/Artificial_intelligence) initiatives.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO11", "YOLOv8"]'></canvas>
 
 ## Architectural Innovations

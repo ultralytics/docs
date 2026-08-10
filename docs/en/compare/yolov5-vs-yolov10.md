@@ -9,9 +9,6 @@ keywords: YOLOv5, YOLOv10, object detection, Ultralytics, machine learning model
 
 The field of real-time computer vision has seen exponential growth over the past few years, with various architectures pushing the boundaries of what is possible on modern hardware. When evaluating state-of-the-art architectures, the comparison between [YOLOv5](https://docs.ultralytics.com/models/yolov5) and [YOLOv10](https://docs.ultralytics.com/models/yolov10) highlights a significant evolutionary step in the domain of object detection. This technical deep dive explores their architectural paradigms, performance trade-offs, and how developers can leverage these tools in production environments.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv5", "YOLOv10"]'></canvas>
 
 ## Architectural Deep Dive

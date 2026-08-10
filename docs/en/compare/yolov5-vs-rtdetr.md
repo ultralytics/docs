@@ -11,9 +11,6 @@ The landscape of [computer vision](https://www.ultralytics.com/glossary/computer
 
 This guide provides an in-depth technical comparison between two pivotal models in these categories: [Ultralytics YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5), a highly efficient and widely adopted CNN-based model, and RTDETRv2, a state-of-the-art transformer-based real-time object detector.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv5", "RTDETRv2"]'></canvas>
 
 ## Ultralytics YOLOv5: The Industry Standard for Efficiency

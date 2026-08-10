@@ -11,9 +11,6 @@ The evolution of computer vision has been defined by the pursuit of real-time pe
 
 By delving into their architectures, performance metrics, and training methodologies, we highlight why upgrading to the latest innovations provides distinct advantages for [object detection](https://docs.ultralytics.com/tasks/detect), segmentation, and beyond.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO26", "YOLOv8"]'></canvas>
 
 ## Model Background and Metadata

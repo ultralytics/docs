@@ -11,9 +11,6 @@ The landscape of real-time [object detection](https://www.ultralytics.com/glossa
 
 We will analyze their architectural breakthroughs, performance metrics, and ideal deployment scenarios to help you choose the right model for your application. We will also explore how the [Ultralytics Platform](https://platform.ultralytics.com/explore) unifies these models, making them easier to train, validate, and deploy.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv7", "YOLOv9"]'></canvas>
 
 ## Model Lineage and Technical Specifications

@@ -9,9 +9,6 @@ keywords: YOLOv7, YOLOv10, object detection, model comparison, performance bench
 
 The field of computer vision has witnessed remarkable advancements over the past few years, with the YOLO (You Only Look Once) family of models leading the charge in real-time object detection. Choosing the right architecture for your computer vision projects requires a deep understanding of the available options. In this comprehensive technical comparison, we will explore the key differences between two landmark architectures: **YOLOv7** and **YOLOv10**.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv7", "YOLOv10"]'></canvas>
 
 ## Introduction to the Models

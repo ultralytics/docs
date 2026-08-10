@@ -9,9 +9,6 @@ keywords: YOLO11, YOLOX, object detection, machine learning, computer vision, mo
 
 The field of computer vision has witnessed rapid advancements over the last few years, with real-time object detection models becoming increasingly sophisticated. When choosing an architecture for a production environment or academic research, developers often weigh the trade-offs between legacy milestones and cutting-edge innovations. This comprehensive comparison explores the differences between [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and Megvii's YOLOX, providing deep insights into their architectures, performance metrics, and ideal deployment scenarios.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO11", "YOLOX"]'></canvas>
 
 ## Architectural Overview

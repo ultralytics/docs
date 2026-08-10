@@ -9,9 +9,6 @@ keywords: YOLO26, YOLOv6-3.0, Ultralytics, YOLO comparison, NMS-free, CPU infere
 
 The evolution of computer vision continues to accelerate, offering developers powerful new tools for [machine learning](https://www.ultralytics.com/glossary/machine-learning-ml) applications. Choosing the right architecture for deployment often dictates the success of a project. In this technical comparison, we will explore the key differences between the cutting-edge YOLO26 and the heavily industrialized YOLOv6-3.0, evaluating their architectures, training methodologies, and ideal deployment scenarios.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO26", "YOLOv6-3.0"]'></canvas>
 
 ## Model Origins and Details

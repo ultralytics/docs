@@ -11,9 +11,6 @@ The evolution of real-time computer vision models has been marked by significant
 
 This comprehensive technical comparison explores the architectures, performance metrics, and ideal use cases for both models, providing insights to help you choose the right tool for your next object detection project.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOX", "YOLOv10"]'></canvas>
 
 ## Model Origins and Metadata

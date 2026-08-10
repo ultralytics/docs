@@ -11,9 +11,6 @@ The landscape of computer vision is constantly evolving, driven by the need for 
 
 Whether you are deploying vision models to edge devices or building high-throughput cloud pipelines, understanding the nuances between these models is crucial for making informed architectural decisions in modern AI development.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "YOLO26"]'></canvas>
 
 ## DAMO-YOLO: Neural Architecture Search at Scale

@@ -9,9 +9,6 @@ keywords: YOLOv9, YOLOX, object detection, model comparison, computer vision, YO
 
 The field of computer vision has witnessed a rapid evolution in real-time object detection architectures. This guide provides a comprehensive comparison between **[YOLOv9](https://docs.ultralytics.com/models/yolov9)** and **YOLOX**, analyzing their architectural innovations, performance metrics, and training methodologies. Whether you are building smart applications for [AI in manufacturing](https://www.ultralytics.com/solutions/ai-in-manufacturing) or exploring [predictive modeling](https://www.ultralytics.com/glossary/predictive-modeling), understanding these models will help you make informed decisions for your next deployment.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv9", "YOLOX"]'></canvas>
 
 ## Architectural Innovations

@@ -11,9 +11,6 @@ Selecting the optimal neural network architecture is critical when deploying [co
 
 Below is an interactive chart showcasing the performance boundaries of these models to help you identify the best fit for your hardware constraints.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO11", "PP-YOLOE+"]'></canvas>
 
 ## Model Origins and Technical Lineage

@@ -11,9 +11,6 @@ The landscape of real-time computer vision is constantly shifting, with research
 
 This comprehensive technical comparison analyzes their architectural innovations, performance metrics, training methodologies, and ideal use cases to help you choose the right [object detection](https://docs.ultralytics.com/tasks/detect) model for your next deployment.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["PP-YOLOE+", "YOLOv9"]'></canvas>
 
 ## Model Lineage and Technical Foundations

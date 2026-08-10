@@ -9,9 +9,6 @@ keywords: PP-YOLOE+, RTDETRv2, object detection, model comparison, real-time det
 
 The field of computer vision has witnessed a dramatic evolution in recent years, particularly in the realm of real-time object detection. Choosing the right architecture for your deployment can mean the difference between a sluggish, memory-heavy application and a highly optimized, responsive system. In this technical comparison, we explore two prominent models from Baidu: the CNN-based PP-YOLOE+ and the transformer-based RTDETRv2. We will analyze their architectures, performance metrics, and ideal use cases, while also examining how they compare to the state-of-the-art [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) platform.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["PP-YOLOE+", "RTDETRv2"]'></canvas>
 
 ## PP-YOLOE+: Advancing the CNN Paradigm

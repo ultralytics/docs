@@ -9,9 +9,6 @@ keywords: YOLOv9, YOLO26, object detection, model comparison, real-time detectio
 
 The landscape of real-time [object detection](https://en.wikipedia.org/wiki/Object_detection) has evolved significantly over the past few years. As machine learning practitioners look to deploy models across a variety of hardware, choosing the right architecture is critical. In this comprehensive technical guide, we compare two major milestones in the computer vision field: [YOLOv9](https://arxiv.org/abs/2402.13616), introduced in early 2024 with a focus on gradient path optimizations, and **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**, the latest state-of-the-art framework released in early 2026 that completely redefines edge inference and training stability.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv9", "YOLO26"]'></canvas>
 
 ## Executive Summary: Model Lineage and Authorship

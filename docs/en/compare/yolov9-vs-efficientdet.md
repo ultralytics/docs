@@ -11,9 +11,6 @@ The field of computer vision has witnessed a rapid evolution in real-time [objec
 
 This guide provides an in-depth technical analysis comparing these two architectures, examining their underlying mechanics, performance metrics, and ideal deployment scenarios to help you make an informed decision for your next AI project.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv9", "EfficientDet"]'></canvas>
 
 ## Model Origins and Technical Specifications

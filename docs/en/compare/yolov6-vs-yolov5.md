@@ -9,9 +9,6 @@ keywords: YOLOv5, YOLOv6-3.0, object detection, model comparison, computer visio
 
 The evolution of real-time object detection has seen multiple architectures optimized for different deployment scenarios. In this deep dive, we compare two prominent models: the industry-focused **YOLOv6-3.0** and the foundational, highly versatile **Ultralytics YOLOv5**. Understanding the architectural choices, performance metrics, and ecosystem support of each will help you select the optimal [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) framework for your real-world applications.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv6-3.0", "YOLOv5"]'></canvas>
 
 ## YOLOv6-3.0: Industrial Throughput and Hardware Optimization

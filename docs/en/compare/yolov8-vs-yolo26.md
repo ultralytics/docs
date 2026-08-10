@@ -9,9 +9,6 @@ keywords: YOLOv8,YOLO26,object detection,model comparison,YOLO,Ultralytics,deep 
 
 The field of computer vision has witnessed remarkable advancements over the last few years. Among the most popular architectures for real-time applications are the models developed by [Ultralytics](https://www.ultralytics.com/). This comprehensive guide provides a detailed technical comparison between the groundbreaking [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) and the latest state-of-the-art [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). We will analyze their architectures, performance metrics, and ideal use cases to help you choose the right model for your deployment.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv8", "YOLO26"]'></canvas>
 
 ## Model Overviews

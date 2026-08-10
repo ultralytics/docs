@@ -9,9 +9,6 @@ keywords: YOLOv8, YOLOX, object detection, model comparison, Ultralytics, comput
 
 The landscape of computer vision has been heavily shaped by the continuous evolution of real-time object detection architectures. Two prominent milestones in this journey are [Ultralytics YOLOv8](https://docs.ultralytics.com/models/yolov8) and YOLOX. While both models embrace an anchor-free design paradigm to streamline bounding box predictions, they represent different eras and philosophies in deep learning research and deployment ecosystem development.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv8", "YOLOX"]'></canvas>
 
 This comprehensive technical comparison explores their respective architectures, training methodologies, and real-world performance metrics to help developers and researchers choose the optimal solution for their vision AI applications.

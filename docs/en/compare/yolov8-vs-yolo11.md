@@ -11,9 +11,6 @@ The rapid evolution of computer vision has been heavily driven by continuous adv
 
 Both models demonstrate the hallmark features of Ultralytics architectures—**ease of use**, a **well-maintained ecosystem**, and unparalleled **training efficiency** with low memory requirements. Let's dive deep into their architectural designs, performance benchmarks, and ideal deployment scenarios.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv8", "YOLO11"]'></canvas>
 
 ## Model Overviews

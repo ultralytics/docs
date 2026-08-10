@@ -9,9 +9,6 @@ keywords: DAMO-YOLO, PP-YOLOE+, object detection, model comparison, computer vis
 
 In the highly competitive landscape of real-time computer vision, choosing the optimal architecture for your specific deployment needs is crucial. This guide provides a comprehensive technical comparison between **DAMO-YOLO** and **PP-YOLOE+**, diving deep into their architectural designs, training methodologies, and performance metrics. We will also examine how these models stack up against state-of-the-art solutions like the newly released Ultralytics YOLO26.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "PP-YOLOE+"]'></canvas>
 
 ## Model Overviews

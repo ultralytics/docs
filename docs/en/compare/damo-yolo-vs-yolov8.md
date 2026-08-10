@@ -11,9 +11,6 @@ The landscape of real-time computer vision is constantly shifting as researchers
 
 This comprehensive technical breakdown will compare their underlying architectures, training methodologies, and practical deployments to help you choose the right tool for your next artificial intelligence project.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "YOLOv8"]'></canvas>
 
 ## Model Lineage and Specifications

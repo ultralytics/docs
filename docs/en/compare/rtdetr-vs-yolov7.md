@@ -9,9 +9,6 @@ keywords: RTDETRv2, YOLOv7, object detection, model comparison, computer vision,
 
 The landscape of [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) has expanded dramatically over the past few years, driven by continuous innovations in both Convolutional Neural Networks (CNNs) and Vision Transformers (ViTs). Choosing the right architecture for your deployment requires understanding the subtle trade-offs between speed, accuracy, and computational overhead. This guide explores the technical differences between two highly regarded architectures: RTDETRv2 and YOLOv7, while also highlighting the modern advancements available in the newer Ultralytics [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26).
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["RTDETRv2", "YOLOv7"]'></canvas>
 
 ## RTDETRv2: The Transformer Approach to Real-Time Detection

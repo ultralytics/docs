@@ -11,9 +11,6 @@ The landscape of computer vision is constantly evolving, presenting practitioner
 
 This guide provides a deep technical dive into both models, comparing their structures, performance metrics, and ideal use cases to help you choose the best foundation for your next computer vision project.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO26", "RTDETRv2"]'></canvas>
 
 ## Ultralytics YOLO26: The Pinnacle of Edge-First Vision AI

@@ -11,9 +11,6 @@ The evolution of computer vision has been heavily driven by the pursuit of real-
 
 This comprehensive technical comparison explores their architectures, performance metrics, training methodologies, and ideal deployment scenarios to help you make an informed decision for your next artificial intelligence project.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOX", "YOLO11"]'></canvas>
 
 ## YOLOX Overview

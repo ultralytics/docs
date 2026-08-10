@@ -9,9 +9,6 @@ keywords: YOLO26, YOLOv10, Ultralytics, object detection, NMS-free, end-to-end d
 
 The landscape of computer vision is constantly evolving, driven by the demand for faster, more accurate, and more efficient models. This guide provides a comprehensive technical comparison between two groundbreaking architectures in the real-time object detection space: **YOLO26** and **YOLOv10**. By analyzing their architectures, performance metrics, and deployment capabilities, we aim to help developers and researchers choose the optimal model for their vision applications.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO26", "YOLOv10"]'></canvas>
 
 ## The Evolution of NMS-Free Architectures

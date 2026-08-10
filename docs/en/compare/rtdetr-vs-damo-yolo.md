@@ -11,9 +11,6 @@ The landscape of computer vision is constantly evolving, with researchers and en
 
 In this technical comparison, we will dive deep into their architectures, training methodologies, and real-world deployment capabilities. We will also explore how these models stack up against the broader ecosystem, particularly the highly optimized [Ultralytics Platform](https://platform.ultralytics.com) and the state-of-the-art [YOLO26 architecture](https://platform.ultralytics.com/ultralytics/yolo26).
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["RTDETRv2", "DAMO-YOLO"]'></canvas>
 
 ## Architectural Innovations

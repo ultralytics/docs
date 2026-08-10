@@ -11,9 +11,6 @@ The field of [computer vision](https://en.wikipedia.org/wiki/Computer_vision) is
 
 Whether your goal is deploying models on highly constrained [edge computing](https://en.wikipedia.org/wiki/Edge_computing) devices or running large-scale analytics on cloud servers, understanding the nuances between these models will guide you toward the optimal choice.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["EfficientDet", "YOLOv8"]'></canvas>
 
 ## Model Overview and Origins

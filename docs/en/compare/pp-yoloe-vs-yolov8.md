@@ -9,9 +9,6 @@ keywords: PP-YOLOE+, YOLOv8, object detection, computer vision, model comparison
 
 The demand for high-performance, real-time [computer vision](https://en.wikipedia.org/wiki/Computer_vision) models has driven rapid innovation across the AI industry. Selecting the right architecture can be the deciding factor between a successful, highly efficient deployment and a cumbersome, resource-heavy pipeline. This technical guide provides an in-depth comparison between **PP-YOLOE+** and **[Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8)**, exploring their underlying architectures, training efficiencies, and ideal deployment scenarios.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["PP-YOLOE+", "YOLOv8"]'></canvas>
 
 ## Introduction to the Architectures

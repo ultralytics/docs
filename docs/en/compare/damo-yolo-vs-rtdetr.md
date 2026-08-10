@@ -9,9 +9,6 @@ keywords: DAMO-YOLO, RTDETRv2, object detection, YOLO models, real-time detectio
 
 The rapidly evolving landscape of computer vision has produced an impressive array of architectures designed to balance speed, accuracy, and computational efficiency. Two standout models that have contributed unique approaches to solving these challenges are DAMO-YOLO and RTDETRv2. While both models aim to provide cutting-edge solutions for real-time inference, they fundamentally differ in their architectural philosophies.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "RTDETRv2"]'></canvas>
 
 This comprehensive guide dives deep into the technical specifications, architectural innovations, and practical use cases of both models, while also exploring how modern solutions like the [Ultralytics Platform](https://platform.ultralytics.com) and the state-of-the-art [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) have redefined industry standards for deployment and ease of use.

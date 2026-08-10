@@ -11,9 +11,6 @@ The landscape of real-time [computer vision](https://en.wikipedia.org/wiki/Compu
 
 This guide provides an in-depth technical analysis of their architectures, performance metrics, and training methodologies to help you choose the right model for your next deployment.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv5", "DAMO-YOLO"]'></canvas>
 
 ## Model Backgrounds

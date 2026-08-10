@@ -9,9 +9,6 @@ keywords: YOLOX, YOLOv6-3.0, object detection, model comparison, performance ben
 
 The evolution of [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) has been largely defined by the rapid advancements in the YOLO series. Choosing the right architecture for your deployment often comes down to balancing raw throughput, architectural simplicity, and training efficiency. Two notable milestones in this journey are the anchor-free research focus of YOLOX and the highly optimized industrial throughput of YOLOv6-3.0.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOX", "YOLOv6-3.0"]'></canvas>
 
 This technical comparison breaks down their architectural differences, performance metrics, and ideal use cases, while also introducing the next-generation capabilities of [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) for developers seeking the ultimate edge and cloud deployment solution.

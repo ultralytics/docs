@@ -9,9 +9,6 @@ keywords: RTDETRv2, YOLOv9, object detection, Ultralytics models, transformer vi
 
 The field of computer vision has witnessed a fascinating divergence in architectural philosophies, primarily between Convolutional Neural Networks (CNNs) and transformer-based models. When comparing RTDETRv2 and YOLOv9, developers are essentially evaluating the trade-offs between global attention mechanisms and programmable gradient information. Both models represent the pinnacle of their respective paradigms, pushing the boundaries of real-time object detection.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["RTDETRv2", "YOLOv9"]'></canvas>
 
 ## Introduction to the Models

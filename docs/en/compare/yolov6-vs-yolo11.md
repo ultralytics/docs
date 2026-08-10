@@ -9,9 +9,6 @@ keywords: YOLO11, YOLOv6-3.0, object detection, model comparison, Ultralytics, c
 
 When evaluating computer vision models for high-performance applications, choosing the right architecture is critical. The evolution of vision AI has led to specialized models tailored for distinct environments. This comprehensive guide compares two prominent models in the ecosystem: the industrially focused YOLOv6-3.0 and the highly versatile [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11).
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv6-3.0", "YOLO11"]'></canvas>
 
 Both models offer strong solutions for [machine learning](https://www.ultralytics.com/glossary/machine-learning-ml) practitioners, but they cater to different deployment paradigms. Below, we break down their architectures, training methodologies, and ideal real-world deployment scenarios to help you make an informed decision.

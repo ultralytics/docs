@@ -9,9 +9,6 @@ keywords: YOLOv10, YOLOX, object detection, YOLO comparison, real-time AI models
 
 The field of computer vision is driven by rapid advancements in real-time object detection architectures. This detailed technical comparison explores two influential models that pushed the boundaries of efficiency and design paradigms: **YOLOv10** and **YOLOX**. By examining their architectural differences, performance metrics, and training methodologies, developers and researchers can make informed decisions for deploying robust vision systems.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "YOLOX"]'></canvas>
 
 ## Model Backgrounds and Origins

@@ -9,9 +9,6 @@ keywords: YOLOv10, YOLO26, object detection, model comparison, YOLOv10 vs YOLO26
 
 The landscape of computer vision has witnessed remarkable advancements in recent years, shifting from complex, post-processing-heavy architectures to streamlined, end-to-end models. This technical comparison delves into two major milestones in this journey: the academic breakthrough of YOLOv10 and the cutting-edge, enterprise-ready YOLO26. By examining their architectures, training methodologies, and real-world deployment capabilities, developers can make informed decisions when building their next vision AI application.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "YOLO26"]'></canvas>
 
 ## YOLOv10: Pioneering End-to-End Object Detection

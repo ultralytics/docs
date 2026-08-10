@@ -9,9 +9,6 @@ keywords: YOLOv9 vs YOLOv5, YOLO comparison, Ultralytics models, YOLO object det
 
 The field of computer vision has witnessed tremendous growth, with object detection acting as the backbone for countless industrial and research applications. Choosing the right architecture often requires a careful evaluation of mean Average Precision (mAP), inference speed, and memory overhead. In this comparison, we explore two highly influential models: **YOLOv9**, celebrated for its architectural breakthroughs in gradient information retention, and **[Ultralytics YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5)**, the battle-tested industry standard known for its incredible ease of use and unmatched deployment versatility.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv9", "YOLOv5"]'></canvas>
 
 ## Architectural Innovations and Technical Origins

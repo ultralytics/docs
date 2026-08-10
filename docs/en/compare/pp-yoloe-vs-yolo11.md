@@ -11,9 +11,6 @@ The landscape of computer vision is constantly evolving, driven by the need for 
 
 By dissecting their architectures, performance metrics, and ideal use cases, this guide aims to provide the insights necessary to make an informed decision for your next machine learning deployment.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["PP-YOLOE+", "YOLO11"]'></canvas>
 
 ## Model Origins and Technical Overviews

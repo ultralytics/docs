@@ -9,9 +9,6 @@ keywords: YOLO11, YOLOv7, object detection, model comparison, YOLO models, deep 
 
 The landscape of computer vision has rapidly evolved over the past few years. For developers and researchers choosing the right object detection framework, understanding the architectural and practical differences between generation-defining models is critical. This guide provides a detailed technical comparison between the academic breakthrough of [YOLOv7](https://docs.ultralytics.com/models/yolov7) and the highly refined, production-ready [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11).
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv7", "YOLO11"]'></canvas>
 
 ## Model Origins and Architectural Philosophies

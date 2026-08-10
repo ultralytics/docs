@@ -9,9 +9,6 @@ keywords: YOLOv7, YOLOX, object detection, YOLO comparison, YOLO models, compute
 
 The evolution of computer vision has been marked by rapid advancements in real-time object detection. Two pivotal milestones in this journey are YOLOv7 and YOLOX. While both models pushed the boundaries of speed and accuracy, they adopted different architectural philosophies to achieve their results. This guide provides a comprehensive technical comparison between these two powerful models, helping you choose the right architecture for your computer vision projects.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv7", "YOLOX"]'></canvas>
 
 ## Introduction to the Models

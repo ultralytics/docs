@@ -9,9 +9,6 @@ keywords: YOLOv8,RTDETRv2,object detection,model comparison,performance metrics,
 
 The landscape of computer vision is constantly evolving, with new architectures pushing the boundaries of what is possible in real-time object detection. Two prominent models that have garnered significant attention are Ultralytics YOLOv8 and Baidu's RTDETRv2. This guide provides a comprehensive technical comparison between these two powerful models, exploring their architectures, performance metrics, and ideal deployment scenarios.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv8", "RTDETRv2"]'></canvas>
 
 ## YOLOv8 Overview

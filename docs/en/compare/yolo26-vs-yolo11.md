@@ -9,9 +9,6 @@ keywords: YOLO26, YOLO11, Ultralytics, object detection, NMS-free, end-to-end de
 
 When building state-of-the-art computer vision systems, selecting the right model is critical for balancing accuracy, latency, and resource efficiency. In the rapidly evolving landscape of artificial intelligence, [Ultralytics](https://www.ultralytics.com/) continues to push the boundaries of what is possible. This detailed technical comparison explores the transition from the highly successful **YOLO11** to the revolutionary new **YOLO26**, providing AI engineers and researchers with the insights needed to make informed architectural decisions.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO26", "YOLO11"]'></canvas>
 
 ## Model Lineage and Metadata

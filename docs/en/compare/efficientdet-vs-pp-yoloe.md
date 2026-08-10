@@ -11,9 +11,6 @@ The landscape of computer vision has been heavily shaped by the continuous evolu
 
 This comprehensive guide dissects their architectures, training methodologies, and real-world deployment scenarios to help you select the optimal neural network for your next [computer vision application](https://www.ultralytics.com/glossary/computer-vision-cv).
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["EfficientDet", "PP-YOLOE+"]'></canvas>
 
 ## Architectural Innovations and Design Philosophies

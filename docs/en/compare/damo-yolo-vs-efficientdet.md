@@ -9,9 +9,6 @@ keywords: DAMO-YOLO, EfficientDet, object detection, model comparison, performan
 
 The evolution of computer vision has produced an array of powerful architectures tailored for varying real-world demands. While some frameworks prioritize massive scalability, others focus heavily on real-time inference speed. In this technical comparison, we explore **DAMO-YOLO** and **EfficientDet**, two highly influential models that showcase distinct approaches to solving the object detection problem. We will dissect their architectures, compare their benchmark performances, and ultimately explore why the newly released Ultralytics YOLO26 represents the optimal choice for modern production deployments.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "EfficientDet"]'></canvas>
 
 ## Architectural Overview

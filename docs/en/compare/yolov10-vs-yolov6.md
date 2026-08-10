@@ -9,9 +9,6 @@ keywords: YOLOv10, YOLOv6, YOLO comparison, object detection models, computer vi
 
 In the rapidly evolving landscape of [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv), selecting the optimal [object detection](https://docs.ultralytics.com/tasks/detect) architecture is crucial for balancing inference speed, model accuracy, and deployment feasibility. This guide provides an in-depth, technical comparison between two formidable models: the academic powerhouse **YOLOv10** and the industrially focused **YOLOv6-3.0**. Both bring unique architectural innovations to the table, solving distinct challenges in the deployment of real-time vision systems.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "YOLOv6-3.0"]'></canvas>
 
 ## YOLOv10 Overview: The End-to-End Pioneer
