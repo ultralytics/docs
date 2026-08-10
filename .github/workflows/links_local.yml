@@ -51,6 +51,7 @@ jobs:
             rm -rf .lycheecache
             lychee \
             --scheme 'https' \
+            --extensions md,html \
             --timeout 60 \
             --insecure \
             --accept 100..=103,200..=299,302,401,402,403,415,429,500..=599,999 \
@@ -60,8 +61,7 @@ jobs:
             --exclude-path './**/ci.yml' \
             --github-token ${{ secrets.GITHUB_TOKEN }} \
             --header "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
-            './**/*.md' \
-            './**/*.html'
+            .
 
       - name: Test Website, Markdown, HTML, YAML, Python and Notebook links with retry
         if: github.event_name == 'workflow_dispatch'
@@ -74,6 +74,7 @@ jobs:
             rm -rf .lycheecache
             lychee \
             --scheme 'https' \
+            --extensions md,html,yml,yaml,py,ipynb \
             --timeout 60 \
             --insecure \
             --accept 100..=103,200..=299,302,401,402,403,415,429,500..=599,999 \
@@ -83,9 +84,4 @@ jobs:
             --exclude-path './**/ci.yml' \
             --github-token ${{ secrets.GITHUB_TOKEN }} \
             --header "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
-            './**/*.md' \
-            './**/*.html' \
-            './**/*.yml' \
-            './**/*.yaml' \
-            './**/*.py' \
-            './**/*.ipynb'
+            .

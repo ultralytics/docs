@@ -31,11 +31,11 @@ After opening a PR:
 ## Commands
 
 ```bash
-uv pip install -r requirements.txt                     # beautifulsoup4, requests, pandas (for utils/)
-uv run python utils/check_image_sizes.py <download_dir> <website>  # flag images >750 KB, as links.yml runs it
-lychee --scheme 'https' './**/*.md' './**/*.html'      # PR link check (simplified); CI adds more flags, see .github/workflows/links_local.yml
-npx prettier --write "**/*.md" "**/*.yml"              # Markdown/YAML formatting
-codespell docs utils README.md                          # spelling
+uv pip install -r requirements.txt                            # beautifulsoup4, requests, pandas (for utils/)
+uv run python utils/check_image_sizes.py DOWNLOAD_DIR WEBSITE # flag images >750 KB, as links.yml runs it
+lychee --scheme 'https' './**/*.md' './**/*.html'             # PR link check (simplified); CI adds more flags, see .github/workflows/links_local.yml
+npx prettier --write "**/*.md" "**/*.yml"                     # Markdown/YAML formatting
+codespell docs utils README.md                                # spelling
 ```
 
 - There is no test suite, build, or coverage — PR CI is `links_local.yml` (lychee over all repo `*.md`/`*.html` against the live web, so a dead URL fails CI) plus Ultralytics Actions formatting in `format.yml` (source of truth for Prettier/Ruff/docformatter/codespell settings; it runs them server-side on PRs).
@@ -43,7 +43,7 @@ codespell docs utils README.md                          # spelling
 
 ## Architecture
 
-This repo is one public content source for https://docs.ultralytics.com/. Additional source lives in `ultralytics/ultralytics` under `docs/en/`; CI combines the sources before running `zensical build --strict`. Relative links may therefore resolve only in the complete content tree. This repository intentionally has no standalone Zensical configuration or site build; the centralized publisher renders and deploys production.
+This repo is one public content source for https://docs.ultralytics.com/. Additional source lives in `ultralytics/ultralytics` under `docs/en/`; the centralized validation path combines the sources before running `zensical build --strict`. Relative links may therefore resolve only in the complete content tree. This repository intentionally has no standalone Zensical configuration or site build; the centralized publisher renders and deploys production.
 
 The remaining workflows handle docs-specific publishing, website QA, and housekeeping: `publish.yml` triggers the centralized publisher on every `main` push and daily; `links.yml` downloads rendered www/docs/academy/handbook sites and checks links, spelling, and image sizes; `links_local.yml` checks repository links on push, PR, and daily; `download_websites.yml` is manual-only; and `stale.yml` manages inactive issues and PRs. Releases are manual: `tag.yml` is `workflow_dispatch`-only and gated to `github.repository == 'ultralytics/docs' && github.actor == 'glenn-jocher'`; there is no version file or package publish.
 
