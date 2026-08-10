@@ -30,9 +30,6 @@ GitHub: [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["EfficientDet", "YOLO26"]'></canvas>
 
 ## Architectural Innovations

@@ -9,9 +9,6 @@ keywords: YOLOX,PP-YOLOE,object detection,anchor-free models,AI comparison,YOLO 
 
 When designing a robust [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) pipeline, selecting the appropriate object detection model is a critical decision. The landscape of real-time object detectors is highly competitive, with numerous architectures striving to offer the ultimate balance between inference speed and detection accuracy. In this technical comparison, we will evaluate two prominent models: YOLOX and PP-YOLOE+. By examining their architectural designs, training methodologies, and performance metrics, we aim to provide developers and researchers with the insights needed to choose the right tool for their deployment environments.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOX", "PP-YOLOE+"]'></canvas>
 
 ## Architectural Innovations and Design

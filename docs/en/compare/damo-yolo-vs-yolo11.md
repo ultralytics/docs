@@ -24,9 +24,6 @@ Date: 2024-09-27
 GitHub: [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)  
 Docs: [YOLO11 Documentation](https://docs.ultralytics.com/models/yolo11)
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "YOLO11"]'></canvas>
 
 ## Architectural Design Philosophy

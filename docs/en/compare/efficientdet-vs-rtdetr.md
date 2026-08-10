@@ -11,9 +11,6 @@ Choosing the optimal architecture for [computer vision](https://www.ultralytics.
 
 By understanding the trade-offs between legacy efficiency and modern transformer capabilities, developers can make informed decisions. Furthermore, we will explore how modern alternatives like the new [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) bridge the gap, offering unparalleled speed, accuracy, and ease of use.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["EfficientDet", "RTDETRv2"]'></canvas>
 
 ## Understanding EfficientDet

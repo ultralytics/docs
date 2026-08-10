@@ -9,9 +9,6 @@ keywords: YOLOv7, YOLOv8, object detection, model comparison, computer vision, r
 
 The rapid evolution of computer vision has produced an array of powerful tools for developers and researchers. When deciding on the right architecture for an [object detection](https://docs.ultralytics.com/tasks/detect) pipeline, comparing established models is essential. This technical guide provides a deep dive into the architectures, performance metrics, and ideal use cases of two highly influential models: YOLOv7 and Ultralytics YOLOv8.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv7", "YOLOv8"]'></canvas>
 
 ## Introduction to the Architectures

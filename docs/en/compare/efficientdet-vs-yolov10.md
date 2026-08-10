@@ -11,9 +11,6 @@ In the rapidly evolving field of [computer vision](https://www.ultralytics.com/g
 
 We will explore their core architectures, review performance benchmarks on [standard datasets like COCO](https://docs.ultralytics.com/datasets/detect/coco), and discuss how they integrate into modern machine learning pipelines, specifically highlighting the advantages of the comprehensive [Ultralytics ecosystem](https://www.ultralytics.com).
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["EfficientDet", "YOLOv10"]'></canvas>
 
 ## EfficientDet: The Compound Scaling Pioneer

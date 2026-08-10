@@ -11,9 +11,6 @@ The rapid evolution of computer vision has continuously pushed the boundaries of
 
 This comprehensive technical comparison analyzes their architectures, performance metrics, memory requirements, and ideal deployment scenarios to help you select the optimal model for your next AI project.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv9", "YOLO11"]'></canvas>
 
 !!! tip "Future-Proof Your Project with YOLO26"

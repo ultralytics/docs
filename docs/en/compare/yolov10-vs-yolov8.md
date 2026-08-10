@@ -11,9 +11,6 @@ The evolution of real-time object detection has seen a rapid succession of groun
 
 Understanding the distinct advantages, architectures, and performance metrics of these models is crucial for developers and researchers aiming to deploy state-of-the-art vision AI solutions in real-world scenarios.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "YOLOv8"]'></canvas>
 
 ## Technical Specifications and Authorship

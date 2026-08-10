@@ -11,9 +11,6 @@ The evolution of real-time [object detection](https://docs.ultralytics.com/tasks
 
 This page provides an in-depth technical analysis of YOLOX and YOLOv7, comparing their architectures, performance metrics, and ideal use cases to help developers choose the right tool for their computer vision deployments.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOX", "YOLOv7"]'></canvas>
 
 ## YOLOX: Pioneering Anchor-Free Detection

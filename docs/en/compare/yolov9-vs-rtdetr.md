@@ -11,9 +11,6 @@ The landscape of real-time [object detection](https://docs.ultralytics.com/tasks
 
 This comprehensive guide compares these two powerful models, analyzing their architectural innovations, [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics), and ideal deployment scenarios to help you choose the right model for your [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) pipeline.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv9", "RTDETRv2"]'></canvas>
 
 ## Executive Summary

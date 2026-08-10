@@ -9,9 +9,6 @@ keywords: YOLO26, YOLOX, Ultralytics, object detection, real-time detection, edg
 
 The evolution of computer vision has been marked by significant architectural leaps. In 2021, YOLOX introduced a highly influential anchor-free paradigm that bridged the gap between academic research and industrial application. Fast forward to 2026, and the landscape has been redefined by [Ultralytics YOLO](https://www.ultralytics.com/yolo), specifically with the release of YOLO26. This comprehensive comparison explores how YOLO26 builds upon historical innovations to deliver unmatched performance, versatility, and ease of use.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO26", "YOLOX"]'></canvas>
 
 ## Model Overviews

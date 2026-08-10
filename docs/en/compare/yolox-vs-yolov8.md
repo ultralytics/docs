@@ -11,9 +11,6 @@ The field of computer vision has witnessed remarkable advancements in real-time 
 
 By analyzing their unique architectures, training methodologies, and deployment capabilities, developers can make informed decisions when selecting the optimal framework for their artificial intelligence projects.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOX", "YOLOv8"]'></canvas>
 
 ## YOLOX: Bridging Research and Industry

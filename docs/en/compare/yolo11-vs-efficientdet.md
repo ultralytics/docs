@@ -9,9 +9,6 @@ keywords: YOLO11, EfficientDet, object detection, model comparison, YOLO vs Effi
 
 Selecting the optimal neural network for [computer vision](https://en.wikipedia.org/wiki/Computer_vision) projects requires a deep understanding of the available architectures. This guide provides an in-depth technical comparison between [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and Google's EfficientDet. We will explore their architectural differences, [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics), training efficiencies, and ideal deployment scenarios to help you make an informed decision for your [machine learning](https://en.wikipedia.org/wiki/Machine_learning) workloads.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO11", "EfficientDet"]'></canvas>
 
 ## Model Backgrounds and Specifications

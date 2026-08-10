@@ -11,9 +11,6 @@ The landscape of real-time object detection continues to advance rapidly, offeri
 
 This comprehensive technical comparison explores their architectures, training methodologies, performance metrics, and ideal real-world applications. We will also explore how the broader [Ultralytics ecosystem](https://www.ultralytics.com) provides significant advantages for developers prioritizing ease of use, memory efficiency, and versatile deployment.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv9", "PP-YOLOE+"]'></canvas>
 
 ## Model Origins and Technical Specifications

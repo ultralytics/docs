@@ -34,9 +34,6 @@ Before diving into their structural differences, it is important to understand t
 
 [Learn more about EfficientDet](https://github.com/google/automl/tree/master/efficientdet#readme){ .md-button }
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOX", "EfficientDet"]'></canvas>
 
 ## Architectural Comparison

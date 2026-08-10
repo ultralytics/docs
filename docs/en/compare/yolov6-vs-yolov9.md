@@ -11,9 +11,6 @@ The landscape of real-time object detection continues to evolve, driven by deman
 
 While both models offer unique architectural innovations, developers looking for the ultimate balance of performance and deployment simplicity often transition to modern ecosystems. For those starting new projects, the natively end-to-end [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) is the recommended standard, offering state-of-the-art accuracy with a significantly more streamlined developer experience.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv6-3.0", "YOLOv9"]'></canvas>
 
 ## YOLOv6-3.0: Industrial Throughput Optimization

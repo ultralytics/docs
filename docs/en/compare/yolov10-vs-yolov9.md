@@ -11,9 +11,6 @@ The evolution of real-time computer vision has been marked by continuous breakth
 
 This comprehensive guide analyzes their architectural innovations, [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics), and ideal use cases to help developers and researchers choose the optimal model for their specific computer vision tasks.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "YOLOv9"]'></canvas>
 
 ## YOLOv10: The NMS-Free End-to-End Pioneer

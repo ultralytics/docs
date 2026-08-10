@@ -9,9 +9,6 @@ keywords: YOLOv10, YOLOv7, object detection, model comparison, AI, deep learning
 
 The rapid progression of computer vision over the last few years has yielded increasingly efficient architectures for real-time applications. Comparing [YOLOv10](https://docs.ultralytics.com/models/yolov10) and [YOLOv7](https://docs.ultralytics.com/models/yolov7) highlights a crucial transition period in this evolution. While YOLOv7 introduced highly effective training strategies and architectural scaling, YOLOv10 revolutionized deployment by eliminating the longstanding reliance on Non-Maximum Suppression (NMS).
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "YOLOv7"]'></canvas>
 
 Both models pushed the boundaries of [object detection](https://docs.ultralytics.com/tasks/detect) upon their respective releases, yet the modern [Ultralytics ecosystem](https://platform.ultralytics.com) and the introduction of next-generation models like YOLO26 offer far superior workflows for today's AI practitioners.

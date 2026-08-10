@@ -11,9 +11,6 @@ The rapid evolution of computer vision continually pushes the boundaries of spee
 
 Whether you are building [drone delivery systems](https://www.amazon.com/b?ie=UTF8&node=206533607011) or optimizing a global [smart manufacturing pipeline](https://www.siemens.com/us/en/industries/semiconductors/smart-manufacturing.html), understanding the nuanced differences between these two models will help you build robust, future-proof AI solutions.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO11", "YOLO26"]'></canvas>
 
 ## Model Lineage and Ecosystem

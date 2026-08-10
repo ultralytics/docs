@@ -11,9 +11,6 @@ The landscape of real-time computer vision is constantly evolving, driven by the
 
 This comprehensive guide provides an in-depth analysis of their architectures, performance metrics, and ideal use cases, helping machine learning engineers and researchers choose the right tool for their next [object detection](https://docs.ultralytics.com/tasks/detect) project.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv8", "YOLOv6-3.0"]'></canvas>
 
 ## Model Lineage and Details

@@ -9,9 +9,6 @@ keywords: YOLOX, YOLO26, object detection, model comparison, performance metrics
 
 The field of computer vision has witnessed incredible transformations over the past decade. Two significant milestones in this journey are the release of YOLOX, which popularized anchor-free architectures, and the recent introduction of [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26), which completely redefines real-time performance with a natively end-to-end, NMS-free design. This comprehensive comparison explores their architectures, performance metrics, and ideal deployment scenarios to help developers make informed decisions for their next AI project.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOX", "YOLO26"]'></canvas>
 
 ## Model Overviews

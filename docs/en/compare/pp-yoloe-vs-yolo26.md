@@ -11,9 +11,6 @@ The landscape of real-time computer vision has seen tremendous growth, driven by
 
 This comprehensive guide compares these two models, highlighting their architectures, [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics), training methodologies, and ideal use cases to help you make an informed decision for your next AI project.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["PP-YOLOE+", "YOLO26"]'></canvas>
 
 ## Technical Specifications and Authorship

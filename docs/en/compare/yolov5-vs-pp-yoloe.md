@@ -9,9 +9,6 @@ keywords: YOLOv5, PP-YOLOE+, object detection, computer vision, machine learning
 
 Choosing the right neural network architecture is essential for any modern computer vision project. When developers and researchers evaluate models for real-time object detection, the decision often comes down to balancing accuracy, inference speed, and deployment ease. This technical comparison examines **YOLOv5** and **PP-YOLOE+**, exploring their architectures, performance metrics, and training methodologies to help you select the optimal solution for your application.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv5", "PP-YOLOE+"]'></canvas>
 
 ## Understanding the Architectures

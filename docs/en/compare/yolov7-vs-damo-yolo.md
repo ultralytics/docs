@@ -9,9 +9,6 @@ keywords: YOLOv7,DAMO-YOLO,object detection,YOLO comparison,AI models,deep learn
 
 The landscape of real-time object detection is continually evolving, with researchers and engineers striving to find the optimal balance between speed and accuracy. In this technical comparison, we will dive deep into two notable architectures from 2022: **YOLOv7** and **DAMO-YOLO**. Both models introduced novel concepts to the computer vision community, addressing different challenges in model training, architectural design, and deployment.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv7", "DAMO-YOLO"]'></canvas>
 
 ## Model Backgrounds and Technical Details

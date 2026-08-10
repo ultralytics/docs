@@ -9,9 +9,6 @@ keywords: YOLOv10, DAMO-YOLO, object detection comparison, YOLO models, DAMO-YOL
 
 The field of computer vision has witnessed a rapid evolution in real-time [object detection](https://docs.ultralytics.com/tasks/detect) architectures. When comparing **DAMO-YOLO** and **YOLOv10**, we observe two distinct philosophies in model design: automated architecture search versus end-to-end NMS-free optimization. While both push the boundaries of accuracy and speed, their underlying structures and ideal use cases differ significantly.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "YOLOv10"]'></canvas>
 
 ## DAMO-YOLO: Neural Architecture Search at Scale

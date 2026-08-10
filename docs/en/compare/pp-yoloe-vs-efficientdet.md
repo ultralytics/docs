@@ -11,9 +11,6 @@ Choosing the right architecture is a critical step in building robust [computer 
 
 While both models have made significant contributions to the field, we will also discuss how modern alternatives like [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) offer vastly superior memory efficiency, faster inference, and a highly streamlined developer experience.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["PP-YOLOE+", "EfficientDet"]'></canvas>
 
 ## Architectural Overview: PP-YOLOE+

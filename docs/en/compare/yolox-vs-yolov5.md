@@ -9,9 +9,6 @@ keywords: YOLOX, YOLOv5, object detection, anchor-free model, real-time detectio
 
 Selecting the right object detection model is a critical decision that dictates the success of any computer vision project. This guide provides a comprehensive technical comparison between two pivotal models in the AI landscape: Megvii's YOLOX and [Ultralytics YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5). By analyzing their architectures, performance metrics, and training ecosystems, we aim to help developers and researchers make an informed choice for their specific deployment environments.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOX", "YOLOv5"]'></canvas>
 
 ## Introduction to the Models

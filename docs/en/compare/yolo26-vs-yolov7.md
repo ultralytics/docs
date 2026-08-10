@@ -9,9 +9,6 @@ keywords: YOLO26, YOLOv7, Ultralytics, object detection, NMS-free, end-to-end de
 
 The evolution of real-time object detection has seen numerous milestones, with [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) and [YOLOv7](https://github.com/WongKinYiu/yolov7) representing two significant leaps in computer vision capabilities. While YOLOv7 introduced the powerful "bag-of-freebies" methodology that redefined accuracy benchmarks in 2022, the newly released YOLO26 architecture pioneers edge-first optimizations, natively end-to-end processing, and stable training dynamics inspired by Large Language Model (LLM) innovations.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO26", "YOLOv7"]'></canvas>
 
 This deep dive compares these two architectures, analyzing their performance metrics, structural differences, and ideal deployment scenarios to help [machine learning engineers](https://www.ultralytics.com/blog/becoming-a-computer-vision-engineer) make informed decisions for their next vision AI project.

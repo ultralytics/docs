@@ -9,9 +9,6 @@ keywords: YOLOv5, YOLOv7, object detection, model comparison, AI, deep learning,
 
 The landscape of computer vision has evolved rapidly over the last few years, driven by the need for faster, more accurate real-time object detection. When choosing the right architecture for your computer vision project, understanding the nuances between popular models like [Ultralytics YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5) and YOLOv7 is crucial. This comprehensive technical comparison delves into their architectures, training methodologies, performance metrics, and ideal deployment scenarios to help you make an informed decision.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv5", "YOLOv7"]'></canvas>
 
 ## At a Glance: Model Origins

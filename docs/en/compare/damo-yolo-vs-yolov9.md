@@ -11,9 +11,6 @@ The landscape of real-time object detection continues to evolve at a breakneck p
 
 This detailed technical guide provides an in-depth analysis of these two models, comparing their unique architectural approaches, training methodologies, and real-world deployment capabilities. We will also explore how the broader software ecosystem plays a crucial role in modern AI development, highlighting the advantages of integrated platforms like the [Ultralytics Platform](https://platform.ultralytics.com/) and the newer generation of models like [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26).
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "YOLOv9"]'></canvas>
 
 ## Executive Summary: Choosing the Right Architecture

@@ -11,9 +11,6 @@ When building scalable [computer vision](https://www.ultralytics.com/glossary/co
 
 While both models brought significant innovations to the field of [object detection](https://www.ultralytics.com/glossary/object-detection), the rapid advancement of vision AI has paved the way for more integrated ecosystems. Throughout this analysis, we will explore the core mechanics of these legacy networks while illustrating why modern solutions like the [Ultralytics Platform](https://docs.ultralytics.com/platform) and [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) have become the industry standard for production environments.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["EfficientDet", "DAMO-YOLO"]'></canvas>
 
 ## EfficientDet: Scalable and Efficient Object Detection

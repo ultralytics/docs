@@ -9,9 +9,6 @@ keywords: DAMO-YOLO, YOLOX, object detection, model comparison, YOLO, computer v
 
 The landscape of real-time computer vision is constantly evolving. Two notable milestones in this journey are **DAMO-YOLO** and **YOLOX**, each bringing unique innovations to the problem of high-speed, high-accuracy object detection. While both models have contributed significantly to the open-source community, understanding their architectural differences, training methodologies, and ideal deployment scenarios is crucial for machine learning engineers.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "YOLOX"]'></canvas>
 
 This comprehensive guide explores the technical nuances of both models and highlights why modern alternatives like the [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) platform offer superior performance and ease of use for today's production environments.

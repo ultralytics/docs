@@ -9,9 +9,6 @@ keywords: YOLOv10,PP-YOLOE+,object detection,model comparison,Ultralytics,YOLO,P
 
 The landscape of computer vision is constantly evolving, with new models pushing the boundaries of what is possible in real-time object detection. In this comprehensive technical comparison, we will examine **PP-YOLOE+** and **YOLOv10**, two highly capable architectures designed for different ecosystems. We will also explore how the broader landscape is shifting towards more unified, easy-to-use platforms like the [Ultralytics Platform](https://platform.ultralytics.com) and the state-of-the-art [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) model.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["PP-YOLOE+", "YOLOv10"]'></canvas>
 
 ## Introduction to the Models

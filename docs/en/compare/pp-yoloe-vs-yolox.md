@@ -9,9 +9,6 @@ keywords: PP-YOLOE+, YOLOX, object detection, anchor-free models, model comparis
 
 The landscape of [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) has been significantly shaped by the rapid evolution of object detection models. Among the notable milestones in this journey are PP-YOLOE+ and YOLOX, two architectures that pushed the boundaries of real-time performance and accuracy. Understanding their architectural nuances, performance trade-offs, and ideal deployment scenarios is crucial for researchers and developers building the next generation of visual recognition systems.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["PP-YOLOE+", "YOLOX"]'></canvas>
 
 ## Model Lineage and Details

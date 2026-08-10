@@ -11,9 +11,6 @@ The evolution of real-time [object detection](https://docs.ultralytics.com/tasks
 
 Whether you are deploying to high-end server GPUs or low-power edge devices, understanding the architectural strengths and ideal use cases of these models is crucial for optimizing your computer vision pipelines.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv6-3.0", "YOLO26"]'></canvas>
 
 ## YOLOv6-3.0: Industrial Throughput

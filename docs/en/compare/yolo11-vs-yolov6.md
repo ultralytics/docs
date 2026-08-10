@@ -11,9 +11,6 @@ The field of [computer vision](https://en.wikipedia.org/wiki/Computer_vision) ev
 
 This guide provides an in-depth technical analysis comparing their architectures, performance metrics, and ideal deployment scenarios to help you make an informed decision for your next AI project.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO11", "YOLOv6-3.0"]'></canvas>
 
 ## Model Overviews

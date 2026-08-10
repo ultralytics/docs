@@ -9,9 +9,6 @@ keywords: YOLOv10, YOLOv6-3.0, model comparison, object detection, Ultralytics, 
 
 The landscape of computer vision has grown increasingly complex, making the selection of an optimal model a critical decision for developers and machine learning engineers. When evaluating the [evolution of object detection and Ultralytics YOLO models](https://www.ultralytics.com/blog/the-evolution-of-object-detection-and-ultralytics-yolo-models), it is important to understand the trade-offs between different architectural approaches. This guide provides a comprehensive technical comparison between YOLOv6-3.0 and YOLOv10, two models that offer distinct advantages for industrial and edge deployments.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv6-3.0", "YOLOv10"]'></canvas>
 
 ## Unpacking YOLOv6-3.0: Built for Industrial Throughput

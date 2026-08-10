@@ -9,9 +9,6 @@ keywords: YOLOv10,RTDETRv2,object detection,model comparison,AI,computer vision,
 
 The landscape of [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) moves at a blistering pace, with new architectures constantly redefining the state of the art in real-time object detection. Two significant milestones in this evolution are YOLOv10 and RTDETRv2. Both models aim to solve a fundamental bottleneck in traditional detection pipelines by eliminating the need for Non-Maximum Suppression (NMS) post-processing, yet they approach this challenge from entirely different architectural paradigms.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "RTDETRv2"]'></canvas>
 
 This technical comparison provides an in-depth analysis of their architectures, training methodologies, and ideal deployment scenarios to help developers and researchers choose the right tool for their next [vision AI](https://www.ultralytics.com/blog) project.

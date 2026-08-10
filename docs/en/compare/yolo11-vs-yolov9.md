@@ -11,9 +11,6 @@ The landscape of computer vision is constantly evolving, with new architectures 
 
 This guide provides a comprehensive technical comparison between YOLO11 and YOLOv9, analyzing their architectures, performance metrics, and ideal deployment scenarios to help you choose the right model for your next artificial intelligence project.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO11", "YOLOv9"]'></canvas>
 
 ## Model Overview

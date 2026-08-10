@@ -9,9 +9,6 @@ keywords: DAMO-YOLO, YOLOv5, object detection, model comparison, deep learning, 
 
 The evolution of [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) has been marked by continuous innovation in real-time object detection. Today, developers and researchers are faced with a myriad of architectural choices when designing vision pipelines. This comprehensive technical comparison explores the nuances between **DAMO-YOLO** and **Ultralytics YOLOv5**, highlighting their respective architectures, training methodologies, performance metrics, and ideal deployment scenarios.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "YOLOv5"]'></canvas>
 
 ## Introduction to DAMO-YOLO

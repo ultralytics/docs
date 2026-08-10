@@ -9,9 +9,6 @@ keywords: YOLOv5, YOLOv8, Ultralytics, object detection, computer vision, YOLO m
 
 When building scalable and efficient [computer vision](https://en.wikipedia.org/wiki/Computer_vision) applications, selecting the right architecture is critical. The evolution of the [Ultralytics](https://www.ultralytics.com/) ecosystem has consistently pushed the boundaries of speed and accuracy, providing developers with robust tools for real-world deployments. This technical comparison delves into the differences between **YOLOv5** and **YOLOv8**, exploring their architectures, performance trade-offs, and ideal use cases to help you make an informed decision for your next AI project.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv5", "YOLOv8"]'></canvas>
 
 Both of these models represent significant milestones in the history of real-time [object detection](https://docs.ultralytics.com/tasks/detect), and both benefit from the highly optimized memory requirements and [ease of use](https://docs.ultralytics.com/quickstart) that characterize the Ultralytics ecosystem.

@@ -11,9 +11,6 @@ The landscape of computer vision and real-time object detection has seen remarka
 
 Whether you are deploying to constrained edge devices, researching high-fidelity feature extraction, or building complex [object detection](https://docs.ultralytics.com/tasks/detect) pipelines, understanding the architectural nuances, performance metrics, and ecosystem differences of these models is crucial.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv5", "YOLOv9"]'></canvas>
 
 ## Model Overviews

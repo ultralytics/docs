@@ -11,9 +11,6 @@ The landscape of computer vision has evolved rapidly, offering developers and re
 
 This comprehensive guide explores the architectural nuances, performance metrics, and ideal deployment scenarios for both models. Furthermore, we will examine how modern alternatives like the cutting-edge [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) build upon these foundations to deliver superior accuracy, efficiency, and ease of use.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["RTDETRv2", "YOLOX"]'></canvas>
 
 ## RTDETRv2: Real-Time Detection Transformers

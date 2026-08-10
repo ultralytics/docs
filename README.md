@@ -50,10 +50,10 @@ The badges above track the core `ultralytics` Python package documented by this 
 
 ## 🔧 Repository Tooling
 
-This repository contains selected documentation Markdown plus maintenance workflows for downloaded website checks, domain checks, and sitemap submissions. Install the lightweight Python dependencies before running repository utilities locally:
+This repository contains documentation source plus maintenance workflows for published-site checks. Install the lightweight Python dependencies before running repository utilities locally:
 
 ```bash
-pip install -r requirements.txt
+uv pip install -r requirements.txt
 ```
 
 For example, `utils/check_image_sizes.py` is used by the website link-check workflow to flag oversized images in downloaded pages.
@@ -66,7 +66,7 @@ The live documentation at [docs.ultralytics.com](https://docs.ultralytics.com/) 
 - `links_local.yml` checks repository Markdown and HTML links, with an optional broader link scan on manual runs.
 - `download_websites.yml` can download public website pages for inspection.
 
-The documentation site is built and deployed from the private `ultralytics/portal` repository, so there is no local site build in this repository — use the workflows above to check published pages.
+Production combines this repository's content with the other documentation sources, validates the complete tree with `zensical build --strict`, and renders it through Ultralytics' centralized publishing service. This repository therefore has no standalone site build; use the workflows above to check published pages.
 
 ## 💡 Contribute
 

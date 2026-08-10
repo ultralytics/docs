@@ -11,9 +11,6 @@ The rapid evolution of computer vision has produced highly efficient [object det
 
 This comprehensive technical comparison explores the distinct approaches of both models, examining their architectures, deployment potential, and performance metrics to help machine learning engineers choose the right tool for their specific [computer vision applications](https://www.ultralytics.com/blog/60-impactful-computer-vision-applications).
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "YOLOv7"]'></canvas>
 
 ## Model Origins and Metadata

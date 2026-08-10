@@ -11,9 +11,6 @@ Choosing the optimal architecture for [computer vision](https://www.ultralytics.
 
 Below is an interactive chart visualizing the performance differences between these models to help you understand their respective latency and accuracy profiles.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv6-3.0", "EfficientDet"]'></canvas>
 
 ## YOLOv6-3.0: Industrial-Grade Throughput

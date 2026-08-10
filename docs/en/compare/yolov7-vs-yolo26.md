@@ -9,9 +9,6 @@ keywords: YOLOv7, YOLO26, object detection, model comparison, computer vision, d
 
 The evolution of computer vision has been marked by significant milestones, and comparing legacy architectures with modern state-of-the-art models provides valuable insights for ML Engineers. This technical comparison delves into the differences between the highly influential [YOLOv7](https://github.com/WongKinYiu/yolov7) and the revolutionary [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26), highlighting advancements in architecture, training methodologies, and deployment efficiency.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv7", "YOLO26"]'></canvas>
 
 ## YOLOv7: The "Bag-of-Freebies" Pioneer

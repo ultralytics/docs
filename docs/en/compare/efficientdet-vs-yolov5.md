@@ -11,9 +11,6 @@ Selecting the optimal neural network architecture is a defining step in any [com
 
 By comparing their architectural innovations, training methodologies, and deployment capabilities, developers can make informed decisions for their specific deployment environments, whether scaling across cloud servers or running on constrained edge devices.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["EfficientDet", "YOLOv5"]'></canvas>
 
 ## EfficientDet: Scalable Architecture with BiFPN

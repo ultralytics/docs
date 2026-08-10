@@ -11,9 +11,6 @@ Selecting the optimal neural network architecture is the foundation of any succe
 
 Whether you are targeting millisecond latency on [edge AI](https://www.ultralytics.com/glossary/edge-ai) devices or require scalable accuracy for cloud-based inference, understanding the nuances of these models is crucial.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["EfficientDet", "YOLO11"]'></canvas>
 
 ## Model Profiles and Technical Details

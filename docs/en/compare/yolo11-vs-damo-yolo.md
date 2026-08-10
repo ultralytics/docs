@@ -9,9 +9,6 @@ keywords: YOLO11, DAMO-YOLO, object detection, model comparison, Ultralytics, pe
 
 Choosing the optimal architecture is a critical step in any [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) project. This technical guide provides a comprehensive comparison between two powerful object detection models: [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO). We will dive into their architectural innovations, training paradigms, and real-world applicability to help you select the best tool for your deployment needs.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO11", "DAMO-YOLO"]'></canvas>
 
 ## Model Overviews

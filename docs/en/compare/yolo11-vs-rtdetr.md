@@ -9,9 +9,6 @@ keywords: RTDETRv2, YOLO11, object detection, Ultralytics, Vision Transformer, Y
 
 The landscape of computer vision has expanded rapidly, offering developers a myriad of choices for building robust vision-based applications. In the realm of real-time object detection, the debate between Convolutional Neural Networks (CNNs) and Vision Transformers (ViTs) is more prominent than ever. This technical comparison delves into two leading architectures: **YOLO11**, representing the pinnacle of highly optimized CNN frameworks, and **RTDETRv2**, a powerful iteration of the Detection Transformer family.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO11", "RTDETRv2"]'></canvas>
 
 By analyzing their architectures, performance metrics, and ideal deployment scenarios, this guide aims to help machine learning engineers make informed decisions. While both models push the boundaries of accuracy, [Ultralytics YOLO](https://www.ultralytics.com/yolo) models typically offer a superior balance of speed, ecosystem support, and ease of use for real-world production.

@@ -11,9 +11,6 @@ The evolution of computer vision has been defined by the continuous push for fas
 
 This guide provides a comprehensive technical breakdown of both architectures, highlighting their performance metrics, structural differences, and ideal deployment scenarios.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv5", "YOLO26"]'></canvas>
 
 ## Model Overviews

@@ -9,9 +9,6 @@ keywords: YOLOv7, PP-YOLOE+, object detection models, model comparison, YOLO mod
 
 When evaluating state-of-the-art computer vision models for production pipelines, developers often weigh the advantages of different architectures. Two notable models in the object detection landscape are [YOLOv7](https://github.com/WongKinYiu/yolov7) and [PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md). This guide provides a detailed technical comparison of their architectures, performance metrics, and ideal deployment scenarios to help you make an informed decision for your next computer vision project.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv7", "PP-YOLOE+"]'></canvas>
 
 ## Architectural Innovations

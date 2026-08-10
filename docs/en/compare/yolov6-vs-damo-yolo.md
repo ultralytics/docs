@@ -9,9 +9,6 @@ keywords: YOLOv6-3.0, DAMO-YOLO, object detection comparison, YOLO models, compu
 
 The landscape of computer vision is constantly evolving, with new architectures pushing the boundaries of what is possible in real-time [object detection](https://docs.ultralytics.com/tasks/detect). Two notable contenders in this space are YOLOv6-3.0 and DAMO-YOLO. Both models introduce unique architectural innovations designed to maximize performance on industrial hardware. This guide provides a comprehensive technical comparison between these two models, exploring their architectures, training methodologies, and ideal use cases, while also introducing the next-generation advantages of Ultralytics models like YOLO26.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv6-3.0", "DAMO-YOLO"]'></canvas>
 
 ## Model Profiles

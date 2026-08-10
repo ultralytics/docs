@@ -11,9 +11,6 @@ Selecting the most effective neural network architecture is critical to the succ
 
 This comprehensive technical analysis explores the architectural nuances, [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics), and ideal deployment scenarios for both models. Additionally, we will illustrate why the integrated ecosystem provided by Ultralytics—culminating in the state-of-the-art [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)—offers a superior alternative for modern computer vision tasks.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["EfficientDet", "YOLOv7"]'></canvas>
 
 ## Understanding EfficientDet

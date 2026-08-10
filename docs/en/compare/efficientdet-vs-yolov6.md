@@ -11,9 +11,6 @@ Choosing the right neural network architecture is the cornerstone of any success
 
 While both architectures represented major leaps forward upon their respective releases, the rapid evolution of artificial intelligence has introduced more versatile, edge-optimized solutions. Below, we dissect the performance, training methodologies, and architectural nuances of EfficientDet and YOLOv6-3.0, and explore why developers are increasingly migrating to modern ecosystems like [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) for state-of-the-art deployment.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["EfficientDet", "YOLOv6-3.0"]'></canvas>
 
 ## EfficientDet: Scalable AutoML Architecture

@@ -44,9 +44,6 @@ YOLO11 is designed for production. While it excels at standard bounding box dete
 
 When comparing these models side-by-side, it is essential to look at how they perform across different scale variants on standard benchmarks like the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco).
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "YOLO11"]'></canvas>
 
 The table below highlights the performance differences. YOLO11 frequently edges out YOLOv10 in mAP across most size categories while maintaining highly competitive [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) inference speeds.

@@ -9,9 +9,6 @@ keywords: YOLOv5, YOLOv6-3.0, object detection, model comparison, computer visio
 
 The landscape of computer vision is constantly evolving, with new architectures pushing the boundaries of speed and accuracy. When selecting a model for your next vision AI project, developers often find themselves comparing established, versatile frameworks with highly specialized industrial detectors. This deep dive explores the technical nuances between **Ultralytics YOLOv5** and **Meituan's YOLOv6-3.0**, helping you choose the best tool for your deployment needs.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv5", "YOLOv6-3.0"]'></canvas>
 
 ## Introduction to the Models

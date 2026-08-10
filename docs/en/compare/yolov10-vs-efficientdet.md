@@ -11,9 +11,6 @@ Selecting the optimal neural network for [object detection](https://docs.ultraly
 
 This comprehensive guide dives into their unique designs, training methodologies, and deployment characteristics, helping developers and ML engineers make data-driven decisions for [vision AI applications](https://www.ultralytics.com/blog/exploring-various-types-of-data-for-vision-ai-applications). We will examine how they perform on hardware ranging from embedded [edge AI devices](https://www.ultralytics.com/glossary/edge-ai) to powerful cloud GPUs.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "EfficientDet"]'></canvas>
 
 ## YOLOv10: The NMS-Free Pioneer

@@ -11,9 +11,6 @@ When building modern [computer vision](https://www.ultralytics.com/glossary/comp
 
 By analyzing their architectural differences, performance metrics, and ideal deployment scenarios, we aim to help developers and researchers choose the best model for their specific requirements.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv7", "YOLOv5"]'></canvas>
 
 ## Model Background and Origins

@@ -9,9 +9,6 @@ keywords: YOLOv7, EfficientDet, object detection, model comparison, computer vis
 
 Selecting the optimal neural network architecture is the foundation of any successful [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) project. This guide provides a detailed technical comparison between two pivotal models in the history of [object detection architectures](https://www.ultralytics.com/glossary/object-detection-architectures): **YOLOv7** and **EfficientDet**. By examining their architectural innovations, training methodologies, and ideal deployment scenarios, developers can make informed decisions. We will also explore how modern advancements, particularly the groundbreaking [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26), have redefined the current state-of-the-art.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv7", "EfficientDet"]'></canvas>
 
 ## Model Origins and Technical Details

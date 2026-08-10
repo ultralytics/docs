@@ -11,9 +11,6 @@ The evolution of real-time [object detection](https://en.wikipedia.org/wiki/Obje
 
 This comprehensive technical comparison explores the architectural differences, [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics), and ideal deployment scenarios for both models, helping ML engineers and researchers choose the right tool for their computer vision pipelines.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv9", "YOLOv7"]'></canvas>
 
 ## Performance and Metrics Comparison

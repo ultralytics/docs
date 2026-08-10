@@ -9,9 +9,6 @@ keywords: DAMO-YOLO, YOLOv6-3.0, object detection, model comparison, real-time d
 
 The rapid evolution of computer vision has produced highly specialized architectures tailored for industrial applications. Among these, two heavyweights stand out for their focus on real-time performance and deployment efficiency: **DAMO-YOLO** and **YOLOv6-3.0**. This page provides an in-depth technical comparison of their architectures, performance metrics, and training methodologies to help you navigate your deployment choices.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "YOLOv6-3.0"]'></canvas>
 
 ## DAMO-YOLO: Neural Architecture Search Meets Object Detection

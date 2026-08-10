@@ -9,9 +9,6 @@ keywords: RTDETRv2, YOLOv8, object detection, computer vision, model comparison,
 
 The landscape of computer vision is constantly shifting, often highlighted by the ongoing rivalry between traditional Convolutional Neural Networks (CNNs) and newer Transformer-based architectures. In this comprehensive technical comparison, we examine how **RTDETRv2**, a leading vision transformer, stacks up against **Ultralytics YOLOv8**, one of the most widely adopted and versatile CNN models in the industry. Both models offer powerful capabilities for engineers and researchers, but their underlying architectures lead to distinct differences in training methodologies, deployment constraints, and overall performance.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["RTDETRv2", "YOLOv8"]'></canvas>
 
 ---

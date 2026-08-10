@@ -9,9 +9,6 @@ keywords: YOLOv7, YOLOv6-3.0, object detection, model comparison, computer visio
 
 The field of computer vision is constantly evolving, with new object detection models continuously pushing the boundaries of speed and accuracy. Two significant milestones in this journey are YOLOv7 and YOLOv6-3.0. Both models introduced unique architectural innovations designed to maximize throughput and precision for real-world applications. This page provides an in-depth technical analysis of both architectures, comparing their performance, training methodologies, and ideal use cases to help you make an informed decision for your next artificial intelligence project.
 
-<script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script defer src="../../javascript/benchmark.js"></script>
-
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv7", "YOLOv6-3.0"]'></canvas>
 
 ## YOLOv7: The Bag-of-Freebies Pioneer
