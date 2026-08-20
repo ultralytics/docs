@@ -157,6 +157,6 @@ Key advancements in YOLO26 include:
 - **Up to 43% Faster CPU Inference:** Specifically optimized for edge computing and low-power devices.
 - **DFL Removal:** Distribution Focal Loss has been removed, ensuring simpler exports and enhanced compatibility with diverse deployment targets.
 - **MuSGD Optimizer:** A hybrid of SGD and Muon, bringing advanced LLM training stability and faster convergence directly into computer vision.
-- **ProgLoss + STAL:** Drastically improved loss functions that offer notable enhancements in small-object recognition, which is essential for use cases like [agriculture](https://www.ultralytics.com/solutions/ai-in-agriculture) and remote sensing.
+- **ProgLoss + STAL:** Drastically improved loss functions that offer notable enhancements in small-object recognition, which is essential for use cases like [agriculture](https://www.ultralytics.com/solutions/computer-vision-in-agriculture) and remote sensing.
 
 By utilizing the newly revamped [Ultralytics Platform](https://docs.ultralytics.com/platform), developers can seamlessly annotate, train, and deploy next-generation models like YOLO26 in just a few clicks, ensuring your computer vision pipeline is both cutting-edge and future-proof.

@@ -27,7 +27,7 @@ Developed by the Vision AI Department at Meituan, [YOLOv6-3.0](https://docs.ultr
 
 YOLOv6-3.0 introduced several key modifications to enhance feature fusion and hardware efficiency. The architecture incorporates a **Bi-directional Concatenation (BiC)** module in its neck, which provides more accurate localization signals. It also utilizes an **Anchor-Aided Training (AAT)** strategy. This approach combines the rich guidance of anchor-based training with the inference speed of an anchor-free paradigm, yielding better performance without slowing down deployment.
 
-The backbone is based on an EfficientRep design, meticulously optimized to be hardware-friendly for GPU inference. This makes it highly capable for [industrial manufacturing](https://www.ultralytics.com/solutions/ai-in-manufacturing) scenarios where heavy batch processing is the norm.
+The backbone is based on an EfficientRep design, meticulously optimized to be hardware-friendly for GPU inference. This makes it highly capable for [industrial manufacturing](https://www.ultralytics.com/solutions/computer-vision-in-manufacturing) scenarios where heavy batch processing is the norm.
 
 ### Strengths and Weaknesses
 

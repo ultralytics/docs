@@ -127,7 +127,7 @@ Choosing between these models depends largely on your project's lifecycle stage 
 
 ### When to Choose YOLOv5
 
-- **Maintaining Legacy Codebases:** If your production environment is heavily customized around the YOLOv5 repository structure or specific [hyperparameter evolution](https://docs.ultralytics.com/yolov5/tutorials/hyperparameter_evolution) techniques.
+- **Maintaining Legacy Codebases:** If your production environment is heavily customized around the YOLOv5 repository structure or specific [hyperparameter evolution](https://docs.ultralytics.com/yolov5/tutorials/hyperparameter-evolution) techniques.
 - **Academic Baselines:** When publishing research that requires direct benchmarking against established 2020-2022 computer vision standards.
 
 ### When to Choose YOLO11

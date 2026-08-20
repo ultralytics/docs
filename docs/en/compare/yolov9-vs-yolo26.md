@@ -113,7 +113,7 @@ Choosing between these models often comes down to the environment in which they 
 
 ### IoT and Edge Robotics
 
-For robotics, autonomous drones, and smart home IoT devices, **YOLO26 is the undisputed champion**. The integration of **ProgLoss + STAL** brings notable improvements to small-object recognition, which is critical for [agricultural monitoring](https://www.ultralytics.com/solutions/ai-in-agriculture) from high-altitude drones. Combined with its 43% faster CPU inference and NMS-free design, YOLO26 can run fluidly on hardware without dedicated GPUs.
+For robotics, autonomous drones, and smart home IoT devices, **YOLO26 is the undisputed champion**. The integration of **ProgLoss + STAL** brings notable improvements to small-object recognition, which is critical for [agricultural monitoring](https://www.ultralytics.com/solutions/computer-vision-in-agriculture) from high-altitude drones. Combined with its 43% faster CPU inference and NMS-free design, YOLO26 can run fluidly on hardware without dedicated GPUs.
 
 ### Academic Research and Gradient Analysis
 

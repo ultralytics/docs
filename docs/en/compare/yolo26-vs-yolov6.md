@@ -77,7 +77,7 @@ As seen in the data, YOLO26 consistently achieves a higher mAP at roughly half t
 
 Training methodologies differ vastly between the two frameworks. YOLO26 introduces the **MuSGD Optimizer**, a hybrid of SGD and Muon inspired by Moonshot AI's Kimi K2. This brings LLM training innovations directly into computer vision, resulting in more stable training and incredibly fast convergence rates.
 
-Furthermore, YOLO26 utilizes **ProgLoss + STAL** loss functions. These advanced loss functions yield notable improvements in small-object recognition, which is critical for [AI in agriculture](https://www.ultralytics.com/solutions/ai-in-agriculture) and high-altitude drone imagery.
+Furthermore, YOLO26 utilizes **ProgLoss + STAL** loss functions. These advanced loss functions yield notable improvements in small-object recognition, which is critical for [AI in agriculture](https://www.ultralytics.com/solutions/computer-vision-in-agriculture) and high-altitude drone imagery.
 
 Conversely, YOLOv6-3.0 utilizes a heavy self-distillation strategy. While effective, it generally demands longer training schedules and more computational overhead to reach optimal accuracy.
 

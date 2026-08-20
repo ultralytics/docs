@@ -96,7 +96,7 @@ Furthermore, YOLOv5's versatility extends beyond bounding boxes. Through continu
 
 ## Ideal Use Cases
 
-- **Choose YOLOv5 when:** You need rapid prototyping, a frictionless training experience, and highly optimized edge deployment. It is ideal for drones, [retail analytics](https://www.ultralytics.com/solutions/ai-in-retail), and mobile applications where low latency is critical.
+- **Choose YOLOv5 when:** You need rapid prototyping, a frictionless training experience, and highly optimized edge deployment. It is ideal for drones, [retail analytics](https://www.ultralytics.com/solutions/computer-vision-in-retail), and mobile applications where low latency is critical.
 - **Choose EfficientDet when:** You are operating strictly within a Google Cloud/TensorFlow AutoML environment and require maximum accuracy per parameter without strict real-time latency constraints.
 
 ## The Next Generation: Embracing YOLO26
@@ -108,7 +108,7 @@ Building upon the legacy of its predecessors (like [YOLOv8](https://platform.ult
 - **End-to-End NMS-Free Design:** YOLO26 natively eliminates the need for Non-Maximum Suppression post-processing. This significantly reduces latency variance and simplifies deployment architecture.
 - **Up to 43% Faster CPU Inference:** Heavily optimized for [edge AI](https://www.ultralytics.com/glossary/edge-ai), it brings unprecedented speeds to low-power edge devices and standard CPUs without dedicated GPUs.
 - **MuSGD Optimizer:** Inspired by Large Language Model (LLM) training techniques, this hybrid of SGD and Muon ensures highly stable training and rapid convergence.
-- **Advanced Loss Functions:** The integration of ProgLoss and STAL drastically improves the recognition of small targets, which is vital for high-altitude drone imagery and [robotics](https://www.ultralytics.com/solutions/ai-in-robotics).
+- **Advanced Loss Functions:** The integration of ProgLoss and STAL drastically improves the recognition of small targets, which is vital for high-altitude drone imagery and [robotics](https://www.ultralytics.com/solutions/computer-vision-in-robotics).
 - **DFL Removal:** By removing Distribution Focal Loss, the model export process is streamlined, further enhancing compatibility across diverse hardware accelerators.
 
 Users interested in exploring other recent architectures within the Ultralytics ecosystem might also compare models like [YOLOv10](https://docs.ultralytics.com/models/yolov10) or [RT-DETR](https://docs.ultralytics.com/models/rtdetr).

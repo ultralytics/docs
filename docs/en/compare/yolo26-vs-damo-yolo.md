@@ -109,11 +109,11 @@ Choosing between these architectures ultimately depends on your deployment envir
 
 ### Edge AI and IoT Devices
 
-For smart retail cameras, automated agricultural monitors, or [robotics](https://www.ultralytics.com/solutions/ai-in-robotics), compute resources are strictly limited. Here, **YOLO26** is the definitive choice. Its 43% faster CPU inference, completely NMS-free pipeline, and tiny parameter footprint allow it to run smoothly on edge devices like the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) without sacrificing critical accuracy.
+For smart retail cameras, automated agricultural monitors, or [robotics](https://www.ultralytics.com/solutions/computer-vision-in-robotics), compute resources are strictly limited. Here, **YOLO26** is the definitive choice. Its 43% faster CPU inference, completely NMS-free pipeline, and tiny parameter footprint allow it to run smoothly on edge devices like the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) without sacrificing critical accuracy.
 
 ### High-Speed Manufacturing and Quality Control
 
-In fast-paced [manufacturing automation](https://www.ultralytics.com/solutions/ai-in-manufacturing) lines, detecting defects on fast-moving conveyor belts requires minimal, deterministic latency. While DAMO-YOLO can perform adequately on specific GPU configurations, the fluctuating latency introduced by traditional NMS post-processing can desynchronize robotic actuators. YOLO26’s end-to-end nature guarantees consistent, predictable frame processing times, ensuring a flawless integration into high-speed industrial robotics.
+In fast-paced [manufacturing automation](https://www.ultralytics.com/solutions/computer-vision-in-manufacturing) lines, detecting defects on fast-moving conveyor belts requires minimal, deterministic latency. While DAMO-YOLO can perform adequately on specific GPU configurations, the fluctuating latency introduced by traditional NMS post-processing can desynchronize robotic actuators. YOLO26’s end-to-end nature guarantees consistent, predictable frame processing times, ensuring a flawless integration into high-speed industrial robotics.
 
 ### Drone and Aerial Imagery
 

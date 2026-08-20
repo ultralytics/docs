@@ -72,7 +72,7 @@ A model's architecture is only half the equation; the ecosystem surrounding it d
 
 **Ease of Use:** Ultralytics provides a unified, highly intuitive Python API. You can train, validate, and deploy models with minimal boilerplate, backed by extensive [official documentation](https://docs.ultralytics.com).
 **Well-Maintained Ecosystem:** Active development ensures constant updates, bug fixes, and seamless integration with modern tracking tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases).
-**Training Efficiency:** Utilizing optimized data loaders and [smart caching](https://docs.ultralytics.com/guides/preprocessing_annotated_data), YOLOv5 drastically reduces training times. Moreover, ready-to-use pre-trained weights accelerate transfer learning across various domains.
+**Training Efficiency:** Utilizing optimized data loaders and [smart caching](https://docs.ultralytics.com/guides/preprocessing-annotated-data), YOLOv5 drastically reduces training times. Moreover, ready-to-use pre-trained weights accelerate transfer learning across various domains.
 
 ### Code Example: Streamlined Training
 

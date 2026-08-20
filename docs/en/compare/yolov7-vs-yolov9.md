@@ -117,7 +117,7 @@ The decision between YOLOv7 and YOLOv9 often depends on your specific industry c
 ### When to Utilize YOLOv7
 
 - **Legacy Edge Deployments:** For hardware environments already heavily tuned and optimized for YOLOv7's E-ELAN architecture, it remains a robust choice for [industrial IoT](https://www.ultralytics.com/blog/industrial-iot-iiot-internet-of-things-explained).
-- **Traffic Monitoring:** YOLOv7's high frame rates and proven stability make it excellent for smart city infrastructure and [real-time traffic management](https://www.ultralytics.com/solutions/ai-in-logistics).
+- **Traffic Monitoring:** YOLOv7's high frame rates and proven stability make it excellent for smart city infrastructure and [real-time traffic management](https://www.ultralytics.com/solutions/computer-vision-in-logistics).
 - **Robotics Integration:** Navigating dynamic environments requires low-latency processing, a scenario where YOLOv7 variants have been heavily tested.
 
 ### When to Utilize YOLOv9

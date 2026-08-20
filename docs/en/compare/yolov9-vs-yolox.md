@@ -7,7 +7,7 @@ keywords: YOLOv9, YOLOX, object detection, model comparison, computer vision, YO
 
 # YOLOv9 vs YOLOX
 
-The field of computer vision has witnessed a rapid evolution in real-time object detection architectures. This guide provides a comprehensive comparison between **[YOLOv9](https://docs.ultralytics.com/models/yolov9)** and **YOLOX**, analyzing their architectural innovations, performance metrics, and training methodologies. Whether you are building smart applications for [AI in manufacturing](https://www.ultralytics.com/solutions/ai-in-manufacturing) or exploring [predictive modeling](https://www.ultralytics.com/glossary/predictive-modeling), understanding these models will help you make informed decisions for your next deployment.
+The field of computer vision has witnessed a rapid evolution in real-time object detection architectures. This guide provides a comprehensive comparison between **[YOLOv9](https://docs.ultralytics.com/models/yolov9)** and **YOLOX**, analyzing their architectural innovations, performance metrics, and training methodologies. Whether you are building smart applications for [AI in manufacturing](https://www.ultralytics.com/solutions/computer-vision-in-manufacturing) or exploring [predictive modeling](https://www.ultralytics.com/glossary/predictive-modeling), understanding these models will help you make informed decisions for your next deployment.
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv9", "YOLOX"]'></canvas>
 
@@ -100,7 +100,7 @@ The specific strengths of these models tailor them to distinct real-world applic
 
 ### High-Speed Retail Analytics
 
-For modern retail environments requiring real-time product recognition, **YOLOv9** excels. Its ability to retain intricate feature details makes it perfectly suited for [AI in retail](https://www.ultralytics.com/solutions/ai-in-retail) deployments where distinguishing between visually similar products on a crowded shelf is necessary.
+For modern retail environments requiring real-time product recognition, **YOLOv9** excels. Its ability to retain intricate feature details makes it perfectly suited for [AI in retail](https://www.ultralytics.com/solutions/computer-vision-in-retail) deployments where distinguishing between visually similar products on a crowded shelf is necessary.
 
 ### Legacy Edge Deployments
 
@@ -108,7 +108,7 @@ In scenarios governed by strict hardware limitations or specialized NPUs that st
 
 ### Autonomous Robotics
 
-For robotics navigation, missing small objects can be catastrophic. The GELAN architecture within YOLOv9 ensures that features of small, distant obstacles aren't lost in the network's deep layers, outperforming older models in critical safety environments like [AI in automotive](https://www.ultralytics.com/solutions/ai-in-automotive) applications.
+For robotics navigation, missing small objects can be catastrophic. The GELAN architecture within YOLOv9 ensures that features of small, distant obstacles aren't lost in the network's deep layers, outperforming older models in critical safety environments like [AI in automotive](https://www.ultralytics.com/solutions/computer-vision-in-automotive) applications.
 
 ## Use Cases and Recommendations
 

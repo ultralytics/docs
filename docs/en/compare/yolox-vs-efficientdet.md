@@ -155,7 +155,7 @@ EfficientDet remains a subject of academic interest for environments where infer
 
 ### When to Consider YOLOX
 
-YOLOX is suitable for applications requiring a balance of speed and accuracy without the complexities of anchor boxes. It has historically performed well in [industrial manufacturing](https://www.ultralytics.com/solutions/ai-in-manufacturing) scenarios where rapid defect detection on conveyor belts is required.
+YOLOX is suitable for applications requiring a balance of speed and accuracy without the complexities of anchor boxes. It has historically performed well in [industrial manufacturing](https://www.ultralytics.com/solutions/computer-vision-in-manufacturing) scenarios where rapid defect detection on conveyor belts is required.
 
 ### Why YOLO26 is the Superior Choice
 

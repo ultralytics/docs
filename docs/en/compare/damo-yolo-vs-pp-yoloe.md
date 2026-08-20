@@ -92,7 +92,7 @@ DAMO-YOLO is ideal for high-throughput edge inference where latency is the ultim
 
 ### When to use PP-YOLOE+
 
-PP-YOLOE+ shines when you are already deeply invested in the Baidu ecosystem or are running large-scale server deployments. Its impressive mAP makes it suitable for complex [medical image analysis](https://www.ultralytics.com/glossary/medical-image-analysis) or dense [manufacturing defect detection](https://www.ultralytics.com/solutions/ai-in-manufacturing).
+PP-YOLOE+ shines when you are already deeply invested in the Baidu ecosystem or are running large-scale server deployments. Its impressive mAP makes it suitable for complex [medical image analysis](https://www.ultralytics.com/glossary/medical-image-analysis) or dense [manufacturing defect detection](https://www.ultralytics.com/solutions/computer-vision-in-manufacturing).
 
 ### The Ultralytics Advantage
 

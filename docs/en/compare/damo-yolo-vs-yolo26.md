@@ -42,7 +42,7 @@ Ultralytics YOLO26 introduces several groundbreaking features that make it the d
 - **Up to 43% Faster CPU Inference:** Architecturally optimized for edge computing, YOLO26 delivers exceptional speed on edge devices and standard [CPUs](https://docs.ultralytics.com/reference/utils/cpu), making it perfect for battery-powered IoT devices.
 - **MuSGD Optimizer:** Inspired by LLM training (like Moonshot AI's Kimi K2), YOLO26 incorporates a hybrid of SGD and Muon. This brings large language model training stability to computer vision, resulting in faster and more reliable convergence.
 - **DFL Removal:** By removing Distribution Focal Loss, the model graph is simplified, allowing for frictionless export to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx) and [TensorRT](https://docs.ultralytics.com/integrations/tensorrt).
-- **ProgLoss + STAL:** These advanced loss functions provide notable improvements in small-object recognition, a critical feature for [drone operations](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations) and [agriculture](https://www.ultralytics.com/solutions/ai-in-agriculture).
+- **ProgLoss + STAL:** These advanced loss functions provide notable improvements in small-object recognition, a critical feature for [drone operations](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations) and [agriculture](https://www.ultralytics.com/solutions/computer-vision-in-agriculture).
 
 !!! tip "Task-Specific Enhancements"
 

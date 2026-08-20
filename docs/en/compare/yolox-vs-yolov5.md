@@ -130,8 +130,8 @@ YOLOX remains a strong candidate in academic settings where researchers are expl
 YOLOv5 is the undisputed champion of practical deployment.
 
 - **High-Speed Manufacturing:** For assembly line [defect detection](https://www.ultralytics.com/blog/how-vision-ai-enhances-defect-detection-on-production-lines), YOLOv5's minimal inference latency on edge GPUs ensures products are inspected without slowing down the belt.
-- **Drone and Aerial Imagery:** Its efficient memory footprint allows it to run on lightweight companion computers on drones for tasks like [agriculture monitoring](https://www.ultralytics.com/solutions/ai-in-agriculture) and wildlife tracking.
-- **Smart Retail:** From [automated checkout](https://www.ultralytics.com/solutions/ai-in-retail) to inventory management, YOLOv5 easily exports to [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) and [ONNX](https://docs.ultralytics.com/integrations/onnx) for mass deployment across thousands of store cameras.
+- **Drone and Aerial Imagery:** Its efficient memory footprint allows it to run on lightweight companion computers on drones for tasks like [agriculture monitoring](https://www.ultralytics.com/solutions/computer-vision-in-agriculture) and wildlife tracking.
+- **Smart Retail:** From [automated checkout](https://www.ultralytics.com/solutions/computer-vision-in-retail) to inventory management, YOLOv5 easily exports to [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) and [ONNX](https://docs.ultralytics.com/integrations/onnx) for mass deployment across thousands of store cameras.
 
 ## Looking Forward: The YOLO26 Advantage
 

@@ -104,7 +104,7 @@ The integrated Ultralytics ecosystem outshines fragmented academic repositories 
 - **DFL Removal:** By removing Distribution Focal Loss, YOLO26 simplifies export processes to edge devices, drastically lowering the memory requirements for lightweight applications.
 - **MuSGD Optimizer:** YOLO26 borrows LLM training innovations with its hybrid SGD and Muon optimizer, ensuring rock-solid training stability and ultra-fast convergence.
 - **Up to 43% Faster CPU Inference:** Thanks to deep structural optimizations, YOLO26 runs blazingly fast on CPUs without needing expensive GPU hardware.
-- **Advanced Loss Functions:** The integration of ProgLoss + STAL provides massive improvements in small-object recognition, making it ideal for tasks like [drone inspections](https://www.ultralytics.com/solutions/ai-in-agriculture) and IoT monitoring.
+- **Advanced Loss Functions:** The integration of ProgLoss + STAL provides massive improvements in small-object recognition, making it ideal for tasks like [drone inspections](https://www.ultralytics.com/solutions/computer-vision-in-agriculture) and IoT monitoring.
 - **Versatility:** Unlike DAMO-YOLO, which is strictly a detector, YOLO26 natively supports [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), [Image Classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) tasks in a single, unified framework.
 
 !!! tip "Start Building Instantly"
@@ -133,7 +133,7 @@ model.export(format="openvino")
 
 The computer vision ecosystem is vast. Depending on your specific constraints, you might also want to explore other architectures fully supported by the Ultralytics ecosystem:
 
-- **[YOLO11](https://platform.ultralytics.com/ultralytics/yolo11):** The highly capable predecessor to YOLO26, known for its robustness in [retail analytics](https://www.ultralytics.com/solutions/ai-in-retail) and [manufacturing quality control](https://www.ultralytics.com/solutions/ai-in-manufacturing).
+- **[YOLO11](https://platform.ultralytics.com/ultralytics/yolo11):** The highly capable predecessor to YOLO26, known for its robustness in [retail analytics](https://www.ultralytics.com/solutions/computer-vision-in-retail) and [manufacturing quality control](https://www.ultralytics.com/solutions/computer-vision-in-manufacturing).
 - **[YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8):** A legendary, highly stable anchor-free model that popularized widespread edge deployment.
 - **[RT-DETR](https://docs.ultralytics.com/models/rtdetr):** A Real-Time DEtection TRansformer developed by Baidu, offering an excellent alternative for tasks that benefit heavily from global attention mechanisms, albeit at the cost of higher training memory requirements.
 

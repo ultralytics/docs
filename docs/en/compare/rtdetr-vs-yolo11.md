@@ -108,9 +108,9 @@ RTDETRv2's Transformer backbone is highly effective in scenarios with dense, hea
 **Where YOLO11 Dominates:**
 YOLO11 is the undisputed champion of practical, real-world deployment. Its minimal memory footprint and blazing-fast inference speeds make it ideal for:
 
-- **[Smart Manufacturing](https://www.ultralytics.com/solutions/ai-in-manufacturing):** Running real-time defect detection on production lines using industrial PCs.
-- **[Agriculture](https://www.ultralytics.com/solutions/ai-in-agriculture):** Deploying on drones for real-time crop health monitoring and automated harvesting robotics.
-- **[Retail Analytics](https://www.ultralytics.com/solutions/ai-in-retail):** Processing multiple camera streams concurrently for queue management and inventory tracking without requiring massive server farms.
+- **[Smart Manufacturing](https://www.ultralytics.com/solutions/computer-vision-in-manufacturing):** Running real-time defect detection on production lines using industrial PCs.
+- **[Agriculture](https://www.ultralytics.com/solutions/computer-vision-in-agriculture):** Deploying on drones for real-time crop health monitoring and automated harvesting robotics.
+- **[Retail Analytics](https://www.ultralytics.com/solutions/computer-vision-in-retail):** Processing multiple camera streams concurrently for queue management and inventory tracking without requiring massive server farms.
 
 ## Use Cases and Recommendations
 

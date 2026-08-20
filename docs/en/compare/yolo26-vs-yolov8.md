@@ -109,7 +109,7 @@ For edge environments—such as [Raspberry Pi deployments](https://docs.ultralyt
 
 ### High-Altitude and Aerial Imagery
 
-In [agricultural monitoring](https://www.ultralytics.com/solutions/ai-in-agriculture) or infrastructure inspection via drones, small object detection is paramount. The **ProgLoss + STAL** implementation in **YOLO26** allows it to consistently detect tiny pests or micro-fractures in pipelines that older architectures like YOLOv8 might miss, offering superior recall and precision on datasets like [VisDrone](https://docs.ultralytics.com/datasets/detect/visdrone).
+In [agricultural monitoring](https://www.ultralytics.com/solutions/computer-vision-in-agriculture) or infrastructure inspection via drones, small object detection is paramount. The **ProgLoss + STAL** implementation in **YOLO26** allows it to consistently detect tiny pests or micro-fractures in pipelines that older architectures like YOLOv8 might miss, offering superior recall and precision on datasets like [VisDrone](https://docs.ultralytics.com/datasets/detect/visdrone).
 
 ### Legacy GPU Systems
 

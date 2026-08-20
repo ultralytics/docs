@@ -133,7 +133,7 @@ Furthermore, YOLO26 utilizes the groundbreaking **MuSGD Optimizer**, a hybrid of
 
 The choice between YOLOv8 and YOLOv9 largely depends on your project constraints and target hardware.
 
-- **Healthcare and Medical Imaging:** When every pixel counts, such as in [tumor detection systems](https://www.ultralytics.com/solutions/ai-in-healthcare), YOLOv9's GELAN architecture preserves fine-grained details exceptionally well, reducing false negatives in critical diagnoses.
-- **Retail and Inventory Analytics:** For [smart supermarket systems](https://www.ultralytics.com/solutions/ai-in-retail) tracking densely packed shelves, YOLOv9 provides the necessary mAP to separate overlapping items reliably.
-- **Smart Cities and Traffic Monitoring:** In fast-paced [logistics and traffic management](https://www.ultralytics.com/solutions/ai-in-logistics), the ultra-low latency and proven robustness of YOLOv8 make it ideal for tracking vehicles across multiple camera streams simultaneously.
+- **Healthcare and Medical Imaging:** When every pixel counts, such as in [tumor detection systems](https://www.ultralytics.com/solutions/computer-vision-in-healthcare), YOLOv9's GELAN architecture preserves fine-grained details exceptionally well, reducing false negatives in critical diagnoses.
+- **Retail and Inventory Analytics:** For [smart supermarket systems](https://www.ultralytics.com/solutions/computer-vision-in-retail) tracking densely packed shelves, YOLOv9 provides the necessary mAP to separate overlapping items reliably.
+- **Smart Cities and Traffic Monitoring:** In fast-paced [logistics and traffic management](https://www.ultralytics.com/solutions/computer-vision-in-logistics), the ultra-low latency and proven robustness of YOLOv8 make it ideal for tracking vehicles across multiple camera streams simultaneously.
 - **Edge Deployments:** If you are deploying to constrained devices like a Raspberry Pi or [mobile hardware](https://docs.ultralytics.com/integrations/tflite), the highly optimized C2f blocks of YOLOv8 (and the CPU optimizations of YOLO26) provide a much smoother, battery-friendly inference pipeline.

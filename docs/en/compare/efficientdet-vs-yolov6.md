@@ -51,7 +51,7 @@ YOLOv6-3.0 replaces traditional modules with the **Bi-directional Concatenation 
 
 ### Strengths and Weaknesses
 
-Built on the hardware-friendly EfficientRep backbone, YOLOv6-3.0 excels in high-speed industrial [manufacturing environments](https://www.ultralytics.com/solutions/ai-in-manufacturing) where batch processing on dedicated GPUs is possible. However, its heavy reliance on re-parameterization operations can lead to significant drops in speed when deployed on edge devices or environments relying strictly on CPU computations.
+Built on the hardware-friendly EfficientRep backbone, YOLOv6-3.0 excels in high-speed industrial [manufacturing environments](https://www.ultralytics.com/solutions/computer-vision-in-manufacturing) where batch processing on dedicated GPUs is possible. However, its heavy reliance on re-parameterization operations can lead to significant drops in speed when deployed on edge devices or environments relying strictly on CPU computations.
 
 [Learn more about YOLOv6-3.0](https://docs.ultralytics.com/models/yolov6){ .md-button }
 

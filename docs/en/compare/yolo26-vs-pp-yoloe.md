@@ -119,7 +119,7 @@ Deciding between YOLO26 and PP-YOLOE+ depends largely on the constraints of your
 **When to deploy YOLO26:**
 
 - **Edge Devices and IoT:** YOLO26's up to 43% faster CPU speeds make it the ultimate choice for [smart cameras](https://www.ultralytics.com/blog/the-cutting-edge-world-of-ai-security-cameras), drones, and low-power [robotics](https://www.ultralytics.com/blog/from-algorithms-to-automation-ais-role-in-robotics).
-- **Time-Critical Deployments:** The natively NMS-free architecture guarantees stable, ultra-low latency inference, crucial for [autonomous driving research](https://www.ultralytics.com/blog/ai-in-self-driving-cars) and high-speed [manufacturing quality control](https://www.ultralytics.com/solutions/ai-in-manufacturing).
+- **Time-Critical Deployments:** The natively NMS-free architecture guarantees stable, ultra-low latency inference, crucial for [autonomous driving research](https://www.ultralytics.com/blog/ai-in-self-driving-cars) and high-speed [manufacturing quality control](https://www.ultralytics.com/solutions/computer-vision-in-manufacturing).
 - **Multi-Task Projects:** When a project requires a blend of object detection, precise masking via segmentation, or keypoint tracking via pose estimation, the unified YOLO26 framework is indispensable.
 
 ## Use Cases and Recommendations

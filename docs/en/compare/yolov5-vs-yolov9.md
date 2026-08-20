@@ -126,7 +126,7 @@ YOLOv5 is a battle-hardened veteran that shines in deployments prioritizing stab
 
 YOLOv9 is ideal for scenarios where capturing intricate details and minimizing false negatives is absolutely critical, even if it requires slightly more compute overhead.
 
-- **Aerial and Satellite Imagery:** The PGI framework is highly adept at maintaining the fidelity of small objects, making YOLOv9 excellent for drone-based [agricultural monitoring](https://www.ultralytics.com/solutions/ai-in-agriculture).
+- **Aerial and Satellite Imagery:** The PGI framework is highly adept at maintaining the fidelity of small objects, making YOLOv9 excellent for drone-based [agricultural monitoring](https://www.ultralytics.com/solutions/computer-vision-in-agriculture).
 - **Medical Imaging Diagnostics:** When detecting minute anomalies or lesions in high-resolution scans, the accurate gradient flow of GELAN provides a necessary edge in recall.
 - **High-End Retail Analytics:** Tracking overlapping products on dense shelves benefits significantly from YOLOv9's superior feature retention capabilities.
 

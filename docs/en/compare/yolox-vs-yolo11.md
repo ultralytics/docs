@@ -102,7 +102,7 @@ Choosing between these models often depends on the specifics of the deployment e
 
 ### When to use YOLO11
 
-- **Production Deployments:** For commercial applications in [smart retail](https://www.ultralytics.com/solutions/ai-in-retail) or [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system), where robust, maintained code and high accuracy are non-negotiable.
+- **Production Deployments:** For commercial applications in [smart retail](https://www.ultralytics.com/solutions/computer-vision-in-retail) or [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system), where robust, maintained code and high accuracy are non-negotiable.
 - **Multi-Task Pipelines:** When a project requires tracking objects, estimating human poses, and segmenting instances using a single, unified framework.
 - **Resource-Constrained Edge Devices:** Because of its low parameter count and high throughput, YOLO11 is ideal for deployment on [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) or mobile edge nodes via [CoreML](https://docs.ultralytics.com/integrations/coreml) and [NCNN](https://docs.ultralytics.com/integrations/ncnn).
 

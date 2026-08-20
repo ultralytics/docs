@@ -124,7 +124,7 @@ YOLO26 is the definitive choice for modern, greenfield projects. It is specifica
 
 - **Edge Computing and IoT:** Its staggering CPU performance and DFL removal make it the king of devices like Raspberry Pi, Coral NPUs, and mobile processors.
 - **Drone and Aerial Analytics:** The integration of ProgLoss + STAL makes it uniquely capable of tracking tiny, fast-moving objects across expansive landscapes.
-- **Latency-Critical Applications:** In autonomous robotics or [manufacturing quality control](https://www.ultralytics.com/solutions/ai-in-manufacturing), the NMS-free design ensures deterministic latency without unexpected post-processing spikes.
+- **Latency-Critical Applications:** In autonomous robotics or [manufacturing quality control](https://www.ultralytics.com/solutions/computer-vision-in-manufacturing), the NMS-free design ensures deterministic latency without unexpected post-processing spikes.
 
 ### When to Retain YOLO11
 

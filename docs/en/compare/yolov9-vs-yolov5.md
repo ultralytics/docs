@@ -55,7 +55,7 @@ When designing a computer vision pipeline, developers must weigh the trade-offs 
 
 ### Analyzing the Trade-offs
 
-YOLOv9 establishes absolute dominance in raw precision. The **YOLOv9e** pushes the boundaries of mAP to 55.6%, utilizing its GELAN layers to preserve fine-grained details. This makes it an exceptional choice for [medical imaging](https://www.ultralytics.com/solutions/ai-in-healthcare) or scenarios demanding rigorous accuracy on small objects.
+YOLOv9 establishes absolute dominance in raw precision. The **YOLOv9e** pushes the boundaries of mAP to 55.6%, utilizing its GELAN layers to preserve fine-grained details. This makes it an exceptional choice for [medical imaging](https://www.ultralytics.com/solutions/computer-vision-in-healthcare) or scenarios demanding rigorous accuracy on small objects.
 
 Conversely, **YOLOv5** shines in its raw deployment speed and hardware flexibility. The YOLOv5n (Nano) is famously lightweight, executing inferences in just 1.12ms on a T4 GPU via [TensorRT](https://docs.ultralytics.com/integrations/tensorrt). If you are deploying to constrained IoT devices, mobile phones, or [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi), the memory footprint of YOLOv5 makes it extraordinarily reliable.
 

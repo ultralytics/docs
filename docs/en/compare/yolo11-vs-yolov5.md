@@ -121,7 +121,7 @@ Despite the newer generation, YOLOv5 remains a powerhouse. It is highly recommen
 YOLO11 represents the ideal choice for modern production pipelines due to its incredible versatility:
 
 - **Multi-Task Environments:** Unlike YOLOv5, which is primarily a detector (with later segmentation additions), YOLO11 natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection out of the box.
-- **High-Density Video Analytics:** Ideal for intelligent traffic systems or [retail inventory management](https://www.ultralytics.com/solutions/ai-in-retail) where extracting maximum precision from complex scenes is critical.
+- **High-Density Video Analytics:** Ideal for intelligent traffic systems or [retail inventory management](https://www.ultralytics.com/solutions/computer-vision-in-retail) where extracting maximum precision from complex scenes is critical.
 
 ## Looking Forward: The YOLO26 Architecture
 

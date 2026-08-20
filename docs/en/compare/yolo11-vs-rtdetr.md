@@ -29,7 +29,7 @@ Introduced by Ultralytics, YOLO11 builds upon years of foundational research to 
 
 YOLO11 features a refined CNN backbone and advanced spatial feature pyramids, making it exceptionally resource-efficient. It thrives in environments with strict hardware constraints, offering a minimal memory footprint during both training and inference. The [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo11) provides native support for YOLO11, enabling streamlined model monitoring, data annotation, and cloud training without needing to stitch together disparate MLops tools.
 
-For developers targeting [edge computing](https://docs.ultralytics.com/guides/model-deployment-options), YOLO11 boasts ultra-low latency. Its lightweight nature allows it to run efficiently on devices ranging from Raspberry Pis to consumer-grade mobile phones, making it a standard for smart retail, [manufacturing quality control](https://www.ultralytics.com/solutions/ai-in-manufacturing), and automated traffic management.
+For developers targeting [edge computing](https://docs.ultralytics.com/guides/model-deployment-options), YOLO11 boasts ultra-low latency. Its lightweight nature allows it to run efficiently on devices ranging from Raspberry Pis to consumer-grade mobile phones, making it a standard for smart retail, [manufacturing quality control](https://www.ultralytics.com/solutions/computer-vision-in-manufacturing), and automated traffic management.
 
 ## RTDETRv2: Real-Time Transformers by Baidu
 
@@ -145,7 +145,7 @@ YOLO26 also introduces several revolutionary features:
 
 - **MuSGD Optimizer:** Inspired by the LLM training techniques of Moonshot AI's Kimi K2, this hybrid of SGD and Muon ensures incredibly stable training and dramatically faster convergence.
 - **DFL Removal:** Distribution Focal Loss has been removed for a cleaner, simplified export process, drastically improving low-power edge device compatibility.
-- **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, a critical requirement for drone surveillance, [agricultural monitoring](https://www.ultralytics.com/solutions/ai-in-agriculture), and IoT edge sensors.
+- **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, a critical requirement for drone surveillance, [agricultural monitoring](https://www.ultralytics.com/solutions/computer-vision-in-agriculture), and IoT edge sensors.
 - **Up to 43% Faster CPU Inference:** For deployments lacking dedicated GPUs, YOLO26 is specifically optimized for CPU execution, vastly outperforming previous generations.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
