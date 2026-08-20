@@ -23,7 +23,7 @@ Released in September 2024 by Glenn Jocher and Jing Qiu at [Ultralytics](https:/
 - **Organization:** Ultralytics
 - **Date:** 2024-09-27
 - **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- **Docs:** [https://docs.ultralytics.com/models/yolo11/](https://docs.ultralytics.com/models/yolo11)
+- **Docs:** [https://docs.ultralytics.com/models/yolo11](https://docs.ultralytics.com/models/yolo11)
 
 YOLO11 goes beyond standard bounding boxes, natively supporting [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection. Its refined architecture optimizes feature extraction to ensure better feature retention across complex spatial hierarchies.
 

@@ -74,7 +74,7 @@ When comparing these models, it is essential to look at the balance of accuracy,
 
 ## The Ultralytics Advantage: Introducing YOLO26
 
-While YOLOv6-3.0 and YOLOv9 provide robust architectures, production environments demand a well-maintained ecosystem, low memory requirements, and exceptional ease of use. This is where [Ultralytics Platform](https://platform.ultralytics.com/) and models like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and the cutting-edge YOLO26 excel.
+While YOLOv6-3.0 and YOLOv9 provide robust architectures, production environments demand a well-maintained ecosystem, low memory requirements, and exceptional ease of use. This is where [Ultralytics Platform](https://platform.ultralytics.com) and models like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and the cutting-edge YOLO26 excel.
 
 Released in early 2026, YOLO26 fundamentally redefines deployment efficiency by eliminating legacy bottlenecks.
 
@@ -116,4 +116,4 @@ Choosing the right architecture depends entirely on your target deployment envir
 - **Use YOLOv9 for:** Academic research or competitions where wringing out the absolute highest mAP on standardized datasets like COCO is the primary goal.
 - **Use YOLO26 for:** Almost all modern commercial applications. Its NMS-free architecture, low memory footprint, and high-speed CPU inference make it perfect for [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system), smart retail, and real-time [object tracking](https://docs.ultralytics.com/modes/track) on embedded devices.
 
-By leveraging the comprehensive [Ultralytics ecosystem](https://docs.ultralytics.com/), developers can easily experiment with [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8), YOLO11, and YOLO26 to find the perfect performance balance for their specific real-world challenges.
+By leveraging the comprehensive [Ultralytics ecosystem](https://docs.ultralytics.com), developers can easily experiment with [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8), YOLO11, and YOLO26 to find the perfect performance balance for their specific real-world challenges.

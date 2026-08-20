@@ -22,10 +22,10 @@ Before diving into the technical nuances, it is important to understand the orig
 The Ultralytics YOLOv8 architecture represents a unified, multi-task framework designed from the ground up for exceptional developer experience and versatility. It builds upon years of research and community feedback from previous iterations.
 
 - Authors: Glenn Jocher, Ayush Chaurasia, and Jing Qiu
-- Organization: [Ultralytics](https://www.ultralytics.com/)
+- Organization: [Ultralytics](https://www.ultralytics.com)
 - Date: 2023-01-10
 - GitHub: [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- Docs: [https://docs.ultralytics.com/models/yolov8/](https://docs.ultralytics.com/models/yolov8)
+- Docs: [https://docs.ultralytics.com/models/yolov8](https://docs.ultralytics.com/models/yolov8)
 
 [Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
@@ -38,13 +38,13 @@ Originally introduced for industrial applications at Meituan, YOLOv6 received a 
 - Date: 2023-01-13
 - Arxiv: [https://arxiv.org/abs/2301.05586](https://arxiv.org/abs/2301.05586)
 - GitHub: [https://github.com/meituan/YOLOv6](https://github.com/meituan/YOLOv6)
-- Docs: [https://docs.ultralytics.com/models/yolov6/](https://docs.ultralytics.com/models/yolov6)
+- Docs: [https://docs.ultralytics.com/models/yolov6](https://docs.ultralytics.com/models/yolov6)
 
 [Learn more about YOLOv6-3.0](https://docs.ultralytics.com/models/yolov6){ .md-button }
 
 !!! tip "Streamlined Management"
 
-    Managing datasets, training sessions, and model deployments is vastly simplified using the [Ultralytics Platform](https://platform.ultralytics.com/). It provides an end-to-end interface that minimizes the boilerplate code typically required in MLOps workflows.
+    Managing datasets, training sessions, and model deployments is vastly simplified using the [Ultralytics Platform](https://platform.ultralytics.com). It provides an end-to-end interface that minimizes the boilerplate code typically required in MLOps workflows.
 
 ## Architecture and Training Methodologies
 
@@ -152,6 +152,6 @@ Training stability and convergence speed have also seen massive upgrades thanks 
 
 ## Conclusion
 
-Choosing between YOLOv8 and YOLOv6-3.0 ultimately depends on the priorities of your deployment pipeline. YOLOv6-3.0 is a highly capable model for strict TensorRT environments where raw GPU speed is the absolute priority. However, for the vast majority of teams, the **Ultralytics YOLOv8** model presents the superior choice. Its combination of lower training memory requirements, multi-task versatility, and an industry-leading ecosystem provided by the [Ultralytics Platform](https://platform.ultralytics.com/) drastically reduces time-to-market.
+Choosing between YOLOv8 and YOLOv6-3.0 ultimately depends on the priorities of your deployment pipeline. YOLOv6-3.0 is a highly capable model for strict TensorRT environments where raw GPU speed is the absolute priority. However, for the vast majority of teams, the **Ultralytics YOLOv8** model presents the superior choice. Its combination of lower training memory requirements, multi-task versatility, and an industry-leading ecosystem provided by the [Ultralytics Platform](https://platform.ultralytics.com) drastically reduces time-to-market.
 
 For developers who want the absolute peak of modern efficiency, seamlessly transitioning to [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) provides an unparalleled, NMS-free experience that future-proofs any computer vision application.

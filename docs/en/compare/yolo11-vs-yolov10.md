@@ -16,10 +16,10 @@ The landscape of real-time computer vision is constantly evolving, with new arch
 **YOLO11 Details:**
 
 - Authors: Glenn Jocher and Jing Qiu
-- Organization: [Ultralytics](https://www.ultralytics.com/)
+- Organization: [Ultralytics](https://www.ultralytics.com)
 - Date: 2024-09-27
 - GitHub: [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- Docs: [https://docs.ultralytics.com/models/yolo11/](https://docs.ultralytics.com/models/yolo11)
+- Docs: [https://docs.ultralytics.com/models/yolo11](https://docs.ultralytics.com/models/yolo11)
 
 Introduced as a versatile powerhouse, YOLO11 builds upon years of foundational research in [computer vision and AI](https://www.ultralytics.com/blog/a-quick-overview-of-vision-ai-and-how-it-works). The core design philosophy of YOLO11 revolves around feature richness and extreme versatility across multiple [computer vision tasks](https://www.ultralytics.com/blog/all-you-need-to-know-about-computer-vision-tasks).
 
@@ -38,7 +38,7 @@ YOLO11 utilizes an anchor-free design that minimizes the complexity of hyperpara
 - Date: 2024-05-23
 - Arxiv: [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)
 - GitHub: [https://github.com/THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
-- Docs: [https://docs.ultralytics.com/models/yolov10/](https://docs.ultralytics.com/models/yolov10)
+- Docs: [https://docs.ultralytics.com/models/yolov10](https://docs.ultralytics.com/models/yolov10)
 
 Developed by researchers at Tsinghua University, YOLOv10 made waves as an end-to-end pioneer in the YOLO family. The hallmark of YOLOv10 is its **NMS-Free Training** methodology. By employing consistent dual assignments during the training phase, the model naturally predicts exactly one bounding box per object. This breakthrough completely eliminates the need for [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) during inference, a post-processing step that historically introduced latency bottlenecks in deployment pipelines.
 

@@ -22,7 +22,7 @@ The transition from YOLOv8 to YOLO11 introduced several key architectural refine
 YOLO11 represents a significant leap forward in optimizing parameter usage. It replaces the traditional C2f modules with advanced C3k2 blocks, which enhance spatial feature processing without ballooning the parameter count. Additionally, YOLO11 introduces the C2PSA (Cross-Stage Partial Spatial Attention) module within its backbone. This attention mechanism allows the model to focus on critical regions of interest, drastically improving [small object detection](https://www.ultralytics.com/blog/exploring-small-object-detection-with-ultralytics-yolo11) and handling complex occlusions.
 
 - **Authors:** Glenn Jocher and Jing Qiu
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2024-09-27
 - **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
 - **Documentation:** [YOLO11 Docs](https://docs.ultralytics.com/models/yolo11)
@@ -34,7 +34,7 @@ YOLO11 represents a significant leap forward in optimizing parameter usage. It r
 Launched a year earlier, YOLOv8 pioneered the transition to an anchor-free detection head, which eliminated the need to manually tune anchor boxes and simplified the loss formulation. Its architecture relies heavily on the C2f block, a design that successfully balanced network depth and gradient flow, making it incredibly robust across a wide range of [computer vision applications](https://viso.ai/applications/computer-vision-applications/).
 
 - **Authors:** Glenn Jocher, Ayush Chaurasia, and Jing Qiu
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2023-01-10
 - **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
 - **Documentation:** [YOLOv8 Docs](https://docs.ultralytics.com/models/yolov8)

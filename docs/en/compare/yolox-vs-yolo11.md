@@ -33,7 +33,7 @@ While YOLOX offers excellent accuracy for its time, it primarily focuses on boun
 
 ## Ultralytics YOLO11 Overview
 
-Released on September 27, 2024, by Glenn Jocher and Jing Qiu at [Ultralytics](https://www.ultralytics.com/), YOLO11 is a state-of-the-art model that redefines versatility and ease of use in computer vision. Built on years of foundation research, it provides a highly refined, production-ready solution that excels across a multitude of tasks.
+Released on September 27, 2024, by Glenn Jocher and Jing Qiu at [Ultralytics](https://www.ultralytics.com), YOLO11 is a state-of-the-art model that redefines versatility and ease of use in computer vision. Built on years of foundation research, it provides a highly refined, production-ready solution that excels across a multitude of tasks.
 
 ### The Ultralytics Advantage
 
@@ -89,7 +89,7 @@ results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 model.export(format="engine")
 ```
 
-This well-maintained ecosystem is backed by extensive [documentation](https://docs.ultralytics.com/) and seamless integration with tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases) for [experiment tracking](https://www.ultralytics.com/glossary/experiment-tracking).
+This well-maintained ecosystem is backed by extensive [documentation](https://docs.ultralytics.com) and seamless integration with tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases) for [experiment tracking](https://www.ultralytics.com/glossary/experiment-tracking).
 
 ## Ideal Use Cases
 

@@ -35,7 +35,7 @@ During the training phase, YOLOv6 incorporates an Anchor-Aided Training (AAT) st
 Released by Ultralytics, YOLOv8 represents a paradigm shift from specialized bounding box detectors to a unified, multi-modal vision framework. It delivers an exceptional balance of accuracy, speed, and usability out of the box.
 
 - **Authors:** Glenn Jocher, Ayush Chaurasia, and Jing Qiu
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2023-01-10
 - **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 - **Platform:** [Ultralytics Platform YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8)
@@ -99,7 +99,7 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 
 ## The Ultralytics Advantage: Ecosystem and Ease of Use
 
-While raw inference speed is important, the lifecycle of a machine learning project involves data management, training, exporting, and monitoring. The integrated [Ultralytics Platform](https://platform.ultralytics.com/) provides a seamless "zero-to-hero" experience that research-only repositories struggle to match.
+While raw inference speed is important, the lifecycle of a machine learning project involves data management, training, exporting, and monitoring. The integrated [Ultralytics Platform](https://platform.ultralytics.com) provides a seamless "zero-to-hero" experience that research-only repositories struggle to match.
 
 - **Well-Maintained Ecosystem:** Ultralytics provides frequent updates, ensuring compatibility with the latest [PyTorch](https://pytorch.org/) releases and hardware drivers.
 - **Ease of Use:** A unified Python API allows developers to train and export models to formats like [ONNX](https://onnx.ai/) and [OpenVINO](https://docs.ultralytics.com/integrations/openvino) with a single line of code.

@@ -18,7 +18,7 @@ By analyzing their architectures, performance metrics, and ideal deployment scen
 Introduced by Ultralytics, YOLO11 builds upon years of foundational research to deliver a model that is fast, accurate, and incredibly versatile. It is engineered to seamlessly handle [object detection](https://docs.ultralytics.com/tasks/detect), [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding box (OBB)](https://docs.ultralytics.com/tasks/obb) extraction natively.
 
 - **Authors:** Glenn Jocher and Jing Qiu
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2024-09-27
 - **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLO11 Documentation](https://docs.ultralytics.com/models/yolo11)

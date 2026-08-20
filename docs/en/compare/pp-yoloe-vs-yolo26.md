@@ -31,7 +31,7 @@ Understanding the origins and design philosophies behind these models provides c
 **YOLO26 Details:**
 
 - **Authors:** Glenn Jocher and Jing Qiu
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** January 14, 2026
 - **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26)
@@ -87,7 +87,7 @@ _Note: Bold values highlight the best-performing metrics across all models._
 
 ## The Ultralytics Advantage: Ecosystem and Ease of Use
 
-While raw metrics are important, the developer experience often dictates project success. The **[Ultralytics Platform](https://platform.ultralytics.com/)** provides a well-maintained ecosystem that completely outclasses older frameworks.
+While raw metrics are important, the developer experience often dictates project success. The **[Ultralytics Platform](https://platform.ultralytics.com)** provides a well-maintained ecosystem that completely outclasses older frameworks.
 
 1. **Ease of Use:** Ultralytics abstracts away complex boilerplate code. Training YOLO26 takes only a few lines of Python, avoiding the dense configuration files required by PP-YOLOE+.
 2. **Versatility:** PP-YOLOE+ is primarily an [object detection](https://docs.ultralytics.com/tasks/detect) architecture. YOLO26 offers out-of-the-box support for segmentation, classification, pose estimation, and OBB.

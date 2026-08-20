@@ -18,7 +18,7 @@ Whether you are deploying to edge devices or scaling cloud inference, understand
 Released in early 2023, YOLOv8 represented a major architectural shift from its predecessors. It was designed from the ground up to serve as a unified framework capable of handling multiple vision tasks natively, including [instance segmentation](https://docs.ultralytics.com/tasks/segment), image classification, and [pose estimation](https://docs.ultralytics.com/tasks/pose).
 
 - **Authors:** Glenn Jocher, Ayush Chaurasia, and Jing Qiu
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2023-01-10
 - **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLOv8 Documentation](https://docs.ultralytics.com/models/yolov8)
@@ -52,7 +52,7 @@ The architecture features a **C2f module** (Cross-Stage Partial bottleneck with 
 Introduced in 2020, YOLOv5 brought YOLO to the [PyTorch](https://pytorch.org/) ecosystem, drastically improving developer accessibility. It quickly became the industry standard for fast, reliable, and easily deployable object detection models.
 
 - **Author:** Glenn Jocher
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2020-06-26
 - **GitHub:** [ultralytics/yolov5](https://github.com/ultralytics/yolov5)
 - **Docs:** [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5)
@@ -117,7 +117,7 @@ results = model.train(data="coco8.yaml", epochs=100, imgsz=640, device=0)
 path = model.export(format="onnx")
 ```
 
-Furthermore, integration with tools like [Ultralytics Platform](https://platform.ultralytics.com/) simplifies dataset management, cloud training, and deployment, ensuring active development and strong community support.
+Furthermore, integration with tools like [Ultralytics Platform](https://platform.ultralytics.com) simplifies dataset management, cloud training, and deployment, ensuring active development and strong community support.
 
 ## Ideal Use Cases
 

@@ -15,7 +15,7 @@ When selecting a state-of-the-art computer vision model, finding the optimal bal
 
 ### Ultralytics YOLO26: The Edge-First Vision Standard
 
-Developed by Glenn Jocher and Jing Qiu at [Ultralytics](https://www.ultralytics.com/) and released on January 14, 2026, YOLO26 represents a massive leap forward in the YOLO lineage. It is engineered from the ground up for edge computing, seamlessly blending cutting-edge LLM training practices with advanced vision architectures.
+Developed by Glenn Jocher and Jing Qiu at [Ultralytics](https://www.ultralytics.com) and released on January 14, 2026, YOLO26 represents a massive leap forward in the YOLO lineage. It is engineered from the ground up for edge computing, seamlessly blending cutting-edge LLM training practices with advanced vision architectures.
 
 Key architectural breakthroughs of YOLO26 include:
 

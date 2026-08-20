@@ -66,7 +66,7 @@ YOLOv6-3.0 demonstrates exceptional speed on NVIDIA GPUs utilizing [TensorRT](ht
 
 ## The Ultralytics Advantage: Enter YOLO26
 
-While YOLOv6-3.0 and DAMO-YOLO are powerful tools, developers often face challenges with complex deployment pipelines, high memory requirements during training, and rigid, single-task architectures. The [Ultralytics ecosystem](https://docs.ultralytics.com/) provides a significantly more streamlined developer experience.
+While YOLOv6-3.0 and DAMO-YOLO are powerful tools, developers often face challenges with complex deployment pipelines, high memory requirements during training, and rigid, single-task architectures. The [Ultralytics ecosystem](https://docs.ultralytics.com) provides a significantly more streamlined developer experience.
 
 With the release of **YOLO26**, Ultralytics has redefined state-of-the-art vision AI. Released in January 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) pushes the boundaries of efficiency and versatility.
 
@@ -123,13 +123,13 @@ Choosing the right architecture depends entirely on your deployment constraints:
 ### When to use Ultralytics YOLO26
 
 - **Edge and Mobile Deployments:** The NMS-free design, DFL removal, and 43% CPU speed boost make it the undisputed champion for iOS, Android, and [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) integrations.
-- **Rapid Prototyping to Production:** The seamless integration with the [Ultralytics Platform](https://platform.ultralytics.com/) enables teams to go from dataset annotation to global cloud deployment in days, not months.
+- **Rapid Prototyping to Production:** The seamless integration with the [Ultralytics Platform](https://platform.ultralytics.com) enables teams to go from dataset annotation to global cloud deployment in days, not months.
 - **Complex Vision Pipelines:** When a project requires detecting bounding boxes alongside human pose keypoints and precise segmentation masks simultaneously.
 
 ## Conclusion
 
 Both YOLOv6-3.0 and DAMO-YOLO have contributed significantly to the science of real-time object detection. YOLOv6 refined GPU maximization, while DAMO-YOLO showcased the power of automated architecture search.
 
-However, for developers seeking the ultimate blend of accuracy, inference speed, and ecosystem maintainability, the [Ultralytics YOLO](https://www.ultralytics.com/) family remains the premier choice. With the groundbreaking optimizations introduced in **YOLO26**, the barrier to entry for creating enterprise-grade computer vision applications has never been lower.
+However, for developers seeking the ultimate blend of accuracy, inference speed, and ecosystem maintainability, the [Ultralytics YOLO](https://www.ultralytics.com) family remains the premier choice. With the groundbreaking optimizations introduced in **YOLO26**, the barrier to entry for creating enterprise-grade computer vision applications has never been lower.
 
 For further exploration, you might also be interested in comparing these models to other architectures in our documentation, such as [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or transformer-based approaches like [RT-DETR](https://docs.ultralytics.com/models/rtdetr).

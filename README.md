@@ -1,8 +1,8 @@
-<a href="https://www.ultralytics.com/" target="_blank"><img src="https://raw.githubusercontent.com/ultralytics/assets/main/logo/Ultralytics_Logotype_Original.svg" width="320" alt="Ultralytics logo"></a>
+<a href="https://www.ultralytics.com" target="_blank"><img src="https://raw.githubusercontent.com/ultralytics/assets/main/logo/Ultralytics_Logotype_Original.svg" width="320" alt="Ultralytics logo"></a>
 
 # 📚 Ultralytics Docs
 
-Welcome to Ultralytics Docs, your comprehensive resource for understanding and utilizing our state-of-the-art [machine learning](https://www.ultralytics.com/glossary/machine-learning-ml) tools and models, including [Ultralytics YOLO](https://docs.ultralytics.com/models/). These documents are actively maintained and deployed to [https://docs.ultralytics.com](https://docs.ultralytics.com/) for easy access.
+Welcome to Ultralytics Docs, your comprehensive resource for understanding and utilizing our state-of-the-art [machine learning](https://www.ultralytics.com/glossary/machine-learning-ml) tools and models, including [Ultralytics YOLO](https://docs.ultralytics.com/models). These documents are actively maintained and deployed to [https://docs.ultralytics.com](https://docs.ultralytics.com) for easy access.
 
 [![Ultralytics Actions](https://github.com/ultralytics/docs/actions/workflows/format.yml/badge.svg)](https://github.com/ultralytics/docs/actions/workflows/format.yml)
 [![jsDelivr hits](https://data.jsdelivr.com/v1/package/gh/ultralytics/llm/badge?style=rounded)](https://www.jsdelivr.com/package/gh/ultralytics/llm)
@@ -10,7 +10,7 @@ Welcome to Ultralytics Docs, your comprehensive resource for understanding and u
 [![Check Broken links](https://github.com/ultralytics/docs/actions/workflows/links.yml/badge.svg)](https://github.com/ultralytics/docs/actions/workflows/links.yml)
 
 [![Ultralytics Discord](https://img.shields.io/discord/1089800235347353640?logo=discord&logoColor=white&label=Discord&color=blue)](https://discord.com/invite/ultralytics)
-[![Ultralytics Forums](https://img.shields.io/discourse/users?server=https%3A%2F%2Fcommunity.ultralytics.com&logo=discourse&label=Forums&color=blue)](https://community.ultralytics.com/)
+[![Ultralytics Forums](https://img.shields.io/discourse/users?server=https%3A%2F%2Fcommunity.ultralytics.com&logo=discourse&label=Forums&color=blue)](https://community.ultralytics.com)
 [![Ultralytics Reddit](https://img.shields.io/reddit/subreddit-subscribers/ultralytics?style=flat&logo=reddit&logoColor=white&label=Reddit&color=blue)](https://reddit.com/r/ultralytics)
 
 ## 🛠️ Ultralytics Package
@@ -60,7 +60,7 @@ For example, `utils/check_image_sizes.py` is used by the website link-check work
 
 ## 🌍 Website Checks
 
-The live documentation at [docs.ultralytics.com](https://docs.ultralytics.com/) is maintained with scheduled and manual workflows in `.github/workflows/`:
+The live documentation at [docs.ultralytics.com](https://docs.ultralytics.com) is maintained with scheduled and manual workflows in `.github/workflows/`:
 
 - `links.yml` downloads rendered pages for `www.ultralytics.com`, `docs.ultralytics.com`, `academy.ultralytics.com`, and `handbook.ultralytics.com`, then checks links, spelling, and large images.
 - `links_local.yml` checks repository Markdown and HTML links, with an optional broader link scan on manual runs.

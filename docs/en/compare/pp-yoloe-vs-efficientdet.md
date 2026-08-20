@@ -115,7 +115,7 @@ YOLO26 represents a massive leap forward in object detection, introducing severa
 
 ### Ease of Use and Ecosystem Integration
 
-One of the largest drawbacks of legacy models like EfficientDet is the complexity of their training pipelines and [automated machine learning](https://www.ultralytics.com/glossary/automated-machine-learning-automl) setups. In contrast, the [Ultralytics Platform](https://platform.ultralytics.com/) offers an unmatched developer experience.
+One of the largest drawbacks of legacy models like EfficientDet is the complexity of their training pipelines and [automated machine learning](https://www.ultralytics.com/glossary/automated-machine-learning-automl) setups. In contrast, the [Ultralytics Platform](https://platform.ultralytics.com) offers an unmatched developer experience.
 
 Deploying a model with Ultralytics takes just a few lines of code, providing a stark contrast to the verbose configurations required by older frameworks.
 

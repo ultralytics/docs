@@ -74,7 +74,7 @@ When benchmarking these two powerhouses on the standard MS COCO dataset, distinc
 
 ## The Ultralytics Advantage: Training and Ecosystem
 
-While architectural differences are critical, the surrounding software ecosystem heavily dictates a project's success. Both YOLOv9 and YOLOv10 are fully integrated into the [Ultralytics ecosystem](https://docs.ultralytics.com/), providing an unparalleled developer experience.
+While architectural differences are critical, the surrounding software ecosystem heavily dictates a project's success. Both YOLOv9 and YOLOv10 are fully integrated into the [Ultralytics ecosystem](https://docs.ultralytics.com), providing an unparalleled developer experience.
 
 ### Ease of Use and Memory Efficiency
 

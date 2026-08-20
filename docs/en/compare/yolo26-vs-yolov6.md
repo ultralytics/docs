@@ -18,7 +18,7 @@ Before diving into performance metrics, it is helpful to understand the backgrou
 **YOLO26**
 
 - Authors: Glenn Jocher and Jing Qiu
-- Organization: [Ultralytics](https://www.ultralytics.com/)
+- Organization: [Ultralytics](https://www.ultralytics.com)
 - Date: 2026-01-14
 - GitHub: [Ultralytics GitHub Repository](https://github.com/ultralytics/ultralytics)
 - Docs: [YOLO26 Official Documentation](https://docs.ultralytics.com/models/yolo26)
@@ -129,4 +129,4 @@ If you are exploring the broader landscape of computer vision, you may also be i
 
 ## Summary
 
-Both YOLOv6-3.0 and YOLO26 represent monumental engineering achievements. However, for modern applications requiring rapid development, low memory overhead, and seamless deployment across heterogeneous edge devices, Ultralytics YOLO26 is the superior choice. Its natively end-to-end design, revolutionary MuSGD optimizer, and integration with the powerful [Ultralytics ecosystem](https://docs.ultralytics.com/) empower teams to bring state-of-the-art vision AI to production faster than ever before.
+Both YOLOv6-3.0 and YOLO26 represent monumental engineering achievements. However, for modern applications requiring rapid development, low memory overhead, and seamless deployment across heterogeneous edge devices, Ultralytics YOLO26 is the superior choice. Its natively end-to-end design, revolutionary MuSGD optimizer, and integration with the powerful [Ultralytics ecosystem](https://docs.ultralytics.com) empower teams to bring state-of-the-art vision AI to production faster than ever before.

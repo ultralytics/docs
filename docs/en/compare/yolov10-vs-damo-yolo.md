@@ -24,7 +24,7 @@ Introduced by researchers at Tsinghua University, [YOLOv10](https://docs.ultraly
 - Date: 2024-05-23
 - Arxiv: [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)
 - GitHub: [https://github.com/THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
-- Docs: [https://docs.ultralytics.com/models/yolov10/](https://docs.ultralytics.com/models/yolov10)
+- Docs: [https://docs.ultralytics.com/models/yolov10](https://docs.ultralytics.com/models/yolov10)
 
 ### Key Architectural Features
 
@@ -128,11 +128,11 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 
 ## The Ultralytics Advantage
 
-While both models are technically impressive, choosing an architecture for production involves looking beyond raw metrics. Building with models natively supported by the [Ultralytics ecosystem](https://docs.ultralytics.com/) provides unmatched advantages for developers and researchers alike.
+While both models are technically impressive, choosing an architecture for production involves looking beyond raw metrics. Building with models natively supported by the [Ultralytics ecosystem](https://docs.ultralytics.com) provides unmatched advantages for developers and researchers alike.
 
 ### Ease of Use and Well-Maintained Ecosystem
 
-Unlike standalone academic repositories that often face abandonment, Ultralytics offers a robust, actively maintained ecosystem. Setting up complex environments for models relying heavily on NAS pipelines can be daunting. In contrast, Ultralytics provides a standardized, intuitive Python API and powerful CLI, backed by extensive [documentation](https://docs.ultralytics.com/). This radically reduces the time-to-market for custom vision solutions.
+Unlike standalone academic repositories that often face abandonment, Ultralytics offers a robust, actively maintained ecosystem. Setting up complex environments for models relying heavily on NAS pipelines can be daunting. In contrast, Ultralytics provides a standardized, intuitive Python API and powerful CLI, backed by extensive [documentation](https://docs.ultralytics.com). This radically reduces the time-to-market for custom vision solutions.
 
 ### Training Efficiency and Memory Requirements
 

@@ -76,7 +76,7 @@ As demonstrated above, YOLO26 offers a vastly superior **Performance Balance**. 
 
 Choosing an architecture is rarely just about theoretical FLOPs; it is heavily dependent on the engineering workflows. Developers routinely favor Ultralytics due to the unmatched **Ease of Use**.
 
-EfficientDet training often requires complex dependency management, manual hyperparameter tuning, and legacy TensorFlow setups. Conversely, [Ultralytics models](https://docs.ultralytics.com/models) feature an elegantly simple API. This seamless experience extends directly into the [Ultralytics Platform](https://platform.ultralytics.com/), which handles cloud training, data annotation, and real-time experiment tracking out-of-the-box.
+EfficientDet training often requires complex dependency management, manual hyperparameter tuning, and legacy TensorFlow setups. Conversely, [Ultralytics models](https://docs.ultralytics.com/models) feature an elegantly simple API. This seamless experience extends directly into the [Ultralytics Platform](https://platform.ultralytics.com), which handles cloud training, data annotation, and real-time experiment tracking out-of-the-box.
 
 Furthermore, transformer-based detectors and complex AutoML models suffer from exorbitant memory consumption. Ultralytics models are renowned for their highly efficient **Memory Requirements**, meaning you can train robust models on consumer-grade hardware without encountering out-of-memory (OOM) errors.
 
@@ -139,4 +139,4 @@ print(f"Model seamlessly exported to: {exported_path}")
 
 When comparing EfficientDet and YOLO26, the trajectory of the industry is clear. EfficientDet remains an important historical stepping stone in compound scaling research. However, for modern applications—whether deployed on cloud clusters or constrained [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) devices—the choice is heavily skewed toward Ultralytics.
 
-By eliminating NMS, optimizing for drastically lower VRAM, and wrapping the technology in a world-class developer ecosystem, YOLO26 is definitively the recommended architecture for robust, production-ready computer vision. Whether you are detecting manufacturing defects or mapping agricultural yields, the [Ultralytics Platform](https://platform.ultralytics.com/) ensures you get from dataset to deployment with unrivaled speed and accuracy.
+By eliminating NMS, optimizing for drastically lower VRAM, and wrapping the technology in a world-class developer ecosystem, YOLO26 is definitively the recommended architecture for robust, production-ready computer vision. Whether you are detecting manufacturing defects or mapping agricultural yields, the [Ultralytics Platform](https://platform.ultralytics.com) ensures you get from dataset to deployment with unrivaled speed and accuracy.

@@ -38,7 +38,7 @@ YOLOv9 brought a strong academic focus on deep learning information bottlenecks,
 YOLO11 was designed from the ground up for production environments, focusing on a balance of top-tier accuracy, real-world deployment speeds, and multi-task versatility.
 
 - **Authors:** Glenn Jocher and Jing Qiu
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** September 27, 2024
 - **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 

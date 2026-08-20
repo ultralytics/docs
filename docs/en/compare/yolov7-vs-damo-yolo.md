@@ -24,7 +24,7 @@ Developed as a continuation of the YOLO family, YOLOv7 introduced the concept of
 - **Date:** 2022-07-06
 - **Arxiv:** [https://arxiv.org/abs/2207.02696](https://arxiv.org/abs/2207.02696)
 - **GitHub:** [https://github.com/WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
-- **Docs:** [https://docs.ultralytics.com/models/yolov7/](https://docs.ultralytics.com/models/yolov7)
+- **Docs:** [https://docs.ultralytics.com/models/yolov7](https://docs.ultralytics.com/models/yolov7)
 
 [Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 
@@ -78,7 +78,7 @@ In contrast, models integrated into the Ultralytics ecosystem, such as YOLOv7 an
 
 ## The Ultralytics Advantage
 
-While both YOLOv7 and DAMO-YOLO offer compelling features, deploying models within the [Ultralytics ecosystem](https://www.ultralytics.com/) provides an unparalleled developer experience.
+While both YOLOv7 and DAMO-YOLO offer compelling features, deploying models within the [Ultralytics ecosystem](https://www.ultralytics.com) provides an unparalleled developer experience.
 
 - **Ease of Use:** The Ultralytics Python package offers a unified, simple API. You can quickly switch between model architectures, start [training loops](https://docs.ultralytics.com/modes/train), or run [inference](https://docs.ultralytics.com/modes/predict) with a few lines of code.
 - **Well-Maintained Ecosystem:** Ultralytics provides frequent updates, ensuring native compatibility with the latest [PyTorch](https://pytorch.org/) releases and CUDA drivers. It also simplifies exporting models to formats like [ONNX](https://onnx.ai/), [TensorRT](https://developer.nvidia.com/tensorrt), and [OpenVINO](https://docs.ultralytics.com/integrations/openvino).

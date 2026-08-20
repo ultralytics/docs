@@ -146,4 +146,4 @@ If you are beginning a new project, you should also consider the next generation
 
 YOLO26 features the **MuSGD Optimizer**—inspired by LLM training innovations—for incredibly stable and fast convergence, and delivers up to **43% Faster CPU Inference** by removing Distribution Focal Loss (DFL). With its specialized **ProgLoss + STAL** loss functions vastly improving small-object recognition, YOLO26 is the ultimate recommendation for any modern computer vision pipeline.
 
-Whether you choose YOLO11 for its proven versatility, RTDETRv2 for its attention mechanisms, or the cutting-edge YOLO26 for ultimate edge performance, the [Ultralytics documentation](https://docs.ultralytics.com/) provides all the resources needed to succeed in your computer vision journey.
+Whether you choose YOLO11 for its proven versatility, RTDETRv2 for its attention mechanisms, or the cutting-edge YOLO26 for ultimate edge performance, the [Ultralytics documentation](https://docs.ultralytics.com) provides all the resources needed to succeed in your computer vision journey.

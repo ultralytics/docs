@@ -22,7 +22,7 @@ Before diving into the metrics, it is crucial to understand the origins and prim
 Released by the team at [Ultralytics](https://www.ultralytics.com/about), YOLOv8 was designed not just as a standalone object detector, but as a unified, multi-task framework. It prioritizes a seamless developer experience, low memory requirements, and broad hardware compatibility.
 
 - **Authors:** Glenn Jocher, Ayush Chaurasia, and Jing Qiu
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2023-01-10
 - **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 - **Documentation:** [YOLOv8 Docs](https://docs.ultralytics.com/models/yolov8)

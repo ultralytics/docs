@@ -33,7 +33,7 @@ Organization: [Tsinghua University](https://www.tsinghua.edu.cn/en/)
 Date: 2024-05-23  
 Arxiv: [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)  
 GitHub: [https://github.com/THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)  
-Docs: [https://docs.ultralytics.com/models/yolov10/](https://docs.ultralytics.com/models/yolov10)
+Docs: [https://docs.ultralytics.com/models/yolov10](https://docs.ultralytics.com/models/yolov10)
 
 [Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10){ .md-button }
 

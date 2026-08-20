@@ -150,7 +150,7 @@ model.export(format="engine")
 
 !!! info "Explore the Ultralytics Platform"
 
-    For teams looking for a no-code solution, the [Ultralytics Platform](https://platform.ultralytics.com/) provides cloud-based training, integrated dataset annotation, and one-click deployment for all your YOLO models.
+    For teams looking for a no-code solution, the [Ultralytics Platform](https://platform.ultralytics.com) provides cloud-based training, integrated dataset annotation, and one-click deployment for all your YOLO models.
 
 ## Conclusion
 

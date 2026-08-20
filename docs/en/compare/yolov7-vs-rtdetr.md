@@ -134,7 +134,7 @@ Choosing the right architecture depends heavily on deployment constraints and ha
 
 **When to choose Ultralytics YOLO26:**
 
-- **Almost always.** It offers the NMS-free determinism of RTDETRv2, exceeds the speed and accuracy of YOLOv7, uses significantly less VRAM, and is fully integrated into the [Ultralytics Platform](https://platform.ultralytics.com/) for effortless dataset management, training, and deployment.
+- **Almost always.** It offers the NMS-free determinism of RTDETRv2, exceeds the speed and accuracy of YOLOv7, uses significantly less VRAM, and is fully integrated into the [Ultralytics Platform](https://platform.ultralytics.com) for effortless dataset management, training, and deployment.
 
 !!! tip "Explore More Models"
 

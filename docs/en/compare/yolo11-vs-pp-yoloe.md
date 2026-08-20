@@ -22,7 +22,7 @@ Understanding the origins and design philosophies of these models provides valua
 Developed by Ultralytics, YOLO11 represents a highly refined iteration of the YOLO series, prioritizing a balance of high-speed inference, extreme parameter efficiency, and unmatched ease of use. It is widely recognized for its unified multi-task capabilities and developer-friendly Python API.
 
 - **Authors:** Glenn Jocher and Jing Qiu
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2024-09-27
 - **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLO11 Documentation](https://docs.ultralytics.com/models/yolo11)

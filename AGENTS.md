@@ -2,7 +2,7 @@
 
 This file provides guidance to AI coding agents (Claude Code, etc.) when working with code in this repository. CLAUDE.md is a symlink to this file.
 
-This repository (AGPL-3.0) holds public documentation source consumed by https://docs.ultralytics.com/ plus automated QA workflows that check links, spelling, sitemaps, and image sizes across Ultralytics websites. Additional documentation source lives in `ultralytics/ultralytics` under `docs/en/`.
+This repository (AGPL-3.0) holds public documentation source consumed by https://docs.ultralytics.com plus automated QA workflows that check links, spelling, sitemaps, and image sizes across Ultralytics websites. Additional documentation source lives in `ultralytics/ultralytics` under `docs/en/`.
 
 ## Core Principles (CRITICAL)
 

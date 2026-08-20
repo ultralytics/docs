@@ -46,10 +46,10 @@ Developed by researchers at Tsinghua University, YOLOv10 introduced a consistent
 
 **Date:** 2026-01-14  
 **Authors:** Glenn Jocher and Jing Qiu  
-**Organization:** [Ultralytics](https://www.ultralytics.com/)  
+**Organization:** [Ultralytics](https://www.ultralytics.com)  
 **Resources:** [GitHub Repository](https://github.com/ultralytics/ultralytics) | [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26)
 
-Released as the successor to [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), **YOLO26** takes the NMS-free concept to its ultimate realization. It natively integrates end-to-end detection into the highly optimized [Ultralytics Platform](https://platform.ultralytics.com/), providing a complete suite of tools for the modern machine learning pipeline.
+Released as the successor to [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), **YOLO26** takes the NMS-free concept to its ultimate realization. It natively integrates end-to-end detection into the highly optimized [Ultralytics Platform](https://platform.ultralytics.com), providing a complete suite of tools for the modern machine learning pipeline.
 
 YOLO26 introduces several architectural breakthroughs:
 
@@ -144,4 +144,4 @@ YOLOv10 is recommended for:
 
 While YOLOv10 made significant contributions to the academic community by introducing the NMS-free paradigm, **YOLO26** elevates this technology to enterprise-grade readiness. With its remarkable 43% boost in CPU speed, the innovative MuSGD optimizer, and unmatched versatility across vision tasks, YOLO26 stands out as the ultimate choice for both edge computing and large-scale cloud deployments.
 
-For teams prioritizing an active community, comprehensive [documentation](https://docs.ultralytics.com/), and a frictionless developer experience, the Ultralytics ecosystem is unparalleled. If you are exploring models for specialized scenarios, you may also want to investigate [YOLO-World](https://docs.ultralytics.com/models/yolo-world) for zero-shot open-vocabulary detection. However, for the vast majority of real-world use cases, **YOLO26** is the definitive recommendation.
+For teams prioritizing an active community, comprehensive [documentation](https://docs.ultralytics.com), and a frictionless developer experience, the Ultralytics ecosystem is unparalleled. If you are exploring models for specialized scenarios, you may also want to investigate [YOLO-World](https://docs.ultralytics.com/models/yolo-world) for zero-shot open-vocabulary detection. However, for the vast majority of real-world use cases, **YOLO26** is the definitive recommendation.

@@ -85,7 +85,7 @@ DAMO-YOLO generally achieves lower TensorRT latencies at the nano and tiny scale
 
 ## The Ultralytics Advantage: Advancing Beyond 2022 Architectures
 
-While PP-YOLOE+ and DAMO-YOLO represented significant milestones, modern development demands greater versatility, easier training pipelines, and lower memory requirements. The [Ultralytics Platform](https://platform.ultralytics.com/) addresses these needs by offering a zero-friction experience that drastically outpaces the complex distillation and framework-specific setups required by older models.
+While PP-YOLOE+ and DAMO-YOLO represented significant milestones, modern development demands greater versatility, easier training pipelines, and lower memory requirements. The [Ultralytics Platform](https://platform.ultralytics.com) addresses these needs by offering a zero-friction experience that drastically outpaces the complex distillation and framework-specific setups required by older models.
 
 For developers looking to achieve the best performance balance today, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) provides a revolutionary leap forward in real-world deployment efficiency.
 
@@ -127,6 +127,6 @@ Selecting the optimal computer vision architecture depends heavily on your team'
 
 - **Choose PP-YOLOE+** if your entire pipeline is deeply embedded in the Baidu PaddlePaddle ecosystem. It remains an excellent choice for static image analysis on powerful servers where maximizing accuracy is the primary objective.
 - **Choose DAMO-YOLO** if you are conducting specific research into Neural Architecture Search algorithms, or if you have the engineering resources to maintain complex distillation pipelines to achieve aggressive TensorRT latency targets.
-- **Choose Ultralytics YOLO26** for almost all modern production scenarios. The [Ultralytics ecosystem](https://www.ultralytics.com/) provides unparalleled documentation, lower memory requirements, and a streamlined API. Whether you are building [automated quality control](https://www.ultralytics.com/solutions/ai-in-manufacturing) systems or running real-time tracking on a Raspberry Pi, YOLO26’s NMS-free architecture ensures rapid, stable, and highly accurate results out of the box.
+- **Choose Ultralytics YOLO26** for almost all modern production scenarios. The [Ultralytics ecosystem](https://www.ultralytics.com) provides unparalleled documentation, lower memory requirements, and a streamlined API. Whether you are building [automated quality control](https://www.ultralytics.com/solutions/ai-in-manufacturing) systems or running real-time tracking on a Raspberry Pi, YOLO26’s NMS-free architecture ensures rapid, stable, and highly accurate results out of the box.
 
 For developers exploring other state-of-the-art solutions, the Ultralytics documentation also provides extensive resources on the widely adopted [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) and the robust [YOLO11](https://docs.ultralytics.com/models/yolo11), ensuring you have the right model for any computer vision challenge.

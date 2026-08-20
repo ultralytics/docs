@@ -107,7 +107,7 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 
 ## The Ultralytics Alternative: Advancing the State-of-the-Art
 
-While both RTDETRv2 and EfficientDet have strong merits, modern AI development demands frameworks that offer a seamless [developer experience](https://docs.ultralytics.com/quickstart) alongside cutting-edge performance. The [Ultralytics ecosystem](https://docs.ultralytics.com/) provides a significantly more streamlined approach to computer vision tasks.
+While both RTDETRv2 and EfficientDet have strong merits, modern AI development demands frameworks that offer a seamless [developer experience](https://docs.ultralytics.com/quickstart) alongside cutting-edge performance. The [Ultralytics ecosystem](https://docs.ultralytics.com) provides a significantly more streamlined approach to computer vision tasks.
 
 If you are exploring state-of-the-art detection, the newly released [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) synthesizes the best aspects of both CNNs and transformers.
 
@@ -132,4 +132,4 @@ model.export(format="engine")
 
 Ultralytics models natively support multiple tasks, including [instance segmentation](https://docs.ultralytics.com/tasks/segment) and [image classification](https://docs.ultralytics.com/tasks/classify), providing a versatile toolkit for diverse industry needs. Furthermore, the removal of Distribution Focal Loss (DFL) in modern Ultralytics models simplifies the computational graph, guaranteeing smoother export to embedded [NPUs and TPUs](https://docs.ultralytics.com/integrations/edge-tpu).
 
-For seamless [data annotation](https://docs.ultralytics.com/platform/data/annotation) and model management, the [Ultralytics Platform](https://platform.ultralytics.com/) provides a comprehensive cloud environment to oversee the entire machine learning lifecycle, establishing it as the premier choice for deploying robust computer vision solutions in production.
+For seamless [data annotation](https://docs.ultralytics.com/platform/data/annotation) and model management, the [Ultralytics Platform](https://platform.ultralytics.com) provides a comprehensive cloud environment to oversee the entire machine learning lifecycle, establishing it as the premier choice for deploying robust computer vision solutions in production.

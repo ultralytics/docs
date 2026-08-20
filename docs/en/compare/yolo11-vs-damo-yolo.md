@@ -18,10 +18,10 @@ Choosing the optimal architecture is a critical step in any [computer vision](ht
 Developed by the team at Ultralytics, **YOLO11** represents a highly refined iteration in the YOLO family, heavily optimizing both accuracy and efficiency. It is designed for researchers and engineers seeking a unified, production-ready ecosystem that spans from dataset management to edge deployment.
 
 - **Authors:** Glenn Jocher and Jing Qiu
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2024-09-27
 - **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- **Docs:** [https://docs.ultralytics.com/models/yolo11/](https://docs.ultralytics.com/models/yolo11)
+- **Docs:** [https://docs.ultralytics.com/models/yolo11](https://docs.ultralytics.com/models/yolo11)
 
 [Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 

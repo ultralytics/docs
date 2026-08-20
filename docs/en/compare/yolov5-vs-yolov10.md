@@ -20,7 +20,7 @@ Understanding the structural differences between these models is crucial for dep
 Introduced by Ultralytics, YOLOv5 has long been recognized for its unmatched balance of speed, accuracy, and accessibility.
 
 - Author: Glenn Jocher
-- Organization: [Ultralytics](https://www.ultralytics.com/)
+- Organization: [Ultralytics](https://www.ultralytics.com)
 - Date: 2020-06-26
 - GitHub: [YOLOv5 Repository](https://github.com/ultralytics/yolov5)
 - Documentation: [YOLOv5 Docs](https://docs.ultralytics.com/models/yolov5)

@@ -68,7 +68,7 @@ While YOLOX offers lightweight variants like YOLOX-Nano for extreme edge cases, 
 
 ## The Ultralytics Advantage
 
-Choosing a model involves more than just architectural theory; the ecosystem surrounding it dictates development speed and deployment success. Utilizing YOLOv9 within the [Ultralytics ecosystem](https://docs.ultralytics.com/) provides unparalleled **ease of use** and robust community support.
+Choosing a model involves more than just architectural theory; the ecosystem surrounding it dictates development speed and deployment success. Utilizing YOLOv9 within the [Ultralytics ecosystem](https://docs.ultralytics.com) provides unparalleled **ease of use** and robust community support.
 
 Unlike older original research repositories, the Ultralytics framework provides a unified Python API that simplifies complex pipelines. Training requires drastically lower [GPU memory](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) than many alternatives, offering incredible **training efficiency**.
 

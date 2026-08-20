@@ -79,7 +79,7 @@ As seen above, the YOLO26x model achieves a remarkable **57.5 mAP**, significant
 
 ## Ecosystem and Ease of Use
 
-While raw performance is vital, the surrounding ecosystem dictates how quickly a model can be moved from research to production. This is where the [Ultralytics Platform](https://platform.ultralytics.com/) provides an unparalleled advantage.
+While raw performance is vital, the surrounding ecosystem dictates how quickly a model can be moved from research to production. This is where the [Ultralytics Platform](https://platform.ultralytics.com) provides an unparalleled advantage.
 
 ### A Well-Maintained, Unified Ecosystem
 

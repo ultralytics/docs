@@ -123,7 +123,7 @@ YOLO26 represents a paradigm shift in the YOLO lineage, systematically overcomin
 
 ### Streamlined User Experience and Training Efficiency
 
-One of the largest hurdles with models like YOLOX is setting up the training environment. The [Ultralytics Platform](https://platform.ultralytics.com/) offers a unified [Python SDK](https://docs.ultralytics.com/usage/python) where training a state-of-the-art model requires only a few lines of code. Additionally, YOLO models feature highly optimized data loaders, ensuring significantly lower CUDA memory usage compared to transformer-heavy models or older multi-branch networks.
+One of the largest hurdles with models like YOLOX is setting up the training environment. The [Ultralytics Platform](https://platform.ultralytics.com) offers a unified [Python SDK](https://docs.ultralytics.com/usage/python) where training a state-of-the-art model requires only a few lines of code. Additionally, YOLO models feature highly optimized data loaders, ensuring significantly lower CUDA memory usage compared to transformer-heavy models or older multi-branch networks.
 
 ```python
 from ultralytics import YOLO

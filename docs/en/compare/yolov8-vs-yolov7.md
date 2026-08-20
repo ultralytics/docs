@@ -18,7 +18,7 @@ Understanding the structural and methodological differences between these two mo
 Released by Ultralytics in early 2023, YOLOv8 represents a major architectural shift from its predecessors. It was designed from the ground up to be more than just a real-time object detector; it is a unified framework capable of handling a wide array of vision tasks out-of-the-box.
 
 - **Authors:** Glenn Jocher, Ayush Chaurasia, and Jing Qiu
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2023-01-10
 - **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLOv8 Documentation](https://docs.ultralytics.com/models/yolov8)
@@ -117,7 +117,7 @@ The architectural differences between the two models dictate their ideal deploym
 
 - **Edge AI and IoT Devices:** The availability of ultra-fast Nano and Small models makes YOLOv8 perfect for hardware with limited compute, such as smart cameras or drones.
 - **Multi-Task Projects:** If your pipeline requires tracking human joints (Pose Estimation) while simultaneously mapping obstacles (Segmentation), YOLOv8 handles this natively.
-- **Rapid Prototyping to Production:** The extensive [Ultralytics documentation](https://docs.ultralytics.com/) and frictionless Python API allow teams to bring products to market faster.
+- **Rapid Prototyping to Production:** The extensive [Ultralytics documentation](https://docs.ultralytics.com) and frictionless Python API allow teams to bring products to market faster.
 
 **When to Consider YOLOv7:**
 

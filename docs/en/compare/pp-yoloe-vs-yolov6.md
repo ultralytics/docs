@@ -100,7 +100,7 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 
 ## The Ultralytics Advantage: Advancing Beyond Legacy Models
 
-While PP-YOLOE+ and YOLOv6-3.0 offer targeted solutions, modern AI development requires versatile, memory-efficient workflows. This is where the [Ultralytics Platform](https://platform.ultralytics.com/) provides an unparalleled developer experience. With a unified Python API, you can seamlessly train, validate, and deploy cutting-edge models without the immense configuration overhead typically found in older research repositories.
+While PP-YOLOE+ and YOLOv6-3.0 offer targeted solutions, modern AI development requires versatile, memory-efficient workflows. This is where the [Ultralytics Platform](https://platform.ultralytics.com) provides an unparalleled developer experience. With a unified Python API, you can seamlessly train, validate, and deploy cutting-edge models without the immense configuration overhead typically found in older research repositories.
 
 Ultralytics models natively support a wide array of vision tasks beyond standard detection, including [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), [image classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) extraction. Furthermore, they are highly optimized for lower memory usage during training—a stark contrast to [transformer-based models](https://www.ultralytics.com/glossary/transformer) like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) which generally demand massive GPU VRAM allocations.
 

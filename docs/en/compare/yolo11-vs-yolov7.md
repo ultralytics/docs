@@ -20,7 +20,7 @@ Authors: Glenn Jocher and Jing Qiu
 Organization: [Ultralytics](https://www.ultralytics.com)  
 Date: 2024-09-27  
 GitHub: [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)  
-Docs: [https://docs.ultralytics.com/models/yolo11/](https://docs.ultralytics.com/models/yolo11)
+Docs: [https://docs.ultralytics.com/models/yolo11](https://docs.ultralytics.com/models/yolo11)
 
 [Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
@@ -30,7 +30,7 @@ Organization: [Institute of Information Science, Academia Sinica, Taiwan](https:
 Date: 2022-07-06  
 Arxiv: [https://arxiv.org/abs/2207.02696](https://arxiv.org/abs/2207.02696)  
 GitHub: [https://github.com/WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)  
-Docs: [https://docs.ultralytics.com/models/yolov7/](https://docs.ultralytics.com/models/yolov7)
+Docs: [https://docs.ultralytics.com/models/yolov7](https://docs.ultralytics.com/models/yolov7)
 
 [Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 

@@ -41,7 +41,7 @@ Introduced by Chien-Yao Wang and Hong-Yuan Mark Liao from the Institute of Infor
 - **Arxiv:** [2402.13616](https://arxiv.org/abs/2402.13616)
 - **GitHub:** [WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9)
 
-YOLOv9's major breakthrough is Programmable Gradient Information (PGI), which prevents data loss as features pass through deep neural networks. Combined with the Generalized Efficient Layer Aggregation Network (GELAN), YOLOv9 maximizes parameter efficiency and computational flow. Furthermore, it is natively integrated into the [Ultralytics ecosystem](https://docs.ultralytics.com/), making it highly accessible for both research and commercial applications.
+YOLOv9's major breakthrough is Programmable Gradient Information (PGI), which prevents data loss as features pass through deep neural networks. Combined with the Generalized Efficient Layer Aggregation Network (GELAN), YOLOv9 maximizes parameter efficiency and computational flow. Furthermore, it is natively integrated into the [Ultralytics ecosystem](https://docs.ultralytics.com), making it highly accessible for both research and commercial applications.
 
 [Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9){ .md-button }
 

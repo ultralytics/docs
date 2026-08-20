@@ -109,7 +109,7 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 
 ## The Ultralytics Advantage: Why YOLO26 is the Superior Choice
 
-While EfficientDet and YOLOv6-3.0 were milestones in vision research, deploying them in modern production environments often involves wrestling with complex dependencies, disjointed APIs, and high memory requirements. The [Ultralytics ecosystem](https://docs.ultralytics.com/) solves these workflow bottlenecks natively.
+While EfficientDet and YOLOv6-3.0 were milestones in vision research, deploying them in modern production environments often involves wrestling with complex dependencies, disjointed APIs, and high memory requirements. The [Ultralytics ecosystem](https://docs.ultralytics.com) solves these workflow bottlenecks natively.
 
 For developers seeking the absolute peak of performance and ease of use, **Ultralytics YOLO26** (released in January 2026) offers a generational leap forward. It is the recommended model for new deployments, outclassing legacy architectures across the board.
 

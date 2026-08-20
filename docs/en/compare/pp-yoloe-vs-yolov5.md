@@ -29,10 +29,10 @@ Both models stem from highly capable engineering teams but target slightly diffe
 **YOLOv5 Details:**
 
 - Authors: Glenn Jocher
-- Organization: [Ultralytics](https://www.ultralytics.com/)
+- Organization: [Ultralytics](https://www.ultralytics.com)
 - Date: 2020-06-26
 - GitHub: [https://github.com/ultralytics/yolov5](https://github.com/ultralytics/yolov5)
-- Docs: [https://docs.ultralytics.com/models/yolov5/](https://docs.ultralytics.com/models/yolov5)
+- Docs: [https://docs.ultralytics.com/models/yolov5](https://docs.ultralytics.com/models/yolov5)
 
 [Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
 

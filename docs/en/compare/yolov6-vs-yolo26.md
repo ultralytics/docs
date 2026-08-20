@@ -35,7 +35,7 @@ YOLOv6-3.0 employs a **Bi-directional Concatenation (BiC)** module in its neck t
 Released in January 2026, **Ultralytics YOLO26** represents a paradigm shift. It moves away from complex post-processing and embraces a unified, multi-task framework that is faster, smaller, and easier to deploy.
 
 - **Authors:** Glenn Jocher and Jing Qiu
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2026-01-14
 - **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26)

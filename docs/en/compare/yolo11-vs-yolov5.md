@@ -7,7 +7,7 @@ keywords: YOLO11 vs YOLOv5,Yolo comparison,Yolo models,object detection,Yolo per
 
 # YOLO11 vs YOLOv5
 
-Selecting the right neural network architecture is a pivotal decision for any [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) initiative. As the landscape of [artificial intelligence](https://www.ultralytics.com/glossary/artificial-intelligence-ai) evolves, so do the tools available to developers and researchers. This comprehensive guide provides an in-depth technical comparison between two landmark models from the [Ultralytics](https://www.ultralytics.com/) ecosystem: the highly celebrated YOLOv5 and the advanced YOLO11.
+Selecting the right neural network architecture is a pivotal decision for any [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) initiative. As the landscape of [artificial intelligence](https://www.ultralytics.com/glossary/artificial-intelligence-ai) evolves, so do the tools available to developers and researchers. This comprehensive guide provides an in-depth technical comparison between two landmark models from the [Ultralytics](https://www.ultralytics.com) ecosystem: the highly celebrated YOLOv5 and the advanced YOLO11.
 
 Whether you are deploying lightweight models for [edge AI](https://www.ultralytics.com/glossary/edge-ai) applications or processing high-resolution video streams on cloud GPUs, understanding the architectural nuances, [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics), and ideal use cases for these models will ensure you make a data-driven choice for your specific deployment constraints.
 
@@ -20,7 +20,7 @@ Both models reflect Ultralytics' commitment to open-source collaboration, robust
 ### YOLO11 Details
 
 - Authors: Glenn Jocher and Jing Qiu
-- Organization: [Ultralytics](https://www.ultralytics.com/)
+- Organization: [Ultralytics](https://www.ultralytics.com)
 - Date: 2024-09-27
 - GitHub: [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 - Docs: [YOLO11 Documentation](https://docs.ultralytics.com/models/yolo11)
@@ -30,7 +30,7 @@ Both models reflect Ultralytics' commitment to open-source collaboration, robust
 ### YOLOv5 Details
 
 - Authors: Glenn Jocher
-- Organization: [Ultralytics](https://www.ultralytics.com/)
+- Organization: [Ultralytics](https://www.ultralytics.com)
 - Date: 2020-06-26
 - GitHub: [ultralytics/yolov5](https://github.com/ultralytics/yolov5)
 - Docs: [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5)

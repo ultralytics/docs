@@ -30,7 +30,7 @@ Understanding the origins of these deep learning models provides valuable contex
 ### Ultralytics YOLOv8 Details
 
 **Authors:** Glenn Jocher, Ayush Chaurasia, and Jing Qiu  
-**Organization:** [Ultralytics](https://www.ultralytics.com/)  
+**Organization:** [Ultralytics](https://www.ultralytics.com)  
 **Date:** 2023-01-10  
 **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)  
 **Docs:** [YOLOv8 Documentation](https://docs.ultralytics.com/models/yolov8)
@@ -82,7 +82,7 @@ The true differentiator between academic papers and production-ready systems is 
 
 DAMO-YOLO's reliance on extensive knowledge distillation pipelines can make custom training cumbersome. Generating a teacher model, transferring knowledge, and tuning NAS-based backbones requires high [CUDA memory](https://developer.nvidia.com/cuda) and advanced configuration, often slowing down agile engineering teams.
 
-Conversely, the Ultralytics ecosystem champions ease of use. Through the [Ultralytics Platform](https://platform.ultralytics.com/), developers can access simple APIs, comprehensive documentation, and robust experiment tracking integrations. The unified Python framework makes building complex pipelines trivial.
+Conversely, the Ultralytics ecosystem champions ease of use. Through the [Ultralytics Platform](https://platform.ultralytics.com), developers can access simple APIs, comprehensive documentation, and robust experiment tracking integrations. The unified Python framework makes building complex pipelines trivial.
 
 ```python
 from ultralytics import YOLO

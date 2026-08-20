@@ -32,7 +32,7 @@ DAMO-YOLO introduces several technical innovations designed to push the boundari
 
 ## The Ultralytics Advantage: YOLO26
 
-Released on January 14, 2026, by Glenn Jocher and Jing Qiu at [Ultralytics](https://www.ultralytics.com/), **YOLO26** represents the pinnacle of accessible, high-performance vision AI. Building upon the legacy of [YOLO11](https://docs.ultralytics.com/models/yolo11) and [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 is designed from the ground up for edge-first deployment, multimodal versatility, and unparalleled ease of use.
+Released on January 14, 2026, by Glenn Jocher and Jing Qiu at [Ultralytics](https://www.ultralytics.com), **YOLO26** represents the pinnacle of accessible, high-performance vision AI. Building upon the legacy of [YOLO11](https://docs.ultralytics.com/models/yolo11) and [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 is designed from the ground up for edge-first deployment, multimodal versatility, and unparalleled ease of use.
 
 ### YOLO26 Innovations
 

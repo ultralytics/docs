@@ -50,7 +50,7 @@ YOLOv8 introduces a streamlined architecture that replaces the C3 module with th
 
 !!! tip "The Ultralytics Ecosystem"
 
-    One of the greatest strengths of YOLOv8 is its deep integration into the Ultralytics ecosystem. Whether you are using the unified Python API or the visual interface of the [Ultralytics Platform](https://platform.ultralytics.com/), the transition from training to deployment is seamless, supporting formats from [ONNX](https://docs.ultralytics.com/integrations/onnx) to [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) natively.
+    One of the greatest strengths of YOLOv8 is its deep integration into the Ultralytics ecosystem. Whether you are using the unified Python API or the visual interface of the [Ultralytics Platform](https://platform.ultralytics.com), the transition from training to deployment is seamless, supporting formats from [ONNX](https://docs.ultralytics.com/integrations/onnx) to [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) natively.
 
 Beyond standard [object detection](https://docs.ultralytics.com/tasks/detect), YOLOv8 natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb). This multi-task versatility makes it a highly attractive choice for complex production environments where multiple model types must be maintained.
 

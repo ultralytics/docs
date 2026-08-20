@@ -18,7 +18,7 @@ While EfficientDet introduced novel concepts in compound scaling and feature fus
 Released in the summer of 2020, YOLOv5 marked a pivotal shift in the YOLO lineage. Transitioning from the C-based Darknet framework to native PyTorch, it became the go-to architecture for developers looking to build, train, and deploy models rapidly.
 
 - **Authors:** Glenn Jocher
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2020-06-26
 - **GitHub:** <https://github.com/ultralytics/yolov5>
 - **Docs:** <https://docs.ultralytics.com/models/yolov5>

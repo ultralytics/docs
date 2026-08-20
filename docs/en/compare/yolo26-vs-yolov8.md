@@ -15,23 +15,23 @@ By delving into their architectures, performance metrics, and training methodolo
 
 ## Model Background and Metadata
 
-Understanding the origins of these architectures provides context for their respective breakthroughs. Both models were developed by [Ultralytics](https://www.ultralytics.com/), a company renowned for making state-of-the-art AI accessible and easy to deploy.
+Understanding the origins of these architectures provides context for their respective breakthroughs. Both models were developed by [Ultralytics](https://www.ultralytics.com), a company renowned for making state-of-the-art AI accessible and easy to deploy.
 
 **YOLO26 Details:**  
 Authors: Glenn Jocher and Jing Qiu  
-Organization: [Ultralytics](https://www.ultralytics.com/)  
+Organization: [Ultralytics](https://www.ultralytics.com)  
 Date: 2026-01-14  
 GitHub: [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)  
-Docs: [https://docs.ultralytics.com/models/yolo26/](https://docs.ultralytics.com/models/yolo26)
+Docs: [https://docs.ultralytics.com/models/yolo26](https://docs.ultralytics.com/models/yolo26)
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 **YOLOv8 Details:**  
 Authors: Glenn Jocher, Ayush Chaurasia, and Jing Qiu  
-Organization: [Ultralytics](https://www.ultralytics.com/)  
+Organization: [Ultralytics](https://www.ultralytics.com)  
 Date: 2023-01-10  
 GitHub: [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)  
-Docs: [https://docs.ultralytics.com/models/yolov8/](https://docs.ultralytics.com/models/yolov8)
+Docs: [https://docs.ultralytics.com/models/yolov8](https://docs.ultralytics.com/models/yolov8)
 
 [Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
@@ -168,4 +168,4 @@ While YOLO26 represents the current state-of-the-art, developers building divers
 - **[YOLO11](https://platform.ultralytics.com/ultralytics/yolo11)**: The immediate predecessor to YOLO26, offering exceptional refinement over YOLOv8 and still heavily utilized in cutting-edge production systems.
 - **[RT-DETR](https://docs.ultralytics.com/models/rtdetr)**: Baidu's Real-Time DEtection TRansformer. It is an excellent choice for researchers exploring the attention mechanism in vision tasks, though it requires significantly more CUDA memory to train compared to standard Ultralytics YOLO models.
 
-For a comprehensive suite of cloud training, dataset labeling, and immediate deployment, explore the [Ultralytics Platform](https://platform.ultralytics.com/) today.
+For a comprehensive suite of cloud training, dataset labeling, and immediate deployment, explore the [Ultralytics Platform](https://platform.ultralytics.com) today.

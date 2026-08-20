@@ -145,7 +145,7 @@ YOLO26 brings unprecedented innovations designed specifically for modern deploym
 
 !!! note "Managing Datasets and Training"
 
-    For the absolute best experience in managing your datasets, training YOLO26, and deploying models to the cloud, explore the [Ultralytics Platform](https://platform.ultralytics.com/). It offers a no-code interface that perfectly complements the Python SDK.
+    For the absolute best experience in managing your datasets, training YOLO26, and deploying models to the cloud, explore the [Ultralytics Platform](https://platform.ultralytics.com). It offers a no-code interface that perfectly complements the Python SDK.
 
 ## Real-World Use Cases
 

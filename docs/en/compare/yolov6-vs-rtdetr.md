@@ -9,7 +9,7 @@ keywords: YOLOv6, RTDETR, object detection, model comparison, YOLO, Vision Trans
 
 Choosing the optimal architecture for [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) applications requires balancing speed, accuracy, and deployment constraints. In this comprehensive technical breakdown, we analyze **YOLOv6-3.0**, an industrial-grade Convolutional Neural Network (CNN) engineered for high-throughput GPU environments, against **RTDETRv2**, a state-of-the-art transformer-based model bringing attention mechanisms to real-time object detection.
 
-While both models present significant milestones in artificial intelligence research, developers looking for the most versatile and efficient pipeline often turn to the robust [Ultralytics Platform](https://platform.ultralytics.com/).
+While both models present significant milestones in artificial intelligence research, developers looking for the most versatile and efficient pipeline often turn to the robust [Ultralytics Platform](https://platform.ultralytics.com).
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv6-3.0", "RTDETRv2"]'></canvas>
 
@@ -131,7 +131,7 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 
 ## The Ultralytics Advantage: Enter YOLO26
 
-While YOLOv6-3.0 and RTDETRv2 excel in their specific niches, the modern machine learning landscape demands models that blend speed, accuracy, and developer experience. The [Ultralytics ecosystem](https://platform.ultralytics.com/) addresses these needs perfectly, particularly with the release of **YOLO26**.
+While YOLOv6-3.0 and RTDETRv2 excel in their specific niches, the modern machine learning landscape demands models that blend speed, accuracy, and developer experience. The [Ultralytics ecosystem](https://platform.ultralytics.com) addresses these needs perfectly, particularly with the release of **YOLO26**.
 
 Released in January 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the definitive standard for computer vision, drastically outpacing older models like YOLOv8 and community forks like YOLO12.
 
