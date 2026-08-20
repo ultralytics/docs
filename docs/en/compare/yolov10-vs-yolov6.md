@@ -71,7 +71,7 @@ While YOLOv6-3.0 retains slight speed advantages in its Nano and Medium variants
 
 ## The Ultralytics Ecosystem Advantage
 
-Opting for an [Ultralytics](https://www.ultralytics.com/) model like YOLOv10 goes far beyond raw architecture—it provides access to a meticulously maintained ecosystem that simplifies the entire machine learning lifecycle. YOLOv6, housed in a static research repository, lacks the robust tooling and multi-task versatility that the Ultralytics framework provides out of the box.
+Opting for an [Ultralytics](https://www.ultralytics.com) model like YOLOv10 goes far beyond raw architecture—it provides access to a meticulously maintained ecosystem that simplifies the entire machine learning lifecycle. YOLOv6, housed in a static research repository, lacks the robust tooling and multi-task versatility that the Ultralytics framework provides out of the box.
 
 - **Ease of Use:** The Ultralytics Python API provides a streamlined user experience, allowing developers to train and export models with just a few lines of code.
 - **Versatility:** Unlike YOLOv6, which strictly specializes in detection, the Ultralytics ecosystem empowers you to perform [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), [Image Classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) tracking using a unified interface.
@@ -139,4 +139,4 @@ Released in January 2026, YOLO26 takes the foundational ideas of its predecessor
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
-For users seeking to upgrade their computer vision stack, the transition is simple. Models like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remain robust, but **YOLO26** paired with the integrated [Ultralytics Platform](https://platform.ultralytics.com/) represents the definitive future of accessible, high-performance artificial intelligence.
+For users seeking to upgrade their computer vision stack, the transition is simple. Models like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remain robust, but **YOLO26** paired with the integrated [Ultralytics Platform](https://platform.ultralytics.com) represents the definitive future of accessible, high-performance artificial intelligence.

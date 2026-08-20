@@ -138,6 +138,6 @@ On the training side, YOLO26 introduces the **MuSGD Optimizer**, a hybrid inspir
 
 Crucially, YOLO26 is not just an object detector. It offers task-specific improvements across the board, natively supporting [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose) using Residual Log-Likelihood Estimation (RLE), and specialized angle losses for [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb). With up to 43% faster CPU inference than its predecessors, it is the definitive choice for agile engineering teams.
 
-For centralized management, annotation, and cloud training of YOLO26 models, the [Ultralytics Platform](https://platform.ultralytics.com/) provides an intuitive interface that streamlines the entire computer vision lifecycle.
+For centralized management, annotation, and cloud training of YOLO26 models, the [Ultralytics Platform](https://platform.ultralytics.com) provides an intuitive interface that streamlines the entire computer vision lifecycle.
 
 Developers interested in exploring other recent advancements can also evaluate [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or the transformer-based [RT-DETR](https://docs.ultralytics.com/models/rtdetr) framework for scenarios requiring distinct architectural solutions.

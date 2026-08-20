@@ -23,13 +23,13 @@ Authored by Chien-Yao Wang and Hong-Yuan Mark Liao from the Institute of Informa
 
 ### Ultralytics YOLO26
 
-Authored by Glenn Jocher and Jing Qiu at [Ultralytics](https://www.ultralytics.com/), YOLO26 was released on January 14, 2026. Building on the massive success of predecessors like [YOLO11](https://docs.ultralytics.com/models/yolo11) and [YOLOv8](https://docs.ultralytics.com/models/yolov8), YOLO26 was engineered from the ground up to prioritize production readiness, edge deployment, and native end-to-end efficiency.
+Authored by Glenn Jocher and Jing Qiu at [Ultralytics](https://www.ultralytics.com), YOLO26 was released on January 14, 2026. Building on the massive success of predecessors like [YOLO11](https://docs.ultralytics.com/models/yolo11) and [YOLOv8](https://docs.ultralytics.com/models/yolov8), YOLO26 was engineered from the ground up to prioritize production readiness, edge deployment, and native end-to-end efficiency.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 !!! tip "Try YOLO26 Today"
 
-    Ready to upgrade your computer vision pipeline? You can easily train and deploy YOLO26 models in the cloud without writing any code using the [Ultralytics Platform](https://platform.ultralytics.com/).
+    Ready to upgrade your computer vision pipeline? You can easily train and deploy YOLO26 models in the cloud without writing any code using the [Ultralytics Platform](https://platform.ultralytics.com).
 
 ## Architectural Innovations
 
@@ -113,7 +113,7 @@ Choosing between these models often comes down to the environment in which they 
 
 ### IoT and Edge Robotics
 
-For robotics, autonomous drones, and smart home IoT devices, **YOLO26 is the undisputed champion**. The integration of **ProgLoss + STAL** brings notable improvements to small-object recognition, which is critical for [agricultural monitoring](https://www.ultralytics.com/solutions/ai-in-agriculture) from high-altitude drones. Combined with its 43% faster CPU inference and NMS-free design, YOLO26 can run fluidly on hardware without dedicated GPUs.
+For robotics, autonomous drones, and smart home IoT devices, **YOLO26 is the undisputed champion**. The integration of **ProgLoss + STAL** brings notable improvements to small-object recognition, which is critical for [agricultural monitoring](https://www.ultralytics.com/solutions/computer-vision-in-agriculture) from high-altitude drones. Combined with its 43% faster CPU inference and NMS-free design, YOLO26 can run fluidly on hardware without dedicated GPUs.
 
 ### Academic Research and Gradient Analysis
 

@@ -18,10 +18,10 @@ Introduced as a major leap forward in the YOLO lineage, YOLOv8 established a new
 **YOLOv8 Details:**
 
 - Authors: Glenn Jocher, Ayush Chaurasia, and Jing Qiu
-- Organization: [Ultralytics](https://www.ultralytics.com/)
+- Organization: [Ultralytics](https://www.ultralytics.com)
 - Date: 2023-01-10
 - GitHub: [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- Docs: [https://docs.ultralytics.com/models/yolov8/](https://docs.ultralytics.com/models/yolov8)
+- Docs: [https://docs.ultralytics.com/models/yolov8](https://docs.ultralytics.com/models/yolov8)
 
 ### Architecture and Strengths
 
@@ -42,7 +42,7 @@ Developed by researchers at Tsinghua University, YOLOv10 aimed to tackle one of 
 - Date: 2024-05-23
 - Arxiv: [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)
 - GitHub: [https://github.com/THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
-- Docs: [https://docs.ultralytics.com/models/yolov10/](https://docs.ultralytics.com/models/yolov10)
+- Docs: [https://docs.ultralytics.com/models/yolov10](https://docs.ultralytics.com/models/yolov10)
 
 ### Architecture and Strengths
 
@@ -152,4 +152,4 @@ Released in early 2026, [YOLO26](https://docs.ultralytics.com/models/yolo26) rep
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
-If you are currently evaluating models, you might also be interested in [YOLO11](https://docs.ultralytics.com/models/yolo11), the direct predecessor to YOLO26, which remains a rock-solid, production-ready framework widely used in enterprise solutions today. However, for maximum future-proofing and performance, exploring the advanced capabilities of the [Ultralytics Platform](https://platform.ultralytics.com/) with YOLO26 is the best path forward for your vision AI strategy.
+If you are currently evaluating models, you might also be interested in [YOLO11](https://docs.ultralytics.com/models/yolo11), the direct predecessor to YOLO26, which remains a rock-solid, production-ready framework widely used in enterprise solutions today. However, for maximum future-proofing and performance, exploring the advanced capabilities of the [Ultralytics Platform](https://platform.ultralytics.com) with YOLO26 is the best path forward for your vision AI strategy.

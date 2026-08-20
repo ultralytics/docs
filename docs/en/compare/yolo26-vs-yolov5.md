@@ -18,7 +18,7 @@ Before diving into architectural nuances, let's establish the foundational detai
 **YOLO26 Details:**
 
 - Authors: Glenn Jocher and Jing Qiu
-- Organization: [Ultralytics](https://www.ultralytics.com/)
+- Organization: [Ultralytics](https://www.ultralytics.com)
 - Date: 2026-01-14
 - GitHub: [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 - Docs: [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26)
@@ -28,7 +28,7 @@ Before diving into architectural nuances, let's establish the foundational detai
 **YOLOv5 Details:**
 
 - Authors: Glenn Jocher
-- Organization: [Ultralytics](https://www.ultralytics.com/)
+- Organization: [Ultralytics](https://www.ultralytics.com)
 - Date: 2020-06-26
 - GitHub: [https://github.com/ultralytics/yolov5](https://github.com/ultralytics/yolov5)
 - Docs: [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5)

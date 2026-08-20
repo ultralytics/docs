@@ -98,7 +98,7 @@ YOLOX relies on strong data augmentation strategies like MixUp and Mosaic. Howev
 
 ## The Ultralytics Advantage: Enter YOLO26
 
-While DAMO-YOLO and YOLOX represent excellent milestones, developers today demand more comprehensive, versatile, and easy-to-use solutions. This is where the [Ultralytics Platform](https://platform.ultralytics.com/) and the newly released **Ultralytics YOLO26** shine.
+While DAMO-YOLO and YOLOX represent excellent milestones, developers today demand more comprehensive, versatile, and easy-to-use solutions. This is where the [Ultralytics Platform](https://platform.ultralytics.com) and the newly released **Ultralytics YOLO26** shine.
 
 Released in January 2026, YOLO26 is the ultimate recommended model for all [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) tasks. It introduces a suite of breakthroughs that surpass older architectures:
 
@@ -132,7 +132,7 @@ model.export(format="onnx")
 
 !!! note "Cloud Training and Deployment"
 
-    You can automatically annotate, train, and deploy models to the edge using the [Ultralytics Platform](https://platform.ultralytics.com/), which handles all data versioning and cloud GPU provisioning for you.
+    You can automatically annotate, train, and deploy models to the edge using the [Ultralytics Platform](https://platform.ultralytics.com), which handles all data versioning and cloud GPU provisioning for you.
 
 ## Conclusion
 

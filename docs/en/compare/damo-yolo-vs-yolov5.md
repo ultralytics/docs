@@ -35,7 +35,7 @@ To improve training, the model uses AlignedOTA for label assignment and a heavy 
 Ultralytics YOLOv5 is one of the most widely adopted vision architectures in the world, renowned for its stability, ease of use, and extensive deployment ecosystem.
 
 - **Authors:** Glenn Jocher
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** June 26, 2020
 - **GitHub:** [ultralytics/yolov5](https://github.com/ultralytics/yolov5)
 - **Docs:** [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5)
@@ -155,4 +155,4 @@ model.export(format="onnx")
 
 Both DAMO-YOLO and YOLOv5 have contributed significantly to the landscape of computer vision. DAMO-YOLO showcases the power of Neural Architecture Search and distillation, making it an interesting study for researchers. However, **YOLOv5** remains a practical powerhouse due to its **Performance Balance**, low memory requirements, and unmatched ease of use.
 
-For developers starting new projects today, the recommendation is to leverage the [Ultralytics Platform](https://platform.ultralytics.com) and adopt **YOLO26**. It combines the beloved user-friendly ecosystem of YOLOv5 with groundbreaking architectural advancements, ensuring top-tier accuracy and blazing-fast inference for both cloud and edge AI applications. Developers may also want to explore other efficient models like [YOLOv6](https://docs.ultralytics.com/models/yolov6) or [YOLOX](https://docs.ultralytics.com/) depending on specific legacy hardware constraints.
+For developers starting new projects today, the recommendation is to leverage the [Ultralytics Platform](https://platform.ultralytics.com) and adopt **YOLO26**. It combines the beloved user-friendly ecosystem of YOLOv5 with groundbreaking architectural advancements, ensuring top-tier accuracy and blazing-fast inference for both cloud and edge AI applications. Developers may also want to explore other efficient models like [YOLOv6](https://docs.ultralytics.com/models/yolov6) or [YOLOX](https://docs.ultralytics.com) depending on specific legacy hardware constraints.

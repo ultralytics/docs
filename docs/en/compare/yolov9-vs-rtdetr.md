@@ -94,7 +94,7 @@ While pure architectural metrics are important, the software ecosystem often dic
 
 ### Streamlined Training and Deployment
 
-Training a Detection Transformer typically requires intricate configuration files and high-end GPUs. By utilizing the [Ultralytics framework](https://docs.ultralytics.com/), developers can train both YOLOv9 and RTDETR models with identical, simple syntax, benefiting from highly efficient training pipelines and readily available pre-trained weights.
+Training a Detection Transformer typically requires intricate configuration files and high-end GPUs. By utilizing the [Ultralytics framework](https://docs.ultralytics.com), developers can train both YOLOv9 and RTDETR models with identical, simple syntax, benefiting from highly efficient training pipelines and readily available pre-trained weights.
 
 ```python
 from ultralytics import RTDETR, YOLO

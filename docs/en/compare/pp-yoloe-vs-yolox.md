@@ -78,11 +78,11 @@ Choosing between these frameworks often comes down to integration requirements a
 
 ### Where YOLOX Excels
 
-Due to its anchor-free nature and availability of extreme edge variants, YOLOX is popular in [robotics](https://www.ultralytics.com/solutions/ai-in-robotics) and microcontroller deployment. Its simple post-processing pipeline allows for easier porting to customized NPU hardware formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) and [NCNN](https://docs.ultralytics.com/integrations/ncnn).
+Due to its anchor-free nature and availability of extreme edge variants, YOLOX is popular in [robotics](https://www.ultralytics.com/solutions/computer-vision-in-robotics) and microcontroller deployment. Its simple post-processing pipeline allows for easier porting to customized NPU hardware formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) and [NCNN](https://docs.ultralytics.com/integrations/ncnn).
 
 ### Where PP-YOLOE+ Excels
 
-For organizations deeply integrated into Asian manufacturing hubs utilizing Baidu's technology stack, PP-YOLOE+ provides a pre-optimized path to deployment. It shines in high-accuracy [quality inspection](https://www.ultralytics.com/solutions/ai-in-manufacturing) scenarios running on powerful server racks where strict real-time constraints allow for slightly heavier model weights.
+For organizations deeply integrated into Asian manufacturing hubs utilizing Baidu's technology stack, PP-YOLOE+ provides a pre-optimized path to deployment. It shines in high-accuracy [quality inspection](https://www.ultralytics.com/solutions/computer-vision-in-manufacturing) scenarios running on powerful server racks where strict real-time constraints allow for slightly heavier model weights.
 
 ## Use Cases and Recommendations
 
@@ -150,10 +150,10 @@ model.export(format="engine")
 
 !!! info "Explore the Ultralytics Platform"
 
-    For teams looking for a no-code solution, the [Ultralytics Platform](https://platform.ultralytics.com/) provides cloud-based training, integrated dataset annotation, and one-click deployment for all your YOLO models.
+    For teams looking for a no-code solution, the [Ultralytics Platform](https://platform.ultralytics.com) provides cloud-based training, integrated dataset annotation, and one-click deployment for all your YOLO models.
 
 ## Conclusion
 
-Both PP-YOLOE+ and YOLOX have earned their places in computer vision history, offering high accuracy and lightweight anchor-free designs, respectively. However, for organizations building the future of [AI in agriculture](https://www.ultralytics.com/solutions/ai-in-agriculture), smart cities, and retail, the continuous maintenance, ease of use, and native NMS-free architecture of **Ultralytics YOLO26** make it the undisputed choice.
+Both PP-YOLOE+ and YOLOX have earned their places in computer vision history, offering high accuracy and lightweight anchor-free designs, respectively. However, for organizations building the future of [AI in agriculture](https://www.ultralytics.com/solutions/computer-vision-in-agriculture), smart cities, and retail, the continuous maintenance, ease of use, and native NMS-free architecture of **Ultralytics YOLO26** make it the undisputed choice.
 
 If you are exploring alternative architectures for specific benchmarks, you may also find value in comparing the older [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or transformer-based options like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) via the comprehensive Ultralytics documentation. By migrating to the unified Ultralytics ecosystem, developers save invaluable time and resources while achieving state-of-the-art results on any edge or cloud deployment.

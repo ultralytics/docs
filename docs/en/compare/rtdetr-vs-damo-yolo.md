@@ -59,7 +59,7 @@ Conversely, **DAMO-YOLOt** (Tiny) is exceptionally lightweight, requiring only 8
 
 While independent repositories like the official [RT-DETR GitHub](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch) and [DAMO-YOLO GitHub](https://github.com/tinyvision/DAMO-YOLO) offer the raw code to train these models, integrating them into production pipelines often requires extensive boilerplate code and manual optimization.
 
-This is where the [Ultralytics ecosystem](https://www.ultralytics.com/) drastically simplifies the developer experience. Ultralytics integrates models like RTDETRv2 directly into its unified API, allowing users to train, validate, and export models with a single line of code. Furthermore, Ultralytics models are known for their minimal memory requirements during training compared to heavy transformer-based standalone repositories.
+This is where the [Ultralytics ecosystem](https://www.ultralytics.com) drastically simplifies the developer experience. Ultralytics integrates models like RTDETRv2 directly into its unified API, allowing users to train, validate, and export models with a single line of code. Furthermore, Ultralytics models are known for their minimal memory requirements during training compared to heavy transformer-based standalone repositories.
 
 ### Code Example: Seamless Integration
 

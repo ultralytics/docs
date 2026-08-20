@@ -18,7 +18,7 @@ Before diving into performance metrics, it is helpful to understand the backgrou
 **YOLO26**
 
 - Authors: Glenn Jocher and Jing Qiu
-- Organization: [Ultralytics](https://www.ultralytics.com/)
+- Organization: [Ultralytics](https://www.ultralytics.com)
 - Date: 2026-01-14
 - GitHub: [Ultralytics GitHub Repository](https://github.com/ultralytics/ultralytics)
 - Docs: [YOLO26 Official Documentation](https://docs.ultralytics.com/models/yolo26)
@@ -77,7 +77,7 @@ As seen in the data, YOLO26 consistently achieves a higher mAP at roughly half t
 
 Training methodologies differ vastly between the two frameworks. YOLO26 introduces the **MuSGD Optimizer**, a hybrid of SGD and Muon inspired by Moonshot AI's Kimi K2. This brings LLM training innovations directly into computer vision, resulting in more stable training and incredibly fast convergence rates.
 
-Furthermore, YOLO26 utilizes **ProgLoss + STAL** loss functions. These advanced loss functions yield notable improvements in small-object recognition, which is critical for [AI in agriculture](https://www.ultralytics.com/solutions/ai-in-agriculture) and high-altitude drone imagery.
+Furthermore, YOLO26 utilizes **ProgLoss + STAL** loss functions. These advanced loss functions yield notable improvements in small-object recognition, which is critical for [AI in agriculture](https://www.ultralytics.com/solutions/computer-vision-in-agriculture) and high-altitude drone imagery.
 
 Conversely, YOLOv6-3.0 utilizes a heavy self-distillation strategy. While effective, it generally demands longer training schedules and more computational overhead to reach optimal accuracy.
 
@@ -129,4 +129,4 @@ If you are exploring the broader landscape of computer vision, you may also be i
 
 ## Summary
 
-Both YOLOv6-3.0 and YOLO26 represent monumental engineering achievements. However, for modern applications requiring rapid development, low memory overhead, and seamless deployment across heterogeneous edge devices, Ultralytics YOLO26 is the superior choice. Its natively end-to-end design, revolutionary MuSGD optimizer, and integration with the powerful [Ultralytics ecosystem](https://docs.ultralytics.com/) empower teams to bring state-of-the-art vision AI to production faster than ever before.
+Both YOLOv6-3.0 and YOLO26 represent monumental engineering achievements. However, for modern applications requiring rapid development, low memory overhead, and seamless deployment across heterogeneous edge devices, Ultralytics YOLO26 is the superior choice. Its natively end-to-end design, revolutionary MuSGD optimizer, and integration with the powerful [Ultralytics ecosystem](https://docs.ultralytics.com) empower teams to bring state-of-the-art vision AI to production faster than ever before.

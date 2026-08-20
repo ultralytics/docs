@@ -84,7 +84,7 @@ While both RTDETRv2 and YOLOX offer unique benefits, modern developers often req
 - **End-to-End NMS-Free Design:** Building on concepts first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 operates natively without NMS. This delivers the seamless inference of RTDETRv2 without the crushing memory requirements of transformers.
 - **MuSGD Optimizer:** Inspired by large language model training innovations, the hybrid MuSGD optimizer (blending SGD and Muon) stabilizes the training process and drastically accelerates convergence.
 - **Up to 43% Faster CPU Inference:** By strategically removing the Distribution Focal Loss (DFL) module, YOLO26 is specifically optimized for edge computing and low-power devices, making it substantially faster on CPUs than previous iterations like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11).
-- **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, addressing a common pain point in aerial imagery and [robotics applications](https://www.ultralytics.com/solutions/ai-in-robotics).
+- **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, addressing a common pain point in aerial imagery and [robotics applications](https://www.ultralytics.com/solutions/computer-vision-in-robotics).
 
 ### Unmatched Versatility and Ecosystem
 
@@ -127,7 +127,7 @@ For deployments on older mobile phones or heavily constrained microcontrollers w
 
 ### The Modern Standard: AIoT and Robotics
 
-For the vast majority of modern use cases—spanning [smart city infrastructure](https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities), [retail analytics](https://www.ultralytics.com/solutions/ai-in-retail), and autonomous navigation—**Ultralytics YOLO26** is the definitive choice. Its 43% faster CPU inference makes it unparalleled for edge computing, while its NMS-free design guarantees low, consistent latency. When paired with the comprehensive documentation and active community support of the Ultralytics ecosystem, it empowers teams to move from dataset annotation to global deployment faster than ever before.
+For the vast majority of modern use cases—spanning [smart city infrastructure](https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities), [retail analytics](https://www.ultralytics.com/solutions/computer-vision-in-retail), and autonomous navigation—**Ultralytics YOLO26** is the definitive choice. Its 43% faster CPU inference makes it unparalleled for edge computing, while its NMS-free design guarantees low, consistent latency. When paired with the comprehensive documentation and active community support of the Ultralytics ecosystem, it empowers teams to move from dataset annotation to global deployment faster than ever before.
 
 !!! tip "Streamline Your Workflow"
 

@@ -111,7 +111,7 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 
 ## The Ultralytics Advantage
 
-Choosing the right architecture goes beyond just raw metrics; it involves evaluating the entire machine learning lifecycle. The [Ultralytics ecosystem](https://docs.ultralytics.com/) provides an unparalleled developer experience, significantly lowering the barrier to entry for robust AI deployments.
+Choosing the right architecture goes beyond just raw metrics; it involves evaluating the entire machine learning lifecycle. The [Ultralytics ecosystem](https://docs.ultralytics.com) provides an unparalleled developer experience, significantly lowering the barrier to entry for robust AI deployments.
 
 - **Ease of Use:** Ultralytics provides a highly unified Python API. Developers can train, validate, and export models in just a few lines of code, removing the need to manage complex, fragmented codebases typical of EfficientDet.
 - **Well-Maintained Ecosystem:** Benefiting from rapid updates, extensive documentation, and an active community, Ultralytics ensures compatibility with the latest [deployment frameworks](https://docs.ultralytics.com/guides/model-deployment-options) like TensorRT and OpenVINO.

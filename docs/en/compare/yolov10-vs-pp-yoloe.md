@@ -117,7 +117,7 @@ While YOLOv10 and PP-YOLOE+ offer specialized benefits, the modern standard for 
 - **End-to-End NMS-Free Design:** By eliminating post-processing latency, YOLO26 guarantees stable, high-speed inferences, vital for [autonomous vehicles](https://www.ultralytics.com/glossary/autonomous-vehicles) and rapid robotics.
 - **Edge-First Optimizations:** The removal of Distribution Focal Loss (DFL) simplifies model [export formats](https://docs.ultralytics.com/modes/export) and yields up to **43% faster CPU inference** over previous generations.
 - **Advanced Training Dynamics:** Leveraging the new **MuSGD Optimizer**—a hybrid of SGD and Muon—YOLO26 brings LLM training stability to vision tasks, converging faster and more reliably.
-- **Enhanced Accuracy via ProgLoss + STAL:** These advanced loss functions specifically target complex scenarios, offering exceptional gains in small-object detection crucial for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and [agriculture](https://www.ultralytics.com/solutions/ai-in-agriculture).
+- **Enhanced Accuracy via ProgLoss + STAL:** These advanced loss functions specifically target complex scenarios, offering exceptional gains in small-object detection crucial for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and [agriculture](https://www.ultralytics.com/solutions/computer-vision-in-agriculture).
 
 ### Unmatched Versatility
 

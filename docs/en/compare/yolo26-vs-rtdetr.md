@@ -18,7 +18,7 @@ This guide provides a deep technical dive into both models, comparing their stru
 Developed by Ultralytics, YOLO26 represents a massive generational leap for the YOLO family. Released in January 2026, it is engineered explicitly for speed, accuracy, and seamless deployment across cloud and edge environments.
 
 - **Authors:** Glenn Jocher and Jing Qiu
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2026-01-14
 - **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLO26 Official Documentation](https://docs.ultralytics.com/models/yolo26)

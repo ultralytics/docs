@@ -79,7 +79,7 @@ The table below contrasts the technical specifications of YOLOv6-3.0 and Efficie
 
 ## The Ultralytics Ecosystem Advantage
 
-While YOLOv6-3.0 and EfficientDet serve specific niches, modern computer vision projects require versatility, ease of use, and a well-maintained ecosystem. This is where [Ultralytics YOLO](https://docs.ultralytics.com/) models truly excel.
+While YOLOv6-3.0 and EfficientDet serve specific niches, modern computer vision projects require versatility, ease of use, and a well-maintained ecosystem. This is where [Ultralytics YOLO](https://docs.ultralytics.com) models truly excel.
 
 ### Ease of Use and Training Efficiency
 

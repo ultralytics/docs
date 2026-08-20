@@ -2,7 +2,7 @@
 
 This file provides guidance to AI coding agents (Claude Code, etc.) when working with code in this repository. CLAUDE.md is a symlink to this file.
 
-This repository (AGPL-3.0) holds public documentation source consumed by https://docs.ultralytics.com/ plus automated QA workflows that check links, spelling, sitemaps, and image sizes across Ultralytics websites. Additional documentation source lives in `ultralytics/ultralytics` under `docs/en/`.
+This repository (AGPL-3.0) holds public documentation source consumed by https://docs.ultralytics.com plus automated QA workflows that check links, spelling, sitemaps, and image sizes across Ultralytics websites. Additional documentation source lives in `ultralytics/ultralytics` under `docs/en/`.
 
 ## Core Principles (CRITICAL)
 
@@ -43,7 +43,7 @@ codespell docs utils README.md                                # spelling
 
 ## Architecture
 
-This repo is one public content source for https://docs.ultralytics.com/. Additional source lives in `ultralytics/ultralytics` under `docs/en/`; the centralized validation path combines the sources before running `zensical build --strict`. Relative links may therefore resolve only in the complete content tree. This repository intentionally has no standalone Zensical configuration or site build; the centralized publisher renders and deploys production.
+This repo is one public content source for https://docs.ultralytics.com. Additional source lives in `ultralytics/ultralytics` under `docs/en/`; the centralized validation path combines the sources before running `zensical build --strict`. Relative links may therefore resolve only in the complete content tree. This repository intentionally has no standalone Zensical configuration or site build; the centralized publisher renders and deploys production.
 
 The remaining workflows handle docs-specific publishing, website QA, and housekeeping: `publish.yml` triggers the centralized publisher on every `main` push and daily; `links.yml` downloads rendered www/docs/academy/handbook sites and checks links, spelling, and image sizes; `links_local.yml` checks repository links on push, PR, and daily; `download_websites.yml` is manual-only; and `stale.yml` manages inactive issues and PRs. Releases are manual: `tag.yml` is `workflow_dispatch`-only and gated to `github.repository == 'ultralytics/docs' && github.actor == 'glenn-jocher'`; there is no version file or package publish.
 

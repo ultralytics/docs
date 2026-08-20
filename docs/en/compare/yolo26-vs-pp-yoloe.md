@@ -81,7 +81,7 @@ Thanks to specific edge optimizations and DFL removal, YOLO26 delivers up to **4
 
 ## The Ultralytics Ecosystem Advantage
 
-While PP-YOLOE+ is a capable model, the true differentiator lies in the developer experience. The integrated [Ultralytics ecosystem](https://platform.ultralytics.com/) provides an unmatched environment for vision AI practitioners.
+While PP-YOLOE+ is a capable model, the true differentiator lies in the developer experience. The integrated [Ultralytics ecosystem](https://platform.ultralytics.com) provides an unmatched environment for vision AI practitioners.
 
 1. **Ease of Use:** Ultralytics offers a streamlined user experience. A simple Python API abstracts the complexity of data pipelines and training loops, supported by extensive and actively maintained documentation.
 2. **Versatility:** Unlike PP-YOLOE+, which is primarily focused on object detection, YOLO26 supports [image classification](https://docs.ultralytics.com/tasks/classify), [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb) natively using the same API structure.
@@ -119,7 +119,7 @@ Deciding between YOLO26 and PP-YOLOE+ depends largely on the constraints of your
 **When to deploy YOLO26:**
 
 - **Edge Devices and IoT:** YOLO26's up to 43% faster CPU speeds make it the ultimate choice for [smart cameras](https://www.ultralytics.com/blog/the-cutting-edge-world-of-ai-security-cameras), drones, and low-power [robotics](https://www.ultralytics.com/blog/from-algorithms-to-automation-ais-role-in-robotics).
-- **Time-Critical Deployments:** The natively NMS-free architecture guarantees stable, ultra-low latency inference, crucial for [autonomous driving research](https://www.ultralytics.com/blog/ai-in-self-driving-cars) and high-speed [manufacturing quality control](https://www.ultralytics.com/solutions/ai-in-manufacturing).
+- **Time-Critical Deployments:** The natively NMS-free architecture guarantees stable, ultra-low latency inference, crucial for [autonomous driving research](https://www.ultralytics.com/blog/ai-in-self-driving-cars) and high-speed [manufacturing quality control](https://www.ultralytics.com/solutions/computer-vision-in-manufacturing).
 - **Multi-Task Projects:** When a project requires a blend of object detection, precise masking via segmentation, or keypoint tracking via pose estimation, the unified YOLO26 framework is indispensable.
 
 ## Use Cases and Recommendations

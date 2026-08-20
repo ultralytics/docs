@@ -36,7 +36,7 @@ EfficientDet relies on the EfficientNet backbone and introduces a **Bi-direction
 Released in early 2023, [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) represented a paradigm shift in the YOLO family, designed not just for bounding box detection, but as a unified framework capable of handling a multitude of vision tasks.
 
 - **Authors:** Glenn Jocher, Ayush Chaurasia, and Jing Qiu
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2023-01-10
 - **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 
@@ -81,7 +81,7 @@ The true differentiator for many modern engineering teams is not just the raw sp
 
 EfficientDet's implementation relies heavily on legacy AutoML libraries, which can present a steep learning curve and brittle dependency chains for developers accustomed to modern [PyTorch](https://pytorch.org/) workflows.
 
-In contrast, Ultralytics offers an unparalleled **ease of use**. The [well-maintained ecosystem](https://docs.ultralytics.com/) provides a consistent Python API that drastically simplifies the machine learning lifecycle. It offers seamless integration with the robust [Ultralytics Platform](https://docs.ultralytics.com/platform), which handles everything from auto-annotation to cloud training and real-time monitoring.
+In contrast, Ultralytics offers an unparalleled **ease of use**. The [well-maintained ecosystem](https://docs.ultralytics.com) provides a consistent Python API that drastically simplifies the machine learning lifecycle. It offers seamless integration with the robust [Ultralytics Platform](https://docs.ultralytics.com/platform), which handles everything from auto-annotation to cloud training and real-time monitoring.
 
 ### Code Example: Training and Inference with YOLOv8
 

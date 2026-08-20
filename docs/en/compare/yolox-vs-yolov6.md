@@ -103,7 +103,7 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 
 ## The Ultralytics Advantage
 
-While both Megvii and Meituan provide powerful research repositories, deploying these models in production often requires significant engineering overhead. The integrated [Ultralytics ecosystem](https://docs.ultralytics.com/) eliminates these hurdles by offering a unified, extensively documented API.
+While both Megvii and Meituan provide powerful research repositories, deploying these models in production often requires significant engineering overhead. The integrated [Ultralytics ecosystem](https://docs.ultralytics.com) eliminates these hurdles by offering a unified, extensively documented API.
 
 By leveraging the Ultralytics package, developers gain access to an unparalleled user experience. This includes built-in [auto-augmentation](https://docs.ultralytics.com/reference/data/augment), highly efficient memory management during training (drastically lowering VRAM requirements compared to transformer models like [RTDETR](https://docs.ultralytics.com/models/rtdetr)), and seamless export pipelines to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx) and [OpenVINO](https://docs.ultralytics.com/integrations/openvino).
 

@@ -114,7 +114,7 @@ model.export(format="onnx")
 Choosing between these architectures often comes down to the specific constraints of your production environment.
 
 **When to use YOLOv9:**
-YOLOv9 excels in environments where minute detail retention is necessary. Its robust feature extraction makes it ideal for [retail analytics](https://www.ultralytics.com/solutions/ai-in-retail) to count densely packed products on shelves or for agricultural applications where identifying early-stage crop disease on small leaves is critical.
+YOLOv9 excels in environments where minute detail retention is necessary. Its robust feature extraction makes it ideal for [retail analytics](https://www.ultralytics.com/solutions/computer-vision-in-retail) to count densely packed products on shelves or for agricultural applications where identifying early-stage crop disease on small leaves is critical.
 
 **When to use YOLOv7:**
 YOLOv7 remains a strong candidate for legacy deployment pipelines. If you are integrating into older hardware systems (like certain generations of the [Google Coral Edge TPU](https://developers.google.com/coral)), the straightforward CNN architecture of YOLOv7 may be easier to compile than the more complex gradient branches of newer models.

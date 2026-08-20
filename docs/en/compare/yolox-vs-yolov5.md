@@ -130,8 +130,8 @@ YOLOX remains a strong candidate in academic settings where researchers are expl
 YOLOv5 is the undisputed champion of practical deployment.
 
 - **High-Speed Manufacturing:** For assembly line [defect detection](https://www.ultralytics.com/blog/how-vision-ai-enhances-defect-detection-on-production-lines), YOLOv5's minimal inference latency on edge GPUs ensures products are inspected without slowing down the belt.
-- **Drone and Aerial Imagery:** Its efficient memory footprint allows it to run on lightweight companion computers on drones for tasks like [agriculture monitoring](https://www.ultralytics.com/solutions/ai-in-agriculture) and wildlife tracking.
-- **Smart Retail:** From [automated checkout](https://www.ultralytics.com/solutions/ai-in-retail) to inventory management, YOLOv5 easily exports to [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) and [ONNX](https://docs.ultralytics.com/integrations/onnx) for mass deployment across thousands of store cameras.
+- **Drone and Aerial Imagery:** Its efficient memory footprint allows it to run on lightweight companion computers on drones for tasks like [agriculture monitoring](https://www.ultralytics.com/solutions/computer-vision-in-agriculture) and wildlife tracking.
+- **Smart Retail:** From [automated checkout](https://www.ultralytics.com/solutions/computer-vision-in-retail) to inventory management, YOLOv5 easily exports to [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) and [ONNX](https://docs.ultralytics.com/integrations/onnx) for mass deployment across thousands of store cameras.
 
 ## Looking Forward: The YOLO26 Advantage
 
@@ -139,4 +139,4 @@ While YOLOv5 is a legendary model, the field of AI advances rapidly. If you are 
 
 Released in 2026, **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** represents a massive leap forward. It features an **End-to-End NMS-Free Design**, completely removing the need for Non-Maximum Suppression post-processing, which drastically simplifies deployment logic. By removing Distribution Focal Loss (DFL) and utilizing the cutting-edge **MuSGD Optimizer**, YOLO26 achieves up to **43% faster CPU inference** than previous generations while maintaining higher accuracy, especially on small objects thanks to the new ProgLoss + STAL loss functions.
 
-Whether you choose the battle-tested reliability of YOLOv5 or the bleeding-edge performance of YOLO26, the [Ultralytics Platform](https://platform.ultralytics.com) ensures you have the best tools available to bring your computer vision solutions from concept to production seamlessly. Ensure to explore the comprehensive [Ultralytics documentation](https://docs.ultralytics.com/) to unlock the full potential of your AI pipeline.
+Whether you choose the battle-tested reliability of YOLOv5 or the bleeding-edge performance of YOLO26, the [Ultralytics Platform](https://platform.ultralytics.com) ensures you have the best tools available to bring your computer vision solutions from concept to production seamlessly. Ensure to explore the comprehensive [Ultralytics documentation](https://docs.ultralytics.com) to unlock the full potential of your AI pipeline.

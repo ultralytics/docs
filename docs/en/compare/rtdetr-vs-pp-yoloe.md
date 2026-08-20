@@ -156,4 +156,4 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 
 Both RTDETRv2 and PP-YOLOE+ have pushed the boundaries of what is possible in computer vision, proving the viability of both transformer and highly optimized CNN architectures. However, the complexity of deploying fragmented research codebases can hinder production timelines.
 
-For modern AI engineers, leveraging the [Ultralytics Platform](https://platform.ultralytics.com/) provides an unmatched advantage. By migrating to seamlessly integrated models like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or the cutting-edge YOLO26, teams can achieve the highest possible accuracy-to-speed ratios while drastically reducing memory requirements and development overhead.
+For modern AI engineers, leveraging the [Ultralytics Platform](https://platform.ultralytics.com) provides an unmatched advantage. By migrating to seamlessly integrated models like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or the cutting-edge YOLO26, teams can achieve the highest possible accuracy-to-speed ratios while drastically reducing memory requirements and development overhead.

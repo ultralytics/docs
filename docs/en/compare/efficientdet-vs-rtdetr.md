@@ -65,7 +65,7 @@ Despite its accuracy, transformer models naturally demand substantial memory. Th
 
 !!! warning "Transformer Memory Constraints"
 
-    Training transformer models like RTDETRv2 typically requires high-end GPUs. If you encounter Out-Of-Memory (OOM) errors, consider using models with lower memory requirements during training, such as the [Ultralytics YOLO](https://docs.ultralytics.com/) series.
+    Training transformer models like RTDETRv2 typically requires high-end GPUs. If you encounter Out-Of-Memory (OOM) errors, consider using models with lower memory requirements during training, such as the [Ultralytics YOLO](https://docs.ultralytics.com) series.
 
 ## Performance Benchmark Comparison
 

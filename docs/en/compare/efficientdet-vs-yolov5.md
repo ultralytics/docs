@@ -40,7 +40,7 @@ Released shortly after EfficientDet, [Ultralytics YOLOv5](https://platform.ultra
 ### Model Details
 
 - **Authors:** Glenn Jocher
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** June 26, 2020
 - **GitHub:** [ultralytics/yolov5](https://github.com/ultralytics/yolov5)
 - **Docs:** [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5)

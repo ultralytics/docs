@@ -16,7 +16,7 @@ In the rapidly evolving field of [computer vision](https://en.wikipedia.org/wiki
 Introduced by Ultralytics, YOLOv8 quickly established itself as a cornerstone for production-grade vision applications. It builds upon years of foundational research to deliver exceptional performance across various tasks.
 
 - **Authors:** Glenn Jocher, Ayush Chaurasia, and Jing Qiu
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2023-01-10
 - **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLOv8 Documentation](https://docs.ultralytics.com/models/yolov8)

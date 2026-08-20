@@ -20,7 +20,7 @@ This guide provides a comprehensive technical breakdown of both architectures, h
 Released in 2020, YOLOv5 revolutionized the accessibility of object detection. By migrating the architecture natively to the [PyTorch](https://pytorch.org/) framework, it provided developers with an unprecedented "zero-to-hero" experience.
 
 - **Authors:** Glenn Jocher
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2020-06-26
 - **GitHub:** [https://github.com/ultralytics/yolov5](https://github.com/ultralytics/yolov5)
 - **Docs:** [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5)
@@ -34,7 +34,7 @@ YOLOv5 established the foundation for the highly maintained Ultralytics ecosyste
 Fast forward to January 2026, **Ultralytics YOLO26** represents the pinnacle of real-time vision AI. It natively integrates lessons learned from intervening generations like [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) and [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), while introducing massive breakthroughs inspired by Large Language Model (LLM) training.
 
 - **Authors:** Glenn Jocher and Jing Qiu
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2026-01-14
 - **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26)
@@ -89,7 +89,7 @@ YOLO26 inherently supports:
 
 !!! info "Ecosystem Integration"
 
-    Both models benefit from the [Ultralytics Platform](https://platform.ultralytics.com/), providing seamless data annotation, automated hyperparameter tuning, and one-click cloud deployment. However, YOLO26 takes full advantage of the modern API structures.
+    Both models benefit from the [Ultralytics Platform](https://platform.ultralytics.com), providing seamless data annotation, automated hyperparameter tuning, and one-click cloud deployment. However, YOLO26 takes full advantage of the modern API structures.
 
 ## Usage and Code Examples
 

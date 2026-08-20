@@ -33,7 +33,7 @@ While YOLOX offers excellent accuracy for its time, it primarily focuses on boun
 
 ## Ultralytics YOLO11 Overview
 
-Released on September 27, 2024, by Glenn Jocher and Jing Qiu at [Ultralytics](https://www.ultralytics.com/), YOLO11 is a state-of-the-art model that redefines versatility and ease of use in computer vision. Built on years of foundation research, it provides a highly refined, production-ready solution that excels across a multitude of tasks.
+Released on September 27, 2024, by Glenn Jocher and Jing Qiu at [Ultralytics](https://www.ultralytics.com), YOLO11 is a state-of-the-art model that redefines versatility and ease of use in computer vision. Built on years of foundation research, it provides a highly refined, production-ready solution that excels across a multitude of tasks.
 
 ### The Ultralytics Advantage
 
@@ -89,7 +89,7 @@ results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 model.export(format="engine")
 ```
 
-This well-maintained ecosystem is backed by extensive [documentation](https://docs.ultralytics.com/) and seamless integration with tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases) for [experiment tracking](https://www.ultralytics.com/glossary/experiment-tracking).
+This well-maintained ecosystem is backed by extensive [documentation](https://docs.ultralytics.com) and seamless integration with tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases) for [experiment tracking](https://www.ultralytics.com/glossary/experiment-tracking).
 
 ## Ideal Use Cases
 
@@ -102,7 +102,7 @@ Choosing between these models often depends on the specifics of the deployment e
 
 ### When to use YOLO11
 
-- **Production Deployments:** For commercial applications in [smart retail](https://www.ultralytics.com/solutions/ai-in-retail) or [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system), where robust, maintained code and high accuracy are non-negotiable.
+- **Production Deployments:** For commercial applications in [smart retail](https://www.ultralytics.com/solutions/computer-vision-in-retail) or [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system), where robust, maintained code and high accuracy are non-negotiable.
 - **Multi-Task Pipelines:** When a project requires tracking objects, estimating human poses, and segmenting instances using a single, unified framework.
 - **Resource-Constrained Edge Devices:** Because of its low parameter count and high throughput, YOLO11 is ideal for deployment on [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) or mobile edge nodes via [CoreML](https://docs.ultralytics.com/integrations/coreml) and [NCNN](https://docs.ultralytics.com/integrations/ncnn).
 

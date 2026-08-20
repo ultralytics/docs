@@ -7,7 +7,7 @@ keywords: YOLOv8,YOLO26,object detection,model comparison,YOLO,Ultralytics,deep 
 
 # YOLOv8 vs YOLO26
 
-The field of computer vision has witnessed remarkable advancements over the last few years. Among the most popular architectures for real-time applications are the models developed by [Ultralytics](https://www.ultralytics.com/). This comprehensive guide provides a detailed technical comparison between the groundbreaking [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) and the latest state-of-the-art [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). We will analyze their architectures, performance metrics, and ideal use cases to help you choose the right model for your deployment.
+The field of computer vision has witnessed remarkable advancements over the last few years. Among the most popular architectures for real-time applications are the models developed by [Ultralytics](https://www.ultralytics.com). This comprehensive guide provides a detailed technical comparison between the groundbreaking [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) and the latest state-of-the-art [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). We will analyze their architectures, performance metrics, and ideal use cases to help you choose the right model for your deployment.
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv8", "YOLO26"]'></canvas>
 
@@ -20,12 +20,12 @@ Both YOLOv8 and YOLO26 represent significant milestones in the [YOLO family of m
 Released in early 2023, YOLOv8 introduced a major overhaul to the YOLO framework, bringing an anchor-free design and robust support for multiple computer vision tasks.
 
 - **Authors:** Glenn Jocher, Ayush Chaurasia, and Jing Qiu
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2023-01-10
 - **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLOv8 Documentation](https://docs.ultralytics.com/models/yolov8)
 
-YOLOv8 quickly became the industry standard due to its excellent performance balance and deep integration into the [Ultralytics ecosystem](https://docs.ultralytics.com/). It natively supports [object detection](https://docs.ultralytics.com/tasks/detect), [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [image classification](https://docs.ultralytics.com/tasks/classify). However, it relies on standard Non-Maximum Suppression (NMS) for post-processing, which can introduce latency bottlenecks in highly constrained edge environments.
+YOLOv8 quickly became the industry standard due to its excellent performance balance and deep integration into the [Ultralytics ecosystem](https://docs.ultralytics.com). It natively supports [object detection](https://docs.ultralytics.com/tasks/detect), [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [image classification](https://docs.ultralytics.com/tasks/classify). However, it relies on standard Non-Maximum Suppression (NMS) for post-processing, which can introduce latency bottlenecks in highly constrained edge environments.
 
 [Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
@@ -34,7 +34,7 @@ YOLOv8 quickly became the industry standard due to its excellent performance bal
 Released in January 2026, YOLO26 takes the foundation built by its predecessors and optimizes it aggressively for modern deployment scenarios, particularly in edge AI and low-power devices.
 
 - **Authors:** Glenn Jocher and Jing Qiu
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2026-01-14
 - **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26)
@@ -88,9 +88,9 @@ One of the most striking improvements is the CPU inference speed. Because of its
 
 ## Ease of Use and Ecosystem
 
-Both models benefit immensely from the well-maintained [Ultralytics ecosystem](https://www.ultralytics.com/). Developers praise the ease of use provided by the unified API, which allows switching between YOLOv8 and YOLO26 by simply changing the model name string.
+Both models benefit immensely from the well-maintained [Ultralytics ecosystem](https://www.ultralytics.com). Developers praise the ease of use provided by the unified API, which allows switching between YOLOv8 and YOLO26 by simply changing the model name string.
 
-Whether you are performing [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning), conducting [experiment tracking](https://docs.ultralytics.com/integrations/weights-biases), or exploring new [datasets](https://docs.ultralytics.com/datasets), the Ultralytics documentation provides extensive resources. Furthermore, the [Ultralytics Platform](https://platform.ultralytics.com/) offers a streamlined way to annotate, train, and deploy these models seamlessly into the cloud or locally.
+Whether you are performing [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning), conducting [experiment tracking](https://docs.ultralytics.com/integrations/weights-biases), or exploring new [datasets](https://docs.ultralytics.com/datasets), the Ultralytics documentation provides extensive resources. Furthermore, the [Ultralytics Platform](https://platform.ultralytics.com) offers a streamlined way to annotate, train, and deploy these models seamlessly into the cloud or locally.
 
 ### Code Example
 

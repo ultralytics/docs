@@ -58,11 +58,11 @@ When evaluating these models for production, balancing mean Average Precision (m
 
 ### Memory Requirements and Training Efficiency
 
-Transformers like RTDETRv2 are notoriously memory-intensive during training, often requiring substantial CUDA memory and longer training schedules to fully converge. Conversely, CNN architectures like YOLOv9 and other [Ultralytics YOLO models](https://docs.ultralytics.com/) offer exceptionally lower memory usage, allowing developers to train with larger batch sizes on consumer-grade hardware.
+Transformers like RTDETRv2 are notoriously memory-intensive during training, often requiring substantial CUDA memory and longer training schedules to fully converge. Conversely, CNN architectures like YOLOv9 and other [Ultralytics YOLO models](https://docs.ultralytics.com) offer exceptionally lower memory usage, allowing developers to train with larger batch sizes on consumer-grade hardware.
 
 !!! tip "Efficient Training"
 
-    To maximize hardware utilization, consider utilizing the [Ultralytics Platform](https://platform.ultralytics.com/) for streamlined cloud training. It automatically handles environment setup and optimal batch sizing.
+    To maximize hardware utilization, consider utilizing the [Ultralytics Platform](https://platform.ultralytics.com) for streamlined cloud training. It automatically handles environment setup and optimal batch sizing.
 
 ## The Ultralytics Advantage: Ecosystem and Ease of Use
 

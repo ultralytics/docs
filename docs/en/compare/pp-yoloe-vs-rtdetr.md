@@ -110,7 +110,7 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 
 ## The Ultralytics Advantage: Introducing YOLO26
 
-While both PP-YOLOE+ and RTDETRv2 represent significant milestones, the modern developer requires an ecosystem that perfectly balances extreme performance with streamlined usability. The [Ultralytics Platform](https://platform.ultralytics.com/) and the breakthrough **YOLO26** model offer exactly this.
+While both PP-YOLOE+ and RTDETRv2 represent significant milestones, the modern developer requires an ecosystem that perfectly balances extreme performance with streamlined usability. The [Ultralytics Platform](https://platform.ultralytics.com) and the breakthrough **YOLO26** model offer exactly this.
 
 Released in January 2026, YOLO26 establishes the new standard for edge-first vision AI. It elegantly solves the deployment hurdles associated with older architectures while surpassing them in both speed and accuracy.
 

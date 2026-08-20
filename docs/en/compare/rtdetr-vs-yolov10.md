@@ -9,7 +9,7 @@ keywords: RTDETRv2, YOLOv10, object detection, AI models, Vision Transformer, re
 
 The evolution of [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) has been largely driven by the relentless pursuit of balancing speed and accuracy. Traditionally, real-time [object detection](https://www.ultralytics.com/glossary/object-detection) pipelines have relied on Non-Maximum Suppression (NMS) as a post-processing step to filter out overlapping bounding boxes. However, NMS introduces latency bottlenecks and complex hyperparameter tuning. Recently, two distinct architectural approaches have emerged to solve this issue natively: Transformer-based models like RTDETRv2 and CNN-based models like YOLOv10.
 
-This guide provides a comprehensive technical comparison of these two models, analyzing their architectures, performance metrics, and ideal use cases, while also highlighting how the latest innovations in the [Ultralytics ecosystem](https://docs.ultralytics.com/) offer the ultimate solution for modern deployment.
+This guide provides a comprehensive technical comparison of these two models, analyzing their architectures, performance metrics, and ideal use cases, while also highlighting how the latest innovations in the [Ultralytics ecosystem](https://docs.ultralytics.com) offer the ultimate solution for modern deployment.
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["RTDETRv2", "YOLOv10"]'></canvas>
 
@@ -128,7 +128,7 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 
 ## The Ultralytics Advantage: Introducing YOLO26
 
-While both RTDETRv2 and YOLOv10 offer compelling academic advancements, deploying them in real-world scenarios requires a robust, well-maintained software ecosystem. The [Ultralytics Platform](https://platform.ultralytics.com/) provides an unparalleled developer experience, combining ease of use, extensive documentation, and powerful tools for [data annotation](https://www.ultralytics.com/glossary/data-annotation) and deployment.
+While both RTDETRv2 and YOLOv10 offer compelling academic advancements, deploying them in real-world scenarios requires a robust, well-maintained software ecosystem. The [Ultralytics Platform](https://platform.ultralytics.com) provides an unparalleled developer experience, combining ease of use, extensive documentation, and powerful tools for [data annotation](https://www.ultralytics.com/glossary/data-annotation) and deployment.
 
 For developers seeking the absolute state-of-the-art in 2026, **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** is the ultimate recommendation. It synthesizes the best ideas from both architectures while introducing groundbreaking improvements:
 

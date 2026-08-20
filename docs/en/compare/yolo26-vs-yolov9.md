@@ -18,7 +18,7 @@ Released in early 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/ul
 **Model Details:**
 
 - **Authors:** Glenn Jocher and Jing Qiu
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2026-01-14
 - **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26)
@@ -108,7 +108,7 @@ Choosing a model involves more than just reading an accuracy benchmark; the surr
 
 ### Ease of Use and Ecosystem
 
-The [Ultralytics Python API](https://docs.ultralytics.com/usage/python) offers a seamless "zero-to-hero" experience. Instead of cloning complex repositories or manually configuring distributed training scripts, developers can install the package via `pip` and start training immediately. The actively maintained [Ultralytics ecosystem](https://platform.ultralytics.com/deploy/inference/) guarantees frequent updates, automated integrations with ML platforms like [Weights & Biases](https://wandb.ai/site), and extensive documentation.
+The [Ultralytics Python API](https://docs.ultralytics.com/usage/python) offers a seamless "zero-to-hero" experience. Instead of cloning complex repositories or manually configuring distributed training scripts, developers can install the package via `pip` and start training immediately. The actively maintained [Ultralytics ecosystem](https://platform.ultralytics.com/deploy/inference) guarantees frequent updates, automated integrations with ML platforms like [Weights & Biases](https://wandb.ai/site), and extensive documentation.
 
 !!! note "Other Ultralytics Models"
 

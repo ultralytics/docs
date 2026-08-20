@@ -56,7 +56,7 @@ YOLOv7 prioritized [real-time inference](https://www.ultralytics.com/glossary/re
 
 !!! info "The Ultralytics Ecosystem Advantage"
 
-    When evaluating models, the surrounding ecosystem is just as vital as the architecture. The integrated [Ultralytics Platform](https://platform.ultralytics.com/) provides a unified API, extensive documentation, and active community support. This unified environment guarantees lower memory usage during training compared to heavy transformer models, ensuring rapid prototyping and seamless [experiment tracking](https://www.ultralytics.com/glossary/experiment-tracking).
+    When evaluating models, the surrounding ecosystem is just as vital as the architecture. The integrated [Ultralytics Platform](https://platform.ultralytics.com) provides a unified API, extensive documentation, and active community support. This unified environment guarantees lower memory usage during training compared to heavy transformer models, ensuring rapid prototyping and seamless [experiment tracking](https://www.ultralytics.com/glossary/experiment-tracking).
 
 ## Performance Metrics and Benchmarks
 
@@ -95,7 +95,7 @@ YOLO26 addresses the inherent limitations of previous generations, offering unpr
 - **ProgLoss + STAL:** These advanced loss functions deliver remarkable improvements in small-object recognition, a critical feature for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and [drone applications](https://www.ultralytics.com/blog/build-ai-powered-drone-applications-with-ultralytics-yolo11).
 - **Task-Specific Improvements:** Includes Semantic segmentation loss and multi-scale proto for segmentation tasks, Residual Log-Likelihood Estimation (RLE) for complex Pose estimation, and a specialized angle loss tailored to fix [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) boundary issues.
 
-For teams currently using legacy systems, transitioning to the [Ultralytics Platform](https://platform.ultralytics.com/) unlocks a streamlined workflow where these cutting-edge models can be trained and deployed with ease. Developers may also explore previous robust iterations like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) depending on specific backward-compatibility requirements.
+For teams currently using legacy systems, transitioning to the [Ultralytics Platform](https://platform.ultralytics.com) unlocks a streamlined workflow where these cutting-edge models can be trained and deployed with ease. Developers may also explore previous robust iterations like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) depending on specific backward-compatibility requirements.
 
 ## Streamlined Training and Ease of Use
 
@@ -151,7 +151,7 @@ YOLOv7 excels in high-performance legacy setups, particularly where PyTorch inte
 
 ### When to Choose YOLO26
 
-For all new deployments, **YOLO26** is the undisputed recommendation. Its unparalleled **Performance Balance** and robust [well-maintained ecosystem](https://docs.ultralytics.com/) make it the optimal choice for:
+For all new deployments, **YOLO26** is the undisputed recommendation. Its unparalleled **Performance Balance** and robust [well-maintained ecosystem](https://docs.ultralytics.com) make it the optimal choice for:
 
 - **Smart Cities and Traffic Management:** Its NMS-free design ensures consistent inference latency, vital for real-time [traffic coordination](https://www.ultralytics.com/blog/ai-in-traffic-management-from-congestion-to-coordination).
 - **Robotics and Autonomous Systems:** The impressive 43% boost in CPU inference speed ensures highly responsive navigation algorithms for embedded devices.

@@ -42,7 +42,7 @@ YOLOv10 introduces consistent dual assignments for NMS-free training. During tra
 
 **Weaknesses:**
 
-- **Single Task Focus:** Unlike the broader [Ultralytics ecosystem](https://docs.ultralytics.com/), the original YOLOv10 repository is heavily focused on detection, lacking native support for [instance segmentation](https://docs.ultralytics.com/tasks/segment) or [pose estimation](https://docs.ultralytics.com/tasks/pose).
+- **Single Task Focus:** Unlike the broader [Ultralytics ecosystem](https://docs.ultralytics.com), the original YOLOv10 repository is heavily focused on detection, lacking native support for [instance segmentation](https://docs.ultralytics.com/tasks/segment) or [pose estimation](https://docs.ultralytics.com/tasks/pose).
 
 [Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10){ .md-button }
 

@@ -20,7 +20,7 @@ Both of these architectures represent significant milestones in the field of rea
 Released in the summer of 2020, YOLOv5 quickly became an industry standard due to its native [PyTorch](https://pytorch.org/) implementation, which drastically lowered the barrier to entry for training and deployment. It moved away from the complex Darknet C frameworks of its predecessors, offering a Pythonic approach to model building.
 
 - **Authors:** Glenn Jocher
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2020-06-26
 - **GitHub:** [ultralytics/yolov5](https://github.com/ultralytics/yolov5)
 - **Docs:** [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5)
@@ -34,7 +34,7 @@ YOLOv5 established a strong baseline for ease of use and introduced powerful tra
 Building upon years of feedback and architectural research, YOLO11 was introduced as a part of a unified framework capable of handling multiple vision tasks natively. Moving beyond just bounding boxes, it was designed from the ground up for maximum versatility and efficiency.
 
 - **Authors:** Glenn Jocher and Jing Qiu
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2024-09-27
 - **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLO11 Documentation](https://docs.ultralytics.com/models/yolo11)
@@ -45,7 +45,7 @@ YOLO11 offers a streamlined user experience through the `ultralytics` Python pac
 
 !!! tip "Integrated Platform"
 
-    Both models benefit from the well-maintained ecosystem provided by the [Ultralytics Platform](https://platform.ultralytics.com/). This integrated environment simplifies dataset annotation, cloud training, and model export across various hardware targets.
+    Both models benefit from the well-maintained ecosystem provided by the [Ultralytics Platform](https://platform.ultralytics.com). This integrated environment simplifies dataset annotation, cloud training, and model export across various hardware targets.
 
 ## Performance and Metrics Comparison
 
@@ -127,14 +127,14 @@ Choosing between these models depends largely on your project's lifecycle stage 
 
 ### When to Choose YOLOv5
 
-- **Maintaining Legacy Codebases:** If your production environment is heavily customized around the YOLOv5 repository structure or specific [hyperparameter evolution](https://docs.ultralytics.com/yolov5/tutorials/hyperparameter_evolution) techniques.
+- **Maintaining Legacy Codebases:** If your production environment is heavily customized around the YOLOv5 repository structure or specific [hyperparameter evolution](https://docs.ultralytics.com/yolov5/tutorials/hyperparameter-evolution) techniques.
 - **Academic Baselines:** When publishing research that requires direct benchmarking against established 2020-2022 computer vision standards.
 
 ### When to Choose YOLO11
 
 - **Multi-Task Projects:** When your application requires a mix of tasks such as [pose estimation](https://docs.ultralytics.com/tasks/pose) and [instance segmentation](https://docs.ultralytics.com/tasks/segment) using a single, unified API.
 - **Edge Deployments:** For [edge computing](https://www.ultralytics.com/glossary/edge-computing) scenarios where squeezing out maximum mAP for a given computational budget (FLOPs) is critical.
-- **Commercial AI Solutions:** Ideal for enterprise applications in retail and security, leveraging the robust support of the [Ultralytics Platform](https://platform.ultralytics.com/).
+- **Commercial AI Solutions:** Ideal for enterprise applications in retail and security, leveraging the robust support of the [Ultralytics Platform](https://platform.ultralytics.com).
 
 ## The Next Generation: Ultralytics YOLO26
 

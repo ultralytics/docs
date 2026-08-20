@@ -47,7 +47,7 @@ PP-YOLOE+ is an **anchor-free** detector that introduces a dynamic label assignm
 
 !!! tip "Framework Considerations"
 
-    While PP-YOLOE+ delivers excellent results, its reliance on PaddlePaddle can present a learning curve for engineers accustomed to PyTorch. Utilizing a unified framework like [Ultralytics](https://docs.ultralytics.com/) can significantly reduce setup time.
+    While PP-YOLOE+ delivers excellent results, its reliance on PaddlePaddle can present a learning curve for engineers accustomed to PyTorch. Utilizing a unified framework like [Ultralytics](https://docs.ultralytics.com) can significantly reduce setup time.
 
 ## Performance Comparison
 
@@ -82,7 +82,7 @@ Released in January 2026, **YOLO26** establishes a new benchmark for edge-first 
 
 ### Streamlined Training Ecosystem
 
-Deploying PP-YOLOE+ requires managing the PaddlePaddle environment, while YOLOv6-3.0 requires navigating research-focused scripts. In contrast, the [Ultralytics Platform](https://platform.ultralytics.com/) provides a seamless, zero-to-hero experience.
+Deploying PP-YOLOE+ requires managing the PaddlePaddle environment, while YOLOv6-3.0 requires navigating research-focused scripts. In contrast, the [Ultralytics Platform](https://platform.ultralytics.com) provides a seamless, zero-to-hero experience.
 
 Training a state-of-the-art YOLO26 model requires only a few lines of Python:
 
@@ -122,6 +122,6 @@ Choosing the right model dictates the success of your deployment pipeline.
 
 - **Edge and IoT Devices:** With its NMS-free design and DFL removal, YOLO26 is the undisputed choice for deployments on Raspberry Pi, NXP, or mobile CPUs.
 - **Multi-Task Applications:** Projects requiring simultaneous [object tracking](https://docs.ultralytics.com/modes/track), pose estimation, or segmentation using a unified API.
-- **Rapid Prototyping to Production:** Teams leveraging the [Ultralytics Platform](https://platform.ultralytics.com/) for streamlined [dataset annotation](https://docs.ultralytics.com/platform/data/annotation), hyperparameter tuning, and one-click [model deployment](https://docs.ultralytics.com/guides/model-deployment-options).
+- **Rapid Prototyping to Production:** Teams leveraging the [Ultralytics Platform](https://platform.ultralytics.com) for streamlined [dataset annotation](https://docs.ultralytics.com/platform/data/annotation), hyperparameter tuning, and one-click [model deployment](https://docs.ultralytics.com/guides/model-deployment-options).
 
 For developers looking to explore the broader landscape of detection models, frameworks like [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX) and [DAMO-YOLO](https://docs.ultralytics.com/compare/damo-yolo-vs-yolov6) also offer unique architectural approaches worth reviewing in the Ultralytics documentation.

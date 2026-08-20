@@ -20,7 +20,7 @@ Since its release, Ultralytics YOLOv5 has become a cornerstone of the AI communi
 **Key Characteristics:**
 
 - **Author:** Glenn Jocher
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2020-06-26
 - **Links:** [GitHub Repository](https://github.com/ultralytics/yolov5)
 

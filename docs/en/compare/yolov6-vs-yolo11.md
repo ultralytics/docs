@@ -52,7 +52,7 @@ Unlike YOLOv6, which focuses strictly on bounding box detection, Ultralytics YOL
 
 !!! tip "Streamlined Machine Learning Workflows"
 
-    Ultralytics creates a "zero-to-hero" experience. Instead of complex environment setups common in research repositories, you can train, validate, and export models via a unified Python API or command-line interface. The [Ultralytics Platform](https://platform.ultralytics.com/) further simplifies dataset labeling and cloud training.
+    Ultralytics creates a "zero-to-hero" experience. Instead of complex environment setups common in research repositories, you can train, validate, and export models via a unified Python API or command-line interface. The [Ultralytics Platform](https://platform.ultralytics.com) further simplifies dataset labeling and cloud training.
 
 [Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 

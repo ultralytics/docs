@@ -31,7 +31,7 @@ Introduced in mid-2021, YOLOX represented a major shift by adopting an anchor-fr
 ### YOLO26
 
 Authors: Glenn Jocher and Jing Qiu  
-Organization: [Ultralytics](https://www.ultralytics.com/)  
+Organization: [Ultralytics](https://www.ultralytics.com)  
 Date: 2026-01-14  
 GitHub: [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)  
 Platform: [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26)
@@ -87,7 +87,7 @@ As the table illustrates, the YOLO26 series provides a superior performance bala
 
 One of the most profound differences between these architectures lies in their usability and ecosystem support.
 
-While YOLOX remains a foundational repository for researchers studying gradient flow and anchor-free mechanics, its setup can be complex, often requiring manual configuration of dependencies and operators. Conversely, the **[Ultralytics ecosystem](https://docs.ultralytics.com/)** defines the industry standard for ease of use.
+While YOLOX remains a foundational repository for researchers studying gradient flow and anchor-free mechanics, its setup can be complex, often requiring manual configuration of dependencies and operators. Conversely, the **[Ultralytics ecosystem](https://docs.ultralytics.com)** defines the industry standard for ease of use.
 
 By utilizing the unified Python API, developers can initialize, train, and deploy YOLO26 models with unparalleled simplicity. The system inherently handles dataset downloading, hyperparameter tuning, and seamless export to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), and OpenVINO.
 

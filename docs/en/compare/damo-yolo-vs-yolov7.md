@@ -136,7 +136,7 @@ Choosing the right architecture depends entirely on your target deployment envir
 **When to choose YOLOv7:**
 
 - You have legacy GPU pipelines already optimized for anchor-based, high-accuracy inference.
-- You are operating in environments where real-time accuracy is paramount, such as high-speed [autonomous vehicles](https://www.ultralytics.com/glossary/autonomous-vehicles) or advanced [robotics](https://www.ultralytics.com/solutions/ai-in-robotics).
+- You are operating in environments where real-time accuracy is paramount, such as high-speed [autonomous vehicles](https://www.ultralytics.com/glossary/autonomous-vehicles) or advanced [robotics](https://www.ultralytics.com/solutions/computer-vision-in-robotics).
 
 **When to choose YOLO26 (Recommended):**
 

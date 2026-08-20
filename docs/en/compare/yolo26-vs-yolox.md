@@ -18,7 +18,7 @@ Understanding the origins and core philosophies of these models is essential for
 ### YOLO26 Details
 
 - **Authors:** Glenn Jocher and Jing Qiu
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2026-01-14
 - **GitHub:** [Ultralytics GitHub Repository](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLO26 Official Documentation](https://docs.ultralytics.com/models/yolo26)

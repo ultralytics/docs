@@ -35,10 +35,10 @@ Developed by researchers at Google Brain, EfficientDet introduced a principled a
 YOLO11 represents a significant evolution in the Ultralytics ecosystem, pushing the boundaries of real-time performance, parameter efficiency, and multi-task learning.
 
 - **Authors:** Glenn Jocher and Jing Qiu
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2024-09-27
 - **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- **Docs:** [https://docs.ultralytics.com/models/yolo11/](https://docs.ultralytics.com/models/yolo11)
+- **Docs:** [https://docs.ultralytics.com/models/yolo11](https://docs.ultralytics.com/models/yolo11)
 
 [Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
@@ -124,4 +124,4 @@ While YOLO11 is exceptionally capable, developers starting new projects should e
 - **Up to 43% Faster CPU Inference:** Specific optimizations make YOLO26 incredibly potent on edge devices lacking discrete GPUs.
 - **ProgLoss + STAL:** Advanced loss functions that remarkably improve small-object detection, critical for aerial imagery and robotics.
 
-Explore the broader landscape of vision architectures, including transformer-based detectors like [RT-DETR](https://docs.ultralytics.com/models/rtdetr), in our comprehensive [Ultralytics Docs](https://docs.ultralytics.com/).
+Explore the broader landscape of vision architectures, including transformer-based detectors like [RT-DETR](https://docs.ultralytics.com/models/rtdetr), in our comprehensive [Ultralytics Docs](https://docs.ultralytics.com).

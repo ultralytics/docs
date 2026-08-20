@@ -19,10 +19,10 @@ Before diving into the architectural comparisons, it is helpful to understand th
 
 ### Ultralytics YOLOv5
 
-Developed by Glenn Jocher and released by [Ultralytics](https://www.ultralytics.com/) on June 26, 2020, YOLOv5 marked a paradigm shift in how developers interacted with vision models. By fully embracing the [PyTorch](https://pytorch.org/) framework, YOLOv5 traded the complex compilation steps of earlier Darknet-based models for an intuitive, Python-first user experience.
+Developed by Glenn Jocher and released by [Ultralytics](https://www.ultralytics.com) on June 26, 2020, YOLOv5 marked a paradigm shift in how developers interacted with vision models. By fully embracing the [PyTorch](https://pytorch.org/) framework, YOLOv5 traded the complex compilation steps of earlier Darknet-based models for an intuitive, Python-first user experience.
 
 - **Author:** Glenn Jocher
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2020-06-26
 - **GitHub:** [YOLOv5 Repository](https://github.com/ultralytics/yolov5)
 - **Docs:** [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5)
@@ -62,7 +62,7 @@ YOLOv9 introduces GELAN, a generic architecture that extends CSPNet principles. 
 
 ### Memory Requirements and Training Efficiency
 
-When it comes to training efficiency, YOLOv5 remains incredibly robust. The well-maintained [Ultralytics ecosystem](https://docs.ultralytics.com/) ensures that YOLOv5 models consume significantly less CUDA memory, allowing researchers to maximize [batch sizes](https://www.ultralytics.com/glossary/batch-size) on consumer-grade GPUs. While YOLOv9 achieves excellent parameter efficiency (high accuracy relative to its size), its training process can be more resource-intensive if not utilizing optimized frameworks. Fortunately, integrating YOLOv9 into the Ultralytics API brings it closer to parity with YOLOv5's streamlined resource management.
+When it comes to training efficiency, YOLOv5 remains incredibly robust. The well-maintained [Ultralytics ecosystem](https://docs.ultralytics.com) ensures that YOLOv5 models consume significantly less CUDA memory, allowing researchers to maximize [batch sizes](https://www.ultralytics.com/glossary/batch-size) on consumer-grade GPUs. While YOLOv9 achieves excellent parameter efficiency (high accuracy relative to its size), its training process can be more resource-intensive if not utilizing optimized frameworks. Fortunately, integrating YOLOv9 into the Ultralytics API brings it closer to parity with YOLOv5's streamlined resource management.
 
 ## Performance and Metrics
 
@@ -126,7 +126,7 @@ YOLOv5 is a battle-hardened veteran that shines in deployments prioritizing stab
 
 YOLOv9 is ideal for scenarios where capturing intricate details and minimizing false negatives is absolutely critical, even if it requires slightly more compute overhead.
 
-- **Aerial and Satellite Imagery:** The PGI framework is highly adept at maintaining the fidelity of small objects, making YOLOv9 excellent for drone-based [agricultural monitoring](https://www.ultralytics.com/solutions/ai-in-agriculture).
+- **Aerial and Satellite Imagery:** The PGI framework is highly adept at maintaining the fidelity of small objects, making YOLOv9 excellent for drone-based [agricultural monitoring](https://www.ultralytics.com/solutions/computer-vision-in-agriculture).
 - **Medical Imaging Diagnostics:** When detecting minute anomalies or lesions in high-resolution scans, the accurate gradient flow of GELAN provides a necessary edge in recall.
 - **High-End Retail Analytics:** Tracking overlapping products on dense shelves benefits significantly from YOLOv9's superior feature retention capabilities.
 

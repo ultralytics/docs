@@ -18,7 +18,7 @@ Ultralytics YOLOv8 represents a major milestone in the YOLO (You Only Look Once)
 **Key Characteristics:**
 
 - Authors: Glenn Jocher, Ayush Chaurasia, and Jing Qiu
-- Organization: [Ultralytics](https://www.ultralytics.com/)
+- Organization: [Ultralytics](https://www.ultralytics.com)
 - Date: January 10, 2023
 - GitHub: [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
 - Docs: [YOLOv8 Documentation](https://docs.ultralytics.com/models/yolov8)

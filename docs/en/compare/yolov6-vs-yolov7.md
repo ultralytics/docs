@@ -104,7 +104,7 @@ While YOLOv6-3.0 and YOLOv7 represent significant milestones, integrating dispar
 ### Why Choose Ultralytics?
 
 - **Ease of Use:** The Ultralytics Python API allows developers to load, train, and export models with just a few lines of code. Switching from an older model to the latest architecture requires changing only a single string.
-- **Well-Maintained Ecosystem:** Ultralytics provides frequent updates, active community support, and robust [documentation](https://docs.ultralytics.com/).
+- **Well-Maintained Ecosystem:** Ultralytics provides frequent updates, active community support, and robust [documentation](https://docs.ultralytics.com).
 - **Versatility:** Unlike earlier models that focused primarily on bounding boxes, Ultralytics models natively support multi-task learning, including [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 - **Memory Requirements:** Ultralytics YOLO models maintain lower memory usage during training compared to transformer-based architectures like [RT-DETR](https://docs.ultralytics.com/models/rtdetr), allowing researchers to train effectively on consumer-grade hardware.
 
@@ -123,7 +123,7 @@ Other highly capable models within the ecosystem include [YOLO11](https://platfo
 
 !!! tip "Future-Proof Your Pipeline"
 
-    By building your computer vision applications on the [Ultralytics Platform](https://platform.ultralytics.com/), you ensure immediate access to future state-of-the-art models without rewriting your dataset loaders or deployment scripts.
+    By building your computer vision applications on the [Ultralytics Platform](https://platform.ultralytics.com), you ensure immediate access to future state-of-the-art models without rewriting your dataset loaders or deployment scripts.
 
 ### Code Example: Streamlined Training
 

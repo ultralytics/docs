@@ -35,7 +35,7 @@ Developed by researchers at Tsinghua University, YOLOv10 was designed to address
 Released in early 2023, YOLOv8 quickly became an industry staple due to its robust architecture and unparalleled integration within the broader machine learning ecosystem.
 
 - **Authors:** Glenn Jocher, Ayush Chaurasia, and Jing Qiu
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2023-01-10
 - **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 
@@ -86,7 +86,7 @@ Choosing a model goes beyond theoretical benchmarks; the developer experience an
 
 ### The Ultralytics Advantage
 
-One of the core strengths of YOLOv8 is its tight integration into the [Ultralytics ecosystem](https://docs.ultralytics.com/). This environment provides a "zero-to-hero" experience, characterized by a highly intuitive Python API and extensive documentation. Unlike research-focused repositories that may require complex environment setups, Ultralytics models are renowned for their **ease of use**.
+One of the core strengths of YOLOv8 is its tight integration into the [Ultralytics ecosystem](https://docs.ultralytics.com). This environment provides a "zero-to-hero" experience, characterized by a highly intuitive Python API and extensive documentation. Unlike research-focused repositories that may require complex environment setups, Ultralytics models are renowned for their **ease of use**.
 
 Furthermore, YOLOv8 is inherently versatile. While YOLOv10 is strictly optimized for object detection, the Ultralytics framework allows developers to seamlessly pivot between [object detection](https://docs.ultralytics.com/tasks/detect), [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding box (OBB)](https://docs.ultralytics.com/tasks/obb) tasks within the exact same library and API structure.
 
@@ -127,7 +127,7 @@ Key improvements in YOLO26 include:
 When deciding between these architectures, consider the specific needs of your deployment environment:
 
 - **Choose YOLOv10 if:** You are working on a pure object detection pipeline where squeezing every bit of parameter efficiency is critical, and you want to experiment with the early implementations of NMS-free architectures.
-- **Choose Ultralytics YOLOv8 if:** You need a highly stable, production-ready model supported by the robust [Ultralytics Platform](https://platform.ultralytics.com/). It is the ideal choice if your project requires multiple tasks (e.g., detecting objects and then segmenting them) using a unified, easy-to-maintain codebase.
+- **Choose Ultralytics YOLOv8 if:** You need a highly stable, production-ready model supported by the robust [Ultralytics Platform](https://platform.ultralytics.com). It is the ideal choice if your project requires multiple tasks (e.g., detecting objects and then segmenting them) using a unified, easy-to-maintain codebase.
 - **Choose YOLO26 (Recommended) if:** You want the ultimate balance of state-of-the-art accuracy, native end-to-end NMS-free efficiency, and the fastest possible speeds on CPU and edge hardware.
 
 If you are exploring the broader landscape, you might also be interested in comparing these models with [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or checking out specific edge-deployment integrations like [Intel OpenVINO](https://docs.ultralytics.com/integrations/openvino) to further accelerate your vision AI applications. By leveraging the unified tools provided by Ultralytics, deploying robust computer vision solutions has never been more accessible.

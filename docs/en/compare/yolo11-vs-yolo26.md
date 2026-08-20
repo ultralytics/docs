@@ -22,7 +22,7 @@ Both models benefit from the comprehensive [Ultralytics ecosystem](https://githu
 Released in late 2024, YOLO11 refined the advancements of earlier generations, cementing its place as a reliable workhorse for production environments.
 
 - **Authors:** Glenn Jocher and Jing Qiu
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2024-09-27
 - **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLO11 Documentation](https://docs.ultralytics.com/models/yolo11)
@@ -34,7 +34,7 @@ Released in late 2024, YOLO11 refined the advancements of earlier generations, c
 Introduced in early 2026, YOLO26 represents a paradigm shift in edge computing and end-to-end architecture, delivering significant improvements in processing speed and ease of integration.
 
 - **Authors:** Glenn Jocher and Jing Qiu
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2026-01-14
 - **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26)
@@ -136,4 +136,4 @@ While YOLO26 represents the pinnacle of real-time detection, exploring other mod
 
 ## Conclusion
 
-The jump from YOLO11 to YOLO26 is not merely an incremental update; it is a structural reimagining of how real-time object detection models operate in production. By dropping complex post-processing steps and optimizing for edge-first execution, **YOLO26** stands out as the premier choice for modern developers. Backed by the robust [Ultralytics ecosystem](https://docs.ultralytics.com/) and comprehensive documentation, upgrading to YOLO26 guarantees faster deployments, stable training, and SOTA accuracy for virtually any computer vision task.
+The jump from YOLO11 to YOLO26 is not merely an incremental update; it is a structural reimagining of how real-time object detection models operate in production. By dropping complex post-processing steps and optimizing for edge-first execution, **YOLO26** stands out as the premier choice for modern developers. Backed by the robust [Ultralytics ecosystem](https://docs.ultralytics.com) and comprehensive documentation, upgrading to YOLO26 guarantees faster deployments, stable training, and SOTA accuracy for virtually any computer vision task.

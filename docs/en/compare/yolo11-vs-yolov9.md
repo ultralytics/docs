@@ -23,7 +23,7 @@ YOLO11 is a highly optimized, versatile model designed for production-grade envi
 - **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2024-09-27
 - **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- **Docs:** [https://docs.ultralytics.com/models/yolo11/](https://docs.ultralytics.com/models/yolo11)
+- **Docs:** [https://docs.ultralytics.com/models/yolo11](https://docs.ultralytics.com/models/yolo11)
 
 [Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
@@ -36,7 +36,7 @@ YOLOv9 is a powerful academic contribution that introduces novel concepts to mit
 - **Date:** 2024-02-21
 - **Arxiv:** [https://arxiv.org/abs/2402.13616](https://arxiv.org/abs/2402.13616)
 - **GitHub:** [https://github.com/WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9)
-- **Docs:** [https://docs.ultralytics.com/models/yolov9/](https://docs.ultralytics.com/models/yolov9)
+- **Docs:** [https://docs.ultralytics.com/models/yolov9](https://docs.ultralytics.com/models/yolov9)
 
 [Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9){ .md-button }
 

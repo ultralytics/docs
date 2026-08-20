@@ -35,7 +35,7 @@ Developed by the researchers at Baidu, PP-YOLOE+ is an iteration of the earlier 
 YOLO11, created by Ultralytics, represents a significant leap forward in usability and accuracy. It builds upon a legacy of highly successful architectures, optimizing for a frictionless developer experience and multi-task versatility.
 
 - **Authors:** Glenn Jocher and Jing Qiu
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2024-09-27
 - **GitHub:** [Ultralytics GitHub Repository](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLO11 Official Documentation](https://docs.ultralytics.com/models/yolo11)

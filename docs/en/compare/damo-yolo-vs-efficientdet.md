@@ -136,4 +136,4 @@ predictions = model.predict("image.jpg")
 
 While exploring [DAMO-YOLO vs EfficientDet](https://docs.ultralytics.com/compare/damo-yolo-vs-efficientdet) provides excellent insights into the trade-offs between Neural Architecture Search and compound scaling, modern developers require tools that bridge the gap between academic research and production reality.
 
-For developers prioritizing ease of use, an active open-source community, and an uncompromised balance of speed and accuracy, **Ultralytics YOLO26** is the definitive choice. Its NMS-free architecture, low training overhead, and seamless integration with the comprehensive [Ultralytics ecosystem](https://www.ultralytics.com/) make it the ultimate framework for your next computer vision project.
+For developers prioritizing ease of use, an active open-source community, and an uncompromised balance of speed and accuracy, **Ultralytics YOLO26** is the definitive choice. Its NMS-free architecture, low training overhead, and seamless integration with the comprehensive [Ultralytics ecosystem](https://www.ultralytics.com) make it the ultimate framework for your next computer vision project.

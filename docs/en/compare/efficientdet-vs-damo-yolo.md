@@ -109,7 +109,7 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 
 ## The Ultralytics Advantage: Advancing Beyond Legacy Models
 
-While EfficientDet and DAMO-YOLO provide valuable academic insights, modern developers require frameworks that balance state-of-the-art performance with developer ergonomics. This is where the [Ultralytics ecosystem](https://www.ultralytics.com/) excels.
+While EfficientDet and DAMO-YOLO provide valuable academic insights, modern developers require frameworks that balance state-of-the-art performance with developer ergonomics. This is where the [Ultralytics ecosystem](https://www.ultralytics.com) excels.
 
 ### Unmatched Ease of Use and Ecosystem
 

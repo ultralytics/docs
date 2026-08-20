@@ -22,7 +22,7 @@ Before diving into the technical nuances, it is important to understand the orig
 Developed by Glenn Jocher and the team at Ultralytics, YOLOv5 has become an industry standard since its release. Built natively on the [PyTorch](https://pytorch.org/) framework, it prioritized a streamlined developer experience and robust deployment capabilities right out of the box.
 
 - **Author:** Glenn Jocher
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2020-06-26
 - **GitHub:** [https://github.com/ultralytics/yolov5](https://github.com/ultralytics/yolov5)
 - **Docs:** [Ultralytics YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5)
@@ -90,7 +90,7 @@ DAMO-YOLO relies heavily on a multi-stage training methodology. It implements a 
 
 ### The Ultralytics Advantage: Ease of Use
 
-Conversely, the [Ultralytics ecosystem](https://docs.ultralytics.com/) is world-renowned for its intuitive APIs and [training efficiency](https://docs.ultralytics.com/modes/train). Supported by active development and an enormous open-source community, developers can train, validate, and deploy models seamlessly.
+Conversely, the [Ultralytics ecosystem](https://docs.ultralytics.com) is world-renowned for its intuitive APIs and [training efficiency](https://docs.ultralytics.com/modes/train). Supported by active development and an enormous open-source community, developers can train, validate, and deploy models seamlessly.
 
 ```python
 from ultralytics import YOLO

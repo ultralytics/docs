@@ -108,9 +108,9 @@ RTDETRv2's Transformer backbone is highly effective in scenarios with dense, hea
 **Where YOLO11 Dominates:**
 YOLO11 is the undisputed champion of practical, real-world deployment. Its minimal memory footprint and blazing-fast inference speeds make it ideal for:
 
-- **[Smart Manufacturing](https://www.ultralytics.com/solutions/ai-in-manufacturing):** Running real-time defect detection on production lines using industrial PCs.
-- **[Agriculture](https://www.ultralytics.com/solutions/ai-in-agriculture):** Deploying on drones for real-time crop health monitoring and automated harvesting robotics.
-- **[Retail Analytics](https://www.ultralytics.com/solutions/ai-in-retail):** Processing multiple camera streams concurrently for queue management and inventory tracking without requiring massive server farms.
+- **[Smart Manufacturing](https://www.ultralytics.com/solutions/computer-vision-in-manufacturing):** Running real-time defect detection on production lines using industrial PCs.
+- **[Agriculture](https://www.ultralytics.com/solutions/computer-vision-in-agriculture):** Deploying on drones for real-time crop health monitoring and automated harvesting robotics.
+- **[Retail Analytics](https://www.ultralytics.com/solutions/computer-vision-in-retail):** Processing multiple camera streams concurrently for queue management and inventory tracking without requiring massive server farms.
 
 ## Use Cases and Recommendations
 
@@ -146,4 +146,4 @@ If you are beginning a new project, you should also consider the next generation
 
 YOLO26 features the **MuSGD Optimizer**—inspired by LLM training innovations—for incredibly stable and fast convergence, and delivers up to **43% Faster CPU Inference** by removing Distribution Focal Loss (DFL). With its specialized **ProgLoss + STAL** loss functions vastly improving small-object recognition, YOLO26 is the ultimate recommendation for any modern computer vision pipeline.
 
-Whether you choose YOLO11 for its proven versatility, RTDETRv2 for its attention mechanisms, or the cutting-edge YOLO26 for ultimate edge performance, the [Ultralytics documentation](https://docs.ultralytics.com/) provides all the resources needed to succeed in your computer vision journey.
+Whether you choose YOLO11 for its proven versatility, RTDETRv2 for its attention mechanisms, or the cutting-edge YOLO26 for ultimate edge performance, the [Ultralytics documentation](https://docs.ultralytics.com) provides all the resources needed to succeed in your computer vision journey.

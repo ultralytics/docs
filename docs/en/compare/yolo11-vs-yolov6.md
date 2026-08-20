@@ -22,7 +22,7 @@ Before diving into the technical benchmarks, it is helpful to understand the ori
 Developed natively within the Ultralytics ecosystem, YOLO11 was engineered to provide a seamless, end-to-end development experience. It emphasizes not just raw speed, but also [multi-task versatility](https://www.ultralytics.com/blog/all-you-need-to-know-about-computer-vision-tasks), ease of use, and integration with modern deployment pipelines.
 
 - **Authors:** Glenn Jocher and Jing Qiu
-- **Organization:** [Ultralytics](https://www.ultralytics.com/)
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2024-09-27
 - **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLO11 Documentation](https://docs.ultralytics.com/models/yolo11)
@@ -78,7 +78,7 @@ As demonstrated, YOLO11 consistently achieves higher accuracy (mAP) with signifi
 Choosing a model is about more than just raw metrics; it is about the entire [machine learning lifecycle](https://en.wikipedia.org/wiki/MLOps). Ultralytics models provide a distinct advantage for developers and researchers alike.
 
 1. **Ease of Use:** The Ultralytics Python API allows you to train, validate, and export models with just a few lines of code. There is no need to manually configure complex dependency trees.
-2. **Well-Maintained Ecosystem:** Ultralytics provides a unified ecosystem that receives frequent updates. By utilizing the [Ultralytics Platform](https://platform.ultralytics.com/), developers gain access to collaborative dataset annotation, cloud training, and seamless model monitoring.
+2. **Well-Maintained Ecosystem:** Ultralytics provides a unified ecosystem that receives frequent updates. By utilizing the [Ultralytics Platform](https://platform.ultralytics.com), developers gain access to collaborative dataset annotation, cloud training, and seamless model monitoring.
 3. **Versatility:** Unlike YOLOv6-3.0, which is primarily a bounding box detector, YOLO11 natively supports [image classification](https://docs.ultralytics.com/tasks/classify) and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb), allowing you to consolidate your technology stack.
 4. **Training Efficiency:** Leveraging modern optimizations and auto-batching, YOLO11 trains efficiently on consumer-grade hardware, democratizing access to state-of-the-art vision AI.
 
@@ -125,6 +125,6 @@ YOLO26 introduces several groundbreaking features designed specifically for mode
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, which is critical for [drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and aerial surveillance.
 - **Task-Specific Improvements:** YOLO26 includes customized enhancements across all tasks, such as multi-scale prototyping for segmentation and Residual Log-Likelihood Estimation (RLE) for pose estimation.
 
-If you are starting a new computer vision initiative today, leveraging the [Ultralytics Platform](https://platform.ultralytics.com/) to train a YOLO26 model will ensure your application is built on the most efficient, accurate, and future-proof architecture available.
+If you are starting a new computer vision initiative today, leveraging the [Ultralytics Platform](https://platform.ultralytics.com) to train a YOLO26 model will ensure your application is built on the most efficient, accurate, and future-proof architecture available.
 
 For developers interested in exploring open-vocabulary detection, you can also review our documentation on [YOLO-World](https://docs.ultralytics.com/models/yolo-world).

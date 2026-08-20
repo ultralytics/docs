@@ -18,7 +18,7 @@ Both models were introduced around the same time but stem from different design 
 ### YOLOv8 Details
 
 - Authors: Glenn Jocher, Ayush Chaurasia, and Jing Qiu
-- Organization: [Ultralytics](https://www.ultralytics.com/)
+- Organization: [Ultralytics](https://www.ultralytics.com)
 - Date: 2023-01-10
 - GitHub: [Ultralytics GitHub Repository](https://github.com/ultralytics/ultralytics)
 - Docs: [YOLOv8 Official Documentation](https://docs.ultralytics.com/models/yolov8)
