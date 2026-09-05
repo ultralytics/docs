@@ -96,7 +96,7 @@ DAMO-YOLO is strictly an object detection framework. It excels in academic resea
 
 ### The Ultralytics Advantage
 
-Ultralytics models, including YOLO11, shine in real-world commercial applications due to their unparalleled versatility and well-maintained ecosystem. Unlike DAMO-YOLO, the Ultralytics framework supports multi-task tasks natively. From [Instance Segmentation](https://docs.ultralytics.com/tasks/segment) in medical imaging to [Pose Estimation](https://docs.ultralytics.com/tasks/pose) for biomechanical analysis in sports, a single, unified codebase handles it all.
+Ultralytics models, including YOLO11, shine in real-world commercial applications due to their unparalleled versatility and well-maintained ecosystem. Unlike DAMO-YOLO, the Ultralytics framework supports multiple tasks natively. From [Instance Segmentation](https://docs.ultralytics.com/tasks/segment) in medical imaging to [Pose Estimation](https://docs.ultralytics.com/tasks/pose) for biomechanical analysis in sports, a single, unified codebase handles it all.
 
 Industries leveraging YOLO11 include:
 

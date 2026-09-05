@@ -115,7 +115,7 @@ For high-speed [manufacturing automation](https://www.ultralytics.com/blog/manuf
 
 Deploying computer vision on battery-powered devices requires extreme efficiency. While DAMO-YOLO relies on specific RepGFPN necks, **YOLO26n** (Nano) is specifically optimized for edge computing. Its DFL removal and **43% faster CPU inference** make it the ultimate solution for smart cameras, mobile applications, and [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system).
 
-### multi-task Project Requirements
+### Multi-Task Project Requirements
 
 If a project demands more than just object detection—such as analyzing player mechanics in [sports](https://www.ultralytics.com/blog/exploring-the-applications-of-computer-vision-in-sports) using pose estimation, or extracting exact pixel boundaries using instance segmentation—**YOLO26** provides native support across all these tasks within a single, unified codebase. DAMO-YOLO is strictly limited to bounding box detection.
 
