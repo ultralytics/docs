@@ -17,21 +17,23 @@ By delving into their architectures, performance metrics, and training methodolo
 
 Understanding the origins of these architectures provides context for their respective breakthroughs. Both models were developed by [Ultralytics](https://www.ultralytics.com), a company renowned for making state-of-the-art AI accessible and easy to deploy.
 
-**YOLO26 Details:**  
-Authors: Glenn Jocher and Jing Qiu  
-Organization: [Ultralytics](https://www.ultralytics.com)  
-Date: 2026-01-14  
-GitHub: [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)  
-Docs: [https://docs.ultralytics.com/models/yolo26](https://docs.ultralytics.com/models/yolo26)
+**YOLO26 Details:**
+
+- **Authors:** Glenn Jocher and Jing Qiu
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
+- **Date:** 2026-01-14
+- **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
+- **Docs:** [https://docs.ultralytics.com/models/yolo26](https://docs.ultralytics.com/models/yolo26)
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
-**YOLOv8 Details:**  
-Authors: Glenn Jocher, Ayush Chaurasia, and Jing Qiu  
-Organization: [Ultralytics](https://www.ultralytics.com)  
-Date: 2023-01-10  
-GitHub: [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)  
-Docs: [https://docs.ultralytics.com/models/yolov8](https://docs.ultralytics.com/models/yolov8)
+**YOLOv8 Details:**
+
+- **Authors:** Glenn Jocher, Ayush Chaurasia, and Jing Qiu
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
+- **Date:** 2023-01-10
+- **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
+- **Docs:** [https://docs.ultralytics.com/models/yolov8](https://docs.ultralytics.com/models/yolov8)
 
 [Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
@@ -46,7 +48,7 @@ YOLO26 was engineered from the ground up to eliminate deployment bottlenecks and
 - **End-to-End NMS-Free Design:** Building on concepts first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 natively employs an end-to-end architecture. By completely eliminating the need for Non-Maximum Suppression (NMS) post-processing, latency variance is virtually eradicated. This simplifies deployment logic for applications requiring strict real-time guarantees.
 - **DFL Removal:** The removal of Distribution Focal Loss (DFL) drastically simplifies the output head. This architectural choice enables significantly better compatibility with low-power edge devices and simpler exports to formats like [ONNX](https://onnx.ai/) and [CoreML](https://developer.apple.com/documentation/coreml/).
 - **MuSGD Optimizer:** Inspired by the training stability seen in Large Language Models (LLMs) like Moonshot AI's Kimi K2, YOLO26 utilizes the MuSGD optimizer—a hybrid of Stochastic Gradient Descent and Muon. This brings LLM-scale training innovations into computer vision, yielding faster convergence and highly stable training runs.
-- **ProgLoss + STAL:** To combat the notoriously difficult problem of recognizing tiny subjects, YOLO26 implements Progressive Loss (ProgLoss) combined with Scale-Tolerant Anchor Loss (STAL). This provides critical improvements for [small object detection](https://docs.ultralytics.com/guides/vision-eye), making it ideal for drone applications.
+- **ProgLoss + STAL:** To combat the notoriously difficult problem of recognizing tiny subjects, YOLO26 implements Progressive Loss (ProgLoss) combined with Small-Target-Aware Label Assignment (STAL). This provides critical improvements for [small object detection](https://docs.ultralytics.com/guides/vision-eye), making it ideal for drone applications.
 
 !!! info "Task-Specific Refinements"
 
@@ -64,19 +66,19 @@ When released in 2023, YOLOv8 set a new benchmark by fully transitioning to an a
 
 When evaluating models for production, the balance between accuracy, inference speed, and model size is paramount. YOLO26 demonstrates a clear generational advantage across all size variants.
 
-| Model   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLO26n | 640                         | **40.9**                   | **38.9**                             | 1.7                                       | **2.4**                  | **5.4**                 |
-| YOLO26s | 640                         | **48.6**                   | **87.2**                             | **2.5**                                   | **9.5**                  | **20.7**                |
-| YOLO26m | 640                         | **53.1**                   | **220.0**                            | **4.7**                                   | **20.4**                 | **68.2**                |
-| YOLO26l | 640                         | **55.0**                   | **286.2**                            | **6.2**                                   | **24.8**                 | **86.4**                |
-| YOLO26x | 640                         | **57.5**                   | 525.8                                | **11.8**                                  | **55.7**                 | **193.9**               |
-|         |                             |                            |                                      |                                           |                          |                         |
-| YOLOv8n | 640                         | 37.3                       | 80.4                                 | **1.47**                                  | 3.2                      | 8.7                     |
-| YOLOv8s | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
-| YOLOv8m | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
-| YOLOv8l | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
-| YOLOv8x | 640                         | 53.9                       | **479.1**                            | 14.37                                     | 68.2                     | 257.8                   |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | **40.9**                   | **38.9**                             | 1.7                                       | **2.4**                  | **5.4**                 |
+| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | **48.6**                   | **87.2**                             | **2.5**                                   | **9.5**                  | **20.7**                |
+| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | **53.1**                   | **220.0**                            | **4.7**                                   | **20.4**                 | **68.2**                |
+| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | **55.0**                   | **286.2**                            | **6.2**                                   | **24.8**                 | **86.4**                |
+| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | **11.8**                                  | **55.7**                 | **193.9**               |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| [YOLOv8n](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) | 640                         | 37.3                       | 80.4                                 | **1.47**                                  | 3.2                      | 8.7                     |
+| [YOLOv8s](https://platform.ultralytics.com/ultralytics/yolov8/yolov8s) | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
+| [YOLOv8m](https://platform.ultralytics.com/ultralytics/yolov8/yolov8m) | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
+| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
+| [YOLOv8x](https://platform.ultralytics.com/ultralytics/yolov8/yolov8x) | 640                         | 53.9                       | **479.1**                            | 14.37                                     | 68.2                     | 257.8                   |
 
 _Note: Highlighted values demonstrate the performance balance and efficiency gains of the YOLO26 architecture over its predecessor._
 

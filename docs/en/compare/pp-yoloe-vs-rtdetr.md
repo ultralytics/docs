@@ -17,12 +17,12 @@ Developed as an iteration over its predecessors, PP-YOLOE+ pushes the boundaries
 
 **Model Details:**
 
-- Authors: PaddlePaddle Authors
-- Organization: [Baidu](https://github.com/baidu-research)
-- Date: 2022-04-02
-- Arxiv: [2203.16250](https://arxiv.org/abs/2203.16250)
-- GitHub: [PaddleDetection Repository](https://github.com/PaddlePaddle/PaddleDetection/)
-- Docs: [PP-YOLOE+ Documentation](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
+- **Authors:** PaddlePaddle Authors
+- **Organization:** [Baidu](https://github.com/PaddlePaddle)
+- **Date:** 2022-04-02
+- **Arxiv:** [2203.16250](https://arxiv.org/abs/2203.16250)
+- **GitHub:** [PaddleDetection Repository](https://github.com/PaddlePaddle/PaddleDetection/)
+- **Docs:** [PP-YOLOE+ Documentation](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
 
 ### Architecture and Methodologies
 
@@ -44,12 +44,12 @@ Moving away from pure CNNs, RTDETRv2 (Real-Time Detection Transformer version 2)
 
 **Model Details:**
 
-- Authors: Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
-- Organization: [Baidu](https://www.baidu.com/)
-- Date: 2024-07-24
-- Arxiv: [2407.17140](https://arxiv.org/abs/2407.17140)
-- GitHub: [RT-DETRv2 Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
-- Docs: [RTDETRv2 README](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
+- **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
+- **Organization:** [Baidu](https://www.baidu.com/)
+- **Date:** 2024-07-24
+- **Arxiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
+- **GitHub:** [RTDETRv2 Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
+- **Docs:** [RTDETRv2 README](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
 
 ### Architecture and Methodologies
 
@@ -59,7 +59,7 @@ RTDETRv2 leverages a hybrid architecture, combining a CNN backbone for feature e
 
 The transformer architecture makes RTDETRv2 highly effective in scenarios where understanding global context is crucial. However, transformer models typically demand significantly higher CUDA memory during both training and inference compared to lightweight CNNs. It is best suited for environments with unconstrained hardware, such as cloud-based [video analytics](https://www.ultralytics.com/blog/behind-the-scenes-of-vision-ai-in-streaming) running on powerful GPU servers.
 
-[Learn more about RTDETR](https://docs.ultralytics.com/models/rtdetr){ .md-button }
+[Learn more about RT-DETR](https://docs.ultralytics.com/models/rtdetr){ .md-button }
 
 ## Performance and Metrics Comparison
 
@@ -155,7 +155,7 @@ model_yolo.export(format="engine", quantize=16)
 
 Lower memory requirements typical of Ultralytics YOLO models mean you can train faster and deploy on cheaper hardware compared to transformer-based counterparts. Furthermore, active development and world-class documentation ensure your production pipelines remain stable.
 
-For teams exploring alternatives, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains a highly supported and exceptionally capable predecessor within the ecosystem, providing an excellent baseline for legacy hardware integrations. You might also find it useful to read our comparison on [YOLO11 vs RTDETR](https://docs.ultralytics.com/compare/yolo11-vs-rtdetr).
+For teams exploring alternatives, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains a highly supported and exceptionally capable predecessor within the ecosystem, providing an excellent baseline for legacy hardware integrations. You might also find it useful to read our comparison on [YOLO11 vs RT-DETR](https://docs.ultralytics.com/compare/yolo11-vs-rtdetr).
 
 ## Summary
 

@@ -58,16 +58,16 @@ YOLOv7 is also famous for its "trainable bag-of-freebies," particularly its re-p
 
 When evaluating these models, the **Performance Balance** between speed, accuracy, and computational cost is paramount. Below is a detailed comparison of their performance metrics based on the MS COCO val2017 dataset.
 
-| Model   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv5n | 640                         | 28.0                       | **73.6**                             | **1.12**                                  | **2.6**                  | **7.7**                 |
-| YOLOv5s | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
-| YOLOv5m | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
-| YOLOv5l | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
-| YOLOv5x | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
-|         |                             |                            |                                      |                                           |                          |                         |
-| YOLOv7l | 640                         | 51.4                       | -                                    | 6.84                                      | 36.9                     | 104.7                   |
-| YOLOv7x | 640                         | **53.1**                   | -                                    | 11.57                                     | 71.3                     | 189.9                   |
+| Model                                                          | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| -------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5) | 640                         | 28.0                       | **73.6**                             | **1.12**                                  | **2.6**                  | **7.7**                 |
+| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5) | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
+| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5) | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
+| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5) | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
+| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5) | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
+|                                                                |                             |                            |                                      |                                           |                          |                         |
+| YOLOv7l                                                        | 640                         | 51.4                       | -                                    | 6.84                                      | 36.9                     | 104.7                   |
+| YOLOv7x                                                        | 640                         | **53.1**                   | -                                    | 11.57                                     | 71.3                     | 189.9                   |
 
 While YOLOv7 achieves higher absolute mAP scores on larger variants, YOLOv5 offers an unparalleled spectrum of models—from the ultra-lightweight Nano (YOLOv5n) for extreme edge devices to the Extra-Large (YOLOv5x) for cloud inference.
 

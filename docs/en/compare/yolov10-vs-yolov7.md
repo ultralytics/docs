@@ -19,23 +19,23 @@ Understanding the origins of these models provides valuable context regarding th
 
 ### YOLOv10 Details
 
-- Authors: Ao Wang, Hui Chen, Lihao Liu, et al.
-- Organization: [Tsinghua University](https://www.tsinghua.edu.cn/en/)
-- Date: 2024-05-23
-- Arxiv: [YOLOv10: Real-Time End-to-End Object Detection](https://arxiv.org/abs/2405.14458)
-- GitHub: [THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
-- Docs: [Ultralytics YOLOv10 Documentation](https://docs.ultralytics.com/models/yolov10)
+- **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
+- **Organization:** [Tsinghua University](https://www.tsinghua.edu.cn/en/)
+- **Date:** 2024-05-23
+- **Arxiv:** [YOLOv10: Real-Time End-to-End Object Detection](https://arxiv.org/abs/2405.14458)
+- **GitHub:** [THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
+- **Docs:** [Ultralytics YOLOv10 Documentation](https://docs.ultralytics.com/models/yolov10)
 
 [Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10){ .md-button }
 
 ### YOLOv7 Details
 
-- Authors: Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
-- Organization: [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)
-- Date: 2022-07-06
-- Arxiv: [YOLOv7: Trainable bag-of-freebies sets new state-of-the-art](https://arxiv.org/abs/2207.02696)
-- GitHub: [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
-- Docs: [Ultralytics YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7)
+- **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
+- **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)
+- **Date:** 2022-07-06
+- **Arxiv:** [YOLOv7: Trainable bag-of-freebies sets new state-of-the-art](https://arxiv.org/abs/2207.02696)
+- **GitHub:** [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
+- **Docs:** [Ultralytics YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7)
 
 [Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 

@@ -17,11 +17,11 @@ Introduced as a major leap forward in the YOLO lineage, YOLOv8 established a new
 
 **YOLOv8 Details:**
 
-- Authors: Glenn Jocher, Ayush Chaurasia, and Jing Qiu
-- Organization: [Ultralytics](https://www.ultralytics.com)
-- Date: 2023-01-10
-- GitHub: [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- Docs: [https://docs.ultralytics.com/models/yolov8](https://docs.ultralytics.com/models/yolov8)
+- **Authors:** Glenn Jocher, Ayush Chaurasia, and Jing Qiu
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
+- **Date:** 2023-01-10
+- **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
+- **Docs:** [https://docs.ultralytics.com/models/yolov8](https://docs.ultralytics.com/models/yolov8)
 
 ### Architecture and Strengths
 
@@ -37,12 +37,12 @@ Developed by researchers at Tsinghua University, YOLOv10 aimed to tackle one of 
 
 **YOLOv10 Details:**
 
-- Authors: Ao Wang, Hui Chen, Lihao Liu, et al.
-- Organization: [Tsinghua University](https://www.tsinghua.edu.cn/en/)
-- Date: 2024-05-23
-- Arxiv: [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)
-- GitHub: [https://github.com/THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
-- Docs: [https://docs.ultralytics.com/models/yolov10](https://docs.ultralytics.com/models/yolov10)
+- **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
+- **Organization:** [Tsinghua University](https://www.tsinghua.edu.cn/en/)
+- **Date:** 2024-05-23
+- **Arxiv:** [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)
+- **GitHub:** [https://github.com/THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
+- **Docs:** [https://docs.ultralytics.com/models/yolov10](https://docs.ultralytics.com/models/yolov10)
 
 ### Architecture and Strengths
 
@@ -60,20 +60,20 @@ Additionally, YOLOv10 incorporates a holistic efficiency-accuracy driven model d
 
 When comparing these two architectures, it is crucial to look at the trade-offs between parameter count, FLOPs, and accuracy. Below is the exact comparison of their performance metrics on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco).
 
-| Model    | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| -------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv8n  | 640                         | 37.3                       | **80.4**                             | **1.47**                                  | 3.2                      | 8.7                     |
-| YOLOv8s  | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
-| YOLOv8m  | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
-| YOLOv8l  | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
-| YOLOv8x  | 640                         | 53.9                       | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
-|          |                             |                            |                                      |                                           |                          |                         |
-| YOLOv10n | 640                         | 39.5                       | -                                    | 1.56                                      | **2.3**                  | **6.7**                 |
-| YOLOv10s | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
-| YOLOv10m | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
-| YOLOv10b | 640                         | 52.7                       | -                                    | 6.54                                      | 24.4                     | 92.0                    |
-| YOLOv10l | 640                         | 53.3                       | -                                    | 8.33                                      | 29.5                     | 120.3                   |
-| YOLOv10x | 640                         | **54.4**                   | -                                    | 12.2                                      | 56.9                     | 160.4                   |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| [YOLOv8n](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) | 640                         | 37.3                       | **80.4**                             | **1.47**                                  | 3.2                      | 8.7                     |
+| [YOLOv8s](https://platform.ultralytics.com/ultralytics/yolov8/yolov8s) | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
+| [YOLOv8m](https://platform.ultralytics.com/ultralytics/yolov8/yolov8m) | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
+| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
+| [YOLOv8x](https://platform.ultralytics.com/ultralytics/yolov8/yolov8x) | 640                         | 53.9                       | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| YOLOv10n                                                               | 640                         | 39.5                       | -                                    | 1.56                                      | **2.3**                  | **6.7**                 |
+| YOLOv10s                                                               | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
+| YOLOv10m                                                               | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
+| YOLOv10b                                                               | 640                         | 52.7                       | -                                    | 6.54                                      | 24.4                     | 92.0                    |
+| YOLOv10l                                                               | 640                         | 53.3                       | -                                    | 8.33                                      | 29.5                     | 120.3                   |
+| YOLOv10x                                                               | 640                         | **54.4**                   | -                                    | 12.2                                      | 56.9                     | 160.4                   |
 
 While YOLOv10 achieves slightly higher mAP with fewer parameters in some scales, YOLOv8 offers a more robust ecosystem and broader task support, making it generally more reliable for production environments that require more than just bounding boxes.
 

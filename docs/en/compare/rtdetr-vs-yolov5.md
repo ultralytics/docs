@@ -2,7 +2,7 @@
 title: RTDETRv2 vs YOLOv5 Comparison
 comments: true
 description: Discover the key differences between YOLOv5 and RTDETRv2, from architecture to accuracy, and find the best object detection model for your project.
-keywords: YOLOv5, RTDETRv2, object detection comparison, YOLOv5 vs RTDETRv2, Ultralytics models, model performance, computer vision, object detection, RTDETR, YOLOv5 features, transformer architecture
+keywords: YOLOv5, RTDETRv2, object detection comparison, YOLOv5 vs RTDETRv2, Ultralytics models, model performance, computer vision, object detection, RT-DETR, YOLOv5 features, transformer architecture
 ---
 
 # RTDETRv2 vs YOLOv5
@@ -55,18 +55,18 @@ The greatest advantage of YOLOv5 lies in its unmatched versatility and low memor
 
 When analyzing raw performance on the standard [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco), we can see clear distinctions in how these models prioritize resources.
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| RTDETRv2-s | 640                         | 48.1                       | -                                    | 5.03                                      | 20                       | 60                      |
-| RTDETRv2-m | 640                         | 51.9                       | -                                    | 7.51                                      | 36                       | 100                     |
-| RTDETRv2-l | 640                         | 53.4                       | -                                    | 9.76                                      | 42                       | 136                     |
-| RTDETRv2-x | 640                         | **54.3**                   | -                                    | 15.03                                     | 76                       | 259                     |
-|            |                             |                            |                                      |                                           |                          |                         |
-| YOLOv5n    | 640                         | 28.0                       | **73.6**                             | **1.12**                                  | **2.6**                  | **7.7**                 |
-| YOLOv5s    | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
-| YOLOv5m    | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
-| YOLOv5l    | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
-| YOLOv5x    | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
+| Model                                                          | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| -------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| RTDETRv2-s                                                     | 640                         | 48.1                       | -                                    | 5.03                                      | 20                       | 60                      |
+| RTDETRv2-m                                                     | 640                         | 51.9                       | -                                    | 7.51                                      | 36                       | 100                     |
+| RTDETRv2-l                                                     | 640                         | 53.4                       | -                                    | 9.76                                      | 42                       | 136                     |
+| RTDETRv2-x                                                     | 640                         | **54.3**                   | -                                    | 15.03                                     | 76                       | 259                     |
+|                                                                |                             |                            |                                      |                                           |                          |                         |
+| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5) | 640                         | 28.0                       | **73.6**                             | **1.12**                                  | **2.6**                  | **7.7**                 |
+| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5) | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
+| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5) | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
+| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5) | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
+| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5) | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
 
 ### Analyzing the Trade-offs
 

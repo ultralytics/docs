@@ -2,7 +2,7 @@
 title: YOLOv7 vs DAMO-YOLO Comparison
 comments: true
 description: Explore a detailed comparison of YOLOv7 and DAMO-YOLO, analyzing their architecture, performance, and best use cases for object detection projects.
-keywords: YOLOv7,DAMO-YOLO,object detection,YOLO comparison,AI models,deep learning,computer vision,model benchmarks,real-time detection
+keywords: YOLOv7, DAMO-YOLO, object detection, YOLO comparison, AI models, deep learning, computer vision, model benchmarks, real-time detection
 ---
 
 # YOLOv7 vs DAMO-YOLO
@@ -48,7 +48,7 @@ YOLOv7 focuses heavily on **Extended Efficient Layer Aggregation Networks (E-ELA
 
 ### DAMO-YOLO: Neural Architecture Search and RepGFPN
 
-DAMO-YOLO diverges by heavily leveraging **Neural Architecture Search (NAS)** under latency constraints. It utilizes a framework called MAE-NAS to discover optimal backbones tailored for specific hardware, such as mobile devices or specific edge accelerators. For its neck, it introduces an efficient RepGFPN (Rep-parameterized Generalized Feature Pyramid Network), and it employs a ZeroHead design to minimize the computational burden in the prediction heads.
+DAMO-YOLO diverges by heavily leveraging **Neural Architecture Search (NAS)** under latency constraints. It utilizes a framework called MAE-NAS to discover optimal backbones tailored for specific hardware, such as mobile devices or specific edge accelerators. For its neck, it introduces an efficient RepGFPN (Re-parameterized Generalized Feature Pyramid Network), and it employs a ZeroHead design to minimize the computational burden in the prediction heads.
 
 !!! note "Distillation Differences"
 

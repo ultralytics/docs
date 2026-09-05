@@ -17,12 +17,13 @@ This comprehensive technical analysis explores the architectural nuances, [perfo
 
 EfficientDet was designed to maximize accuracy while systematically managing computational costs across various resource constraints. It achieved this through a novel approach to scaling and feature fusion.
 
-**EfficientDet Details:**  
-Authors: Mingxing Tan, Ruoming Pang, and Quoc V. Le  
-Organization: [Google](https://research.google/)  
-Date: 2019-11-20  
-Arxiv: [EfficientDet: Scalable and Efficient Object Detection](https://arxiv.org/abs/1911.09070)  
-GitHub: [Google AutoML Repository](https://github.com/google/automl/tree/master/efficientdet)
+**EfficientDet Details:**
+
+- **Authors:** Mingxing Tan, Ruoming Pang, and Quoc V. Le
+- **Organization:** [Google](https://research.google/)
+- **Date:** 2019-11-20
+- **Arxiv:** [EfficientDet: Scalable and Efficient Object Detection](https://arxiv.org/abs/1911.09070)
+- **GitHub:** [Google AutoML Repository](https://github.com/google/automl/tree/master/efficientdet)
 
 ### Architecture and Innovations
 
@@ -40,12 +41,13 @@ However, EfficientDet is heavily reliant on older [TensorFlow](https://www.tenso
 
 YOLOv7, introduced in 2022, brought a massive leap in speed and accuracy for real-time applications, establishing a new baseline for the widely popular YOLO family at the time.
 
-**YOLOv7 Details:**  
-Authors: Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao  
-Organization: [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/zh/index.html)  
-Date: 2022-07-06  
-Arxiv: [YOLOv7: Trainable bag-of-freebies sets new state-of-the-art for real-time object detectors](https://arxiv.org/abs/2207.02696)  
-GitHub: [Official YOLOv7 Repository](https://github.com/WongKinYiu/yolov7)
+**YOLOv7 Details:**
+
+- **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
+- **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)
+- **Date:** 2022-07-06
+- **Arxiv:** [YOLOv7: Trainable bag-of-freebies sets new state-of-the-art for real-time object detectors](https://arxiv.org/abs/2207.02696)
+- **GitHub:** [Official YOLOv7 Repository](https://github.com/WongKinYiu/yolov7)
 
 ### Architecture and Innovations
 
@@ -144,7 +146,7 @@ While YOLOv7 and EfficientDet laid the groundwork for modern computer vision, th
 - **End-to-End NMS-Free Design:** Building on the foundations laid by [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 is natively end-to-end. By entirely eliminating Non-Maximum Suppression (NMS) post-processing, it delivers lower, more consistent latency, which is crucial for safety-critical systems like autonomous driving.
 - **Up to 43% Faster CPU Inference:** Thanks to the **removal of Distribution Focal Loss (DFL)**, YOLO26 features a drastically simplified export process and unparalleled speed on edge devices like the Raspberry Pi, making it the undisputed champion of edge computing.
 - **MuSGD Optimizer:** YOLO26 incorporates the revolutionary MuSGD Optimizer—a hybrid of SGD and Muon inspired by LLM training innovations from Moonshot AI. This leads to remarkably stable training dynamics and much faster convergence rates.
-- **ProgLoss + STAL:** The integration of Progressive Loss and Scale-Targeted Alignment Loss heavily improves the model's ability to detect tiny objects, solving a massive pain point for drone imagery and [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system).
+- **ProgLoss + STAL:** The integration of Progressive Loss and Small-Target-Aware Label Assignment heavily improves the model's ability to detect tiny objects, solving a massive pain point for drone imagery and [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system).
 - **Task-Specific Improvements:** YOLO26 isn't just a detector. It features a Semantic segmentation loss and multi-scale proto for flawless [segmentation](https://docs.ultralytics.com/tasks/segment), Residual Log-Likelihood Estimation (RLE) for hyper-accurate [pose tracking](https://docs.ultralytics.com/tasks/pose), and specialized angle loss for resolving [OBB](https://docs.ultralytics.com/tasks/obb) boundary ambiguities.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }

@@ -17,11 +17,11 @@ This technical comparison provides an in-depth look at their architectures, perf
 
 Developed by the Vision AI Department at **Meituan**, YOLOv6-3.0 is heavily optimized for industrial environments, particularly those leveraging powerful server-grade GPUs.
 
-- Authors: Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu
-- Organization: [Meituan](https://github.com/meituan)
-- Date: 2023-01-13
-- Arxiv: [2301.05586](https://arxiv.org/abs/2301.05586)
-- GitHub: [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
+- **Authors:** Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu
+- **Organization:** [Meituan](https://github.com/meituan)
+- **Date:** 2023-01-13
+- **Arxiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
+- **GitHub:** [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
 
 ### Architectural Innovations
 
@@ -33,11 +33,11 @@ YOLOv6-3.0 utilizes an **EfficientRep** backbone, specifically designed to maxim
 
 **PP-YOLOE+** is an evolution of the PP-YOLO series, developed entirely within the PaddlePaddle framework by Baidu researchers. It excels in environments where the Paddle ecosystem is already established.
 
-- Authors: PaddlePaddle Authors
-- Organization: [Baidu](https://github.com/PaddlePaddle)
-- Date: 2022-04-02
-- Arxiv: [2203.16250](https://arxiv.org/abs/2203.16250)
-- GitHub: [PaddlePaddle/PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection/)
+- **Authors:** PaddlePaddle Authors
+- **Organization:** [Baidu](https://github.com/PaddlePaddle)
+- **Date:** 2022-04-02
+- **Arxiv:** [2203.16250](https://arxiv.org/abs/2203.16250)
+- **GitHub:** [PaddlePaddle/PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection/)
 
 ### Architectural Innovations
 

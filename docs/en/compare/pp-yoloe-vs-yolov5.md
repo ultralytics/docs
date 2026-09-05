@@ -17,22 +17,22 @@ Both models stem from highly capable engineering teams but target slightly diffe
 
 **PP-YOLOE+ Details:**
 
-- Authors: PaddlePaddle Authors
-- Organization: [Baidu](https://github.com/PaddlePaddle)
-- Date: 2022-04-02
-- Arxiv: [https://arxiv.org/abs/2203.16250](https://arxiv.org/abs/2203.16250)
-- GitHub: [https://github.com/PaddlePaddle/PaddleDetection/](https://github.com/PaddlePaddle/PaddleDetection/)
-- Docs: [PaddleDetection README](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
+- **Authors:** PaddlePaddle Authors
+- **Organization:** [Baidu](https://github.com/PaddlePaddle)
+- **Date:** 2022-04-02
+- **Arxiv:** [https://arxiv.org/abs/2203.16250](https://arxiv.org/abs/2203.16250)
+- **GitHub:** [https://github.com/PaddlePaddle/PaddleDetection/](https://github.com/PaddlePaddle/PaddleDetection/)
+- **Docs:** [PaddleDetection README](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
 
 [Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md){ .md-button }
 
 **YOLOv5 Details:**
 
-- Authors: Glenn Jocher
-- Organization: [Ultralytics](https://www.ultralytics.com)
-- Date: 2020-06-26
-- GitHub: [https://github.com/ultralytics/yolov5](https://github.com/ultralytics/yolov5)
-- Docs: [https://docs.ultralytics.com/models/yolov5](https://docs.ultralytics.com/models/yolov5)
+- **Authors:** Glenn Jocher
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
+- **Date:** 2020-06-26
+- **GitHub:** [https://github.com/ultralytics/yolov5](https://github.com/ultralytics/yolov5)
+- **Docs:** [https://docs.ultralytics.com/models/yolov5](https://docs.ultralytics.com/models/yolov5)
 
 [Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
 
@@ -58,19 +58,19 @@ A hallmark of YOLOv5 is its AutoAnchor algorithm, which dynamically checks and a
 
 Evaluating these models requires looking at the trade-off between mean Average Precision (mAP) and latency. The following table showcases the metrics across different model sizes.
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| PP-YOLOE+t | 640                         | 39.9                       | -                                    | 2.84                                      | 4.85                     | 19.15                   |
-| PP-YOLOE+s | 640                         | 43.7                       | -                                    | 2.62                                      | 7.93                     | 17.36                   |
-| PP-YOLOE+m | 640                         | 49.8                       | -                                    | 5.56                                      | 23.43                    | 49.91                   |
-| PP-YOLOE+l | 640                         | 52.9                       | -                                    | 8.36                                      | 52.2                     | 110.07                  |
-| PP-YOLOE+x | 640                         | **54.7**                   | -                                    | 14.3                                      | 98.42                    | 206.59                  |
-|            |                             |                            |                                      |                                           |                          |                         |
-| YOLOv5n    | 640                         | 28.0                       | **73.6**                             | **1.12**                                  | **2.6**                  | **7.7**                 |
-| YOLOv5s    | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
-| YOLOv5m    | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
-| YOLOv5l    | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
-| YOLOv5x    | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
+| Model                                                          | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| -------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| PP-YOLOE+t                                                     | 640                         | 39.9                       | -                                    | 2.84                                      | 4.85                     | 19.15                   |
+| PP-YOLOE+s                                                     | 640                         | 43.7                       | -                                    | 2.62                                      | 7.93                     | 17.36                   |
+| PP-YOLOE+m                                                     | 640                         | 49.8                       | -                                    | 5.56                                      | 23.43                    | 49.91                   |
+| PP-YOLOE+l                                                     | 640                         | 52.9                       | -                                    | 8.36                                      | 52.2                     | 110.07                  |
+| PP-YOLOE+x                                                     | 640                         | **54.7**                   | -                                    | 14.3                                      | 98.42                    | 206.59                  |
+|                                                                |                             |                            |                                      |                                           |                          |                         |
+| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5) | 640                         | 28.0                       | **73.6**                             | **1.12**                                  | **2.6**                  | **7.7**                 |
+| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5) | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
+| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5) | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
+| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5) | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
+| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5) | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
 
 While PP-YOLOE+ achieves highly competitive mAP scores at the larger scales (such as the X variant), **YOLOv5 provides superior speed and lower parameter counts** at the smaller end of the spectrum. The YOLOv5 Nano (`YOLOv5n`) requires a mere 2.6 million parameters, making it highly suitable for constrained edge devices where memory requirements are strict. Furthermore, training YOLO models typically consumes less CUDA memory compared to heavy transformer-based alternatives like [RT-DETR](https://docs.ultralytics.com/models/rtdetr).
 
@@ -114,7 +114,7 @@ For the vast majority of international developers, researchers, and enterprises,
 
 ## The Future of Detection: Ultralytics YOLO26
 
-While YOLOv5 is an iconic model, the frontier of computer vision has advanced. For all new developments, we strongly recommend transitioning to **YOLO26**, released in January 2026. Available seamlessly via the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26), YOLO26 completely redefines efficiency.
+While YOLOv5 is an iconic model, the frontier of computer vision has advanced. For all new developments, we strongly recommend transitioning to **YOLO26**, released in January 2026. Available seamlessly via the [Ultralytics Platform](https://platform.ultralytics.com), YOLO26 completely redefines efficiency.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 

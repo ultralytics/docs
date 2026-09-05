@@ -34,7 +34,7 @@ Launched later in the same year, YOLO11 represents the continuous refinement of 
 - **Organization:** [Ultralytics](https://www.ultralytics.com/about)
 - **Date:** September 27, 2024
 - **Source Code:** [Ultralytics on GitHub](https://github.com/ultralytics/ultralytics)
-- **Platform Integration:** [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo11)
+- **Platform Integration:** [Ultralytics Platform](https://platform.ultralytics.com)
 
 YOLO11 is designed for production. While it excels at standard bounding box detection, its true strength lies in its **versatility**. Unlike YOLOv10, which is primarily focused on object detection, YOLO11 natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), [image classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) tasks using a unified architecture. It boasts remarkably low **memory requirements** during training, making it highly accessible for teams working with consumer-grade [GPUs](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) compared to heavier, transformer-based architectures.
 
@@ -48,20 +48,20 @@ When comparing these models side-by-side, it is essential to look at how they pe
 
 The table below highlights the performance differences. YOLO11 frequently edges out YOLOv10 in mAP across most size categories while maintaining highly competitive [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) inference speeds.
 
-| Model    | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| -------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv10n | 640                         | 39.5                       | -                                    | 1.56                                      | **2.3**                  | 6.7                     |
-| YOLOv10s | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
-| YOLOv10m | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
-| YOLOv10b | 640                         | 52.7                       | -                                    | 6.54                                      | 24.4                     | 92.0                    |
-| YOLOv10l | 640                         | 53.3                       | -                                    | 8.33                                      | 29.5                     | 120.3                   |
-| YOLOv10x | 640                         | 54.4                       | -                                    | 12.2                                      | 56.9                     | 160.4                   |
-|          |                             |                            |                                      |                                           |                          |                         |
-| YOLO11n  | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | 2.6                      | **6.5**                 |
-| YOLO11s  | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
-| YOLO11m  | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
-| YOLO11l  | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
-| YOLO11x  | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOv10n                                                               | 640                         | 39.5                       | -                                    | 1.56                                      | **2.3**                  | 6.7                     |
+| YOLOv10s                                                               | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
+| YOLOv10m                                                               | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
+| YOLOv10b                                                               | 640                         | 52.7                       | -                                    | 6.54                                      | 24.4                     | 92.0                    |
+| YOLOv10l                                                               | 640                         | 53.3                       | -                                    | 8.33                                      | 29.5                     | 120.3                   |
+| YOLOv10x                                                               | 640                         | 54.4                       | -                                    | 12.2                                      | 56.9                     | 160.4                   |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | 2.6                      | **6.5**                 |
+| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
+| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
+| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
+| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
 
 !!! tip "Hardware Acceleration"
 

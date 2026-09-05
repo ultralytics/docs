@@ -21,10 +21,10 @@ Understanding the core mechanisms driving each model reveals why they perform di
 
 YOLOv9 was designed to directly address the information loss that occurs as data flows through deep neural networks.
 
-**Authors:** Chien-Yao Wang, Hong-Yuan Mark Liao  
-**Organization:** Institute of Information Science, Academia Sinica, Taiwan  
-**Date:** February 21, 2024  
-**Links:** [Arxiv](https://arxiv.org/abs/2402.13616), [GitHub](https://github.com/WongKinYiu/yolov9), [Docs](https://docs.ultralytics.com/models/yolov9)
+- **Authors:** Chien-Yao Wang, Hong-Yuan Mark Liao
+- **Organization:** Institute of Information Science, Academia Sinica, Taiwan
+- **Date:** February 21, 2024
+- **Links:** [Arxiv](https://arxiv.org/abs/2402.13616), [GitHub](https://github.com/WongKinYiu/yolov9), [Docs](https://docs.ultralytics.com/models/yolov9)
 
 [Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9){ .md-button }
 
@@ -34,14 +34,14 @@ YOLOv9 introduces **Programmable Gradient Information (PGI)** and the **Generali
 
 Developed by Alibaba Group, DAMO-YOLO takes a different approach, leveraging automated architectural search to find the optimal balance between speed and accuracy.
 
-**Authors:** Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun  
-**Organization:** Alibaba Group  
-**Date:** November 23, 2022  
-**Links:** [Arxiv](https://arxiv.org/abs/2211.15444v2), [GitHub](https://github.com/tinyvision/DAMO-YOLO)
+- **Authors:** Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun
+- **Organization:** Alibaba Group
+- **Date:** November 23, 2022
+- **Links:** [Arxiv](https://arxiv.org/abs/2211.15444v2), [GitHub](https://github.com/tinyvision/DAMO-YOLO)
 
 [Learn more about DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md){ .md-button }
 
-DAMO-YOLO relies on a MAE-NAS (Masked Autoencoders for Neural Architecture Search) backbone to automatically generate efficient network structures. It utilizes a RepGFPN (Reparameterized Generalized Feature Pyramid Network) for robust feature fusion and a "ZeroHead" design to minimize the computational burden of the detection head. Additionally, it incorporates AlignedOTA for label assignment and knowledge distillation to boost the performance of its smaller variants.
+DAMO-YOLO relies on a MAE-NAS (Maximum Entropy Neural Architecture Search) backbone to automatically generate efficient network structures. It utilizes a RepGFPN (Reparameterized Generalized Feature Pyramid Network) for robust feature fusion and a "ZeroHead" design to minimize the computational burden of the detection head. Additionally, it incorporates AlignedOTA for label assignment and knowledge distillation to boost the performance of its smaller variants.
 
 !!! note "The Role of NAS in Computer Vision"
 

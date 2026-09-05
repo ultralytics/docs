@@ -39,7 +39,7 @@ Released on September 27, 2024, by Glenn Jocher and Jing Qiu at [Ultralytics](ht
 
 YOLO11 is not just an object detector; it is a unified framework supporting [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding box (OBB)](https://docs.ultralytics.com/tasks/obb) detection. It boasts a highly efficient architecture that prioritizes a seamless balance between speed, parameter count, and accuracy.
 
-Furthermore, YOLO11 is fully integrated into the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo11), which provides a streamlined ecosystem for data annotation, model training, and deployment.
+Furthermore, YOLO11 is fully integrated into the [Ultralytics Platform](https://platform.ultralytics.com), which provides a streamlined ecosystem for data annotation, model training, and deployment.
 
 [Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
@@ -47,20 +47,20 @@ Furthermore, YOLO11 is fully integrated into the [Ultralytics Platform](https://
 
 When comparing these models, the balance of performance becomes clear. YOLO11 achieves higher mean Average Precision (mAP) with significantly fewer parameters and FLOPs in most size categories compared to its YOLOX counterparts.
 
-| Model     | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| --------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOXnano | 416                         | 25.8                       | -                                    | -                                         | **0.91**                 | **1.08**                |
-| YOLOXtiny | 416                         | 32.8                       | -                                    | -                                         | 5.06                     | 6.45                    |
-| YOLOXs    | 640                         | 40.5                       | -                                    | 2.56                                      | 9.0                      | 26.8                    |
-| YOLOXm    | 640                         | 46.9                       | -                                    | 5.43                                      | 25.3                     | 73.8                    |
-| YOLOXl    | 640                         | 49.7                       | -                                    | 9.04                                      | 54.2                     | 155.6                   |
-| YOLOXx    | 640                         | 51.1                       | -                                    | 16.1                                      | 99.1                     | 281.9                   |
-|           |                             |                            |                                      |                                           |                          |                         |
-| YOLO11n   | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | 2.6                      | 6.5                     |
-| YOLO11s   | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
-| YOLO11m   | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
-| YOLO11l   | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
-| YOLO11x   | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOXnano                                                              | 416                         | 25.8                       | -                                    | -                                         | **0.91**                 | **1.08**                |
+| YOLOXtiny                                                              | 416                         | 32.8                       | -                                    | -                                         | 5.06                     | 6.45                    |
+| YOLOXs                                                                 | 640                         | 40.5                       | -                                    | 2.56                                      | 9.0                      | 26.8                    |
+| YOLOXm                                                                 | 640                         | 46.9                       | -                                    | 5.43                                      | 25.3                     | 73.8                    |
+| YOLOXl                                                                 | 640                         | 49.7                       | -                                    | 9.04                                      | 54.2                     | 155.6                   |
+| YOLOXx                                                                 | 640                         | 51.1                       | -                                    | 16.1                                      | 99.1                     | 281.9                   |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | 2.6                      | 6.5                     |
+| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
+| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
+| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
+| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
 
 As demonstrated, YOLO11 models consistently outperform YOLOX in accuracy while maintaining a leaner parameter footprint. For instance, YOLO11m achieves a **51.5 mAP** with only **20.1M parameters**, whereas YOLOXx achieves a similar 51.1 mAP but requires a massive **99.1M parameters**. This memory efficiency during training and inference makes YOLO11 highly suitable for deployment on edge AI devices, avoiding the heavy CUDA memory requirements typical of older or transformer-based models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr).
 
@@ -112,7 +112,7 @@ While YOLO11 represents a massive leap over YOLOX, the field of computer vision 
 
 Released in January 2026, YOLO26 takes the architectural brilliance of YOLO11 and introduces several groundbreaking features:
 
-- **End-to-End NMS-Free Design:** YOLO26 eliminates Non-Maximum Suppression (NMS) post-processing, natively streaming inference for faster, simpler deployment pipelines (a concept first explored in [YOLOv10](https://docs.ultralytics.com/models/yolov10)).
+- **End-to-End NMS-Free Design:** YOLO26 eliminates Non-Maximum Suppression (NMS) post-processing for faster, simpler deployment pipelines (a concept first explored in [YOLOv10](https://docs.ultralytics.com/models/yolov10)).
 - **Up to 43% Faster CPU Inference:** Through the removal of Distribution Focal Loss (DFL), YOLO26 is vastly more efficient on CPUs and low-power edge devices.
 - **MuSGD Optimizer:** Inspired by LLM training innovations from Moonshot AI, the MuSGD optimizer ensures highly stable training runs and rapid convergence.
 - **Advanced Loss Functions:** Utilizing ProgLoss + STAL, YOLO26 achieves notable improvements in small-object recognition, which is critical for [drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and autonomous robotics.

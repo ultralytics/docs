@@ -47,7 +47,7 @@ Developed by researchers at Alibaba Group, DAMO-YOLO focuses heavily on automate
 Introduced as a solution to information loss in deep convolutional networks, YOLOv9 pushes the theoretical limits of gradient preservation during training.
 
 - **Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao
-- **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/zh/index.html)
+- **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)
 - **Release Date:** February 21, 2024
 - **Arxiv Paper:** [YOLOv9 Research Paper](https://arxiv.org/abs/2402.13616)
 - **Official GitHub:** [WongKinYiu/yolov9 Repository](https://github.com/WongKinYiu/yolov9)
@@ -100,7 +100,7 @@ By contrast, integrating models into the [Ultralytics Platform](https://platform
 
 Different architectures naturally excel in specific industries based on their resource requirements and accuracy profiles.
 
-- **DAMO-YOLO in Edge AI:** Due to its NAS-optimized backbones, DAMO-YOLO is frequently explored in embedded systems where hardware-specific rep-parameterization is a strict necessity, such as custom ASIC deployment in basic [manufacturing quality control](https://www.ultralytics.com/blog/manufacturing-automation).
+- **DAMO-YOLO in Edge AI:** Due to its NAS-optimized backbones, DAMO-YOLO is frequently explored in embedded systems where hardware-specific re-parameterization is a strict necessity, such as custom ASIC deployment in basic [manufacturing quality control](https://www.ultralytics.com/blog/manufacturing-automation).
 - **YOLOv9 in Precision Analytics:** With its high parameter efficiency and PGI-driven gradient retention, YOLOv9 is excellent for dense object detection scenarios, such as [analyzing aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) or tracking tiny objects in crowded retail environments.
 
 ## Use Cases and Recommendations

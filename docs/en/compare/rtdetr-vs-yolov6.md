@@ -17,12 +17,12 @@ This comprehensive technical comparison explores their respective architectures,
 
 Developed by researchers at Baidu, RTDETRv2 builds upon the foundation of the original RT-DETR, representing a significant leap forward in transformer-based [object detection](https://docs.ultralytics.com/tasks/detect).
 
-- Authors: Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
-- Organization: [Baidu](https://www.baidu.com/)
-- Date: 2024-07-24
-- Arxiv: [2407.17140](https://arxiv.org/abs/2407.17140)
-- GitHub: [lyuwenyu/RT-DETR](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
-- Docs: [RTDETRv2 GitHub README](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
+- **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
+- **Organization:** [Baidu](https://www.baidu.com/)
+- **Date:** 2024-07-24
+- **Arxiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
+- **GitHub:** [lyuwenyu/RT-DETR](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
+- **Docs:** [RTDETRv2 GitHub README](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
 
 ### Architectural Highlights
 
@@ -34,17 +34,17 @@ The "Bag-of-Freebies" incorporated into RTDETRv2 enhances its ability to handle 
 
     While transformers excel at complex scene understanding, they typically require significantly higher CUDA memory during training compared to CNNs. This can limit batch sizes on standard consumer GPUs and increase overall training time.
 
-[Learn more about RTDETR](https://docs.ultralytics.com/models/rtdetr){ .md-button }
+[Learn more about RT-DETR](https://docs.ultralytics.com/models/rtdetr){ .md-button }
 
 ## YOLOv6-3.0: Industrial Throughput Maximization
 
 Originating from the Vision AI Department at Meituan, YOLOv6-3.0 was explicitly engineered to serve as a next-generation detector for industrial pipelines where GPU throughput is paramount.
 
-- Authors: Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu
-- Organization: Meituan
-- Date: 2023-01-13
-- Arxiv: [2301.05586](https://arxiv.org/abs/2301.05586)
-- GitHub: [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
+- **Authors:** Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu
+- **Organization:** Meituan
+- **Date:** 2023-01-13
+- **Arxiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
+- **GitHub:** [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
 
 ### Architectural Focus
 
@@ -105,9 +105,9 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 Choosing the right model involves more than just raw benchmark numbers; developer experience, deployment flexibility, and ecosystem support are equally crucial. By utilizing models integrated within the Ultralytics platform, users gain significant advantages over static research repositories.
 
 - **Ease of Use:** The `ultralytics` Python package offers a seamless API. Training, validating, and exporting models takes only a few lines of code.
-- **Well-Maintained Ecosystem:** Unlike isolated academic repos, the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolov8) is actively updated. It boasts robust integrations for tools like [ONNX](https://docs.ultralytics.com/integrations/onnx), [OpenVINO](https://docs.ultralytics.com/integrations/openvino), and CoreML.
+- **Well-Maintained Ecosystem:** Unlike isolated academic repos, the [Ultralytics Platform](https://platform.ultralytics.com) is actively updated. It boasts robust integrations for tools like [ONNX](https://docs.ultralytics.com/integrations/onnx), [OpenVINO](https://docs.ultralytics.com/integrations/openvino), and CoreML.
 - **Training Efficiency:** Ultralytics models typically consume significantly lower VRAM during training compared to transformer architectures like RTDETRv2, allowing for larger batch sizes on consumer-grade hardware.
-- **Versatility:** Unlike the focused scope of YOLOv6-3.0, Ultralytics models are multi-modal, natively supporting [image classification](https://docs.ultralytics.com/tasks/classify), [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb), and segmentation within a single unified framework.
+- **Versatility:** Unlike the focused scope of YOLOv6-3.0, Ultralytics models are multi-task, natively supporting [image classification](https://docs.ultralytics.com/tasks/classify), [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb), and segmentation within a single unified framework.
 
 !!! tip "Streamlined Deployment"
 

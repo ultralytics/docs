@@ -37,7 +37,7 @@ Developed by Xianzhe Xu and a team of researchers at the [Alibaba Group](https:/
 
 DAMO-YOLO's strategy was built on automating the design of efficient structures:
 
-- **MAE-NAS Backbones:** Utilizing a Multi-Objective Evolutionary algorithm, DAMO-YOLO discovered highly efficient backbones customized for specific latency budgets, particularly when exported to frameworks like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt).
+- **MAE-NAS Backbones:** Utilizing a maximum-entropy guided search, DAMO-YOLO discovered highly efficient backbones customized for specific latency budgets, particularly when exported to frameworks like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt).
 - **Efficient RepGFPN:** A heavy-neck design that significantly enhances feature fusion across different spatial resolutions, which is highly beneficial for [aerial imagery analysis](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and detecting objects at varying scales.
 - **ZeroHead:** A simplified prediction head that trims computational redundancy without sacrificing the model's overall mean Average Precision (mAP).
 - **AlignedOTA and Distillation:** Incorporates advanced label assignment and teacher-student knowledge distillation to squeeze maximum performance out of smaller student models.

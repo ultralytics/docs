@@ -129,7 +129,7 @@ Here is why upgrading is highly recommended:
 - **Up to 43% Faster CPU Inference:** Optimized heavily for real-world hardware, YOLO26 thrives on standard CPUs without requiring expensive GPU infrastructure.
 - **ProgLoss + STAL:** These advanced loss functions drastically improve small-object recognition, a critical feature for [aerial drone inspections](https://docs.ultralytics.com/datasets/detect/visdrone) and sophisticated IoT networks.
 
-For developers seeking the best performance balance across [object detection](https://docs.ultralytics.com/tasks/detect), segmentation, and beyond, deploying models via the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26) provides an unparalleled, zero-friction experience.
+For developers seeking the best performance balance across [object detection](https://docs.ultralytics.com/tasks/detect), segmentation, and beyond, deploying models via the [Ultralytics Platform](https://platform.ultralytics.com) provides an unparalleled, zero-friction experience.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 

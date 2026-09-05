@@ -34,7 +34,7 @@ Developed by researchers at Alibaba Group, DAMO-YOLO was introduced to optimize 
 Released as the state-of-the-art in mid-2022, YOLOv7 pushed [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) further by introducing trainable "bag-of-freebies" without increasing deployment costs.
 
 - **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
-- **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/zh/index.html)
+- **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)
 - **Date:** July 6, 2022
 - **Arxiv:** [2207.02696](https://arxiv.org/abs/2207.02696)
 - **Docs:** [YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7)

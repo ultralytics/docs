@@ -32,7 +32,7 @@ RTDETRv2's primary innovation is its end-to-end NMS-free architecture. By elimin
 
 However, because it relies on Transformers, RTDETRv2 typically suffers from significantly higher memory requirements during training. Transformers are generally slower to converge and require substantially more CUDA memory compared to traditional CNNs, making them less accessible for researchers operating on consumer-grade hardware or deploying to constrained [edge AI](https://www.ultralytics.com/glossary/edge-ai) environments.
 
-[Learn more about RTDETR](https://docs.ultralytics.com/models/rtdetr){ .md-button }
+[Learn more about RT-DETR](https://docs.ultralytics.com/models/rtdetr){ .md-button }
 
 ## Ultralytics YOLO11: The Pinnacle of CNN Efficiency
 
@@ -57,18 +57,18 @@ Moreover, Ultralytics YOLO models are renowned for their lower memory usage duri
 
 When comparing raw numbers, it becomes evident that while RTDETRv2 achieves impressive accuracy, YOLO11 offers a much more granular selection of model sizes with superior inference speeds, particularly on TensorRT.
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| RTDETRv2-s | 640                         | 48.1                       | -                                    | 5.03                                      | 20                       | 60                      |
-| RTDETRv2-m | 640                         | 51.9                       | -                                    | 7.51                                      | 36                       | 100                     |
-| RTDETRv2-l | 640                         | 53.4                       | -                                    | 9.76                                      | 42                       | 136                     |
-| RTDETRv2-x | 640                         | 54.3                       | -                                    | 15.03                                     | 76                       | 259                     |
-|            |                             |                            |                                      |                                           |                          |                         |
-| YOLO11n    | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | **2.6**                  | **6.5**                 |
-| YOLO11s    | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
-| YOLO11m    | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
-| YOLO11l    | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
-| YOLO11x    | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| RTDETRv2-s                                                             | 640                         | 48.1                       | -                                    | 5.03                                      | 20                       | 60                      |
+| RTDETRv2-m                                                             | 640                         | 51.9                       | -                                    | 7.51                                      | 36                       | 100                     |
+| RTDETRv2-l                                                             | 640                         | 53.4                       | -                                    | 9.76                                      | 42                       | 136                     |
+| RTDETRv2-x                                                             | 640                         | 54.3                       | -                                    | 15.03                                     | 76                       | 259                     |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | **2.6**                  | **6.5**                 |
+| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
+| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
+| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
+| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
 
 As seen in the table, the **YOLO11x** model achieves a superior mAP<sup>val</sup> of 54.7% while utilizing fewer FLOPs (194.9B vs 259B) and delivering faster inference on TensorRT (11.3ms vs 15.03ms) compared to the RTDETRv2-x variant. The nano and small YOLO11 variants provide unparalleled lightweight options for constrained devices like the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi).
 
@@ -96,7 +96,7 @@ model_yolo.export(format="onnx")
 
 !!! tip "Streamline Your Workflow"
 
-    Training efficiency is paramount in machine learning. Ultralytics models utilize pre-trained weights that converge rapidly. For managing your datasets, training runs, and deployment endpoints without writing code, explore the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo11) for an integrated MLOps experience.
+    Training efficiency is paramount in machine learning. Ultralytics models utilize pre-trained weights that converge rapidly. For managing your datasets, training runs, and deployment endpoints without writing code, explore the [Ultralytics Platform](https://platform.ultralytics.com) for an integrated MLOps experience.
 
 ## Real-World Applications
 

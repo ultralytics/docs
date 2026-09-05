@@ -47,7 +47,7 @@ RTDETRv2 fundamentally reimagines the detection pipeline by utilizing a transfor
 
 However, transformers are inherently resource-intensive. Training RTDETRv2 typically demands significantly more GPU memory and compute cycles than CNN-based alternatives, which can be a hurdle for teams operating within strict budget constraints or those requiring frequent [model tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning).
 
-[Learn more about RTDETR](https://docs.ultralytics.com/models/rtdetr){ .md-button }
+[Learn more about RT-DETR](https://docs.ultralytics.com/models/rtdetr){ .md-button }
 
 ## Performance Comparison Table
 

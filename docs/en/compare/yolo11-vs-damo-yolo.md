@@ -25,7 +25,7 @@ Developed by the team at Ultralytics, **YOLO11** represents a highly refined ite
 
 [Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
-YOLO11 shines in its versatility. While many traditional models focus solely on bounding boxes, YOLO11 natively supports [object detection](https://docs.ultralytics.com/tasks/detect), [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), and [pose estimation](https://docs.ultralytics.com/tasks/pose). This multi-modal capability allows developers to consolidate their [vision AI](https://www.ultralytics.com/glossary/computer-vision-cv) pipelines under a single, well-maintained framework.
+YOLO11 shines in its versatility. While many traditional models focus solely on bounding boxes, YOLO11 natively supports [object detection](https://docs.ultralytics.com/tasks/detect), [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), and [pose estimation](https://docs.ultralytics.com/tasks/pose). This multi-task capability allows developers to consolidate their [vision AI](https://www.ultralytics.com/glossary/computer-vision-cv) pipelines under a single, well-maintained framework.
 
 ### DAMO-YOLO
 
@@ -40,7 +40,7 @@ YOLO11 shines in its versatility. While many traditional models focus solely on 
 
 [Learn more about DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO){ .md-button }
 
-The core philosophy of DAMO-YOLO revolves around rep-parameterization and automated search. By utilizing MAE-NAS (Multi-Objective Evolutionary Neural Architecture Search), the authors engineered a custom backbone that significantly boosts inference speeds on specialized hardware. It also incorporates a heavily optimized neck called Efficient RepGFPN and a simplified ZeroHead structure to minimize latency.
+The core philosophy of DAMO-YOLO revolves around re-parameterization and automated search. By utilizing MAE-NAS (Maximum Entropy Neural Architecture Search), the authors engineered a custom backbone that significantly boosts inference speeds on specialized hardware. It also incorporates a heavily optimized neck called Efficient RepGFPN and a simplified ZeroHead structure to minimize latency.
 
 !!! note "Other Models to Consider"
 
@@ -50,24 +50,24 @@ The core philosophy of DAMO-YOLO revolves around rep-parameterization and automa
 
 Understanding the performance tradeoffs is vital when deploying [edge AI](https://www.ultralytics.com/glossary/edge-ai) applications. The table below outlines key metrics such as [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map), latency, and computational size.
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLO11n    | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | **2.6**                  | **6.5**                 |
-| YOLO11s    | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
-| YOLO11m    | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
-| YOLO11l    | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
-| YOLO11x    | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
-|            |                             |                            |                                      |                                           |                          |                         |
-| DAMO-YOLOt | 640                         | 42.0                       | -                                    | 2.32                                      | 8.5                      | 18.1                    |
-| DAMO-YOLOs | 640                         | 46.0                       | -                                    | 3.45                                      | 16.3                     | 37.8                    |
-| DAMO-YOLOm | 640                         | 49.2                       | -                                    | 5.09                                      | 28.2                     | 61.8                    |
-| DAMO-YOLOl | 640                         | 50.8                       | -                                    | 7.18                                      | 42.1                     | 97.3                    |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | **2.6**                  | **6.5**                 |
+| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
+| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
+| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
+| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| DAMO-YOLOt                                                             | 640                         | 42.0                       | -                                    | 2.32                                      | 8.5                      | 18.1                    |
+| DAMO-YOLOs                                                             | 640                         | 46.0                       | -                                    | 3.45                                      | 16.3                     | 37.8                    |
+| DAMO-YOLOm                                                             | 640                         | 49.2                       | -                                    | 5.09                                      | 28.2                     | 61.8                    |
+| DAMO-YOLOl                                                             | 640                         | 50.8                       | -                                    | 7.18                                      | 42.1                     | 97.3                    |
 
 ### Architectural Deep Dive
 
 **YOLO11** relies on a highly efficient, custom-designed backbone that perfectly balances parameter count and representational capacity. It is optimized to work beautifully across a range of hardware, natively excelling with minimal [CUDA memory](https://developer.nvidia.com/cuda) usage during both training and inference. This makes it a stellar option for standard consumer hardware or resource-constrained IoT devices.
 
-Conversely, **DAMO-YOLO**'s MAE-NAS generated backbones are finely tuned for high-throughput GPU environments. Its Efficient RepGFPN (Generalized Feature Pyramid Network) integrates multiple scales aggressively. However, while rep-parameterization accelerates inference, it can complicate the deployment process if your hardware stack doesn't explicitly support these operations well.
+Conversely, **DAMO-YOLO**'s MAE-NAS generated backbones are finely tuned for high-throughput GPU environments. Its Efficient RepGFPN (Generalized Feature Pyramid Network) integrates multiple scales aggressively. However, while re-parameterization accelerates inference, it can complicate the deployment process if your hardware stack doesn't explicitly support these operations well.
 
 ## Usability and Training Efficiency
 
@@ -136,4 +136,4 @@ Medical imaging datasets are often relatively small, and avoiding overfitting is
 
     If you are building a new application from scratch, consider exploring [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). Released in early 2026, it utilizes a MuSGD Optimizer and ProgLoss functions, delivering exceptional accuracy on tiny objects and providing an **end-to-end NMS-free** pipeline out of the box!
 
-Ultimately, while DAMO-YOLO remains a powerful demonstration of Neural Architecture Search, **YOLO11** and the extended Ultralytics family remain the definitive recommendation for real-world computer vision tasks, prioritizing rapid deployment, developer ease, and top-tier multi-modal performance.
+Ultimately, while DAMO-YOLO remains a powerful demonstration of Neural Architecture Search, **YOLO11** and the extended Ultralytics family remain the definitive recommendation for real-world computer vision tasks, prioritizing rapid deployment, developer ease, and top-tier multi-task performance.

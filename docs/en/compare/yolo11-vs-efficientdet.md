@@ -17,22 +17,22 @@ Both models have significantly impacted the [deep learning](https://en.wikipedia
 
 ### YOLO11 Details
 
-Authors: Glenn Jocher and Jing Qiu  
-Organization: [Ultralytics](https://www.ultralytics.com)  
-Date: 2024-09-27  
-GitHub: [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)  
-Docs: [https://docs.ultralytics.com/models/yolo11](https://docs.ultralytics.com/models/yolo11)
+- **Authors:** Glenn Jocher and Jing Qiu
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
+- **Date:** 2024-09-27
+- **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
+- **Docs:** [https://docs.ultralytics.com/models/yolo11](https://docs.ultralytics.com/models/yolo11)
 
 [Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 ### EfficientDet Details
 
-Authors: Mingxing Tan, Ruoming Pang, and Quoc V. Le  
-Organization: [Google](https://research.google/)  
-Date: 2019-11-20  
-Arxiv: [https://arxiv.org/abs/1911.09070](https://arxiv.org/abs/1911.09070)  
-GitHub: [https://github.com/google/automl/tree/master/efficientdet](https://github.com/google/automl/tree/master/efficientdet)  
-Docs: [https://github.com/google/automl/tree/master/efficientdet#readme](https://github.com/google/automl/tree/master/efficientdet#readme)
+- **Authors:** Mingxing Tan, Ruoming Pang, and Quoc V. Le
+- **Organization:** [Google](https://research.google/)
+- **Date:** 2019-11-20
+- **Arxiv:** [https://arxiv.org/abs/1911.09070](https://arxiv.org/abs/1911.09070)
+- **GitHub:** [https://github.com/google/automl/tree/master/efficientdet](https://github.com/google/automl/tree/master/efficientdet)
+- **Docs:** [https://github.com/google/automl/tree/master/efficientdet#readme](https://github.com/google/automl/tree/master/efficientdet#readme)
 
 [Learn more about EfficientDet](https://github.com/google/automl/tree/master/efficientdet){ .md-button }
 
@@ -58,22 +58,22 @@ A major advantage of YOLO11 is its **versatility**. While EfficientDet is strict
 
 The balance between accuracy, measured in [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map), and inference speed is the critical deciding factor for real-world deployments. The table below illustrates the raw performance of both model families on the standard [COCO dataset](https://cocodataset.org/).
 
-| Model           | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| --------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLO11n         | 640                         | 39.5                       | 56.1                                 | **1.5**                                   | **2.6**                  | 6.5                     |
-| YOLO11s         | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
-| YOLO11m         | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
-| YOLO11l         | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
-| YOLO11x         | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
-|                 |                             |                            |                                      |                                           |                          |                         |
-| EfficientDet-d0 | 640                         | 34.6                       | **10.2**                             | 3.92                                      | 3.9                      | **2.54**                |
-| EfficientDet-d1 | 640                         | 40.5                       | 13.5                                 | 7.31                                      | 6.6                      | 6.1                     |
-| EfficientDet-d2 | 640                         | 43.0                       | 17.7                                 | 10.92                                     | 8.1                      | 11.0                    |
-| EfficientDet-d3 | 640                         | 47.5                       | 28.0                                 | 19.59                                     | 12.0                     | 24.9                    |
-| EfficientDet-d4 | 640                         | 49.7                       | 42.8                                 | 33.55                                     | 20.7                     | 55.2                    |
-| EfficientDet-d5 | 640                         | 51.5                       | 72.5                                 | 67.86                                     | 33.7                     | 130.0                   |
-| EfficientDet-d6 | 640                         | 52.6                       | 92.8                                 | 89.29                                     | 51.9                     | 226.0                   |
-| EfficientDet-d7 | 640                         | 53.7                       | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) | 640                         | 39.5                       | 56.1                                 | **1.5**                                   | **2.6**                  | 6.5                     |
+| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
+| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
+| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
+| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| EfficientDet-d0                                                        | 640                         | 34.6                       | **10.2**                             | 3.92                                      | 3.9                      | **2.54**                |
+| EfficientDet-d1                                                        | 640                         | 40.5                       | 13.5                                 | 7.31                                      | 6.6                      | 6.1                     |
+| EfficientDet-d2                                                        | 640                         | 43.0                       | 17.7                                 | 10.92                                     | 8.1                      | 11.0                    |
+| EfficientDet-d3                                                        | 640                         | 47.5                       | 28.0                                 | 19.59                                     | 12.0                     | 24.9                    |
+| EfficientDet-d4                                                        | 640                         | 49.7                       | 42.8                                 | 33.55                                     | 20.7                     | 55.2                    |
+| EfficientDet-d5                                                        | 640                         | 51.5                       | 72.5                                 | 67.86                                     | 33.7                     | 130.0                   |
+| EfficientDet-d6                                                        | 640                         | 52.6                       | 92.8                                 | 89.29                                     | 51.9                     | 226.0                   |
+| EfficientDet-d7                                                        | 640                         | 53.7                       | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
 
 As shown, YOLO11 achieves a highly favorable **performance balance**. YOLO11x achieves the highest overall accuracy (54.7 mAP), while the smaller YOLO11 variants absolutely dominate in GPU inference speeds (as low as 1.5ms on a T4 using TensorRT).
 

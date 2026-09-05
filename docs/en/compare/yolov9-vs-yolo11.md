@@ -60,19 +60,19 @@ When comparing these models on the standard [COCO dataset](https://cocodataset.o
 
 Below is a detailed breakdown of [YOLO Performance Metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics).
 
-| Model   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv9t | 640                         | 38.3                       | -                                    | 2.3                                       | **2.0**                  | 7.7                     |
-| YOLOv9s | 640                         | 46.8                       | -                                    | 3.54                                      | 7.1                      | 26.4                    |
-| YOLOv9m | 640                         | 51.4                       | -                                    | 6.43                                      | 20.0                     | 76.3                    |
-| YOLOv9c | 640                         | 53.0                       | -                                    | 7.16                                      | 25.3                     | 102.1                   |
-| YOLOv9e | 640                         | **55.6**                   | -                                    | 16.77                                     | 57.3                     | 189.0                   |
-|         |                             |                            |                                      |                                           |                          |                         |
-| YOLO11n | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | 2.6                      | **6.5**                 |
-| YOLO11s | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
-| YOLO11m | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
-| YOLO11l | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
-| YOLO11x | 640                         | 54.7                       | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOv9t                                                                | 640                         | 38.3                       | -                                    | 2.3                                       | **2.0**                  | 7.7                     |
+| YOLOv9s                                                                | 640                         | 46.8                       | -                                    | 3.54                                      | 7.1                      | 26.4                    |
+| YOLOv9m                                                                | 640                         | 51.4                       | -                                    | 6.43                                      | 20.0                     | 76.3                    |
+| YOLOv9c                                                                | 640                         | 53.0                       | -                                    | 7.16                                      | 25.3                     | 102.1                   |
+| YOLOv9e                                                                | 640                         | **55.6**                   | -                                    | 16.77                                     | 57.3                     | 189.0                   |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | 2.6                      | **6.5**                 |
+| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
+| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
+| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
+| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | 54.7                       | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
 
 ### Analysis of the Results
 
@@ -122,7 +122,7 @@ YOLOv9 is a fantastic tool for research-centric environments or scenarios priori
 
 For developers, engineers, and production teams, **YOLO11 is highly recommended**. It excels in environments demanding high-speed, scalable deployment:
 
-- **Smart Retail Analytics:** Tracking products and customers seamlessly using standard [Intel standard processors](https://www.intel.com/).
+- **Smart Retail Analytics:** Tracking products and customers seamlessly using standard [Intel processors](https://www.intel.com/).
 - **Autonomous Drones:** Where low-FLOP architectures preserve battery life while still delivering robust small-object detection.
 - **Dynamic Projects:** Workflows that might start as detection but evolve to require [pose estimation](https://docs.ultralytics.com/tasks/pose) or segmentation later on.
 

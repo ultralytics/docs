@@ -2,7 +2,7 @@
 title: EfficientDet vs YOLOv10 Comparison
 comments: true
 description: Compare EfficientDet and YOLOv10 for object detection. Explore their architectures, performance, strengths, and use cases to find the ideal model.
-keywords: EfficientDet,YOLOv10,object detection,model comparison,computer vision,real-time detection,scalability,model accuracy,inference speed
+keywords: EfficientDet, YOLOv10, object detection, model comparison, computer vision, real-time detection, scalability, model accuracy, inference speed
 ---
 
 # EfficientDet vs YOLOv10
@@ -137,7 +137,7 @@ While YOLOv10 introduced the revolutionary NMS-free design, the technology has e
 
 !!! tip "The YOLO26 Advantage"
 
-    If you are beginning a new project, we highly recommend upgrading to **YOLO26**. It offers unmatched flexibility and ease-of-use via the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26).
+    If you are beginning a new project, we highly recommend upgrading to **YOLO26**. It offers unmatched flexibility and ease-of-use via the [Ultralytics Platform](https://platform.ultralytics.com).
 
 **Key Breakthroughs in YOLO26:**
 

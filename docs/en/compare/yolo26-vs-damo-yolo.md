@@ -32,7 +32,7 @@ Developed by Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and X
 
 Key architectural features of DAMO-YOLO include:
 
-- **MAE-NAS Backbone:** Employs Multi-Objective Evolutionary search to automatically design backbones that balance accuracy with target deployment speed.
+- **MAE-NAS Backbone:** Employs a maximum-entropy guided search to automatically design backbones that balance accuracy with target deployment speed.
 - **Efficient RepGFPN:** A robust heavy-neck design that optimizes feature fusion across different scales, making it highly capable at processing complex visual scenes.
 - **ZeroHead:** A drastically simplified detection head designed to minimize computational overhead in the final prediction layers.
 
@@ -46,18 +46,18 @@ Key architectural features of DAMO-YOLO include:
 
 A direct comparison of model variants trained on the standard [COCO dataset](https://cocodataset.org/) reveals distinct performance profiles. The table below outlines the trade-offs between accuracy (mAP), speed, and computational footprint (parameters and FLOPs).
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLO26n    | 640                         | 40.9                       | **38.9**                             | **1.7**                                   | **2.4**                  | **5.4**                 |
-| YOLO26s    | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.7                    |
-| YOLO26m    | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.2                    |
-| YOLO26l    | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.4                    |
-| YOLO26x    | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 193.9                   |
-|            |                             |                            |                                      |                                           |                          |                         |
-| DAMO-YOLOt | 640                         | 42.0                       | -                                    | 2.32                                      | 8.5                      | 18.1                    |
-| DAMO-YOLOs | 640                         | 46.0                       | -                                    | 3.45                                      | 16.3                     | 37.8                    |
-| DAMO-YOLOm | 640                         | 49.2                       | -                                    | 5.09                                      | 28.2                     | 61.8                    |
-| DAMO-YOLOl | 640                         | 50.8                       | -                                    | 7.18                                      | 42.1                     | 97.3                    |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | 40.9                       | **38.9**                             | **1.7**                                   | **2.4**                  | **5.4**                 |
+| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.7                    |
+| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.2                    |
+| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.4                    |
+| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 193.9                   |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| DAMO-YOLOt                                                             | 640                         | 42.0                       | -                                    | 2.32                                      | 8.5                      | 18.1                    |
+| DAMO-YOLOs                                                             | 640                         | 46.0                       | -                                    | 3.45                                      | 16.3                     | 37.8                    |
+| DAMO-YOLOm                                                             | 640                         | 49.2                       | -                                    | 5.09                                      | 28.2                     | 61.8                    |
+| DAMO-YOLOl                                                             | 640                         | 50.8                       | -                                    | 7.18                                      | 42.1                     | 97.3                    |
 
 ### Performance Analysis
 
@@ -113,7 +113,7 @@ For smart retail cameras, automated agricultural monitors, or [robotics](https:/
 
 ### High-Speed Manufacturing and Quality Control
 
-In fast-paced [manufacturing automation](https://www.ultralytics.com/solutions/computer-vision-in-manufacturing) lines, detecting defects on fast-moving conveyor belts requires minimal, deterministic latency. While DAMO-YOLO can perform adequately on specific GPU configurations, the fluctuating latency introduced by traditional NMS post-processing can desynchronize robotic actuators. YOLO26’s end-to-end nature guarantees consistent, predictable frame processing times, ensuring a flawless integration into high-speed industrial robotics.
+In fast-paced [manufacturing automation](https://www.ultralytics.com/solutions/computer-vision-in-manufacturing) lines, detecting defects on fast-moving conveyor belts requires minimal, deterministic latency. While DAMO-YOLO can perform adequately on specific GPU configurations, the fluctuating latency introduced by traditional NMS post-processing can desynchronize robotic actuators. YOLO26's end-to-end nature guarantees consistent, predictable frame processing times, ensuring a flawless integration into high-speed industrial robotics.
 
 ### Drone and Aerial Imagery
 

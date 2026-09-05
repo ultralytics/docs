@@ -23,10 +23,10 @@ The introduction of YOLOv10 represented a paradigm shift by pioneering an end-to
 
 ## YOLOv10: Pioneering NMS-Free Detection
 
-**Date:** 2024-05-23  
-**Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.  
-**Organization:** [Tsinghua University](https://www.tsinghua.edu.cn/en/)  
-**Resources:** [ArXiv Paper](https://arxiv.org/abs/2405.14458) | [GitHub Repository](https://github.com/THU-MIG/yolov10)
+- **Date:** 2024-05-23
+- **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
+- **Organization:** [Tsinghua University](https://www.tsinghua.edu.cn/en/)
+- **Resources:** [ArXiv Paper](https://arxiv.org/abs/2405.14458) | [GitHub Repository](https://github.com/THU-MIG/yolov10)
 
 Developed by researchers at Tsinghua University, YOLOv10 introduced a consistent dual-assignment strategy to eliminate the need for NMS. By employing a holistic efficiency-accuracy driven model design, it reduced computational redundancy while maintaining strong [mAP (mean Average Precision)](https://www.ultralytics.com/glossary/mean-average-precision-map).
 
@@ -44,10 +44,10 @@ Developed by researchers at Tsinghua University, YOLOv10 introduced a consistent
 
 ## YOLO26: The New Standard for Edge and Cloud
 
-**Date:** 2026-01-14  
-**Authors:** Glenn Jocher and Jing Qiu  
-**Organization:** [Ultralytics](https://www.ultralytics.com)  
-**Resources:** [GitHub Repository](https://github.com/ultralytics/ultralytics) | [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26)
+- **Date:** 2026-01-14
+- **Authors:** Glenn Jocher and Jing Qiu
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
+- **Resources:** [GitHub Repository](https://github.com/ultralytics/ultralytics) | [Ultralytics Platform](https://platform.ultralytics.com)
 
 Released as the successor to [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), **YOLO26** takes the NMS-free concept to its ultimate realization. It natively integrates end-to-end detection into the highly optimized [Ultralytics Platform](https://platform.ultralytics.com), providing a complete suite of tools for the modern machine learning pipeline.
 
@@ -65,20 +65,20 @@ YOLO26 introduces several architectural breakthroughs:
 
 The following table compares the COCO detection performance of YOLO26 and YOLOv10 models. Notice how YOLO26 achieves superior accuracy while maintaining exceptional parameter efficiency.
 
-| Model    | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| -------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLO26n  | 640                         | 40.9                       | **38.9**                             | 1.7                                       | 2.4                      | **5.4**                 |
-| YOLO26s  | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.7                    |
-| YOLO26m  | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.2                    |
-| YOLO26l  | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.4                    |
-| YOLO26x  | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 193.9                   |
-|          |                             |                            |                                      |                                           |                          |                         |
-| YOLOv10n | 640                         | 39.5                       | -                                    | **1.56**                                  | **2.3**                  | 6.7                     |
-| YOLOv10s | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
-| YOLOv10m | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
-| YOLOv10b | 640                         | 52.7                       | -                                    | 6.54                                      | 24.4                     | 92.0                    |
-| YOLOv10l | 640                         | 53.3                       | -                                    | 8.33                                      | 29.5                     | 120.3                   |
-| YOLOv10x | 640                         | 54.4                       | -                                    | 12.2                                      | 56.9                     | 160.4                   |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | 40.9                       | **38.9**                             | 1.7                                       | 2.4                      | **5.4**                 |
+| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.7                    |
+| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.2                    |
+| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.4                    |
+| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 193.9                   |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| YOLOv10n                                                               | 640                         | 39.5                       | -                                    | **1.56**                                  | **2.3**                  | 6.7                     |
+| YOLOv10s                                                               | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
+| YOLOv10m                                                               | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
+| YOLOv10b                                                               | 640                         | 52.7                       | -                                    | 6.54                                      | 24.4                     | 92.0                    |
+| YOLOv10l                                                               | 640                         | 53.3                       | -                                    | 8.33                                      | 29.5                     | 120.3                   |
+| YOLOv10x                                                               | 640                         | 54.4                       | -                                    | 12.2                                      | 56.9                     | 160.4                   |
 
 ### The Ultralytics Advantage: Training and Memory Efficiency
 

@@ -21,11 +21,11 @@ Before diving into the technical nuances, it is important to understand the orig
 
 The Ultralytics YOLOv8 architecture represents a unified, multi-task framework designed from the ground up for exceptional developer experience and versatility. It builds upon years of research and community feedback from previous iterations.
 
-- Authors: Glenn Jocher, Ayush Chaurasia, and Jing Qiu
-- Organization: [Ultralytics](https://www.ultralytics.com)
-- Date: 2023-01-10
-- GitHub: [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- Docs: [https://docs.ultralytics.com/models/yolov8](https://docs.ultralytics.com/models/yolov8)
+- **Authors:** Glenn Jocher, Ayush Chaurasia, and Jing Qiu
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
+- **Date:** 2023-01-10
+- **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
+- **Docs:** [https://docs.ultralytics.com/models/yolov8](https://docs.ultralytics.com/models/yolov8)
 
 [Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
@@ -33,12 +33,12 @@ The Ultralytics YOLOv8 architecture represents a unified, multi-task framework d
 
 Originally introduced for industrial applications at Meituan, YOLOv6 received a major "Full-Scale Reloading" update in version 3.0. It primarily targets highly optimized deployment environments, utilizing techniques like self-distillation and RepOptimizer.
 
-- Authors: Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu
-- Organization: [Meituan](https://tech.meituan.com/)
-- Date: 2023-01-13
-- Arxiv: [https://arxiv.org/abs/2301.05586](https://arxiv.org/abs/2301.05586)
-- GitHub: [https://github.com/meituan/YOLOv6](https://github.com/meituan/YOLOv6)
-- Docs: [https://docs.ultralytics.com/models/yolov6](https://docs.ultralytics.com/models/yolov6)
+- **Authors:** Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu
+- **Organization:** [Meituan](https://tech.meituan.com/)
+- **Date:** 2023-01-13
+- **Arxiv:** [https://arxiv.org/abs/2301.05586](https://arxiv.org/abs/2301.05586)
+- **GitHub:** [https://github.com/meituan/YOLOv6](https://github.com/meituan/YOLOv6)
+- **Docs:** [https://docs.ultralytics.com/models/yolov6](https://docs.ultralytics.com/models/yolov6)
 
 [Learn more about YOLOv6-3.0](https://docs.ultralytics.com/models/yolov6){ .md-button }
 
@@ -62,18 +62,18 @@ YOLOv6-3.0 employs a Bi-directional Concatenation (BiC) module and an anchor-aid
 
 When evaluating models on the [COCO validation dataset](https://cocodataset.org/), both models exhibit remarkable performance. The table below highlights the key metrics.
 
-| Model       | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ----------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv8n     | 640                         | 37.3                       | **80.4**                             | 1.47                                      | **3.2**                  | **8.7**                 |
-| YOLOv8s     | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
-| YOLOv8m     | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
-| YOLOv8l     | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
-| YOLOv8x     | 640                         | **53.9**                   | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
-|             |                             |                            |                                      |                                           |                          |                         |
-| YOLOv6-3.0n | 640                         | 37.5                       | -                                    | **1.17**                                  | 4.7                      | 11.4                    |
-| YOLOv6-3.0s | 640                         | 45.0                       | -                                    | 2.66                                      | 18.5                     | 45.3                    |
-| YOLOv6-3.0m | 640                         | 50.0                       | -                                    | 5.28                                      | 34.9                     | 85.8                    |
-| YOLOv6-3.0l | 640                         | 52.8                       | -                                    | 8.95                                      | 59.6                     | 150.7                   |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| [YOLOv8n](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) | 640                         | 37.3                       | **80.4**                             | 1.47                                      | **3.2**                  | **8.7**                 |
+| [YOLOv8s](https://platform.ultralytics.com/ultralytics/yolov8/yolov8s) | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
+| [YOLOv8m](https://platform.ultralytics.com/ultralytics/yolov8/yolov8m) | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
+| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
+| [YOLOv8x](https://platform.ultralytics.com/ultralytics/yolov8/yolov8x) | 640                         | **53.9**                   | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| YOLOv6-3.0n                                                            | 640                         | 37.5                       | -                                    | **1.17**                                  | 4.7                      | 11.4                    |
+| YOLOv6-3.0s                                                            | 640                         | 45.0                       | -                                    | 2.66                                      | 18.5                     | 45.3                    |
+| YOLOv6-3.0m                                                            | 640                         | 50.0                       | -                                    | 5.28                                      | 34.9                     | 85.8                    |
+| YOLOv6-3.0l                                                            | 640                         | 52.8                       | -                                    | 8.95                                      | 59.6                     | 150.7                   |
 
 While YOLOv6-3.0 boasts slight speed advantages on specific TensorRT benchmarks, YOLOv8 offers a more parameter-efficient design in the smaller categories, translating to better flexibility across varied hardware, including mobile and embedded CPUs.
 

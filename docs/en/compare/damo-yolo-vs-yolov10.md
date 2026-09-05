@@ -22,7 +22,7 @@ Developed by the [Alibaba Group](https://www.alibabagroup.com/), DAMO-YOLO emerg
 
 ### Architectural Highlights
 
-DAMO-YOLO relies heavily on Neural Architecture Search (NAS) to balance performance and latency. Its backbone, dubbed MAE-NAS, uses multi-objective evolutionary search under strict computational budgets to find the optimal layer depth and width.
+DAMO-YOLO relies heavily on Neural Architecture Search (NAS) to balance performance and latency. Its backbone, dubbed MAE-NAS, uses a maximum-entropy guided search under strict computational budgets to find the optimal layer depth and width.
 
 To handle feature fusion across scales, the model employs an efficient RepGFPN (Reparameterized Generalized Feature Pyramid Network). This heavy-neck design is particularly adept at extracting complex spatial hierarchies, making it useful in scenarios like [aerial imagery analysis](https://www.ultralytics.com/blog/using-computer-vision-to-analyze-satellite-imagery). Additionally, DAMO-YOLO introduces the ZeroHead, a streamlined detection head that heavily reduces the complexity of final prediction layers, relying on a robust distillation enhancement process during training.
 
@@ -132,7 +132,7 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 
 While YOLOv10 laid the groundwork for NMS-free detection, the technology has evolved rapidly. For modern applications, the **Ultralytics YOLO26** model offers unparalleled performance and usability, taking the best of previous generations and refining them for production.
 
-YOLO26 features a strictly natively end-to-end design, eliminating NMS post-processing for simpler deployment pipelines across edge devices. Furthermore, the removal of Distribution Focal Loss (DFL) has dramatically improved compatibility with low-power [edge AI](https://www.ultralytics.com/glossary/edge-ai) hardware.
+YOLO26 features a natively end-to-end design, eliminating NMS post-processing for simpler deployment pipelines across edge devices. Furthermore, the removal of Distribution Focal Loss (DFL) has dramatically improved compatibility with low-power [edge AI](https://www.ultralytics.com/glossary/edge-ai) hardware.
 
 On the training side, YOLO26 introduces the **MuSGD Optimizer**, a hybrid inspired by Large Language Model (LLM) training techniques. This ensures more stable training and faster convergence. Coupled with the **ProgLoss + STAL** loss functions, YOLO26 exhibits remarkable improvements in small-object recognition, a critical feature for [wildlife conservation](https://www.ultralytics.com/blog/ai-in-wildlife-conservation) and [drone operations](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations).
 

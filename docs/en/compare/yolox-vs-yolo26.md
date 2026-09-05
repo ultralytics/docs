@@ -17,12 +17,12 @@ Understanding the origins and primary design goals of each model provides essent
 
 ### YOLOX
 
-Authors: Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun  
-Organization: [Megvii](https://en.megvii.com/)  
-Date: 2021-07-18  
-Arxiv: [2107.08430](https://arxiv.org/abs/2107.08430)  
-GitHub: [Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)  
-Docs: [YOLOX GitHub Docs](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
+- **Authors:** Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun
+- **Organization:** [Megvii](https://en.megvii.com/)
+- **Date:** 2021-07-18
+- **Arxiv:** [2107.08430](https://arxiv.org/abs/2107.08430)
+- **GitHub:** [Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
+- **Docs:** [YOLOX GitHub Docs](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
 Introduced in mid-2021, YOLOX represented a major shift by adopting an anchor-free design coupled with a decoupled head and the advanced label assignment strategy known as SimOTA. By stepping away from the traditional anchor box mechanisms that dominated previous architectures, YOLOX successfully bridged the gap between academic research and industrial application, offering an elegant yet highly effective framework for [object detection](https://docs.ultralytics.com/tasks/detect).
 
@@ -30,11 +30,11 @@ Introduced in mid-2021, YOLOX represented a major shift by adopting an anchor-fr
 
 ### YOLO26
 
-Authors: Glenn Jocher and Jing Qiu  
-Organization: [Ultralytics](https://www.ultralytics.com)  
-Date: 2026-01-14  
-GitHub: [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)  
-Platform: [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26)
+- **Authors:** Glenn Jocher and Jing Qiu
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
+- **Date:** 2026-01-14
+- **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
+- **Platform:** [Ultralytics Platform](https://platform.ultralytics.com)
 
 Released in early 2026, **YOLO26** is the culmination of years of iterative improvements, focusing heavily on edge deployment and simplified training pipelines. It introduces an **end-to-end NMS-free design**, completely eliminating the traditional Non-Maximum Suppression post-processing step. This breakthrough drastically simplifies model deployment across diverse hardware. Furthermore, by removing the Distribution Focal Loss (DFL) module, YOLO26 achieves significantly lower latency, cementing its status as the premier choice for modern [computer vision applications](https://www.ultralytics.com/blog/60-impactful-computer-vision-applications).
 
@@ -66,20 +66,20 @@ Key YOLO26 innovations include:
 
 When evaluating models for production environments, analyzing the balance between precision, speed, and computational complexity is paramount. Below is a detailed comparison of standard models evaluated at an image size of 640 pixels (and 416 for nano/tiny variants).
 
-| Model     | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| --------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOXnano | 416                         | 25.8                       | -                                    | -                                         | **0.91**                 | **1.08**                |
-| YOLOXtiny | 416                         | 32.8                       | -                                    | -                                         | 5.06                     | 6.45                    |
-| YOLOXs    | 640                         | 40.5                       | -                                    | 2.56                                      | 9.0                      | 26.8                    |
-| YOLOXm    | 640                         | 46.9                       | -                                    | 5.43                                      | 25.3                     | 73.8                    |
-| YOLOXl    | 640                         | 49.7                       | -                                    | 9.04                                      | 54.2                     | 155.6                   |
-| YOLOXx    | 640                         | 51.1                       | -                                    | 16.1                                      | 99.1                     | 281.9                   |
-|           |                             |                            |                                      |                                           |                          |                         |
-| YOLO26n   | 640                         | 40.9                       | **38.9**                             | **1.7**                                   | 2.4                      | 5.4                     |
-| YOLO26s   | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.7                    |
-| YOLO26m   | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.2                    |
-| YOLO26l   | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.4                    |
-| YOLO26x   | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 193.9                   |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOXnano                                                              | 416                         | 25.8                       | -                                    | -                                         | **0.91**                 | **1.08**                |
+| YOLOXtiny                                                              | 416                         | 32.8                       | -                                    | -                                         | 5.06                     | 6.45                    |
+| YOLOXs                                                                 | 640                         | 40.5                       | -                                    | 2.56                                      | 9.0                      | 26.8                    |
+| YOLOXm                                                                 | 640                         | 46.9                       | -                                    | 5.43                                      | 25.3                     | 73.8                    |
+| YOLOXl                                                                 | 640                         | 49.7                       | -                                    | 9.04                                      | 54.2                     | 155.6                   |
+| YOLOXx                                                                 | 640                         | 51.1                       | -                                    | 16.1                                      | 99.1                     | 281.9                   |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | 40.9                       | **38.9**                             | **1.7**                                   | 2.4                      | 5.4                     |
+| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.7                    |
+| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.2                    |
+| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.4                    |
+| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 193.9                   |
 
 As the table illustrates, the YOLO26 series provides a superior performance balance. For instance, `YOLO26x` achieves an impressive 57.5 mAP while utilizing nearly half the parameters of the `YOLOXx` model, directly translating to faster GPU inference times (11.8 ms vs 16.1 ms) and vastly superior deployment flexibility.
 

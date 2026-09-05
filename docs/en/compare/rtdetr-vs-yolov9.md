@@ -31,7 +31,7 @@ A defining characteristic of RTDETRv2 is its natively **end-to-end NMS-free desi
 YOLOv9, a highly efficient CNN-based architecture, tackles the information bottleneck problem inherent in deep neural networks. It introduces Programmable Gradient Information (PGI) and the Generalized Efficient Layer Aggregation Network (GELAN).
 
 - **Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao
-- **Organization:** [Institute of Information Science, Academia Sinica](https://www.iis.sinica.edu.tw/zh/index.html)
+- **Organization:** [Institute of Information Science, Academia Sinica](https://www.iis.sinica.edu.tw/en/index.html)
 - **Date:** February 21, 2024
 - **Links:** [Arxiv](https://arxiv.org/abs/2402.13616), [GitHub](https://github.com/WongKinYiu/yolov9)
 

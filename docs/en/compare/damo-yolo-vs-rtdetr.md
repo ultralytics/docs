@@ -98,7 +98,7 @@ The recently released **Ultralytics YOLO26** model takes these advantages to the
 
 ## Code Example: The Unified Ultralytics API
 
-One of the greatest benefits of the Ultralytics ecosystem is its unified API. You can seamlessly load, train, and validate a variety of models—including a PyTorch implementation of RTDETR and state-of-the-art YOLO models—without changing your workflow.
+One of the greatest benefits of the Ultralytics ecosystem is its unified API. You can seamlessly load, train, and validate a variety of models—including a PyTorch implementation of RT-DETR and state-of-the-art YOLO models—without changing your workflow.
 
 ```python
 from ultralytics import RTDETR, YOLO
@@ -125,4 +125,4 @@ Both DAMO-YOLO and RTDETRv2 have undeniably pushed the boundaries of what is pos
 
 However, for developers seeking the ultimate balance of performance, comprehensive documentation, and production readiness, **Ultralytics YOLO models** remain the gold standard. With the introduction of YOLO26, users gain access to transformer-like end-to-end detection, LLM-inspired training efficiency, and unparalleled CPU speeds—all wrapped within an intuitive and robust ecosystem.
 
-If you are evaluating models for your next project, you may also find value in reading our comparisons of [EfficientDet vs RTDETR](https://docs.ultralytics.com/compare/efficientdet-vs-rtdetr), exploring the previous generation [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), or reviewing academic baselines like [YOLOX](https://docs.ultralytics.com/compare/yolox-vs-rtdetr). Start building today by exploring the [Ultralytics quickstart guide](https://docs.ultralytics.com/quickstart).
+If you are evaluating models for your next project, you may also find value in reading our comparisons of [EfficientDet vs RT-DETR](https://docs.ultralytics.com/compare/efficientdet-vs-rtdetr), exploring the previous generation [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), or reviewing academic baselines like [YOLOX](https://docs.ultralytics.com/compare/yolox-vs-rtdetr). Start building today by exploring the [Ultralytics quickstart guide](https://docs.ultralytics.com/quickstart).

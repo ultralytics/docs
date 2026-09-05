@@ -19,12 +19,12 @@ Both models represent significant leaps in performance, but they approach the ch
 
 Introduced in mid-2022, YOLOv7 focused heavily on architectural gradient path optimization and the concept of "trainable bag-of-freebies" to push the limits of real-time detection on high-end hardware.
 
-- Authors: Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
-- Organization: [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/zh/index.html)
-- Date: 2022-07-06
-- Arxiv: [2207.02696](https://arxiv.org/abs/2207.02696)
-- GitHub: [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
-- Docs: [Ultralytics YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7)
+- **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
+- **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)
+- **Date:** 2022-07-06
+- **Arxiv:** [2207.02696](https://arxiv.org/abs/2207.02696)
+- **GitHub:** [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
+- **Docs:** [Ultralytics YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7)
 
 **Architecture Highlights:**
 YOLOv7 primarily utilizes an anchor-based detection head (though it experimented with anchor-free branches) and introduces Extended Efficient Layer Aggregation Networks (E-ELAN). This design improves the learning ability of the network without destroying the original gradient path. It performs exceptionally well on server-grade [GPUs](https://en.wikipedia.org/wiki/Graphics_processing_unit), making it highly suitable for heavy-duty video analytics.
@@ -38,11 +38,11 @@ While YOLOv7 achieves excellent latency on dedicated hardware, its ecosystem is 
 
 Released in early 2023, YOLOv8 completely redefined the developer experience, focusing not just on state-of-the-art accuracy, but on delivering a unified, production-ready framework.
 
-- Authors: Glenn Jocher, Ayush Chaurasia, and Jing Qiu
-- Organization: [Ultralytics](https://www.ultralytics.com)
-- Date: 2023-01-10
-- GitHub: [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- Platform: [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8)
+- **Authors:** Glenn Jocher, Ayush Chaurasia, and Jing Qiu
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
+- **Date:** 2023-01-10
+- **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
+- **Platform:** [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8)
 
 **Architecture Highlights:**
 YOLOv8 introduced a natively **anchor-free** detection head, eliminating the need to manually configure anchor boxes based on the [MS COCO dataset](https://cocodataset.org/) or custom data distributions. It incorporates the C2f module to improve gradient flow and uses a decoupled head structure that separates objectness, classification, and regression tasks. This heavily accelerates convergence and boosts accuracy.
@@ -60,16 +60,16 @@ YOLOv8 boasts exceptional **Memory Requirements** efficiency. It requires signif
 
 The following table breaks down the performance metrics across key model sizes. Notice the distinct **Performance Balance** YOLOv8 achieves, optimizing heavily for rapid inference on edge devices while maintaining world-class accuracy.
 
-| Model   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv7l | 640                         | 51.4                       | -                                    | 6.84                                      | 36.9                     | 104.7                   |
-| YOLOv7x | 640                         | 53.1                       | -                                    | 11.57                                     | 71.3                     | 189.9                   |
-|         |                             |                            |                                      |                                           |                          |                         |
-| YOLOv8n | 640                         | 37.3                       | **80.4**                             | **1.47**                                  | **3.2**                  | **8.7**                 |
-| YOLOv8s | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
-| YOLOv8m | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
-| YOLOv8l | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
-| YOLOv8x | 640                         | **53.9**                   | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOv7l                                                                | 640                         | 51.4                       | -                                    | 6.84                                      | 36.9                     | 104.7                   |
+| YOLOv7x                                                                | 640                         | 53.1                       | -                                    | 11.57                                     | 71.3                     | 189.9                   |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| [YOLOv8n](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) | 640                         | 37.3                       | **80.4**                             | **1.47**                                  | **3.2**                  | **8.7**                 |
+| [YOLOv8s](https://platform.ultralytics.com/ultralytics/yolov8/yolov8s) | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
+| [YOLOv8m](https://platform.ultralytics.com/ultralytics/yolov8/yolov8m) | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
+| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
+| [YOLOv8x](https://platform.ultralytics.com/ultralytics/yolov8/yolov8x) | 640                         | **53.9**                   | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
 
 _Note: YOLOv8x achieves the highest mAP in this grouping, while YOLOv8n dominates in parameter efficiency and inference speed, making it the undisputed champion for [deploying computer vision on edge AI devices](https://www.ultralytics.com/blog/deploying-computer-vision-applications-on-edge-ai-devices)._
 
@@ -99,7 +99,7 @@ predictions[0].show()
 
 !!! note "Experiment Tracking"
 
-    YOLOv8 integrates natively with popular MLops tools like [Weights & Biases](https://wandb.ai/site) and [ClearML](https://docs.ultralytics.com/integrations/clearml), allowing you to monitor your [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning) and training metrics in real-time.
+    YOLOv8 integrates natively with popular MLOps tools like [Weights & Biases](https://wandb.ai/site) and [ClearML](https://docs.ultralytics.com/integrations/clearml), allowing you to monitor your [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning) and training metrics in real-time.
 
 ## Ideal Use Cases
 

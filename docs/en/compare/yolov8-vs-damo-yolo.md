@@ -2,7 +2,7 @@
 title: YOLOv8 vs DAMO-YOLO Comparison
 comments: true
 description: Compare YOLOv8 and DAMO-YOLO object detection models. Explore differences in performance, architecture, and applications to choose the best fit.
-keywords: YOLOv8,DAMO-YOLO,object detection,computer vision,model comparison,YOLO,Ultralytics,deep learning,accuracy,inference speed
+keywords: YOLOv8, DAMO-YOLO, object detection, computer vision, model comparison, YOLO, Ultralytics, deep learning, accuracy, inference speed
 ---
 
 # YOLOv8 vs DAMO-YOLO
@@ -17,21 +17,21 @@ Both models were introduced around the same time but stem from different design 
 
 ### YOLOv8 Details
 
-- Authors: Glenn Jocher, Ayush Chaurasia, and Jing Qiu
-- Organization: [Ultralytics](https://www.ultralytics.com)
-- Date: 2023-01-10
-- GitHub: [Ultralytics GitHub Repository](https://github.com/ultralytics/ultralytics)
-- Docs: [YOLOv8 Official Documentation](https://docs.ultralytics.com/models/yolov8)
+- **Authors:** Glenn Jocher, Ayush Chaurasia, and Jing Qiu
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
+- **Date:** 2023-01-10
+- **GitHub:** [Ultralytics GitHub Repository](https://github.com/ultralytics/ultralytics)
+- **Docs:** [YOLOv8 Official Documentation](https://docs.ultralytics.com/models/yolov8)
 
 [Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
 ### DAMO-YOLO Details
 
-- Authors: Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun
-- Organization: [Alibaba Group](https://www.alibabagroup.com/)
-- Date: 2022-11-23
-- Arxiv: [DAMO-YOLO Research Paper](https://arxiv.org/abs/2211.15444v2)
-- GitHub: [DAMO-YOLO GitHub Repository](https://github.com/tinyvision/DAMO-YOLO)
+- **Authors:** Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun
+- **Organization:** [Alibaba Group](https://www.alibabagroup.com/)
+- **Date:** 2022-11-23
+- **Arxiv:** [DAMO-YOLO Research Paper](https://arxiv.org/abs/2211.15444v2)
+- **GitHub:** [DAMO-YOLO GitHub Repository](https://github.com/tinyvision/DAMO-YOLO)
 
 [Learn more about DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md){ .md-button }
 
@@ -57,18 +57,18 @@ The model incorporates a RepGFPN (Reparameterized Generalized Feature Pyramid Ne
 
 When deploying computer vision models to production, balancing accuracy (mAP) with inference speed is critical. The table below illustrates the performance of both models across various sizes.
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv8n    | 640                         | 37.3                       | **80.4**                             | **1.47**                                  | **3.2**                  | **8.7**                 |
-| YOLOv8s    | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
-| YOLOv8m    | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
-| YOLOv8l    | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
-| YOLOv8x    | 640                         | **53.9**                   | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
-|            |                             |                            |                                      |                                           |                          |                         |
-| DAMO-YOLOt | 640                         | 42.0                       | -                                    | 2.32                                      | 8.5                      | 18.1                    |
-| DAMO-YOLOs | 640                         | 46.0                       | -                                    | 3.45                                      | 16.3                     | 37.8                    |
-| DAMO-YOLOm | 640                         | 49.2                       | -                                    | 5.09                                      | 28.2                     | 61.8                    |
-| DAMO-YOLOl | 640                         | 50.8                       | -                                    | 7.18                                      | 42.1                     | 97.3                    |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| [YOLOv8n](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) | 640                         | 37.3                       | **80.4**                             | **1.47**                                  | **3.2**                  | **8.7**                 |
+| [YOLOv8s](https://platform.ultralytics.com/ultralytics/yolov8/yolov8s) | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
+| [YOLOv8m](https://platform.ultralytics.com/ultralytics/yolov8/yolov8m) | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
+| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
+| [YOLOv8x](https://platform.ultralytics.com/ultralytics/yolov8/yolov8x) | 640                         | **53.9**                   | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| DAMO-YOLOt                                                             | 640                         | 42.0                       | -                                    | 2.32                                      | 8.5                      | 18.1                    |
+| DAMO-YOLOs                                                             | 640                         | 46.0                       | -                                    | 3.45                                      | 16.3                     | 37.8                    |
+| DAMO-YOLOm                                                             | 640                         | 49.2                       | -                                    | 5.09                                      | 28.2                     | 61.8                    |
+| DAMO-YOLOl                                                             | 640                         | 50.8                       | -                                    | 7.18                                      | 42.1                     | 97.3                    |
 
 YOLOv8 demonstrates an exceptional performance balance. The `YOLOv8n` (nano) model requires only 3.2 million parameters compared to DAMO-YOLOt's 8.5 million, making it vastly superior for mobile devices or environments with strict memory requirements. Furthermore, YOLOv8 offers a broader range of sizes, scaling up to the highly accurate `YOLOv8x` for cloud-based workloads.
 
@@ -114,7 +114,7 @@ YOLOv8's combination of speed, accuracy, and ease of deployment makes it ideal f
 
 DAMO-YOLO can be beneficial in niche scenarios, particularly:
 
-- **Academic NAS Research:** For teams studying rep-parameterization or automated architecture design methodologies.
+- **Academic NAS Research:** For teams studying re-parameterization or automated architecture design methodologies.
 - **Strictly GPU-Bound Pipelines:** Applications running exclusively on specific NVIDIA hardware where the NAS structures were heavily optimized for TensorRT execution limits.
 
 ## Use Cases and Recommendations

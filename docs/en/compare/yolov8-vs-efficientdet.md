@@ -27,7 +27,7 @@ The architecture introduces an anchor-free detection head, which heavily reduces
 
 ### EfficientDet
 
-Authored by Mingxing Tan, Ruoming Pang, and Quoc V. Le at Google and released in late 2019, EfficientDet focuses on scalable efficiency. Described in their [official Arxiv paper](https://arxiv.org/abs/1911.09070), the model heavily leverages the [AutoML ecosystem](https://cloud.google.com/products/gemini-enterprise-agent-platform).
+Authored by Mingxing Tan, Ruoming Pang, and Quoc V. Le at Google and released in late 2019, EfficientDet focuses on scalable efficiency. Described in their [official Arxiv paper](https://arxiv.org/abs/1911.09070), the model heavily leverages the [AutoML ecosystem](https://github.com/google/automl).
 
 The defining characteristic of EfficientDet is its **Bi-directional Feature Pyramid Network (BiFPN)**, which enables easy and fast multi-scale feature fusion. Combined with an EfficientNet backbone, the architecture uses a compound scaling method that uniformly scales the resolution, depth, and width for all backbone, feature network, and box/class prediction networks at the same time. While this results in excellent parameter efficiency, the complex network topology often struggles to achieve optimal real-time speeds on standard GPUs.
 
@@ -37,22 +37,22 @@ The defining characteristic of EfficientDet is its **Bi-directional Feature Pyra
 
 When comparing object detectors, [mean Average Precision (mAP)](https://docs.ultralytics.com/guides/yolo-performance-metrics) and inference latency are the primary benchmarks. The table below illustrates how the YOLOv8 variants and the EfficientDet (d0-d7) family compare across standard metrics on datasets like [COCO](https://cocodataset.org/).
 
-| Model           | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| --------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv8n         | 640                         | 37.3                       | 80.4                                 | **1.47**                                  | **3.2**                  | 8.7                     |
-| YOLOv8s         | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
-| YOLOv8m         | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
-| YOLOv8l         | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
-| YOLOv8x         | 640                         | **53.9**                   | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
-|                 |                             |                            |                                      |                                           |                          |                         |
-| EfficientDet-d0 | 640                         | 34.6                       | **10.2**                             | 3.92                                      | 3.9                      | **2.54**                |
-| EfficientDet-d1 | 640                         | 40.5                       | 13.5                                 | 7.31                                      | 6.6                      | 6.1                     |
-| EfficientDet-d2 | 640                         | 43.0                       | 17.7                                 | 10.92                                     | 8.1                      | 11.0                    |
-| EfficientDet-d3 | 640                         | 47.5                       | 28.0                                 | 19.59                                     | 12.0                     | 24.9                    |
-| EfficientDet-d4 | 640                         | 49.7                       | 42.8                                 | 33.55                                     | 20.7                     | 55.2                    |
-| EfficientDet-d5 | 640                         | 51.5                       | 72.5                                 | 67.86                                     | 33.7                     | 130.0                   |
-| EfficientDet-d6 | 640                         | 52.6                       | 92.8                                 | 89.29                                     | 51.9                     | 226.0                   |
-| EfficientDet-d7 | 640                         | 53.7                       | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| [YOLOv8n](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) | 640                         | 37.3                       | 80.4                                 | **1.47**                                  | **3.2**                  | 8.7                     |
+| [YOLOv8s](https://platform.ultralytics.com/ultralytics/yolov8/yolov8s) | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
+| [YOLOv8m](https://platform.ultralytics.com/ultralytics/yolov8/yolov8m) | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
+| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
+| [YOLOv8x](https://platform.ultralytics.com/ultralytics/yolov8/yolov8x) | 640                         | **53.9**                   | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| EfficientDet-d0                                                        | 640                         | 34.6                       | **10.2**                             | 3.92                                      | 3.9                      | **2.54**                |
+| EfficientDet-d1                                                        | 640                         | 40.5                       | 13.5                                 | 7.31                                      | 6.6                      | 6.1                     |
+| EfficientDet-d2                                                        | 640                         | 43.0                       | 17.7                                 | 10.92                                     | 8.1                      | 11.0                    |
+| EfficientDet-d3                                                        | 640                         | 47.5                       | 28.0                                 | 19.59                                     | 12.0                     | 24.9                    |
+| EfficientDet-d4                                                        | 640                         | 49.7                       | 42.8                                 | 33.55                                     | 20.7                     | 55.2                    |
+| EfficientDet-d5                                                        | 640                         | 51.5                       | 72.5                                 | 67.86                                     | 33.7                     | 130.0                   |
+| EfficientDet-d6                                                        | 640                         | 52.6                       | 92.8                                 | 89.29                                     | 51.9                     | 226.0                   |
+| EfficientDet-d7                                                        | 640                         | 53.7                       | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
 
 !!! tip "Performance Balance Analysis"
 

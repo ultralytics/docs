@@ -15,11 +15,11 @@ The landscape of real-time computer vision is constantly evolving, with new arch
 
 **YOLO11 Details:**
 
-- Authors: Glenn Jocher and Jing Qiu
-- Organization: [Ultralytics](https://www.ultralytics.com)
-- Date: 2024-09-27
-- GitHub: [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- Docs: [https://docs.ultralytics.com/models/yolo11](https://docs.ultralytics.com/models/yolo11)
+- **Authors:** Glenn Jocher and Jing Qiu
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
+- **Date:** 2024-09-27
+- **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
+- **Docs:** [https://docs.ultralytics.com/models/yolo11](https://docs.ultralytics.com/models/yolo11)
 
 Introduced as a versatile powerhouse, YOLO11 builds upon years of foundational research in [computer vision and AI](https://www.ultralytics.com/blog/a-quick-overview-of-vision-ai-and-how-it-works). The core design philosophy of YOLO11 revolves around feature richness and extreme versatility across multiple [computer vision tasks](https://www.ultralytics.com/blog/all-you-need-to-know-about-computer-vision-tasks).
 
@@ -33,12 +33,12 @@ YOLO11 utilizes an anchor-free design that minimizes the complexity of hyperpara
 
 **YOLOv10 Details:**
 
-- Authors: Ao Wang, Hui Chen, Lihao Liu, et al.
-- Organization: Tsinghua University
-- Date: 2024-05-23
-- Arxiv: [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)
-- GitHub: [https://github.com/THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
-- Docs: [https://docs.ultralytics.com/models/yolov10](https://docs.ultralytics.com/models/yolov10)
+- **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
+- **Organization:** Tsinghua University
+- **Date:** 2024-05-23
+- **Arxiv:** [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)
+- **GitHub:** [https://github.com/THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
+- **Docs:** [https://docs.ultralytics.com/models/yolov10](https://docs.ultralytics.com/models/yolov10)
 
 Developed by researchers at Tsinghua University, YOLOv10 made waves as an end-to-end pioneer in the YOLO family. The hallmark of YOLOv10 is its **NMS-Free Training** methodology. By employing consistent dual assignments during the training phase, the model naturally predicts exactly one bounding box per object. This breakthrough completely eliminates the need for [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) during inference, a post-processing step that historically introduced latency bottlenecks in deployment pipelines.
 
@@ -50,20 +50,20 @@ The architecture also introduces a holistic efficiency-accuracy design strategy.
 
 When evaluating these two models, we look at a balance of accuracy, parameter count, and speed. The following table showcases how they compare across various scales on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco).
 
-| Model    | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| -------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLO11n  | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | 2.6                      | **6.5**                 |
-| YOLO11s  | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
-| YOLO11m  | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
-| YOLO11l  | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
-| YOLO11x  | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
-|          |                             |                            |                                      |                                           |                          |                         |
-| YOLOv10n | 640                         | 39.5                       | -                                    | 1.56                                      | **2.3**                  | 6.7                     |
-| YOLOv10s | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
-| YOLOv10m | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
-| YOLOv10b | 640                         | 52.7                       | -                                    | 6.54                                      | 24.4                     | 92.0                    |
-| YOLOv10l | 640                         | 53.3                       | -                                    | 8.33                                      | 29.5                     | 120.3                   |
-| YOLOv10x | 640                         | 54.4                       | -                                    | 12.2                                      | 56.9                     | 160.4                   |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | 2.6                      | **6.5**                 |
+| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
+| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
+| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
+| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| YOLOv10n                                                               | 640                         | 39.5                       | -                                    | 1.56                                      | **2.3**                  | 6.7                     |
+| YOLOv10s                                                               | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
+| YOLOv10m                                                               | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
+| YOLOv10b                                                               | 640                         | 52.7                       | -                                    | 6.54                                      | 24.4                     | 92.0                    |
+| YOLOv10l                                                               | 640                         | 53.3                       | -                                    | 8.33                                      | 29.5                     | 120.3                   |
+| YOLOv10x                                                               | 640                         | 54.4                       | -                                    | 12.2                                      | 56.9                     | 160.4                   |
 
 As observed in the [YOLO performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics), YOLO11 generally achieves slightly higher mAP scores across its variants, particularly in the larger models. The NMS-free design of YOLOv10 ensures highly stable end-to-end inference times, but YOLO11 still manages exceptional throughput when optimized with [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) on NVIDIA hardware.
 

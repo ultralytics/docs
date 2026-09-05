@@ -1,8 +1,8 @@
 ---
 title: YOLOv6-3.0 vs RTDETRv2 Comparison
 comments: true
-description: Compare YOLOv6 and RTDETR for object detection. Explore their architectures, performances, and use cases to choose your optimal computer vision model.
-keywords: YOLOv6, RTDETR, object detection, model comparison, YOLO, Vision Transformers, CNN, real-time detection, Ultralytics, computer vision
+description: Compare YOLOv6 and RT-DETR for object detection. Explore their architectures, performances, and use cases to choose your optimal computer vision model.
+keywords: YOLOv6, RT-DETR, object detection, model comparison, YOLO, Vision Transformers, CNN, real-time detection, Ultralytics, computer vision
 ---
 
 # YOLOv6-3.0 vs RTDETRv2
@@ -12,8 +12,6 @@ Choosing the optimal architecture for [computer vision](https://www.ultralytics.
 While both models present significant milestones in artificial intelligence research, developers looking for the most versatile and efficient pipeline often turn to the robust [Ultralytics Platform](https://platform.ultralytics.com).
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv6-3.0", "RTDETRv2"]'></canvas>
-
----
 
 ## YOLOv6-3.0: Industrial Throughput
 
@@ -45,8 +43,6 @@ YOLOv6-3.0 adopts a hardware-friendly **EfficientRep** backbone specifically tai
 
 [Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6){ .md-button }
 
----
-
 ## RTDETRv2: Real-Time Transformers
 
 Spearheaded by researchers at Baidu, RTDETRv2 builds upon the original RT-DETR by refining the detection transformer framework with a "bag-of-freebies" approach, achieving state-of-the-art accuracy without sacrificing real-time viability.
@@ -75,9 +71,7 @@ Unlike traditional CNNs, RTDETRv2 is natively end-to-end. By leveraging transfor
 - CPU inference speeds are notably slower than specialized edge CNNs, limiting its use in mobile or IoT devices.
 - Setup and tuning can be complex for teams accustomed to traditional [machine learning operations (MLOps)](https://www.ultralytics.com/glossary/machine-learning-operations-mlops).
 
-[Learn more about RTDETR](https://docs.ultralytics.com/models/rtdetr){ .md-button }
-
----
+[Learn more about RT-DETR](https://docs.ultralytics.com/models/rtdetr){ .md-button }
 
 ## Detailed Performance Comparison
 
@@ -98,8 +92,6 @@ The following table benchmarks YOLOv6-3.0 and RTDETRv2 across key performance in
 !!! tip "Deployment Tip"
 
     If you are deploying on strictly CPU hardware like a Raspberry Pi, CNN-based models generally far outperform transformer architectures in Frames Per Second (FPS). For optimal edge performance, consider utilizing [OpenVINO](https://docs.ultralytics.com/integrations/openvino) to accelerate your inference.
-
----
 
 ## Use Cases and Recommendations
 
@@ -141,7 +133,7 @@ Released in January 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/
 2. **MuSGD Optimizer:** Inspired by large language model innovations (such as Moonshot AI's Kimi K2), YOLO26 utilizes a hybrid of SGD and Muon. This ensures incredibly stable training dynamics and rapid convergence, reducing the time and compute resources required for custom datasets.
 3. **Unmatched Edge Performance:** By executing complete DFL Removal (Distribution Focal Loss), YOLO26 simplifies export architectures. This optimization yields up to **43% faster CPU inference** compared to legacy models, making it the undisputed champion for edge AI and IoT devices.
 4. **Enhanced Small Object Detection:** The introduction of ProgLoss and STAL loss functions provides a massive leap in detecting small objects—a critical requirement for drone analytics and aerial imagery that YOLOv6 historically struggled with.
-5. **Task Versatility:** Unlike YOLOv6, which focuses strictly on detection, YOLO26 supports multi-modal workflows including [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), [Image Classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb)—all from a single, unified API.
+5. **Task Versatility:** Unlike YOLOv6, which focuses strictly on detection, YOLO26 supports multi-task workflows including [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), [Image Classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb)—all from a single, unified API.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 

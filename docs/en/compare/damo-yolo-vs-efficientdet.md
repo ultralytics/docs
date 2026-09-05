@@ -19,12 +19,13 @@ Both models were designed to tackle the efficiency-accuracy tradeoff, but they r
 
 Developed to push the boundaries of real-time detection, DAMO-YOLO leverages automated search techniques to build highly efficient networks tailored for low-latency environments.
 
-**DAMO-YOLO Details:**  
-Authors: Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun  
-Organization: [Alibaba Group](https://www.alibabagroup.com/)  
-Date: 2022-11-23  
-Arxiv: [https://arxiv.org/abs/2211.15444v2](https://arxiv.org/abs/2211.15444v2)  
-GitHub: [https://github.com/tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)
+**DAMO-YOLO Details:**
+
+- **Authors:** Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun
+- **Organization:** [Alibaba Group](https://www.alibabagroup.com/)
+- **Date:** 2022-11-23
+- **Arxiv:** [https://arxiv.org/abs/2211.15444v2](https://arxiv.org/abs/2211.15444v2)
+- **GitHub:** [https://github.com/tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)
 
 DAMO-YOLO is built around a Neural Architecture Search (NAS) backbone that optimizes for both speed and accuracy. It introduces the RepGFPN (Reparameterized Generalized Feature Pyramid Network), which enhances feature fusion while maintaining high inference speeds. Furthermore, its ZeroHead design minimizes the computational overhead typically associated with detection heads. The model also benefits from AlignedOTA (Aligned Optimal Transport Assignment) and distillation enhancement, ensuring that even the smallest variants learn rich representations from larger models.
 
@@ -34,12 +35,13 @@ DAMO-YOLO is built around a Neural Architecture Search (NAS) backbone that optim
 
 Contrasting with the speed-first approach, EfficientDet focuses on systematic scalability across various compute budgets.
 
-**EfficientDet Details:**  
-Authors: Mingxing Tan, Ruoming Pang, and Quoc V. Le  
-Organization: [Google Brain](https://research.google/)  
-Date: 2019-11-20  
-Arxiv: [https://arxiv.org/abs/1911.09070](https://arxiv.org/abs/1911.09070)  
-GitHub: [https://github.com/google/automl/tree/master/efficientdet](https://github.com/google/automl/tree/master/efficientdet)
+**EfficientDet Details:**
+
+- **Authors:** Mingxing Tan, Ruoming Pang, and Quoc V. Le
+- **Organization:** [Google Brain](https://research.google/)
+- **Date:** 2019-11-20
+- **Arxiv:** [https://arxiv.org/abs/1911.09070](https://arxiv.org/abs/1911.09070)
+- **GitHub:** [https://github.com/google/automl/tree/master/efficientdet](https://github.com/google/automl/tree/master/efficientdet)
 
 EfficientDet introduces the BiFPN (Bidirectional Feature Pyramid Network), which allows for easy and fast multi-scale feature fusion. Unlike traditional methods that scale up architectures by arbitrarily adding layers or channels, EfficientDet uses a compound scaling method that uniformly scales the resolution, depth, and width of the backbone, feature network, and box/class prediction networks simultaneously. This allows it to achieve state-of-the-art accuracy on high-end hardware while offering smaller variants for constrained environments.
 

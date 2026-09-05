@@ -19,7 +19,7 @@ Both models achieve state-of-the-art results, but they cater to slightly differe
 
 - **Choose YOLOv9 if:** You need highly efficient parameter utilization and fast inference on edge devices. YOLOv9 pushes the theoretical limits of CNN efficiency, making it ideal for environments where computational resources are strictly limited.
 - **Choose RTDETRv2 if:** You require the nuanced context understanding that Transformers provide, particularly in scenes with severe occlusion or complex object relationships, and you have the hardware to support a slightly heavier architecture.
-- **Choose YOLO26 (Recommended) if:** You want the absolute best of both worlds. As the newest generation available on the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26), YOLO26 features a native **End-to-End NMS-Free Design** (similar to DETR models but much faster), eliminating post-processing bottlenecks and offering up to 43% faster CPU inference than previous generations.
+- **Choose YOLO26 (Recommended) if:** You want the absolute best of both worlds. As the newest generation available on the [Ultralytics Platform](https://platform.ultralytics.com), YOLO26 features a native **End-to-End NMS-Free Design** (similar to DETR models but much faster), eliminating post-processing bottlenecks and offering up to 43% faster CPU inference than previous generations.
 
 ## Technical Specifications and Authorship
 
@@ -27,23 +27,23 @@ Understanding the origins and design intent of these models provides crucial con
 
 ### YOLOv9
 
-**Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao  
-**Organization:** [Institute of Information Science, Academia Sinica](https://www.iis.sinica.edu.tw/en/index.html)  
-**Date:** 2024-02-21  
-**Arxiv:** [https://arxiv.org/abs/2402.13616](https://arxiv.org/abs/2402.13616)  
-**GitHub:** [WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9)
+- **Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao
+- **Organization:** [Institute of Information Science, Academia Sinica](https://www.iis.sinica.edu.tw/en/index.html)
+- **Date:** 2024-02-21
+- **Arxiv:** [https://arxiv.org/abs/2402.13616](https://arxiv.org/abs/2402.13616)
+- **GitHub:** [WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9)
 
 [Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9){ .md-button }
 
 ### RTDETRv2
 
-**Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu  
-**Organization:** [Baidu](https://www.baidu.com/)  
-**Date:** 2024-07-24  
-**Arxiv:** [https://arxiv.org/abs/2407.17140](https://arxiv.org/abs/2407.17140)  
-**GitHub:** [lyuwenyu/RT-DETR](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
+- **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
+- **Organization:** [Baidu](https://www.baidu.com/)
+- **Date:** 2024-07-24
+- **Arxiv:** [https://arxiv.org/abs/2407.17140](https://arxiv.org/abs/2407.17140)
+- **GitHub:** [lyuwenyu/RT-DETR](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 
-[Learn more about RTDETR](https://docs.ultralytics.com/models/rtdetr){ .md-button }
+[Learn more about RT-DETR](https://docs.ultralytics.com/models/rtdetr){ .md-button }
 
 ## Architectural Innovations
 
@@ -94,7 +94,7 @@ While pure architectural metrics are important, the software ecosystem often dic
 
 ### Streamlined Training and Deployment
 
-Training a Detection Transformer typically requires intricate configuration files and high-end GPUs. By utilizing the [Ultralytics framework](https://docs.ultralytics.com), developers can train both YOLOv9 and RTDETR models with identical, simple syntax, benefiting from highly efficient training pipelines and readily available pre-trained weights.
+Training a Detection Transformer typically requires intricate configuration files and high-end GPUs. By utilizing the [Ultralytics framework](https://docs.ultralytics.com), developers can train both YOLOv9 and RT-DETR models with identical, simple syntax, benefiting from highly efficient training pipelines and readily available pre-trained weights.
 
 ```python
 from ultralytics import RTDETR, YOLO

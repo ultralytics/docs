@@ -19,21 +19,21 @@ Before examining the performance data, it is important to understand the origins
 
 ### Ultralytics YOLO26
 
-**Authors:** Glenn Jocher and Jing Qiu  
-**Organization:** [Ultralytics](https://www.ultralytics.com)  
-**Date:** 2026-01-14  
-**GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)  
-**Docs:** [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26)
+- **Authors:** Glenn Jocher and Jing Qiu
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
+- **Date:** 2026-01-14
+- **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
+- **Docs:** [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26)
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 ### YOLOv7
 
-**Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao  
-**Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)  
-**Date:** 2022-07-06  
-**Arxiv:** [YOLOv7 Paper](https://arxiv.org/abs/2207.02696)  
-**GitHub:** [YOLOv7 Repository](https://github.com/WongKinYiu/yolov7)
+- **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
+- **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)
+- **Date:** 2022-07-06
+- **Arxiv:** [YOLOv7 Paper](https://arxiv.org/abs/2207.02696)
+- **GitHub:** [YOLOv7 Repository](https://github.com/WongKinYiu/yolov7)
 
 [Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 
@@ -63,16 +63,16 @@ The YOLOv7 architecture also relies heavily on re-parameterization techniques du
 
 The table below provides a direct comparison of the models trained on the standard COCO dataset. YOLO26 demonstrates significant improvements in accuracy (mAP) while maintaining an exceptional balance of parameters and FLOPs.
 
-| Model   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLO26n | 640                         | 40.9                       | **38.9**                             | **1.7**                                   | **2.4**                  | **5.4**                 |
-| YOLO26s | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.7                    |
-| YOLO26m | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.2                    |
-| YOLO26l | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.4                    |
-| YOLO26x | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 193.9                   |
-|         |                             |                            |                                      |                                           |                          |                         |
-| YOLOv7l | 640                         | 51.4                       | -                                    | 6.84                                      | 36.9                     | 104.7                   |
-| YOLOv7x | 640                         | 53.1                       | -                                    | 11.57                                     | 71.3                     | 189.9                   |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | 40.9                       | **38.9**                             | **1.7**                                   | **2.4**                  | **5.4**                 |
+| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.7                    |
+| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.2                    |
+| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.4                    |
+| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 193.9                   |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| YOLOv7l                                                                | 640                         | 51.4                       | -                                    | 6.84                                      | 36.9                     | 104.7                   |
+| YOLOv7x                                                                | 640                         | 53.1                       | -                                    | 11.57                                     | 71.3                     | 189.9                   |
 
 _Note: YOLO26x outperforms YOLOv7x in mAP by an impressive margin (57.5 vs 53.1) while requiring approximately 22% fewer parameters._
 

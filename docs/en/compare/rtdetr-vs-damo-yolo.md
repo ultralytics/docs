@@ -2,7 +2,7 @@
 title: RTDETRv2 vs DAMO-YOLO Comparison
 comments: true
 description: Discover a detailed comparison of RTDETRv2 and DAMO-YOLO for object detection. Learn about their performance, strengths, and ideal use cases.
-keywords: RTDETRv2,DAMO-YOLO,object detection,model comparison,Ultralytics,computer vision,real-time detection,AI models,deep learning
+keywords: RTDETRv2, DAMO-YOLO, object detection, model comparison, Ultralytics, computer vision, real-time detection, AI models, deep learning
 ---
 
 # RTDETRv2 vs DAMO-YOLO
@@ -15,7 +15,7 @@ In this technical comparison, we will dive deep into their architectures, traini
 
 ## Architectural Innovations
 
-Understanding the core mechanics of these models is crucial for [machine learning engineers](https://www.coursera.org/career-academy/roles/machine-learning-engineer) tasked with selecting the right tool for production environments.
+Understanding the core mechanics of these models is crucial for machine learning engineers tasked with selecting the right tool for production environments.
 
 ### RTDETRv2: The Transformer Approach
 
