@@ -43,7 +43,7 @@ Developed independently by researchers at Academia Sinica, YOLOv9 focuses heavil
 
 !!! tip "Enterprise Deployment"
 
-    If you are planning a large-scale commercial deployment, consider exploring the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolov8) for simplified cloud training, dataset management, and one-click API endpoints.
+    If you are planning a large-scale commercial deployment, consider exploring the [Ultralytics Platform](https://platform.ultralytics.com) for simplified cloud training, dataset management, and one-click API endpoints.
 
 ## Architectural Deep Dive
 
@@ -65,19 +65,19 @@ While mathematically impressive, YOLOv9's reliance on specific auxiliary reversi
 
 The table below provides a direct comparison of the models across different sizes. Performance is measured on the [MS COCO dataset](https://cocodataset.org/), a standard benchmark for object detection.
 
-| Model   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv8n | 640                         | 37.3                       | **80.4**                             | **1.47**                                  | 3.2                      | 8.7                     |
-| YOLOv8s | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
-| YOLOv8m | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
-| YOLOv8l | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
-| YOLOv8x | 640                         | 53.9                       | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
-|         |                             |                            |                                      |                                           |                          |                         |
-| YOLOv9t | 640                         | 38.3                       | -                                    | 2.3                                       | **2.0**                  | **7.7**                 |
-| YOLOv9s | 640                         | 46.8                       | -                                    | 3.54                                      | 7.1                      | 26.4                    |
-| YOLOv9m | 640                         | 51.4                       | -                                    | 6.43                                      | 20.0                     | 76.3                    |
-| YOLOv9c | 640                         | 53.0                       | -                                    | 7.16                                      | 25.3                     | 102.1                   |
-| YOLOv9e | 640                         | **55.6**                   | -                                    | 16.77                                     | 57.3                     | 189.0                   |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| [YOLOv8n](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) | 640                         | 37.3                       | **80.4**                             | **1.47**                                  | 3.2                      | 8.7                     |
+| [YOLOv8s](https://platform.ultralytics.com/ultralytics/yolov8/yolov8s) | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
+| [YOLOv8m](https://platform.ultralytics.com/ultralytics/yolov8/yolov8m) | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
+| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
+| [YOLOv8x](https://platform.ultralytics.com/ultralytics/yolov8/yolov8x) | 640                         | 53.9                       | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| YOLOv9t                                                                | 640                         | 38.3                       | -                                    | 2.3                                       | **2.0**                  | **7.7**                 |
+| YOLOv9s                                                                | 640                         | 46.8                       | -                                    | 3.54                                      | 7.1                      | 26.4                    |
+| YOLOv9m                                                                | 640                         | 51.4                       | -                                    | 6.43                                      | 20.0                     | 76.3                    |
+| YOLOv9c                                                                | 640                         | 53.0                       | -                                    | 7.16                                      | 25.3                     | 102.1                   |
+| YOLOv9e                                                                | 640                         | **55.6**                   | -                                    | 16.77                                     | 57.3                     | 189.0                   |
 
 _Note: Best values in each column are highlighted in **bold**._
 

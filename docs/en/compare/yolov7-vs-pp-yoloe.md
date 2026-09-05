@@ -23,11 +23,12 @@ YOLOv7 introduced several key advancements designed to improve accuracy without 
 - **Model Scaling Strategies:** YOLOv7 employs compound model scaling, adjusting depth and width simultaneously while concatenating layers to maintain optimal architecture structure across different sizes.
 - **Trainable Bag-of-Freebies:** The authors integrated a re-parameterized convolution method (RepConv) without identity connections, which significantly enhances inference speed without compromising the model's predictive power.
 
-**YOLOv7 Details:**  
-Authors: Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao  
-Organization: Institute of Information Science, Academia Sinica, Taiwan  
-Date: 2022-07-06  
-Arxiv: [https://arxiv.org/abs/2207.02696](https://arxiv.org/abs/2207.02696)
+**YOLOv7 Details:**
+
+- **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
+- **Organization:** Institute of Information Science, Academia Sinica, Taiwan
+- **Date:** 2022-07-06
+- **Arxiv:** [https://arxiv.org/abs/2207.02696](https://arxiv.org/abs/2207.02696)
 
 [Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 
@@ -39,11 +40,12 @@ Developed by Baidu within the PaddlePaddle ecosystem, PP-YOLOE+ builds upon its 
 - **CSPRepResNet Backbone:** This backbone incorporates residual connections and Cross Stage Partial networks to improve feature extraction capabilities while maintaining computational efficiency.
 - **Task Alignment Learning (TAL):** PP-YOLOE+ utilizes ET-head (Efficient Task-aligned head) to better align classification and localization tasks, addressing a common bottleneck in one-stage detectors.
 
-**PP-YOLOE+ Details:**  
-Authors: PaddlePaddle Authors  
-Organization: Baidu  
-Date: 2022-04-02  
-Arxiv: [https://arxiv.org/abs/2203.16250](https://arxiv.org/abs/2203.16250)
+**PP-YOLOE+ Details:**
+
+- **Authors:** PaddlePaddle Authors
+- **Organization:** Baidu
+- **Date:** 2022-04-02
+- **Arxiv:** [https://arxiv.org/abs/2203.16250](https://arxiv.org/abs/2203.16250)
 
 [Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md){ .md-button }
 

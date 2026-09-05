@@ -2,7 +2,7 @@
 title: YOLOv9 vs EfficientDet Comparison
 comments: true
 description: Discover detailed insights comparing YOLOv9 and EfficientDet for object detection. Learn about their performance, architecture, and best use cases.
-keywords: YOLOv9,EfficientDet,object detection,model comparison,YOLO,EfficientDet models,deep learning,computer vision,benchmarking,Ultralytics
+keywords: YOLOv9, EfficientDet, object detection, model comparison, YOLO, EfficientDet models, deep learning, computer vision, benchmarking, Ultralytics
 ---
 
 # YOLOv9 vs EfficientDet
@@ -80,7 +80,7 @@ Choosing a model involves evaluating the developer ecosystem. The [Ultralytics e
 
 ### The Ultralytics Advantage
 
-Models supported within the Ultralytics framework, including YOLOv9 through community integrations and official Ultralytics models like YOLOv8 and YOLO11, benefit from dramatically lower memory requirements during training compared to transformer-based or older TensorFlow architectures like EfficientDet. The robust PyTorch backend ensures fast convergence and stability.
+Models supported within the Ultralytics framework, including YOLOv9, YOLOv8, and YOLO11, benefit from dramatically lower memory requirements during training compared to transformer-based or older TensorFlow architectures like EfficientDet. The robust PyTorch backend ensures fast convergence and stability.
 
 - **Versatility:** Unlike EfficientDet, which strictly focuses on bounding box detection, the Ultralytics API natively supports [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), [Image Classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 - **Ease of Use:** EfficientDet relies on older TensorFlow libraries and complex AutoML configurations, which can be brittle to set up. In contrast, Ultralytics offers a highly refined API for seamless [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning) and dataset management.

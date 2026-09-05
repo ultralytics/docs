@@ -19,11 +19,11 @@ RTDETRv2 builds upon the original [RT-DETR](https://docs.ultralytics.com/models/
 
 **Key Characteristics:**
 
-- Authors: Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
-- Organization: [Baidu](https://www.baidu.com/)
-- Date: 2024-07-24
-- Arxiv: [https://arxiv.org/abs/2407.17140](https://arxiv.org/abs/2407.17140)
-- GitHub: [https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
+- **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
+- **Organization:** [Baidu](https://www.baidu.com/)
+- **Date:** 2024-07-24
+- **Arxiv:** [https://arxiv.org/abs/2407.17140](https://arxiv.org/abs/2407.17140)
+- **GitHub:** [https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 
 ### Architecture and Training Methodologies
 
@@ -50,11 +50,11 @@ YOLOv10 represents a major shift in the [YOLO object detection](https://www.ultr
 
 **Key Characteristics:**
 
-- Authors: Ao Wang, Hui Chen, Lihao Liu, et al.
-- Organization: [Tsinghua University](https://github.com/THU-MIG/yolov10)
-- Date: 2024-05-23
-- Arxiv: [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)
-- GitHub: [https://github.com/THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
+- **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
+- **Organization:** [Tsinghua University](https://github.com/THU-MIG/yolov10)
+- **Date:** 2024-05-23
+- **Arxiv:** [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)
+- **GitHub:** [https://github.com/THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
 
 ### Architecture and Training Methodologies
 

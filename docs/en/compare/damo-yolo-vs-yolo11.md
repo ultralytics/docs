@@ -2,27 +2,29 @@
 title: DAMO-YOLO vs YOLO11 Comparison
 comments: true
 description: Compare Ultralytics YOLO11 and DAMO-YOLO models in performance, architecture, and use cases. Discover the best fit for your computer vision needs.
-keywords: YOLO11, DAMO-YOLO,object detection, Ultralytics,Deep Learning, Computer Vision, Model Comparison, Neural Networks, Performance Metrics, AI Models
+keywords: YOLO11, DAMO-YOLO, object detection, Ultralytics, Deep Learning, Computer Vision, Model Comparison, Neural Networks, Performance Metrics, AI Models
 ---
 
 # DAMO-YOLO vs YOLO11
 
 When choosing a real-time object detection architecture for your next computer vision project, understanding the nuances between leading models is critical. This comprehensive guide provides an in-depth technical analysis comparing DAMO-YOLO and Ultralytics YOLO11, exploring their architectures, performance metrics, training methodologies, and ideal real-world deployment scenarios.
 
-**DAMO-YOLO Details:**  
-Authors: Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun  
-Organization: [Alibaba Group](https://www.alibabagroup.com/)  
-Date: 2022-11-23  
-Arxiv: [2211.15444v2](https://arxiv.org/abs/2211.15444v2)  
-GitHub: [tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)  
-Docs: [DAMO-YOLO Documentation](https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md)
+**DAMO-YOLO Details:**
 
-**YOLO11 Details:**  
-Authors: Glenn Jocher and Jing Qiu  
-Organization: [Ultralytics](https://www.ultralytics.com)  
-Date: 2024-09-27  
-GitHub: [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)  
-Docs: [YOLO11 Documentation](https://docs.ultralytics.com/models/yolo11)
+- **Authors:** Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun
+- **Organization:** [Alibaba Group](https://www.alibabagroup.com/)
+- **Date:** 2022-11-23
+- **Arxiv:** [2211.15444v2](https://arxiv.org/abs/2211.15444v2)
+- **GitHub:** [tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)
+- **Docs:** [DAMO-YOLO Documentation](https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md)
+
+**YOLO11 Details:**
+
+- **Authors:** Glenn Jocher and Jing Qiu
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
+- **Date:** 2024-09-27
+- **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
+- **Docs:** [YOLO11 Documentation](https://docs.ultralytics.com/models/yolo11)
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "YOLO11"]'></canvas>
 
@@ -38,18 +40,18 @@ In contrast, **YOLO11** builds upon years of foundational research to deliver a 
 
 Evaluating performance requires looking beyond top-line accuracy to consider the balance of speed, model size, and computational load (FLOPs).
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| DAMO-YOLOt | 640                         | 42.0                       | -                                    | 2.32                                      | 8.5                      | 18.1                    |
-| DAMO-YOLOs | 640                         | 46.0                       | -                                    | 3.45                                      | 16.3                     | 37.8                    |
-| DAMO-YOLOm | 640                         | 49.2                       | -                                    | 5.09                                      | 28.2                     | 61.8                    |
-| DAMO-YOLOl | 640                         | 50.8                       | -                                    | 7.18                                      | 42.1                     | 97.3                    |
-|            |                             |                            |                                      |                                           |                          |                         |
-| YOLO11n    | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | **2.6**                  | **6.5**                 |
-| YOLO11s    | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
-| YOLO11m    | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
-| YOLO11l    | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
-| YOLO11x    | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| DAMO-YOLOt                                                             | 640                         | 42.0                       | -                                    | 2.32                                      | 8.5                      | 18.1                    |
+| DAMO-YOLOs                                                             | 640                         | 46.0                       | -                                    | 3.45                                      | 16.3                     | 37.8                    |
+| DAMO-YOLOm                                                             | 640                         | 49.2                       | -                                    | 5.09                                      | 28.2                     | 61.8                    |
+| DAMO-YOLOl                                                             | 640                         | 50.8                       | -                                    | 7.18                                      | 42.1                     | 97.3                    |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | **2.6**                  | **6.5**                 |
+| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
+| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
+| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
+| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
 
 As the table demonstrates, YOLO11 achieves a highly favorable performance balance. The `YOLO11s` variant, for example, surpasses the `DAMO-YOLOs` in accuracy while maintaining a significantly smaller parameter footprint. This reduction in memory requirements translates directly to lower deployment costs and more agile performance on edge devices.
 
@@ -90,11 +92,11 @@ The choice between these architectures often hinges on the breadth of tasks requ
 
 ### Where DAMO-YOLO Fits
 
-DAMO-YOLO is strictly an object detection framework. It excels in academic research environments where teams are exploring rep-parameterization or reproducing specific Neural Architecture Search experiments. It can also be deployed in tightly constrained industrial environments where a very specific GPU accelerator perfectly matches the NAS-generated backbone.
+DAMO-YOLO is strictly an object detection framework. It excels in academic research environments where teams are exploring re-parameterization or reproducing specific Neural Architecture Search experiments. It can also be deployed in tightly constrained industrial environments where a very specific GPU accelerator perfectly matches the NAS-generated backbone.
 
 ### The Ultralytics Advantage
 
-Ultralytics models, including YOLO11, shine in real-world commercial applications due to their unparalleled versatility and well-maintained ecosystem. Unlike DAMO-YOLO, the Ultralytics framework supports multi-modal tasks natively. From [Instance Segmentation](https://docs.ultralytics.com/tasks/segment) in medical imaging to [Pose Estimation](https://docs.ultralytics.com/tasks/pose) for biomechanical analysis in sports, a single, unified codebase handles it all.
+Ultralytics models, including YOLO11, shine in real-world commercial applications due to their unparalleled versatility and well-maintained ecosystem. Unlike DAMO-YOLO, the Ultralytics framework supports multiple tasks natively. From [Instance Segmentation](https://docs.ultralytics.com/tasks/segment) in medical imaging to [Pose Estimation](https://docs.ultralytics.com/tasks/pose) for biomechanical analysis in sports, a single, unified codebase handles it all.
 
 Industries leveraging YOLO11 include:
 

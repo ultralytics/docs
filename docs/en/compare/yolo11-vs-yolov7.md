@@ -15,22 +15,24 @@ The landscape of [computer vision](https://www.ultralytics.com/glossary/computer
 
 Both models have significantly impacted the deep learning community, but they stem from different development philosophies and eras.
 
-**YOLO11 Details:**  
-Authors: Glenn Jocher and Jing Qiu  
-Organization: [Ultralytics](https://www.ultralytics.com)  
-Date: 2024-09-27  
-GitHub: [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)  
-Docs: [https://docs.ultralytics.com/models/yolo11](https://docs.ultralytics.com/models/yolo11)
+**YOLO11 Details:**
+
+- **Authors:** Glenn Jocher and Jing Qiu
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
+- **Date:** 2024-09-27
+- **GitHub:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
+- **Docs:** [https://docs.ultralytics.com/models/yolo11](https://docs.ultralytics.com/models/yolo11)
 
 [Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
-**YOLOv7 Details:**  
-Authors: Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao  
-Organization: [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)  
-Date: 2022-07-06  
-Arxiv: [https://arxiv.org/abs/2207.02696](https://arxiv.org/abs/2207.02696)  
-GitHub: [https://github.com/WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)  
-Docs: [https://docs.ultralytics.com/models/yolov7](https://docs.ultralytics.com/models/yolov7)
+**YOLOv7 Details:**
+
+- **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
+- **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)
+- **Date:** 2022-07-06
+- **Arxiv:** [https://arxiv.org/abs/2207.02696](https://arxiv.org/abs/2207.02696)
+- **GitHub:** [https://github.com/WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
+- **Docs:** [https://docs.ultralytics.com/models/yolov7](https://docs.ultralytics.com/models/yolov7)
 
 [Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 
@@ -50,16 +52,16 @@ In contrast, YOLO11 is built upon the highly optimized [Ultralytics architecture
 
 To accurately gauge real-world viability, evaluating metrics such as mean Average Precision (mAP), inference speed, model parameters, and computational complexity (FLOPs) is essential. The following table showcases how the YOLO11 scaling variants compare to the larger YOLOv7 models.
 
-| Model   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLO11n | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | **2.6**                  | **6.5**                 |
-| YOLO11s | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
-| YOLO11m | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
-| YOLO11l | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
-| YOLO11x | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
-|         |                             |                            |                                      |                                           |                          |                         |
-| YOLOv7l | 640                         | 51.4                       | -                                    | 6.84                                      | 36.9                     | 104.7                   |
-| YOLOv7x | 640                         | 53.1                       | -                                    | 11.57                                     | 71.3                     | 189.9                   |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | **2.6**                  | **6.5**                 |
+| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
+| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
+| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
+| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| YOLOv7l                                                                | 640                         | 51.4                       | -                                    | 6.84                                      | 36.9                     | 104.7                   |
+| YOLOv7x                                                                | 640                         | 53.1                       | -                                    | 11.57                                     | 71.3                     | 189.9                   |
 
 As observed, a model like YOLO11x achieves a higher **54.7 mAP** compared to YOLOv7x's **53.1 mAP**, while utilizing significantly fewer parameters (56.9M vs 71.3M). This highlights YOLO11's superior architectural efficiency.
 
@@ -69,7 +71,7 @@ One of the most defining characteristics separating these two architectures is t
 
 **YOLOv7** is fundamentally an academic research repository. Training models often requires complex environment setups, manually managing dependencies, and utilizing long command-line arguments. While it supports cutting-edge experimentation, adapting the [YOLOv7 GitHub repository](https://github.com/WongKinYiu/yolov7) code for custom production environments can be time-consuming.
 
-**YOLO11** completely redefines ease of use. It is fully integrated into the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo11), a comprehensive and well-maintained ecosystem offering seamless end-to-end workflows. From data annotation and local training to deployment, the unified Python API and simple command-line interface streamline the entire process.
+**YOLO11** completely redefines ease of use. It is fully integrated into the [Ultralytics Platform](https://platform.ultralytics.com), a comprehensive and well-maintained ecosystem offering seamless end-to-end workflows. From data annotation and local training to deployment, the unified Python API and simple command-line interface streamline the entire process.
 
 ### Code Comparison
 

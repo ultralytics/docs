@@ -48,7 +48,7 @@ The fundamental architectural designs of YOLO11 and PP-YOLOE+ reflect their diff
 
 **YOLO11** builds upon a highly optimized backbone and an anchor-free detection head. It utilizes C3k2 blocks and Spatial Pyramid Pooling - Fast (SPPF) to capture multi-scale features with minimal computational overhead. This design is highly advantageous for reducing [inference latency](https://www.ultralytics.com/glossary/inference-latency) on resource-constrained devices like edge NPUs and mobile CPUs. Furthermore, YOLO11 is designed natively for multi-task learning, supporting [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding box (OBB) detection](https://docs.ultralytics.com/tasks/obb) right out of the box.
 
-**PP-YOLOE+** introduces the CSPRepResNet backbone and an Efficient Task-aligned head (ET-head). It heavily utilizes rep-parameterization techniques to increase representational capacity during training while folding those parameters into standard convolutions for inference. While this yields impressive [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map), the resulting models tend to be heavier in terms of parameters and memory footprint, making them better suited for deployment on robust server GPUs rather than lightweight edge devices.
+**PP-YOLOE+** introduces the CSPRepResNet backbone and an Efficient Task-aligned head (ET-head). It heavily utilizes re-parameterization techniques to increase representational capacity during training while folding those parameters into standard convolutions for inference. While this yields impressive [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map), the resulting models tend to be heavier in terms of parameters and memory footprint, making them better suited for deployment on robust server GPUs rather than lightweight edge devices.
 
 !!! tip "Multi-Task Versatility"
 
@@ -58,19 +58,19 @@ The fundamental architectural designs of YOLO11 and PP-YOLOE+ reflect their diff
 
 When evaluating performance, we look at accuracy (mAP), inference speed across different hardware, and model efficiency (parameters and FLOPs). The table below highlights the comparative metrics, with the most efficient or highest-performing values in **bold**.
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLO11n    | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | **2.6**                  | **6.5**                 |
-| YOLO11s    | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
-| YOLO11m    | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
-| YOLO11l    | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
-| YOLO11x    | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
-|            |                             |                            |                                      |                                           |                          |                         |
-| PP-YOLOE+t | 640                         | 39.9                       | -                                    | 2.84                                      | 4.85                     | 19.15                   |
-| PP-YOLOE+s | 640                         | 43.7                       | -                                    | 2.62                                      | 7.93                     | 17.36                   |
-| PP-YOLOE+m | 640                         | 49.8                       | -                                    | 5.56                                      | 23.43                    | 49.91                   |
-| PP-YOLOE+l | 640                         | 52.9                       | -                                    | 8.36                                      | 52.2                     | 110.07                  |
-| PP-YOLOE+x | 640                         | **54.7**                   | -                                    | 14.3                                      | 98.42                    | 206.59                  |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | **2.6**                  | **6.5**                 |
+| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
+| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
+| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
+| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| PP-YOLOE+t                                                             | 640                         | 39.9                       | -                                    | 2.84                                      | 4.85                     | 19.15                   |
+| PP-YOLOE+s                                                             | 640                         | 43.7                       | -                                    | 2.62                                      | 7.93                     | 17.36                   |
+| PP-YOLOE+m                                                             | 640                         | 49.8                       | -                                    | 5.56                                      | 23.43                    | 49.91                   |
+| PP-YOLOE+l                                                             | 640                         | 52.9                       | -                                    | 8.36                                      | 52.2                     | 110.07                  |
+| PP-YOLOE+x                                                             | 640                         | **54.7**                   | -                                    | 14.3                                      | 98.42                    | 206.59                  |
 
 ### Analysis
 
@@ -82,9 +82,9 @@ The true value of a model often lies in how easily developers can train it on cu
 
 ### The Ultralytics Advantage
 
-Ultralytics prioritizes a streamlined developer experience. Training YOLO11 is managed through a simple Python API or CLI, abstracting away complex boilerplate code. The [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo11) further enhances this by providing no-code training, automated dataset management, and single-click exports to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx), CoreML, and [TensorRT](https://docs.ultralytics.com/integrations/tensorrt).
+Ultralytics prioritizes a streamlined developer experience. Training YOLO11 is managed through a simple Python API or CLI, abstracting away complex boilerplate code. The [Ultralytics Platform](https://platform.ultralytics.com) further enhances this by providing no-code training, automated dataset management, and single-click exports to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx), CoreML, and [TensorRT](https://docs.ultralytics.com/integrations/tensorrt).
 
-Furthermore, YOLO models are highly memory-efficient during training, avoiding the massive VRAM overheads typical of transformer-based architectures or heavy rep-parameterized models, enabling training on consumer-grade hardware.
+Furthermore, YOLO models are highly memory-efficient during training, avoiding the massive VRAM overheads typical of transformer-based architectures or heavy re-parameterized models, enabling training on consumer-grade hardware.
 
 ```python
 from ultralytics import YOLO
@@ -123,6 +123,6 @@ While YOLO11 remains incredibly powerful, the field of AI moves fast. For the ab
 - **ProgLoss + STAL:** Improved loss functions drastically enhance small-object recognition, which is critical for [drone applications](https://docs.ultralytics.com/datasets/detect/visdrone) and security surveillance.
 - **DFL Removal:** The removal of Distribution Focal Loss simplifies model export and dramatically improves compatibility across a wide range of edge devices.
 
-For new projects prioritizing speed, seamless export, and maximum accuracy, we highly recommend leveraging the capabilities of YOLO26 via the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26).
+For new projects prioritizing speed, seamless export, and maximum accuracy, we highly recommend leveraging the capabilities of YOLO26 via the [Ultralytics Platform](https://platform.ultralytics.com).
 
 If you are evaluating other architectures, you may also be interested in comparing YOLO11 to [RT-DETR](https://docs.ultralytics.com/compare/rtdetr-vs-yolo11) or exploring how the legacy [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) holds up in modern benchmarks.

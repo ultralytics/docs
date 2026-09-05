@@ -17,11 +17,11 @@ This comprehensive technical comparison explores their architectures, performanc
 
 Developed by the Vision AI Department at [Meituan](https://tech.meituan.com/), YOLOv6-3.0 was explicitly engineered for high-throughput industrial applications. It focuses heavily on maximizing performance on hardware accelerators, making it a strong candidate for environments where batch processing on dedicated GPUs is viable.
 
-- Authors: Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu
-- Organization: Meituan
-- Date: 2023-01-13
-- Arxiv: [2301.05586](https://arxiv.org/abs/2301.05586)
-- GitHub: [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
+- **Authors:** Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu
+- **Organization:** Meituan
+- **Date:** 2023-01-13
+- **Arxiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
+- **GitHub:** [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
 
 ### Architectural Innovations
 
@@ -37,13 +37,13 @@ Furthermore, YOLOv6-3.0 implements an **Anchor-Aided Training (AAT)** strategy. 
 
 ## YOLOv7: The Bag-of-Freebies Pioneer
 
-Released by researchers at [Academia Sinica](https://www.iis.sinica.edu.tw/zh/index.html), YOLOv7 took a different approach by focusing heavily on gradient path analysis and training-time optimizations that do not increase the inference cost—a concept the authors refer to as a "trainable bag-of-freebies."
+Released by researchers at [Academia Sinica](https://www.iis.sinica.edu.tw/en/index.html), YOLOv7 took a different approach by focusing heavily on gradient path analysis and training-time optimizations that do not increase the inference cost—a concept the authors refer to as a "trainable bag-of-freebies."
 
-- Authors: Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
-- Organization: Institute of Information Science, Academia Sinica, Taiwan
-- Date: 2022-07-06
-- Arxiv: [2207.02696](https://arxiv.org/abs/2207.02696)
-- GitHub: [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
+- **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
+- **Organization:** Institute of Information Science, Academia Sinica, Taiwan
+- **Date:** 2022-07-06
+- **Arxiv:** [2207.02696](https://arxiv.org/abs/2207.02696)
+- **GitHub:** [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
 
 ### Architectural Innovations
 

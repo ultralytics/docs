@@ -17,23 +17,25 @@ This comprehensive technical comparison explores the architectures, performance 
 
 Understanding the origins of these models provides context for their architectural choices and intended deployment environments.
 
-**YOLOX Details**  
-Authors: Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun  
-Organization: [Megvii](https://en.megvii.com/)  
-Date: 2021-07-18  
-Arxiv: [https://arxiv.org/abs/2107.08430](https://arxiv.org/abs/2107.08430)  
-GitHub: [https://github.com/Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)  
-Docs: [https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
+**YOLOX Details**
+
+- **Authors:** Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun
+- **Organization:** [Megvii](https://en.megvii.com/)
+- **Date:** 2021-07-18
+- **Arxiv:** [https://arxiv.org/abs/2107.08430](https://arxiv.org/abs/2107.08430)
+- **GitHub:** [https://github.com/Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
+- **Docs:** [https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
 [Learn more about YOLOX](https://github.com/Megvii-BaseDetection/YOLOX){ .md-button }
 
-**YOLOv10 Details**  
-Authors: Ao Wang, Hui Chen, Lihao Liu, Kai Chen, Zijia Lin, Jungong Han, and Guiguang Ding  
-Organization: [Tsinghua University](https://www.tsinghua.edu.cn/en/)  
-Date: 2024-05-23  
-Arxiv: [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)  
-GitHub: [https://github.com/THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)  
-Docs: [https://docs.ultralytics.com/models/yolov10](https://docs.ultralytics.com/models/yolov10)
+**YOLOv10 Details**
+
+- **Authors:** Ao Wang, Hui Chen, Lihao Liu, Kai Chen, Zijia Lin, Jungong Han, and Guiguang Ding
+- **Organization:** [Tsinghua University](https://www.tsinghua.edu.cn/en/)
+- **Date:** 2024-05-23
+- **Arxiv:** [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)
+- **GitHub:** [https://github.com/THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
+- **Docs:** [https://docs.ultralytics.com/models/yolov10](https://docs.ultralytics.com/models/yolov10)
 
 [Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10){ .md-button }
 

@@ -18,11 +18,12 @@ While both models brought significant innovations to the field of [object detect
 Introduced by researchers at Google, EfficientDet was designed to systematically scale model architecture while maintaining high efficiency. It achieved this by leveraging compound scaling across network depth, width, and input resolution.
 
 **EfficientDet Details:**
-Authors: Mingxing Tan, Ruoming Pang, and Quoc V. Le  
-Organization: [Google Brain](https://research.google/)  
-Date: 2019-11-20  
-Arxiv: [1911.09070](https://arxiv.org/abs/1911.09070)  
-GitHub: [google/automl](https://github.com/google/automl/tree/master/efficientdet)
+
+- **Authors:** Mingxing Tan, Ruoming Pang, and Quoc V. Le
+- **Organization:** [Google Brain](https://research.google/)
+- **Date:** 2019-11-20
+- **Arxiv:** [1911.09070](https://arxiv.org/abs/1911.09070)
+- **GitHub:** [google/automl](https://github.com/google/automl/tree/master/efficientdet)
 
 ### Architectural Innovations
 
@@ -39,11 +40,12 @@ The key strength of EfficientDet lies in its parameter efficiency. For tasks whe
 DAMO-YOLO represents a distinct approach, utilizing Neural Architecture Search (NAS) to automatically design optimal network structures for real-time inference.
 
 **DAMO-YOLO Details:**
-Authors: Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun  
-Organization: [Alibaba Group](https://www.alibabagroup.com/)  
-Date: 2022-11-23  
-Arxiv: [2211.15444v2](https://arxiv.org/abs/2211.15444v2)  
-GitHub: [tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)
+
+- **Authors:** Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun
+- **Organization:** [Alibaba Group](https://www.alibabagroup.com/)
+- **Date:** 2022-11-23
+- **Arxiv:** [2211.15444v2](https://arxiv.org/abs/2211.15444v2)
+- **GitHub:** [tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)
 
 ### Architectural Innovations
 

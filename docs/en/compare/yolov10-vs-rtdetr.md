@@ -2,7 +2,7 @@
 title: YOLOv10 vs RTDETRv2 Comparison
 comments: true
 description: Explore a detailed comparison of YOLOv10 and RTDETRv2. Discover their strengths, weaknesses, performance metrics, and ideal applications for object detection.
-keywords: YOLOv10,RTDETRv2,object detection,model comparison,AI,computer vision,Ultralytics,real-time detection,transformer-based models,YOLO series
+keywords: YOLOv10, RTDETRv2, object detection, model comparison, AI, computer vision, Ultralytics, real-time detection, transformer-based models, YOLO series
 ---
 
 # YOLOv10 vs RTDETRv2
@@ -19,12 +19,12 @@ Developed by researchers at Tsinghua University, YOLOv10 focuses heavily on arch
 
 ### Technical Specifications
 
-- Authors: Ao Wang, Hui Chen, Lihao Liu, et al.
-- Organization: [Tsinghua University](https://www.tsinghua.edu.cn/en/)
-- Date: 2024-05-23
-- ArXiv: [YOLOv10 Paper](https://arxiv.org/abs/2405.14458)
-- GitHub: [THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
-- Docs: [YOLOv10 Documentation](https://docs.ultralytics.com/models/yolov10)
+- **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
+- **Organization:** [Tsinghua University](https://www.tsinghua.edu.cn/en/)
+- **Date:** 2024-05-23
+- **ArXiv:** [YOLOv10 Paper](https://arxiv.org/abs/2405.14458)
+- **GitHub:** [THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
+- **Docs:** [YOLOv10 Documentation](https://docs.ultralytics.com/models/yolov10)
 
 ### Architecture and Methodologies
 
@@ -42,12 +42,12 @@ Building upon the original Real-Time Detection Transformer, RTDETRv2 incorporate
 
 ### Technical Specifications
 
-- Authors: Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
-- Organization: [Baidu](https://www.baidu.com/)
-- Date: 2024-07-24
-- ArXiv: [RTDETRv2 Paper](https://arxiv.org/abs/2407.17140)
-- GitHub: [lyuwenyu/RT-DETR](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
-- Docs: [RTDETRv2 Documentation](https://docs.ultralytics.com/models/rtdetr)
+- **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
+- **Organization:** [Baidu](https://www.baidu.com/)
+- **Date:** 2024-07-24
+- **ArXiv:** [RTDETRv2 Paper](https://arxiv.org/abs/2407.17140)
+- **GitHub:** [lyuwenyu/RT-DETR](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
+- **Docs:** [RTDETRv2 Documentation](https://docs.ultralytics.com/models/rtdetr)
 
 ### Architecture and Methodologies
 

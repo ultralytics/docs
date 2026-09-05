@@ -18,11 +18,12 @@ By analyzing their architectural differences, performance metrics, and ideal dep
 YOLOv7 introduced several paradigm-shifting structural optimizations to the traditional YOLO family, pushing the limits of real-time object detection through a series of "trainable bag-of-freebies."
 
 **Key Characteristics:**
-Authors: Chien-Yao Wang, Alexey Bochkovskiy, Hong-Yuan Mark Liao  
-Organization: [Institute of Information Science, Academia Sinica](https://www.iis.sinica.edu.tw/en/index.html)  
-Date: 2022-07-06  
-Arxiv: [https://arxiv.org/abs/2207.02696](https://arxiv.org/abs/2207.02696)  
-GitHub: [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
+
+- **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, Hong-Yuan Mark Liao
+- **Organization:** [Institute of Information Science, Academia Sinica](https://www.iis.sinica.edu.tw/en/index.html)
+- **Date:** 2022-07-06
+- **Arxiv:** [https://arxiv.org/abs/2207.02696](https://arxiv.org/abs/2207.02696)
+- **GitHub:** [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
 
 ### Architecture and Strengths
 
@@ -41,11 +42,12 @@ Like many legacy CNN models, YOLOv7 relies on Non-Maximum Suppression (NMS) for 
 RTDETRv2 builds upon the original RT-DETR framework, further establishing that transformers can compete with YOLO architectures in real-time latency while retaining high spatial accuracy.
 
 **Key Characteristics:**
-Authors: Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, Yi Liu  
-Organization: [Baidu](https://www.baidu.com/)  
-Date: 2024-07-24  
-Arxiv: [https://arxiv.org/abs/2407.17140](https://arxiv.org/abs/2407.17140)  
-GitHub: [lyuwenyu/RT-DETR](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
+
+- **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, Yi Liu
+- **Organization:** [Baidu](https://www.baidu.com/)
+- **Date:** 2024-07-24
+- **Arxiv:** [https://arxiv.org/abs/2407.17140](https://arxiv.org/abs/2407.17140)
+- **GitHub:** [lyuwenyu/RT-DETR](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 
 ### Architecture and Strengths
 

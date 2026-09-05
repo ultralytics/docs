@@ -19,12 +19,12 @@ Introduced by researchers at Tsinghua University, [YOLOv10](https://docs.ultraly
 
 **YOLOv10 Details:**
 
-- Authors: Ao Wang, Hui Chen, Lihao Liu, et al.
-- Organization: [Tsinghua University](https://www.tsinghua.edu.cn/en/)
-- Date: 2024-05-23
-- Arxiv: [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)
-- GitHub: [https://github.com/THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
-- Docs: [https://docs.ultralytics.com/models/yolov10](https://docs.ultralytics.com/models/yolov10)
+- **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
+- **Organization:** [Tsinghua University](https://www.tsinghua.edu.cn/en/)
+- **Date:** 2024-05-23
+- **Arxiv:** [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)
+- **GitHub:** [https://github.com/THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
+- **Docs:** [https://docs.ultralytics.com/models/yolov10](https://docs.ultralytics.com/models/yolov10)
 
 ### Key Architectural Features
 
@@ -64,15 +64,15 @@ Developed by the Alibaba Group, DAMO-YOLO focuses on discovering highly efficien
 
 **DAMO-YOLO Details:**
 
-- Authors: Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun
-- Organization: [Alibaba Group](https://www.alibabagroup.com/)
-- Date: 2022-11-23
-- Arxiv: [https://arxiv.org/abs/2211.15444v2](https://arxiv.org/abs/2211.15444v2)
-- GitHub: [https://github.com/tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)
+- **Authors:** Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun
+- **Organization:** [Alibaba Group](https://www.alibabagroup.com/)
+- **Date:** 2022-11-23
+- **Arxiv:** [https://arxiv.org/abs/2211.15444v2](https://arxiv.org/abs/2211.15444v2)
+- **GitHub:** [https://github.com/tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)
 
 ### Key Architectural Features
 
-DAMO-YOLO introduces several novel technologies tailored for industrial applications. The foundation of the model is its **MAE-NAS Backbone**, generated via a Multi-Objective Evolutionary search. This automated process discovers backbone structures that strictly adhere to predefined computational budgets, striking a fine balance between accuracy and inference latency.
+DAMO-YOLO introduces several novel technologies tailored for industrial applications. The foundation of the model is its **MAE-NAS Backbone**, generated via a maximum-entropy guided search. This automated process discovers backbone structures that strictly adhere to predefined computational budgets, striking a fine balance between accuracy and inference latency.
 
 Additionally, the architecture utilizes an **Efficient RepGFPN** neck. This feature pyramid network is designed to improve feature fusion across different scales, which is critical for complex tasks like [aerial imagery analysis](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) where objects vary drastically in size. To complement this, DAMO-YOLO implements a **ZeroHead**, a minimalist detection head that drastically reduces the complexity of the final prediction layers, saving valuable computation time during inference.
 

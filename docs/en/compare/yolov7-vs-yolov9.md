@@ -22,7 +22,7 @@ Understanding the origins and design philosophies of these models provides essen
 Released in mid-2022, YOLOv7 established itself as a highly reliable and heavily optimized architecture. It introduced structural re-parameterization and a "trainable bag-of-freebies" approach to maintain high inference speeds without compromising [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map).
 
 - **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
-- **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/zh/index.html)
+- **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)
 - **Date:** July 6, 2022
 - **Arxiv:** [2207.02696](https://arxiv.org/abs/2207.02696)
 - **GitHub:** [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
@@ -36,7 +36,7 @@ Released in mid-2022, YOLOv7 established itself as a highly reliable and heavily
 Introduced in early 2024 by the same research team, YOLOv9 tackles the "information bottleneck" inherent in deep neural networks. As data passes through deep layers, crucial details are often lost. YOLOv9 mitigates this through fundamentally new layer designs.
 
 - **Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao
-- **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/zh/index.html)
+- **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)
 - **Date:** February 21, 2024
 - **Arxiv:** [2402.13616](https://arxiv.org/abs/2402.13616)
 - **GitHub:** [WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9)

@@ -21,11 +21,11 @@ Released in mid-2020, [Ultralytics YOLOv5](https://platform.ultralytics.com/ultr
 
 **YOLOv5 Details:**
 
-- Authors: Glenn Jocher
-- Organization: [Ultralytics](https://www.ultralytics.com)
-- Date: 2020-06-26
-- GitHub: [ultralytics/yolov5](https://github.com/ultralytics/yolov5)
-- Docs: [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5)
+- **Authors:** Glenn Jocher
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
+- **Date:** 2020-06-26
+- **GitHub:** [ultralytics/yolov5](https://github.com/ultralytics/yolov5)
+- **Docs:** [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5)
 
 YOLOv5 utilizes a modified CSPDarknet backbone, which efficiently captures rich feature representations while maintaining a lightweight parameter count. It introduced auto-learning anchor boxes, automatically calculating the optimal anchor dimensions for custom datasets before training even begins. Furthermore, its integration of mosaic data augmentation significantly enhances the model's ability to detect smaller objects and generalize across complex spatial contexts.
 
@@ -39,12 +39,12 @@ Introduced roughly two years later, PP-YOLOE+ builds upon the foundation of prev
 
 **PP-YOLOE+ Details:**
 
-- Authors: PaddlePaddle Authors
-- Organization: [Baidu](https://github.com/PaddlePaddle)
-- Date: 2022-04-02
-- Arxiv: [2203.16250](https://arxiv.org/abs/2203.16250)
-- GitHub: [PaddlePaddle/PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection/)
-- Docs: [PP-YOLOE+ README](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
+- **Authors:** PaddlePaddle Authors
+- **Organization:** [Baidu](https://github.com/PaddlePaddle)
+- **Date:** 2022-04-02
+- **Arxiv:** [2203.16250](https://arxiv.org/abs/2203.16250)
+- **GitHub:** [PaddlePaddle/PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection/)
+- **Docs:** [PP-YOLOE+ README](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
 
 PP-YOLOE+ relies on an anchor-free paradigm and utilizes a CSPRepResNet backbone. It incorporates a powerful Task Alignment Learning technique and an Efficient Task-aligned Head to improve precision. While PP-YOLOE+ achieves impressive accuracy scores, its primary weakness lies in its strict dependency on the [PaddlePaddle](https://github.com/PaddlePaddle/Paddle) framework. This often introduces a steep learning curve and ecosystem friction for research teams and enterprises already deeply invested in PyTorch or TensorFlow environments.
 
@@ -54,19 +54,19 @@ PP-YOLOE+ relies on an anchor-free paradigm and utilizes a CSPRepResNet backbone
 
 When evaluating these models for production, understanding the trade-offs between precision, inference speed, and parameter footprint is crucial. The table below outlines key [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics) across different size variants.
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv5n    | 640                         | 28.0                       | **73.6**                             | **1.12**                                  | **2.6**                  | **7.7**                 |
-| YOLOv5s    | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
-| YOLOv5m    | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
-| YOLOv5l    | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
-| YOLOv5x    | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
-|            |                             |                            |                                      |                                           |                          |                         |
-| PP-YOLOE+t | 640                         | 39.9                       | -                                    | 2.84                                      | 4.85                     | 19.15                   |
-| PP-YOLOE+s | 640                         | 43.7                       | -                                    | 2.62                                      | 7.93                     | 17.36                   |
-| PP-YOLOE+m | 640                         | 49.8                       | -                                    | 5.56                                      | 23.43                    | 49.91                   |
-| PP-YOLOE+l | 640                         | 52.9                       | -                                    | 8.36                                      | 52.2                     | 110.07                  |
-| PP-YOLOE+x | 640                         | **54.7**                   | -                                    | 14.3                                      | 98.42                    | 206.59                  |
+| Model                                                                   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ----------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | **73.6**                             | **1.12**                                  | **2.6**                  | **7.7**                 |
+| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
+| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
+| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
+| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
+|                                                                         |                             |                            |                                      |                                           |                          |                         |
+| PP-YOLOE+t                                                              | 640                         | 39.9                       | -                                    | 2.84                                      | 4.85                     | 19.15                   |
+| PP-YOLOE+s                                                              | 640                         | 43.7                       | -                                    | 2.62                                      | 7.93                     | 17.36                   |
+| PP-YOLOE+m                                                              | 640                         | 49.8                       | -                                    | 5.56                                      | 23.43                    | 49.91                   |
+| PP-YOLOE+l                                                              | 640                         | 52.9                       | -                                    | 8.36                                      | 52.2                     | 110.07                  |
+| PP-YOLOE+x                                                              | 640                         | **54.7**                   | -                                    | 14.3                                      | 98.42                    | 206.59                  |
 
 While PP-YOLOE+ achieves high accuracy limits, YOLOv5 consistently demonstrates superior parameter efficiency and faster inference on constrained hardware. For edge deployments where memory is scarce, YOLOv5n offers unmatched speed and an extremely small footprint.
 
@@ -152,7 +152,7 @@ Additionally, you might consider [YOLO11](https://platform.ultralytics.com/ultra
 The choice between YOLOv5 and PP-YOLOE+ ultimately depends on your deployment environment and project constraints.
 
 **Ideal YOLOv5 Applications:**
-YOLOv5's minimal resource requirements and incredible ease of use make it the premier choice for [edge AI](https://www.ultralytics.com/glossary/edge-ai). It excels in applications requiring high frame rates on limited hardware, such as real-time [robotics](https://www.ultralytics.com/glossary/robotics), mobile application integration, and multi-camera traffic monitoring systems. Its ability to simultaneously handle [pose estimation](https://docs.ultralytics.com/tasks/pose) and [oriented bounding box (OBB)](https://docs.ultralytics.com/tasks/obb) tasks within the same framework makes it highly adaptable.
+YOLOv5's minimal resource requirements and incredible ease of use make it the premier choice for [edge AI](https://www.ultralytics.com/glossary/edge-ai). It excels in applications requiring high frame rates on limited hardware, such as real-time [robotics](https://www.ultralytics.com/glossary/robotics), mobile application integration, and multi-camera traffic monitoring systems. Its ability to handle [instance segmentation](https://docs.ultralytics.com/tasks/segment) and [image classification](https://docs.ultralytics.com/tasks/classify) within the same framework makes it highly adaptable.
 
 **Ideal PP-YOLOE+ Applications:**
 PP-YOLOE+ is best suited for scenarios where absolute maximum accuracy on static imagery is prioritized over real-time processing constraints. It finds niche usage in industrial inspection pipelines, particularly within Asian manufacturing sectors that have pre-established technical stacks heavily invested in the Baidu and PaddlePaddle ecosystem.

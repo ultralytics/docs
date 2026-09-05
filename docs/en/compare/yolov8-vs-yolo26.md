@@ -2,7 +2,7 @@
 title: YOLOv8 vs YOLO26 Comparison
 comments: true
 description: Compare YOLOv8 and YOLO26 for object detection. Explore their architectures, performance benchmarks, and ideal use cases to choose the best model.
-keywords: YOLOv8,YOLO26,object detection,model comparison,YOLO,Ultralytics,deep learning,computer vision,benchmarking,real-time detection
+keywords: YOLOv8, YOLO26, object detection, model comparison, YOLO, Ultralytics, deep learning, computer vision, benchmarking, real-time detection
 ---
 
 # YOLOv8 vs YOLO26
@@ -63,22 +63,22 @@ For tasks requiring high precision, such as [drone imagery](https://docs.ultraly
 
 The following table highlights the performance differences between the two models using the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco). Best performing values in each size category are highlighted in **bold**.
 
-| Model   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv8n | 640                         | 37.3                       | 80.4                                 | **1.47**                                  | 3.2                      | 8.7                     |
-| YOLO26n | 640                         | **40.9**                   | **38.9**                             | 1.7                                       | **2.4**                  | **5.4**                 |
-|         |                             |                            |                                      |                                           |                          |                         |
-| YOLOv8s | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
-| YOLO26s | 640                         | **48.6**                   | **87.2**                             | **2.5**                                   | **9.5**                  | **20.7**                |
-|         |                             |                            |                                      |                                           |                          |                         |
-| YOLOv8m | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
-| YOLO26m | 640                         | **53.1**                   | **220.0**                            | **4.7**                                   | **20.4**                 | **68.2**                |
-|         |                             |                            |                                      |                                           |                          |                         |
-| YOLOv8l | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
-| YOLO26l | 640                         | **55.0**                   | **286.2**                            | **6.2**                                   | **24.8**                 | **86.4**                |
-|         |                             |                            |                                      |                                           |                          |                         |
-| YOLOv8x | 640                         | 53.9                       | **479.1**                            | 14.37                                     | 68.2                     | 257.8                   |
-| YOLO26x | 640                         | **57.5**                   | 525.8                                | **11.8**                                  | **55.7**                 | **193.9**               |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| [YOLOv8n](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) | 640                         | 37.3                       | 80.4                                 | **1.47**                                  | 3.2                      | 8.7                     |
+| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | **40.9**                   | **38.9**                             | 1.7                                       | **2.4**                  | **5.4**                 |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| [YOLOv8s](https://platform.ultralytics.com/ultralytics/yolov8/yolov8s) | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
+| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | **48.6**                   | **87.2**                             | **2.5**                                   | **9.5**                  | **20.7**                |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| [YOLOv8m](https://platform.ultralytics.com/ultralytics/yolov8/yolov8m) | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
+| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | **53.1**                   | **220.0**                            | **4.7**                                   | **20.4**                 | **68.2**                |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
+| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | **55.0**                   | **286.2**                            | **6.2**                                   | **24.8**                 | **86.4**                |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| [YOLOv8x](https://platform.ultralytics.com/ultralytics/yolov8/yolov8x) | 640                         | 53.9                       | **479.1**                            | 14.37                                     | 68.2                     | 257.8                   |
+| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | **11.8**                                  | **55.7**                 | **193.9**               |
 
 ### Analyzing the Metrics
 

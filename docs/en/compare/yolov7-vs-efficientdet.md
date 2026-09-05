@@ -15,22 +15,24 @@ Selecting the optimal neural network architecture is the foundation of any succe
 
 Both models were developed by prominent research teams and introduced significant advancements to the field of [machine learning](https://www.ultralytics.com/glossary/machine-learning-ml).
 
-**YOLOv7**  
-Authors: Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao  
-Organization: [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)  
-Date: 2022-07-06  
-Arxiv: [YOLOv7: Trainable bag-of-freebies sets new state-of-the-art for real-time object detectors](https://arxiv.org/abs/2207.02696)  
-GitHub: [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)  
-Docs: [Ultralytics YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7)
+**YOLOv7**
+
+- **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
+- **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)
+- **Date:** 2022-07-06
+- **Arxiv:** [YOLOv7: Trainable bag-of-freebies sets new state-of-the-art for real-time object detectors](https://arxiv.org/abs/2207.02696)
+- **GitHub:** [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
+- **Docs:** [Ultralytics YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7)
 
 [Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 
-**EfficientDet**  
-Authors: Mingxing Tan, Ruoming Pang, and Quoc V. Le  
-Organization: [Google Research](https://research.google/)  
-Date: 2019-11-20  
-Arxiv: [EfficientDet: Scalable and Efficient Object Detection](https://arxiv.org/abs/1911.09070)  
-GitHub: [Google AutoML EfficientDet](https://github.com/google/automl/tree/master/efficientdet)
+**EfficientDet**
+
+- **Authors:** Mingxing Tan, Ruoming Pang, and Quoc V. Le
+- **Organization:** [Google Research](https://research.google/)
+- **Date:** 2019-11-20
+- **Arxiv:** [EfficientDet: Scalable and Efficient Object Detection](https://arxiv.org/abs/1911.09070)
+- **GitHub:** [Google AutoML EfficientDet](https://github.com/google/automl/tree/master/efficientdet)
 
 [Learn more about EfficientDet](https://github.com/google/automl/tree/master/efficientdet){ .md-button }
 

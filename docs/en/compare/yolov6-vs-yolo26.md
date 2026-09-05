@@ -60,18 +60,18 @@ YOLO26 introduces several pioneering advancements that set it apart from previou
 
 When evaluating models, a balance of speed, accuracy, and parameter efficiency is paramount. The table below highlights how these models perform on the [COCO dataset](https://cocodataset.org/).
 
-| Model       | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ----------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv6-3.0n | 640                         | 37.5                       | -                                    | **1.17**                                  | 4.7                      | 11.4                    |
-| YOLOv6-3.0s | 640                         | 45.0                       | -                                    | 2.66                                      | 18.5                     | 45.3                    |
-| YOLOv6-3.0m | 640                         | 50.0                       | -                                    | 5.28                                      | 34.9                     | 85.8                    |
-| YOLOv6-3.0l | 640                         | 52.8                       | -                                    | 8.95                                      | 59.6                     | 150.7                   |
-|             |                             |                            |                                      |                                           |                          |                         |
-| YOLO26n     | 640                         | 40.9                       | **38.9**                             | 1.7                                       | **2.4**                  | **5.4**                 |
-| YOLO26s     | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.7                    |
-| YOLO26m     | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.2                    |
-| YOLO26l     | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.4                    |
-| YOLO26x     | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 193.9                   |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOv6-3.0n                                                            | 640                         | 37.5                       | -                                    | **1.17**                                  | 4.7                      | 11.4                    |
+| YOLOv6-3.0s                                                            | 640                         | 45.0                       | -                                    | 2.66                                      | 18.5                     | 45.3                    |
+| YOLOv6-3.0m                                                            | 640                         | 50.0                       | -                                    | 5.28                                      | 34.9                     | 85.8                    |
+| YOLOv6-3.0l                                                            | 640                         | 52.8                       | -                                    | 8.95                                      | 59.6                     | 150.7                   |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | 40.9                       | **38.9**                             | 1.7                                       | **2.4**                  | **5.4**                 |
+| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.7                    |
+| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.2                    |
+| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.4                    |
+| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 193.9                   |
 
 As seen in the data, YOLO26 consistently achieves a superior **Performance Balance**. For instance, YOLO26n provides a +3.4 boost in mAP over YOLOv6-3.0n while requiring roughly half the parameters and FLOPs.
 
@@ -82,7 +82,7 @@ Choosing a model involves evaluating the surrounding software ecosystem. Here, t
 - **Ease of Use:** Ultralytics provides a "zero-to-hero" developer experience. Its unified Python API allows users to switch between tasks and models simply by altering a single string parameter.
 - **Well-Maintained Ecosystem:** Through the [Ultralytics Platform](https://platform.ultralytics.com), developers gain access to an actively updated environment that supports continuous dataset management, cloud training, and seamless [model export](https://docs.ultralytics.com/modes/export) to formats like [ONNX](https://onnx.ai/) and OpenVINO.
 - **Memory Requirements:** YOLO26 boasts a highly efficient training methodology with significantly lower memory requirements during both training and inference. This contrasts favorably against transformer-based architectures, such as [RT-DETR](https://docs.ultralytics.com/models/rtdetr), which demand massive CUDA memory allocations.
-- **Versatility:** By natively supporting [classification](https://docs.ultralytics.com/tasks/classify), detection, segmentation, and pose estimation, YOLO26 serves as a one-stop-shop for complex, multi-modal vision applications.
+- **Versatility:** By natively supporting [classification](https://docs.ultralytics.com/tasks/classify), detection, segmentation, and pose estimation, YOLO26 serves as a one-stop-shop for complex, multi-task vision applications.
 
 !!! note "Exploring Alternatives"
 

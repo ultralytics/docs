@@ -19,14 +19,14 @@ Both frameworks emerged in 2022 as powerful alternatives for industrial applicat
 
 Developed by the [Alibaba Group](https://www.alibabagroup.com/), DAMO-YOLO introduced several novel techniques to optimize the latency-accuracy trade-off, leaning heavily on automated search techniques and advanced feature fusion.
 
-- Authors: Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun
-- Organization: Alibaba Group
-- Date: 2022-11-23
-- Arxiv: [DAMO-YOLO: A Report on Real-Time Object Detection Design](https://arxiv.org/abs/2211.15444v2)
-- GitHub: [tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)
-- Docs: [DAMO-YOLO README](https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md)
+- **Authors:** Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun
+- **Organization:** Alibaba Group
+- **Date:** 2022-11-23
+- **Arxiv:** [DAMO-YOLO: A Report on Real-Time Object Detection Design](https://arxiv.org/abs/2211.15444v2)
+- **GitHub:** [tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)
+- **Docs:** [DAMO-YOLO README](https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md)
 
-DAMO-YOLO employs a Multi-Scale Architecture Search (MAE-NAS) to automatically design backbones optimized for hardware efficiency. It also features an efficient RepGFPN (Re-parameterized Generalized Feature Pyramid Network) for neck feature fusion and a lightweight "ZeroHead" design. Furthermore, it heavily relies on distillation techniques during training to boost the student model's representation power.
+DAMO-YOLO employs a Maximum Entropy Neural Architecture Search (MAE-NAS) to automatically design backbones optimized for hardware efficiency. It also features an efficient RepGFPN (Re-parameterized Generalized Feature Pyramid Network) for neck feature fusion and a lightweight "ZeroHead" design. Furthermore, it heavily relies on distillation techniques during training to boost the student model's representation power.
 
 [Learn more about DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO){ .md-button }
 
@@ -34,12 +34,12 @@ DAMO-YOLO employs a Multi-Scale Architecture Search (MAE-NAS) to automatically d
 
 From the [Baidu](https://www.baidu.com/) PaddlePaddle team, PP-YOLOE+ is an incremental upgrade to the PP-YOLOE architecture. It focuses on large-scale pre-training and refined loss functions to deliver high mAP, especially within its native deep learning framework.
 
-- Authors: PaddlePaddle Authors
-- Organization: Baidu
-- Date: 2022-04-02
-- Arxiv: [PP-YOLOE: An evolved version of YOLO](https://arxiv.org/abs/2203.16250)
-- GitHub: [PaddlePaddle/PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection/)
-- Docs: [PP-YOLOE+ Configs](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
+- **Authors:** PaddlePaddle Authors
+- **Organization:** Baidu
+- **Date:** 2022-04-02
+- **Arxiv:** [PP-YOLOE: An evolved version of YOLO](https://arxiv.org/abs/2203.16250)
+- **GitHub:** [PaddlePaddle/PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection/)
+- **Docs:** [PP-YOLOE+ Configs](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
 
 PP-YOLOE+ utilizes a CSPRepResNet backbone and an ET-head (Efficient Task-aligned head). The "plus" version introduces a powerful pre-training strategy on the Objects365 dataset, which significantly enhances its ability to generalize across diverse real-world environments.
 

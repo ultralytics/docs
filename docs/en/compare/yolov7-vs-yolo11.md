@@ -29,16 +29,16 @@ The landscape of computer vision has rapidly evolved over the past few years. Fo
 
 When deploying models into real-world applications, raw accuracy must be balanced against inference speed and computational overhead. Below is a direct comparison of YOLOv7 and YOLO11 variants evaluated on the standard [COCO dataset](https://cocodataset.org/) benchmarks.
 
-| Model   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv7l | 640                         | 51.4                       | -                                    | 6.84                                      | 36.9                     | 104.7                   |
-| YOLOv7x | 640                         | 53.1                       | -                                    | 11.57                                     | 71.3                     | 189.9                   |
-|         |                             |                            |                                      |                                           |                          |                         |
-| YOLO11n | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | **2.6**                  | **6.5**                 |
-| YOLO11s | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
-| YOLO11m | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
-| YOLO11l | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
-| YOLO11x | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOv7l                                                                | 640                         | 51.4                       | -                                    | 6.84                                      | 36.9                     | 104.7                   |
+| YOLOv7x                                                                | 640                         | 53.1                       | -                                    | 11.57                                     | 71.3                     | 189.9                   |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | **2.6**                  | **6.5**                 |
+| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
+| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
+| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
+| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
 
 _Note: Missing CPU speeds for YOLOv7 indicate legacy testing environments that did not standardize ONNX CPU benchmarks. Best values in comparable tiers are highlighted._
 

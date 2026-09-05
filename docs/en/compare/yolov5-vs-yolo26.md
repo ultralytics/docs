@@ -2,7 +2,7 @@
 title: YOLOv5 vs YOLO26 Comparison
 comments: true
 description: Explore a detailed comparison of YOLOv5 and YOLO26 including benchmarks, architectures, and applications for optimal object detection model choice.
-keywords: YOLOv5, YOLO26, object detection, model comparison, YOLOv5, YOLO26, computer vision, benchmarks, architecture, real-time detection
+keywords: YOLOv5, YOLO26, object detection, model comparison, computer vision, benchmarks, architecture, real-time detection
 ---
 
 # YOLOv5 vs YOLO26
@@ -60,19 +60,19 @@ While YOLOv5 relies on anchor-based detection heads and standard loss functions,
 
 When comparing the models on the [COCO dataset](https://cocodataset.org/), YOLO26 showcases massive improvements in precision (mAP) while simultaneously reducing parameter counts and CPU inference speeds.
 
-| Model   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv5n | 640                         | 28.0                       | 73.6                                 | **1.12**                                  | 2.6                      | 7.7                     |
-| YOLOv5s | 640                         | 37.4                       | 120.7                                | **1.92**                                  | **9.1**                  | 24.0                    |
-| YOLOv5m | 640                         | 45.4                       | 233.9                                | **4.03**                                  | 25.1                     | **64.2**                |
-| YOLOv5l | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
-| YOLOv5x | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
-|         |                             |                            |                                      |                                           |                          |                         |
-| YOLO26n | 640                         | **40.9**                   | **38.9**                             | 1.7                                       | **2.4**                  | **5.4**                 |
-| YOLO26s | 640                         | **48.6**                   | **87.2**                             | 2.5                                       | 9.5                      | **20.7**                |
-| YOLO26m | 640                         | **53.1**                   | **220.0**                            | 4.7                                       | **20.4**                 | 68.2                    |
-| YOLO26l | 640                         | **55.0**                   | **286.2**                            | **6.2**                                   | **24.8**                 | **86.4**                |
-| YOLO26x | 640                         | **57.5**                   | **525.8**                            | **11.8**                                  | **55.7**                 | **193.9**               |
+| Model                                                                   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ----------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | 73.6                                 | **1.12**                                  | 2.6                      | 7.7                     |
+| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | 120.7                                | **1.92**                                  | **9.1**                  | 24.0                    |
+| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | 233.9                                | **4.03**                                  | 25.1                     | **64.2**                |
+| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
+| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
+|                                                                         |                             |                            |                                      |                                           |                          |                         |
+| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n)  | 640                         | **40.9**                   | **38.9**                             | 1.7                                       | **2.4**                  | **5.4**                 |
+| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s)  | 640                         | **48.6**                   | **87.2**                             | 2.5                                       | 9.5                      | **20.7**                |
+| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m)  | 640                         | **53.1**                   | **220.0**                            | 4.7                                       | **20.4**                 | 68.2                    |
+| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l)  | 640                         | **55.0**                   | **286.2**                            | **6.2**                                   | **24.8**                 | **86.4**                |
+| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x)  | 640                         | **57.5**                   | **525.8**                            | **11.8**                                  | **55.7**                 | **193.9**               |
 
 _Note: The YOLO26 Nano (YOLO26n) achieves a staggering 40.9 mAP compared to YOLOv5n's 28.0 mAP, all while offering up to **43% faster CPU inference** due to DFL removal and the NMS-free head._
 

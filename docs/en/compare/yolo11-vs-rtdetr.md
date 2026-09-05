@@ -27,7 +27,7 @@ Introduced by Ultralytics, YOLO11 builds upon years of foundational research to 
 
 ### Architecture and Strengths
 
-YOLO11 features a refined CNN backbone and advanced spatial feature pyramids, making it exceptionally resource-efficient. It thrives in environments with strict hardware constraints, offering a minimal memory footprint during both training and inference. The [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo11) provides native support for YOLO11, enabling streamlined model monitoring, data annotation, and cloud training without needing to stitch together disparate MLops tools.
+YOLO11 features a refined CNN backbone and advanced spatial feature pyramids, making it exceptionally resource-efficient. It thrives in environments with strict hardware constraints, offering a minimal memory footprint during both training and inference. The [Ultralytics Platform](https://platform.ultralytics.com) provides native support for YOLO11, enabling streamlined model monitoring, data annotation, and cloud training without needing to stitch together disparate MLOps tools.
 
 For developers targeting [edge computing](https://docs.ultralytics.com/guides/model-deployment-options), YOLO11 boasts ultra-low latency. Its lightweight nature allows it to run efficiently on devices ranging from Raspberry Pis to consumer-grade mobile phones, making it a standard for smart retail, [manufacturing quality control](https://www.ultralytics.com/solutions/computer-vision-in-manufacturing), and automated traffic management.
 
@@ -39,10 +39,10 @@ RTDETRv2 (Real-Time Detection Transformer version 2) represents Baidu's effort t
 - **Organization:** [Baidu](https://www.baidu.com/)
 - **Date:** 2024-07-24
 - **Arxiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
-- **GitHub:** [RT-DETRv2 Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
+- **GitHub:** [RTDETRv2 Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 - **Docs:** [RTDETRv2 README](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
 
-[Learn more about RTDETR](https://docs.ultralytics.com/models/rtdetr){ .md-button }
+[Learn more about RT-DETR](https://docs.ultralytics.com/models/rtdetr){ .md-button }
 
 ### Architecture and Strengths
 
@@ -54,18 +54,18 @@ However, transformer models are notoriously hungry for [VRAM and CUDA memory](ht
 
 When evaluating these models on the standard [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco), we observe clear trade-offs between parameters, FLOPs, and raw accuracy.
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLO11n    | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | **2.6**                  | **6.5**                 |
-| YOLO11s    | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
-| YOLO11m    | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
-| YOLO11l    | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
-| YOLO11x    | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
-|            |                             |                            |                                      |                                           |                          |                         |
-| RTDETRv2-s | 640                         | 48.1                       | -                                    | 5.03                                      | 20                       | 60                      |
-| RTDETRv2-m | 640                         | 51.9                       | -                                    | 7.51                                      | 36                       | 100                     |
-| RTDETRv2-l | 640                         | 53.4                       | -                                    | 9.76                                      | 42                       | 136                     |
-| RTDETRv2-x | 640                         | 54.3                       | -                                    | 15.03                                     | 76                       | 259                     |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | **2.6**                  | **6.5**                 |
+| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
+| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
+| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
+| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| RTDETRv2-s                                                             | 640                         | 48.1                       | -                                    | 5.03                                      | 20                       | 60                      |
+| RTDETRv2-m                                                             | 640                         | 51.9                       | -                                    | 7.51                                      | 36                       | 100                     |
+| RTDETRv2-l                                                             | 640                         | 53.4                       | -                                    | 9.76                                      | 42                       | 136                     |
+| RTDETRv2-x                                                             | 640                         | 54.3                       | -                                    | 15.03                                     | 76                       | 259                     |
 
 ### Unpacking the Results
 

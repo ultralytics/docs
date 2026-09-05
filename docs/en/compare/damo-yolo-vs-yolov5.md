@@ -26,7 +26,7 @@ Released by the Alibaba Group, DAMO-YOLO introduced several novel techniques aim
 
 ### Architectural Innovations
 
-DAMO-YOLO is built upon a foundation of Neural Architecture Search (NAS). The authors utilized [MAE-NAS](https://arxiv.org/abs/1911.09241) to automatically design backbones that balance latency and accuracy. The model introduces an efficient RepGFPN (Reparameterized Generalized Feature Pyramid Network) which improves feature fusion across different scales. Furthermore, DAMO-YOLO incorporates a "ZeroHead" design, stripping away complex multi-branch prediction heads in favor of a simpler, more efficient structure that relies heavily on rep-parameterization during inference.
+DAMO-YOLO is built upon a foundation of Neural Architecture Search (NAS). The authors utilized MAE-NAS to automatically design backbones that balance latency and accuracy. The model introduces an efficient RepGFPN (Reparameterized Generalized Feature Pyramid Network) which improves feature fusion across different scales. Furthermore, DAMO-YOLO incorporates a "ZeroHead" design, stripping away complex multi-branch prediction heads in favor of a simpler, more efficient structure that relies heavily on re-parameterization during inference.
 
 To improve training, the model uses AlignedOTA for label assignment and a heavy distillation enhancement process, where a larger "teacher" model guides the smaller "student" model to achieve higher accuracy.
 
@@ -56,18 +56,18 @@ The true strength of YOLOv5 lies in its **Well-Maintained Ecosystem**. It seamle
 
 When comparing these models, it is crucial to look at the balance of mean Average Precision (mAP), inference speed, and parameter count.
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| DAMO-YOLOt | 640                         | 42.0                       | -                                    | 2.32                                      | 8.5                      | 18.1                    |
-| DAMO-YOLOs | 640                         | 46.0                       | -                                    | 3.45                                      | 16.3                     | 37.8                    |
-| DAMO-YOLOm | 640                         | 49.2                       | -                                    | 5.09                                      | 28.2                     | 61.8                    |
-| DAMO-YOLOl | 640                         | **50.8**                   | -                                    | 7.18                                      | 42.1                     | 97.3                    |
-|            |                             |                            |                                      |                                           |                          |                         |
-| YOLOv5n    | 640                         | 28.0                       | **73.6**                             | **1.12**                                  | **2.6**                  | **7.7**                 |
-| YOLOv5s    | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
-| YOLOv5m    | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
-| YOLOv5l    | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
-| YOLOv5x    | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
+| Model                                                                   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ----------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| DAMO-YOLOt                                                              | 640                         | 42.0                       | -                                    | 2.32                                      | 8.5                      | 18.1                    |
+| DAMO-YOLOs                                                              | 640                         | 46.0                       | -                                    | 3.45                                      | 16.3                     | 37.8                    |
+| DAMO-YOLOm                                                              | 640                         | 49.2                       | -                                    | 5.09                                      | 28.2                     | 61.8                    |
+| DAMO-YOLOl                                                              | 640                         | **50.8**                   | -                                    | 7.18                                      | 42.1                     | 97.3                    |
+|                                                                         |                             |                            |                                      |                                           |                          |                         |
+| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | **73.6**                             | **1.12**                                  | **2.6**                  | **7.7**                 |
+| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
+| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
+| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
+| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
 
 ### Analyzing the Trade-offs
 
@@ -81,7 +81,7 @@ Choosing the right architecture often depends on the deployment environment.
 
 ### Where DAMO-YOLO Excels
 
-DAMO-YOLO is strictly an [object detection](https://docs.ultralytics.com/tasks/detect) model. It is an excellent choice for academic research, particularly for teams studying Neural Architecture Search or those aiming to reproduce the rep-parameterization techniques detailed in the paper. If a project has extensive computational resources to execute the distillation training phase and is focused solely on squeezing out the last fraction of accuracy for 2D bounding boxes, DAMO-YOLO is a strong contender.
+DAMO-YOLO is strictly an [object detection](https://docs.ultralytics.com/tasks/detect) model. It is an excellent choice for academic research, particularly for teams studying Neural Architecture Search or those aiming to reproduce the re-parameterization techniques detailed in the paper. If a project has extensive computational resources to execute the distillation training phase and is focused solely on squeezing out the last fraction of accuracy for 2D bounding boxes, DAMO-YOLO is a strong contender.
 
 ### The Ultralytics Advantage
 
@@ -155,4 +155,4 @@ model.export(format="onnx")
 
 Both DAMO-YOLO and YOLOv5 have contributed significantly to the landscape of computer vision. DAMO-YOLO showcases the power of Neural Architecture Search and distillation, making it an interesting study for researchers. However, **YOLOv5** remains a practical powerhouse due to its **Performance Balance**, low memory requirements, and unmatched ease of use.
 
-For developers starting new projects today, the recommendation is to leverage the [Ultralytics Platform](https://platform.ultralytics.com) and adopt **YOLO26**. It combines the beloved user-friendly ecosystem of YOLOv5 with groundbreaking architectural advancements, ensuring top-tier accuracy and blazing-fast inference for both cloud and edge AI applications. Developers may also want to explore other efficient models like [YOLOv6](https://docs.ultralytics.com/models/yolov6) or [YOLOX](https://docs.ultralytics.com) depending on specific legacy hardware constraints.
+For developers starting new projects today, the recommendation is to leverage the [Ultralytics Platform](https://platform.ultralytics.com) and adopt **YOLO26**. It combines the beloved user-friendly ecosystem of YOLOv5 with groundbreaking architectural advancements, ensuring top-tier accuracy and blazing-fast inference for both cloud and edge AI applications. Developers may also want to explore other efficient models like [YOLOv6](https://docs.ultralytics.com/models/yolov6) or [YOLOX](https://docs.ultralytics.com/compare/yolov5-vs-yolox) depending on specific legacy hardware constraints.

@@ -15,11 +15,11 @@ The landscape of computer vision has grown increasingly complex, making the sele
 
 Developed to maximize throughput in server-side industrial applications, YOLOv6-3.0 prioritizes rapid inference on hardware accelerators, especially GPUs. By utilizing an optimized backbone, it aims to strike a balance between high-speed video processing and competitive accuracy.
 
-Authors: Chuyi Li, Lulu Li, Yifei Geng, et al.  
-Organization: [Meituan](https://github.com/meituan/YOLOv6)  
-Date: 2023-01-13  
-Arxiv: [2301.05586](https://arxiv.org/abs/2301.05586)  
-GitHub: [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
+- **Authors:** Chuyi Li, Lulu Li, Yifei Geng, et al.
+- **Organization:** [Meituan](https://github.com/meituan/YOLOv6)
+- **Date:** 2023-01-13
+- **Arxiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
+- **GitHub:** [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
 
 ### Architectural Highlights
 
@@ -33,11 +33,11 @@ Powered by an EfficientRep backbone, this model shines in heavy-duty [manufactur
 
 Introduced over a year later, YOLOv10 shifted the paradigm by addressing one of the most persistent bottlenecks in traditional detection pipelines: non-maximum suppression (NMS) post-processing.
 
-Authors: Ao Wang, Hui Chen, Lihao Liu, et al.  
-Organization: [Tsinghua University](https://github.com/THU-MIG/yolov10)  
-Date: 2024-05-23  
-Arxiv: [2405.14458](https://arxiv.org/abs/2405.14458)  
-GitHub: [THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
+- **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
+- **Organization:** [Tsinghua University](https://github.com/THU-MIG/yolov10)
+- **Date:** 2024-05-23
+- **Arxiv:** [2405.14458](https://arxiv.org/abs/2405.14458)
+- **GitHub:** [THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
 
 ### Architectural Highlights
 

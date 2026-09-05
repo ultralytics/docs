@@ -15,26 +15,28 @@ The field of computer vision has witnessed a rapid evolution in real-time object
 
 Understanding the background of these [computer vision architectures](https://www.ultralytics.com/blog/all-you-need-to-know-about-computer-vision-tasks) helps contextualize their design philosophies and target environments.
 
-**YOLO26 Overview**  
+**YOLO26 Overview**
+
 Released in January 2026, YOLO26 represents the pinnacle of the Ultralytics ecosystem. It is designed to be the definitive [edge AI solution](https://www.ultralytics.com/blog/understanding-the-real-world-applications-of-edge-ai), boasting a smaller footprint, native end-to-end processing, and unparalleled speed.
 
-- Authors: Glenn Jocher and Jing Qiu
-- Organization: [Ultralytics](https://www.ultralytics.com)
-- Date: 2026-01-14
-- GitHub: [Ultralytics GitHub Repository](https://github.com/ultralytics/ultralytics)
-- Docs: [Official YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26)
+- **Authors:** Glenn Jocher and Jing Qiu
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
+- **Date:** 2026-01-14
+- **GitHub:** [Ultralytics GitHub Repository](https://github.com/ultralytics/ultralytics)
+- **Docs:** [Official YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26)
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
-**PP-YOLOE+ Overview**  
+**PP-YOLOE+ Overview**
+
 Developed as an evolution of the PP-YOLO series, PP-YOLOE+ is an anchor-free detector heavily optimized for the PaddlePaddle ecosystem. It relies on a CSPRepResNet backbone and an ET-head to improve standard detection metrics.
 
-- Authors: PaddlePaddle Authors
-- Organization: [Baidu](https://www.baidu.com/)
-- Date: 2022-04-02
-- Arxiv: [PP-YOLOE+ Research Paper](https://arxiv.org/abs/2203.16250)
-- GitHub: [PaddleDetection Repository](https://github.com/PaddlePaddle/PaddleDetection/)
-- Docs: [PP-YOLOE+ Documentation](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
+- **Authors:** PaddlePaddle Authors
+- **Organization:** [Baidu](https://www.baidu.com/)
+- **Date:** 2022-04-02
+- **Arxiv:** [PP-YOLOE+ Research Paper](https://arxiv.org/abs/2203.16250)
+- **GitHub:** [PaddleDetection Repository](https://github.com/PaddlePaddle/PaddleDetection/)
+- **Docs:** [PP-YOLOE+ Documentation](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
 
 [Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md){ .md-button }
 
@@ -48,7 +50,7 @@ YOLO26 introduces several breakthrough architectural changes designed for stream
 
 - **End-to-End NMS-Free Design:** Building on concepts first introduced in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 natively eliminates [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing. This reduces latency variability and massively simplifies deployment pipelines.
 - **DFL Removal:** By removing Distribution Focal Loss (DFL), the model is exceptionally lighter, enabling seamless export to formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) and [CoreML](https://docs.ultralytics.com/integrations/coreml).
-- **MuSGD Optimizer:** Inspired by Moonshot AI’s Kimi K2, YOLO26 brings LLM training innovations to computer vision. The hybrid MuSGD optimizer (SGD + Muon) ensures highly stable training dynamics and rapid convergence.
+- **MuSGD Optimizer:** Inspired by Moonshot AI's Kimi K2, YOLO26 brings LLM training innovations to computer vision. The hybrid MuSGD optimizer (SGD + Muon) ensures highly stable training dynamics and rapid convergence.
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, making the architecture highly effective for [drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and [agricultural applications](https://www.ultralytics.com/blog/computer-vision-in-agriculture-transforming-fruit-detection-and-precision-farming).
 
 ### PP-YOLOE+: A Paddle-Centric Approach
@@ -59,19 +61,19 @@ PP-YOLOE+ utilizes an anchor-free paradigm with a focus on high precision on sta
 
 A strong performance balance between speed and accuracy is crucial for diverse real-world deployment scenarios. While PP-YOLOE+ offers competitive accuracy, YOLO26 consistently achieves a more favorable trade-off, especially when evaluating inference speed on CPUs and lower memory usage.
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLO26n    | 640                         | **40.9**                   | **38.9**                             | **1.7**                                   | **2.4**                  | **5.4**                 |
-| YOLO26s    | 640                         | **48.6**                   | 87.2                                 | **2.5**                                   | 9.5                      | 20.7                    |
-| YOLO26m    | 640                         | **53.1**                   | 220.0                                | **4.7**                                   | **20.4**                 | 68.2                    |
-| YOLO26l    | 640                         | **55.0**                   | 286.2                                | **6.2**                                   | **24.8**                 | **86.4**                |
-| YOLO26x    | 640                         | **57.5**                   | 525.8                                | **11.8**                                  | **55.7**                 | **193.9**               |
-|            |                             |                            |                                      |                                           |                          |                         |
-| PP-YOLOE+t | 640                         | 39.9                       | -                                    | 2.84                                      | 4.85                     | 19.15                   |
-| PP-YOLOE+s | 640                         | 43.7                       | -                                    | 2.62                                      | **7.93**                 | **17.36**               |
-| PP-YOLOE+m | 640                         | 49.8                       | -                                    | 5.56                                      | 23.43                    | **49.91**               |
-| PP-YOLOE+l | 640                         | 52.9                       | -                                    | 8.36                                      | 52.2                     | 110.07                  |
-| PP-YOLOE+x | 640                         | 54.7                       | -                                    | 14.3                                      | 98.42                    | 206.59                  |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | **40.9**                   | **38.9**                             | **1.7**                                   | **2.4**                  | **5.4**                 |
+| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | **48.6**                   | 87.2                                 | **2.5**                                   | 9.5                      | 20.7                    |
+| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | **53.1**                   | 220.0                                | **4.7**                                   | **20.4**                 | 68.2                    |
+| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | **55.0**                   | 286.2                                | **6.2**                                   | **24.8**                 | **86.4**                |
+| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | **11.8**                                  | **55.7**                 | **193.9**               |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| PP-YOLOE+t                                                             | 640                         | 39.9                       | -                                    | 2.84                                      | 4.85                     | 19.15                   |
+| PP-YOLOE+s                                                             | 640                         | 43.7                       | -                                    | 2.62                                      | **7.93**                 | **17.36**               |
+| PP-YOLOE+m                                                             | 640                         | 49.8                       | -                                    | 5.56                                      | 23.43                    | **49.91**               |
+| PP-YOLOE+l                                                             | 640                         | 52.9                       | -                                    | 8.36                                      | 52.2                     | 110.07                  |
+| PP-YOLOE+x                                                             | 640                         | 54.7                       | -                                    | 14.3                                      | 98.42                    | 206.59                  |
 
 Thanks to specific edge optimizations and DFL removal, YOLO26 delivers up to **43% faster CPU inference** compared to its predecessors, vastly outperforming PP-YOLOE+ when deployed on devices like Raspberry Pi or standard edge compute units.
 

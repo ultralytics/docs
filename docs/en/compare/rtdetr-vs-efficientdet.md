@@ -16,10 +16,11 @@ Selecting the optimal neural network architecture is a defining choice for any [
 Building on the success of the original RT-DETR, RTDETRv2 refines the transformer-based [object detection](https://docs.ultralytics.com/tasks/detect) paradigm. By optimizing the encoder and decoder structures, it delivers high accuracy while maintaining real-time inference speeds, effectively bridging the gap between traditional CNNs and vision transformers.
 
 **Model Details**
-Authors: Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu  
-Organization: [Baidu](https://www.baidu.com/)
-Date: 2024-07-24
-Links: [Arxiv](https://arxiv.org/abs/2407.17140), [GitHub](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch), [Docs](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
+
+- **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
+- **Organization:** [Baidu](https://www.baidu.com/)
+- **Date:** 2024-07-24
+- **Links:** [Arxiv](https://arxiv.org/abs/2407.17140), [GitHub](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch), [Docs](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
 
 ### Architecture and Core Strengths
 
@@ -38,10 +39,11 @@ While powerful, transformer architectures inherently require more CUDA memory du
 EfficientDet introduced a family of object detection models optimized for both accuracy and efficiency across a wide spectrum of resource constraints. It remains a classic example of scalable [machine vision](https://www.ultralytics.com/glossary/machine-vision) design.
 
 **Model Details**
-Authors: Mingxing Tan, Ruoming Pang, and Quoc V. Le  
-Organization: [Google](https://github.com/google/automl/tree/master/efficientdet)  
-Date: 2019-11-20  
-Links: [Arxiv](https://arxiv.org/abs/1911.09070), [GitHub](https://github.com/google/automl/tree/master/efficientdet), [Docs](https://github.com/google/automl/tree/master/efficientdet#readme)
+
+- **Authors:** Mingxing Tan, Ruoming Pang, and Quoc V. Le
+- **Organization:** [Google](https://github.com/google/automl/tree/master/efficientdet)
+- **Date:** 2019-11-20
+- **Links:** [Arxiv](https://arxiv.org/abs/1911.09070), [GitHub](https://github.com/google/automl/tree/master/efficientdet), [Docs](https://github.com/google/automl/tree/master/efficientdet#readme)
 
 ### Architecture and Core Strengths
 

@@ -57,25 +57,25 @@ Training stability and speed are paramount. YOLO26 introduces the **MuSGD Optimi
 
 ### ProgLoss and STAL
 
-For researchers working with [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or drone applications, detecting tiny features is a historic challenge. YOLO26 introduces ProgLoss combined with STAL (Scale-Targeted Attention Loss), delivering notable improvements in small-object recognition over YOLO11.
+For researchers working with [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or drone applications, detecting tiny features is a historic challenge. YOLO26 introduces ProgLoss combined with STAL (Small-Target-Aware Label Assignment), delivering notable improvements in small-object recognition over YOLO11.
 
 ## Performance and Metrics Comparison
 
 When comparing the models head-to-head, YOLO26 demonstrates a clear superiority in precision and edge-device efficiency, while maintaining the incredibly low memory requirements characteristic of the Ultralytics ecosystem.
 
-| Model   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLO26n | 640                         | **40.9**                   | **38.9**                             | 1.7                                       | **2.4**                  | **5.4**                 |
-| YOLO26s | 640                         | **48.6**                   | **87.2**                             | **2.5**                                   | 9.5                      | **20.7**                |
-| YOLO26m | 640                         | **53.1**                   | 220.0                                | **4.7**                                   | 20.4                     | 68.2                    |
-| YOLO26l | 640                         | **55.0**                   | 286.2                                | **6.2**                                   | **24.8**                 | **86.4**                |
-| YOLO26x | 640                         | **57.5**                   | 525.8                                | 11.8                                      | **55.7**                 | **193.9**               |
-|         |                             |                            |                                      |                                           |                          |                         |
-| YOLO11n | 640                         | 39.5                       | 56.1                                 | **1.5**                                   | 2.6                      | 6.5                     |
-| YOLO11s | 640                         | 47.0                       | 90.0                                 | **2.5**                                   | **9.4**                  | 21.5                    |
-| YOLO11m | 640                         | 51.5                       | **183.2**                            | **4.7**                                   | **20.1**                 | **68.0**                |
-| YOLO11l | 640                         | 53.4                       | **238.6**                            | **6.2**                                   | 25.3                     | 86.9                    |
-| YOLO11x | 640                         | 54.7                       | **462.8**                            | **11.3**                                  | 56.9                     | 194.9                   |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | **40.9**                   | **38.9**                             | 1.7                                       | **2.4**                  | **5.4**                 |
+| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | **48.6**                   | **87.2**                             | **2.5**                                   | 9.5                      | **20.7**                |
+| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | **53.1**                   | 220.0                                | **4.7**                                   | 20.4                     | 68.2                    |
+| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | **55.0**                   | 286.2                                | **6.2**                                   | **24.8**                 | **86.4**                |
+| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | **55.7**                 | **193.9**               |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) | 640                         | 39.5                       | 56.1                                 | **1.5**                                   | 2.6                      | 6.5                     |
+| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | **2.5**                                   | **9.4**                  | 21.5                    |
+| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | **183.2**                            | **4.7**                                   | **20.1**                 | **68.0**                |
+| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | **238.6**                            | **6.2**                                   | 25.3                     | 86.9                    |
+| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | 54.7                       | **462.8**                            | **11.3**                                  | 56.9                     | 194.9                   |
 
 _Note: The YOLO26 nano (YOLO26n) model showcases a ~31% improvement in CPU speed compared to YOLO11n (38.9ms vs 56.1ms), highlighting its edge-first design philosophy._
 

@@ -27,12 +27,12 @@ PP-YOLOE+ introduces several architectural enhancements to improve upon previous
 
 **PP-YOLOE+ Details:**
 
-- Authors: PaddlePaddle Authors
-- Organization: [Baidu](https://github.com/PaddlePaddle)
-- Date: 2022-04-02
-- Arxiv: [2203.16250](https://arxiv.org/abs/2203.16250)
-- GitHub: [PaddlePaddle/PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection/)
-- Docs: [PP-YOLOE+ Documentation](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
+- **Authors:** PaddlePaddle Authors
+- **Organization:** [Baidu](https://github.com/PaddlePaddle)
+- **Date:** 2022-04-02
+- **Arxiv:** [2203.16250](https://arxiv.org/abs/2203.16250)
+- **GitHub:** [PaddlePaddle/PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection/)
+- **Docs:** [PP-YOLOE+ Documentation](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
 
 [Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md){ .md-button }
 
@@ -44,19 +44,19 @@ Created by the [Alibaba DAMO Academy](https://damo.alibaba.com/), DAMO-YOLO take
 
 DAMO-YOLO emphasizes low latency and high accuracy through an automated and distillation-heavy methodology:
 
-- **MAE-NAS Backbones:** By utilizing the Method of Automating Efficient Neural Architecture Search, DAMO-YOLO constructs backbones optimized specifically for the [trade-off between parameters and accuracy](https://www.ultralytics.com/blog/what-is-model-optimization-a-quick-guide).
+- **MAE-NAS Backbones:** By utilizing Maximum Entropy Neural Architecture Search, DAMO-YOLO constructs backbones optimized specifically for the [trade-off between parameters and accuracy](https://www.ultralytics.com/blog/what-is-model-optimization-a-quick-guide).
 - **Efficient RepGFPN:** A re-parameterized Generalized Feature Pyramid Network enables robust multi-scale feature fusion, which helps the model detect objects of vastly different sizes in a single frame.
 - **ZeroHead Design:** A highly simplified detection head that drastically cuts down computational overhead during the inference phase.
 - **Distillation Enhancement:** To boost the performance of smaller variants, DAMO-YOLO relies heavily on a complex knowledge distillation process where a larger teacher model guides the student model.
 
 **DAMO-YOLO Details:**
 
-- Authors: Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun
-- Organization: [Alibaba Group](https://www.alibabagroup.com/)
-- Date: 2022-11-23
-- Arxiv: [2211.15444v2](https://arxiv.org/abs/2211.15444v2)
-- GitHub: [tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)
-- Docs: [DAMO-YOLO Documentation](https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md)
+- **Authors:** Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun
+- **Organization:** [Alibaba Group](https://www.alibabagroup.com/)
+- **Date:** 2022-11-23
+- **Arxiv:** [2211.15444v2](https://arxiv.org/abs/2211.15444v2)
+- **GitHub:** [tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)
+- **Docs:** [DAMO-YOLO Documentation](https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md)
 
 [Learn more about DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO){ .md-button }
 
@@ -127,6 +127,6 @@ Selecting the optimal computer vision architecture depends heavily on your team'
 
 - **Choose PP-YOLOE+** if your entire pipeline is deeply embedded in the Baidu PaddlePaddle ecosystem. It remains an excellent choice for static image analysis on powerful servers where maximizing accuracy is the primary objective.
 - **Choose DAMO-YOLO** if you are conducting specific research into Neural Architecture Search algorithms, or if you have the engineering resources to maintain complex distillation pipelines to achieve aggressive TensorRT latency targets.
-- **Choose Ultralytics YOLO26** for almost all modern production scenarios. The [Ultralytics ecosystem](https://www.ultralytics.com) provides unparalleled documentation, lower memory requirements, and a streamlined API. Whether you are building [automated quality control](https://www.ultralytics.com/solutions/computer-vision-in-manufacturing) systems or running real-time tracking on a Raspberry Pi, YOLO26’s NMS-free architecture ensures rapid, stable, and highly accurate results out of the box.
+- **Choose Ultralytics YOLO26** for almost all modern production scenarios. The [Ultralytics ecosystem](https://www.ultralytics.com) provides unparalleled documentation, lower memory requirements, and a streamlined API. Whether you are building [automated quality control](https://www.ultralytics.com/solutions/computer-vision-in-manufacturing) systems or running real-time tracking on a Raspberry Pi, YOLO26's NMS-free architecture ensures rapid, stable, and highly accurate results out of the box.
 
 For developers exploring other state-of-the-art solutions, the Ultralytics documentation also provides extensive resources on the widely adopted [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) and the robust [YOLO11](https://docs.ultralytics.com/models/yolo11), ensuring you have the right model for any computer vision challenge.

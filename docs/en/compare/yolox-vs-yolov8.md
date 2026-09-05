@@ -17,13 +17,14 @@ By analyzing their unique architectures, training methodologies, and deployment 
 
 YOLOX emerged as a pivotal model that successfully bridged the gap between academic research and industrial application. It introduced a shift back to an anchor-free design, significantly reducing the number of design parameters and heuristic tuning required for previous anchor-based detectors.
 
-**Model Details:**  
-Author: Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun  
-Organization: [Megvii](https://en.megvii.com/)  
-Date: 2021-07-18  
-Arxiv: [YOLOX: Exceeding YOLO Series in 2021](https://arxiv.org/abs/2107.08430)  
-GitHub: [Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)  
-Docs: [YOLOX Documentation](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
+**Model Details:**
+
+- **Author:** Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun
+- **Organization:** [Megvii](https://en.megvii.com/)
+- **Date:** 2021-07-18
+- **Arxiv:** [YOLOX: Exceeding YOLO Series in 2021](https://arxiv.org/abs/2107.08430)
+- **GitHub:** [Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
+- **Docs:** [YOLOX Documentation](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
 ### Architectural Highlights
 
@@ -37,12 +38,13 @@ Furthermore, YOLOX employs the SimOTA label assignment strategy. This dynamic as
 
 Building upon years of continuous research, [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) represents a major evolution in state-of-the-art computer vision models. It was designed from the ground up to be not just an object detector, but a comprehensive, multi-task framework capable of handling a wide array of visual recognition challenges with an incredibly accessible API.
 
-**Model Details:**  
-Author: Glenn Jocher, Ayush Chaurasia, and Jing Qiu  
-Organization: [Ultralytics](https://www.ultralytics.com)  
-Date: 2023-01-10  
-GitHub: [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)  
-Docs: [YOLOv8 Documentation](https://docs.ultralytics.com/models/yolov8)
+**Model Details:**
+
+- **Author:** Glenn Jocher, Ayush Chaurasia, and Jing Qiu
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
+- **Date:** 2023-01-10
+- **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
+- **Docs:** [YOLOv8 Documentation](https://docs.ultralytics.com/models/yolov8)
 
 ### Architectural Advancements
 
@@ -60,20 +62,20 @@ Beyond standard [object detection](https://docs.ultralytics.com/tasks/detect), Y
 
 When comparing these models, developers must consider the trade-offs between precision, inference latency, and computational overhead. The table below illustrates the benchmarks for both model families.
 
-| Model     | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| --------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOXnano | 416                         | 25.8                       | -                                    | -                                         | **0.91**                 | **1.08**                |
-| YOLOXtiny | 416                         | 32.8                       | -                                    | -                                         | 5.06                     | 6.45                    |
-| YOLOXs    | 640                         | 40.5                       | -                                    | 2.56                                      | 9.0                      | 26.8                    |
-| YOLOXm    | 640                         | 46.9                       | -                                    | 5.43                                      | 25.3                     | 73.8                    |
-| YOLOXl    | 640                         | 49.7                       | -                                    | 9.04                                      | 54.2                     | 155.6                   |
-| YOLOXx    | 640                         | 51.1                       | -                                    | 16.1                                      | 99.1                     | 281.9                   |
-|           |                             |                            |                                      |                                           |                          |                         |
-| YOLOv8n   | 640                         | 37.3                       | **80.4**                             | **1.47**                                  | 3.2                      | 8.7                     |
-| YOLOv8s   | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
-| YOLOv8m   | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
-| YOLOv8l   | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
-| YOLOv8x   | 640                         | **53.9**                   | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOXnano                                                              | 416                         | 25.8                       | -                                    | -                                         | **0.91**                 | **1.08**                |
+| YOLOXtiny                                                              | 416                         | 32.8                       | -                                    | -                                         | 5.06                     | 6.45                    |
+| YOLOXs                                                                 | 640                         | 40.5                       | -                                    | 2.56                                      | 9.0                      | 26.8                    |
+| YOLOXm                                                                 | 640                         | 46.9                       | -                                    | 5.43                                      | 25.3                     | 73.8                    |
+| YOLOXl                                                                 | 640                         | 49.7                       | -                                    | 9.04                                      | 54.2                     | 155.6                   |
+| YOLOXx                                                                 | 640                         | 51.1                       | -                                    | 16.1                                      | 99.1                     | 281.9                   |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| [YOLOv8n](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) | 640                         | 37.3                       | **80.4**                             | **1.47**                                  | 3.2                      | 8.7                     |
+| [YOLOv8s](https://platform.ultralytics.com/ultralytics/yolov8/yolov8s) | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
+| [YOLOv8m](https://platform.ultralytics.com/ultralytics/yolov8/yolov8m) | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
+| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
+| [YOLOv8x](https://platform.ultralytics.com/ultralytics/yolov8/yolov8x) | 640                         | **53.9**                   | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
 
 YOLOv8 consistently demonstrates superior mAP across comparable parameter sizes while maintaining excellent GPU speeds. Furthermore, the Ultralytics models are known for their lower memory requirements during training. This is a crucial advantage when scaling batch sizes on consumer hardware, particularly when contrasted with resource-heavy transformer architectures like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) which consume significantly more CUDA memory.
 

@@ -51,8 +51,8 @@ RTDETRv2, developed by researchers at Baidu, builds upon the original RT-DETR fr
 - **Organization:** [Baidu](https://www.baidu.com/)
 - **Date:** 2024-07-24
 - **Arxiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
-- **GitHub:** [RT-DETRv2 PyTorch Implementation](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
-- **Docs:** [RT-DETRv2 README](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
+- **GitHub:** [RTDETRv2 PyTorch Implementation](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
+- **Docs:** [RTDETRv2 README](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
 
 ### Architecture and Capabilities
 
@@ -61,7 +61,7 @@ RTDETRv2 employs a Transformer-based architecture, which inherently processes im
 - **Bag-of-Freebies:** The v2 iteration introduces a series of optimized training techniques (bag-of-freebies) that improve the baseline performance without adding inference cost.
 - **Global Context Awareness:** Because of the Transformer attention layers, RTDETRv2 is naturally adept at understanding complex scenes where global context is necessary to distinguish overlapping or occluded objects.
 
-[Learn more about RTDETR](https://docs.ultralytics.com/models/rtdetr){ .md-button }
+[Learn more about RT-DETR](https://docs.ultralytics.com/models/rtdetr){ .md-button }
 
 ### Limitations of Transformer Models
 
@@ -71,18 +71,18 @@ While powerful, Transformer-based detection models like RTDETRv2 often face chal
 
 Evaluating these models head-to-head reveals the tangible benefits of the latest CNN optimizations. The table below outlines their performance on standard benchmarks.
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLO26n    | 640                         | 40.9                       | **38.9**                             | **1.7**                                   | **2.4**                  | **5.4**                 |
-| YOLO26s    | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.7                    |
-| YOLO26m    | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.2                    |
-| YOLO26l    | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.4                    |
-| YOLO26x    | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 193.9                   |
-|            |                             |                            |                                      |                                           |                          |                         |
-| RTDETRv2-s | 640                         | 48.1                       | -                                    | 5.03                                      | 20                       | 60                      |
-| RTDETRv2-m | 640                         | 51.9                       | -                                    | 7.51                                      | 36                       | 100                     |
-| RTDETRv2-l | 640                         | 53.4                       | -                                    | 9.76                                      | 42                       | 136                     |
-| RTDETRv2-x | 640                         | 54.3                       | -                                    | 15.03                                     | 76                       | 259                     |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | 40.9                       | **38.9**                             | **1.7**                                   | **2.4**                  | **5.4**                 |
+| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.7                    |
+| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.2                    |
+| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.4                    |
+| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 193.9                   |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| RTDETRv2-s                                                             | 640                         | 48.1                       | -                                    | 5.03                                      | 20                       | 60                      |
+| RTDETRv2-m                                                             | 640                         | 51.9                       | -                                    | 7.51                                      | 36                       | 100                     |
+| RTDETRv2-l                                                             | 640                         | 53.4                       | -                                    | 9.76                                      | 42                       | 136                     |
+| RTDETRv2-x                                                             | 640                         | 54.3                       | -                                    | 15.03                                     | 76                       | 259                     |
 
 As demonstrated, YOLO26 consistently outperforms RTDETRv2 across all size variants. The **YOLO26x** achieves a remarkable 57.5 mAP with lower latency (11.8 ms on TensorRT) and significantly fewer parameters (55.7M) than the RTDETRv2-x (54.3 mAP, 15.03 ms, 76M parameters).
 
@@ -132,7 +132,7 @@ model.export(format="onnx")
 
 ### A Well-Maintained Ecosystem
 
-By utilizing Ultralytics models, developers gain access to an actively maintained framework that integrates natively with modern tracking tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases) and [Comet ML](https://docs.ultralytics.com/integrations/comet). For those who prefer a no-code approach, the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26) facilitates cloud training, dataset management, and one-click deployment.
+By utilizing Ultralytics models, developers gain access to an actively maintained framework that integrates natively with modern tracking tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases) and [Comet ML](https://docs.ultralytics.com/integrations/comet). For those who prefer a no-code approach, the [Ultralytics Platform](https://platform.ultralytics.com) facilitates cloud training, dataset management, and one-click deployment.
 
 ### Performance Balance
 

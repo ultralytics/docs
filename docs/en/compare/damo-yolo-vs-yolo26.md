@@ -2,7 +2,7 @@
 title: DAMO-YOLO vs YOLO26 Comparison
 comments: true
 description: Compare DAMO-YOLO and YOLO26 for object detection. Explore architectures, benchmarks, and use cases to select the best model for your needs.
-keywords: DAMO-YOLO,YOLO26,object detection,DAMO-YOLOm,YOLO26,AI models,computer vision,model comparison,efficient AI,deep learning
+keywords: DAMO-YOLO, YOLO26, object detection, DAMO-YOLOm, AI models, computer vision, model comparison, efficient AI, deep learning
 ---
 
 # DAMO-YOLO vs YOLO26
@@ -23,7 +23,7 @@ You can review the original research in their [ArXiv paper](https://arxiv.org/ab
 
 DAMO-YOLO introduces several technical innovations designed to push the boundaries of real-time object detection:
 
-- **MAE-NAS Backbones:** DAMO-YOLO utilizes a Multi-Objective Evolutionary search to find optimal backbones. This NAS approach discovers architectures that strictly balance detection accuracy against inference speed on specific hardware.
+- **MAE-NAS Backbones:** DAMO-YOLO utilizes a maximum-entropy guided search to find optimal backbones. This NAS approach discovers architectures that strictly balance detection accuracy against inference speed on specific hardware.
 - **Efficient RepGFPN:** A heavy-neck design that significantly improves feature fusion, which is highly beneficial when analyzing complex scenes like those found in [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision).
 - **ZeroHead Design:** A heavily simplified detection head that minimizes the computational complexity of the final prediction layers.
 - **AlignedOTA and Distillation:** DAMO-YOLO employs Aligned Optimal Transport Assignment (AlignedOTA) to resolve label assignment ambiguities, paired with a robust knowledge distillation enhancement strategy to boost the accuracy of smaller student models using larger teacher networks.
@@ -32,7 +32,7 @@ DAMO-YOLO introduces several technical innovations designed to push the boundari
 
 ## The Ultralytics Advantage: YOLO26
 
-Released on January 14, 2026, by Glenn Jocher and Jing Qiu at [Ultralytics](https://www.ultralytics.com), **YOLO26** represents the pinnacle of accessible, high-performance vision AI. Building upon the legacy of [YOLO11](https://docs.ultralytics.com/models/yolo11) and [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 is designed from the ground up for edge-first deployment, multimodal versatility, and unparalleled ease of use.
+Released on January 14, 2026, by Glenn Jocher and Jing Qiu at [Ultralytics](https://www.ultralytics.com), **YOLO26** represents the pinnacle of accessible, high-performance vision AI. Building upon the legacy of [YOLO11](https://docs.ultralytics.com/models/yolo11) and [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 is designed from the ground up for edge-first deployment, multi-task versatility, and unparalleled ease of use.
 
 ### YOLO26 Innovations
 
@@ -54,18 +54,18 @@ Ultralytics YOLO26 introduces several groundbreaking features that make it the d
 
 When evaluating these models, the balance between accuracy (mAP) and computational efficiency (Speed/FLOPs) is paramount. The table below highlights how these models compare using the industry-standard [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco).
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| DAMO-YOLOt | 640                         | 42.0                       | -                                    | 2.32                                      | 8.5                      | 18.1                    |
-| DAMO-YOLOs | 640                         | 46.0                       | -                                    | 3.45                                      | 16.3                     | 37.8                    |
-| DAMO-YOLOm | 640                         | 49.2                       | -                                    | 5.09                                      | 28.2                     | 61.8                    |
-| DAMO-YOLOl | 640                         | 50.8                       | -                                    | 7.18                                      | 42.1                     | 97.3                    |
-|            |                             |                            |                                      |                                           |                          |                         |
-| YOLO26n    | 640                         | 40.9                       | **38.9**                             | **1.7**                                   | **2.4**                  | **5.4**                 |
-| YOLO26s    | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.7                    |
-| YOLO26m    | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.2                    |
-| YOLO26l    | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.4                    |
-| YOLO26x    | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 193.9                   |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| DAMO-YOLOt                                                             | 640                         | 42.0                       | -                                    | 2.32                                      | 8.5                      | 18.1                    |
+| DAMO-YOLOs                                                             | 640                         | 46.0                       | -                                    | 3.45                                      | 16.3                     | 37.8                    |
+| DAMO-YOLOm                                                             | 640                         | 49.2                       | -                                    | 5.09                                      | 28.2                     | 61.8                    |
+| DAMO-YOLOl                                                             | 640                         | 50.8                       | -                                    | 7.18                                      | 42.1                     | 97.3                    |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | 40.9                       | **38.9**                             | **1.7**                                   | **2.4**                  | **5.4**                 |
+| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.7                    |
+| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.2                    |
+| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.4                    |
+| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 193.9                   |
 
 As seen above, YOLO26 consistently delivers higher accuracy with significantly fewer parameters and FLOPs, resulting in a much more efficient architecture for both training and inference.
 
@@ -101,7 +101,7 @@ results[0].show()
 model.export(format="onnx")
 ```
 
-For teams that prefer a no-code environment, [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26) provides an intuitive interface for dataset annotation, cloud training, and seamless deployment.
+For teams that prefer a no-code environment, [Ultralytics Platform](https://platform.ultralytics.com) provides an intuitive interface for dataset annotation, cloud training, and seamless deployment.
 
 ## Real-World Applications
 
@@ -115,7 +115,7 @@ For high-speed [manufacturing automation](https://www.ultralytics.com/blog/manuf
 
 Deploying computer vision on battery-powered devices requires extreme efficiency. While DAMO-YOLO relies on specific RepGFPN necks, **YOLO26n** (Nano) is specifically optimized for edge computing. Its DFL removal and **43% faster CPU inference** make it the ultimate solution for smart cameras, mobile applications, and [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system).
 
-### Multi-Modal Project Requirements
+### Multi-Task Project Requirements
 
 If a project demands more than just object detection—such as analyzing player mechanics in [sports](https://www.ultralytics.com/blog/exploring-the-applications-of-computer-vision-in-sports) using pose estimation, or extracting exact pixel boundaries using instance segmentation—**YOLO26** provides native support across all these tasks within a single, unified codebase. DAMO-YOLO is strictly limited to bounding box detection.
 
@@ -143,6 +143,6 @@ YOLO26 is recommended for:
 
 Both architectures represent significant achievements in the field of deep learning. **DAMO-YOLO** offers a fascinating glimpse into the power of Neural Architecture Search and distillation techniques tailored for specific hardware benchmarks.
 
-However, for developers, researchers, and enterprises looking for a production-ready solution, **Ultralytics YOLO26** stands out as the superior choice. Its combination of an end-to-end NMS-free design, massive CPU inference gains, multimodal versatility, and integration into the well-maintained Ultralytics ecosystem makes it the most robust and practical tool for solving real-world computer vision challenges today.
+However, for developers, researchers, and enterprises looking for a production-ready solution, **Ultralytics YOLO26** stands out as the superior choice. Its combination of an end-to-end NMS-free design, massive CPU inference gains, multi-task versatility, and integration into the well-maintained Ultralytics ecosystem makes it the most robust and practical tool for solving real-world computer vision challenges today.
 
 For users interested in exploring other models within the Ultralytics ecosystem, comprehensive documentation is available for [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8), and the transformer-based [RT-DETR](https://docs.ultralytics.com/models/rtdetr).

@@ -38,7 +38,7 @@ Released by Ultralytics, YOLOv5 set a new standard for ease of use, training eff
 - **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2020-06-26
 - **GitHub:** [ultralytics/yolov5](https://github.com/ultralytics/yolov5)
-- **Platform:** [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolov5)
+- **Platform:** [Ultralytics Platform](https://platform.ultralytics.com)
 
 ### Ecosystem and Versatility
 
@@ -56,18 +56,18 @@ YOLOv5 is not just limited to [object detection](https://docs.ultralytics.com/ta
 
 The table below outlines the performance metrics of both architectures when evaluated on the standard [COCO dataset](https://cocodataset.org/). Notice how the models balance the trade-off between mean average precision and inference speed across different environments.
 
-| Model       | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ----------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv6-3.0n | 640                         | 37.5                       | -                                    | 1.17                                      | 4.7                      | 11.4                    |
-| YOLOv6-3.0s | 640                         | 45.0                       | -                                    | 2.66                                      | 18.5                     | 45.3                    |
-| YOLOv6-3.0m | 640                         | 50.0                       | -                                    | 5.28                                      | 34.9                     | 85.8                    |
-| YOLOv6-3.0l | 640                         | **52.8**                   | -                                    | 8.95                                      | 59.6                     | 150.7                   |
-|             |                             |                            |                                      |                                           |                          |                         |
-| YOLOv5n     | 640                         | 28.0                       | **73.6**                             | **1.12**                                  | **2.6**                  | **7.7**                 |
-| YOLOv5s     | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
-| YOLOv5m     | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
-| YOLOv5l     | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
-| YOLOv5x     | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
+| Model                                                                   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ----------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOv6-3.0n                                                             | 640                         | 37.5                       | -                                    | 1.17                                      | 4.7                      | 11.4                    |
+| YOLOv6-3.0s                                                             | 640                         | 45.0                       | -                                    | 2.66                                      | 18.5                     | 45.3                    |
+| YOLOv6-3.0m                                                             | 640                         | 50.0                       | -                                    | 5.28                                      | 34.9                     | 85.8                    |
+| YOLOv6-3.0l                                                             | 640                         | **52.8**                   | -                                    | 8.95                                      | 59.6                     | 150.7                   |
+|                                                                         |                             |                            |                                      |                                           |                          |                         |
+| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | **73.6**                             | **1.12**                                  | **2.6**                  | **7.7**                 |
+| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
+| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
+| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
+| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
 
 ### Analysis
 

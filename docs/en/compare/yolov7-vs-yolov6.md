@@ -15,16 +15,16 @@ The field of computer vision is constantly evolving, with new object detection m
 
 Released in mid-2022, YOLOv7 introduced several innovative strategies to optimize the network architecture without increasing the inference cost. It focused heavily on trainable "bag-of-freebies" to improve accuracy while maintaining real-time performance.
 
-- Authors: Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
-- Organization: [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)
-- Date: 2022-07-06
-- Arxiv: [2207.02696](https://arxiv.org/abs/2207.02696)
-- GitHub: [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
-- Docs: [Ultralytics YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7)
+- **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
+- **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)
+- **Date:** 2022-07-06
+- **Arxiv:** [2207.02696](https://arxiv.org/abs/2207.02696)
+- **GitHub:** [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
+- **Docs:** [Ultralytics YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7)
 
 ### Architecture Highlights
 
-YOLOv7 is characterized by its Extended Efficient Layer Aggregation Network (E-ELAN). This architecture allows the model to learn more diverse features by controlling the shortest longest gradient path. Furthermore, YOLOv7 utilizes structural re-parameterization techniques during inference to merge convolution layers, effectively reducing the parameter count and computation time without sacrificing the learned representations.
+YOLOv7 is characterized by its Extended Efficient Layer Aggregation Network (E-ELAN). This architecture allows the model to learn more diverse features by controlling the shortest and longest gradient paths. Furthermore, YOLOv7 utilizes structural re-parameterization techniques during inference to merge convolution layers, effectively reducing the parameter count and computation time without sacrificing the learned representations.
 
 The model also features a unique auxiliary head training strategy. By using a "lead head" for final predictions and an "auxiliary head" to guide training in the middle layers, YOLOv7 achieves better convergence and richer feature extraction, particularly beneficial when tackling challenging [object detection](https://docs.ultralytics.com/tasks/detect) tasks.
 
@@ -34,12 +34,12 @@ The model also features a unique auxiliary head training strategy. By using a "l
 
 Developed by the Meituan Vision AI Department, YOLOv6-3.0 was explicitly designed as a "next-generation object detector for industrial applications." Released in early 2023, it focuses heavily on maximizing hardware utilization, particularly on NVIDIA GPUs.
 
-- Authors: Chuyi Li, Lulu Li, Yifei Geng, et al.
-- Organization: [Meituan](https://www.meituan.com/)
-- Date: 2023-01-13
-- Arxiv: [2301.05586](https://arxiv.org/abs/2301.05586)
-- GitHub: [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
-- Docs: [Ultralytics YOLOv6 Documentation](https://docs.ultralytics.com/models/yolov6)
+- **Authors:** Chuyi Li, Lulu Li, Yifei Geng, et al.
+- **Organization:** [Meituan](https://www.meituan.com/)
+- **Date:** 2023-01-13
+- **Arxiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
+- **GitHub:** [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
+- **Docs:** [Ultralytics YOLOv6 Documentation](https://docs.ultralytics.com/models/yolov6)
 
 ### Architecture Highlights
 

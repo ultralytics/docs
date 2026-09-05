@@ -17,11 +17,11 @@ Below is an interactive chart visualizing the performance differences between th
 
 YOLOv6-3.0 was explicitly designed by Meituan to serve as a high-performance, single-stage object detection framework tailored for industrial applications. It focuses heavily on maximizing throughput on GPU hardware, making it a strong candidate for high-speed manufacturing lines and offline video analytics.
 
-- Authors: Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu
-- Organization: [Meituan](https://github.com/meituan)
-- Date: 2023-01-13
-- Arxiv: [2301.05586](https://arxiv.org/abs/2301.05586)
-- GitHub: [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
+- **Authors:** Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu
+- **Organization:** [Meituan](https://github.com/meituan)
+- **Date:** 2023-01-13
+- **Arxiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
+- **GitHub:** [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
 
 ### Architectural Highlights
 
@@ -37,11 +37,11 @@ YOLOv6-3.0 shines in environments where dedicated GPU hardware is available, off
 
 Developed by Google Research, EfficientDet takes a fundamentally different approach. Instead of hand-crafting the network, the authors utilized [Automated Machine Learning (AutoML)](https://www.ultralytics.com/glossary/automated-machine-learning-automl) to design a scalable architecture that balances parameters, FLOPs, and accuracy.
 
-- Authors: Mingxing Tan, Ruoming Pang, and Quoc V. Le
-- Organization: [Google Brain](https://research.google/)
-- Date: 2019-11-20
-- Arxiv: [1911.09070](https://arxiv.org/abs/1911.09070)
-- GitHub: [google/automl](https://github.com/google/automl/tree/master/efficientdet)
+- **Authors:** Mingxing Tan, Ruoming Pang, and Quoc V. Le
+- **Organization:** [Google Brain](https://research.google/)
+- **Date:** 2019-11-20
+- **Arxiv:** [1911.09070](https://arxiv.org/abs/1911.09070)
+- **GitHub:** [google/automl](https://github.com/google/automl/tree/master/efficientdet)
 
 ### Architectural Highlights
 
@@ -87,7 +87,7 @@ Unlike EfficientDet, which requires navigating complex TensorFlow configurations
 
 ### Unmatched Versatility
 
-YOLOv6-3.0 and EfficientDet are primarily bound to [object detection](https://docs.ultralytics.com/tasks/detect). In contrast, modern Ultralytics architectures are inherently multi-modal. A single interface allows you to train models for [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), [Image Classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) tasks.
+YOLOv6-3.0 and EfficientDet are primarily bound to [object detection](https://docs.ultralytics.com/tasks/detect). In contrast, modern Ultralytics architectures are inherently multi-task. A single interface allows you to train models for [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), [Image Classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) tasks.
 
 ### Introducing Ultralytics YOLO26
 

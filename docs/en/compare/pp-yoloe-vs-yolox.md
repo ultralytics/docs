@@ -17,23 +17,23 @@ Before diving into the technical architectures, it is helpful to contextualize t
 
 **PP-YOLOE+ Details:**
 
-- Authors: PaddlePaddle Authors
-- Organization: [Baidu](https://github.com/PaddlePaddle)
-- Date: 2022-04-02
-- Arxiv: [https://arxiv.org/abs/2203.16250](https://arxiv.org/abs/2203.16250)
-- GitHub: [https://github.com/PaddlePaddle/PaddleDetection/](https://github.com/PaddlePaddle/PaddleDetection/)
-- Docs: [PaddleDetection PP-YOLOE+ README](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
+- **Authors:** PaddlePaddle Authors
+- **Organization:** [Baidu](https://github.com/PaddlePaddle)
+- **Date:** 2022-04-02
+- **Arxiv:** [https://arxiv.org/abs/2203.16250](https://arxiv.org/abs/2203.16250)
+- **GitHub:** [https://github.com/PaddlePaddle/PaddleDetection/](https://github.com/PaddlePaddle/PaddleDetection/)
+- **Docs:** [PaddleDetection PP-YOLOE+ README](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
 
 [Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md){ .md-button }
 
 **YOLOX Details:**
 
-- Authors: Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun
-- Organization: [Megvii](https://en.megvii.com/)
-- Date: 2021-07-18
-- Arxiv: [https://arxiv.org/abs/2107.08430](https://arxiv.org/abs/2107.08430)
-- GitHub: [https://github.com/Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
-- Docs: [YOLOX Official Documentation](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
+- **Authors:** Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun
+- **Organization:** [Megvii](https://en.megvii.com/)
+- **Date:** 2021-07-18
+- **Arxiv:** [https://arxiv.org/abs/2107.08430](https://arxiv.org/abs/2107.08430)
+- **GitHub:** [https://github.com/Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
+- **Docs:** [YOLOX Official Documentation](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
 [Learn more about YOLOX](https://github.com/Megvii-BaseDetection/YOLOX){ .md-button }
 
@@ -122,7 +122,7 @@ For teams looking to transition from isolated research repositories to productio
 
 - **End-to-End NMS-Free Design:** Unlike both PP-YOLOE+ and YOLOX, which require Non-Maximum Suppression (NMS) to filter redundant bounding boxes, YOLO26 is natively end-to-end. This eliminates latency bottlenecks and simplifies the deployment logic drastically.
 - **Up to 43% Faster CPU Inference:** By strategically removing Distribution Focal Loss (DFL), YOLO26 achieves unparalleled inference speeds on CPU hardware, making it far superior for [edge computing](https://www.ultralytics.com/glossary/edge-computing) and low-power devices.
-- **MuSGD Optimizer:** Inspired by Moonshot AI’s Kimi K2, this hybrid optimizer brings LLM training stability to computer vision, ensuring much faster convergence and minimizing the memory requirements during training phases.
+- **MuSGD Optimizer:** Inspired by Moonshot AI's Kimi K2, this hybrid optimizer brings LLM training stability to computer vision, ensuring much faster convergence and minimizing the memory requirements during training phases.
 - **ProgLoss + STAL:** These advanced loss functions deliver notable improvements in small-object recognition, a critical feature for [drone operations](https://www.ultralytics.com/blog/build-ai-powered-drone-applications-with-ultralytics-yolo11) and highly detailed aerial imagery.
 - **Versatility:** While PP-YOLOE+ and YOLOX focus purely on detection, YOLO26 seamlessly handles [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb) using the exact same intuitive syntax.
 

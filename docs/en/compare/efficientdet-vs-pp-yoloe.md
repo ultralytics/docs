@@ -1,7 +1,7 @@
 ---
 title: EfficientDet vs PP-YOLOE+ Comparison
 comments: true
-description: Compare EfficientDet and PP-YOLOE+ for object detection. Explore architectures, performance, scalability, and real-world applications. Learn more now!.
+description: Compare EfficientDet and PP-YOLOE+ for object detection. Explore architectures, performance, scalability, and real-world applications. Learn more now!
 keywords: EfficientDet, PP-YOLOE+, object detection, model comparison, EfficientDet features, PP-YOLOE+ benefits, Ultralytics models, computer vision, AI benchmarks
 ---
 
@@ -21,12 +21,12 @@ Understanding the foundational architecture of these models is crucial for deplo
 
 Developed by Google Research, EfficientDet introduced a paradigm shift by treating model scaling not as an ad-hoc process, but as a mathematically principled compound scaling method.
 
-- Authors: Mingxing Tan, Ruoming Pang, and Quoc V. Le
-- Organization: [Google Research](https://research.google/)
-- Date: 2019-11-20
-- Arxiv: [1911.09070](https://arxiv.org/abs/1911.09070)
-- GitHub: [google/automl](https://github.com/google/automl/tree/master/efficientdet)
-- Docs: [EfficientDet Documentation](https://github.com/google/automl/tree/master/efficientdet#readme)
+- **Authors:** Mingxing Tan, Ruoming Pang, and Quoc V. Le
+- **Organization:** [Google Research](https://research.google/)
+- **Date:** 2019-11-20
+- **Arxiv:** [1911.09070](https://arxiv.org/abs/1911.09070)
+- **GitHub:** [google/automl](https://github.com/google/automl/tree/master/efficientdet)
+- **Docs:** [EfficientDet Documentation](https://github.com/google/automl/tree/master/efficientdet#readme)
 
 [Learn more about EfficientDet](https://github.com/google/automl/tree/master/efficientdet){ .md-button }
 
@@ -40,12 +40,12 @@ The core innovation of EfficientDet lies in its **Bi-directional Feature Pyramid
 
 Building on the successes of its predecessors, PP-YOLOE+ was engineered by the PaddlePaddle team at Baidu to deliver state-of-the-art performance, specifically optimized for high-throughput server deployments.
 
-- Authors: PaddlePaddle Authors
-- Organization: [Baidu](https://github.com/PaddlePaddle)
-- Date: 2022-04-02
-- Arxiv: [2203.16250](https://arxiv.org/abs/2203.16250)
-- GitHub: [PaddlePaddle/PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection/)
-- Docs: [PP-YOLOE+ Configuration](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
+- **Authors:** PaddlePaddle Authors
+- **Organization:** [Baidu](https://github.com/PaddlePaddle)
+- **Date:** 2022-04-02
+- **Arxiv:** [2203.16250](https://arxiv.org/abs/2203.16250)
+- **GitHub:** [PaddlePaddle/PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection/)
+- **Docs:** [PP-YOLOE+ Configuration](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
 
 [Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md){ .md-button }
 

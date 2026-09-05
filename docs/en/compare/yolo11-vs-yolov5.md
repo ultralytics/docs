@@ -2,7 +2,7 @@
 title: YOLO11 vs YOLOv5 Comparison
 comments: true
 description: Explore the comprehensive comparison between YOLO11 and YOLOv5. Learn about their architectures, performance metrics, use cases, and strengths.
-keywords: YOLO11 vs YOLOv5,Yolo comparison,Yolo models,object detection,Yolo performance,Yolo benchmarks,Ultralytics,Yolo architecture
+keywords: YOLO11 vs YOLOv5, YOLO comparison, YOLO models, object detection, YOLO performance, YOLO benchmarks, Ultralytics, YOLO architecture
 ---
 
 # YOLO11 vs YOLOv5
@@ -19,21 +19,21 @@ Both models reflect Ultralytics' commitment to open-source collaboration, robust
 
 ### YOLO11 Details
 
-- Authors: Glenn Jocher and Jing Qiu
-- Organization: [Ultralytics](https://www.ultralytics.com)
-- Date: 2024-09-27
-- GitHub: [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
-- Docs: [YOLO11 Documentation](https://docs.ultralytics.com/models/yolo11)
+- **Authors:** Glenn Jocher and Jing Qiu
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
+- **Date:** 2024-09-27
+- **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
+- **Docs:** [YOLO11 Documentation](https://docs.ultralytics.com/models/yolo11)
 
 [Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
 ### YOLOv5 Details
 
-- Authors: Glenn Jocher
-- Organization: [Ultralytics](https://www.ultralytics.com)
-- Date: 2020-06-26
-- GitHub: [ultralytics/yolov5](https://github.com/ultralytics/yolov5)
-- Docs: [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5)
+- **Authors:** Glenn Jocher
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
+- **Date:** 2020-06-26
+- **GitHub:** [ultralytics/yolov5](https://github.com/ultralytics/yolov5)
+- **Docs:** [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5)
 
 [Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
 
@@ -49,19 +49,19 @@ In contrast, YOLO11 transitions to a more modern, anchor-free detection paradigm
 
 The table below contrasts key metrics across different model sizes. Ultralytics models are renowned for their memory requirements, typically consuming less CUDA memory during training compared to heavy transformer-based alternatives, which drastically lowers the hardware barrier for entry.
 
-| Model   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLO11n | 640                         | **39.5**                   | **56.1**                             | 1.5                                       | **2.6**                  | **6.5**                 |
-| YOLO11s | 640                         | **47.0**                   | **90.0**                             | 2.5                                       | 9.4                      | **21.5**                |
-| YOLO11m | 640                         | **51.5**                   | **183.2**                            | 4.7                                       | **20.1**                 | 68.0                    |
-| YOLO11l | 640                         | **53.4**                   | **238.6**                            | **6.2**                                   | **25.3**                 | **86.9**                |
-| YOLO11x | 640                         | **54.7**                   | **462.8**                            | **11.3**                                  | **56.9**                 | **194.9**               |
-|         |                             |                            |                                      |                                           |                          |                         |
-| YOLOv5n | 640                         | 28.0                       | 73.6                                 | **1.12**                                  | **2.6**                  | 7.7                     |
-| YOLOv5s | 640                         | 37.4                       | 120.7                                | **1.92**                                  | **9.1**                  | 24.0                    |
-| YOLOv5m | 640                         | 45.4                       | 233.9                                | **4.03**                                  | 25.1                     | **64.2**                |
-| YOLOv5l | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
-| YOLOv5x | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
+| Model                                                                   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ----------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n)  | 640                         | **39.5**                   | **56.1**                             | 1.5                                       | **2.6**                  | **6.5**                 |
+| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s)  | 640                         | **47.0**                   | **90.0**                             | 2.5                                       | 9.4                      | **21.5**                |
+| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m)  | 640                         | **51.5**                   | **183.2**                            | 4.7                                       | **20.1**                 | 68.0                    |
+| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l)  | 640                         | **53.4**                   | **238.6**                            | **6.2**                                   | **25.3**                 | **86.9**                |
+| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x)  | 640                         | **54.7**                   | **462.8**                            | **11.3**                                  | **56.9**                 | **194.9**               |
+|                                                                         |                             |                            |                                      |                                           |                          |                         |
+| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | 73.6                                 | **1.12**                                  | **2.6**                  | 7.7                     |
+| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | 120.7                                | **1.92**                                  | **9.1**                  | 24.0                    |
+| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | 233.9                                | **4.03**                                  | 25.1                     | **64.2**                |
+| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
+| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
 
 As observed, YOLO11 achieves a highly favorable performance balance, consistently delivering higher mAP scores at comparable parameter counts to its YOLOv5 counterparts.
 

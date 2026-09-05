@@ -20,7 +20,7 @@ Both of these models represent significant milestones in the evolution of object
 Developed as an extension of the PaddleDetection suite, PP-YOLOE+ builds upon previous iterations of the PP-YOLO series. It is heavily optimized for the PaddlePaddle deep learning framework, primarily targeting industrial deployments in specific Asian markets where the Baidu software stack is prevalent.
 
 - **Authors:** PaddlePaddle Authors
-- **Organization:** [Baidu](https://github.com/baidu-research)
+- **Organization:** [Baidu](https://github.com/PaddlePaddle)
 - **Date:** 2022-04-02
 - **Arxiv:** [https://arxiv.org/abs/2203.16250](https://arxiv.org/abs/2203.16250)
 - **GitHub:** [PaddlePaddle/PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection/)
@@ -48,19 +48,19 @@ YOLOv8 introduced a highly optimized, anchor-free detection head and a revamped 
 
 A direct comparison of these architectures reveals varying trade-offs between sheer parameter size and inference latency. Below is the performance breakdown using the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco).
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| PP-YOLOE+t | 640                         | 39.9                       | -                                    | 2.84                                      | 4.85                     | 19.15                   |
-| PP-YOLOE+s | 640                         | 43.7                       | -                                    | 2.62                                      | 7.93                     | 17.36                   |
-| PP-YOLOE+m | 640                         | 49.8                       | -                                    | 5.56                                      | 23.43                    | 49.91                   |
-| PP-YOLOE+l | 640                         | 52.9                       | -                                    | 8.36                                      | 52.2                     | 110.07                  |
-| PP-YOLOE+x | 640                         | **54.7**                   | -                                    | 14.3                                      | 98.42                    | 206.59                  |
-|            |                             |                            |                                      |                                           |                          |                         |
-| YOLOv8n    | 640                         | 37.3                       | **80.4**                             | **1.47**                                  | **3.2**                  | **8.7**                 |
-| YOLOv8s    | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
-| YOLOv8m    | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
-| YOLOv8l    | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
-| YOLOv8x    | 640                         | 53.9                       | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| PP-YOLOE+t                                                             | 640                         | 39.9                       | -                                    | 2.84                                      | 4.85                     | 19.15                   |
+| PP-YOLOE+s                                                             | 640                         | 43.7                       | -                                    | 2.62                                      | 7.93                     | 17.36                   |
+| PP-YOLOE+m                                                             | 640                         | 49.8                       | -                                    | 5.56                                      | 23.43                    | 49.91                   |
+| PP-YOLOE+l                                                             | 640                         | 52.9                       | -                                    | 8.36                                      | 52.2                     | 110.07                  |
+| PP-YOLOE+x                                                             | 640                         | **54.7**                   | -                                    | 14.3                                      | 98.42                    | 206.59                  |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| [YOLOv8n](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) | 640                         | 37.3                       | **80.4**                             | **1.47**                                  | **3.2**                  | **8.7**                 |
+| [YOLOv8s](https://platform.ultralytics.com/ultralytics/yolov8/yolov8s) | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
+| [YOLOv8m](https://platform.ultralytics.com/ultralytics/yolov8/yolov8m) | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
+| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
+| [YOLOv8x](https://platform.ultralytics.com/ultralytics/yolov8/yolov8x) | 640                         | 53.9                       | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
 
 While the largest PP-YOLOE+x model slightly edges out YOLOv8x in mAP, it comes at the massive cost of nearly 100M parameters. **Ultralytics YOLOv8 models consistently demonstrate a far superior performance balance.** The YOLOv8 architectures require significantly lower memory usage during training and inference compared to heavier counterparts, making them ideal for scaling in production.
 
@@ -68,7 +68,7 @@ While the largest PP-YOLOE+x model slightly edges out YOLOv8x in mAP, it comes a
 
 When evaluating models, the surrounding ecosystem is as crucial as the raw architecture. PP-YOLOE+ demands navigating complex configuration files and dependencies specific to the PaddlePaddle framework.
 
-Conversely, the Ultralytics experience is designed for maximum developer velocity. The well-maintained ecosystem boasts a simple [Python API](https://docs.ultralytics.com/usage/python) and an incredibly active community. Furthermore, the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolov8) simplifies the entire ML pipeline, offering seamless dataset management, cloud training, and simple exports to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx) and [TensorRT](https://docs.ultralytics.com/integrations/tensorrt).
+Conversely, the Ultralytics experience is designed for maximum developer velocity. The well-maintained ecosystem boasts a simple [Python API](https://docs.ultralytics.com/usage/python) and an incredibly active community. Furthermore, the [Ultralytics Platform](https://platform.ultralytics.com) simplifies the entire ML pipeline, offering seamless dataset management, cloud training, and simple exports to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx) and [TensorRT](https://docs.ultralytics.com/integrations/tensorrt).
 
 !!! tip "Streamlined PyTorch Deployment"
 

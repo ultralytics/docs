@@ -56,19 +56,19 @@ When deploying models to edge devices or cloud servers, the balance of accuracy 
 
 Below is a detailed comparison table of the models evaluated on COCO val2017.
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv8n    | 640                         | 37.3                       | **80.4**                             | **1.47**                                  | **3.2**                  | **8.7**                 |
-| YOLOv8s    | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
-| YOLOv8m    | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
-| YOLOv8l    | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
-| YOLOv8x    | 640                         | 53.9                       | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
-|            |                             |                            |                                      |                                           |                          |                         |
-| PP-YOLOE+t | 640                         | 39.9                       | -                                    | 2.84                                      | 4.85                     | 19.15                   |
-| PP-YOLOE+s | 640                         | 43.7                       | -                                    | 2.62                                      | 7.93                     | 17.36                   |
-| PP-YOLOE+m | 640                         | 49.8                       | -                                    | 5.56                                      | 23.43                    | 49.91                   |
-| PP-YOLOE+l | 640                         | 52.9                       | -                                    | 8.36                                      | 52.2                     | 110.07                  |
-| PP-YOLOE+x | 640                         | **54.7**                   | -                                    | 14.3                                      | 98.42                    | 206.59                  |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| [YOLOv8n](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) | 640                         | 37.3                       | **80.4**                             | **1.47**                                  | **3.2**                  | **8.7**                 |
+| [YOLOv8s](https://platform.ultralytics.com/ultralytics/yolov8/yolov8s) | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
+| [YOLOv8m](https://platform.ultralytics.com/ultralytics/yolov8/yolov8m) | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
+| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
+| [YOLOv8x](https://platform.ultralytics.com/ultralytics/yolov8/yolov8x) | 640                         | 53.9                       | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| PP-YOLOE+t                                                             | 640                         | 39.9                       | -                                    | 2.84                                      | 4.85                     | 19.15                   |
+| PP-YOLOE+s                                                             | 640                         | 43.7                       | -                                    | 2.62                                      | 7.93                     | 17.36                   |
+| PP-YOLOE+m                                                             | 640                         | 49.8                       | -                                    | 5.56                                      | 23.43                    | 49.91                   |
+| PP-YOLOE+l                                                             | 640                         | 52.9                       | -                                    | 8.36                                      | 52.2                     | 110.07                  |
+| PP-YOLOE+x                                                             | 640                         | **54.7**                   | -                                    | 14.3                                      | 98.42                    | 206.59                  |
 
 ### Analyzing the Trade-offs
 

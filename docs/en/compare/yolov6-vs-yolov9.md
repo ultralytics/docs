@@ -40,7 +40,7 @@ The primary strength of YOLOv6-3.0 lies in its high frame rate on GPUs like the 
 Released a year later, [YOLOv9](https://docs.ultralytics.com/models/yolov9) focuses on solving the information bottleneck problem inherent in deep neural networks, pushing the theoretical limits of CNN architectures.
 
 - **Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao
-- **Organization:** [Institute of Information Science, Academia Sinica](https://www.iis.sinica.edu.tw/zh/index.html)
+- **Organization:** [Institute of Information Science, Academia Sinica](https://www.iis.sinica.edu.tw/en/index.html)
 - **Date:** February 21, 2024
 - **Arxiv:** [2402.13616](https://arxiv.org/abs/2402.13616)
 - **GitHub:** [WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9)

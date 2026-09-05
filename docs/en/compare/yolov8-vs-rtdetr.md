@@ -2,7 +2,7 @@
 title: YOLOv8 vs RTDETRv2 Comparison
 comments: true
 description: Explore the detailed comparison of YOLOv8 and RTDETRv2 models for object detection. Discover their architecture, performance, and best use cases.
-keywords: YOLOv8,RTDETRv2,object detection,model comparison,performance metrics,real-time detection,transformer-based models,computer vision,Ultralytics
+keywords: YOLOv8, RTDETRv2, object detection, model comparison, performance metrics, real-time detection, transformer-based models, computer vision, Ultralytics
 ---
 
 # YOLOv8 vs RTDETRv2
@@ -17,11 +17,11 @@ Ultralytics YOLOv8 represents a major milestone in the YOLO (You Only Look Once)
 
 **Key Characteristics:**
 
-- Authors: Glenn Jocher, Ayush Chaurasia, and Jing Qiu
-- Organization: [Ultralytics](https://www.ultralytics.com)
-- Date: January 10, 2023
-- GitHub: [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
-- Docs: [YOLOv8 Documentation](https://docs.ultralytics.com/models/yolov8)
+- **Authors:** Glenn Jocher, Ayush Chaurasia, and Jing Qiu
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
+- **Date:** January 10, 2023
+- **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
+- **Docs:** [YOLOv8 Documentation](https://docs.ultralytics.com/models/yolov8)
 
 ### Architecture and Strengths
 
@@ -41,12 +41,12 @@ RTDETRv2 (Real-Time Detection Transformer version 2) builds on the original RT-D
 
 **Key Characteristics:**
 
-- Authors: Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
-- Organization: [Baidu](https://www.baidu.com/)
-- Date: 2024-07-24
-- Arxiv: [2407.17140](https://arxiv.org/abs/2407.17140)
-- GitHub: [RT-DETR Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
-- Docs: [RTDETRv2 README](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
+- **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
+- **Organization:** [Baidu](https://www.baidu.com/)
+- **Date:** 2024-07-24
+- **Arxiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
+- **GitHub:** [RT-DETR Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
+- **Docs:** [RTDETRv2 README](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
 
 ### Architecture and Strengths
 
@@ -62,18 +62,18 @@ Despite its high accuracy, the transformer-based nature of RTDETRv2 introduces h
 
 When evaluating models for production, the trade-off between model size, inference speed, and accuracy is paramount. The table below provides a direct comparison of YOLOv8 and RTDETRv2 variants.
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv8n    | 640                         | 37.3                       | **80.4**                             | **1.47**                                  | **3.2**                  | **8.7**                 |
-| YOLOv8s    | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
-| YOLOv8m    | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
-| YOLOv8l    | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
-| YOLOv8x    | 640                         | 53.9                       | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
-|            |                             |                            |                                      |                                           |                          |                         |
-| RTDETRv2-s | 640                         | 48.1                       | -                                    | 5.03                                      | 20                       | 60                      |
-| RTDETRv2-m | 640                         | 51.9                       | -                                    | 7.51                                      | 36                       | 100                     |
-| RTDETRv2-l | 640                         | 53.4                       | -                                    | 9.76                                      | 42                       | 136                     |
-| RTDETRv2-x | 640                         | **54.3**                   | -                                    | 15.03                                     | 76                       | 259                     |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| [YOLOv8n](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) | 640                         | 37.3                       | **80.4**                             | **1.47**                                  | **3.2**                  | **8.7**                 |
+| [YOLOv8s](https://platform.ultralytics.com/ultralytics/yolov8/yolov8s) | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
+| [YOLOv8m](https://platform.ultralytics.com/ultralytics/yolov8/yolov8m) | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
+| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
+| [YOLOv8x](https://platform.ultralytics.com/ultralytics/yolov8/yolov8x) | 640                         | 53.9                       | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| RTDETRv2-s                                                             | 640                         | 48.1                       | -                                    | 5.03                                      | 20                       | 60                      |
+| RTDETRv2-m                                                             | 640                         | 51.9                       | -                                    | 7.51                                      | 36                       | 100                     |
+| RTDETRv2-l                                                             | 640                         | 53.4                       | -                                    | 9.76                                      | 42                       | 136                     |
+| RTDETRv2-x                                                             | 640                         | **54.3**                   | -                                    | 15.03                                     | 76                       | 259                     |
 
 !!! note "Hardware and Metrics"
 

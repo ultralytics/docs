@@ -53,7 +53,7 @@ One of YOLOv5's greatest strengths is its [versatility across tasks](https://doc
 
 ### DAMO-YOLO: Automated Architecture Search
 
-DAMO-YOLO’s core innovation is its **MAE-NAS Backbone**. Using a Multi-Objective Evolutionary search, the Alibaba team discovered backbones that balance detection accuracy and inference speed dynamically.
+DAMO-YOLO's core innovation is its **MAE-NAS Backbone**. Using a maximum-entropy guided search, the Alibaba team discovered backbones that balance detection accuracy and inference speed dynamically.
 
 Additionally, it features the **Efficient RepGFPN** neck for improved feature fusion—highly beneficial for complex scale variations often seen in [satellite imagery analysis](https://en.wikipedia.org/wiki/Satellite_imagery). Its **ZeroHead** design simplifies the final prediction layers to reduce latency, though this complex structural generation can make the architecture rigid and harder to modify for custom applications.
 
@@ -65,18 +65,18 @@ Additionally, it features the **Efficient RepGFPN** neck for improved feature fu
 
 Evaluating real-time object detectors requires looking at a matrix of mAP (mean Average Precision), inference speed, and model size parameters.
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv5n    | 640                         | 28.0                       | **73.6**                             | **1.12**                                  | **2.6**                  | **7.7**                 |
-| YOLOv5s    | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
-| YOLOv5m    | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
-| YOLOv5l    | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
-| YOLOv5x    | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
-|            |                             |                            |                                      |                                           |                          |                         |
-| DAMO-YOLOt | 640                         | 42.0                       | -                                    | 2.32                                      | 8.5                      | 18.1                    |
-| DAMO-YOLOs | 640                         | 46.0                       | -                                    | 3.45                                      | 16.3                     | 37.8                    |
-| DAMO-YOLOm | 640                         | 49.2                       | -                                    | 5.09                                      | 28.2                     | 61.8                    |
-| DAMO-YOLOl | 640                         | **50.8**                   | -                                    | 7.18                                      | 42.1                     | 97.3                    |
+| Model                                                                   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ----------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | **73.6**                             | **1.12**                                  | **2.6**                  | **7.7**                 |
+| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
+| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
+| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
+| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
+|                                                                         |                             |                            |                                      |                                           |                          |                         |
+| DAMO-YOLOt                                                              | 640                         | 42.0                       | -                                    | 2.32                                      | 8.5                      | 18.1                    |
+| DAMO-YOLOs                                                              | 640                         | 46.0                       | -                                    | 3.45                                      | 16.3                     | 37.8                    |
+| DAMO-YOLOm                                                              | 640                         | 49.2                       | -                                    | 5.09                                      | 28.2                     | 61.8                    |
+| DAMO-YOLOl                                                              | 640                         | **50.8**                   | -                                    | 7.18                                      | 42.1                     | 97.3                    |
 
 While DAMO-YOLO achieves highly competitive mAP scores at certain parameter counts, YOLOv5 consistently demonstrates exceptional [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) speeds and incredibly low parameter counts for its nano and small configurations. This performance balance ensures YOLOv5 operates efficiently across diverse edge deployment scenarios.
 
@@ -86,7 +86,7 @@ A model's theoretical accuracy is only as good as its practical implementability
 
 ### The Complexity of Distillation
 
-DAMO-YOLO relies heavily on a multi-stage training methodology. It implements a teacher-student knowledge distillation technique known as AlignedOTA. While this extracts maximum performance from the student model, it requires initially training a massive teacher model. This drastically increases the compute time, energy costs, and hardware required, posing a bottleneck for agile ML teams.
+DAMO-YOLO relies heavily on a multi-stage training methodology. It pairs AlignedOTA label assignment with a teacher-student knowledge distillation technique. While this extracts maximum performance from the student model, it requires initially training a massive teacher model. This drastically increases the compute time, energy costs, and hardware required, posing a bottleneck for agile ML teams.
 
 ### The Ultralytics Advantage: Ease of Use
 

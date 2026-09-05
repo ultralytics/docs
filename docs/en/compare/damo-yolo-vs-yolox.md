@@ -18,24 +18,26 @@ This comprehensive guide explores the technical nuances of both models and highl
 ### DAMO-YOLO Details
 
 Developed by a team of researchers at the Alibaba Group, DAMO-YOLO was introduced as a highly efficient object detection method that leverages automated architecture discovery.
-Authors: Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun  
-Organization: [Alibaba Group](https://www.alibabagroup.com/)  
-Date: 2022-11-23  
-Arxiv: [https://arxiv.org/abs/2211.15444v2](https://arxiv.org/abs/2211.15444v2)  
-GitHub: [https://github.com/tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)  
-Docs: [DAMO-YOLO Documentation](https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md)
+
+- **Authors:** Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun
+- **Organization:** [Alibaba Group](https://www.alibabagroup.com/)
+- **Date:** 2022-11-23
+- **Arxiv:** [https://arxiv.org/abs/2211.15444v2](https://arxiv.org/abs/2211.15444v2)
+- **GitHub:** [https://github.com/tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)
+- **Docs:** [DAMO-YOLO Documentation](https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md)
 
 [Learn more about DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO){ .md-button }
 
 ### YOLOX Details
 
 Created by researchers at Megvii, YOLOX aimed to bridge the gap between research and industrial communities by switching the YOLO series to an anchor-free design, drastically simplifying the architecture while achieving better performance at the time.
-Authors: Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun  
-Organization: [Megvii](https://en.megvii.com/)  
-Date: 2021-07-18  
-Arxiv: [https://arxiv.org/abs/2107.08430](https://arxiv.org/abs/2107.08430)  
-GitHub: [https://github.com/Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)  
-Docs: [YOLOX Documentation](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
+
+- **Authors:** Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun
+- **Organization:** [Megvii](https://en.megvii.com/)
+- **Date:** 2021-07-18
+- **Arxiv:** [https://arxiv.org/abs/2107.08430](https://arxiv.org/abs/2107.08430)
+- **GitHub:** [https://github.com/Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
+- **Docs:** [YOLOX Documentation](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
 [Learn more about YOLOX](https://github.com/Megvii-BaseDetection/YOLOX){ .md-button }
 
@@ -45,7 +47,7 @@ Docs: [YOLOX Documentation](https://github.com/Megvii-BaseDetection/YOLOX/tree/m
 
 DAMO-YOLO relies heavily on Neural Architecture Search (NAS). The core components include:
 
-- **MAE-NAS Backbones:** Uses a multi-objective evolutionary search algorithm to discover backbones that provide the optimal balance between inference speed and accuracy.
+- **MAE-NAS Backbones:** Uses a maximum-entropy guided search to discover backbones that provide the optimal balance between inference speed and accuracy.
 - **Efficient RepGFPN:** A heavy-neck design adapted for feature fusion, which helps the model maintain high accuracy across varying object scales.
 - **ZeroHead:** A simplified, lightweight detection head that scales down the computational overhead in the final prediction layers.
 

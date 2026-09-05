@@ -17,22 +17,22 @@ Before diving into performance metrics, it is helpful to understand the backgrou
 
 **YOLO26**
 
-- Authors: Glenn Jocher and Jing Qiu
-- Organization: [Ultralytics](https://www.ultralytics.com)
-- Date: 2026-01-14
-- GitHub: [Ultralytics GitHub Repository](https://github.com/ultralytics/ultralytics)
-- Docs: [YOLO26 Official Documentation](https://docs.ultralytics.com/models/yolo26)
+- **Authors:** Glenn Jocher and Jing Qiu
+- **Organization:** [Ultralytics](https://www.ultralytics.com)
+- **Date:** 2026-01-14
+- **GitHub:** [Ultralytics GitHub Repository](https://github.com/ultralytics/ultralytics)
+- **Docs:** [YOLO26 Official Documentation](https://docs.ultralytics.com/models/yolo26)
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
 **YOLOv6-3.0**
 
-- Authors: Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu
-- Organization: [Meituan](https://tech.meituan.com/)
-- Date: 2023-01-13
-- Arxiv: [YOLOv6 v3.0 Paper](https://arxiv.org/abs/2301.05586)
-- GitHub: [YOLOv6 GitHub Repository](https://github.com/meituan/YOLOv6)
-- Docs: [YOLOv6 Documentation](https://docs.ultralytics.com/models/yolov6)
+- **Authors:** Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu
+- **Organization:** [Meituan](https://tech.meituan.com/)
+- **Date:** 2023-01-13
+- **Arxiv:** [YOLOv6 v3.0 Paper](https://arxiv.org/abs/2301.05586)
+- **GitHub:** [YOLOv6 GitHub Repository](https://github.com/meituan/YOLOv6)
+- **Docs:** [YOLOv6 Documentation](https://docs.ultralytics.com/models/yolov6)
 
 [Learn more about YOLOv6-3.0](https://docs.ultralytics.com/models/yolov6){ .md-button }
 
@@ -54,18 +54,18 @@ Developed by the vision team at Meituan, YOLOv6-3.0 is a highly capable, industr
 
 The true test of any model is how it balances [mean average precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) with inference speed and parameter count. Ultralytics models are renowned for their exceptional memory requirements and performance balance, often outperforming transformer-based models that demand massive CUDA memory overhead.
 
-| Model       | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ----------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLO26n     | 640                         | 40.9                       | **38.9**                             | 1.7                                       | **2.4**                  | **5.4**                 |
-| YOLO26s     | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.7                    |
-| YOLO26m     | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.2                    |
-| YOLO26l     | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.4                    |
-| YOLO26x     | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 193.9                   |
-|             |                             |                            |                                      |                                           |                          |                         |
-| YOLOv6-3.0n | 640                         | 37.5                       | -                                    | **1.17**                                  | 4.7                      | 11.4                    |
-| YOLOv6-3.0s | 640                         | 45.0                       | -                                    | 2.66                                      | 18.5                     | 45.3                    |
-| YOLOv6-3.0m | 640                         | 50.0                       | -                                    | 5.28                                      | 34.9                     | 85.8                    |
-| YOLOv6-3.0l | 640                         | 52.8                       | -                                    | 8.95                                      | 59.6                     | 150.7                   |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | 40.9                       | **38.9**                             | 1.7                                       | **2.4**                  | **5.4**                 |
+| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.7                    |
+| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.2                    |
+| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.4                    |
+| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 193.9                   |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| YOLOv6-3.0n                                                            | 640                         | 37.5                       | -                                    | **1.17**                                  | 4.7                      | 11.4                    |
+| YOLOv6-3.0s                                                            | 640                         | 45.0                       | -                                    | 2.66                                      | 18.5                     | 45.3                    |
+| YOLOv6-3.0m                                                            | 640                         | 50.0                       | -                                    | 5.28                                      | 34.9                     | 85.8                    |
+| YOLOv6-3.0l                                                            | 640                         | 52.8                       | -                                    | 8.95                                      | 59.6                     | 150.7                   |
 
 As seen in the data, YOLO26 consistently achieves a higher mAP at roughly half the parameter count of its YOLOv6 counterparts. For example, YOLO26s outperforms YOLOv6-3.0s by 3.6 mAP points while utilizing nearly half the parameters (9.5M vs 18.5M).
 
@@ -83,7 +83,7 @@ Conversely, YOLOv6-3.0 utilizes a heavy self-distillation strategy. While effect
 
 ### Ecosystem and Ease of Use
 
-One of the largest advantages of choosing YOLO26 is the well-maintained ecosystem of the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolo26). Ultralytics is famous for its "zero-to-hero" ease of use. Developers can install the Python package and begin training in minutes.
+One of the largest advantages of choosing YOLO26 is the well-maintained ecosystem of the [Ultralytics Platform](https://platform.ultralytics.com). Ultralytics is famous for its "zero-to-hero" ease of use. Developers can install the Python package and begin training in minutes.
 
 In contrast, YOLOv6 requires cloning the research repository, managing dependencies manually, and navigating complex launch scripts, which can slow down deployment for fast-paced engineering teams.
 

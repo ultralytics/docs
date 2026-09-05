@@ -20,13 +20,13 @@ Understanding the origins of these models provides context for their design phil
 ### YOLOv5
 
 Released by Glenn Jocher and the team at [Ultralytics](https://www.ultralytics.com/about) on June 26, 2020, YOLOv5 revolutionized the field by providing a native [PyTorch](https://pytorch.org/) implementation that prioritized usability without sacrificing performance. It quickly became an industry standard due to its incredibly streamlined ecosystem and reliable training dynamics.
-You can explore the source code on the [YOLOv5 GitHub repository](https://github.com/ultralytics/yolov5) or access the model directly via the [Ultralytics Platform](https://platform.ultralytics.com/ultralytics/yolov5).
+You can explore the source code on the [YOLOv5 GitHub repository](https://github.com/ultralytics/yolov5) or access the model directly via the [Ultralytics Platform](https://platform.ultralytics.com).
 
 [Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
 
 ### YOLOv7
 
-Introduced by Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao from the Institute of Information Science, Academia Sinica, Taiwan on July 6, 2022. YOLOv7 focused heavily on architectural innovations like Extended Efficient Layer Aggregation Networks (E-ELAN) and a trainable "bag-of-freebies" to push the state-of-the-art in accuracy.
+Introduced by Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao from the Institute of Information Science, Academia Sinica, Taiwan, on July 6, 2022, YOLOv7 focused heavily on architectural innovations like Extended Efficient Layer Aggregation Networks (E-ELAN) and a trainable "bag-of-freebies" to push the state-of-the-art in accuracy.
 Details can be found in their [official Arxiv paper](https://arxiv.org/abs/2207.02696) and the [YOLOv7 GitHub repository](https://github.com/WongKinYiu/yolov7). For seamless integration, check out the [Ultralytics YOLOv7 documentation](https://docs.ultralytics.com/models/yolov7).
 
 [Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
@@ -49,16 +49,16 @@ YOLOv7 introduced several structural re-parameterizations and the E-ELAN archite
 
 When comparing these models, developers must balance mAP<sup>val</sup>, inference speed, and computational complexity (FLOPs). The table below demonstrates the performance of both architectures evaluated on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco).
 
-| Model   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv7l | 640                         | 51.4                       | -                                    | 6.84                                      | 36.9                     | 104.7                   |
-| YOLOv7x | 640                         | **53.1**                   | -                                    | 11.57                                     | 71.3                     | 189.9                   |
-|         |                             |                            |                                      |                                           |                          |                         |
-| YOLOv5n | 640                         | 28.0                       | **73.6**                             | **1.12**                                  | **2.6**                  | **7.7**                 |
-| YOLOv5s | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
-| YOLOv5m | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
-| YOLOv5l | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
-| YOLOv5x | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
+| Model                                                                   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ----------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOv7l                                                                 | 640                         | 51.4                       | -                                    | 6.84                                      | 36.9                     | 104.7                   |
+| YOLOv7x                                                                 | 640                         | **53.1**                   | -                                    | 11.57                                     | 71.3                     | 189.9                   |
+|                                                                         |                             |                            |                                      |                                           |                          |                         |
+| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | **73.6**                             | **1.12**                                  | **2.6**                  | **7.7**                 |
+| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
+| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
+| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
+| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
 
 ### Key Takeaways
 

@@ -11,8 +11,6 @@ The landscape of computer vision is constantly shifting, often highlighted by th
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["RTDETRv2", "YOLOv8"]'></canvas>
 
----
-
 ## Model Overview: RTDETRv2
 
 RTDETRv2 (Real-Time Detection Transformer version 2) builds upon the foundational success of its predecessor by optimizing the vision transformer architecture for real-time inference speeds.
@@ -33,8 +31,6 @@ At its core, RTDETRv2 leverages a hybrid architecture combining a CNN backbone w
 Despite its powerful contextual understanding, transformer-based architectures like RTDETRv2 require immense computational overhead during training. They demand a significant amount of CUDA memory, making them difficult to train on consumer-grade hardware. Additionally, setting up a custom dataset and tuning the training hyperparameters often requires deep domain expertise, as the model lacks a highly polished, beginner-friendly software wrapper. Deployment to low-power edge devices such as older [Raspberry Pi hardware](https://docs.ultralytics.com/guides/raspberry-pi) can also prove challenging due to the heavy attention mechanisms.
 
 [Learn more about RTDETRv2](https://docs.ultralytics.com/models/rtdetr){ .md-button }
-
----
 
 ## Model Overview: YOLOv8
 
@@ -57,24 +53,22 @@ YOLOv8 does rely on traditional NMS during its post-processing phase. While the 
 
 [Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
----
-
 ## Performance and Metrics Comparison
 
 When comparing raw numbers, it becomes evident that both models prioritize different aspects of the deployment pipeline. Below is a side-by-side performance analysis.
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| RTDETRv2-s | 640                         | 48.1                       | -                                    | 5.03                                      | 20                       | 60                      |
-| RTDETRv2-m | 640                         | 51.9                       | -                                    | 7.51                                      | 36                       | 100                     |
-| RTDETRv2-l | 640                         | 53.4                       | -                                    | 9.76                                      | 42                       | 136                     |
-| RTDETRv2-x | 640                         | **54.3**                   | -                                    | 15.03                                     | 76                       | 259                     |
-|            |                             |                            |                                      |                                           |                          |                         |
-| YOLOv8n    | 640                         | 37.3                       | **80.4**                             | **1.47**                                  | **3.2**                  | **8.7**                 |
-| YOLOv8s    | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
-| YOLOv8m    | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
-| YOLOv8l    | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
-| YOLOv8x    | 640                         | 53.9                       | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| RTDETRv2-s                                                             | 640                         | 48.1                       | -                                    | 5.03                                      | 20                       | 60                      |
+| RTDETRv2-m                                                             | 640                         | 51.9                       | -                                    | 7.51                                      | 36                       | 100                     |
+| RTDETRv2-l                                                             | 640                         | 53.4                       | -                                    | 9.76                                      | 42                       | 136                     |
+| RTDETRv2-x                                                             | 640                         | **54.3**                   | -                                    | 15.03                                     | 76                       | 259                     |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| [YOLOv8n](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) | 640                         | 37.3                       | **80.4**                             | **1.47**                                  | **3.2**                  | **8.7**                 |
+| [YOLOv8s](https://platform.ultralytics.com/ultralytics/yolov8/yolov8s) | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
+| [YOLOv8m](https://platform.ultralytics.com/ultralytics/yolov8/yolov8m) | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
+| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
+| [YOLOv8x](https://platform.ultralytics.com/ultralytics/yolov8/yolov8x) | 640                         | 53.9                       | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
 
 !!! tip "Interpreting the Metrics"
 

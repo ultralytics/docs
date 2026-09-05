@@ -15,11 +15,11 @@ The landscape of [computer vision](https://www.ultralytics.com/glossary/computer
 
 RTDETRv2 (Real-Time Detection Transformer version 2) builds upon the foundation of its predecessor to prove that transformer-based architectures can effectively compete in real-time scenarios without relying on traditional post-processing steps.
 
-**Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu  
-**Organization:** [Baidu](https://www.baidu.com/)
-**Date:** 2024-07-24
-**Arxiv:** [https://arxiv.org/abs/2407.17140](https://arxiv.org/abs/2407.17140)  
-**GitHub:** [RTDETRv2 Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
+- **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
+- **Organization:** [Baidu](https://www.baidu.com/)
+- **Date:** 2024-07-24
+- **Arxiv:** [https://arxiv.org/abs/2407.17140](https://arxiv.org/abs/2407.17140)
+- **GitHub:** [RTDETRv2 Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 
 ### Architectural Highlights
 
@@ -37,11 +37,11 @@ However, this comes at a computational cost. Transformer models traditionally re
 
 Released a year prior to RTDETRv2, YOLOv7 introduced several structural optimizations to the classic YOLO framework, setting a strong benchmark for CNN-based real-time detectors at the time of its publication.
 
-**Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao  
-**Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/zh/index.html)  
-**Date:** 2022-07-06  
-**Arxiv:** [https://arxiv.org/abs/2207.02696](https://arxiv.org/abs/2207.02696)  
-**GitHub:** [YOLOv7 Repository](https://github.com/WongKinYiu/yolov7)
+- **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
+- **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)
+- **Date:** 2022-07-06
+- **Arxiv:** [https://arxiv.org/abs/2207.02696](https://arxiv.org/abs/2207.02696)
+- **GitHub:** [YOLOv7 Repository](https://github.com/WongKinYiu/yolov7)
 
 ### Architectural Highlights
 
@@ -125,4 +125,4 @@ For modern [smart city](https://www.ultralytics.com/blog/computer-vision-ai-in-s
 
 !!! tip "Explore More Comparisons"
 
-    Interested in how these models stack up against other architectures? Check out our detailed guides on [YOLO11 vs. RTDETR](https://docs.ultralytics.com/compare/rtdetr-vs-yolo11) and [YOLOv8 vs. YOLOv7](https://docs.ultralytics.com/compare/yolov8-vs-yolov7) to find the perfect fit for your vision AI project.
+    Interested in how these models stack up against other architectures? Check out our detailed guides on [YOLO11 vs. RT-DETR](https://docs.ultralytics.com/compare/rtdetr-vs-yolo11) and [YOLOv8 vs. YOLOv7](https://docs.ultralytics.com/compare/yolov8-vs-yolov7) to find the perfect fit for your vision AI project.
