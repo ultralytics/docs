@@ -64,7 +64,7 @@ When comparing these models across the MS COCO benchmark, the advancements in YO
 | YOLOXl    | 640                         | 49.7                       | -                                    | 9.04                                      | 54.2                     | 155.6                   |
 | YOLOXx    | 640                         | 51.1                       | -                                    | 16.1                                      | 99.1                     | 281.9                   |
 
-While YOLOX offers lightweight variants like YOLOX-Nano for extreme edge cases, YOLOv9 variants consistently outperform similarly sized YOLOX models in pure [accuracy](https://www.ultralytics.com/glossary/accuracy). For instance, YOLOv9m achieves a 51.4% mAP compared to YOLOXl's 49.7%, despite having fewer than half the parameters (20.0M vs 54.2M).
+While YOLOX offers lightweight variants like YOLOX-Nano for extreme edge cases, YOLOv9 variants consistently outperform similarly sized YOLOX models in pure [accuracy](https://www.ultralytics.com/glossary/accuracy). For instance, YOLOv9m achieves a 51.4% mAP compared to YOLOXl's 49.7%, despite having fewer than half the parameters (20.1M vs 54.2M).
 
 ## The Ultralytics Advantage
 

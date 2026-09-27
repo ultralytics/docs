@@ -66,7 +66,7 @@ When selecting an [object detection](https://docs.ultralytics.com/tasks/detect) 
 
 ### Analysis
 
-- **Accuracy vs. Parameters:** YOLOv9 generally demonstrates a superior parameter-to-accuracy ratio. For instance, YOLOv9c achieves 53.0% mAP with 25.3M parameters, while DAMO-YOLOl achieves 50.8% mAP but requires significantly more parameters (42.1M).
+- **Accuracy vs. Parameters:** YOLOv9 generally demonstrates a superior parameter-to-accuracy ratio. For instance, YOLOv9c achieves 53.0% mAP with 25.5M parameters, while DAMO-YOLOl achieves 50.8% mAP but requires significantly more parameters (42.1M).
 - **Inference Speed:** DAMO-YOLO's architecture provides competitive TensorRT inference speeds on T4 GPUs, slightly edging out YOLOv9 in the medium tiers. However, YOLOv9's efficiency in FLOPs and parameter count translates to exceptional [GPU memory efficiency](https://docs.ultralytics.com/guides/yolo-performance-metrics).
 - **Memory Requirements:** Ultralytics YOLO models, including YOLOv9, typically exhibit lower memory usage during both training and inference compared to complex NAS-generated models or heavy transformer architectures, making them highly accessible for deployment on constrained edge hardware.
 

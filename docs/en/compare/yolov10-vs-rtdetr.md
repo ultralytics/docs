@@ -77,7 +77,7 @@ Evaluating the performance metrics provides a clearer picture of where each mode
 | RTDETRv2-l | 640                         | 53.4                       | -                                    | 9.76                                      | 42                       | 136                     |
 | RTDETRv2-x | 640                         | 54.3                       | -                                    | 15.03                                     | 76                       | 259                     |
 
-When analyzing the data, YOLOv10 maintains a strict advantage in parameter efficiency and TensorRT inference speed across comparable sizes. RTDETRv2-x matches the massive YOLOv10x in accuracy but requires nearly 20 million more parameters and significantly higher FLOPs.
+When analyzing the data, YOLOv10 maintains a strict advantage in parameter efficiency and TensorRT inference speed across comparable sizes. RTDETRv2-x matches YOLOv10x in accuracy but requires more than 2.5x the parameters (76M vs 29.5M) and significantly higher FLOPs.
 
 ## Use Cases and Recommendations
 

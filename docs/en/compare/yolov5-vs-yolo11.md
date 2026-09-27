@@ -67,7 +67,7 @@ A direct comparison of these models reveals how architectural refinements transl
 
 ### Analyzing the Results
 
-The metrics highlight a clear leap in the **performance balance** achieved by YOLO11. For instance, the YOLO11n (nano) model achieves a 39.5% mAP compared to YOLOv5n's 28.0%, while simultaneously reducing the CPU inference time when exported via [ONNX](https://onnx.ai/). Furthermore, YOLO11 maintains remarkably lower memory requirements during training compared to heavy transformer-based models, making it highly accessible for deployment on consumer hardware and edge devices.
+The metrics highlight a clear leap in the **performance balance** achieved by YOLO11. For instance, the YOLO11n (nano) model achieves a 39.5% mAP compared to YOLOv5n's 28.0%, an 11.5-point gain for only 0.7M additional parameters. Furthermore, YOLO11 maintains remarkably lower memory requirements during training compared to heavy transformer-based models, making it highly accessible for deployment on consumer hardware and edge devices.
 
 ## Architectural Differences
 

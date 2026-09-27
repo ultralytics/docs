@@ -70,7 +70,7 @@ When analyzing raw performance on the standard [COCO dataset](https://docs.ultra
 
 ### Analyzing the Trade-offs
 
-The data reveals that RTDETRv2-x achieves a peak [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) of 54.3%, slightly outperforming YOLOv5x's 50.7%. However, this minor accuracy gain comes at a massive computational cost. YOLOv5x operates with lower latency (11.89 ms vs 15.03 ms on TensorRT) and requires a fraction of the memory footprint. For ultra-low-power edge deployments, YOLOv5n (Nano) remains unchallenged, completing inferences in just 1.12ms with a minuscule 2.6M parameter footprint—a tier that RTDETRv2 does not even attempt to compete in.
+The data reveals that RTDETRv2-x achieves a peak [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) of 54.3%, slightly outperforming YOLOv5x's 50.7%. However, this minor accuracy gain comes at a massive computational cost. YOLOv5x operates with lower latency (11.89 ms vs 15.03 ms on TensorRT) and requires a fraction of the memory footprint. For ultra-low-power edge deployments, YOLOv5n (Nano) remains unchallenged, completing inferences in just 1.12ms with a minuscule 1.9M parameter footprint—a tier that RTDETRv2 does not even attempt to compete in.
 
 ## Training Efficiency and Code Simplicity
 

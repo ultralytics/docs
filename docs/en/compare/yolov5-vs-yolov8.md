@@ -75,7 +75,7 @@ predictions[0].show()
 
 ## Detailed Performance Comparison
 
-When comparing the two generations, we observe a classic trade-off: YOLOv8 achieves higher mean Average Precision ([mAP](https://docs.ultralytics.com/guides/yolo-performance-metrics)) across the board, while YOLOv5 retains a slight edge in absolute raw inference speed and parameter count for its smallest variants.
+When comparing the two generations, we observe a classic trade-off: YOLOv8 achieves higher mean Average Precision ([mAP](https://docs.ultralytics.com/guides/yolo-performance-metrics)) across the board, while YOLOv5 retains an edge in absolute raw inference speed and parameter count for its smallest variants.
 
 Below is the detailed comparison of their performance metrics on the COCO dataset at an image size of 640 pixels.
 

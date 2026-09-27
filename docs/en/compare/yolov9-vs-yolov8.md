@@ -59,7 +59,7 @@ The trade-off between speed and accuracy is the most critical factor when deploy
 | [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.1                   |
 | [YOLOv8x](https://platform.ultralytics.com/ultralytics/yolov8/yolov8x) | 640                         | 53.9                       | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
 
-When analyzing the metrics, YOLOv9 demonstrates a remarkable parameter-to-accuracy ratio. The YOLOv9c model achieves an impressive 53.0% mAP using only 25.3M parameters. However, YOLOv8 maintains a significant edge in **Memory requirements** and inference speed on hardware accelerators, particularly with the YOLOv8n variant clocking in at 1.47ms on an [NVIDIA TensorRT](https://developer.nvidia.com/tensorrt) setup.
+When analyzing the metrics, YOLOv9 demonstrates a remarkable parameter-to-accuracy ratio. The YOLOv9c model achieves an impressive 53.0% mAP using only 25.5M parameters. However, YOLOv8 maintains a significant edge in **Memory requirements** and inference speed on hardware accelerators, particularly with the YOLOv8n variant clocking in at 1.47ms on an [NVIDIA TensorRT](https://developer.nvidia.com/tensorrt) setup.
 
 ## The Ultralytics Ecosystem Advantage
 

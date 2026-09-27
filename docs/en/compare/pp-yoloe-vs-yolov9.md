@@ -67,7 +67,7 @@ When analyzing raw performance, YOLOv9 demonstrates exceptional parameter effici
 | YOLOv9c    | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
 | YOLOv9e    | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
 
-As seen in the table, YOLOv9c achieves a strong 53.0 mAP with significantly fewer parameters (25.3M) than the comparable PP-YOLOE+l (52.2M). This lower memory usage makes YOLOv9 a superior choice for developers working with constrained GPU resources.
+As seen in the table, YOLOv9c achieves a strong 53.0 mAP with significantly fewer parameters (25.5M) than the comparable PP-YOLOE+l (52.2M). This lower memory usage makes YOLOv9 a superior choice for developers working with constrained GPU resources.
 
 ## Ecosystem, Versatility, and Ease of Use
 

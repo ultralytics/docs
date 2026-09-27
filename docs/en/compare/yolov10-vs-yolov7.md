@@ -69,7 +69,7 @@ When comparing raw metrics on the [MS COCO dataset](https://docs.ultralytics.com
 | YOLOv7l  | 640                         | 51.4                       | -                                    | 6.84                                      | 36.9                     | 104.7                   |
 | YOLOv7x  | 640                         | 53.1                       | -                                    | 11.57                                     | 71.3                     | 189.9                   |
 
-As seen above, YOLOv10x delivers a superior mAP of 54.4% compared to YOLOv7x's 53.1%, while using roughly 20% fewer parameters. Furthermore, the lightweight YOLOv10 models (Nano and Small) offer exceptional [TensorRT deployment](https://docs.ultralytics.com/integrations/tensorrt) speeds, making them highly attractive for mobile deployment.
+As seen above, YOLOv10x delivers a superior mAP of 54.4% compared to YOLOv7x's 53.1%, while using less than half the parameters (29.5M vs 71.3M). Furthermore, the lightweight YOLOv10 models (Nano and Small) offer exceptional [TensorRT deployment](https://docs.ultralytics.com/integrations/tensorrt) speeds, making them highly attractive for mobile deployment.
 
 ## The Ultralytics Ecosystem Advantage
 

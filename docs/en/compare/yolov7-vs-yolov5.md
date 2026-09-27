@@ -63,7 +63,7 @@ When comparing these models, developers must balance mAP<sup>val</sup>, inferenc
 ### Key Takeaways
 
 - **Accuracy Ceiling:** YOLOv7x achieves the highest overall accuracy at an impressive 53.1 mAP<sup>val</sup>, making it highly competitive for scenarios where maximizing detection performance is the primary goal.
-- **Speed and Efficiency:** Ultralytics YOLOv5n is a marvel of efficiency, offering lightning-fast [inference latency](https://www.ultralytics.com/glossary/inference-latency) (1.12 ms on T4 TensorRT) with a tiny memory footprint of just 2.6M parameters. This makes it an unparalleled choice for highly constrained edge deployments.
+- **Speed and Efficiency:** Ultralytics YOLOv5n is a marvel of efficiency, offering lightning-fast [inference latency](https://www.ultralytics.com/glossary/inference-latency) (1.12 ms on T4 TensorRT) with a tiny memory footprint of just 1.9M parameters. This makes it an unparalleled choice for highly constrained edge deployments.
 - **Performance Balance:** The YOLOv5 series provides an exceptional gradient of models. YOLOv5l offers a fantastic middle ground, trailing YOLOv7l by a small accuracy margin but offering a highly mature deployment pipeline.
 
 ## The Ultralytics Ecosystem Advantage

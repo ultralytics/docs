@@ -73,7 +73,7 @@ When evaluating models for production, the trade-off between mAP (mean Average P
 
 ### Analysis
 
-- **Parameter Efficiency:** YOLOv9 achieves remarkably higher efficiency. For instance, YOLOv9c reaches an mAP of 53.0% using only 25.3M parameters, while PP-YOLOE+l requires over double the parameters (52.2M) to achieve a slightly lower mAP of 52.9%. This drastically lowers the memory requirements for YOLOv9.
+- **Parameter Efficiency:** YOLOv9 achieves remarkably higher efficiency. For instance, YOLOv9c reaches an mAP of 53.0% using only 25.5M parameters, while PP-YOLOE+l requires over double the parameters (52.2M) to achieve a slightly lower mAP of 52.9%. This drastically lowers the memory requirements for YOLOv9.
 - **Inference Speed:** YOLOv9 models demonstrate excellent optimization for hardware accelerators like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), yielding competitive inference speeds on NVIDIA T4 GPUs that are crucial for [real-time inference](https://www.ultralytics.com/blog/real-time-inferences-in-vision-ai-solutions-are-making-an-impact).
 
 ## Training Methodologies and Ecosystem

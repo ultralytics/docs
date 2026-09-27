@@ -58,7 +58,7 @@ While YOLOv5 relies on anchor-based detection heads and standard loss functions,
 
 ## Performance Comparison
 
-When comparing the models on the [COCO dataset](https://cocodataset.org/), YOLO26 showcases massive improvements in precision (mAP) while simultaneously reducing parameter counts and CPU inference times.
+When comparing the models on the [COCO dataset](https://cocodataset.org/), YOLO26 showcases massive improvements in precision (mAP) at every scale while using fewer parameters from the medium variant upward.
 
 | Model                                                                   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ----------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -74,7 +74,7 @@ When comparing the models on the [COCO dataset](https://cocodataset.org/), YOLO2
 | [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l)  | 640                         | **55.0**                   | 286.2                                | **6.2**                                   | **24.8**                 | **86.8**                |
 | [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x)  | 640                         | **57.5**                   | 525.8                                | **11.8**                                  | **55.7**                 | **194.4**               |
 
-_Note: The YOLO26 Nano (YOLO26n) achieves a staggering 40.9 mAP compared to YOLOv5n's 28.0 mAP, while running nearly **2x faster on CPU** (38.9 ms vs. 73.6 ms with ONNX) thanks to DFL removal and the NMS-free head._
+_Note: The YOLO26 Nano (YOLO26n) achieves a staggering 40.9 mAP compared to YOLOv5n's 28.0 mAP, a 12.9-point gain for only 0.5M additional parameters, while DFL removal and the NMS-free head simplify CPU and edge deployment._
 
 ## Versatility and Task Support
 

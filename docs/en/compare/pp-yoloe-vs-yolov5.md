@@ -72,7 +72,7 @@ Evaluating these models requires looking at the trade-off between mean Average P
 | [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | -                                    | 6.61                                      | 46.5                     | 109.1                   |
 | [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | -                                    | 11.89                                     | 86.7                     | 205.7                   |
 
-While PP-YOLOE+ achieves highly competitive mAP scores at the larger scales (such as the X variant), **YOLOv5 provides superior speed and lower parameter counts** at the smaller end of the spectrum. The YOLOv5 Nano (`YOLOv5n`) requires a mere 2.6 million parameters, making it highly suitable for constrained edge devices where memory requirements are strict. Furthermore, training YOLO models typically consumes less CUDA memory compared to heavy transformer-based alternatives like [RT-DETR](https://docs.ultralytics.com/models/rtdetr).
+While PP-YOLOE+ achieves highly competitive mAP scores at the larger scales (such as the X variant), **YOLOv5 provides superior speed and lower parameter counts** at the smaller end of the spectrum. The YOLOv5 Nano (`YOLOv5n`) requires a mere 1.9 million parameters, making it highly suitable for constrained edge devices where memory requirements are strict. Furthermore, training YOLO models typically consumes less CUDA memory compared to heavy transformer-based alternatives like [RT-DETR](https://docs.ultralytics.com/models/rtdetr).
 
 ## The Ultralytics Advantage
 

@@ -62,7 +62,7 @@ When choosing between architectures, AI engineers must balance accuracy, [infere
 
 ### Key Takeaways
 
-- **Parameter Efficiency:** YOLOv9m matches the accuracy of YOLOv7l (51.4% mAP) while utilizing nearly **45% fewer parameters** (20.0M vs 36.9M). This drastic reduction makes YOLOv9m much easier to deploy on memory-constrained [edge AI](https://www.ultralytics.com/glossary/edge-ai) devices.
+- **Parameter Efficiency:** YOLOv9m matches the accuracy of YOLOv7l (51.4% mAP) while utilizing roughly **45% fewer parameters** (20.1M vs 36.9M). This drastic reduction makes YOLOv9m much easier to deploy on memory-constrained [edge AI](https://www.ultralytics.com/glossary/edge-ai) devices.
 - **Micro-Deployments:** The introduction of the YOLOv9t (tiny) variant provides incredible speeds (2.3ms on T4 [TensorRT](https://docs.ultralytics.com/integrations/tensorrt)) for environments where real-time constraints are absolute.
 - **Maximum Accuracy:** For applications where precision is paramount, YOLOv9e pushes detection accuracy to 55.6% mAP, significantly outperforming YOLOv7x.
 

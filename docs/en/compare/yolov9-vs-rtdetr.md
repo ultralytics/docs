@@ -84,7 +84,7 @@ When evaluating models for production, the trade-off between [accuracy](https://
 
 ### Analysis
 
-As the data shows, **YOLOv9** maintains a strict advantage in parameter efficiency. The YOLOv9c model achieves an impressive 53.0 mAP with only 25.3M parameters, making it incredibly lightweight.
+As the data shows, **YOLOv9** maintains a strict advantage in parameter efficiency. The YOLOv9c model achieves an impressive 53.0 mAP with only 25.5M parameters, making it incredibly lightweight.
 
 Conversely, **RTDETRv2** provides strong competition in the medium-to-large model categories. However, this comes at the cost of higher parameter counts and significantly larger FLOPs, typical of [Transformer models](https://www.ultralytics.com/glossary/transformer). This architectural difference also translates to memory usage: YOLO models typically require vastly less CUDA memory during both training and inference compared to their Transformer counterparts.
 

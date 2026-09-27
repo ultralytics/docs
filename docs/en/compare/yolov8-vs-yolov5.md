@@ -43,7 +43,7 @@ The architecture features a **C2f module** (Cross-Stage Partial bottleneck with 
 
 **Weaknesses:**
 
-- The decoupled head and C2f module introduce a slight increase in parameter count and FLOPs for some variants compared to their exact YOLOv5 counterparts.
+- The decoupled head and C2f module introduce an increase in parameter count and FLOPs for the smaller variants compared to their exact YOLOv5 counterparts.
 
 [Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
@@ -96,7 +96,7 @@ When evaluating these models, achieving a favorable trade-off between speed and 
 | [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | -                                    | **6.61**                                  | 46.5                     | **109.1**               |
 | [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | -                                    | **11.89**                                 | 86.7                     | **205.7**               |
 
-While YOLOv5 retains a slight edge in parameter count and absolute raw speed for its Nano variant, YOLOv8 offers a massive jump in mAP across the board, providing a much stronger performance balance for demanding real-world deployment scenarios.
+While YOLOv5 retains an edge in parameter count and absolute raw speed for its Nano variant, YOLOv8 offers a massive jump in mAP across the board, providing a much stronger performance balance for demanding real-world deployment scenarios.
 
 ## Ease of Use and The Ultralytics Ecosystem
 

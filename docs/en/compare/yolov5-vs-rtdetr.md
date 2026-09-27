@@ -80,7 +80,7 @@ To objectively evaluate these architectures, we have compiled their performance 
 
 !!! tip "Performance Context"
 
-    While RTDETRv2-x achieves the highest absolute mAP, it requires nearly 30x the parameters of YOLOv5n. For high-speed applications running on limited hardware, Ultralytics models consistently offer the best computational efficiency.
+    While RTDETRv2-x achieves the highest absolute mAP, it requires roughly 40x the parameters of YOLOv5n. For high-speed applications running on limited hardware, Ultralytics models consistently offer the best computational efficiency.
 
 ## The Ultralytics Ecosystem Advantage
 
