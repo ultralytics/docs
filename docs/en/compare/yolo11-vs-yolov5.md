@@ -47,21 +47,21 @@ In contrast, YOLO11 transitions to a more modern, anchor-free detection paradigm
 
 ## Performance Metrics and Benchmarks
 
-The table below contrasts key metrics across different model sizes. Ultralytics models are renowned for their memory requirements, typically consuming less CUDA memory during training compared to heavy transformer-based alternatives, which drastically lowers the hardware barrier for entry.
+The table below contrasts key metrics across different model sizes. Ultralytics models are renowned for their low memory requirements, typically consuming less CUDA memory during training compared to heavy transformer-based alternatives, which drastically lowers the hardware barrier for entry.
 
 | Model                                                                   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ----------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n)  | 640                         | **39.5**                   | **56.1**                             | 1.5                                       | **2.6**                  | **6.5**                 |
-| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s)  | 640                         | **47.0**                   | **90.0**                             | 2.5                                       | 9.4                      | **21.5**                |
-| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m)  | 640                         | **51.5**                   | **183.2**                            | 4.7                                       | **20.1**                 | 68.0                    |
-| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l)  | 640                         | **53.4**                   | **238.6**                            | **6.2**                                   | **25.3**                 | **86.9**                |
-| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x)  | 640                         | **54.7**                   | **462.8**                            | **11.3**                                  | **56.9**                 | **194.9**               |
+| [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n)  | 640                         | **39.5**                   | 56.1                                 | 1.5                                       | 2.6                      | 6.5                     |
+| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s)  | 640                         | **47.0**                   | 90.0                                 | 2.5                                       | 9.4                      | 21.6                    |
+| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m)  | 640                         | **51.5**                   | 183.2                                | 4.7                                       | **20.1**                 | 68.1                    |
+| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l)  | 640                         | **53.4**                   | 238.6                                | **6.2**                                   | **25.3**                 | **87.2**                |
+| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x)  | 640                         | **54.7**                   | 462.8                                | **11.3**                                  | **56.9**                 | **195.3**               |
 |                                                                         |                             |                            |                                      |                                           |                          |                         |
-| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | 73.6                                 | **1.12**                                  | **2.6**                  | 7.7                     |
-| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | 120.7                                | **1.92**                                  | **9.1**                  | 24.0                    |
-| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | 233.9                                | **4.03**                                  | 25.1                     | **64.2**                |
-| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
-| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
+| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | -                                    | **1.12**                                  | **1.9**                  | **4.5**                 |
+| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | -                                    | **1.92**                                  | **7.2**                  | **16.5**                |
+| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | -                                    | **4.03**                                  | 21.2                     | **49.0**                |
+| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | -                                    | 6.61                                      | 46.5                     | 109.1                   |
+| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | -                                    | 11.89                                     | 86.7                     | 205.7                   |
 
 As observed, YOLO11 achieves a highly favorable performance balance, consistently delivering higher mAP scores at comparable parameter counts to its YOLOv5 counterparts.
 
@@ -71,7 +71,7 @@ A core tenet of the Ultralytics philosophy is exceptional ease of use, supported
 
 YOLOv5 historically relied on robust command-line interface (CLI) scripts (`train.py`, `detect.py`) for execution. While powerful, integrating these scripts directly into custom Python applications often required workarounds.
 
-YOLO11 revolutionized this by introducing the streamlined `ultralytics` Python package. This unified API handles everything from training to [exporting models](https://docs.ultralytics.com/modes/export) formats like [ONNX](https://onnx.ai/), [OpenVINO](https://docs.ultralytics.com/integrations/openvino), and [TensorRT](https://developer.nvidia.com/tensorrt) natively.
+YOLO11 is built on the streamlined `ultralytics` Python package (introduced with YOLOv8). This unified API handles everything from training to [exporting models](https://docs.ultralytics.com/modes/export) to formats like [ONNX](https://onnx.ai/), [OpenVINO](https://docs.ultralytics.com/integrations/openvino), and [TensorRT](https://developer.nvidia.com/tensorrt) natively.
 
 !!! tip "Streamlined Deployment with Ultralytics Platform"
 
@@ -129,7 +129,7 @@ While YOLO11 stands as an exceptional standard, the computer vision frontier con
 
 YOLO26 represents a massive leap forward, explicitly designed for both edge optimization and enterprise scale. Key innovations include:
 
-- **End-to-End NMS-Free Design:** YOLO26 is natively end-to-end, eliminating [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing for faster, simpler deployment.
+- **End-to-End NMS-Free Design:** YOLO26 supports native end-to-end inference, skipping [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing with `nms=False` for faster, simpler deployment.
 - **DFL Removal:** Distribution Focal Loss has been removed for simplified model export and enhanced low-power device compatibility.
 - **MuSGD Optimizer:** A groundbreaking hybrid of SGD and Muon, bringing LLM training stability to computer vision for faster convergence.
 - **Up to 43% Faster CPU Inference:** Heavily optimized for IoT deployments and devices without dedicated [GPUs](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit).

@@ -52,7 +52,7 @@ When comparing these two detectors, we must look beyond the raw numbers and unde
 
 ### PP-YOLOE+ Architecture
 
-PP-YOLOE+ relies heavily on the [PaddlePaddle framework](https://github.com/PaddlePaddle/Paddle). It introduces a powerful anchor-free paradigm, utilizing a RepResNet backbone and a modified Path Aggregation Network (PAN). The "+" variant improved upon its predecessor by incorporating large-scale dataset pre-training (like [Objects365](https://docs.ultralytics.com/datasets/detect/objects365)) and an improved TaskAlignedAssigner. While it achieves high [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map), the hard dependency on PaddlePaddle can introduce friction for teams accustomed to PyTorch or TensorFlow environments.
+PP-YOLOE+ relies heavily on the [PaddlePaddle framework](https://github.com/PaddlePaddle/Paddle). It introduces a powerful anchor-free paradigm, utilizing a CSPRepResNet backbone and a modified Path Aggregation Network (PAN). The "+" variant improved upon its predecessor by incorporating large-scale dataset pre-training (like [Objects365](https://docs.ultralytics.com/datasets/detect/objects365)) and an improved TaskAlignedAssigner. While it achieves high [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map), the hard dependency on PaddlePaddle can introduce friction for teams accustomed to PyTorch or TensorFlow environments.
 
 ### YOLO11 Architecture
 
@@ -71,10 +71,10 @@ The following table highlights the performance differences across various model 
 | PP-YOLOE+x                                                             | 640                         | **54.7**                   | -                                    | 14.3                                      | 98.42                    | 206.59                  |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
 | [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | **2.6**                  | **6.5**                 |
-| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
-| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
-| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
-| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
+| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.6                    |
+| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.1                    |
+| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 87.2                    |
+| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 195.3                   |
 
 ## Use Cases and Recommendations
 
@@ -139,7 +139,7 @@ While YOLO11 remains an exceptionally powerful tool, the field of AI moves rapid
 
 YOLO26 introduces several groundbreaking innovations:
 
-- **End-to-End NMS-Free Design:** Building on concepts first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 is natively end-to-end. It completely eliminates Non-Maximum Suppression (NMS) post-processing, making deployment vastly simpler and significantly reducing latency variability.
+- **End-to-End NMS-Free Design:** Building on concepts first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 offers a native end-to-end head (`nms=False`) that completely eliminates Non-Maximum Suppression (NMS) post-processing, making deployment vastly simpler and significantly reducing latency variability.
 - **Up to 43% Faster CPU Inference:** By strategically removing Distribution Focal Loss (DFL), the model becomes much lighter. This optimization makes it the premier choice for [edge computing](https://docs.ultralytics.com/integrations/edge-tpu) and low-power IoT devices.
 - **MuSGD Optimizer:** YOLO26 brings LLM training innovations to computer vision. Using the MuSGD optimizer (a hybrid of SGD and Muon), it achieves highly stable training dynamics and faster convergence.
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, a critical feature for [drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and aerial surveillance.

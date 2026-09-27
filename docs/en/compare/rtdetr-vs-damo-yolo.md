@@ -21,7 +21,7 @@ Understanding the core mechanics of these models is crucial for machine learning
 
 Building on the success of the original RT-DETR, RTDETRv2 utilizes a hybrid encoder and a [transformer decoder](https://arxiv.org/abs/1706.03762). This design allows the model to process global context highly effectively, making it exceptionally good at distinguishing between overlapping objects in dense scenes. The most significant advantage of this architecture is its native NMS-free (Non-Maximum Suppression) design. By eliminating the NMS post-processing step, RTDETRv2 streamlines the inference pipeline and ensures more stable latency across varying hardware configurations.
 
-[Learn more about RTDETRv2](https://docs.ultralytics.com/models/rtdetr){ .md-button }
+[Learn more about RTDETRv2](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch){ .md-button }
 
 ### DAMO-YOLO: Advancing CNN Efficiency
 
@@ -59,7 +59,7 @@ Conversely, **DAMO-YOLOt** (Tiny) is exceptionally lightweight, requiring only 8
 
 While independent repositories like the official [RT-DETR GitHub](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch) and [DAMO-YOLO GitHub](https://github.com/tinyvision/DAMO-YOLO) offer the raw code to train these models, integrating them into production pipelines often requires extensive boilerplate code and manual optimization.
 
-This is where the [Ultralytics ecosystem](https://www.ultralytics.com) drastically simplifies the developer experience. Ultralytics integrates models like RTDETRv2 directly into its unified API, allowing users to train, validate, and export models with a single line of code. Furthermore, Ultralytics models are known for their minimal memory requirements during training compared to heavy transformer-based standalone repositories.
+This is where the [Ultralytics ecosystem](https://www.ultralytics.com) drastically simplifies the developer experience. Ultralytics integrates transformer detectors like the original [RT-DETR](https://docs.ultralytics.com/models/rtdetr) directly into its unified API, allowing users to train, validate, and export models with a single line of code. Furthermore, Ultralytics models are known for their minimal memory requirements during training compared to heavy transformer-based standalone repositories.
 
 ### Code Example: Seamless Integration
 
@@ -68,7 +68,7 @@ Here is how easily you can leverage the Ultralytics Python library to run infere
 ```python
 from ultralytics import RTDETR, YOLO
 
-# Load an RTDETRv2 model for complex scene understanding
+# Load an RT-DETR model for complex scene understanding
 model_rtdetr = RTDETR("rtdetr-l.pt")
 
 # Load the latest Ultralytics YOLO26 model for ultimate edge performance

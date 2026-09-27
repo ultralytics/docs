@@ -34,7 +34,7 @@ The "Bag-of-Freebies" incorporated into RTDETRv2 enhances its ability to handle 
 
     While transformers excel at complex scene understanding, they typically require significantly higher CUDA memory during training compared to CNNs. This can limit batch sizes on standard consumer GPUs and increase overall training time.
 
-[Learn more about RT-DETR](https://docs.ultralytics.com/models/rtdetr){ .md-button }
+[Learn more about RTDETRv2](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch){ .md-button }
 
 ## YOLOv6-3.0: Industrial Throughput Maximization
 
@@ -107,7 +107,7 @@ Choosing the right model involves more than just raw benchmark numbers; develope
 - **Ease of Use:** The `ultralytics` Python package offers a seamless API. Training, validating, and exporting models takes only a few lines of code.
 - **Well-Maintained Ecosystem:** Unlike isolated academic repos, the [Ultralytics Platform](https://platform.ultralytics.com) is actively updated. It boasts robust integrations for tools like [ONNX](https://docs.ultralytics.com/integrations/onnx), [OpenVINO](https://docs.ultralytics.com/integrations/openvino), and CoreML.
 - **Training Efficiency:** Ultralytics models typically consume significantly lower VRAM during training compared to transformer architectures like RTDETRv2, allowing for larger batch sizes on consumer-grade hardware.
-- **Versatility:** Unlike the focused scope of YOLOv6-3.0, Ultralytics models are multi-task, natively supporting [image classification](https://docs.ultralytics.com/tasks/classify), [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb), and segmentation within a single unified framework.
+- **Versatility:** Unlike the focused scope of YOLOv6-3.0, Ultralytics models are multi-task, natively supporting [segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb) within a single unified framework.
 
 !!! tip "Streamlined Deployment"
 
@@ -119,7 +119,7 @@ While RTDETRv2 and YOLOv6-3.0 offer specific benefits, the field moves rapidly. 
 
 YOLO26 synthesizes the strengths of industrial CNNs and modern transformers while eliminating their respective weaknesses:
 
-- **End-to-End NMS-Free Design:** Adopting the breakthrough first introduced in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 eliminates NMS post-processing natively, ensuring stable, predictable deployment similar to RTDETRv2 but with far less overhead.
+- **End-to-End NMS-Free Design:** Adopting the breakthrough first introduced in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 offers an optional NMS-free head (`nms=False`) that removes NMS post-processing, ensuring stable, predictable deployment similar to RTDETRv2 but with far less overhead.
 - **MuSGD Optimizer:** Inspired by advanced LLM training techniques (such as Moonshot AI's Kimi K2), this hybrid optimizer ensures stable training and faster convergence, overcoming the notorious instability of traditional vision transformers.
 - **Optimized for Edge:** With up to **43% faster CPU inference** than previous generations and the strategic removal of Distribution Focal Loss (DFL), YOLO26 is perfectly suited for mobile and IoT devices where GPU acceleration isn't available.
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, a historic challenge for CNNs, making YOLO26 ideal for aerial imagery and robotics.

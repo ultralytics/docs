@@ -35,16 +35,16 @@ When deploying models into real-world applications, raw accuracy must be balance
 | YOLOv7x                                                                | 640                         | 53.1                       | -                                    | 11.57                                     | 71.3                     | 189.9                   |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
 | [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | **2.6**                  | **6.5**                 |
-| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
-| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
-| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
-| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
+| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.6                    |
+| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.1                    |
+| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 87.2                    |
+| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 195.3                   |
 
 _Note: Missing CPU speeds for YOLOv7 indicate legacy testing environments that did not standardize ONNX CPU benchmarks. Best values in comparable tiers are highlighted._
 
 ### Analyzing the Results
 
-The data illustrates a clear evolution in efficiency. The YOLO11l (Large) model achieves a superior mAP<sup>val</sup> of 53.4% compared to YOLOv7l's 51.4%, while utilizing significantly fewer parameters (25.3M vs 36.9M) and drastically fewer FLOPs (86.9B vs 104.7B). This reduction in computational complexity allows YOLO11 to run faster on [NVIDIA TensorRT implementations](https://developer.nvidia.com/tensorrt) and requires less VRAM, making it much more suitable for hardware-constrained environments.
+The data illustrates a clear evolution in efficiency. The YOLO11l (Large) model achieves a superior mAP<sup>val</sup> of 53.4% compared to YOLOv7l's 51.4%, while utilizing significantly fewer parameters (25.3M vs 36.9M) and drastically fewer FLOPs (87.2B vs 104.7B). This reduction in computational complexity allows YOLO11 to run faster on [NVIDIA TensorRT implementations](https://developer.nvidia.com/tensorrt) and requires less VRAM, making it much more suitable for hardware-constrained environments.
 
 ## Usability and Training Workflows
 
@@ -91,7 +91,7 @@ While YOLO11 represents a highly refined state-of-the-art solution, the machine 
 
 Released in January 2026, YOLO26 introduces several groundbreaking features that surpass both YOLOv7 and YOLO11:
 
-- **Natively NMS-Free Architecture:** YOLO26 eliminates the need for Non-Maximum Suppression post-processing. This end-to-end design simplifies deployment pipelines and dramatically reduces latency variability.
+- **Natively NMS-Free Architecture:** YOLO26's optional one-to-one head (`nms=False`) eliminates the need for Non-Maximum Suppression post-processing. This end-to-end design simplifies deployment pipelines and dramatically reduces latency variability.
 - **Up to 43% Faster CPU Inference:** By strategically removing the Distribution Focal Loss (DFL) module, YOLO26 is heavily optimized for edge devices and environments without dedicated GPUs.
 - **MuSGD Optimizer Integration:** Inspired by advanced LLM training techniques from [Moonshot AI](https://www.moonshot.cn/), this hybrid optimizer ensures unprecedented training stability and faster convergence rates.
 - **Superior Small Object Detection:** The introduction of ProgLoss and STAL loss functions provides critical accuracy boosts for identifying minute details, perfect for analyzing [drone aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and complex IoT sensor data.

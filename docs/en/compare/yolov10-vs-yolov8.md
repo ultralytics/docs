@@ -51,7 +51,7 @@ The standout feature of YOLOv10 is its **NMS-free training strategy**. Tradition
 
 ### YOLOv8 Architecture
 
-YOLOv8 introduced an **anchor-free detection head**, moving away from the anchor-based approaches of its predecessors. This reduces the number of box predictions and speeds up [NMS operations](https://docs.ultralytics.com/reference/utils/nms). Additionally, YOLOv8 incorporates the **C2f module** (Cross-Stage Partial bottleneck with two convolutions), which improves gradient flow and allows the network to learn richer feature representations without drastically increasing computational cost. Its decoupled head structure separates objectness, classification, and regression tasks, leading to faster convergence and higher overall accuracy.
+YOLOv8 introduced an **anchor-free detection head**, moving away from the anchor-based approaches of its predecessors. This reduces the number of box predictions and speeds up [NMS operations](https://docs.ultralytics.com/reference/utils/nms). Additionally, YOLOv8 incorporates the **C2f module** (Cross-Stage Partial bottleneck with two convolutions), which improves gradient flow and allows the network to learn richer feature representations without drastically increasing computational cost. Its decoupled head separates the classification and regression tasks, leading to faster convergence and higher overall accuracy.
 
 ## Performance and Benchmarks
 
@@ -59,20 +59,20 @@ When deploying models to edge devices or cloud servers, the trade-off between sp
 
 | Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv10n                                                               | 640                         | 39.5                       | -                                    | 1.56                                      | **2.3**                  | **6.7**                 |
-| YOLOv10s                                                               | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
-| YOLOv10m                                                               | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
-| YOLOv10b                                                               | 640                         | 52.7                       | -                                    | 6.54                                      | 24.4                     | 92.0                    |
-| YOLOv10l                                                               | 640                         | 53.3                       | -                                    | 8.33                                      | 29.5                     | 120.3                   |
-| YOLOv10x                                                               | 640                         | **54.4**                   | -                                    | 12.2                                      | 56.9                     | 160.4                   |
+| YOLOv10n                                                               | 640                         | 38.5                       | -                                    | 1.84                                      | **2.3**                  | **6.7**                 |
+| YOLOv10s                                                               | 640                         | 46.3                       | -                                    | 2.49                                      | 7.2                      | 21.6                    |
+| YOLOv10m                                                               | 640                         | 51.1                       | -                                    | 4.74                                      | 15.4                     | 59.1                    |
+| YOLOv10b                                                               | 640                         | 52.5                       | -                                    | 5.74                                      | 19.1                     | 92.0                    |
+| YOLOv10l                                                               | 640                         | 53.2                       | -                                    | 7.28                                      | 24.4                     | 120.3                   |
+| YOLOv10x                                                               | 640                         | **54.4**                   | -                                    | 10.70                                     | 29.5                     | 160.4                   |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
 | [YOLOv8n](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) | 640                         | 37.3                       | **80.4**                             | **1.47**                                  | 3.2                      | 8.7                     |
 | [YOLOv8s](https://platform.ultralytics.com/ultralytics/yolov8/yolov8s) | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
 | [YOLOv8m](https://platform.ultralytics.com/ultralytics/yolov8/yolov8m) | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
-| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
+| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.1                   |
 | [YOLOv8x](https://platform.ultralytics.com/ultralytics/yolov8/yolov8x) | 640                         | 53.9                       | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
 
-_Note: Blank cells indicate metrics not officially reported under identical testing conditions._
+_Note: Dashes (-) indicate metrics not officially reported under identical testing conditions._
 
 As seen in the data, YOLOv10 exhibits exceptional parameter efficiency, often matching or exceeding the mAP of its YOLOv8 counterparts while utilizing fewer parameters and FLOPs. However, YOLOv8 remains incredibly competitive, offering a highly optimized [TensorRT integration](https://developer.nvidia.com/tensorrt) that ensures minimal inference latency on modern GPUs.
 
@@ -92,7 +92,7 @@ Furthermore, YOLOv8 is inherently versatile. While YOLOv10 is strictly optimized
 
 ### Memory Requirements and Training
 
-Ultralytics YOLO models are designed with a focus on training efficiency. They generally exhibit lower memory usage during training and inference compared to complex [transformer models](https://huggingface.co/docs/transformers/index), allowing developers to train state-of-the-art models on consumer-grade hardware or standard cloud instances without running out of CUDA memory. The automatic handling of hyperparameter tuning and data augmentation ensures rapid convergence.
+Ultralytics YOLO models are designed with a focus on training efficiency. They generally exhibit lower memory usage during training and inference compared to complex [transformer models](https://huggingface.co/docs/transformers/index), allowing developers to train state-of-the-art models on consumer-grade hardware or standard cloud instances without running out of CUDA memory. Well-tuned default hyperparameters and built-in data augmentation help ensure rapid convergence.
 
 Here is a practical example of how simple it is to train and validate a model using the Ultralytics Python API:
 

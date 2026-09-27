@@ -89,7 +89,7 @@ EfficientDet is a strong choice for:
 
 - **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
 - **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
-- **Mobile Deployment via TFLite:** Projects that specifically require [TensorFlow Lite](https://developers.google.com/edge/litert) export for Android or embedded Linux devices.
+- **Mobile Deployment via LiteRT:** Projects that specifically require [LiteRT](https://developers.google.com/edge/litert) (formerly TensorFlow Lite) export for Android or embedded Linux devices.
 
 ### When to Choose YOLOX
 
@@ -113,8 +113,8 @@ While EfficientDet and YOLOX represented significant leaps in their respective e
 
 YOLO26 represents a paradigm shift in the YOLO lineage, systematically overcoming the limitations found in older models like YOLOX and EfficientDet:
 
-- **End-to-End NMS-Free Design:** Unlike EfficientDet and YOLOX which require costly Non-Maximum Suppression (NMS) post-processing, YOLO26 is natively end-to-end. This eliminates latency bottlenecks and drastically simplifies edge deployment.
-- **Up to 43% Faster CPU Inference:** Through strategic architectural tuning and the **DFL Removal** (Distribution Focal Loss), YOLO26 is uniquely optimized for environments without dedicated GPUs, completely outpacing EfficientDet on [edge AI](https://www.ultralytics.com/glossary/edge-ai) hardware like Raspberry Pi.
+- **End-to-End NMS-Free Design:** Unlike EfficientDet and YOLOX which require costly Non-Maximum Suppression (NMS) post-processing, YOLO26 supports native end-to-end inference through its optional one-to-one head (`nms=False`). This eliminates NMS latency bottlenecks and drastically simplifies edge deployment.
+- **Up to 43% Faster CPU Inference:** Through strategic architectural tuning and the **DFL Removal** (Distribution Focal Loss), YOLO26 is uniquely optimized for environments without dedicated GPUs, delivering excellent performance on [edge AI](https://www.ultralytics.com/glossary/edge-ai) hardware like Raspberry Pi.
 - **MuSGD Optimizer:** Inspired by LLM training innovations (like Moonshot AI's Kimi K2), YOLO26 uses a hybrid of SGD and Muon. This ensures incredibly stable training and faster convergence, vastly superior to older TensorFlow estimators.
 - **ProgLoss + STAL:** Advanced loss functions bring notable improvements in small-object recognition, a historic weakness for both YOLOX and EfficientDet. This is critical for drone analytics and IoT.
 - **Incredible Versatility:** While EfficientDet and YOLOX are strictly bounding box detectors, YOLO26 natively supports [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose) (via Residual Log-Likelihood Estimation), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
@@ -123,15 +123,15 @@ YOLO26 represents a paradigm shift in the YOLO lineage, systematically overcomin
 
 ### Streamlined User Experience and Training Efficiency
 
-One of the largest hurdles with models like YOLOX is setting up the training environment. The [Ultralytics Platform](https://platform.ultralytics.com) offers a unified [Python SDK](https://docs.ultralytics.com/usage/python) where training a state-of-the-art model requires only a few lines of code. Additionally, YOLO models feature highly optimized data loaders, ensuring significantly lower CUDA memory usage compared to transformer-heavy models or older multi-branch networks.
+One of the largest hurdles with models like YOLOX is setting up the training environment. The unified [Ultralytics Python API](https://docs.ultralytics.com/usage/python) means training a state-of-the-art model requires only a few lines of code. Additionally, YOLO models feature highly optimized data loaders, ensuring significantly lower CUDA memory usage compared to transformer-heavy models or older multi-branch networks.
 
 ```python
 from ultralytics import YOLO
 
-# Load the cutting-edge YOLO26n model (NMS-free!)
+# Load the cutting-edge YOLO26n model (NMS-free inference available with nms=False)
 model = YOLO("yolo26n.pt")
 
-# Train the model on your custom dataset with automated hyperparameter tuning
+# Train the model on your custom dataset
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
 # Export the model seamlessly to ONNX or OpenVINO for edge deployment
@@ -142,4 +142,4 @@ model.export(format="openvino")
 
 If you are maintaining a legacy system deeply embedded in the TensorFlow ecosystem, **EfficientDet** remains a stable choice, particularly for scenarios where massive compound scaling is theoretically necessary. Conversely, if you require pure speed on legacy anchor-free codebases, **YOLOX** serves as a fast, reliable detector.
 
-However, for any new project moving into production, the choice is unequivocally **Ultralytics YOLO26** (or the highly stable [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) for legacy enterprise support). By offering an end-to-end NMS-free architecture, vastly improved CPU speeds, and a seamless deployment pipeline through platforms like [OpenVINO](https://docs.openvino.ai/) and TensorRT, YOLO26 ensures your computer vision applications are future-proofed, highly accurate, and incredibly easy to maintain.
+However, for any new project moving into production, the choice is unequivocally **Ultralytics YOLO26** (or the highly stable [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) for legacy enterprise support). By offering optional end-to-end NMS-free inference, vastly improved CPU speeds, and a seamless deployment pipeline through platforms like [OpenVINO](https://docs.openvino.ai/) and TensorRT, YOLO26 ensures your computer vision applications are future-proofed, highly accurate, and incredibly easy to maintain.

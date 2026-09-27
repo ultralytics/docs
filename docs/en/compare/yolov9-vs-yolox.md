@@ -52,10 +52,10 @@ When comparing these models across the MS COCO benchmark, the advancements in YO
 | Model     | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | --------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
 | YOLOv9t   | 640                         | 38.3                       | -                                    | **2.3**                                   | 2.0                      | 7.7                     |
-| YOLOv9s   | 640                         | 46.8                       | -                                    | 3.54                                      | 7.1                      | 26.4                    |
-| YOLOv9m   | 640                         | 51.4                       | -                                    | 6.43                                      | 20.0                     | 76.3                    |
-| YOLOv9c   | 640                         | 53.0                       | -                                    | 7.16                                      | 25.3                     | 102.1                   |
-| YOLOv9e   | 640                         | **55.6**                   | -                                    | 16.77                                     | 57.3                     | 189.0                   |
+| YOLOv9s   | 640                         | 46.8                       | -                                    | 3.54                                      | 7.2                      | 26.7                    |
+| YOLOv9m   | 640                         | 51.4                       | -                                    | 6.43                                      | 20.1                     | 76.8                    |
+| YOLOv9c   | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
+| YOLOv9e   | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
 |           |                             |                            |                                      |                                           |                          |                         |
 | YOLOXnano | 416                         | 25.8                       | -                                    | -                                         | **0.91**                 | **1.08**                |
 | YOLOXtiny | 416                         | 32.8                       | -                                    | -                                         | 5.06                     | 6.45                    |
@@ -64,7 +64,7 @@ When comparing these models across the MS COCO benchmark, the advancements in YO
 | YOLOXl    | 640                         | 49.7                       | -                                    | 9.04                                      | 54.2                     | 155.6                   |
 | YOLOXx    | 640                         | 51.1                       | -                                    | 16.1                                      | 99.1                     | 281.9                   |
 
-While YOLOX offers lightweight variants like YOLOX-Nano for extreme edge cases, YOLOv9 variants consistently outperform similarly sized YOLOX models in pure [accuracy](https://www.ultralytics.com/glossary/accuracy). For instance, YOLOv9m achieves a 51.4% mAP compared to YOLOXl's 49.7%, despite having fewer than half the parameters (20.0M vs 54.2M).
+While YOLOX offers lightweight variants like YOLOX-Nano for extreme edge cases, YOLOv9 variants consistently outperform similarly sized YOLOX models in pure [accuracy](https://www.ultralytics.com/glossary/accuracy). For instance, YOLOv9m achieves a 51.4% mAP compared to YOLOXl's 49.7%, despite having fewer than half the parameters (20.1M vs 54.2M).
 
 ## The Ultralytics Advantage
 
@@ -142,7 +142,7 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 
 While YOLOv9 represents an impressive milestone, the demands of production environments constantly push the boundaries. The newly released **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** represents the definitive standard for modern vision AI.
 
-YOLO26 completely revitalizes the deployment pipeline with a native **End-to-End NMS-Free Design**. By eliminating the need for complex Non-Maximum Suppression during post-processing, it delivers significantly lower [inference latency](https://www.ultralytics.com/glossary/inference-latency).
+YOLO26 completely revitalizes the deployment pipeline with an optional **End-to-End NMS-Free Design**. By eliminating the need for complex Non-Maximum Suppression during post-processing with `nms=False`, it delivers significantly lower [inference latency](https://www.ultralytics.com/glossary/inference-latency).
 
 Furthermore, YOLO26 incorporates the groundbreaking **MuSGD Optimizer**, a hybrid of SGD and Muon that borrows innovations from LLM training to provide incredibly stable and rapid convergence. By removing Distribution Focal Loss (DFL), YOLO26 achieves up to **43% faster CPU inference** compared to its predecessors, making it the absolute best choice for edge devices and enterprise deployments. With notable improvements in small-object recognition via ProgLoss and STAL, YOLO26 effectively supersedes both YOLOX and YOLOv9.
 

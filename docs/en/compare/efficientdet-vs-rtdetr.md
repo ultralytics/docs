@@ -53,7 +53,7 @@ RTDETRv2 represents the evolution of transformer-based architectures, shifting t
 
 ### Advancements in Transformers
 
-[RTDETRv2](https://docs.ultralytics.com/models/rtdetr) builds upon the Real-Time Detection Transformer (RT-DETR) baseline. It leverages global attention mechanisms, enabling the model to understand complex scene contexts without the localized constraints of standard convolutions. The most significant architectural advantage is its natively NMS-free design. By predicting objects directly from the input image, it simplifies the inference pipeline, avoiding the heuristic tuning required by NMS post-processing.
+[RTDETRv2](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch) builds upon the Real-Time Detection Transformer (RT-DETR) baseline. It leverages global attention mechanisms, enabling the model to understand complex scene contexts without the localized constraints of standard convolutions. The most significant architectural advantage is its natively NMS-free design. By predicting objects directly from the input image, it simplifies the inference pipeline, avoiding the heuristic tuning required by NMS post-processing.
 
 ### Strengths and Weaknesses
 
@@ -97,7 +97,7 @@ EfficientDet is a strong choice for:
 
 - **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
 - **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
-- **Mobile Deployment via TFLite:** Projects that specifically require [TensorFlow Lite](https://developers.google.com/edge/litert) export for Android or embedded Linux devices.
+- **Mobile Deployment via LiteRT:** Projects that specifically require [LiteRT](https://developers.google.com/edge/litert) (formerly TensorFlow Lite) export for Android or embedded Linux devices.
 
 ### When to Choose RT-DETR
 
@@ -123,12 +123,12 @@ YOLO26 stands out by combining the streamlined ecosystem [Ultralytics](https://w
 
 ### Why Choose YOLO26 Over the Competition?
 
-- **End-to-End NMS-Free Design:** Taking inspiration from transformers like RTDETRv2, YOLO26 is natively end-to-end. It eliminates NMS post-processing, guaranteeing faster, simpler deployment pipelines without the massive parameter bloat of pure transformers.
+- **End-to-End NMS-Free Design:** Taking inspiration from transformers like RTDETRv2, YOLO26 offers an optional end-to-end head (`nms=False`) that eliminates NMS post-processing, guaranteeing faster, simpler deployment pipelines without the massive parameter bloat of pure transformers.
 - **MuSGD Optimizer:** Inspired by large language model training innovations (like Moonshot AI's Kimi K2), YOLO26 utilizes a hybrid of SGD and Muon. This brings unprecedented training stability and significantly faster convergence rates compared to the prolonged schedules required by RTDETRv2.
 - **Optimized for Edge:** With up to **43% faster CPU inference**, YOLO26 is built for [edge AI](https://www.ultralytics.com/glossary/edge-ai). It easily outperforms heavy transformer models on constrained hardware like mobile phones and smart cameras.
 - **DFL Removal:** The removal of Distribution Focal Loss simplifies the model graph, facilitating seamless [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) and [ONNX](https://docs.ultralytics.com/integrations/onnx) exports.
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, solving a common bottleneck in aerial imagery and robotics.
-- **Versatility:** Unlike RTDETRv2, which primarily focuses on detection, YOLO26 natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), [image classification](https://docs.ultralytics.com/tasks/classify), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb) with task-specific improvements like RLE for pose and specialized angle loss for OBB.
+- **Versatility:** Unlike RTDETRv2, which primarily focuses on detection, YOLO26 natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb) with task-specific improvements like RLE for pose and specialized angle loss for OBB.
 
 !!! tip "Integrated Ecosystem"
 

@@ -61,14 +61,14 @@ The table below illustrates the raw performance metrics on the [COCO dataset](ht
 | DAMO-YOLOm | 640                         | 49.2                       | -                                    | 5.09                                      | 28.2                     | 61.8                    |
 | DAMO-YOLOl | 640                         | 50.8                       | -                                    | 7.18                                      | 42.1                     | 97.3                    |
 |            |                             |                            |                                      |                                           |                          |                         |
-| YOLOv10n   | 640                         | 39.5                       | -                                    | **1.56**                                  | **2.3**                  | **6.7**                 |
-| YOLOv10s   | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
-| YOLOv10m   | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
-| YOLOv10b   | 640                         | 52.7                       | -                                    | 6.54                                      | 24.4                     | 92.0                    |
-| YOLOv10l   | 640                         | 53.3                       | -                                    | 8.33                                      | 29.5                     | 120.3                   |
-| YOLOv10x   | 640                         | **54.4**                   | -                                    | 12.2                                      | 56.9                     | 160.4                   |
+| YOLOv10n   | 640                         | 38.5                       | -                                    | **1.84**                                  | **2.3**                  | **6.7**                 |
+| YOLOv10s   | 640                         | 46.3                       | -                                    | 2.49                                      | 7.2                      | 21.6                    |
+| YOLOv10m   | 640                         | 51.1                       | -                                    | 4.74                                      | 15.4                     | 59.1                    |
+| YOLOv10b   | 640                         | 52.5                       | -                                    | 5.74                                      | 19.1                     | 92.0                    |
+| YOLOv10l   | 640                         | 53.2                       | -                                    | 7.28                                      | 24.4                     | 120.3                   |
+| YOLOv10x   | 640                         | **54.4**                   | -                                    | 10.70                                     | 29.5                     | 160.4                   |
 
-While DAMO-YOLO holds its own in terms of accuracy, YOLOv10 consistently provides lower latency and significantly smaller [model weights](https://www.ultralytics.com/glossary/model-weights). For instance, YOLOv10s achieves a slightly higher mAP (46.7%) than DAMO-YOLOs (46.0%) while using fewer than half the parameters (7.2M vs 16.3M). The lower [memory requirements](https://docs.ultralytics.com/guides/yolo-performance-metrics) make YOLOv10 an exceptionally versatile choice for embedded systems.
+While DAMO-YOLO holds its own in terms of accuracy, YOLOv10 delivers higher accuracy at comparable scales and significantly smaller [model weights](https://www.ultralytics.com/glossary/model-weights). For instance, YOLOv10s achieves a slightly higher mAP (46.3%) than DAMO-YOLOs (46.0%) while using fewer than half the parameters (7.2M vs 16.3M). The lower [memory requirements](https://docs.ultralytics.com/guides/yolo-performance-metrics) make YOLOv10 an exceptionally versatile choice for embedded systems.
 
 ## Training Efficiency and Usability
 
@@ -132,7 +132,7 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 
 While YOLOv10 laid the groundwork for NMS-free detection, the technology has evolved rapidly. For modern applications, the **Ultralytics YOLO26** model offers unparalleled performance and usability, taking the best of previous generations and refining them for production.
 
-YOLO26 features a natively end-to-end design, eliminating NMS post-processing for simpler deployment pipelines across edge devices. Furthermore, the removal of Distribution Focal Loss (DFL) has dramatically improved compatibility with low-power [edge AI](https://www.ultralytics.com/glossary/edge-ai) hardware.
+YOLO26 features a native end-to-end mode (`nms=False`) that skips NMS post-processing for simpler deployment pipelines across edge devices. Furthermore, the removal of Distribution Focal Loss (DFL) has dramatically improved compatibility with low-power [edge AI](https://www.ultralytics.com/glossary/edge-ai) hardware.
 
 On the training side, YOLO26 introduces the **MuSGD Optimizer**, a hybrid inspired by Large Language Model (LLM) training techniques. This ensures more stable training and faster convergence. Coupled with the **ProgLoss + STAL** loss functions, YOLO26 exhibits remarkable improvements in small-object recognition, a critical feature for [wildlife conservation](https://www.ultralytics.com/blog/ai-in-wildlife-conservation) and [drone operations](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations).
 

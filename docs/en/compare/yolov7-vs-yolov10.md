@@ -44,16 +44,16 @@ When analyzing model performance, it is crucial to evaluate the trade-offs betwe
 | YOLOv7l  | 640                         | 51.4                       | -                                    | 6.84                                      | 36.9                     | 104.7                   |
 | YOLOv7x  | 640                         | 53.1                       | -                                    | 11.57                                     | 71.3                     | 189.9                   |
 |          |                             |                            |                                      |                                           |                          |                         |
-| YOLOv10n | 640                         | 39.5                       | -                                    | **1.56**                                  | **2.3**                  | **6.7**                 |
-| YOLOv10s | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
-| YOLOv10m | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
-| YOLOv10b | 640                         | 52.7                       | -                                    | 6.54                                      | 24.4                     | 92.0                    |
-| YOLOv10l | 640                         | 53.3                       | -                                    | 8.33                                      | 29.5                     | 120.3                   |
-| YOLOv10x | 640                         | **54.4**                   | -                                    | 12.2                                      | 56.9                     | 160.4                   |
+| YOLOv10n | 640                         | 38.5                       | -                                    | **1.84**                                  | **2.3**                  | **6.7**                 |
+| YOLOv10s | 640                         | 46.3                       | -                                    | 2.49                                      | 7.2                      | 21.6                    |
+| YOLOv10m | 640                         | 51.1                       | -                                    | 4.74                                      | 15.4                     | 59.1                    |
+| YOLOv10b | 640                         | 52.5                       | -                                    | 5.74                                      | 19.1                     | 92.0                    |
+| YOLOv10l | 640                         | 53.2                       | -                                    | 7.28                                      | 24.4                     | 120.3                   |
+| YOLOv10x | 640                         | **54.4**                   | -                                    | 10.70                                     | 29.5                     | 160.4                   |
 
 ### Analyzing the Trade-Offs
 
-The metrics above reveal a stark generational gap. While YOLOv7x delivers a very strong mAP<sup>val</sup> of 53.1%, it requires 71.3M parameters and 189.9B FLOPs. In contrast, YOLOv10l exceeds that accuracy (53.3% mAP) while requiring less than half the parameters (29.5M) and significantly fewer FLOPs (120.3B). Furthermore, the highly optimized YOLOv10n provides an astonishing inference speed of 1.56ms, making it ideal for real-time video analytics and mobile applications.
+The metrics above reveal a stark generational gap. While YOLOv7x delivers a very strong mAP<sup>val</sup> of 53.1%, it requires 71.3M parameters and 189.9B FLOPs. In contrast, YOLOv10l exceeds that accuracy (53.2% mAP) while requiring roughly one-third of the parameters (24.4M) and significantly fewer FLOPs (120.3B). Furthermore, the highly optimized YOLOv10n provides an astonishing inference speed of 1.84ms, making it ideal for real-time video analytics and mobile applications.
 
 ## Real-World Use Cases
 
@@ -69,16 +69,16 @@ The NMS-free, lightweight design of YOLOv10 shines in constrained environments. 
 
 ## The Ultralytics Ecosystem Advantage
 
-While both models have strong academic roots, their true potential is unlocked when utilized within the unified [Ultralytics Platform](https://platform.ultralytics.com). Developing computer vision models from scratch is notoriously difficult, but the Ultralytics ecosystem provides an unparalleled experience for machine learning engineers.
+While both models have strong academic roots, YOLOv10's true potential is unlocked when utilized within the unified [Ultralytics Platform](https://platform.ultralytics.com). Developing computer vision models from scratch is notoriously difficult, but the Ultralytics ecosystem provides an unparalleled experience for machine learning engineers.
 
 - **Ease of Use:** The Ultralytics Python API provides a unified interface. You can train, validate, and export models with just a few lines of code, avoiding the complex dependency nightmares associated with typical academic repositories.
-- **Well-Maintained Ecosystem:** Ultralytics guarantees that the underlying code is actively developed. Users benefit from seamless integrations with popular ML tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases) for logging, or [Hugging Face](https://docs.ultralytics.com/integrations/gradio) for fast web demos.
+- **Well-Maintained Ecosystem:** Ultralytics guarantees that the underlying code is actively developed. Users benefit from seamless integrations with popular ML tools like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases) for logging, or [Gradio](https://docs.ultralytics.com/integrations/gradio) for fast web demos.
 - **Memory Requirements:** Transformer-based object detectors often consume massive amounts of CUDA memory during training. In contrast, Ultralytics YOLO models require far less memory, allowing for much larger [batch sizes](https://www.ultralytics.com/glossary/batch-size) on consumer-grade hardware.
 - **Versatility:** The Ultralytics pipeline is not restricted to standard bounding boxes. It seamlessly supports [pose estimation](https://docs.ultralytics.com/tasks/pose), [instance segmentation](https://docs.ultralytics.com/tasks/segment), and oriented bounding boxes across supported model families like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8).
 
 ### Streamlined Training Example
 
-Running a training pipeline with Ultralytics is remarkably straightforward. Regardless of whether you are leveraging the historical robustness of YOLOv7 or the NMS-free speed of YOLOv10, the syntax remains consistent:
+Running a training pipeline with Ultralytics is remarkably straightforward. Whether you are leveraging the NMS-free speed of YOLOv10 or another supported model, the syntax remains consistent (note that the Ultralytics package does not support YOLOv7 training):
 
 ```python
 from ultralytics import YOLO
@@ -130,7 +130,7 @@ While YOLOv7 and YOLOv10 are impressive milestones, the frontier of AI is always
 
 If you are starting a new computer vision project today, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) is the recommended architecture. It builds upon the legacy of its predecessors by incorporating several groundbreaking innovations:
 
-- **End-to-End NMS-Free Design:** Taking inspiration from YOLOv10, YOLO26 natively eliminates NMS post-processing, securing ultra-low latency inference for deterministic real-time robotics.
+- **End-to-End NMS-Free Design:** Taking inspiration from YOLOv10, YOLO26's optional one-to-one head (`nms=False`) skips NMS post-processing, securing ultra-low latency inference for deterministic real-time robotics.
 - **Up to 43% Faster CPU Inference:** By strategically removing the Distribution Focal Loss (DFL) module, YOLO26 drastically accelerates execution on non-GPU edge computing hardware, making it a powerhouse for [IoT devices](https://www.ultralytics.com/blog/industrial-iot-iiot-internet-of-things-explained).
 - **MuSGD Optimizer:** Inspired by recent large language model training innovations, YOLO26 incorporates a hybrid of SGD and Muon, stabilizing training pathways and guaranteeing faster convergence.
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, overcoming a historical weakness in older YOLO generations.

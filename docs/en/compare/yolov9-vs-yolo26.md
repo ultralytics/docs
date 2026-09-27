@@ -45,7 +45,7 @@ However, YOLOv9 relies heavily on traditional Non-Maximum Suppression (NMS) for 
 
 YOLO26 takes a radically different approach by optimizing the entire pipeline from training to real-time deployment. It builds upon the **End-to-End NMS-Free Design** first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), entirely eliminating the need for NMS post-processing. This results in incredibly low latency, making it heavily optimized for edge devices like the [Raspberry Pi](https://www.raspberrypi.org/) or [NVIDIA Jetson](https://developer.nvidia.com/embedded/jetson-nano).
 
-Furthermore, YOLO26 completely removes Distribution Focal Loss (DFL). This structural change simplifies model [exporting to ONNX](https://docs.ultralytics.com/integrations/onnx) and provides significantly better compatibility with low-power microcontrollers.
+Furthermore, YOLO26 completely removes Distribution Focal Loss (DFL). This structural change simplifies model [exporting to ONNX](https://docs.ultralytics.com/integrations/onnx) and provides significantly better compatibility with low-power edge devices.
 
 For the training phase, YOLO26 integrates the novel **MuSGD Optimizer**, a hybrid of [Stochastic Gradient Descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent) and Muon (inspired by the LLM training methodologies of Moonshot AI's Kimi K2). This bridges the gap between Large Language Model (LLM) training innovations and computer vision, offering drastically more stable training and faster convergence times.
 
@@ -56,16 +56,16 @@ When benchmarking on the widely used [COCO dataset](https://cocodataset.org/), b
 | Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
 | YOLOv9t                                                                | 640                         | 38.3                       | -                                    | 2.3                                       | **2.0**                  | 7.7                     |
-| YOLOv9s                                                                | 640                         | 46.8                       | -                                    | 3.54                                      | 7.1                      | 26.4                    |
-| YOLOv9m                                                                | 640                         | 51.4                       | -                                    | 6.43                                      | 20.0                     | 76.3                    |
-| YOLOv9c                                                                | 640                         | 53.0                       | -                                    | 7.16                                      | 25.3                     | 102.1                   |
-| YOLOv9e                                                                | 640                         | 55.6                       | -                                    | 16.77                                     | 57.3                     | 189.0                   |
+| YOLOv9s                                                                | 640                         | 46.8                       | -                                    | 3.54                                      | 7.2                      | 26.7                    |
+| YOLOv9m                                                                | 640                         | 51.4                       | -                                    | 6.43                                      | 20.1                     | 76.8                    |
+| YOLOv9c                                                                | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
+| YOLOv9e                                                                | 640                         | 55.6                       | -                                    | 16.77                                     | 58.1                     | 192.5                   |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
-| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | 40.9                       | **38.9**                             | **1.7**                                   | 2.4                      | **5.4**                 |
-| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.7                    |
-| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.2                    |
-| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.4                    |
-| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 193.9                   |
+| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | 40.9                       | **38.9**                             | **1.7**                                   | 2.4                      | **5.5**                 |
+| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.9                    |
+| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.4                    |
+| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.8                    |
+| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 194.4                   |
 
 ### Analysis of the Results
 
@@ -87,7 +87,7 @@ from ultralytics import YOLO
 # Load the latest native end-to-end YOLO26 model
 model = YOLO("yolo26s.pt")
 
-# Train the model effortlessly with the default MuSGD optimizer
+# Train the model; optimizer="auto" selects MuSGD for longer runs (>10k iterations)
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
 # Export natively to ONNX format in a single command
@@ -147,4 +147,4 @@ YOLO26 is recommended for:
 
 Both models represent incredible leaps forward for the open-source community. YOLOv9 introduced vital theoretical improvements to gradient flow that will inspire architectures for years to come. However, for modern developers, startups, and enterprise teams seeking a flawless balance of speed, accuracy, and deployment ease, **Ultralytics YOLO26** is the clear recommendation.
 
-By eliminating NMS, introducing the powerful MuSGD optimizer, and providing an unparalleled suite of tools across detection, segmentation, and pose tasks, YOLO26 ensures that your computer vision projects are built on the most reliable, future-proof framework available today.
+By offering NMS-free inference, introducing the powerful MuSGD optimizer, and providing an unparalleled suite of tools across detection, segmentation, and pose tasks, YOLO26 ensures that your computer vision projects are built on the most reliable, future-proof framework available today.

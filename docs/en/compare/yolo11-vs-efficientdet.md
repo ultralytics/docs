@@ -61,10 +61,10 @@ The balance between accuracy, measured in [mean Average Precision (mAP)](https:/
 | Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
 | [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) | 640                         | 39.5                       | 56.1                                 | **1.5**                                   | **2.6**                  | 6.5                     |
-| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
-| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
-| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
-| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
+| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.6                    |
+| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.1                    |
+| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 87.2                    |
+| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 195.3                   |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
 | EfficientDet-d0                                                        | 640                         | 34.6                       | **10.2**                             | 3.92                                      | 3.9                      | **2.54**                |
 | EfficientDet-d1                                                        | 640                         | 40.5                       | 13.5                                 | 7.31                                      | 6.6                      | 6.1                     |
@@ -110,7 +110,7 @@ While YOLO11 is exceptionally powerful, teams starting new greenfield projects s
 
 Key YOLO26 innovations include:
 
-- **End-to-End NMS-Free Design:** By eliminating Non-Maximum Suppression (NMS) during post-processing, YOLO26 ensures consistent, ultra-low latency, crucial for high-speed [robotics](https://www.ultralytics.com/glossary/robotics) and autonomous driving.
+- **End-to-End NMS-Free Design:** An optional one-to-one head (`nms=False`) skips Non-Maximum Suppression (NMS) post-processing, giving YOLO26 consistent, ultra-low latency, crucial for high-speed [robotics](https://www.ultralytics.com/glossary/robotics) and autonomous driving.
 - **Up to 43% Faster CPU Inference:** For deployments lacking dedicated GPUs, YOLO26 is specifically optimized to maximize throughput on standard processors.
 - **MuSGD Optimizer:** Inspired by Moonshot AI's Kimi K2, this hybrid optimizer brings LLM training stability to computer vision, enabling faster convergence.
 - **ProgLoss + STAL:** These improved loss functions drastically enhance the recognition of small objects, which is often a pain point in [satellite image analysis](https://www.ultralytics.com/glossary/satellite-image-analysis) and drone footage.
@@ -138,7 +138,7 @@ EfficientDet is recommended for:
 
 - **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
 - **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
-- **Mobile Deployment via TFLite:** Projects that specifically require [TensorFlow Lite](https://developers.google.com/edge/litert) export for Android or embedded Linux devices.
+- **Mobile Deployment via LiteRT:** Projects that specifically require [LiteRT](https://developers.google.com/edge/litert) (formerly TensorFlow Lite) export for Android or embedded Linux devices.
 
 ### When to Choose Ultralytics (YOLO26)
 

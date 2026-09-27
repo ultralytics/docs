@@ -41,9 +41,9 @@ Released as the state-of-the-art in mid-2022, YOLOv7 pushed [real-time inference
 
 [Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 
-!!! tip "Supported Ecosystem"
+!!! tip "Ultralytics Support"
 
-    YOLOv7 is officially supported within the Ultralytics ecosystem, allowing seamless training, validation, and export with a unified API.
+    Ultralytics does not publish YOLOv7 weights or YAMLs, so YOLOv7 cannot be trained natively with the Ultralytics package. YOLOv7 models trained in the [upstream repository](https://github.com/WongKinYiu/yolov7) can be exported to ONNX or TensorRT and run for inference with Ultralytics.
 
 ## Architectural Innovations
 
@@ -82,7 +82,7 @@ As seen in the metrics, while DAMO-YOLO provides extremely lightweight variants 
 
 ## The Ultralytics Ecosystem Advantage
 
-While theoretical architecture is important, the practicality of a model is dictated by its ecosystem. Models supported by Ultralytics, such as YOLOv7, benefit from a **well-maintained ecosystem** and unparalleled **ease of use**.
+While theoretical architecture is important, the practicality of a model is dictated by its ecosystem. Native Ultralytics models such as [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) benefit from a **well-maintained ecosystem** and unparalleled **ease of use**.
 
 - **Performance Balance:** Ultralytics models consistently strike an optimal trade-off between inference speed and detection accuracy, making them ideal for both edge devices and cloud-based [model deployment](https://docs.ultralytics.com/guides/model-deployment-options).
 - **Memory Requirements:** Unlike heavier Transformer-based models, Ultralytics YOLO models maintain low [CUDA](https://developer.nvidia.com/cuda) memory requirements during training. This permits larger [batch sizes](https://www.ultralytics.com/glossary/batch-size), streamlining the training process even on consumer-grade hardware.
@@ -92,21 +92,17 @@ While theoretical architecture is important, the practicality of a model is dict
 
     The Ultralytics package allows you to seamlessly move from datasets to a fully trained model in just minutes, leveraging highly optimized data loaders and pre-trained weights.
 
-### Code Example: Training YOLOv7 with Ultralytics
+### Code Example: Running YOLOv7 with Ultralytics
 
-Integrating YOLOv7 into your computer vision pipeline is incredibly straightforward using the Ultralytics Python API.
+After converting an upstream YOLOv7 ONNX export as described in the [YOLOv7 usage examples](https://docs.ultralytics.com/models/yolov7#usage-examples), you can run it with the Ultralytics Python API.
 
 ```python
 from ultralytics import YOLO
 
-# Load a pre-trained YOLOv7 model
-model = YOLO("yolov7.pt")
+# Load a YOLOv7 ONNX model converted for Ultralytics
+model = YOLO("yolov7-ultralytics.onnx", task="detect")
 
-# Train the model on your custom dataset
-results = model.train(data="coco8.yaml", epochs=50, imgsz=640)
-
-# Run inference and validate results
-metrics = model.val()
+# Run inference
 predictions = model.predict("https://ultralytics.com/images/bus.jpg", save=True)
 ```
 
@@ -116,7 +112,7 @@ While YOLOv7 and DAMO-YOLO represented significant breakthroughs in 2022, the fi
 
 YOLO26 brings a generational leap in performance and usability, incorporating state-of-the-art innovations:
 
-- **End-to-End NMS-Free Design:** YOLO26 is natively end-to-end. By eliminating Non-Maximum Suppression (NMS) post-processing, it delivers faster, simpler deployment logic—a paradigm shift initially pioneered by [YOLOv10](https://docs.ultralytics.com/models/yolov10).
+- **End-to-End NMS-Free Design:** YOLO26 offers a native end-to-end head (`nms=False`). By eliminating Non-Maximum Suppression (NMS) post-processing, it delivers faster, simpler deployment logic—a paradigm shift initially pioneered by [YOLOv10](https://docs.ultralytics.com/models/yolov10).
 - **MuSGD Optimizer:** Inspired by large language model innovations like Moonshot AI's Kimi K2, YOLO26 utilizes a hybrid of SGD and Muon. This optimizer ensures highly stable training dynamics and dramatically faster convergence rates.
 - **Up to 43% Faster CPU Inference:** With the targeted removal of Distribution Focal Loss (DFL) and profound structural enhancements, YOLO26 is heavily optimized for low-power edge computing, outperforming previous generations on non-GPU hardware.
 - **ProgLoss + STAL:** Incorporates advanced new loss functions that explicitly target and improve small-object recognition, an essential capability for applications in aerial imagery, robotics, and [security monitoring](https://www.ultralytics.com/blog/real-time-security-monitoring-with-ai-and-ultralytics-yolo11).

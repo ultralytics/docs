@@ -113,7 +113,7 @@ Unlike specialized models, Ultralytics architectures are inherently versatile, s
 
 For teams starting new computer vision projects, we highly recommend upgrading to the newly released **Ultralytics YOLO26**. Building upon the successes of [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8), YOLO26 introduces paradigm-shifting innovations:
 
-- **End-to-End NMS-Free Design:** First explored in YOLOv10, YOLO26 natively eliminates the need for [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing. This guarantees deterministic, ultra-low latency inference critical for real-time robotics.
+- **End-to-End NMS-Free Design:** First explored in YOLOv10, YOLO26's optional one-to-one head (`nms=False`) eliminates the need for [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing. This guarantees deterministic, ultra-low latency inference critical for real-time robotics.
 - **MuSGD Optimizer:** Inspired by LLM training techniques like Moonshot AI's Kimi K2, YOLO26 utilizes the MuSGD optimizer (a hybrid of SGD and Muon) to achieve incredibly stable training dynamics and faster convergence.
 - **Up to 43% Faster CPU Inference:** By removing Distribution Focal Loss (DFL) and streamlining the network head, YOLO26 is heavily optimized for edge devices relying on [CPU execution](https://www.ultralytics.com/glossary/cpu), drastically outperforming YOLOv6 in edge scenarios.
 - **ProgLoss + STAL:** These advanced loss formulations deliver remarkable improvements in [small object detection](https://www.ultralytics.com/blog/exploring-small-object-detection-with-ultralytics-yolo11), making YOLO26 ideal for aerial imagery and microscopic defect inspection.
@@ -131,7 +131,7 @@ from ultralytics import YOLO
 model = YOLO("yolo26n.pt")
 
 # Train the model on the COCO8 dataset
-# The ecosystem handles downloading, caching, and auto-batching natively
+# The ecosystem handles dataset downloading, caching, and batching natively
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
 # Validate the model and print mAP metrics

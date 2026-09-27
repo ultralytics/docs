@@ -127,17 +127,17 @@ Furthermore, Ultralytics YOLO models require significantly **less CUDA memory** 
 
 !!! tip "Supported Integrations"
 
-    Ultralytics natively supports exporting models to industry-standard formats like [ONNX](https://docs.ultralytics.com/integrations/onnx), [OpenVINO](https://docs.ultralytics.com/integrations/openvino), and [CoreML](https://docs.ultralytics.com/integrations/coreml) with a simple boolean flag, vastly simplifying the [model deployment process](https://docs.ultralytics.com/guides/model-deployment-options).
+    Ultralytics natively supports exporting models to industry-standard formats like [ONNX](https://docs.ultralytics.com/integrations/onnx), [OpenVINO](https://docs.ultralytics.com/integrations/openvino), and [CoreML](https://docs.ultralytics.com/integrations/coreml) with a single `format` argument, vastly simplifying the [model deployment process](https://docs.ultralytics.com/guides/model-deployment-options).
 
 ## Code Example: Training with Ultralytics
 
-The Ultralytics ecosystem allows you to easily load, train, and run inference using YOLOv7 or newer architectures with just a few lines of code.
+The Ultralytics Python package does not natively train or run YOLOv7 `.pt` checkpoints (the [YOLOv7 docs](https://docs.ultralytics.com/models/yolov7) show how to run exported ONNX or TensorRT models), but newer architectures like YOLO26 can be loaded, trained, and run with just a few lines of code.
 
 ```python
 from ultralytics import YOLO
 
-# Load a pre-trained YOLOv7 model
-model = YOLO("yolov7.pt")
+# Load a pretrained YOLO26 model
+model = YOLO("yolo26n.pt")
 
 # Train the model on a custom dataset (e.g., COCO8)
 # The API handles data loading, augmentation, and memory management automatically
@@ -154,7 +154,7 @@ While YOLOv7 and YOLOX represent important historical steps, the state-of-the-ar
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
-- **End-to-End NMS-Free Design:** YOLO26 natively eliminates [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing. This drastically reduces latency bottlenecks and guarantees deterministic execution times across varied hardware setups.
+- **End-to-End NMS-Free Design:** YOLO26's optional one-to-one head (`nms=False`) skips [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing. This drastically reduces latency bottlenecks and guarantees deterministic execution times across varied hardware setups.
 - **Up to 43% Faster CPU Inference:** By removing Distribution Focal Loss (DFL) and optimizing network depth, YOLO26 is heavily tailored for edge devices lacking dedicated GPU hardware.
 - **MuSGD Optimizer:** Inspired by advanced LLM training techniques, the MuSGD optimizer (a hybrid of SGD and Muon) offers exceptional training stability and faster convergence.
 - **Improved Small Object Detection:** The integration of the ProgLoss + STAL loss functions provides significant improvements in recognizing small, distant objects—critical for [drone mapping](https://docs.ultralytics.com/datasets/detect/visdrone) and security surveillance.

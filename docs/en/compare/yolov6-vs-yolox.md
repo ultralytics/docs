@@ -113,7 +113,7 @@ Released in January 2026, YOLO26 represents a paradigm shift. It delivers unpara
 
 ### Key YOLO26 Innovations
 
-- **End-to-End NMS-Free Design:** Building on concepts pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 natively eliminates the need for Non-Maximum Suppression (NMS) post-processing. This significantly reduces latency variance and simplifies edge deployment.
+- **End-to-End NMS-Free Design:** Building on concepts pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 offers a native NMS-free head (`nms=False`) that eliminates the need for Non-Maximum Suppression (NMS) post-processing. This significantly reduces latency variance and simplifies edge deployment.
 - **MuSGD Optimizer:** YOLO26 borrows innovations from LLM training stability, utilizing a hybrid MuSGD optimizer (inspired by Moonshot AI's Kimi K2). This enables incredibly stable training dynamics and faster convergence compared to older optimizers.
 - **Up to 43% Faster CPU Inference:** Unlike YOLOv6, which struggles on non-GPU hardware, YOLO26 is heavily optimized for edge devices. By implementing DFL Removal (Distribution Focal Loss), the output head is simplified, making it incredibly fast on mobile and CPU environments.
 - **ProgLoss + STAL:** Superior loss functions dramatically improve small object detection, an area where older architectures like YOLOX often struggled. This makes YOLO26 ideal for aerial imagery and IoT sensors.
@@ -128,10 +128,10 @@ Choosing Ultralytics ensures access to a well-maintained, actively developed eco
 ```python
 from ultralytics import YOLO
 
-# Load the cutting-edge YOLO26 nano model (NMS-free design)
+# Load the cutting-edge YOLO26 nano model (NMS-free head available via nms=False)
 model = YOLO("yolo26n.pt")
 
-# Train on a custom dataset with built-in hyperparameter tuning
+# Train on the COCO8 example dataset
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
 # Run efficient CPU or GPU inference

@@ -48,28 +48,28 @@ Visualizing the relationship between speed and accuracy is essential for identif
 
 | Model                                                                   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ----------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv10n                                                                | 640                         | 39.5                       | -                                    | 1.56                                      | **2.3**                  | **6.7**                 |
-| YOLOv10s                                                                | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
-| YOLOv10m                                                                | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
-| YOLOv10b                                                                | 640                         | 52.7                       | -                                    | 6.54                                      | 24.4                     | 92.0                    |
-| YOLOv10l                                                                | 640                         | 53.3                       | -                                    | 8.33                                      | 29.5                     | 120.3                   |
-| YOLOv10x                                                                | 640                         | **54.4**                   | -                                    | 12.2                                      | 56.9                     | 160.4                   |
+| YOLOv10n                                                                | 640                         | 38.5                       | -                                    | 1.84                                      | 2.3                      | 6.7                     |
+| YOLOv10s                                                                | 640                         | 46.3                       | -                                    | 2.49                                      | 7.2                      | 21.6                    |
+| YOLOv10m                                                                | 640                         | 51.1                       | -                                    | 4.74                                      | 15.4                     | 59.1                    |
+| YOLOv10b                                                                | 640                         | 52.5                       | -                                    | 5.74                                      | 19.1                     | 92.0                    |
+| YOLOv10l                                                                | 640                         | 53.2                       | -                                    | 7.28                                      | 24.4                     | 120.3                   |
+| YOLOv10x                                                                | 640                         | **54.4**                   | -                                    | 10.70                                     | 29.5                     | 160.4                   |
 |                                                                         |                             |                            |                                      |                                           |                          |                         |
-| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | **73.6**                             | **1.12**                                  | 2.6                      | 7.7                     |
-| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
-| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
-| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
-| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
+| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | -                                    | **1.12**                                  | **1.9**                  | **4.5**                 |
+| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | -                                    | 1.92                                      | 7.2                      | 16.5                    |
+| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | -                                    | 4.03                                      | 21.2                     | 49.0                    |
+| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | -                                    | 6.61                                      | 46.5                     | 109.1                   |
+| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | -                                    | 11.89                                     | 86.7                     | 205.7                   |
 
 ### Technical Analysis
 
 1. **Accuracy (mAP):** YOLOv10 demonstrates a clear generational advantage in accuracy. For instance, the YOLOv10-X model achieves a 54.4% mAP<sup>val</sup>, outperforming YOLOv5x (50.7% mAP). This leap is largely due to the NMS-free training strategy and architectural refinements introduced in 2024.
 2. **Inference Latency:** While YOLOv5 models are exceptionally fast on raw T4 TensorRT benchmarks (e.g., YOLOv5n at 1.12ms), YOLOv10 eliminates the post-processing NMS step entirely. In end-to-end practical deployments, YOLOv10's NMS-free design provides more consistent and deterministic latency, which is critical for real-time applications like [autonomous vehicles](https://www.ultralytics.com/glossary/autonomous-vehicles) and robotics.
-3. **Parameter Efficiency:** YOLOv10 models maintain a highly competitive **Performance Balance**. YOLOv10-S achieves 46.7% mAP with only 7.2M parameters, whereas YOLOv5s achieves 37.4% mAP with 9.1M parameters.
+3. **Parameter Efficiency:** YOLOv10 models maintain a highly competitive **Performance Balance**. YOLOv10-S achieves 46.3% mAP with 7.2M parameters, the same count as YOLOv5s, which reaches 37.4% mAP.
 
 !!! tip "Deployment Tip"
 
-    When deploying to [edge AI](https://www.ultralytics.com/glossary/edge-ai) devices like the [NVIDIA Jetson](https://developer.nvidia.com/embedded-computing), models without NMS logic (like YOLOv10 and YOLO26) often compile more cleanly to TensorRT, avoiding fallback operations to the CPU.
+    When deploying to [edge AI](https://www.ultralytics.com/glossary/edge-ai) devices like the [NVIDIA Jetson](https://developer.nvidia.com/embedded-computing), models without NMS logic (like YOLOv10, or YOLO26 exported with `nms=False`) often compile more cleanly to TensorRT, avoiding fallback operations to the CPU.
 
 ## Use Cases and Recommendations
 
@@ -89,7 +89,7 @@ YOLOv5 is recommended for:
 
 - **Proven Production Systems:** Existing deployments where YOLOv5's long track record of stability, extensive documentation, and massive community support are valued.
 - **Resource-Constrained Training:** Environments with limited GPU resources where YOLOv5's efficient training pipeline and lower memory requirements are advantageous.
-- **Extensive Export Format Support:** Projects requiring deployment across many formats including [ONNX](https://docs.ultralytics.com/integrations/onnx), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), [CoreML](https://docs.ultralytics.com/integrations/coreml), and [TFLite](https://docs.ultralytics.com/integrations/tflite).
+- **Extensive Export Format Support:** Projects requiring deployment across many formats including [ONNX](https://docs.ultralytics.com/integrations/onnx), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), [CoreML](https://docs.ultralytics.com/integrations/coreml), and [LiteRT](https://docs.ultralytics.com/integrations/litert).
 
 ### When to Choose Ultralytics (YOLO26)
 
@@ -114,7 +114,7 @@ Using the Ultralytics library, switching between these architectures is as simpl
 from ultralytics import YOLO
 
 # To use YOLOv5:
-# model = YOLO("yolov5s.pt")
+# model = YOLO("yolov5su.pt")
 
 # To use YOLOv10:
 model = YOLO("yolov10s.pt")
@@ -136,10 +136,10 @@ path = model.export(format="onnx")
 
 If you are starting a new [machine learning](https://www.ultralytics.com/glossary/machine-learning-ml) project today, we strongly recommend evaluating the latest **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**. Released in January 2026, it represents the absolute state-of-the-art by combining the best innovations of the past five years.
 
-YOLO26 natively incorporates the **End-to-End NMS-Free Design** pioneered by YOLOv10, ensuring rapid, deterministic deployment. Furthermore, YOLO26 introduces several critical breakthroughs:
+YOLO26 natively incorporates the **End-to-End NMS-Free Design** pioneered by YOLOv10 as an optional one-to-one head (`nms=False`), enabling rapid, deterministic deployment. Furthermore, YOLO26 introduces several critical breakthroughs:
 
 - **Up to 43% Faster CPU Inference:** By removing the Distribution Focal Loss (DFL) module, YOLO26 achieves massive speedups on standard CPUs, making it the premier choice for [mobile deployment](https://docs.ultralytics.com/guides/model-deployment-options) and low-power IoT sensors.
-- **MuSGD Optimizer:** Inspired by Large Language Model (LLM) training techniques like Moonshot AI's Kimi K2, YOLO26 utilizes a hybrid of SGD and Muon. This ensures incredibly stable training runs and vastly accelerated convergence compared to the AdamW optimizers used in YOLOv10.
+- **MuSGD Optimizer:** Inspired by Large Language Model (LLM) training techniques like Moonshot AI's Kimi K2, YOLO26 utilizes a hybrid of SGD and Muon. This ensures incredibly stable training runs and vastly accelerated convergence compared to the standard SGD and AdamW optimizers used in earlier YOLO models.
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, which is critical for [drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and aerial security applications.
 - **Task-Specific Mastery:** While YOLOv10 is strictly a bounding box detector, YOLO26 offers dedicated architectural improvements for all tasks, including Residual Log-Likelihood Estimation (RLE) for Pose and specialized angle losses for Oriented Bounding Boxes (OBB).
 

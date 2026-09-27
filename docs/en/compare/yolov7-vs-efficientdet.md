@@ -90,9 +90,9 @@ YOLO26 addresses the inherent limitations of previous generations, offering unpr
 
 ### Key YOLO26 Innovations
 
-- **End-to-End NMS-Free Design:** YOLO26 natively eliminates Non-Maximum Suppression (NMS) post-processing. Pioneered initially in [YOLOv10](https://docs.ultralytics.com/models/yolov10), this simplifies deployment logic and guarantees consistent, low-latency execution regardless of object density.
+- **End-to-End NMS-Free Design:** YOLO26 offers an optional one-to-one head (`nms=False`) that skips Non-Maximum Suppression (NMS) post-processing. Pioneered initially in [YOLOv10](https://docs.ultralytics.com/models/yolov10), this simplifies deployment logic and guarantees consistent, low-latency execution regardless of object density.
 - **DFL Removal:** By removing the Distribution Focal Loss (DFL), the model architecture is vastly simplified, enhancing compatibility with highly constrained [edge computing](https://www.ultralytics.com/glossary/edge-computing) environments.
-- **Up to 43% Faster CPU Inference:** Heavily optimized for environments lacking dedicated GPUs, making it exponentially faster than EfficientDet on lightweight hardware.
+- **Up to 43% Faster CPU Inference:** Heavily optimized for environments lacking dedicated GPUs, making it ideal for lightweight hardware.
 - **MuSGD Optimizer:** Inspired by large language model techniques (such as Moonshot AI's Kimi K2), this hybrid of SGD and Muon brings LLM-level stability and rapid convergence to [computer vision training](https://docs.ultralytics.com/modes/train).
 - **ProgLoss + STAL:** These advanced loss functions deliver remarkable improvements in small-object recognition, a critical feature for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and [drone applications](https://www.ultralytics.com/blog/build-ai-powered-drone-applications-with-ultralytics-yolo11).
 - **Task-Specific Improvements:** Includes Semantic segmentation loss and multi-scale proto for segmentation tasks, Residual Log-Likelihood Estimation (RLE) for complex Pose estimation, and a specialized angle loss tailored to fix [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) boundary issues.
@@ -120,7 +120,7 @@ results = model.train(
     data="coco8.yaml",
     epochs=100,
     imgsz=640,
-    device=0,  # Auto-selects optimal device
+    device=0,  # GPU index; use device='cpu' to train on CPU
     batch=16,
 )
 
@@ -142,7 +142,7 @@ When architecting a solution, aligning the model's strengths with the specific u
 
 ### When to Utilize EfficientDet
 
-EfficientDet remains a candidate for legacy academic research or environments strictly bound to the [Google Cloud](https://research.google/) ecosystem where compound scaling experiments are the primary focus. Its smaller variants (d0-d2) are beneficial when absolute disk size is heavily constrained.
+EfficientDet remains a candidate for legacy academic research or environments strictly bound to the [Google Cloud](https://cloud.google.com/) ecosystem where compound scaling experiments are the primary focus. Its smaller variants (d0-d2) are beneficial when absolute disk size is heavily constrained.
 
 ### When to Utilize YOLOv7
 

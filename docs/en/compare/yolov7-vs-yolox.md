@@ -55,7 +55,7 @@ YOLOv7 returned to anchor-based methodologies but introduced the **Extended Effi
 
 !!! note "Anchor-Based vs. Anchor-Free"
 
-    While YOLOX simplified deployment pipelines with its anchor-free setup, modern Ultralytics architectures have since perfected this approach, completely removing the need for predefined boxes in newer generations.
+    While YOLOX simplified deployment pipelines with its anchor-free setup, modern Ultralytics architectures have since refined this approach, removing the need for predefined boxes in newer generations.
 
 ## Performance Comparison
 
@@ -81,7 +81,7 @@ A crucial factor for researchers and developers is the ease of implementation. H
 
 ### The Ultralytics Ecosystem Advantage
 
-Today, the most effective way to utilize these architectures is through the well-maintained Ultralytics ecosystem. Ultralytics provides a unified, highly intuitive Python API that drastically simplifies training, validation, and deployment.
+YOLOv7 and YOLOX are not natively supported by the Ultralytics Python package; for new projects, the most effective path is an Ultralytics YOLO model in the well-maintained Ultralytics ecosystem. Ultralytics provides a unified, highly intuitive Python API that drastically simplifies training, validation, and deployment.
 
 - **Ease of Use:** With just a few lines of code, you can initiate a training loop, mitigating the steep learning curve associated with raw PyTorch implementations.
 - **Training Efficiency:** Ultralytics YOLO models inherently utilize lower memory during training compared to heavy transformer models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr). This allows developers to maximize batch sizes on consumer hardware.
@@ -123,11 +123,11 @@ While YOLOv7 and YOLOX were groundbreaking at their inception, the computer visi
 
 Here is why upgrading is highly recommended:
 
-- **End-to-End NMS-Free Design:** YOLO26 natively eliminates Non-Maximum Suppression (NMS) during post-processing. Pioneered initially in [YOLOv10](https://docs.ultralytics.com/models/yolov10), this ensures consistently low latency, simplifying deployment on devices lacking NMS hardware support.
+- **End-to-End NMS-Free Design:** YOLO26's optional one-to-one head (`nms=False`) eliminates Non-Maximum Suppression (NMS) during post-processing. Pioneered initially in [YOLOv10](https://docs.ultralytics.com/models/yolov10), this ensures consistently low latency, simplifying deployment on devices lacking NMS hardware support.
 - **DFL Removal:** By removing Distribution Focal Loss, YOLO26 achieves vastly better compatibility with low-power edge devices and straightforward ONNX exports.
 - **MuSGD Optimizer:** Inspired by LLM training innovations, YOLO26 leverages a hybrid MuSGD optimizer, ensuring faster convergence and incredibly stable training dynamics.
 - **Up to 43% Faster CPU Inference:** Optimized heavily for real-world hardware, YOLO26 thrives on standard CPUs without requiring expensive GPU infrastructure.
-- **ProgLoss + STAL:** These advanced loss functions drastically improve small-object recognition, a critical feature for [aerial drone inspections](https://docs.ultralytics.com/datasets/detect/visdrone) and sophisticated IoT networks.
+- **ProgLoss + STAL:** Progressive Loss and Small-Target-Aware Label Assignment drastically improve small-object recognition, a critical feature for [aerial drone inspections](https://docs.ultralytics.com/datasets/detect/visdrone) and sophisticated IoT networks.
 
 For developers seeking the best performance balance across [object detection](https://docs.ultralytics.com/tasks/detect), segmentation, and beyond, deploying models via the [Ultralytics Platform](https://platform.ultralytics.com) provides an unparalleled, zero-friction experience.
 
@@ -135,4 +135,4 @@ For developers seeking the best performance balance across [object detection](ht
 
 ## Conclusion
 
-Both YOLOX and YOLOv7 introduced pivotal techniques that shaped the trajectory of open-source vision AI. YOLOX proved the viability of anchor-free decoupled heads, while YOLOv7 demonstrated the immense power of gradient path re-parameterization. Today, leveraging the Ultralytics ecosystem ensures you can extract the maximum potential from these historical architectures, or seamlessly transition to the state-of-the-art [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) to future-proof your next computer vision application.
+Both YOLOX and YOLOv7 introduced pivotal techniques that shaped the trajectory of open-source vision AI. YOLOX proved the viability of anchor-free decoupled heads, while YOLOv7 demonstrated the immense power of gradient path re-parameterization. Today, the Ultralytics ecosystem lets you build on these ideas with modern Ultralytics YOLO models and seamlessly transition to the state-of-the-art [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) to future-proof your next computer vision application.

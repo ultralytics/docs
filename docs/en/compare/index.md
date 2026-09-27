@@ -50,22 +50,22 @@ The field of object detection moves rapidly. While older models remain relevant 
 
 ### [Ultralytics YOLO26](../models/yolo26.md)
 
-Released in January 2026, **YOLO26** is the latest state-of-the-art model and the recommended starting point for all new projects. It introduces groundbreaking architectural innovations including an **End-to-End NMS-Free Design** that eliminates the need for Non-Maximum Suppression post-processing, resulting in faster and more predictable inference times. YOLO26 is up to **43% faster on CPUs** compared to previous generations, making it ideal for edge deployment.
+Released in January 2026, **YOLO26** is the latest state-of-the-art model and the recommended starting point for all new projects. It introduces groundbreaking architectural innovations including an optional **End-to-End NMS-Free Design** (`nms=False`) that eliminates the need for Non-Maximum Suppression post-processing, resulting in faster and more predictable inference times. YOLO26 is up to **43% faster on CPUs** compared to previous generations, making it ideal for edge deployment.
 
 Key innovations include:
 
-- **NMS-Free End-to-End:** Simplified deployment with no post-processing required
+- **NMS-Free End-to-End:** Simplified deployment with no NMS post-processing required (`nms=False`)
 - **DFL Removal:** Streamlined exports to ONNX, TensorRT, and CoreML
 - **MuSGD Optimizer:** Hybrid SGD/Muon optimizer inspired by LLM training for stable convergence
 - **ProgLoss + STAL:** Enhanced small object detection performance
 
 !!! tip "Why Choose YOLO26?"
 
-    YOLO26 represents the pinnacle of Ultralytics engineering, combining the best of CNN efficiency with transformer-like end-to-end capabilities. It supports all tasks—detection, segmentation, pose estimation, classification, and OBB—while being smaller, faster, and easier to deploy than ever before.
+    YOLO26 represents the pinnacle of Ultralytics engineering, combining the best of CNN efficiency with transformer-like end-to-end capabilities. It supports all tasks—detection, instance and semantic segmentation, depth estimation, classification, pose estimation, and OBB—while being smaller, faster, and easier to deploy than ever before.
 
 ### [Ultralytics YOLO11](../models/yolo11.md)
 
-**YOLO11** remains a highly capable model, offering a 22% reduction in parameters compared to YOLOv8 while improving detection accuracy. It is fully supported and recommended for users who need proven stability or have existing YOLO11 pipelines.
+**YOLO11** remains a highly capable model: YOLO11m uses 22% fewer parameters than YOLOv8m while achieving higher detection accuracy. It is fully supported and recommended for users who need proven stability or have existing YOLO11 pipelines.
 
 ### Community Models: A Note on YOLO12 and YOLO13
 
@@ -292,9 +292,9 @@ YOLOX, developed by Megvii, is an anchor-free evolution known for its decoupled 
 - [YOLOX vs YOLOv7](yolox-vs-yolov7.md)
 - [YOLOX vs YOLOv6-3.0](yolox-vs-yolov6.md)
 - [YOLOX vs YOLOv5](yolox-vs-yolov5.md)
-- [YOLOX vs RT-DETR](yolox-vs-rtdetr.md)
 - [YOLOX vs PP-YOLOE+](yolox-vs-pp-yoloe.md)
 - [YOLOX vs DAMO-YOLO](yolox-vs-damo-yolo.md)
+- [YOLOX vs RT-DETR](yolox-vs-rtdetr.md)
 - [YOLOX vs EfficientDet](yolox-vs-efficientdet.md)
 
 ### EfficientDet vs

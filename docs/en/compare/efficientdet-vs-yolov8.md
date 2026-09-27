@@ -66,14 +66,14 @@ When evaluating these models on standard benchmarks like the [COCO dataset](http
 | [YOLOv8n](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) | 640                         | 37.3                       | 80.4                                 | **1.47**                                  | **3.2**                  | 8.7                     |
 | [YOLOv8s](https://platform.ultralytics.com/ultralytics/yolov8/yolov8s) | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
 | [YOLOv8m](https://platform.ultralytics.com/ultralytics/yolov8/yolov8m) | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
-| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
+| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.1                   |
 | [YOLOv8x](https://platform.ultralytics.com/ultralytics/yolov8/yolov8x) | 640                         | **53.9**                   | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
 
 ### Analyzing the Data
 
 The benchmark data highlights the **performance balance** that Ultralytics engineers into their architectures. While EfficientDet-d0 offers extremely low CPU [ONNX](https://onnx.ai/) latency, YOLOv8 dominates in GPU-accelerated environments. The YOLOv8n model executes in a blistering **1.47 ms** on an NVIDIA T4 using [TensorRT](https://developer.nvidia.com/tensorrt), making it vastly superior for real-time video analytics streams.
 
-Furthermore, YOLOv8x achieves the highest overall accuracy with an impressive **53.9 mAP**, outperforming the massive EfficientDet-d7 while requiring significantly fewer FLOPs (257.8B vs 325.0B). This parameter efficiency translates directly to lower memory requirements and reduced energy costs during enterprise deployment.
+Furthermore, YOLOv8x achieves the highest overall accuracy with an impressive **53.9 mAP**, outperforming the massive EfficientDet-d7 while requiring significantly fewer FLOPs (257.8B vs 325.0B). This computational efficiency translates directly to lower memory requirements and reduced energy costs during enterprise deployment.
 
 ## Ecosystem and Ease of Use
 
@@ -115,7 +115,7 @@ EfficientDet is a strong choice for:
 
 - **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
 - **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
-- **Mobile Deployment via TFLite:** Projects that specifically require [TensorFlow Lite](https://developers.google.com/edge/litert) export for Android or embedded Linux devices.
+- **Mobile Deployment via LiteRT:** Projects that specifically require [LiteRT](https://developers.google.com/edge/litert) (formerly TensorFlow Lite) export for Android or embedded Linux devices.
 
 ### When to Choose YOLOv8
 
@@ -139,7 +139,7 @@ While YOLOv8 is a fantastic general-purpose model, the computer vision landscape
 
 Released in January 2026, YOLO26 builds upon the successes of its predecessors (including [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv10](https://docs.ultralytics.com/models/yolov10)) with groundbreaking features:
 
-- **End-to-End NMS-Free Design:** YOLO26 natively eliminates the need for Non-Maximum Suppression (NMS) post-processing, vastly simplifying deployment logic and reducing latency variance.
+- **End-to-End NMS-Free Design:** YOLO26's optional one-to-one head (`nms=False`) removes the need for Non-Maximum Suppression (NMS) post-processing, vastly simplifying deployment logic and reducing latency variance.
 - **MuSGD Optimizer:** Integrating innovations from Large Language Model (LLM) training, this hybrid optimizer ensures more stable training and rapid convergence.
 - **Up to 43% Faster CPU Inference:** Thoroughly optimized for [edge AI](https://en.wikipedia.org/wiki/Edge_computing) scenarios lacking dedicated GPUs.
 - **ProgLoss + STAL:** These advanced loss functions deliver notable improvements in small-object recognition, a historical weak point for many real-time detectors.

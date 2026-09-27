@@ -109,7 +109,7 @@ Released in January 2026, [YOLO26](https://platform.ultralytics.com/ultralytics/
 
 ### Why Choose YOLO26?
 
-1. **End-to-End NMS-Free Design:** Building on concepts from [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 natively eliminates Non-Maximum Suppression post-processing. This significantly simplifies deployment code and reduces inference latency variance across all edge devices.
+1. **End-to-End NMS-Free Design:** Building on concepts from [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 supports native end-to-end inference that skips Non-Maximum Suppression post-processing via its optional one-to-one head (`nms=False`). This significantly simplifies deployment code and reduces inference latency variance across all edge devices.
 2. **Superior Optimization:** YOLO26 employs the **MuSGD Optimizer**, a hybrid of SGD and Muon (inspired by large language models), which yields highly stable training runs and faster convergence.
 3. **Hardware Versatility:** By implementing **DFL Removal** (Distribution Focal Loss), the output heads are simplified, boosting edge device compatibility. In fact, YOLO26 achieves **up to 43% faster CPU inference**, making it vastly superior to YOLOv6 for mobile or IoT edge environments.
 4. **Enhanced Accuracy:** Utilizing **ProgLoss + STAL**, YOLO26 sees dramatic improvements in [small object detection](https://www.ultralytics.com/blog/exploring-small-object-detection-with-ultralytics-yolo11), making it the optimal choice for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and defect inspection.
@@ -125,12 +125,12 @@ Additionally, Ultralytics models are known for their [memory efficiency](https:/
 
 ### Quick Start Code Example
 
-Training and inferencing with an Ultralytics model like YOLO26 is elegantly simple. The following Python script demonstrates how you can immediately start tracking objects with just a few lines of code:
+Training and inferencing with an Ultralytics model like YOLO26 is elegantly simple. The following Python script demonstrates how you can immediately train, run inference, and export with just a few lines of code:
 
 ```python
 from ultralytics import YOLO
 
-# Load the highly efficient, NMS-free YOLO26 nano model
+# Load the highly efficient YOLO26 nano model
 model = YOLO("yolo26n.pt")
 
 # Train the model on your custom dataset seamlessly
@@ -147,6 +147,6 @@ model.export(format="engine", dynamic=True)
 
 Both DAMO-YOLO and YOLOv6-3.0 are impressive engineering feats that push the boundaries of industrial object detection. However, they are highly specialized tools that often require intricate setups and rigid hardware constraints.
 
-For developers and researchers who demand a perfect **performance balance**, multi-task capabilities, and an actively [well-maintained ecosystem](https://www.ultralytics.com/about), Ultralytics **YOLO26** stands unmatched. By blending LLM-inspired optimizers with a clean, NMS-free architecture, YOLO26 simplifies [AI deployment](https://docs.ultralytics.com/guides/model-deployment-options) while delivering state-of-the-art accuracy across edge and cloud environments.
+For developers and researchers who demand a perfect **performance balance**, multi-task capabilities, and an actively [well-maintained ecosystem](https://www.ultralytics.com/about), Ultralytics **YOLO26** stands unmatched. By blending LLM-inspired optimizers with a clean architecture that supports NMS-free inference, YOLO26 simplifies [AI deployment](https://docs.ultralytics.com/guides/model-deployment-options) while delivering state-of-the-art accuracy across edge and cloud environments.
 
 If you're evaluating models for a new computer vision project, we highly recommend exploring the capabilities of the [Ultralytics YOLO](https://www.ultralytics.com/yolo) ecosystem. You may also find it useful to compare these with other architectures like [EfficientDet](https://docs.ultralytics.com/compare/efficientdet-vs-yolov6) or previous milestones like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) to fully grasp the evolution of real-time vision AI.

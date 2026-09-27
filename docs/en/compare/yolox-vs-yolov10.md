@@ -68,26 +68,26 @@ When evaluating models for production, balancing accuracy with computational ove
 | YOLOXl    | 640                         | 49.7                       | -                                    | 9.04                                      | 54.2                     | 155.6                   |
 | YOLOXx    | 640                         | 51.1                       | -                                    | 16.1                                      | 99.1                     | 281.9                   |
 |           |                             |                            |                                      |                                           |                          |                         |
-| YOLOv10n  | 640                         | 39.5                       | -                                    | **1.56**                                  | 2.3                      | 6.7                     |
-| YOLOv10s  | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
-| YOLOv10m  | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
-| YOLOv10b  | 640                         | 52.7                       | -                                    | 6.54                                      | 24.4                     | 92.0                    |
-| YOLOv10l  | 640                         | 53.3                       | -                                    | 8.33                                      | 29.5                     | 120.3                   |
-| YOLOv10x  | 640                         | **54.4**                   | -                                    | 12.2                                      | 56.9                     | 160.4                   |
+| YOLOv10n  | 640                         | 38.5                       | -                                    | **1.84**                                  | 2.3                      | 6.7                     |
+| YOLOv10s  | 640                         | 46.3                       | -                                    | 2.49                                      | 7.2                      | 21.6                    |
+| YOLOv10m  | 640                         | 51.1                       | -                                    | 4.74                                      | 15.4                     | 59.1                    |
+| YOLOv10b  | 640                         | 52.5                       | -                                    | 5.74                                      | 19.1                     | 92.0                    |
+| YOLOv10l  | 640                         | 53.2                       | -                                    | 7.28                                      | 24.4                     | 120.3                   |
+| YOLOv10x  | 640                         | **54.4**                   | -                                    | 10.70                                     | 29.5                     | 160.4                   |
 
 ### Analyzing the Data
 
-The metrics clearly demonstrate YOLOv10's generational leap. For instance, YOLOv10-S achieves a [mean Average Precision](https://docs.ultralytics.com/guides/yolo-performance-metrics) of 46.7% compared to YOLOX-m's 46.9%, but does so using less than a third of the parameters (7.2M vs 25.3M) and significantly fewer FLOPs. Furthermore, the top-tier YOLOv10-X model pushes the mAP to 54.4%, making it highly competitive for demanding accuracy tasks while remaining faster than the older YOLOX-x architecture.
+The metrics clearly demonstrate YOLOv10's generational leap. For instance, YOLOv10-S achieves a [mean Average Precision](https://docs.ultralytics.com/guides/yolo-performance-metrics) of 46.3% compared to YOLOX-m's 46.9%, but does so using less than a third of the parameters (7.2M vs 25.3M) and significantly fewer FLOPs. Furthermore, the top-tier YOLOv10-X model pushes the mAP to 54.4%, making it highly competitive for demanding accuracy tasks while remaining faster than the older YOLOX-x architecture.
 
 ## The Ultralytics Ecosystem Advantage
 
 While YOLOX remains a robust open-source research implementation, adopting YOLOv10 provides immediate access to the well-maintained ecosystem provided by Ultralytics. Choosing an Ultralytics-supported model ensures a streamlined user experience characterized by a simple API and extensive documentation.
 
-Developers benefit heavily from the framework's memory requirements; training Ultralytics models typically consumes far less CUDA memory than heavy transformer-based alternatives like [RT-DETR](https://docs.ultralytics.com/models/rtdetr). This efficient training footprint allows for larger batch sizes on consumer-grade hardware, accelerating the time from data collection to model deployment. Furthermore, the framework offers unmatched versatility, allowing users to switch seamlessly between [object detection](https://docs.ultralytics.com/tasks/detect), [instance segmentation](https://docs.ultralytics.com/tasks/segment), and [pose estimation](https://docs.ultralytics.com/tasks/pose) with minimal code changes.
+Developers benefit heavily from the framework's low memory requirements; training Ultralytics models typically consumes far less CUDA memory than heavy transformer-based alternatives like [RT-DETR](https://docs.ultralytics.com/models/rtdetr). This efficient training footprint allows for larger batch sizes on consumer-grade hardware, accelerating the time from data collection to model deployment. Furthermore, the framework offers unmatched versatility, allowing users to switch seamlessly between [object detection](https://docs.ultralytics.com/tasks/detect), [instance segmentation](https://docs.ultralytics.com/tasks/segment), and [pose estimation](https://docs.ultralytics.com/tasks/pose) with minimal code changes.
 
 ### Training and Inference Example
 
-The unified API makes validating ideas incredibly fast. The following snippet demonstrates how easily you can train and deploy a YOLOv10 model using [PyTorch](https://pytorch.org/) backend:
+The unified API makes validating ideas incredibly fast. The following snippet demonstrates how easily you can train and deploy a YOLOv10 model using the [PyTorch](https://pytorch.org/) backend:
 
 ```python
 from ultralytics import YOLO
@@ -117,7 +117,7 @@ For applications requiring ultra-low latency, such as autonomous driving or real
 
 ### Academic Baselines and Edge Microcontrollers
 
-YOLOX still holds value in academic settings where researchers want a clean, decoupled-head baseline for experimenting with label assignment strategies. Additionally, the exceptionally small YOLOX-Nano (under 1 million parameters) can be squeezed onto highly constrained edge microcontrollers where memory is measured in kilobytes, provided the hardware can support standard convolution operations.
+YOLOX still holds value in academic settings where researchers want a clean, decoupled-head baseline for experimenting with label assignment strategies. Additionally, the exceptionally small YOLOX-Nano (under 1 million parameters) can be squeezed onto highly constrained edge devices where memory is tightly limited, provided the hardware can support standard convolution operations.
 
 ## The Ultimate Standard: Ultralytics YOLO26
 
@@ -127,7 +127,7 @@ Released as the latest standard in vision AI, YOLO26 takes the foundational idea
 
 Here is why YOLO26 is the recommended choice for modern computer vision pipelines:
 
-- **End-to-End NMS-Free Design:** Building on the breakthroughs of YOLOv10, YOLO26 is natively end-to-end, guaranteeing faster, deterministic inference times without post-processing bottlenecks.
+- **End-to-End NMS-Free Design:** Building on the breakthroughs of YOLOv10, YOLO26 supports native end-to-end inference (`nms=False`), delivering faster, deterministic inference times without NMS post-processing bottlenecks.
 - **Up to 43% Faster CPU Inference:** It is specifically optimized for edge computing, ensuring exceptional performance on mobile processors and devices lacking discrete GPUs.
 - **MuSGD Optimizer:** Inspired by Large Language Model training (specifically Moonshot AI's Kimi K2), YOLO26 utilizes a hybrid of SGD and Muon for incredibly stable training and rapid convergence.
 - **ProgLoss + STAL:** These advanced loss functions deliver notable improvements in small-object recognition, which is critical for demanding domains like aerial imagery and drone navigation.

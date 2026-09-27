@@ -43,7 +43,7 @@ The core differences between these two detectors lie in their approach to featur
 
 **YOLOX** made waves in 2021 by successfully adapting the YOLO family to an **anchor-free** design. By removing anchor boxes, YOLOX significantly reduced the number of design parameters and heuristic tuning required for custom datasets. Furthermore, it introduced a decoupled head, which separates classification and localization tasks into distinct neural pathways. This separation resolved the inherent conflict between classifying an object and regressing its spatial coordinates, leading to faster convergence during training.
 
-**PP-YOLOE+**, developed by Baidu, is heavily optimized for the [PaddlePaddle](https://docs.ultralytics.com/integrations/paddlepaddle) ecosystem. It builds upon its predecessor, PP-YOLOv2, by introducing a dynamic label assignment strategy (TAL) and a novel backbone called CSPRepResNet. This backbone leverages structural re-parameterization, allowing the model to benefit from complex multi-branch architectures during training while seamlessly folding into a fast, single-path network for inference.
+**PP-YOLOE+**, developed by Baidu, is heavily optimized for the [PaddlePaddle](https://docs.ultralytics.com/integrations/paddlepaddle) ecosystem. It builds upon its predecessors, PP-YOLOE and PP-YOLOv2, by introducing a dynamic label assignment strategy (TAL) and a novel backbone called CSPRepResNet. This backbone leverages structural re-parameterization, allowing the model to benefit from complex multi-branch architectures during training while seamlessly folding into a fast, single-path network for inference.
 
 !!! tip "Structural Re-parameterization"
 
@@ -120,7 +120,7 @@ For teams looking to transition from isolated research repositories to productio
 
 **Key advantages of Ultralytics YOLO26 include:**
 
-- **End-to-End NMS-Free Design:** Unlike both PP-YOLOE+ and YOLOX, which require Non-Maximum Suppression (NMS) to filter redundant bounding boxes, YOLO26 is natively end-to-end. This eliminates latency bottlenecks and simplifies the deployment logic drastically.
+- **End-to-End NMS-Free Design:** Unlike both PP-YOLOE+ and YOLOX, which require Non-Maximum Suppression (NMS) to filter redundant bounding boxes, YOLO26 offers a native end-to-end head (`nms=False`). This eliminates latency bottlenecks and simplifies the deployment logic drastically.
 - **Up to 43% Faster CPU Inference:** By strategically removing Distribution Focal Loss (DFL), YOLO26 achieves unparalleled inference speeds on CPU hardware, making it far superior for [edge computing](https://www.ultralytics.com/glossary/edge-computing) and low-power devices.
 - **MuSGD Optimizer:** Inspired by Moonshot AI's Kimi K2, this hybrid optimizer brings LLM training stability to computer vision, ensuring much faster convergence and minimizing the memory requirements during training phases.
 - **ProgLoss + STAL:** These advanced loss functions deliver notable improvements in small-object recognition, a critical feature for [drone operations](https://www.ultralytics.com/blog/build-ai-powered-drone-applications-with-ultralytics-yolo11) and highly detailed aerial imagery.
@@ -138,7 +138,7 @@ from ultralytics import YOLO
 # Load the highly efficient, end-to-end YOLO26 nano model
 model = YOLO("yolo26n.pt")
 
-# Train on a custom dataset with built-in auto-batching and MuSGD optimization
+# Train on the COCO8 example dataset
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
 # Validate the model's performance

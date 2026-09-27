@@ -74,7 +74,7 @@ The table above demonstrates that YOLOv7 scales well into high-accuracy domains 
 
 A major distinction between the two architectures lies in their training methodologies. DAMO-YOLO's reliance on distillation means that training a new model from scratch or fine-tuning on a [custom computer vision dataset](https://www.ultralytics.com/blog/custom-training-ultralytics-yolo11-with-computer-vision-datasets) often demands significantly more VRAM and [GPU compute](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) time.
 
-In contrast, models integrated into the Ultralytics ecosystem, such as YOLOv7 and later versions, are heavily optimized for [memory requirements](https://docs.ultralytics.com/guides/yolo-performance-metrics). They allow developers to utilize larger batch sizes on consumer hardware without encountering out-of-memory errors, simplifying the [experiment tracking](https://www.ultralytics.com/glossary/experiment-tracking) and iteration process.
+In contrast, models natively supported by the Ultralytics ecosystem, such as YOLOv8 and later versions, are heavily optimized for [memory requirements](https://docs.ultralytics.com/guides/yolo-performance-metrics). They allow developers to utilize larger batch sizes on consumer hardware without encountering out-of-memory errors, simplifying the [experiment tracking](https://www.ultralytics.com/glossary/experiment-tracking) and iteration process.
 
 ## The Ultralytics Advantage
 
@@ -91,8 +91,8 @@ Here is how easily you can load, train, and run inference using Ultralytics mode
 ```python
 from ultralytics import YOLO
 
-# Load a pre-trained YOLOv7 model (or newer models like yolo26n.pt)
-model = YOLO("yolov7.pt")
+# Load a pretrained YOLO26 model (native YOLOv7 weights are not supported by Ultralytics)
+model = YOLO("yolo26n.pt")
 
 # Train the model on the COCO8 dataset with automated hyperparameter handling
 results = model.train(data="coco8.yaml", epochs=50, imgsz=640)
@@ -112,7 +112,7 @@ model.export(format="onnx")
 
 While YOLOv7 remains a strong legacy architecture, the field has advanced rapidly. For new deployments, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) (released January 2026) is the recommended standard, outperforming previous generations in almost every metric.
 
-- **End-to-End NMS-Free Design:** First pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 natively eliminates Non-Maximum Suppression (NMS) post-processing. This ensures deterministic, ultra-low latency inference critical for robotics and self-driving technologies.
+- **End-to-End NMS-Free Design:** First pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26's optional one-to-one head (`nms=False`) eliminates Non-Maximum Suppression (NMS) post-processing. This ensures deterministic, ultra-low latency inference critical for robotics and self-driving technologies.
 - **MuSGD Optimizer:** Inspired by advanced LLM training techniques (like Moonshot AI's Kimi K2), this hybrid optimizer blends SGD and Muon to deliver highly stable training and faster convergence across datasets.
 - **Up to 43% Faster CPU Inference:** By strategically removing Distribution Focal Loss (DFL), YOLO26 significantly boosts performance on edge computing platforms and CPUs.
 - **ProgLoss + STAL:** These advanced loss functions yield substantial improvements in detecting small objects, making YOLO26 exceptionally well-suited for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and detailed surveillance.

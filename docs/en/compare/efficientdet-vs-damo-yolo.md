@@ -91,7 +91,7 @@ EfficientDet is a strong choice for:
 
 - **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
 - **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
-- **Mobile Deployment via TFLite:** Projects that specifically require [TensorFlow Lite](https://developers.google.com/edge/litert) export for Android or embedded Linux devices.
+- **Mobile Deployment via LiteRT:** Projects that specifically require [LiteRT](https://developers.google.com/edge/litert) (formerly TensorFlow Lite) export for Android or embedded Linux devices.
 
 ### When to Choose DAMO-YOLO
 
@@ -134,7 +134,7 @@ model.export(format="onnx")
 
 For developers evaluating EfficientDet or DAMO-YOLO, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the ultimate evolutionary step. Released in early 2026, it introduces paradigm-shifting capabilities:
 
-- **End-to-End NMS-Free Design:** First pioneered by [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 natively eliminates the need for Non-Maximum Suppression (NMS) post-processing. This translates to vastly simpler deployment architectures and consistent latency across diverse hardware.
+- **End-to-End NMS-Free Design:** First pioneered by [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26's native one-to-one head (`nms=False`) eliminates the need for Non-Maximum Suppression (NMS) post-processing. This translates to vastly simpler deployment architectures and consistent latency across diverse hardware.
 - **Up to 43% Faster CPU Inference:** For edge deployments lacking heavy GPUs—scenarios where DAMO-YOLO struggles—YOLO26 is heavily optimized, delivering massive speedups on standard CPUs.
 - **MuSGD Optimizer:** Bridging the gap between LLM innovations and computer vision, YOLO26 incorporates the MuSGD optimizer (inspired by Moonshot AI), ensuring incredibly stable training and rapid convergence compared to the brittle training loops of EfficientDet.
 - **DFL Removal:** The removal of Distribution Focal Loss simplifies the export process, guaranteeing superior compatibility with low-power microcontrollers and [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) devices.

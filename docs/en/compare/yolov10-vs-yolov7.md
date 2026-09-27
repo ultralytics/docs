@@ -59,17 +59,17 @@ When comparing raw metrics on the [MS COCO dataset](https://docs.ultralytics.com
 
 | Model    | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | -------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv10n | 640                         | 39.5                       | -                                    | **1.56**                                  | **2.3**                  | **6.7**                 |
-| YOLOv10s | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
-| YOLOv10m | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
-| YOLOv10b | 640                         | 52.7                       | -                                    | 6.54                                      | 24.4                     | 92.0                    |
-| YOLOv10l | 640                         | 53.3                       | -                                    | 8.33                                      | 29.5                     | 120.3                   |
-| YOLOv10x | 640                         | **54.4**                   | -                                    | 12.2                                      | 56.9                     | 160.4                   |
+| YOLOv10n | 640                         | 38.5                       | -                                    | **1.84**                                  | **2.3**                  | **6.7**                 |
+| YOLOv10s | 640                         | 46.3                       | -                                    | 2.49                                      | 7.2                      | 21.6                    |
+| YOLOv10m | 640                         | 51.1                       | -                                    | 4.74                                      | 15.4                     | 59.1                    |
+| YOLOv10b | 640                         | 52.5                       | -                                    | 5.74                                      | 19.1                     | 92.0                    |
+| YOLOv10l | 640                         | 53.2                       | -                                    | 7.28                                      | 24.4                     | 120.3                   |
+| YOLOv10x | 640                         | **54.4**                   | -                                    | 10.70                                     | 29.5                     | 160.4                   |
 |          |                             |                            |                                      |                                           |                          |                         |
 | YOLOv7l  | 640                         | 51.4                       | -                                    | 6.84                                      | 36.9                     | 104.7                   |
 | YOLOv7x  | 640                         | 53.1                       | -                                    | 11.57                                     | 71.3                     | 189.9                   |
 
-As seen above, YOLOv10x delivers a superior mAP of 54.4% compared to YOLOv7x's 53.1%, while using roughly 20% fewer parameters. Furthermore, the lightweight YOLOv10 models (Nano and Small) offer exceptional [TensorRT deployment](https://docs.ultralytics.com/integrations/tensorrt) speeds, making them highly attractive for mobile deployment.
+As seen above, YOLOv10x delivers a superior mAP of 54.4% compared to YOLOv7x's 53.1%, while using less than half the parameters (29.5M vs 71.3M). Furthermore, the lightweight YOLOv10 models (Nano and Small) offer exceptional [TensorRT deployment](https://docs.ultralytics.com/integrations/tensorrt) speeds, making them highly attractive for mobile deployment.
 
 ## The Ultralytics Ecosystem Advantage
 
@@ -77,7 +77,7 @@ While studying architectural papers is insightful, modern computer vision develo
 
 ### Streamlined Development
 
-Both YOLOv10 and YOLOv7 can be accessed via the standard Ultralytics Python package. This provides unparalleled **Ease of Use**, replacing thousands of lines of boilerplate code with a simple, intuitive API. Furthermore, Ultralytics YOLO models require significantly lower CUDA memory during training compared to heavy transformer architectures, enabling the use of larger batch sizes on consumer-grade hardware.
+YOLOv10 is natively supported by the standard Ultralytics Python package, while YOLOv7 checkpoints trained upstream can be run in Ultralytics only after [export to ONNX or TensorRT](https://docs.ultralytics.com/models/yolov7). Native support provides unparalleled **Ease of Use**, replacing thousands of lines of boilerplate code with a simple, intuitive API. Furthermore, Ultralytics YOLO models require significantly lower CUDA memory during training compared to heavy transformer architectures, enabling the use of larger batch sizes on consumer-grade hardware.
 
 ### Unmatched Versatility
 
@@ -90,7 +90,7 @@ The following code snippet demonstrates the seamless training process, which aut
 ```python
 from ultralytics import YOLO
 
-# Load the desired model (YOLOv10, YOLOv7, or the recommended YOLO26)
+# Load the desired model (e.g. YOLOv10 or the recommended YOLO26)
 model = YOLO("yolo26n.pt")
 
 # Train the model effortlessly on your dataset
@@ -136,12 +136,12 @@ While YOLOv10 was a massive leap forward in 2024, the computer vision landscape 
 
 YOLO26 brings unprecedented innovations designed specifically for modern deployment environments:
 
-- **End-to-End NMS-Free Design:** Building on the foundation laid by YOLOv10, YOLO26 natively eliminates NMS post-processing for simpler deployment pipelines and consistent high-speed inference.
+- **End-to-End NMS-Free Design:** Building on the foundation laid by YOLOv10, YOLO26's optional one-to-one head (`nms=False`) eliminates NMS post-processing for simpler deployment pipelines and consistent high-speed inference.
 - **Up to 43% Faster CPU Inference:** Heavily optimized for edge computing and devices lacking dedicated GPUs, providing massive savings on hardware costs.
 - **DFL Removal:** The Distribution Focal Loss has been removed entirely, which radically simplifies export logic and vastly improves compatibility with low-power edge devices and microcontrollers.
 - **MuSGD Optimizer:** Inspired by Moonshot AI's Kimi K2, this hybrid of SGD and Muon brings [Large Language Model (LLM)](https://www.ultralytics.com/glossary/large-language-model-llm) training innovations directly into computer vision, yielding incredibly stable training dynamics and faster convergence.
 - **ProgLoss + STAL:** These advanced loss functions deliver notable improvements in small-object recognition, a historically challenging area that is critical for drones, robotics, and [smart city monitoring](https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities).
-- **Task-Specific Improvements:** YOLO26 isn't just a detector. It includes specialized semantic segmentation loss, Residual Log-Likelihood Estimation (RLE) for ultra-accurate pose tracking, and specialized angle loss algorithms to eliminate OBB boundary issues.
+- **Task-Specific Improvements:** YOLO26 isn't just a detector. It includes specialized semantic segmentation loss, Residual Log-Likelihood Estimation (RLE) for ultra-accurate pose estimation, and specialized angle loss algorithms to eliminate OBB boundary issues.
 
 !!! note "Managing Datasets and Training"
 

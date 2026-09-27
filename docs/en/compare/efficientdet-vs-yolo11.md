@@ -70,10 +70,10 @@ The table below contrasts the performance of both model families across various 
 | EfficientDet-d7                                                        | 640                         | 53.7                       | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
 | [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) | 640                         | 39.5                       | 56.1                                 | **1.5**                                   | **2.6**                  | 6.5                     |
-| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
-| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
-| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
-| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
+| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.6                    |
+| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.1                    |
+| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 87.2                    |
+| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 195.3                   |
 
 ### Balanced Analysis: Strengths and Weaknesses
 
@@ -87,7 +87,7 @@ The developer experience is often as critical as the model's theoretical capabil
 
 EfficientDet relies heavily on the legacy [TensorFlow](https://www.tensorflow.org/) ecosystem and complex AutoML libraries. Setting up a custom training pipeline involves steep learning curves, intricate dependency management, and manual configuration of anchors and [loss functions](https://www.ultralytics.com/glossary/loss-function).
 
-Conversely, Ultralytics offers an unparalleled ease of use. Backed by a well-maintained PyTorch ecosystem, training a YOLO model requires just a few lines of code. The framework automatically manages [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning), advanced data augmentations, and optimal learning rate scheduling out of the box.
+Conversely, Ultralytics offers an unparalleled ease of use. Backed by a well-maintained PyTorch ecosystem, training a YOLO model requires just a few lines of code. The framework automatically manages advanced data augmentations and learning rate scheduling out of the box, and includes built-in [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning).
 
 ### Code Example: Getting Started with Ultralytics
 
@@ -99,7 +99,7 @@ from ultralytics import YOLO
 # Load a pre-trained YOLO11 small model
 model = YOLO("yolo11s.pt")
 
-# Train the model on your custom dataset with automated hyperparameter tuning
+# Train the model on your custom dataset
 train_results = model.train(data="coco8.yaml", epochs=50, imgsz=640, device=0)
 
 # Perform fast inference on an image
@@ -119,7 +119,7 @@ YOLO11 is the definitive choice for modern enterprise deployments. Its exception
 
 While YOLO11 is exceptionally capable, developers starting new projects should evaluate other Ultralytics architectures like the proven [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) or the newly released [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). Released in early 2026, YOLO26 takes the foundation of YOLO11 and introduces several groundbreaking innovations:
 
-- **End-to-End NMS-Free Design:** Building on the legacy of [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 completely eliminates Non-Maximum Suppression (NMS) during post-processing, slashing latency and simplifying deployment pipelines.
+- **End-to-End NMS-Free Design:** Building on the legacy of [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 can skip Non-Maximum Suppression (NMS) post-processing entirely with its optional one-to-one head (`nms=False`), slashing latency and simplifying deployment pipelines.
 - **MuSGD Optimizer:** A hybrid optimizer blending standard SGD with Muon (inspired by large language model training), drastically improving training stability.
 - **Up to 43% Faster CPU Inference:** Specific optimizations make YOLO26 incredibly potent on edge devices lacking discrete GPUs.
 - **ProgLoss + STAL:** Advanced loss functions that remarkably improve small-object detection, critical for aerial imagery and robotics.

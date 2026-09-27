@@ -43,7 +43,7 @@ Baidu's RTDETRv2 represents a significant leap for Real-Time Detection Transform
 - **GitHub:** [RT-DETR Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 - **Docs:** [RTDETRv2 Documentation](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
 
-[Learn more about RTDETRv2](https://docs.ultralytics.com/models/rtdetr){ .md-button }
+[Learn more about RTDETRv2](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch){ .md-button }
 
 !!! tip "Embracing Transformers in Vision AI"
 
@@ -83,8 +83,8 @@ This is where the [Ultralytics ecosystem](https://docs.ultralytics.com/platform)
 
 The recently released **Ultralytics YOLO26** model takes these advantages to the next level, offering breakthroughs that outpace both DAMO-YOLO and RTDETRv2:
 
-- **End-to-End NMS-Free Design:** Pioneered originally in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 is natively end-to-end. This completely eliminates NMS post-processing, making deployment faster and drastically simpler than traditional CNNs, while matching the direct-output benefits of RTDETRv2.
-- **Up to 43% Faster CPU Inference:** Optimized heavily for [edge AI devices](https://www.ultralytics.com/blog/edge-ai-and-edge-computing-powering-real-time-intelligence) without discrete GPUs, making it a vastly superior choice for IoT applications compared to memory-heavy transformers.
+- **End-to-End NMS-Free Design:** Pioneered originally in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 offers an optional end-to-end head (`nms=False`). This eliminates NMS post-processing, making deployment faster and drastically simpler than traditional CNNs, while matching the direct-output benefits of RTDETRv2.
+- **Up to 43% Faster CPU Inference:** YOLO26n runs up to 43% faster than YOLO11n on CPU ONNX and is optimized heavily for [edge AI devices](https://www.ultralytics.com/blog/edge-ai-and-edge-computing-powering-real-time-intelligence) without discrete GPUs, making it a vastly superior choice for IoT applications compared to memory-heavy transformers.
 - **MuSGD Optimizer:** Inspired by Moonshot AI's Kimi K2, this hybrid of SGD and Muon brings Large Language Model (LLM) training innovations into computer vision, resulting in remarkably stable training and faster convergence.
 - **ProgLoss + STAL:** These advanced loss functions deliver notable improvements in small-object recognition, an area where models traditionally struggle. This is critical for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and drone applications.
 - **DFL Removal:** Distribution Focal Loss has been removed to ensure simplified export formats and better compatibility with low-power edge devices.
@@ -103,7 +103,7 @@ One of the greatest benefits of the Ultralytics ecosystem is its unified API. Yo
 ```python
 from ultralytics import RTDETR, YOLO
 
-# Load an RTDETRv2 model
+# Load an RT-DETR model
 model_rtdetr = RTDETR("rtdetr-l.pt")
 
 # Load the cutting-edge YOLO26 model
@@ -123,6 +123,6 @@ This simplicity extends to [custom dataset training](https://docs.ultralytics.co
 
 Both DAMO-YOLO and RTDETRv2 have undeniably pushed the boundaries of what is possible in real-time object detection. DAMO-YOLO provides highly optimized, auto-searched network structures for raw efficiency, while RTDETRv2 proves that transformers can compete in the real-time space by eliminating traditional bottlenecks like NMS.
 
-However, for developers seeking the ultimate balance of performance, comprehensive documentation, and production readiness, **Ultralytics YOLO models** remain the gold standard. With the introduction of YOLO26, users gain access to transformer-like end-to-end detection, LLM-inspired training efficiency, and unparalleled CPU speeds—all wrapped within an intuitive and robust ecosystem.
+However, for developers seeking the ultimate balance of performance, comprehensive documentation, and production readiness, **Ultralytics YOLO models** remain the gold standard. With the introduction of YOLO26, users gain access to optional transformer-like end-to-end detection, LLM-inspired training efficiency, and unparalleled CPU speeds—all wrapped within an intuitive and robust ecosystem.
 
 If you are evaluating models for your next project, you may also find value in reading our comparisons of [EfficientDet vs RT-DETR](https://docs.ultralytics.com/compare/efficientdet-vs-rtdetr), exploring the previous generation [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), or reviewing academic baselines like [YOLOX](https://docs.ultralytics.com/compare/yolox-vs-rtdetr). Start building today by exploring the [Ultralytics quickstart guide](https://docs.ultralytics.com/quickstart).

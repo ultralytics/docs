@@ -48,7 +48,7 @@ The core of YOLOv9 relies on two major theoretical innovations: Programmable Gra
 
 !!! tip "Future-Proof Your Deployments"
 
-    While YOLOv5 and YOLOv9 are powerful, the newly released [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the ultimate balance of speed and precision. Featuring an end-to-end NMS-free design and up to 43% faster CPU inference, YOLO26 is highly recommended for modern edge computing and production deployments.
+    While YOLOv5 and YOLOv9 are powerful, the newly released [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the ultimate balance of speed and precision. Featuring optional end-to-end NMS-free inference and up to 43% faster CPU inference, YOLO26 is highly recommended for modern edge computing and production deployments.
 
 ## Architectural and Technical Differences
 
@@ -70,17 +70,17 @@ To objectively evaluate these architectures, we compare their performance on sta
 
 | Model                                                                   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ----------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | **73.6**                             | **1.12**                                  | 2.6                      | **7.7**                 |
-| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
-| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
-| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
-| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
+| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | -                                    | **1.12**                                  | **1.9**                  | **4.5**                 |
+| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | -                                    | 1.92                                      | 7.2                      | 16.5                    |
+| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | -                                    | 4.03                                      | 21.2                     | 49.0                    |
+| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | -                                    | 6.61                                      | 46.5                     | 109.1                   |
+| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | -                                    | 11.89                                     | 86.7                     | 205.7                   |
 |                                                                         |                             |                            |                                      |                                           |                          |                         |
-| YOLOv9t                                                                 | 640                         | 38.3                       | -                                    | 2.3                                       | **2.0**                  | **7.7**                 |
-| YOLOv9s                                                                 | 640                         | 46.8                       | -                                    | 3.54                                      | 7.1                      | 26.4                    |
-| YOLOv9m                                                                 | 640                         | 51.4                       | -                                    | 6.43                                      | 20.0                     | 76.3                    |
-| YOLOv9c                                                                 | 640                         | 53.0                       | -                                    | 7.16                                      | 25.3                     | 102.1                   |
-| YOLOv9e                                                                 | 640                         | **55.6**                   | -                                    | 16.77                                     | 57.3                     | 189.0                   |
+| YOLOv9t                                                                 | 640                         | 38.3                       | -                                    | 2.3                                       | 2.0                      | 7.7                     |
+| YOLOv9s                                                                 | 640                         | 46.8                       | -                                    | 3.54                                      | 7.2                      | 26.7                    |
+| YOLOv9m                                                                 | 640                         | 51.4                       | -                                    | 6.43                                      | 20.1                     | 76.8                    |
+| YOLOv9c                                                                 | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
+| YOLOv9e                                                                 | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
 
 As the table shows, YOLOv9 achieves higher raw accuracy at equivalent tiers, reflecting its newer architecture. However, YOLOv5n maintains an incredibly low TensorRT latency of 1.12ms, highlighting its enduring strength for high-speed, localized [edge computing](https://www.ultralytics.com/glossary/edge-computing) applications.
 
@@ -96,12 +96,12 @@ While original research repositories for models like YOLOv9 are foundational, th
 from ultralytics import YOLO
 
 # Load a pre-trained YOLOv5 model for fast deployment
-model_v5 = YOLO("yolov5s.pt")
+model_v5 = YOLO("yolov5su.pt")  # YOLOv5u: anchor-free YOLOv5 weights for the ultralytics package
 
 # Or leverage a YOLOv9 model for high-fidelity accuracy
 model_v9 = YOLO("yolov9c.pt")
 
-# Train seamlessly on custom data with automatic MLflow logging
+# Train seamlessly on custom data
 results = model_v9.train(data="coco8.yaml", epochs=50, imgsz=640)
 
 # Export the trained model to ONNX
@@ -118,7 +118,7 @@ Choosing between these architectures depends largely on the constraints of your 
 
 YOLOv5 is a battle-hardened veteran that shines in deployments prioritizing stability, low memory footprints, and extreme export compatibility.
 
-- **Mobile Deployments:** Exporting YOLOv5 to [TFLite](https://docs.ultralytics.com/integrations/tflite) or CoreML for on-device inference on older smartphones is incredibly seamless.
+- **Mobile Deployments:** Exporting YOLOv5 to [LiteRT](https://docs.ultralytics.com/integrations/litert) or CoreML for on-device inference on older smartphones is incredibly seamless.
 - **Legacy Edge Hardware:** For devices like the Raspberry Pi or early generation NVIDIA Jetson Nanos, the straightforward convolutions of YOLOv5 ensure consistent frame rates for applications like [smart parking management](https://docs.ultralytics.com/guides/parking-management).
 - **Rapid Prototyping:** The extensive availability of community tutorials, custom [pre-trained weights](https://www.ultralytics.com/glossary/model-weights), and massive dataset compatibility makes it the fastest way to validate a proof-of-concept.
 
@@ -132,6 +132,6 @@ YOLOv9 is ideal for scenarios where capturing intricate details and minimizing f
 
 ## Expanding Your Horizons
 
-While comparing YOLOv5 and YOLOv9 offers a clear view of how architectures have evolved from 2020 to 2024, the field of AI is moving faster than ever. For developers seeking the absolute frontier of performance, exploring the latest [YOLO26 models](https://platform.ultralytics.com/ultralytics/yolo26) is highly encouraged. By replacing traditional Non-Maximum Suppression with a native **End-to-End NMS-Free Design** and utilizing the advanced **MuSGD Optimizer**, YOLO26 bridges the gap between research-level accuracy and production-level speed. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), YOLO26 achieves up to **43% faster CPU inference**, making it ideal for edge computing. Additionally, **ProgLoss + STAL** provides improved loss functions with notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery.
+While comparing YOLOv5 and YOLOv9 offers a clear view of how architectures have evolved from 2020 to 2024, the field of AI is moving faster than ever. For developers seeking the absolute frontier of performance, exploring the latest [YOLO26 models](https://platform.ultralytics.com/ultralytics/yolo26) is highly encouraged. By offering a native **End-to-End NMS-Free Design** (`nms=False`) as an alternative to traditional Non-Maximum Suppression and utilizing the advanced **MuSGD Optimizer**, YOLO26 bridges the gap between research-level accuracy and production-level speed. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), YOLO26 achieves up to **43% faster CPU inference**, making it ideal for edge computing. Additionally, **ProgLoss + STAL** provides improved loss functions with notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery.
 
 You might also be interested in comparing these architectures against other state-of-the-art models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) or the highly capable [YOLO11](https://docs.ultralytics.com/models/yolo11). Utilizing the unified Ultralytics framework ensures that no matter which model you choose, your development pipeline remains clean, efficient, and ready to scale.

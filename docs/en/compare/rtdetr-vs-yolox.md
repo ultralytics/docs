@@ -34,7 +34,7 @@ RTDETRv2 relies heavily on the self-attention mechanisms inherent to transformer
 
 The primary strength of RTDETRv2 lies in its native end-to-end design. By skipping NMS, it avoids the latency spikes often associated with dense overlapping predictions. However, the heavy computational footprint of its transformer blocks means that it demands substantial GPU resources for both training and deployment. This makes it less ideal for resource-constrained edge devices or legacy mobile hardware.
 
-[Learn more about RTDETRv2](https://docs.ultralytics.com/models/rtdetr){ .md-button }
+[Learn more about RTDETRv2](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch){ .md-button }
 
 ## YOLOX: Advancing Anchor-Free CNNs
 
@@ -81,7 +81,7 @@ While both RTDETRv2 and YOLOX offer unique benefits, modern developers often req
 
 ### Key Innovations of YOLO26
 
-- **End-to-End NMS-Free Design:** Building on concepts first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 operates natively without NMS. This delivers the seamless inference of RTDETRv2 without the crushing memory requirements of transformers.
+- **End-to-End NMS-Free Design:** Building on concepts first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 offers an optional NMS-free head (`nms=False`). This delivers the seamless inference of RTDETRv2 without the crushing memory requirements of transformers.
 - **MuSGD Optimizer:** Inspired by large language model training innovations, the hybrid MuSGD optimizer (blending SGD and Muon) stabilizes the training process and drastically accelerates convergence.
 - **Up to 43% Faster CPU Inference:** By strategically removing the Distribution Focal Loss (DFL) module, YOLO26 is specifically optimized for edge computing and low-power devices, making it substantially faster on CPUs than previous iterations like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11).
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, addressing a common pain point in aerial imagery and [robotics applications](https://www.ultralytics.com/solutions/computer-vision-in-robotics).
@@ -99,7 +99,7 @@ The power of the Ultralytics ecosystem is best demonstrated through its simplici
 ```python
 from ultralytics import YOLO
 
-# Initialize the natively NMS-free YOLO26 Nano model
+# Initialize the YOLO26 Nano model
 model = YOLO("yolo26n.pt")
 
 # Train the model on the standard COCO8 dataset
@@ -127,7 +127,7 @@ For deployments on older mobile phones or heavily constrained microcontrollers w
 
 ### The Modern Standard: AIoT and Robotics
 
-For the vast majority of modern use cases—spanning [smart city infrastructure](https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities), [retail analytics](https://www.ultralytics.com/solutions/computer-vision-in-retail), and autonomous navigation—**Ultralytics YOLO26** is the definitive choice. Its 43% faster CPU inference makes it unparalleled for edge computing, while its NMS-free design guarantees low, consistent latency. When paired with the comprehensive documentation and active community support of the Ultralytics ecosystem, it empowers teams to move from dataset annotation to global deployment faster than ever before.
+For the vast majority of modern use cases—spanning [smart city infrastructure](https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities), [retail analytics](https://www.ultralytics.com/solutions/computer-vision-in-retail), and autonomous navigation—**Ultralytics YOLO26** is the definitive choice. Its 43% faster CPU inference makes it unparalleled for edge computing, while its optional NMS-free head delivers low, consistent latency. When paired with the comprehensive documentation and active community support of the Ultralytics ecosystem, it empowers teams to move from dataset annotation to global deployment faster than ever before.
 
 !!! tip "Streamline Your Workflow"
 

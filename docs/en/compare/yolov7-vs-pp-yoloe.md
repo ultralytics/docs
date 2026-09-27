@@ -67,7 +67,7 @@ Choosing the right model often comes down to the specific constraints of your ha
 ### Analysis of Results
 
 - **High Accuracy Scenarios:** YOLOv7x demonstrates strong performance, achieving a high mAP that is competitive for complex detection tasks. While PP-YOLOE+x scales slightly higher in mAP, it does so with a substantial increase in parameters and FLOPs.
-- **Efficiency and Speed:** The smaller variants of PP-YOLOE+ (t and s) offer extremely low TensorRT speeds, making them highly suitable for edge deployments where hardware constraints are strict.
+- **Efficiency and Speed:** The smaller variants of PP-YOLOE+ (t and s) offer extremely low TensorRT latency, making them highly suitable for edge deployments where hardware constraints are strict.
 - **The Sweet Spot:** YOLOv7l provides a compelling balance, delivering over 51% mAP while maintaining a sub-7ms inference time on T4 GPUs, making it a robust choice for standard real-time server applications.
 
 !!! tip "Optimizing for Production"
@@ -85,8 +85,8 @@ Ultralytics models prioritize **ease of use** through a unified Python API. Unli
 ```python
 from ultralytics import YOLO
 
-# Load a pretrained model
-model = YOLO("yolov7.pt")
+# Load a pretrained YOLO26 model (the Ultralytics package does not support YOLOv7 training)
+model = YOLO("yolo26n.pt")
 
 # Train the model effortlessly
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
@@ -109,7 +109,7 @@ As computer vision rapidly evolves, newer architectures have emerged that redefi
 
 **Key YOLO26 Innovations:**
 
-- **End-to-End NMS-Free Design:** YOLO26 eliminates Non-Maximum Suppression (NMS) post-processing. This natively end-to-end approach drastically simplifies deployment logic and reduces variable latency, a breakthrough first introduced in [YOLOv10](https://docs.ultralytics.com/models/yolov10).
+- **End-to-End NMS-Free Design:** YOLO26's optional one-to-one head (`nms=False`) skips Non-Maximum Suppression (NMS) post-processing. This natively end-to-end approach drastically simplifies deployment logic and reduces variable latency, a breakthrough first introduced in [YOLOv10](https://docs.ultralytics.com/models/yolov10).
 - **Unprecedented Edge Performance:** By removing Distribution Focal Loss (DFL), YOLO26 achieves up to **43% faster CPU inference**, making it superior for IoT and edge devices compared to previous generations.
 - **Advanced Training Dynamics:** The integration of the **MuSGD Optimizer**—inspired by LLM innovations like Moonshot AI's Kimi K2—ensures more stable training and faster convergence.
 - **Superior Small Object Detection:** Enhanced loss functions, specifically **ProgLoss + STAL**, address historical weaknesses in recognizing small objects, crucial for applications like [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision).

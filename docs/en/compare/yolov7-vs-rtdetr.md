@@ -97,7 +97,7 @@ For developers debating between YOLOv7 and RTDETRv2, the optimal path forward is
 
 YOLO26 introduces groundbreaking innovations tailored for both server and edge deployments:
 
-- **End-to-End NMS-Free Design:** First pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 natively eliminates NMS post-processing. This ensures the deterministic latency of RTDETRv2 without the burdensome computational overhead of a transformer.
+- **End-to-End NMS-Free Design:** First pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 offers a native NMS-free head (`nms=False`) that eliminates NMS post-processing. This ensures the deterministic latency of RTDETRv2 without the burdensome computational overhead of a transformer.
 - **MuSGD Optimizer:** Inspired by large language model training techniques (such as Moonshot AI's Kimi K2), YOLO26 utilizes a hybrid of SGD and Muon. This delivers unprecedented training stability and significantly faster convergence times compared to standard AdamW implementations used by ViTs.
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, directly competing with the multi-scale feature advantages of RTDETRv2, which is critical for [robotic automation](https://www.ultralytics.com/blog/from-algorithms-to-automation-ais-role-in-robotics).
 - **Edge Optimization & DFL Removal:** By removing Distribution Focal Loss (DFL), YOLO26 streamlines the output head, leading to up to **43% faster CPU inference**—making it infinitely more deployable on edge devices than heavy transformer models.
@@ -113,7 +113,7 @@ from ultralytics import YOLO
 model = YOLO("yolo26s.pt")
 
 # Train the model on the COCO8 dataset
-# The framework automatically manages data augmentation and hyperparameter tuning
+# The framework automatically manages data augmentation and optimizer selection
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640, device="0")
 
 # Effortlessly export to TensorRT for deployment

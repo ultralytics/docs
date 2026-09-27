@@ -42,7 +42,7 @@ Both models are designed for high-speed [object detection](https://docs.ultralyt
 
 ### Ultralytics YOLO26: The Edge-First Native End-to-End Model
 
-Released in early 2026, YOLO26 represents a massive leap forward in model efficiency. The most significant architectural upgrade is its natively **End-to-End NMS-Free Design**. By eliminating the traditional [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing step—a concept successfully pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10)—YOLO26 drastically reduces latency variability, making it highly predictable for real-time edge deployments.
+Released in early 2026, YOLO26 represents a massive leap forward in model efficiency. The most significant architectural upgrade is its optional **End-to-End NMS-Free** head (`nms=False`). By eliminating the traditional [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing step—a concept successfully pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10)—YOLO26 drastically reduces latency variability, making it highly predictable for real-time edge deployments.
 
 Additionally, YOLO26 features **DFL Removal**. By stripping out the Distribution Focal Loss, the model simplifies its export process and significantly enhances compatibility with low-power [edge computing](https://www.ultralytics.com/glossary/edge-computing) devices. This results in up to **43% Faster CPU Inference**, making YOLO26 an absolute powerhouse for environments without dedicated [graphics processing units (GPUs)](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) like Raspberry Pi or mobile devices.
 
@@ -56,11 +56,11 @@ The true test of any model is how it balances [mean average precision (mAP)](htt
 
 | Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | 40.9                       | **38.9**                             | 1.7                                       | **2.4**                  | **5.4**                 |
-| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.7                    |
-| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.2                    |
-| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.4                    |
-| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 193.9                   |
+| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | 40.9                       | **38.9**                             | 1.7                                       | **2.4**                  | **5.5**                 |
+| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.9                    |
+| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.4                    |
+| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.8                    |
+| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 194.4                   |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
 | YOLOv6-3.0n                                                            | 640                         | 37.5                       | -                                    | **1.17**                                  | 4.7                      | 11.4                    |
 | YOLOv6-3.0s                                                            | 640                         | 45.0                       | -                                    | 2.66                                      | 18.5                     | 45.3                    |
@@ -101,7 +101,7 @@ model = YOLO("yolo26n.pt")
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
 # Run end-to-end NMS-free inference on an image
-results = model.predict("https://ultralytics.com/images/bus.jpg")
+results = model.predict("https://ultralytics.com/images/bus.jpg", nms=False)
 
 # Export seamlessly to ONNX for CPU deployment
 model.export(format="onnx")
@@ -129,4 +129,4 @@ If you are exploring the broader landscape of computer vision, you may also be i
 
 ## Summary
 
-Both YOLOv6-3.0 and YOLO26 represent monumental engineering achievements. However, for modern applications requiring rapid development, low memory overhead, and seamless deployment across heterogeneous edge devices, Ultralytics YOLO26 is the superior choice. Its natively end-to-end design, revolutionary MuSGD optimizer, and integration with the powerful [Ultralytics ecosystem](https://docs.ultralytics.com) empower teams to bring state-of-the-art vision AI to production faster than ever before.
+Both YOLOv6-3.0 and YOLO26 represent monumental engineering achievements. However, for modern applications requiring rapid development, low memory overhead, and seamless deployment across heterogeneous edge devices, Ultralytics YOLO26 is the superior choice. Its optional end-to-end NMS-free head, revolutionary MuSGD optimizer, and integration with the powerful [Ultralytics ecosystem](https://docs.ultralytics.com) empower teams to bring state-of-the-art vision AI to production faster than ever before.

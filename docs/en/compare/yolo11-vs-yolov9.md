@@ -52,7 +52,7 @@ While YOLOv9 focuses on gradient flow, YOLO11 is engineered for real-world robus
 
 !!! tip "Streamlined Development"
 
-    One of YOLO11's greatest strengths is its integration into the [Ultralytics Platform](https://platform.ultralytics.com), which abstracts away the complexities of data loading, augmentation, and distributed training into a unified API.
+    One of YOLO11's greatest strengths is its integration into the [Ultralytics Python package](https://docs.ultralytics.com/usage/python), which abstracts away the complexities of data loading, augmentation, and distributed training into a unified API.
 
 ## Performance Comparison
 
@@ -61,16 +61,16 @@ When selecting a model for production, evaluating the trade-off between mean Ave
 | Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
 | [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | 2.6                      | **6.5**                 |
-| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
-| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
-| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
-| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | 54.7                       | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
+| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.6                    |
+| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.1                    |
+| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 87.2                    |
+| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | 54.7                       | 462.8                                | 11.3                                      | 56.9                     | 195.3                   |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
 | YOLOv9t                                                                | 640                         | 38.3                       | -                                    | 2.3                                       | **2.0**                  | 7.7                     |
-| YOLOv9s                                                                | 640                         | 46.8                       | -                                    | 3.54                                      | 7.1                      | 26.4                    |
-| YOLOv9m                                                                | 640                         | 51.4                       | -                                    | 6.43                                      | 20.0                     | 76.3                    |
-| YOLOv9c                                                                | 640                         | 53.0                       | -                                    | 7.16                                      | 25.3                     | 102.1                   |
-| YOLOv9e                                                                | 640                         | **55.6**                   | -                                    | 16.77                                     | 57.3                     | 189.0                   |
+| YOLOv9s                                                                | 640                         | 46.8                       | -                                    | 3.54                                      | 7.2                      | 26.7                    |
+| YOLOv9m                                                                | 640                         | 51.4                       | -                                    | 6.43                                      | 20.1                     | 76.8                    |
+| YOLOv9c                                                                | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
+| YOLOv9e                                                                | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
 
 As seen in the table, YOLOv9e achieves the highest overall accuracy, making it excellent for academic benchmarking. However, YOLO11 provides a superior speed-to-accuracy ratio across the board. For instance, YOLO11m achieves 51.5 mAP at 4.7 ms (TensorRT), outperforming the similarly sized YOLOv9m in speed.
 
@@ -117,7 +117,7 @@ While YOLO11 and YOLOv9 are remarkable, the field of artificial intelligence evo
 
 YOLO26 combines the best of recent innovations into a production-ready powerhouse:
 
-- **End-to-End NMS-Free Design:** YOLO26 natively eliminates Non-Maximum Suppression (NMS) post-processing, resulting in vastly simpler and faster deployment pipelines.
+- **End-to-End NMS-Free Design:** YOLO26's optional one-to-one head (`nms=False`) skips Non-Maximum Suppression (NMS) post-processing, resulting in vastly simpler and faster deployment pipelines.
 - **DFL Removal:** The removal of Distribution Focal Loss ensures better compatibility with low-power microcontrollers and edge AI accelerators.
 - **MuSGD Optimizer:** Inspired by LLM training innovations, the MuSGD optimizer (a hybrid of SGD and Muon) offers stable training and faster convergence.
 - **Up to 43% Faster CPU Inference:** Specifically optimized for edge computing devices without dedicated GPUs.

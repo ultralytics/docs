@@ -71,7 +71,7 @@ When comparing raw metrics, it is vital to analyze how theoretical capabilities 
 | [YOLOv8n](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) | 640                         | 37.3                       | **80.4**                             | **1.47**                                  | **3.2**                  | **8.7**                 |
 | [YOLOv8s](https://platform.ultralytics.com/ultralytics/yolov8/yolov8s) | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
 | [YOLOv8m](https://platform.ultralytics.com/ultralytics/yolov8/yolov8m) | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
-| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
+| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.1                   |
 | [YOLOv8x](https://platform.ultralytics.com/ultralytics/yolov8/yolov8x) | 640                         | **53.9**                   | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
 
 While DAMO-YOLO exhibits strong parameter-to-accuracy ratios thanks to its distillation techniques, YOLOv8 offers a wider gradient of model sizes (Nano to Extra-large). The YOLOv8 Nano model represents a masterclass in edge optimization, consuming fewer resources while delivering highly usable precision.
@@ -123,7 +123,7 @@ For the vast majority of commercial projects, Ultralytics models provide superio
 
 While YOLOv8 remains a foundational model, the field has continued to advance. For all new developments, **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** is the recommended standard. Released in January 2026, it represents a monumental leap in the Ultralytics lineup.
 
-YOLO26 pioneers a native **end-to-end NMS-free design**, completely eliminating the traditional Non-Maximum Suppression bottleneck. This structural breakthrough yields up to **43% faster CPU inference**, making it an absolute powerhouse for edge computing and IoT hardware.
+YOLO26 offers a native **end-to-end NMS-free design** (`nms=False`) that removes the traditional Non-Maximum Suppression bottleneck when enabled. This structural breakthrough yields up to **43% faster CPU inference**, making it an absolute powerhouse for edge computing and IoT hardware.
 
 Furthermore, YOLO26 introduces the **MuSGD Optimizer**, a hybrid inspired by Large Language Model (LLM) training techniques that guarantees faster convergence and highly stable training loops. Coupled with the new ProgLoss + STAL algorithms, YOLO26 exhibits dramatic improvements in small-object recognition, ensuring that your deployments are not just fast, but uncompromisingly accurate.
 

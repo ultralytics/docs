@@ -35,7 +35,7 @@ However, this comes at a computational cost. Transformer models traditionally re
 
 ## YOLOv7: A CNN Baseline for Speed
 
-Released a year prior to RTDETRv2, YOLOv7 introduced several structural optimizations to the classic YOLO framework, setting a strong benchmark for CNN-based real-time detectors at the time of its publication.
+Released two years before RTDETRv2, YOLOv7 introduced several structural optimizations to the classic YOLO framework, setting a strong benchmark for CNN-based real-time detectors at the time of its publication.
 
 - **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
 - **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)
@@ -81,12 +81,12 @@ For developers and researchers building new systems, the integrated [Ultralytics
 
 ### Key Innovations in YOLO26
 
-- **End-to-End NMS-Free Design:** YOLO26 is natively end-to-end, eliminating NMS post-processing for faster, simpler deployment. This breakthrough approach was first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), ensuring stable latency regardless of object density.
+- **End-to-End NMS-Free Design:** YOLO26 is natively end-to-end, skipping NMS post-processing with its optional one-to-one head (`nms=False`) for faster, simpler deployment. This breakthrough approach was first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), ensuring stable latency regardless of object density.
 - **Up to 43% Faster CPU Inference:** Specifically optimized for [edge computing](https://www.ultralytics.com/glossary/edge-computing) and devices without GPUs, making it far more versatile for field deployments than heavy transformer models.
 - **MuSGD Optimizer:** A hybrid of SGD and Muon (inspired by Moonshot AI's Kimi K2), bringing LLM training innovations to computer vision for more stable training and faster convergence.
 - **DFL Removal:** Distribution Focal Loss has been removed, resulting in a simplified computational graph for smoother export to embedded NPUs and [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) environments.
 - **ProgLoss + STAL:** Improved loss functions yield notable enhancements in small-object recognition, which is critical for [robotics](https://www.ultralytics.com/glossary/robotics), IoT, and aerial imagery analysis.
-- **Task-Specific Improvements:** YOLO26 isn't just for detection. It features multi-scale prototypes for segmentation, Residual Log-Likelihood Estimation (RLE) for pose tracking, and specialized angle loss addressing [oriented bounding box (OBB)](https://docs.ultralytics.com/tasks/obb) boundary issues.
+- **Task-Specific Improvements:** YOLO26 isn't just for detection. It features multi-scale prototypes for segmentation, Residual Log-Likelihood Estimation (RLE) for pose estimation, and specialized angle loss addressing [oriented bounding box (OBB)](https://docs.ultralytics.com/tasks/obb) boundary issues.
 
 ### Streamlined Developer Experience
 

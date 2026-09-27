@@ -62,15 +62,15 @@ When analyzing raw performance on the standard [COCO dataset](https://docs.ultra
 | RTDETRv2-l                                                              | 640                         | 53.4                       | -                                    | 9.76                                      | 42                       | 136                     |
 | RTDETRv2-x                                                              | 640                         | **54.3**                   | -                                    | 15.03                                     | 76                       | 259                     |
 |                                                                         |                             |                            |                                      |                                           |                          |                         |
-| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | **73.6**                             | **1.12**                                  | **2.6**                  | **7.7**                 |
-| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
-| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
-| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
-| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
+| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | -                                    | **1.12**                                  | **1.9**                  | **4.5**                 |
+| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | -                                    | 1.92                                      | 7.2                      | 16.5                    |
+| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | -                                    | 4.03                                      | 21.2                     | 49.0                    |
+| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | -                                    | 6.61                                      | 46.5                     | 109.1                   |
+| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | -                                    | 11.89                                     | 86.7                     | 205.7                   |
 
 ### Analyzing the Trade-offs
 
-The data reveals that RTDETRv2-x achieves a peak [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) of 54.3%, slightly outperforming YOLOv5x's 50.7%. However, this minor accuracy gain comes at a massive computational cost. YOLOv5x operates with lower latency (11.89 ms vs 15.03 ms on TensorRT) and requires a fraction of the memory footprint. For ultra-low-power edge deployments, YOLOv5n (Nano) remains unchallenged, completing inferences in just 1.12ms with a minuscule 2.6M parameter footprint—a tier that RTDETRv2 does not even attempt to compete in.
+The data reveals that RTDETRv2-x achieves a peak [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) of 54.3%, slightly outperforming YOLOv5x's 50.7%. However, this minor accuracy gain comes at a massive computational cost. YOLOv5x operates with lower latency (11.89 ms vs 15.03 ms on TensorRT) and requires a fraction of the memory footprint. For ultra-low-power edge deployments, YOLOv5n (Nano) remains unchallenged, completing inferences in just 1.12ms with a minuscule 1.9M parameter footprint—a tier that RTDETRv2 does not even attempt to compete in.
 
 ## Training Efficiency and Code Simplicity
 
@@ -80,7 +80,7 @@ One of the key strengths of the Ultralytics ecosystem is its unified API. Even i
 from ultralytics import RTDETR, YOLO
 
 # Load the Ultralytics YOLOv5 small model
-model_yolo = YOLO("yolov5s.pt")
+model_yolo = YOLO("yolov5su.pt")  # YOLOv5u: anchor-free YOLOv5 weights for the ultralytics package
 
 # Load the RT-DETR large model via Ultralytics
 model_rtdetr = RTDETR("rtdetr-l.pt")
@@ -111,11 +111,11 @@ RTDETRv2 is best suited for environments where hardware limitations are non-exis
 YOLOv5 is the undeniable champion for practical, real-world deployment across diverse hardware.
 
 - **Edge AI Devices:** Deploying [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system) on Raspberry Pi or NVIDIA Jetson devices where memory is strictly limited.
-- **Mobile Applications:** Running fast, real-time bounding box and segmentation inference directly on smartphones via CoreML or TFLite.
+- **Mobile Applications:** Running fast, real-time bounding box and segmentation inference directly on smartphones via CoreML or LiteRT.
 - **High-Speed Industrial Manufacturing:** Inspecting parts on rapid production lines where millisecond latency is critical to operational success.
 
 !!! note "Exploring Other Ultralytics Models"
 
-    While YOLOv5 is a legendary model, the Ultralytics ecosystem continually pushes the boundaries of AI. If you are comparing models for a new project in 2026, you should consider exploring the state-of-the-art [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). YOLO26 incorporates a native **End-to-End NMS-Free Design** (similar to transformers but with CNN speed), features the revolutionary **MuSGD Optimizer** for incredibly stable training, and delivers up to 43% faster CPU inference. Alternatively, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains a fantastic, highly supported choice for versatile deployments requiring [Pose Estimation](https://docs.ultralytics.com/tasks/pose) and [OBB detection](https://docs.ultralytics.com/tasks/obb).
+    While YOLOv5 is a legendary model, the Ultralytics ecosystem continually pushes the boundaries of AI. If you are comparing models for a new project in 2026, you should consider exploring the state-of-the-art [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). YOLO26 incorporates a native **End-to-End NMS-Free Design** through its optional one-to-one head (`nms=False`), similar to transformers but with CNN speed, features the revolutionary **MuSGD Optimizer** for incredibly stable training, and delivers up to 43% faster CPU inference. Alternatively, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains a fantastic, highly supported choice for versatile deployments requiring [Pose Estimation](https://docs.ultralytics.com/tasks/pose) and [OBB detection](https://docs.ultralytics.com/tasks/obb).
 
 Ultimately, while RTDETRv2 pushes the accuracy ceiling using transformer layers, the Ultralytics YOLO framework provides an unmatched balance of speed, lightweight memory requirements, and a brilliantly engineered developer experience that dramatically reduces the time from prototype to production.

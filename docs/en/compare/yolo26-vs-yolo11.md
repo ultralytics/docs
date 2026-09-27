@@ -45,7 +45,7 @@ The leap from YOLO11 to YOLO26 involves fundamental shifts in both model archite
 
 ### End-to-End NMS-Free Design
 
-One of the most significant upgrades in YOLO26 is its natively end-to-end architecture. Unlike YOLO11, which relies on [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing to filter overlapping bounding boxes, YOLO26 eliminates this step entirely. This concept, first pioneered in [YOLOv10](https://docs.ultralytics.com/compare/yolov10-vs-yolo26), dramatically reduces latency variability and simplifies deployment logic across diverse edge devices.
+One of the most significant upgrades in YOLO26 is its natively end-to-end architecture. Unlike YOLO11, which relies on [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing to filter overlapping bounding boxes, YOLO26 can skip this step entirely with its optional one-to-one head (`nms=False`). This concept, first pioneered in [YOLOv10](https://docs.ultralytics.com/compare/yolov10-vs-yolo26), dramatically reduces latency variability and simplifies deployment logic across diverse edge devices.
 
 ### DFL Removal for Edge Efficiency
 
@@ -65,17 +65,17 @@ When comparing the models head-to-head, YOLO26 demonstrates a clear superiority 
 
 | Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | **40.9**                   | **38.9**                             | 1.7                                       | **2.4**                  | **5.4**                 |
-| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | **48.6**                   | **87.2**                             | **2.5**                                   | 9.5                      | **20.7**                |
-| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | **53.1**                   | 220.0                                | **4.7**                                   | 20.4                     | 68.2                    |
-| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | **55.0**                   | 286.2                                | **6.2**                                   | **24.8**                 | **86.4**                |
-| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | **55.7**                 | **193.9**               |
+| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | **40.9**                   | **38.9**                             | 1.7                                       | **2.4**                  | **5.5**                 |
+| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | **48.6**                   | **87.2**                             | **2.5**                                   | 9.5                      | **20.9**                |
+| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | **53.1**                   | 220.0                                | **4.7**                                   | 20.4                     | 68.4                    |
+| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | **55.0**                   | 286.2                                | **6.2**                                   | **24.8**                 | **86.8**                |
+| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | **55.7**                 | **194.4**               |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
 | [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) | 640                         | 39.5                       | 56.1                                 | **1.5**                                   | 2.6                      | 6.5                     |
-| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | **2.5**                                   | **9.4**                  | 21.5                    |
-| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | **183.2**                            | **4.7**                                   | **20.1**                 | **68.0**                |
-| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | **238.6**                            | **6.2**                                   | 25.3                     | 86.9                    |
-| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | 54.7                       | **462.8**                            | **11.3**                                  | 56.9                     | 194.9                   |
+| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | **2.5**                                   | **9.4**                  | 21.6                    |
+| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | **183.2**                            | **4.7**                                   | **20.1**                 | **68.1**                |
+| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | **238.6**                            | **6.2**                                   | 25.3                     | 87.2                    |
+| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | 54.7                       | **462.8**                            | **11.3**                                  | 56.9                     | 195.3                   |
 
 _Note: The YOLO26 nano (YOLO26n) model showcases a ~31% improvement in CPU speed compared to YOLO11n (38.9ms vs 56.1ms), highlighting its edge-first design philosophy._
 
@@ -99,7 +99,7 @@ from ultralytics import YOLO
 model = YOLO("yolo26n.pt")
 
 # Train the model on the COCO8 dataset efficiently
-# The MuSGD optimizer is automatically enabled for YOLO26
+# optimizer="auto" selects MuSGD for longer training runs
 train_results = model.train(
     data="coco8.yaml",
     epochs=100,
@@ -108,7 +108,7 @@ train_results = model.train(
 )
 
 # Perform NMS-free inference directly on an image
-results = model("https://ultralytics.com/images/bus.jpg")
+results = model("https://ultralytics.com/images/bus.jpg", nms=False)
 
 # Display the clean, instant predictions
 results[0].show()
@@ -130,7 +130,7 @@ YOLO26 is the definitive choice for modern, greenfield projects. It is specifica
 
 While YOLO26 is superior, YOLO11 remains an incredibly capable model. You might stick with YOLO11 if:
 
-- **Legacy Pipelines:** Your existing C++ deployment infrastructure is tightly coupled to the specific anchor-based outputs and NMS logic of older architectures.
+- **Legacy Pipelines:** Your existing C++ deployment infrastructure is tightly coupled to the specific output format and NMS logic of YOLO11.
 - **Academic Baselines:** You are publishing research and need a highly recognized 2024 standard to benchmark your novel algorithms against.
 
 ## The Power of the Ultralytics Ecosystem

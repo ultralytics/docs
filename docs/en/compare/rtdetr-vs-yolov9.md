@@ -24,7 +24,7 @@ Developed by researchers at Baidu, RTDETRv2 builds upon the original RT-DETR by 
 
 A defining characteristic of RTDETRv2 is its natively **end-to-end NMS-free design**. By completely removing Non-Maximum Suppression (NMS) during post-processing, the model stabilizes inference latency and simplifies the deployment pipeline. The global attention mechanism allows the model to excel in complex scene understanding and dense crowds, as it evaluates the entire image context simultaneously.
 
-[Learn more about RTDETRv2](https://docs.ultralytics.com/models/rtdetr){ .md-button }
+[Learn more about RTDETRv2](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch){ .md-button }
 
 ### YOLOv9: Programmable Gradient Information
 
@@ -51,10 +51,10 @@ When evaluating these models for production, balancing mean Average Precision (m
 | RTDETRv2-x | 640                         | 54.3                       | -                                    | 15.03                                     | 76                       | 259                     |
 |            |                             |                            |                                      |                                           |                          |                         |
 | YOLOv9t    | 640                         | 38.3                       | -                                    | **2.3**                                   | **2.0**                  | **7.7**                 |
-| YOLOv9s    | 640                         | 46.8                       | -                                    | 3.54                                      | 7.1                      | 26.4                    |
-| YOLOv9m    | 640                         | 51.4                       | -                                    | 6.43                                      | 20.0                     | 76.3                    |
-| YOLOv9c    | 640                         | 53.0                       | -                                    | 7.16                                      | 25.3                     | 102.1                   |
-| YOLOv9e    | 640                         | **55.6**                   | -                                    | 16.77                                     | 57.3                     | 189.0                   |
+| YOLOv9s    | 640                         | 46.8                       | -                                    | 3.54                                      | 7.2                      | 26.7                    |
+| YOLOv9m    | 640                         | 51.4                       | -                                    | 6.43                                      | 20.1                     | 76.8                    |
+| YOLOv9c    | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
+| YOLOv9e    | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
 
 ### Memory Requirements and Training Efficiency
 
@@ -113,13 +113,13 @@ While YOLOv9 and RTDETRv2 represent massive leaps forward, the landscape has evo
 
 By taking the best aspects of transformers and CNNs, YOLO26 establishes a new standard:
 
-- **End-to-End NMS-Free Design:** Like RTDETRv2, YOLO26 is natively end-to-end, completely eliminating NMS post-processing for faster, simpler, and highly predictable deployment pipelines.
+- **End-to-End NMS-Free Design:** Like RTDETRv2, YOLO26 supports native end-to-end inference, skipping NMS post-processing with `nms=False` for faster, simpler, and highly predictable deployment pipelines.
 - **MuSGD Optimizer:** Inspired by Large Language Model (LLM) training techniques (such as Moonshot AI's Kimi K2), YOLO26 utilizes a hybrid of SGD and Muon. This brings unparalleled training stability and rapid convergence to computer vision.
 - **Up to 43% Faster CPU Inference:** Unlike heavy transformers, YOLO26 is heavily optimized for edge computing and devices without GPUs.
 - **DFL Removal:** The removal of Distribution Focal Loss dramatically simplifies the model graph, ensuring flawless export to low-power edge devices and embedded Neural Processing Units (NPUs).
 - **ProgLoss + STAL:** These improved loss functions drastically enhance small-object recognition, a critical feature for IoT and aerial datasets.
 
-For teams looking to start a new computer vision project, we strongly recommend evaluating YOLO26. It provides the NMS-free elegance of a transformer with the blazing speed and training efficiency of a highly optimized YOLO architecture.
+For teams looking to start a new computer vision project, we strongly recommend evaluating YOLO26. It offers the optional NMS-free elegance of a transformer with the blazing speed and training efficiency of a highly optimized YOLO architecture.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
@@ -127,4 +127,4 @@ For teams looking to start a new computer vision project, we strongly recommend 
 
 Choosing between RTDETRv2 and YOLOv9 largely comes down to your deployment hardware and specific accuracy needs. RTDETRv2 provides state-of-the-art accuracy and context awareness for server-backed applications, while YOLOv9 offers exceptional efficiency for edge devices.
 
-However, by leveraging the mature Ultralytics ecosystem, developers can effortlessly experiment with both. Furthermore, with the introduction of newer models like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and the natively end-to-end **YOLO26**, finding the perfect balance between high-speed inference, versatile task support, and low memory consumption has never been easier.
+However, by leveraging the mature Ultralytics ecosystem, developers can effortlessly experiment with both YOLOv9 and the original RT-DETR. Furthermore, with the introduction of newer models like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and the natively end-to-end **YOLO26**, finding the perfect balance between high-speed inference, versatile task support, and low memory consumption has never been easier.

@@ -48,7 +48,7 @@ YOLO26 was engineered from the ground up to eliminate deployment bottlenecks and
 - **End-to-End NMS-Free Design:** Building on concepts first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 natively employs an end-to-end architecture. By completely eliminating the need for Non-Maximum Suppression (NMS) post-processing, latency variance is virtually eradicated. This simplifies deployment logic for applications requiring strict real-time guarantees.
 - **DFL Removal:** The removal of Distribution Focal Loss (DFL) drastically simplifies the output head. This architectural choice enables significantly better compatibility with low-power edge devices and simpler exports to formats like [ONNX](https://onnx.ai/) and [CoreML](https://developer.apple.com/documentation/coreml/).
 - **MuSGD Optimizer:** Inspired by the training stability seen in Large Language Models (LLMs) like Moonshot AI's Kimi K2, YOLO26 utilizes the MuSGD optimizer—a hybrid of Stochastic Gradient Descent and Muon. This brings LLM-scale training innovations into computer vision, yielding faster convergence and highly stable training runs.
-- **ProgLoss + STAL:** To combat the notoriously difficult problem of recognizing tiny subjects, YOLO26 implements Progressive Loss (ProgLoss) combined with Small-Target-Aware Label Assignment (STAL). This provides critical improvements for [small object detection](https://docs.ultralytics.com/guides/vision-eye), making it ideal for drone applications.
+- **ProgLoss + STAL:** To combat the notoriously difficult problem of recognizing tiny subjects, YOLO26 implements Progressive Loss (ProgLoss) combined with Small-Target-Aware Label Assignment (STAL). This provides critical improvements for [small object detection](https://www.ultralytics.com/blog/exploring-small-object-detection-with-ultralytics-yolo11), making it ideal for drone applications.
 
 !!! info "Task-Specific Refinements"
 
@@ -68,23 +68,23 @@ When evaluating models for production, the balance between accuracy, inference s
 
 | Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | **40.9**                   | **38.9**                             | 1.7                                       | **2.4**                  | **5.4**                 |
-| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | **48.6**                   | **87.2**                             | **2.5**                                   | **9.5**                  | **20.7**                |
-| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | **53.1**                   | **220.0**                            | **4.7**                                   | **20.4**                 | **68.2**                |
-| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | **55.0**                   | **286.2**                            | **6.2**                                   | **24.8**                 | **86.4**                |
-| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | **11.8**                                  | **55.7**                 | **193.9**               |
+| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | **40.9**                   | **38.9**                             | 1.7                                       | **2.4**                  | **5.5**                 |
+| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | **48.6**                   | **87.2**                             | **2.5**                                   | **9.5**                  | **20.9**                |
+| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | **53.1**                   | **220.0**                            | **4.7**                                   | **20.4**                 | **68.4**                |
+| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | **55.0**                   | **286.2**                            | **6.2**                                   | **24.8**                 | **86.8**                |
+| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | **11.8**                                  | **55.7**                 | **194.4**               |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
 | [YOLOv8n](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) | 640                         | 37.3                       | 80.4                                 | **1.47**                                  | 3.2                      | 8.7                     |
 | [YOLOv8s](https://platform.ultralytics.com/ultralytics/yolov8/yolov8s) | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
 | [YOLOv8m](https://platform.ultralytics.com/ultralytics/yolov8/yolov8m) | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
-| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
+| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.1                   |
 | [YOLOv8x](https://platform.ultralytics.com/ultralytics/yolov8/yolov8x) | 640                         | 53.9                       | **479.1**                            | 14.37                                     | 68.2                     | 257.8                   |
 
 _Note: Highlighted values demonstrate the performance balance and efficiency gains of the YOLO26 architecture over its predecessor._
 
 ### Analysis
 
-YOLO26 achieves a remarkable **up to 43% faster CPU inference** compared to similar YOLOv8 models. For instance, `YOLO26n` achieves 38.9 ms on a CPU utilizing ONNX, compared to `YOLOv8n`'s 80.4 ms, all while increasing the mAP from 37.3 to 40.9. This massive jump in CPU efficiency is a direct result of the DFL removal and the NMS-free design, making YOLO26 an absolute powerhouse for environments lacking dedicated GPUs.
+YOLO26 delivers substantially faster CPU inference than comparable YOLOv8 models at most scales. For instance, `YOLO26n` achieves 38.9 ms on a CPU utilizing ONNX, compared to `YOLOv8n`'s 80.4 ms, all while increasing the mAP from 37.3 to 40.9. This massive jump in CPU efficiency is a direct result of the DFL removal and the NMS-free design, making YOLO26 an absolute powerhouse for environments lacking dedicated GPUs.
 
 Furthermore, YOLO26 models feature lower parameter counts and FLOPs for their respective size tiers, equating to drastically reduced [GPU memory](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) usage during inference and training compared to legacy transformer-based architectures.
 
@@ -139,7 +139,7 @@ YOLOv8 is recommended for:
 
 ## Code Example: Getting Started
 
-Leveraging the power of the latest Ultralytics models is incredibly straightforward. The following Python code demonstrates training a YOLO26 model on a custom dataset, observing the MuSGD optimizer automatically driving rapid convergence.
+Leveraging the power of the latest Ultralytics models is incredibly straightforward. The following Python code demonstrates training a YOLO26 model on the COCO8 dataset and running NMS-free inference.
 
 ```python
 from ultralytics import YOLO
@@ -148,16 +148,16 @@ from ultralytics import YOLO
 model = YOLO("yolo26n.pt")
 
 # Train on the standard COCO8 dataset
-# The ecosystem handles hyperparameter tuning and augmentations natively
+# Default hyperparameters and augmentations are applied automatically
 results = model.train(
     data="coco8.yaml",
     epochs=100,
     imgsz=640,
-    device="0",  # Automatically utilizes CUDA if available
+    device="0",  # first CUDA GPU; use device="cpu" to train on CPU
 )
 
 # Run end-to-end, NMS-free inference on a source image
-predictions = model("https://ultralytics.com/images/bus.jpg")
+predictions = model("https://ultralytics.com/images/bus.jpg", nms=False)
 
 # Visualize the resulting detections
 predictions[0].show()

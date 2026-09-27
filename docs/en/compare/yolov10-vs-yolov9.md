@@ -65,18 +65,18 @@ The table below illustrates the core metrics for both models. Notice how YOLOv10
 
 | Model    | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | -------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv10n | 640                         | 39.5                       | -                                    | **1.56**                                  | 2.3                      | **6.7**                 |
-| YOLOv10s | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
-| YOLOv10m | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
-| YOLOv10b | 640                         | 52.7                       | -                                    | 6.54                                      | 24.4                     | 92.0                    |
-| YOLOv10l | 640                         | 53.3                       | -                                    | 8.33                                      | 29.5                     | 120.3                   |
-| YOLOv10x | 640                         | 54.4                       | -                                    | 12.2                                      | 56.9                     | 160.4                   |
+| YOLOv10n | 640                         | 38.5                       | -                                    | **1.84**                                  | 2.3                      | **6.7**                 |
+| YOLOv10s | 640                         | 46.3                       | -                                    | 2.49                                      | 7.2                      | 21.6                    |
+| YOLOv10m | 640                         | 51.1                       | -                                    | 4.74                                      | 15.4                     | 59.1                    |
+| YOLOv10b | 640                         | 52.5                       | -                                    | 5.74                                      | 19.1                     | 92.0                    |
+| YOLOv10l | 640                         | 53.2                       | -                                    | 7.28                                      | 24.4                     | 120.3                   |
+| YOLOv10x | 640                         | 54.4                       | -                                    | 10.70                                     | 29.5                     | 160.4                   |
 |          |                             |                            |                                      |                                           |                          |                         |
 | YOLOv9t  | 640                         | 38.3                       | -                                    | 2.3                                       | **2.0**                  | 7.7                     |
-| YOLOv9s  | 640                         | 46.8                       | -                                    | 3.54                                      | 7.1                      | 26.4                    |
-| YOLOv9m  | 640                         | 51.4                       | -                                    | 6.43                                      | 20.0                     | 76.3                    |
-| YOLOv9c  | 640                         | 53.0                       | -                                    | 7.16                                      | 25.3                     | 102.1                   |
-| YOLOv9e  | 640                         | **55.6**                   | -                                    | 16.77                                     | 57.3                     | 189.0                   |
+| YOLOv9s  | 640                         | 46.8                       | -                                    | 3.54                                      | 7.2                      | 26.7                    |
+| YOLOv9m  | 640                         | 51.4                       | -                                    | 6.43                                      | 20.1                     | 76.8                    |
+| YOLOv9c  | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
+| YOLOv9e  | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
 
 ## The Next Generation: Why YOLO26 is the Ultimate Recommendation
 
@@ -86,7 +86,7 @@ While YOLOv9 and YOLOv10 are impressive milestones, the machine learning landsca
 
 ### Key Innovations in YOLO26
 
-- **End-to-End NMS-Free Design:** Building on the breakthroughs of YOLOv10, YOLO26 is natively end-to-end, completely eliminating NMS post-processing for simpler deployment and highly deterministic latency profiles.
+- **End-to-End NMS-Free Design:** Building on the breakthroughs of YOLOv10, YOLO26 supports native end-to-end inference, skipping NMS post-processing with `nms=False` for simpler deployment and highly deterministic latency profiles.
 - **Up to 43% Faster CPU Inference:** Optimized for [Edge AI](https://en.wikipedia.org/wiki/Edge_computing) out of the box, making it the perfect choice for embedded systems lacking dedicated GPUs.
 - **MuSGD Optimizer:** A groundbreaking hybrid of SGD and Muon (inspired by large language model optimizations), ensuring highly stable training processes and incredibly fast convergence times.
 - **DFL Removal:** By removing Distribution Focal Loss, YOLO26 simplifies the model export process, dramatically enhancing compatibility with low-power devices and various edge deployment frameworks.

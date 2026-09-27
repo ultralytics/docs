@@ -87,13 +87,13 @@ Unlike EfficientDet, which requires navigating complex TensorFlow configurations
 
 ### Unmatched Versatility
 
-YOLOv6-3.0 and EfficientDet are primarily bound to [object detection](https://docs.ultralytics.com/tasks/detect). In contrast, modern Ultralytics architectures are inherently multi-task. A single interface allows you to train models for [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), [Image Classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) tasks.
+YOLOv6-3.0 and EfficientDet are primarily bound to [object detection](https://docs.ultralytics.com/tasks/detect). In contrast, modern Ultralytics architectures are inherently multi-task. A single interface allows you to train models for [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Image Classification](https://docs.ultralytics.com/tasks/classify), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) tasks.
 
 ### Introducing Ultralytics YOLO26
 
 For developers seeking the ultimate performance balance, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents a paradigm shift. Released in January 2026, it introduces several groundbreaking innovations that outpace both YOLOv6 and EfficientDet:
 
-- **End-to-End NMS-Free Design:** YOLO26 natively eliminates the need for Non-Maximum Suppression (NMS) post-processing, significantly lowering latency variance and simplifying deployment logic on edge devices.
+- **End-to-End NMS-Free Design:** YOLO26's optional one-to-one head (`nms=False`) removes the need for Non-Maximum Suppression (NMS) post-processing, significantly lowering latency variance and simplifying deployment logic on edge devices.
 - **MuSGD Optimizer:** Inspired by LLM training, this hybrid optimizer ensures stable training and incredibly fast convergence.
 - **Up to 43% Faster CPU Inference:** With the removal of Distribution Focal Loss (DFL), YOLO26 is vastly more efficient on CPUs and low-power IoT devices compared to legacy models.
 - **ProgLoss + STAL:** These advanced loss functions deliver massive improvements in small object recognition, making YOLO26 ideal for drone and aerial imagery applications.
@@ -118,7 +118,7 @@ EfficientDet is recommended for:
 
 - **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
 - **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
-- **Mobile Deployment via TFLite:** Projects that specifically require [TensorFlow Lite](https://developers.google.com/edge/litert) export for Android or embedded Linux devices.
+- **Mobile Deployment via LiteRT:** Projects that specifically require [LiteRT](https://developers.google.com/edge/litert) (formerly TensorFlow Lite) export for Android or embedded Linux devices.
 
 ### When to Choose Ultralytics (YOLO26)
 

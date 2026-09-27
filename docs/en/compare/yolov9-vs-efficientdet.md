@@ -24,7 +24,7 @@ Developed to tackle the deep learning "information bottleneck," YOLOv9 introduce
 - **Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao
 - **Organization:** Institute of Information Science, Academia Sinica, Taiwan
 - **Date:** February 21, 2024
-- **Links:** [ArXiv Publication](https://arxiv.org/abs/2402.13616), [Official GitHub](https://github.com/WongKinYiu/yolov9)
+- **Links:** [arXiv Publication](https://arxiv.org/abs/2402.13616), [Official GitHub](https://github.com/WongKinYiu/yolov9)
 
 YOLOv9 introduces **Programmable Gradient Information (PGI)**, an auxiliary supervision framework that guarantees gradient information is reliably preserved across deep layers. This is coupled with the **Generalized Efficient Layer Aggregation Network (GELAN)**, which optimizes parameter efficiency by combining the strengths of CSPNet and ELAN. This allows YOLOv9 to achieve high [accuracy](https://www.ultralytics.com/glossary/accuracy) while maintaining a lightweight footprint suitable for real-time edge processing.
 
@@ -37,7 +37,7 @@ Introduced by Google Brain, EfficientDet approaches object detection by systemat
 - **Authors:** Mingxing Tan, Ruoming Pang, and Quoc V. Le
 - **Organization:** [Google](https://research.google/)
 - **Date:** November 20, 2019
-- **Links:** [ArXiv Publication](https://arxiv.org/abs/1911.09070), [Official GitHub](https://github.com/google/automl/tree/master/efficientdet)
+- **Links:** [arXiv Publication](https://arxiv.org/abs/1911.09070), [Official GitHub](https://github.com/google/automl/tree/master/efficientdet)
 
 EfficientDet relies on an EfficientNet backbone combined with a **Bidirectional Feature Pyramid Network (BiFPN)**. BiFPN allows for easy and fast multi-scale feature fusion. The architecture uses a compound scaling method that uniformly scales the resolution, depth, and width for all backbone, feature network, and box/class prediction networks simultaneously.
 
@@ -54,10 +54,10 @@ When analyzing model performance, balancing precision with [inference latency](h
 | Model           | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | --------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
 | YOLOv9t         | 640                         | 38.3                       | -                                    | **2.3**                                   | **2.0**                  | 7.7                     |
-| YOLOv9s         | 640                         | 46.8                       | -                                    | 3.54                                      | 7.1                      | 26.4                    |
-| YOLOv9m         | 640                         | 51.4                       | -                                    | 6.43                                      | 20.0                     | 76.3                    |
-| YOLOv9c         | 640                         | 53.0                       | -                                    | 7.16                                      | 25.3                     | 102.1                   |
-| YOLOv9e         | 640                         | **55.6**                   | -                                    | 16.77                                     | 57.3                     | 189.0                   |
+| YOLOv9s         | 640                         | 46.8                       | -                                    | 3.54                                      | 7.2                      | 26.7                    |
+| YOLOv9m         | 640                         | 51.4                       | -                                    | 6.43                                      | 20.1                     | 76.8                    |
+| YOLOv9c         | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
+| YOLOv9e         | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
 |                 |                             |                            |                                      |                                           |                          |                         |
 | EfficientDet-d0 | 640                         | 34.6                       | **10.2**                             | 3.92                                      | 3.9                      | **2.54**                |
 | EfficientDet-d1 | 640                         | 40.5                       | 13.5                                 | 7.31                                      | 6.6                      | 6.1                     |
@@ -72,7 +72,7 @@ When analyzing model performance, balancing precision with [inference latency](h
 
 1. **Accuracy Thresholds:** YOLOv9e achieves the highest overall accuracy at an impressive 55.6% [mAP (mean Average Precision)](https://www.ultralytics.com/glossary/mean-average-precision-map), outperforming the heaviest EfficientDet-d7 model (53.7%) while maintaining faster TensorRT speeds.
 2. **Real-Time Speed:** YOLOv9t requires only 2.3ms on a T4 GPU using [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), emphasizing the efficiency of the GELAN architecture for high-speed video streams. EfficientDet-d0 operates rapidly but sacrifices significant mAP to reach those speeds.
-3. **Computational Complexity:** EfficientDet scales heavily in parameter count and FLOPs as the compound factor increases. The d7 variant reaches 128ms latency, making it over 10x slower than comparable modern YOLO models, heavily restricting its use in [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) environments.
+3. **Computational Complexity:** EfficientDet scales heavily in parameter count and FLOPs as the compound factor increases. The d7 variant reaches 128ms latency, making it roughly 7.6x slower than the more accurate YOLOv9e (16.77ms), heavily restricting its use in [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) environments.
 
 ## Training Efficiency and Ecosystem
 
@@ -118,7 +118,7 @@ While YOLOv9 and EfficientDet are powerful, developers looking for the ultimate 
 
 Released in January 2026, **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** represents the current state-of-the-art. It improves upon previous generations (including [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8)) with several critical breakthroughs:
 
-- **End-to-End NMS-Free Design:** YOLO26 eliminates Non-Maximum Suppression entirely, a concept pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), resulting in significantly faster and simpler [model deployment](https://docs.ultralytics.com/guides/model-deployment-options).
+- **End-to-End NMS-Free Design:** YOLO26 offers an optional one-to-one head (`nms=False`) that skips Non-Maximum Suppression entirely, a concept pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), resulting in significantly faster and simpler [model deployment](https://docs.ultralytics.com/guides/model-deployment-options).
 - **DFL Removal:** Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility.
 - **Up to 43% Faster CPU Inference:** Perfectly optimized for [IoT devices](https://www.ultralytics.com/blog/industrial-iot-iiot-internet-of-things-explained) and environments lacking dedicated GPUs.
 - **MuSGD Optimizer:** A revolutionary hybrid of SGD and Muon (inspired by LLM training innovations), ensuring faster convergence and incredibly stable training runs.

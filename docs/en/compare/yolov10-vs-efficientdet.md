@@ -81,12 +81,12 @@ The true test of these models lies in their empirical performance on standard be
 
 | Model           | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | --------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv10n        | 640                         | 39.5                       | -                                    | **1.56**                                  | **2.3**                  | 6.7                     |
-| YOLOv10s        | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
-| YOLOv10m        | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
-| YOLOv10b        | 640                         | 52.7                       | -                                    | 6.54                                      | 24.4                     | 92.0                    |
-| YOLOv10l        | 640                         | 53.3                       | -                                    | 8.33                                      | 29.5                     | 120.3                   |
-| YOLOv10x        | 640                         | **54.4**                   | -                                    | 12.2                                      | 56.9                     | 160.4                   |
+| YOLOv10n        | 640                         | 38.5                       | -                                    | **1.84**                                  | **2.3**                  | 6.7                     |
+| YOLOv10s        | 640                         | 46.3                       | -                                    | 2.49                                      | 7.2                      | 21.6                    |
+| YOLOv10m        | 640                         | 51.1                       | -                                    | 4.74                                      | 15.4                     | 59.1                    |
+| YOLOv10b        | 640                         | 52.5                       | -                                    | 5.74                                      | 19.1                     | 92.0                    |
+| YOLOv10l        | 640                         | 53.2                       | -                                    | 7.28                                      | 24.4                     | 120.3                   |
+| YOLOv10x        | 640                         | **54.4**                   | -                                    | 10.70                                     | 29.5                     | 160.4                   |
 |                 |                             |                            |                                      |                                           |                          |                         |
 | EfficientDet-d0 | 640                         | 34.6                       | **10.2**                             | 3.92                                      | 3.9                      | **2.54**                |
 | EfficientDet-d1 | 640                         | 40.5                       | 13.5                                 | 7.31                                      | 6.6                      | 6.1                     |
@@ -97,7 +97,7 @@ The true test of these models lies in their empirical performance on standard be
 | EfficientDet-d6 | 640                         | 52.6                       | 92.8                                 | 89.29                                     | 51.9                     | 226.0                   |
 | EfficientDet-d7 | 640                         | 53.7                       | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
 
-As shown above, YOLOv10 maintains a significant advantage in raw inference speed. For example, YOLOv10-S achieves 46.7 mAP with a TensorRT latency of just 2.66ms, whereas EfficientDet-d3 achieves a similar 47.5 mAP but takes nearly 20ms—making YOLOv10 vastly superior for real-time video streaming or fast-moving manufacturing pipelines.
+As shown above, YOLOv10 maintains a significant advantage in raw inference speed. For example, YOLOv10-S achieves 46.3 mAP with a TensorRT latency of just 2.49ms, whereas EfficientDet-d3 achieves a similar 47.5 mAP but takes nearly 20ms—making YOLOv10 vastly superior for real-time video streaming or fast-moving manufacturing pipelines.
 
 ## Use Cases and Recommendations
 
@@ -117,7 +117,7 @@ EfficientDet is recommended for:
 
 - **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
 - **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
-- **Mobile Deployment via TFLite:** Projects that specifically require [TensorFlow Lite](https://developers.google.com/edge/litert) export for Android or embedded Linux devices.
+- **Mobile Deployment via LiteRT:** Projects that specifically require [LiteRT](https://developers.google.com/edge/litert) (formerly TensorFlow Lite) export for Android or embedded Linux devices.
 
 ### When to Choose Ultralytics (YOLO26)
 
@@ -133,7 +133,7 @@ While YOLOv10 introduced the groundbreaking NMS-free paradigm and EfficientDet s
 
 ### Why YOLO26 Outperforms the Competition
 
-1. **End-to-End NMS-Free Design:** YOLO26 natively adopts the end-to-end NMS-free architecture pioneered in YOLOv10, streamlining deployment and accelerating inference.
+1. **End-to-End NMS-Free Design:** YOLO26 offers the end-to-end NMS-free design pioneered in YOLOv10 as an optional one-to-one head (`nms=False`), streamlining deployment and accelerating inference.
 2. **Up to 43% Faster CPU Inference:** For edge devices lacking dedicated accelerators, YOLO26 is specifically optimized to run efficiently on standard CPUs.
 3. **Advanced MuSGD Optimizer:** Inspired by LLM training innovations, YOLO26 utilizes a hybrid of SGD and Muon for incredibly stable training and rapid convergence, vastly improving [training efficiency](https://docs.ultralytics.com/guides/model-training-tips) compared to EfficientDet.
 4. **ProgLoss + STAL:** These improved loss functions deliver remarkable boosts in small-object recognition, a traditional weak point for both YOLOv10 and EfficientDet.

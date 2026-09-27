@@ -18,7 +18,7 @@ Before diving into their structural differences, it is important to understand t
 - **Authors:** Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun
 - **Organization:** [Megvii](https://en.megvii.com/)
 - **Date:** July 18, 2021
-- **ArXiv:** [YOLOX: Exceeding YOLO Series in 2021](https://arxiv.org/abs/2107.08430)
+- **arXiv:** [YOLOX: Exceeding YOLO Series in 2021](https://arxiv.org/abs/2107.08430)
 - **GitHub:** [Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
 - **Documentation:** [YOLOX Official Docs](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
@@ -29,7 +29,7 @@ Before diving into their structural differences, it is important to understand t
 - **Authors:** Mingxing Tan, Ruoming Pang, and Quoc V. Le
 - **Organization:** [Google Brain](https://research.google/)
 - **Date:** November 20, 2019
-- **ArXiv:** [EfficientDet: Scalable and Efficient Object Detection](https://arxiv.org/abs/1911.09070)
+- **arXiv:** [EfficientDet: Scalable and Efficient Object Detection](https://arxiv.org/abs/1911.09070)
 - **GitHub & Docs:** [Google AutoML EfficientDet](https://github.com/google/automl/tree/master/efficientdet)
 
 [Learn more about EfficientDet](https://github.com/google/automl/tree/master/efficientdet#readme){ .md-button }
@@ -100,7 +100,7 @@ EfficientDet is recommended for:
 
 - **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
 - **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
-- **Mobile Deployment via TFLite:** Projects that specifically require [TensorFlow Lite](https://developers.google.com/edge/litert) export for Android or embedded Linux devices.
+- **Mobile Deployment via LiteRT:** Projects that specifically require [LiteRT](https://developers.google.com/edge/litert) (formerly TensorFlow Lite) export for Android or embedded Linux devices.
 
 ### When to Choose Ultralytics (YOLO26)
 
@@ -118,7 +118,7 @@ YOLO26 offers a well-maintained ecosystem and a massive leap forward in both spe
 
 ### Key YOLO26 Innovations
 
-- **End-to-End NMS-Free Design:** YOLO26 eliminates the need for [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing. This natively end-to-end approach, pioneered in earlier generations, simplifies the export process and slashes deployment latency.
+- **End-to-End NMS-Free Design:** YOLO26's optional one-to-one head (`nms=False`) removes the need for [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing. This natively end-to-end approach, pioneered in earlier generations, simplifies the export process and slashes deployment latency.
 - **Up to 43% Faster CPU Inference:** Thanks to deep architectural optimizations and the removal of Distribution Focal Loss (DFL), YOLO26 is remarkably fast on edge devices lacking discrete GPUs, far outpacing the heavy EfficientDet variants.
 - **MuSGD Optimizer:** Bringing [Large Language Model (LLM)](https://www.ultralytics.com/glossary/large-language-model-llm) innovations to vision, YOLO26 utilizes the MuSGD optimizer (a hybrid of SGD and Muon) for highly stable training and rapid convergence, resulting in excellent [training efficiency](https://docs.ultralytics.com/guides/model-training-tips).
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, which is critical for use cases like [drone operations](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations) and aerial imagery analysis.

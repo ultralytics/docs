@@ -45,7 +45,7 @@ Released in early 2023, YOLOv8 completely redefined the developer experience, fo
 - **Platform:** [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8)
 
 **Architecture Highlights:**
-YOLOv8 introduced a natively **anchor-free** detection head, eliminating the need to manually configure anchor boxes based on the [MS COCO dataset](https://cocodataset.org/) or custom data distributions. It incorporates the C2f module to improve gradient flow and uses a decoupled head structure that separates objectness, classification, and regression tasks. This heavily accelerates convergence and boosts accuracy.
+YOLOv8 introduced a natively **anchor-free** detection head, eliminating the need to manually configure anchor boxes based on the [MS COCO dataset](https://cocodataset.org/) or custom data distributions. It incorporates the C2f module to improve gradient flow and uses a decoupled head structure that separates classification and regression tasks. This heavily accelerates convergence and boosts accuracy.
 
 **Strengths and Weaknesses:**
 YOLOv8 boasts exceptional **Memory Requirements** efficiency. It requires significantly less CUDA memory during training compared to YOLOv7 and heavier transformer models, allowing developers to use larger batch sizes. Its primary strength lies in its **Versatility**, natively supporting [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb). The only minor drawback is that extremely specialized legacy pipelines built exclusively for YOLOv7 tensors might require a brief refactoring period.
@@ -68,7 +68,7 @@ The following table breaks down the performance metrics across key model sizes. 
 | [YOLOv8n](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) | 640                         | 37.3                       | **80.4**                             | **1.47**                                  | **3.2**                  | **8.7**                 |
 | [YOLOv8s](https://platform.ultralytics.com/ultralytics/yolov8/yolov8s) | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
 | [YOLOv8m](https://platform.ultralytics.com/ultralytics/yolov8/yolov8m) | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
-| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
+| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.1                   |
 | [YOLOv8x](https://platform.ultralytics.com/ultralytics/yolov8/yolov8x) | 640                         | **53.9**                   | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
 
 _Note: YOLOv8x achieves the highest mAP in this grouping, while YOLOv8n dominates in parameter efficiency and inference speed, making it the undisputed champion for [deploying computer vision on edge AI devices](https://www.ultralytics.com/blog/deploying-computer-vision-applications-on-edge-ai-devices)._
@@ -122,7 +122,7 @@ While YOLOv8 remains a highly robust choice, the field of computer vision moves 
 
 Released in January 2026, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) pushes the boundaries of what is possible on edge devices:
 
-- **End-to-End NMS-Free Design:** YOLO26 is natively end-to-end, completely eliminating Non-Maximum Suppression (NMS) post-processing. This ensures significantly faster, simpler deployment pipelines without the latency bottlenecks of traditional dense prediction models.
+- **End-to-End NMS-Free Design:** YOLO26 supports native end-to-end inference, skipping Non-Maximum Suppression (NMS) post-processing with its optional one-to-one head (`nms=False`). This ensures significantly faster, simpler deployment pipelines without the latency bottlenecks of traditional dense prediction models.
 - **DFL Removal:** By removing Distribution Focal Loss, YOLO26 achieves much simpler [model deployment options](https://docs.ultralytics.com/guides/model-deployment-options) and superior edge compatibility.
 - **Up to 43% Faster CPU Inference:** Heavily optimized for constrained environments like Raspberry Pi and embedded systems, beating all prior generations in CPU throughput.
 - **MuSGD Optimizer:** Inspired by Large Language Model (LLM) training paradigms, YOLO26 incorporates a hybrid of SGD and Muon. This delivers unprecedented training stability and lightning-fast convergence.

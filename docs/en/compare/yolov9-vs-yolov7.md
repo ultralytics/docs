@@ -20,17 +20,17 @@ When comparing these models, raw performance and efficiency are critical factors
 | Model   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
 | YOLOv9t | 640                         | 38.3                       | -                                    | **2.3**                                   | **2.0**                  | **7.7**                 |
-| YOLOv9s | 640                         | 46.8                       | -                                    | 3.54                                      | 7.1                      | 26.4                    |
-| YOLOv9m | 640                         | 51.4                       | -                                    | 6.43                                      | 20.0                     | 76.3                    |
-| YOLOv9c | 640                         | 53.0                       | -                                    | 7.16                                      | 25.3                     | 102.1                   |
-| YOLOv9e | 640                         | **55.6**                   | -                                    | 16.77                                     | 57.3                     | 189.0                   |
+| YOLOv9s | 640                         | 46.8                       | -                                    | 3.54                                      | 7.2                      | 26.7                    |
+| YOLOv9m | 640                         | 51.4                       | -                                    | 6.43                                      | 20.1                     | 76.8                    |
+| YOLOv9c | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
+| YOLOv9e | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
 |         |                             |                            |                                      |                                           |                          |                         |
 | YOLOv7l | 640                         | 51.4                       | -                                    | 6.84                                      | 36.9                     | 104.7                   |
 | YOLOv7x | 640                         | 53.1                       | -                                    | 11.57                                     | 71.3                     | 189.9                   |
 
 !!! tip "Performance Balance"
 
-    Notice how YOLOv9c achieves roughly the same accuracy (53.0 mAP) as YOLOv7x (53.1 mAP) while utilizing significantly fewer parameters (25.3M vs 71.3M) and FLOPs. This demonstrates the [Performance Balance](https://docs.ultralytics.com/guides/yolo-performance-metrics) improvements in modern architectures.
+    Notice how YOLOv9c achieves roughly the same accuracy (53.0 mAP) as YOLOv7x (53.1 mAP) while utilizing significantly fewer parameters (25.5M vs 71.3M) and FLOPs. This demonstrates the [Performance Balance](https://docs.ultralytics.com/guides/yolo-performance-metrics) improvements in modern architectures.
 
 ## YOLOv9: Solving the Information Bottleneck
 
@@ -39,7 +39,7 @@ Introduced in early 2024, YOLOv9 fundamentally changed how deep neural networks 
 - **Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao
 - **Organization:** [Institute of Information Science, Academia Sinica](https://www.iis.sinica.edu.tw/en/index.html)
 - **Date:** February 21, 2024
-- **Resources:** [Arxiv Paper](https://arxiv.org/abs/2402.13616) | [GitHub Repository](https://github.com/WongKinYiu/yolov9)
+- **Resources:** [arXiv Paper](https://arxiv.org/abs/2402.13616) | [GitHub Repository](https://github.com/WongKinYiu/yolov9)
 
 ### Architecture Innovations
 
@@ -58,7 +58,7 @@ Released in 2022, YOLOv7 set a new benchmark for what was possible on consumer h
 - **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
 - **Organization:** [Institute of Information Science, Academia Sinica](https://www.iis.sinica.edu.tw/en/index.html)
 - **Date:** July 6, 2022
-- **Resources:** [Arxiv Paper](https://arxiv.org/abs/2207.02696) | [GitHub Repository](https://github.com/WongKinYiu/yolov7)
+- **Resources:** [arXiv Paper](https://arxiv.org/abs/2207.02696) | [GitHub Repository](https://github.com/WongKinYiu/yolov7)
 
 ### Architecture Innovations
 
@@ -72,7 +72,7 @@ YOLOv7 is highly optimized for real-time edge processing and remains a staple in
 
 ## The Ultralytics Advantage: Streamlined Deployment
 
-While the original research repositories for YOLOv9 and YOLOv7 provide excellent academic foundations, deploying these models in production environments can be complex. Integrating them through the `ultralytics` package offers unparalleled **Ease of Use**.
+While the original research repositories for YOLOv9 and YOLOv7 provide excellent academic foundations, deploying these models in production environments can be complex. Integrating YOLOv9 through the `ultralytics` package (YOLOv7 is supported only via exported ONNX or TensorRT models) offers unparalleled **Ease of Use**.
 
 By utilizing the integrated [Ultralytics Platform](https://platform.ultralytics.com), developers benefit from a well-maintained ecosystem featuring an intuitive Python API, active community support, and robust [experiment tracking](https://www.ultralytics.com/glossary/experiment-tracking).
 
@@ -80,7 +80,7 @@ By utilizing the integrated [Ultralytics Platform](https://platform.ultralytics.
 
 If you are starting a new computer vision project, we highly recommend exploring the newly released **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** over both YOLOv9 and YOLOv7. Released as the new state-of-the-art standard, YOLO26 brings groundbreaking advancements:
 
-- **End-to-End NMS-Free Design:** Eliminates Non-Maximum Suppression post-processing, dramatically reducing deployment complexity and latency.
+- **End-to-End NMS-Free Design:** An optional one-to-one head (`nms=False`) skips Non-Maximum Suppression post-processing, dramatically reducing deployment complexity and latency.
 - **Up to 43% Faster CPU Inference:** Optimized for [edge computing](https://www.ultralytics.com/glossary/edge-computing) environments, ensuring your application runs smoothly even without dedicated GPUs.
 - **MuSGD Optimizer:** A hybrid optimizer inspired by LLM training, delivering highly stable convergence and reducing training time.
 - **DFL Removal:** Simplified model export by removing Distribution Focal Loss, enhancing compatibility with low-power mobile devices.
@@ -90,7 +90,7 @@ Other popular alternatives within the ecosystem include [Ultralytics YOLOv8](htt
 
 ### Implementation Example
 
-Training and exporting any of these architectures is incredibly simple with the unified API. The code below demonstrates the streamlined **Training Efficiency** characteristic of Ultralytics tools.
+Training and exporting YOLOv9 or YOLO26 is incredibly simple with the unified API. The code below demonstrates the streamlined **Training Efficiency** characteristic of Ultralytics tools.
 
 ```python
 from ultralytics import YOLO
@@ -117,7 +117,7 @@ Choosing between these architectures often comes down to the specific constraint
 YOLOv9 excels in environments where minute detail retention is necessary. Its robust feature extraction makes it ideal for [retail analytics](https://www.ultralytics.com/solutions/computer-vision-in-retail) to count densely packed products on shelves or for agricultural applications where identifying early-stage crop disease on small leaves is critical.
 
 **When to use YOLOv7:**
-YOLOv7 remains a strong candidate for legacy deployment pipelines. If you are integrating into older hardware systems (like certain generations of the [Google Coral Edge TPU](https://developers.google.com/coral)), the straightforward CNN architecture of YOLOv7 may be easier to compile than the more complex gradient branches of newer models.
+YOLOv7 remains a strong candidate for legacy deployment pipelines. If you are integrating into older hardware systems (like certain generations of the [Google Coral Edge TPU](https://developers.google.com/coral)), the straightforward CNN architecture of YOLOv7 may be easier to compile than newer models.
 
 **When to use YOLO26 (Recommended):**
 For any modern deployment—from autonomous drones to smart city [traffic management](https://www.ultralytics.com/blog/optimizingtraffic-management-with-ultralytics-yolo11)—YOLO26 is the superior choice. Its NMS-free architecture guarantees deterministic inference times, which is essential for safety-critical robotics, while its high precision outpaces both YOLOv9 and YOLOv7 across the board.

@@ -57,7 +57,7 @@ PP-YOLOE+ relies on the more traditional, yet highly effective, CSPRepResNet. Wh
 
 !!! tip "Eliminating Post-Processing Delays"
 
-    Both DAMO-YOLO and PP-YOLOE+ require NMS for post-processing bounding boxes. If inference latency is critical, consider using [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26), which features a natively **End-to-End NMS-Free Design**. This breakthrough approach eliminates NMS post-processing for a faster, simpler deployment pipeline.
+    Both DAMO-YOLO and PP-YOLOE+ require NMS for post-processing bounding boxes. If inference latency is critical, consider using [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26), which features a native **End-to-End NMS-Free Design** via its optional one-to-one head (`nms=False`). This breakthrough approach eliminates NMS post-processing for a faster, simpler deployment pipeline.
 
 ## Performance and Metrics Analysis
 
@@ -76,7 +76,7 @@ When evaluating these models for production, the balance between accuracy (mAP),
 | PP-YOLOE+l | 640                         | 52.9                       | -                                    | 8.36                                      | 52.2                     | 110.07                  |
 | PP-YOLOE+x | 640                         | **54.7**                   | -                                    | 14.3                                      | 98.42                    | 206.59                  |
 
-As the table illustrates, DAMO-YOLO generally achieves lower latency on small (s) and tiny (t) scales, thanks to its NAS-optimized backbones. However, PP-YOLOE+ scales incredibly well into the medium (m) and large (l) tiers, boasting significantly higher mAP scores, albeit at a slight cost to T4 TensorRT speed.
+As the table illustrates, DAMO-YOLO delivers higher accuracy at the tiny (t) and small (s) scales, and DAMO-YOLOt posts the lowest T4 TensorRT latency of any model here, thanks to its NAS-optimized backbones. However, PP-YOLOE+ scales incredibly well into the medium (m) and large (l) tiers, reaching higher mAP scores, albeit at a slight cost to T4 TensorRT speed.
 
 ### Memory Requirements and Training Efficiency
 

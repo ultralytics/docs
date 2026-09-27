@@ -41,17 +41,17 @@ When designing a computer vision pipeline, developers must weigh the trade-offs 
 
 | Model                                                                   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ----------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv9t                                                                 | 640                         | 38.3                       | -                                    | 2.3                                       | **2.0**                  | **7.7**                 |
-| YOLOv9s                                                                 | 640                         | 46.8                       | -                                    | 3.54                                      | 7.1                      | 26.4                    |
-| YOLOv9m                                                                 | 640                         | 51.4                       | -                                    | 6.43                                      | 20.0                     | 76.3                    |
-| YOLOv9c                                                                 | 640                         | 53.0                       | -                                    | 7.16                                      | 25.3                     | 102.1                   |
-| YOLOv9e                                                                 | 640                         | **55.6**                   | -                                    | 16.77                                     | 57.3                     | 189.0                   |
+| YOLOv9t                                                                 | 640                         | 38.3                       | -                                    | 2.3                                       | 2.0                      | 7.7                     |
+| YOLOv9s                                                                 | 640                         | 46.8                       | -                                    | 3.54                                      | 7.2                      | 26.7                    |
+| YOLOv9m                                                                 | 640                         | 51.4                       | -                                    | 6.43                                      | 20.1                     | 76.8                    |
+| YOLOv9c                                                                 | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
+| YOLOv9e                                                                 | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
 |                                                                         |                             |                            |                                      |                                           |                          |                         |
-| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | **73.6**                             | **1.12**                                  | 2.6                      | **7.7**                 |
-| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
-| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
-| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
-| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
+| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | -                                    | **1.12**                                  | **1.9**                  | **4.5**                 |
+| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | -                                    | 1.92                                      | 7.2                      | 16.5                    |
+| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | -                                    | 4.03                                      | 21.2                     | 49.0                    |
+| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | -                                    | 6.61                                      | 46.5                     | 109.1                   |
+| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | -                                    | 11.89                                     | 86.7                     | 205.7                   |
 
 ### Analyzing the Trade-offs
 
@@ -65,7 +65,7 @@ A major consideration when selecting a model is the surrounding software ecosyst
 
 ### Ease of Use and Exporting
 
-Ultralytics abstracts complex engineering hurdles. Features like automatic [data augmentation](https://docs.ultralytics.com/guides/yolo-data-augmentation) and [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning) are handled out of the box. Moving models to production is equally trivial, with built-in export commands to convert models into [ONNX](https://docs.ultralytics.com/integrations/onnx), [OpenVINO](https://docs.ultralytics.com/integrations/openvino), or [TFLite](https://docs.ultralytics.com/integrations/tflite) formats.
+Ultralytics abstracts complex engineering hurdles. Features like automatic [data augmentation](https://docs.ultralytics.com/guides/yolo-data-augmentation) and [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning) are handled out of the box. Moving models to production is equally trivial, with built-in export commands to convert models into [ONNX](https://docs.ultralytics.com/integrations/onnx), [OpenVINO](https://docs.ultralytics.com/integrations/openvino), or [LiteRT](https://docs.ultralytics.com/integrations/litert) formats.
 
 ### Task Versatility
 
@@ -89,7 +89,7 @@ YOLOv5 is recommended for:
 
 - **Proven Production Systems:** Existing deployments where YOLOv5's long track record of stability, extensive documentation, and massive community support are valued.
 - **Resource-Constrained Training:** Environments with limited GPU resources where YOLOv5's efficient training pipeline and lower memory requirements are advantageous.
-- **Extensive Export Format Support:** Projects requiring deployment across many formats including [ONNX](https://docs.ultralytics.com/integrations/onnx), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), [CoreML](https://docs.ultralytics.com/integrations/coreml), and [TFLite](https://docs.ultralytics.com/integrations/tflite).
+- **Extensive Export Format Support:** Projects requiring deployment across many formats including [ONNX](https://docs.ultralytics.com/integrations/onnx), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), [CoreML](https://docs.ultralytics.com/integrations/coreml), and [LiteRT](https://docs.ultralytics.com/integrations/litert).
 
 ### When to Choose Ultralytics (YOLO26)
 
@@ -106,7 +106,7 @@ The beauty of the Ultralytics ecosystem is that you can switch between a YOLOv5 
 ```python
 from ultralytics import YOLO
 
-# Load a pretrained YOLOv9 model (swap to "yolov5s.pt" to use YOLOv5)
+# Load a pretrained YOLOv9 model (swap to "yolov5su.pt" to use YOLOv5u)
 model = YOLO("yolov9c.pt")
 
 # Train the model efficiently on a custom dataset
@@ -124,6 +124,6 @@ model.export(format="onnx")
 While YOLOv5 and YOLOv9 are excellent models with distinct advantages, the field continues to advance. Users exploring new projects may also want to evaluate the latest iterations from Ultralytics.
 
 - **[YOLO11](https://platform.ultralytics.com/ultralytics/yolo11):** A powerful, refined evolution of the YOLOv8 lineage offering excellent speed-accuracy balance across all vision tasks.
-- **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26):** Released in 2026, YOLO26 is the ultimate recommendation for modern pipelines. It introduces an **End-to-End NMS-Free Design**, completely eliminating post-processing bottlenecks. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), it achieves up to **43% faster CPU inference**. Training stability is supercharged via the new **MuSGD Optimizer**, and **ProgLoss + STAL** delivers improved loss functions with notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery, making it the most robust architecture for both edge and cloud deployments.
+- **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26):** Released in 2026, YOLO26 is the ultimate recommendation for modern pipelines. It introduces an optional **End-to-End NMS-Free Design** (`nms=False`) that eliminates NMS post-processing bottlenecks. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), it achieves up to **43% faster CPU inference**. Training stability is supercharged via the new **MuSGD Optimizer**, and **ProgLoss + STAL** (Progressive Loss and Small-Target-Aware Label Assignment) deliver notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery, making it the most robust architecture for both edge and cloud deployments.
 
 For teams managing large datasets and complex deployment pipelines, utilizing the [Ultralytics Platform](https://platform.ultralytics.com) offers a no-code solution to train, track, and deploy these cutting-edge models effortlessly.

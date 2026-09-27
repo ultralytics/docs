@@ -66,11 +66,11 @@ When evaluating these models, raw speed and accuracy metrics are vital. Below is
 
 | Model                                                                   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ----------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | **73.6**                             | **1.12**                                  | **2.6**                  | **7.7**                 |
-| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
-| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
-| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
-| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
+| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | -                                    | **1.12**                                  | **1.9**                  | **4.5**                 |
+| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | -                                    | 1.92                                      | 7.2                      | 16.5                    |
+| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | -                                    | 4.03                                      | 21.2                     | 49.0                    |
+| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | -                                    | 6.61                                      | 46.5                     | 109.1                   |
+| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | -                                    | 11.89                                     | 86.7                     | 205.7                   |
 |                                                                         |                             |                            |                                      |                                           |                          |                         |
 | YOLOv6-3.0n                                                             | 640                         | 37.5                       | -                                    | 1.17                                      | 4.7                      | 11.4                    |
 | YOLOv6-3.0s                                                             | 640                         | 45.0                       | -                                    | 2.66                                      | 18.5                     | 45.3                    |
@@ -93,7 +93,7 @@ The Ultralytics `ultralytics` pip package allows you to load, train, and deploy 
 from ultralytics import YOLO
 
 # Load a pretrained YOLOv5 small model
-model = YOLO("yolov5s.pt")
+model = YOLO("yolov5su.pt")  # YOLOv5u: anchor-free YOLOv5 weights for the ultralytics package
 
 # Train the model effortlessly on the COCO8 dataset
 results = model.train(data="coco8.yaml", epochs=50, imgsz=640)
@@ -115,7 +115,7 @@ YOLOv5 is a strong choice for:
 
 - **Proven Production Systems:** Existing deployments where YOLOv5's long track record of stability, extensive documentation, and massive community support are valued.
 - **Resource-Constrained Training:** Environments with limited GPU resources where YOLOv5's efficient training pipeline and lower memory requirements are advantageous.
-- **Extensive Export Format Support:** Projects requiring deployment across many formats including [ONNX](https://docs.ultralytics.com/integrations/onnx), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), [CoreML](https://docs.ultralytics.com/integrations/coreml), and [TFLite](https://docs.ultralytics.com/integrations/tflite).
+- **Extensive Export Format Support:** Projects requiring deployment across many formats including [ONNX](https://docs.ultralytics.com/integrations/onnx), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), [CoreML](https://docs.ultralytics.com/integrations/coreml), and [LiteRT](https://docs.ultralytics.com/integrations/litert).
 
 ### When to Choose YOLOv6
 
@@ -139,7 +139,7 @@ While YOLOv5 remains a reliable workhorse and YOLOv6-3.0 offers strong industria
 
 Released in January 2026, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents a massive leap forward. It inherits the unmatched versatility of the Ultralytics ecosystem while introducing groundbreaking architectural improvements:
 
-- **End-to-End NMS-Free Design:** YOLO26 eliminates Non-Maximum Suppression post-processing, dramatically reducing latency variance and simplifying deployment logic.
+- **End-to-End NMS-Free Design:** YOLO26's optional NMS-free head (`nms=False`) eliminates Non-Maximum Suppression post-processing, dramatically reducing latency variance and simplifying deployment logic.
 - **Up to 43% Faster CPU Inference:** With DFL removal and an optimized head, it drastically outperforms previous generations on edge and low-power devices.
 - **MuSGD Optimizer:** Leveraging LLM training innovations, the new MuSGD optimizer ensures highly stable training and remarkably fast convergence.
 - **Advanced Versatility:** YOLO26 seamlessly handles [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), and Segmentation with specialized task losses like ProgLoss and STAL for unparalleled small-object recognition.

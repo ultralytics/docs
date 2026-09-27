@@ -27,7 +27,7 @@ Introduced in late 2019, EfficientDet set a new benchmark for scalable, highly a
 
 EfficientDet is built on the EfficientNet backbone, leveraging a novel Bi-directional Feature Pyramid Network (BiFPN). Unlike traditional [Feature Pyramid Networks (FPN)](https://www.ultralytics.com/glossary/feature-pyramid-network-fpn) that sum features without distinguishing their importance, BiFPN employs learnable weights to fuse multi-scale features. This allows the network to effectively learn which resolution features contribute most to the final prediction. Furthermore, EfficientDet uses a compound scaling method that uniformly scales the resolution, depth, and width for the backbone, feature network, and box/class prediction networks simultaneously.
 
-While EfficientDet remains a solid choice for legacy systems deeply integrated with older TensorFlow pipelines, it comes with considerable [memory requirements](https://www.ultralytics.com/glossary/memory-bank) during training and relies on an older ecosystem that can be cumbersome compared to modern, dynamic frameworks.
+While EfficientDet remains a solid choice for legacy systems deeply integrated with older TensorFlow pipelines, it comes with considerable memory requirements during training and relies on an older ecosystem that can be cumbersome compared to modern, dynamic frameworks.
 
 [Learn more about EfficientDet](https://github.com/google/automl/tree/master/efficientdet#readme){ .md-button }
 
@@ -66,14 +66,14 @@ When deploying models in real-world scenarios, developers must weigh [mean Avera
 | EfficientDet-d6 | 640                         | 52.6                       | 92.8                                 | 89.29                                     | 51.9                     | 226.0                   |
 | EfficientDet-d7 | 640                         | 53.7                       | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
 |                 |                             |                            |                                      |                                           |                          |                         |
-| YOLOv10n        | 640                         | 39.5                       | -                                    | **1.56**                                  | **2.3**                  | 6.7                     |
-| YOLOv10s        | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
-| YOLOv10m        | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
-| YOLOv10b        | 640                         | 52.7                       | -                                    | 6.54                                      | 24.4                     | 92.0                    |
-| YOLOv10l        | 640                         | 53.3                       | -                                    | 8.33                                      | 29.5                     | 120.3                   |
-| YOLOv10x        | 640                         | **54.4**                   | -                                    | 12.2                                      | 56.9                     | 160.4                   |
+| YOLOv10n        | 640                         | 38.5                       | -                                    | **1.84**                                  | **2.3**                  | 6.7                     |
+| YOLOv10s        | 640                         | 46.3                       | -                                    | 2.49                                      | 7.2                      | 21.6                    |
+| YOLOv10m        | 640                         | 51.1                       | -                                    | 4.74                                      | 15.4                     | 59.1                    |
+| YOLOv10b        | 640                         | 52.5                       | -                                    | 5.74                                      | 19.1                     | 92.0                    |
+| YOLOv10l        | 640                         | 53.2                       | -                                    | 7.28                                      | 24.4                     | 120.3                   |
+| YOLOv10x        | 640                         | **54.4**                   | -                                    | 10.70                                     | 29.5                     | 160.4                   |
 
-_Note: The YOLOv10n variant requires significantly fewer parameters (2.3M) and achieves vastly superior TensorRT speeds (1.56ms) compared to early EfficientDet iterations, making it much more viable for [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) in production._
+_Note: The YOLOv10n variant requires significantly fewer parameters (2.3M) and achieves vastly superior TensorRT speeds (1.84ms) compared to early EfficientDet iterations, making it much more viable for [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) in production._
 
 ## Why Choose Ultralytics for Model Deployment?
 
@@ -113,7 +113,7 @@ EfficientDet is a strong choice for:
 
 - **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
 - **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
-- **Mobile Deployment via TFLite:** Projects that specifically require [TensorFlow Lite](https://developers.google.com/edge/litert) export for Android or embedded Linux devices.
+- **Mobile Deployment via LiteRT:** Projects that specifically require [LiteRT](https://developers.google.com/edge/litert) (formerly TensorFlow Lite) export for Android or embedded Linux devices.
 
 ### When to Choose YOLOv10
 
@@ -141,7 +141,7 @@ While YOLOv10 introduced the revolutionary NMS-free design, the technology has e
 
 **Key Breakthroughs in YOLO26:**
 
-- **End-to-End NMS-Free Design:** Building on the foundations laid by YOLOv10, YOLO26 is natively end-to-end, simplifying deployment logic to bare minimums.
+- **End-to-End NMS-Free Design:** Building on the foundations laid by YOLOv10, YOLO26 offers an optional end-to-end one-to-one head (`nms=False`) that skips NMS, simplifying deployment logic to bare minimums.
 - **Up to 43% Faster CPU Inference:** With the removal of Distribution Focal Loss (DFL), YOLO26 drastically cuts computational overhead, making it the undisputed king for [edge AI devices](https://www.ultralytics.com/blog/picking-the-right-edge-device-for-your-computer-vision-project).
 - **MuSGD Optimizer:** YOLO26 borrows innovations from Large Language Model (LLM) training. By fusing the stability of SGD with the speed of Muon, it converges faster and more reliably than any predecessor.
 - **ProgLoss + STAL:** Superior loss formulations effectively solve long-standing issues with small-object detection, an area where EfficientDet traditionally struggled.

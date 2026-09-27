@@ -50,10 +50,10 @@ When evaluating these models on the standard [COCO dataset](https://docs.ultraly
 | Model       | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ----------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
 | YOLOv9t     | 640                         | 38.3                       | -                                    | 2.3                                       | **2.0**                  | **7.7**                 |
-| YOLOv9s     | 640                         | 46.8                       | -                                    | 3.54                                      | 7.1                      | 26.4                    |
-| YOLOv9m     | 640                         | 51.4                       | -                                    | 6.43                                      | 20.0                     | 76.3                    |
-| YOLOv9c     | 640                         | 53.0                       | -                                    | 7.16                                      | 25.3                     | 102.1                   |
-| YOLOv9e     | 640                         | **55.6**                   | -                                    | 16.77                                     | 57.3                     | 189.0                   |
+| YOLOv9s     | 640                         | 46.8                       | -                                    | 3.54                                      | 7.2                      | 26.7                    |
+| YOLOv9m     | 640                         | 51.4                       | -                                    | 6.43                                      | 20.1                     | 76.8                    |
+| YOLOv9c     | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
+| YOLOv9e     | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
 |             |                             |                            |                                      |                                           |                          |                         |
 | YOLOv6-3.0n | 640                         | 37.5                       | -                                    | **1.17**                                  | 4.7                      | 11.4                    |
 | YOLOv6-3.0s | 640                         | 45.0                       | -                                    | 2.66                                      | 18.5                     | 45.3                    |
@@ -66,7 +66,7 @@ While YOLOv6-3.0n takes the crown for raw speed on T4 hardware (1.17ms), YOLOv9t
 
 !!! tip "Future-Proof Your Project with YOLO26"
 
-    If you are starting a new computer vision initiative, we highly recommend utilizing **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**. Released in 2026, it features a native **End-to-End NMS-Free Design** that completely eliminates post-processing latency, unlocking up to **43% Faster CPU Inference**.
+    If you are starting a new computer vision initiative, we highly recommend utilizing **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**. Released in 2026, it features a native **End-to-End NMS-Free Design** (`nms=False`) that eliminates NMS post-processing latency, unlocking up to **43% Faster CPU Inference**.
 
 ## The Ultralytics Ecosystem Advantage
 
@@ -81,8 +81,8 @@ Furthermore, Ultralytics architectures generally boast lower [CUDA memory requir
 ```python
 from ultralytics import YOLO
 
-# Easily swap architectures by changing the weights file string
-# model = YOLO("yolov6n.pt")
+# Easily swap architectures by changing the model file string
+# model = YOLO("yolov6n.yaml")  # YOLOv6 is available as a YAML config (no pretrained weights)
 model = YOLO("yolov9c.pt")
 
 # Train the model with built-in data augmentation and caching
@@ -105,13 +105,13 @@ Building on the successes of [YOLO11](https://platform.ultralytics.com/ultralyti
 - **MuSGD Optimizer:** Inspired by Large Language Model (LLM) training techniques like Moonshot AI's Kimi K2, this hybrid optimizer ensures incredibly stable training and fast convergence.
 - **DFL Removal:** By stripping out Distribution Focal Loss, YOLO26 simplifies the export graph, making it significantly more compatible with low-power [edge computing](https://www.ultralytics.com/glossary/edge-computing) chips.
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, which is critical for [drone operations](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations) and IoT applications.
-- **Task-Specific Improvements:** YOLO26 includes native multi-scale prototyping for segmentation, Residual Log-Likelihood Estimation (RLE) for skeletal tracking, and specialized angle loss algorithms to resolve edge cases in OBB detection.
+- **Task-Specific Improvements:** YOLO26 includes native multi-scale prototyping for segmentation, Residual Log-Likelihood Estimation (RLE) for pose estimation, and specialized angle loss algorithms to resolve edge cases in OBB detection.
 
 ## Ideal Deployment Scenarios
 
 Choosing the right architecture ultimately comes down to your production constraints.
 
-Choose **YOLOv6-3.0** if you have an established pipeline in industrial manufacturing, rely heavily on quantization, and utilize specialized inference accelerators where you need the absolute lowest sub-millisecond hardware latency.
+Choose **YOLOv6-3.0** if you have an established pipeline in industrial manufacturing, rely heavily on quantization, and utilize specialized inference accelerators where you need the absolute lowest hardware latency.
 
 Choose **YOLOv9** if you are tackling complex [healthcare diagnostics](https://www.ultralytics.com/blog/vision-ai-tools-for-healthcare-diagnostics) or long-range surveillance where missing subtle, pixel-level features is not an option.
 

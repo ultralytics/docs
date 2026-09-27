@@ -9,7 +9,7 @@ keywords: YOLOv7, YOLOv9, object detection, model comparison, YOLO architecture,
 
 The landscape of real-time [object detection](https://www.ultralytics.com/glossary/object-detection) has evolved rapidly, with each new iteration pushing the boundaries of what is possible on edge devices and cloud servers alike. When evaluating architectures for computer vision projects, developers frequently compare established benchmarks with newer innovations. This comprehensive guide compares two pivotal milestones in the YOLO family: [YOLOv7](https://docs.ultralytics.com/models/yolov7) and [YOLOv9](https://docs.ultralytics.com/models/yolov9).
 
-We will analyze their architectural breakthroughs, performance metrics, and ideal deployment scenarios to help you choose the right model for your application. We will also explore how the [Ultralytics Platform](https://platform.ultralytics.com/explore) unifies these models, making them easier to train, validate, and deploy.
+We will analyze their architectural breakthroughs, performance metrics, and ideal deployment scenarios to help you choose the right model for your application. We will also explore how the [Ultralytics Platform](https://platform.ultralytics.com/explore) and Python API make supported models like YOLOv9 easier to train, validate, and deploy.
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv7", "YOLOv9"]'></canvas>
 
@@ -55,24 +55,24 @@ When choosing between architectures, AI engineers must balance accuracy, [infere
 | YOLOv7x | 640                         | 53.1                       | -                                    | 11.57                                     | 71.3                     | 189.9                   |
 |         |                             |                            |                                      |                                           |                          |                         |
 | YOLOv9t | 640                         | 38.3                       | -                                    | **2.3**                                   | **2.0**                  | **7.7**                 |
-| YOLOv9s | 640                         | 46.8                       | -                                    | 3.54                                      | 7.1                      | 26.4                    |
-| YOLOv9m | 640                         | 51.4                       | -                                    | 6.43                                      | 20.0                     | 76.3                    |
-| YOLOv9c | 640                         | 53.0                       | -                                    | 7.16                                      | 25.3                     | 102.1                   |
-| YOLOv9e | 640                         | **55.6**                   | -                                    | 16.77                                     | 57.3                     | 189.0                   |
+| YOLOv9s | 640                         | 46.8                       | -                                    | 3.54                                      | 7.2                      | 26.7                    |
+| YOLOv9m | 640                         | 51.4                       | -                                    | 6.43                                      | 20.1                     | 76.8                    |
+| YOLOv9c | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
+| YOLOv9e | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
 
 ### Key Takeaways
 
-- **Parameter Efficiency:** YOLOv9m matches the accuracy of YOLOv7l (51.4% mAP) while utilizing nearly **45% fewer parameters** (20.0M vs 36.9M). This drastic reduction makes YOLOv9m much easier to deploy on memory-constrained [edge AI](https://www.ultralytics.com/glossary/edge-ai) devices.
+- **Parameter Efficiency:** YOLOv9m matches the accuracy of YOLOv7l (51.4% mAP) while utilizing roughly **45% fewer parameters** (20.1M vs 36.9M). This drastic reduction makes YOLOv9m much easier to deploy on memory-constrained [edge AI](https://www.ultralytics.com/glossary/edge-ai) devices.
 - **Micro-Deployments:** The introduction of the YOLOv9t (tiny) variant provides incredible speeds (2.3ms on T4 [TensorRT](https://docs.ultralytics.com/integrations/tensorrt)) for environments where real-time constraints are absolute.
 - **Maximum Accuracy:** For applications where precision is paramount, YOLOv9e pushes detection accuracy to 55.6% mAP, significantly outperforming YOLOv7x.
 
 !!! tip "Future-Proofing Your Computer Vision Projects"
 
-    While YOLOv7 and YOLOv9 are powerful, the newly released [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the definitive leap forward. YOLO26 introduces a native **end-to-end NMS-free design**, eliminating complex post-processing and boosting CPU inference speeds by up to 43%. By utilizing the novel **MuSGD optimizer** and enhanced **ProgLoss + STAL** loss functions, YOLO26 delivers unparalleled training stability and small-object detection accuracy.
+    While YOLOv7 and YOLOv9 are powerful, the newly released [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the definitive leap forward. YOLO26 introduces a native **end-to-end NMS-free design** (optional via `nms=False`) that skips complex post-processing, and delivers up to 43% faster CPU inference. By utilizing the novel **MuSGD optimizer** and enhanced **ProgLoss + STAL** loss functions, YOLO26 delivers unparalleled training stability and small-object detection accuracy.
 
 ## The Ultralytics Advantage
 
-Choosing a model architecture is only the first step. The software ecosystem surrounding the model determines how quickly you can move from prototype to production. Integrating these models through the [Ultralytics Python API](https://docs.ultralytics.com/usage/python) provides substantial benefits for developers and researchers.
+Choosing a model architecture is only the first step. The software ecosystem surrounding the model determines how quickly you can move from prototype to production. Integrating supported models like YOLOv9 through the [Ultralytics Python API](https://docs.ultralytics.com/usage/python) provides substantial benefits for developers and researchers.
 
 ### Ease of Use and Training Efficiency
 
@@ -87,7 +87,7 @@ Training state-of-the-art models is seamless within the Ultralytics ecosystem. H
 ```python
 from ultralytics import YOLO
 
-# Initialize the model (you can swap 'yolov9c.pt' with 'yolov7.pt' or 'yolo26n.pt')
+# Initialize the model (you can swap 'yolov9c.pt' with 'yolo26n.pt')
 model = YOLO("yolov9c.pt")
 
 # Train the model on the COCO8 sample dataset

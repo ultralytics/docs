@@ -60,11 +60,11 @@ When evaluating these models, the **Performance Balance** between speed, accurac
 
 | Model                                                                   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ----------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | **73.6**                             | **1.12**                                  | **2.6**                  | **7.7**                 |
-| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
-| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
-| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
-| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
+| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | -                                    | **1.12**                                  | **1.9**                  | **4.5**                 |
+| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | -                                    | 1.92                                      | 7.2                      | 16.5                    |
+| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | -                                    | 4.03                                      | 21.2                     | 49.0                    |
+| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | -                                    | 6.61                                      | 46.5                     | 109.1                   |
+| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | -                                    | 11.89                                     | 86.7                     | 205.7                   |
 |                                                                         |                             |                            |                                      |                                           |                          |                         |
 | YOLOv7l                                                                 | 640                         | 51.4                       | -                                    | 6.84                                      | 36.9                     | 104.7                   |
 | YOLOv7x                                                                 | 640                         | **53.1**                   | -                                    | 11.57                                     | 71.3                     | 189.9                   |
@@ -87,7 +87,7 @@ Using Ultralytics, deploying a model requires only a few lines of code. The foll
 from ultralytics import YOLO
 
 # Load a pretrained YOLOv5s model
-model = YOLO("yolov5s.pt")
+model = YOLO("yolov5su.pt")  # YOLOv5u: anchor-free YOLOv5 weights for the ultralytics package
 
 # Train the model on the COCO8 example dataset
 # Ultralytics automatically handles data downloading and augmentation
@@ -112,7 +112,7 @@ YOLOv7 remains a strong candidate for academic benchmarking or specific legacy G
 
 YOLOv5 is heavily favored for production environments due to its exceptional stability. It is the go-to choice for:
 
-- **Mobile and Edge Computing:** Deploying YOLOv5n to iOS via [CoreML](https://docs.ultralytics.com/integrations/coreml) or Android via [TFLite](https://docs.ultralytics.com/integrations/tflite).
+- **Mobile and Edge Computing:** Deploying YOLOv5n to iOS via [CoreML](https://docs.ultralytics.com/integrations/coreml) or Android via [LiteRT](https://docs.ultralytics.com/integrations/litert).
 - **Agile Startups:** Teams needing rapid iteration cycles benefit from the seamless [Ultralytics Platform](https://platform.ultralytics.com) integration for dataset management and cloud training.
 - **Multi-Task Environments:** Systems requiring simultaneous object detection, classification, and segmentation.
 
@@ -122,7 +122,7 @@ While comparing YOLOv5 and YOLOv7 is an excellent exercise in understanding the 
 
 For developers seeking the pinnacle of performance, YOLO26 offers several groundbreaking advantages over both YOLOv5 and YOLOv7:
 
-- **End-to-End NMS-Free Design:** By eliminating Non-Maximum Suppression post-processing, YOLO26 offers dramatically simpler deployment and faster, consistent latency.
+- **End-to-End NMS-Free Design:** By optionally skipping Non-Maximum Suppression post-processing (`nms=False`), YOLO26 offers dramatically simpler deployment and faster, consistent latency.
 - **MuSGD Optimizer:** Inspired by LLM innovations from Moonshot AI, this hybrid optimizer delivers highly stable training and rapid convergence.
 - **Unprecedented Edge Speed:** Specifically optimized for edge environments, the nano variant boasts up to **43% faster CPU inference** by removing the Distribution Focal Loss (DFL).
 - **Superior Accuracy:** New loss functions like **ProgLoss + STAL** significantly improve small-object recognition, making it ideal for drone footage and robotics.
