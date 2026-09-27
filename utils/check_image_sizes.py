@@ -146,7 +146,7 @@ def check_image_sizes(download_dir, website, threshold_kb=750, max_workers=32, i
                 )
 
         result = "\\n".join(output)
-        with open(os.environ["GITHUB_ENV"], "a") as f:
+        with open(os.environ.get("GITHUB_ENV", os.devnull), "a") as f:
             f.write(f"IMAGE_RESULTS<<EOF\n{result}\nEOF\n")
         return 1
     else:
