@@ -31,7 +31,7 @@ The Tsinghua University team introduced a consistent dual assignment strategy fo
 - **Date:** 2026-01-14
 - **Links:** [GitHub Repository](https://github.com/ultralytics/ultralytics) | [Ultralytics Platform](https://platform.ultralytics.com)
 
-Building upon the NMS-free concepts pioneered earlier, the newly released YOLO26 represents the pinnacle of performance and versatility. Engineered for both academic research and enterprise-grade deployment, it natively incorporates an **end-to-end NMS-free design**, completely eliminating NMS post-processing for faster, simpler deployment across all supported hardware.
+Building upon the NMS-free concepts pioneered earlier, the newly released YOLO26 represents the pinnacle of performance and versatility. Engineered for both academic research and enterprise-grade deployment, it offers an **end-to-end NMS-free design** through an optional one-to-one head (`nms=False`) that skips NMS post-processing for faster, simpler deployment across all supported hardware.
 
 YOLO26 introduces several groundbreaking architectural improvements. The removal of Distribution Focal Loss (DFL) significantly simplifies the model's export process and enhances compatibility with low-power edge devices. Coupled with these structural changes, YOLO26 achieves up to **43% faster CPU inference**, making it an exceptional choice for IoT and robotics applications where GPU acceleration may be unavailable.
 
@@ -87,8 +87,8 @@ results = model.train(
     imgsz=640,
 )
 
-# Export natively to TensorRT without NMS complexities
-model.export(format="engine")
+# Export the NMS-free one-to-one head to TensorRT
+model.export(format="engine", nms=False)
 ```
 
 ## Real-World Applications and Use Cases

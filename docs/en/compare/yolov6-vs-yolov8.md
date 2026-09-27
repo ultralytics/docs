@@ -109,7 +109,7 @@ While raw inference speed is important, the lifecycle of a machine learning proj
 
 For developers seeking the pinnacle of performance and modern deployment capabilities, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) (released January 2026) is the recommended standard. It builds upon the successes of YOLOv8 and the previous [YOLO11](https://docs.ultralytics.com/models/yolo11) generation, introducing revolutionary architectural improvements:
 
-- **End-to-End NMS-Free Design:** YOLO26 natively eliminates Non-Maximum Suppression (NMS) post-processing, a concept pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10). This streamlines deployment logic and reduces latency variance.
+- **End-to-End NMS-Free Design:** YOLO26 offers an optional one-to-one head (`nms=False`) that skips Non-Maximum Suppression (NMS) post-processing, a concept pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10). This streamlines deployment logic and reduces latency variance.
 - **MuSGD Optimizer:** Inspired by large language model innovations like Moonshot AI's Kimi K2, the new MuSGD optimizer (a hybrid of SGD and Muon) stabilizes training and accelerates convergence across diverse datasets.
 - **DFL Removal & CPU Speed:** By removing Distribution Focal Loss (DFL), YOLO26 simplifies its export graph. This optimization unlocks **up to 43% faster CPU inference**, making it the absolute best choice for [mobile and IoT edge computing](https://docs.ultralytics.com/guides/model-deployment-options).
 - **ProgLoss + STAL:** Advanced loss functions deliver notable improvements in small-object recognition, which is critical for aerial drone imagery and robotics.

@@ -65,7 +65,7 @@ When evaluating models, the balance between [mean Average Precision (mAP)](<http
 | [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | -                                    | 6.61                                      | 46.5                     | 109.1                   |
 | [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | -                                    | 11.89                                     | 86.7                     | 205.7                   |
 
-The benchmarks reveal a staggering improvement. For example, `YOLO26n` achieves an mAP of 40.9 compared to `YOLOv5n`'s 28.0, while simultaneously offering **up to 43% faster CPU inference**. This renders YOLO26 vastly superior for embedded deployments like [Raspberry Pi](https://www.raspberrypi.org/) or mobile devices. While YOLOv5 holds a slight edge in TensorRT GPU speed on the Nano scale, the accuracy trade-off heavily favors YOLO26.
+The benchmarks reveal a staggering improvement. For example, `YOLO26n` achieves an mAP of 40.9 compared to `YOLOv5n`'s 28.0, and YOLO26 offers **up to 43% faster CPU inference than YOLO11n**. This renders YOLO26 vastly superior for embedded deployments like [Raspberry Pi](https://www.raspberrypi.org/) or mobile devices. While YOLOv5 holds a slight edge in TensorRT GPU speed on the Nano scale, the accuracy trade-off heavily favors YOLO26.
 
 ## Training Ecosystem and Ease of Use
 
@@ -105,7 +105,7 @@ YOLO26 is the definitive choice for modern computer vision projects. Its versati
 
 YOLO26 introduces **Task-Specific Improvements**, such as a specialized semantic segmentation loss, Residual Log-Likelihood Estimation (RLE) for ultra-precise pose keypoints, and advanced angle loss for OBB to solve tricky boundary issues.
 
-- **Edge IoT and Robotics:** Optional NMS-free inference and up to 43% faster CPU inference make YOLO26 ideal for real-time robotic navigation and smart home cameras.
+- **Edge IoT and Robotics:** Optional NMS-free inference and up to 43% faster CPU inference than YOLO11n make YOLO26 ideal for real-time robotic navigation and smart home cameras.
 - **Aerial Imagery:** The ProgLoss + STAL enhancements make detecting tiny objects from drones—like vehicles in parking lots or crops in agricultural fields—substantially more reliable.
 - **Real-Time Video Analytics:** Whether tracking athletes in sports broadcasts or monitoring traffic flows, the performance balance of YOLO26 ensures high recall without dropping frames.
 

@@ -25,7 +25,7 @@ Released in early 2026, [YOLO26](https://docs.ultralytics.com/models/yolo26) rep
 
 YOLO26 introduces several groundbreaking features that drastically improve both training stability and inference speeds:
 
-- **End-to-End NMS-Free Design:** Building on concepts pioneered in YOLOv10, YOLO26 is natively end-to-end, completely eliminating the need for Non-Maximum Suppression (NMS) post-processing. This leads to simpler deployment logic and significantly lower latency variance.
+- **End-to-End NMS-Free Design:** Building on concepts pioneered in YOLOv10, YOLO26 offers an optional end-to-end one-to-one head (`nms=False`) that removes the need for Non-Maximum Suppression (NMS) post-processing. This leads to simpler deployment logic and significantly lower latency variance.
 - **Up to 43% Faster CPU Inference:** Through deep architectural optimizations, the model achieves unprecedented inference speeds on standard [CPUs](https://en.wikipedia.org/wiki/Central_processing_unit), making it highly suitable for IoT and embedded environments.
 - **DFL Removal:** The Distribution Focal Loss has been removed, resulting in a cleaner export process and enhanced compatibility with low-power edge devices using tools like [ONNX](https://onnx.ai/).
 - **MuSGD Optimizer:** Inspired by the LLM training routines of [Moonshot AI's Kimi K2](https://www.moonshot.ai), this hybrid of SGD and Muon brings large language model training innovations directly to computer vision, ensuring faster convergence and more stable training regimes.

@@ -117,7 +117,7 @@ EfficientDet is recommended for:
 
 - **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
 - **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
-- **Mobile Deployment via TFLite:** Projects that specifically require [TensorFlow Lite](https://developers.google.com/edge/litert) export for Android or embedded Linux devices.
+- **Mobile Deployment via LiteRT:** Projects that specifically require [LiteRT](https://developers.google.com/edge/litert) (formerly TensorFlow Lite) export for Android or embedded Linux devices.
 
 ### When to Choose Ultralytics (YOLO26)
 
@@ -133,7 +133,7 @@ While YOLOv10 introduced the groundbreaking NMS-free paradigm and EfficientDet s
 
 ### Why YOLO26 Outperforms the Competition
 
-1. **End-to-End NMS-Free Design:** YOLO26 natively adopts the end-to-end NMS-free architecture pioneered in YOLOv10, streamlining deployment and accelerating inference.
+1. **End-to-End NMS-Free Design:** YOLO26 offers the end-to-end NMS-free design pioneered in YOLOv10 as an optional one-to-one head (`nms=False`), streamlining deployment and accelerating inference.
 2. **Up to 43% Faster CPU Inference:** For edge devices lacking dedicated accelerators, YOLO26 is specifically optimized to run efficiently on standard CPUs.
 3. **Advanced MuSGD Optimizer:** Inspired by LLM training innovations, YOLO26 utilizes a hybrid of SGD and Muon for incredibly stable training and rapid convergence, vastly improving [training efficiency](https://docs.ultralytics.com/guides/model-training-tips) compared to EfficientDet.
 4. **ProgLoss + STAL:** These improved loss functions deliver remarkable boosts in small-object recognition, a traditional weak point for both YOLOv10 and EfficientDet.

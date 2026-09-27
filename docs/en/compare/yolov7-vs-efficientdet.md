@@ -90,7 +90,7 @@ YOLO26 addresses the inherent limitations of previous generations, offering unpr
 
 ### Key YOLO26 Innovations
 
-- **End-to-End NMS-Free Design:** YOLO26 natively eliminates Non-Maximum Suppression (NMS) post-processing. Pioneered initially in [YOLOv10](https://docs.ultralytics.com/models/yolov10), this simplifies deployment logic and guarantees consistent, low-latency execution regardless of object density.
+- **End-to-End NMS-Free Design:** YOLO26 offers an optional one-to-one head (`nms=False`) that skips Non-Maximum Suppression (NMS) post-processing. Pioneered initially in [YOLOv10](https://docs.ultralytics.com/models/yolov10), this simplifies deployment logic and guarantees consistent, low-latency execution regardless of object density.
 - **DFL Removal:** By removing the Distribution Focal Loss (DFL), the model architecture is vastly simplified, enhancing compatibility with highly constrained [edge computing](https://www.ultralytics.com/glossary/edge-computing) environments.
 - **Up to 43% Faster CPU Inference:** Heavily optimized for environments lacking dedicated GPUs, making it ideal for lightweight hardware.
 - **MuSGD Optimizer:** Inspired by large language model techniques (such as Moonshot AI's Kimi K2), this hybrid of SGD and Muon brings LLM-level stability and rapid convergence to [computer vision training](https://docs.ultralytics.com/modes/train).

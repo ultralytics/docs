@@ -100,7 +100,7 @@ EfficientDet is recommended for:
 
 - **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
 - **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
-- **Mobile Deployment via TFLite:** Projects that specifically require [TensorFlow Lite](https://developers.google.com/edge/litert) export for Android or embedded Linux devices.
+- **Mobile Deployment via LiteRT:** Projects that specifically require [LiteRT](https://developers.google.com/edge/litert) (formerly TensorFlow Lite) export for Android or embedded Linux devices.
 
 ### When to Choose Ultralytics (YOLO26)
 

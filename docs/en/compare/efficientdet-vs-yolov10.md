@@ -141,7 +141,7 @@ While YOLOv10 introduced the revolutionary NMS-free design, the technology has e
 
 **Key Breakthroughs in YOLO26:**
 
-- **End-to-End NMS-Free Design:** Building on the foundations laid by YOLOv10, YOLO26 is natively end-to-end, simplifying deployment logic to bare minimums.
+- **End-to-End NMS-Free Design:** Building on the foundations laid by YOLOv10, YOLO26 offers an optional end-to-end one-to-one head (`nms=False`) that skips NMS, simplifying deployment logic to bare minimums.
 - **Up to 43% Faster CPU Inference:** With the removal of Distribution Focal Loss (DFL), YOLO26 drastically cuts computational overhead, making it the undisputed king for [edge AI devices](https://www.ultralytics.com/blog/picking-the-right-edge-device-for-your-computer-vision-project).
 - **MuSGD Optimizer:** YOLO26 borrows innovations from Large Language Model (LLM) training. By fusing the stability of SGD with the speed of Muon, it converges faster and more reliably than any predecessor.
 - **ProgLoss + STAL:** Superior loss formulations effectively solve long-standing issues with small-object detection, an area where EfficientDet traditionally struggled.

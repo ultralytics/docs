@@ -132,7 +132,7 @@ While both RTDETRv2 and YOLOv10 offer compelling academic advancements, deployin
 
 For developers seeking the absolute state-of-the-art in 2026, **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** is the ultimate recommendation. It synthesizes the best ideas from both architectures while introducing groundbreaking improvements:
 
-- **End-to-End NMS-Free Design:** Building on the concept pioneered by YOLOv10, YOLO26 natively eliminates NMS post-processing, resulting in faster, simpler deployment logic and zero latency variance.
+- **End-to-End NMS-Free Design:** Building on the concept pioneered by YOLOv10, YOLO26 offers an optional one-to-one head (`nms=False`) that skips NMS post-processing, resulting in faster, simpler deployment logic and more consistent latency.
 - **DFL Removal:** By removing the Distribution Focal Loss, YOLO26 simplifies model export and drastically improves compatibility with edge and low-power devices.
 - **MuSGD Optimizer:** A hybrid of SGD and Muon (inspired by LLM training innovations), this novel optimizer provides more stable training and significantly faster convergence compared to traditional methods.
 - **Up to 43% Faster CPU Inference:** Carefully optimized for environments without dedicated GPUs, democratizing high-performance vision AI.

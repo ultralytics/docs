@@ -42,7 +42,7 @@ Released in January 2026, Ultralytics YOLO26 represents a paradigm shift, entire
 
 YOLO26 is built from the ground up to solve modern engineering challenges. Its architecture brings several critical innovations that significantly outpace its predecessors:
 
-- **End-to-End NMS-Free Design:** YOLO26 eliminates NMS post-processing natively, a breakthrough approach first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10). This results in a faster, much simpler deployment pipeline, avoiding the variable latency typically caused by crowded scenes.
+- **End-to-End NMS-Free Design:** YOLO26 offers an optional one-to-one head (`nms=False`) that skips NMS post-processing, a breakthrough approach first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10). This results in a faster, much simpler deployment pipeline, avoiding the variable latency typically caused by crowded scenes.
 - **DFL Removal:** By removing the Distribution Focal Loss (DFL), the model is radically simplified for export, offering vastly better compatibility with edge devices and low-power IoT hardware.
 - **Up to 43% Faster CPU Inference:** Thanks to its architectural simplifications, YOLO26 is specifically optimized for edge computing and devices without dedicated GPUs, easily outperforming older architectures on standard processors.
 - **MuSGD Optimizer:** Inspired by large language model training techniques (specifically Moonshot AI's Kimi K2), YOLO26 uses the MuSGD optimizer—a hybrid of [Stochastic Gradient Descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent) and Muon. This brings unparalleled training stability and much faster convergence to computer vision tasks.
