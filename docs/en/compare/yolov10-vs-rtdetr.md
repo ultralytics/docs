@@ -47,7 +47,7 @@ Building upon the original Real-Time Detection Transformer, RTDETRv2 incorporate
 - **Date:** 2024-07-24
 - **ArXiv:** [RTDETRv2 Paper](https://arxiv.org/abs/2407.17140)
 - **GitHub:** [lyuwenyu/RT-DETR](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
-- **Docs:** [RTDETRv2 Documentation](https://docs.ultralytics.com/models/rtdetr)
+- **Docs:** [RTDETRv2 README](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
 
 ### Architecture and Methodologies
 
@@ -57,7 +57,7 @@ RTDETRv2 utilizes a hybrid architecture, combining a Convolutional Neural Networ
 
 The transformer architecture provides excellent accuracy, particularly on larger parameter scales, and natively outputs final detections without NMS. However, this comes at a cost. Transformer models traditionally require significantly more CUDA memory during training and can be slower to converge compared to pure CNN architectures. While RTDETRv2 has improved inference speeds, it generally consumes more memory than lightweight YOLO variants.
 
-[Learn more about RTDETRv2](https://docs.ultralytics.com/models/rtdetr){ .md-button }
+[Learn more about RTDETRv2](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch){ .md-button }
 
 ## Performance Comparison
 
@@ -68,9 +68,9 @@ Evaluating the performance metrics provides a clearer picture of where each mode
 | YOLOv10n   | 640                         | 39.5                       | -                                    | **1.56**                                  | **2.3**                  | **6.7**                 |
 | YOLOv10s   | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
 | YOLOv10m   | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
-| YOLOv10b   | 640                         | 52.7                       | -                                    | 6.54                                      | 24.4                     | 92.0                    |
-| YOLOv10l   | 640                         | 53.3                       | -                                    | 8.33                                      | 29.5                     | 120.3                   |
-| YOLOv10x   | 640                         | **54.4**                   | -                                    | 12.2                                      | 56.9                     | 160.4                   |
+| YOLOv10b   | 640                         | 52.7                       | -                                    | 6.54                                      | 19.1                     | 92.0                    |
+| YOLOv10l   | 640                         | 53.3                       | -                                    | 8.33                                      | 24.4                     | 120.3                   |
+| YOLOv10x   | 640                         | **54.4**                   | -                                    | 12.2                                      | 29.5                     | 160.4                   |
 |            |                             |                            |                                      |                                           |                          |                         |
 | RTDETRv2-s | 640                         | 48.1                       | -                                    | 5.03                                      | 20                       | 60                      |
 | RTDETRv2-m | 640                         | 51.9                       | -                                    | 7.51                                      | 36                       | 100                     |
@@ -113,7 +113,7 @@ While YOLOv10 and RTDETRv2 offer robust detection capabilities, choosing a model
 
 ### The New Standard: Ultralytics YOLO26
 
-For developers seeking the absolute best performance, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the culmination of recent architectural advancements. Released in early 2026, YOLO26 inherits the **End-to-End NMS-Free Design** pioneered by YOLOv10, completely eliminating NMS post-processing for faster, simpler deployment.
+For developers seeking the absolute best performance, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the culmination of recent architectural advancements. Released in early 2026, YOLO26 inherits the **End-to-End NMS-Free Design** pioneered by YOLOv10 as an optional head (`nms=False`), eliminating NMS post-processing for faster, simpler deployment.
 
 !!! tip "Why Choose YOLO26?"
 

@@ -58,15 +58,15 @@ While EfficientDet remains a robust choice for strict bounding box detection, it
 
 ## Performance and Metrics Comparison
 
-To identify the Pareto frontier of speed and accuracy, we benchmarked both architectures on standard environments using the [COCO dataset](https://cocodataset.org/). The following table highlights the differences in model sizes, precision, and latency measured on an [AWS EC2 P4d](https://aws.amazon.com/ec2/instance-types/p4/) instance.
+To identify the Pareto frontier of speed and accuracy, we benchmarked both architectures on standard environments using the [COCO dataset](https://cocodataset.org/). The following table highlights the differences in model sizes, precision, and latency, with CPU speeds measured using ONNX Runtime and GPU speeds using TensorRT on an NVIDIA T4.
 
 | Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | 40.9                       | 38.9                                 | **1.7**                                   | **2.4**                  | 5.4                     |
-| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.7                    |
-| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.2                    |
-| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.4                    |
-| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 193.9                   |
+| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | 40.9                       | 38.9                                 | **1.7**                                   | **2.4**                  | 5.5                     |
+| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.9                    |
+| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.4                    |
+| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.8                    |
+| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 194.4                   |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
 | EfficientDet-d0                                                        | 640                         | 34.6                       | **10.2**                             | 3.92                                      | 3.9                      | **2.54**                |
 | EfficientDet-d1                                                        | 640                         | 40.5                       | 13.5                                 | 7.31                                      | 6.6                      | 6.1                     |
@@ -99,7 +99,7 @@ from ultralytics import YOLO
 # Initialize the End-to-End NMS-Free YOLO26 model
 model = YOLO("yolo26n.pt")
 
-# Train using the innovative MuSGD optimizer on a custom dataset
+# Train on a custom dataset (optimizer='auto' selects MuSGD for longer training runs)
 train_results = model.train(
     data="coco8.yaml",
     epochs=100,

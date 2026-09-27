@@ -19,7 +19,7 @@ Developed by Glenn Jocher and Jing Qiu at [Ultralytics](https://www.ultralytics.
 
 Key architectural breakthroughs of YOLO26 include:
 
-- **End-to-End NMS-Free Design:** Building on pioneering work from [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 is natively end-to-end. By completely eliminating Non-Maximum Suppression (NMS) during post-processing, it guarantees deterministic latency and massively simplifies deployment pipelines.
+- **End-to-End NMS-Free Design:** Building on pioneering work from [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 is natively end-to-end. By skipping Non-Maximum Suppression (NMS) post-processing with its optional one-to-one head (`nms=False`), it guarantees deterministic latency and massively simplifies deployment pipelines.
 - **DFL Removal:** The removal of Distribution Focal Loss streamlines the model graph. This makes exporting to deployment frameworks like [ONNX](https://onnx.ai/) and [TensorRT](https://developer.nvidia.com/tensorrt) much smoother and ensures better compatibility with low-power edge devices.
 - **MuSGD Optimizer:** Inspired by Moonshot AI's Kimi K2, this hybrid of Stochastic Gradient Descent (SGD) and Muon brings LLM training innovations into computer vision, resulting in remarkably stable training and rapid convergence.
 - **ProgLoss + STAL:** These advanced loss functions deliver notable improvements in small-object recognition, which is a critical necessity for drone-based [aerial imagery analysis](https://www.ultralytics.com/blog/using-computer-vision-to-analyze-satellite-imagery) and intricate robotics pipelines.
@@ -48,11 +48,11 @@ A direct comparison of model variants trained on the standard [COCO dataset](htt
 
 | Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | 40.9                       | **38.9**                             | **1.7**                                   | **2.4**                  | **5.4**                 |
-| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.7                    |
-| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.2                    |
-| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.4                    |
-| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 193.9                   |
+| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | 40.9                       | **38.9**                             | **1.7**                                   | **2.4**                  | **5.5**                 |
+| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.9                    |
+| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.4                    |
+| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.8                    |
+| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 194.4                   |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
 | DAMO-YOLOt                                                             | 640                         | 42.0                       | -                                    | 2.32                                      | 8.5                      | 18.1                    |
 | DAMO-YOLOs                                                             | 640                         | 46.0                       | -                                    | 3.45                                      | 16.3                     | 37.8                    |
@@ -63,7 +63,7 @@ A direct comparison of model variants trained on the standard [COCO dataset](htt
 
 When analyzing the data, the performance balance leans heavily towards YOLO26 for modern applications. The Nano variant (YOLO26n) is exceptionally lightweight at just 2.4M parameters, offering blistering speeds of 1.7 ms on an NVIDIA T4 GPU. Furthermore, YOLO26 is specifically architected to deliver up to **43% faster CPU inference**, making it the undisputed champion for edge devices lacking dedicated GPU accelerators.
 
-While DAMO-YOLOt edges out YOLO26n slightly in pure mAP, it does so at the cost of requiring nearly four times the parameter count (8.5M). As we move to the larger variants, YOLO26 consistently outperforms DAMO-YOLO in accuracy while maintaining a smaller memory footprint, lower [CUDA](https://developer.nvidia.com/cuda/toolkit) memory usage during training, and drastically faster TensorRT speeds.
+While DAMO-YOLOt edges out YOLO26n slightly in pure mAP, it does so at the cost of requiring roughly 3.5 times the parameter count (8.5M). As we move to the larger variants, YOLO26 consistently outperforms DAMO-YOLO in accuracy while maintaining a smaller memory footprint, lower [CUDA](https://developer.nvidia.com/cuda/toolkit) memory usage during training, and drastically faster TensorRT speeds.
 
 ## Ecosystem, Usability, and Training Efficiency
 
@@ -96,7 +96,7 @@ model = YOLO("yolo26n.pt")
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640, device=0)
 
 # Export the optimized, NMS-free model
-model.export(format="onnx")
+model.export(format="onnx", nms=False)
 ```
 
 !!! note "Exploring Other Models"

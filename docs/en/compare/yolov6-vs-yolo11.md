@@ -68,10 +68,10 @@ The table below provides a detailed look at how these models perform across diff
 | YOLOv6-3.0l                                                            | 640                         | 52.8                       | -                                    | 8.95                                      | 59.6                     | 150.7                   |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
 | [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) | 640                         | 39.5                       | **56.1**                             | 1.5                                       | **2.6**                  | **6.5**                 |
-| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
-| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
-| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
-| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
+| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.6                    |
+| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.1                    |
+| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 87.2                    |
+| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 195.3                   |
 
 ### Memory Requirements and Training Efficiency
 
@@ -131,7 +131,7 @@ While YOLO11 stands tall as a massive leap over legacy architectures, developers
 
 Released in January 2026, YOLO26 establishes a new standard for AI model efficiency, bringing innovations previously unseen in the computer vision space:
 
-- **End-to-End NMS-Free Design:** Bypassing the need for [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) reduces deployment latency drastically—a method first introduced in [YOLOv10](https://docs.ultralytics.com/models/yolov10).
+- **End-to-End NMS-Free Design:** Optionally bypassing (`nms=False`) the need for [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) reduces deployment latency drastically—a method first introduced in [YOLOv10](https://docs.ultralytics.com/models/yolov10).
 - **MuSGD Optimizer:** Integrating LLM training stability into vision tasks, this optimizer combines SGD and Muon for incredibly stable and fast convergence.
 - **CPU Optimized:** By removing the Distribution Focal Loss (DFL), YOLO26 achieves up to 43% faster CPU inference, making it the perfect choice for mobile, IoT, and [edge AI applications](https://www.ultralytics.com/glossary/edge-ai).
 - **Advanced Loss Functions:** Implementations of ProgLoss and STAL drastically improve small-object recognition, vital for aerial imagery and robotics.

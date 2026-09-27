@@ -110,7 +110,7 @@ While YOLOv6-3.0 and YOLOv7 represent significant milestones, integrating dispar
 
 ### Upgrading to YOLO26
 
-For developers seeking the pinnacle of performance, **YOLO26** (released January 2026) fundamentally shifts the paradigm of [object detection](https://docs.ultralytics.com/tasks/detect). It introduces a fully **End-to-End NMS-Free Design**, eliminating complex post-processing logic and severely reducing latency variance on edge devices.
+For developers seeking the pinnacle of performance, **YOLO26** (released January 2026) fundamentally shifts the paradigm of [object detection](https://docs.ultralytics.com/tasks/detect). It introduces an optional **End-to-End NMS-Free Design** (`nms=False`), eliminating complex post-processing logic and severely reducing latency variance on edge devices.
 
 Key innovations in YOLO26 include:
 
@@ -145,7 +145,7 @@ results = model.train(
 )
 
 # Run an end-to-end, NMS-free inference on a test image
-predictions = model.predict("https://ultralytics.com/images/bus.jpg")
+predictions = model.predict("https://ultralytics.com/images/bus.jpg", nms=False)
 
 # Export to ONNX for cross-platform deployment
 model.export(format="onnx")

@@ -89,7 +89,7 @@ EfficientDet is a strong choice for:
 
 - **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
 - **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
-- **Mobile Deployment via TFLite:** Projects that specifically require [TensorFlow Lite](https://developers.google.com/edge/litert) export for Android or embedded Linux devices.
+- **Mobile Deployment via LiteRT:** Projects that specifically require [LiteRT](https://developers.google.com/edge/litert) (formerly TensorFlow Lite) export for Android or embedded Linux devices.
 
 ### When to Choose YOLOv6
 
@@ -115,7 +115,7 @@ For developers seeking the absolute peak of performance and ease of use, **Ultra
 
 ### YOLO26 Breakthrough Innovations
 
-- **End-to-End NMS-Free Design:** YOLO26 is natively end-to-end, completely eliminating the need for Non-Maximum Suppression (NMS) post-processing. This drastically reduces latency variance and simplifies [model deployment](https://docs.ultralytics.com/guides/model-deployment-options) across diverse edge hardware.
+- **End-to-End NMS-Free Design:** YOLO26 supports native end-to-end inference, removing the need for Non-Maximum Suppression (NMS) post-processing when its one-to-one head is selected with `nms=False`. This drastically reduces latency variance and simplifies [model deployment](https://docs.ultralytics.com/guides/model-deployment-options) across diverse edge hardware.
 - **MuSGD Optimizer:** Inspired by LLM training (like Moonshot AI's Kimi K2), YOLO26 utilizes a hybrid of SGD and Muon. This brings large language model stability to computer vision, ensuring faster convergence and highly efficient training processes.
 - **Up to 43% Faster CPU Inference:** Optimized specifically for [edge computing](https://www.ultralytics.com/glossary/edge-computing) and low-power devices, YOLO26 delivers unmatched CPU speeds where traditional industrial models struggle.
 - **DFL Removal:** The Distribution Focal Loss has been removed to simplify the export graph, granting seamless compatibility with deployment runtimes like [OpenVINO](https://docs.ultralytics.com/integrations/openvino) and CoreML.
@@ -145,7 +145,7 @@ metrics = model.val()
 print(f"Achieved mAP50-95: {metrics.box.map:.3f}")
 
 # Export directly to ONNX or TensorRT without NMS overhead
-model.export(format="onnx")
+model.export(format="onnx", nms=False)
 ```
 
 ## Other Models to Consider

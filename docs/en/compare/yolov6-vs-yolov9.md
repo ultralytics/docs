@@ -67,10 +67,10 @@ When comparing these models, it is essential to look at the balance of accuracy,
 | YOLOv6-3.0l | 640                         | 52.8                       | -                                    | 8.95                                      | 59.6                     | 150.7                   |
 |             |                             |                            |                                      |                                           |                          |                         |
 | YOLOv9t     | 640                         | 38.3                       | -                                    | 2.3                                       | **2.0**                  | **7.7**                 |
-| YOLOv9s     | 640                         | 46.8                       | -                                    | 3.54                                      | 7.1                      | 26.4                    |
-| YOLOv9m     | 640                         | 51.4                       | -                                    | 6.43                                      | 20.0                     | 76.3                    |
-| YOLOv9c     | 640                         | 53.0                       | -                                    | 7.16                                      | 25.3                     | 102.1                   |
-| YOLOv9e     | 640                         | **55.6**                   | -                                    | 16.77                                     | 57.3                     | 189.0                   |
+| YOLOv9s     | 640                         | 46.8                       | -                                    | 3.54                                      | 7.2                      | 26.7                    |
+| YOLOv9m     | 640                         | 51.4                       | -                                    | 6.43                                      | 20.1                     | 76.8                    |
+| YOLOv9c     | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
+| YOLOv9e     | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
 
 ## The Ultralytics Advantage: Introducing YOLO26
 
@@ -80,7 +80,7 @@ Released in early 2026, YOLO26 fundamentally redefines deployment efficiency by 
 
 !!! tip "Native End-to-End Design"
 
-    YOLO26 features an **End-to-End NMS-Free Design**, completely removing the need for Non-Maximum Suppression post-processing. This significantly reduces inference latency variance and simplifies edge deployment logic.
+    YOLO26 features an **End-to-End NMS-Free Design**: its optional one-to-one head (`nms=False`) removes the need for Non-Maximum Suppression post-processing. This significantly reduces inference latency variance and simplifies edge deployment logic.
 
 ### Key YOLO26 Innovations
 
@@ -101,7 +101,7 @@ from ultralytics import YOLO
 # Load the cutting-edge YOLO26 nano model
 model = YOLO("yolo26n.pt")
 
-# Train on the COCO8 dataset using the robust MuSGD optimizer natively
+# Train on the COCO8 dataset (optimizer='auto' selects MuSGD for longer training runs)
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
 # Export the trained model to ONNX with a single command
@@ -114,6 +114,6 @@ Choosing the right architecture depends entirely on your target deployment envir
 
 - **Use YOLOv6-3.0 for:** Factory automation and defect detection where server-grade GPUs (e.g., A100s) are abundant and batch processing maximizes throughput.
 - **Use YOLOv9 for:** Academic research or competitions where wringing out the absolute highest mAP on standardized datasets like COCO is the primary goal.
-- **Use YOLO26 for:** Almost all modern commercial applications. Its NMS-free architecture, low memory footprint, and high-speed CPU inference make it perfect for [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system), smart retail, and real-time [object tracking](https://docs.ultralytics.com/modes/track) on embedded devices.
+- **Use YOLO26 for:** Almost all modern commercial applications. Its optional NMS-free inference, low memory footprint, and high-speed CPU inference make it perfect for [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system), smart retail, and real-time [object tracking](https://docs.ultralytics.com/modes/track) on embedded devices.
 
 By leveraging the comprehensive [Ultralytics ecosystem](https://docs.ultralytics.com), developers can easily experiment with [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8), YOLO11, and YOLO26 to find the perfect performance balance for their specific real-world challenges.

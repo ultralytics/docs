@@ -81,7 +81,7 @@ When evaluating these models, the trade-off between latency, computational compl
 | DAMO-YOLOm | 640                         | 49.2                       | -                                    | 5.09                                      | 28.2                     | 61.8                    |
 | DAMO-YOLOl | 640                         | 50.8                       | -                                    | 7.18                                      | 42.1                     | 97.3                    |
 
-DAMO-YOLO generally achieves lower TensorRT latencies at the nano and tiny scales, making it highly competitive for high-throughput video streams. However, PP-YOLOE+ scales incredibly well into its extra-large (`x`) variant, achieving top-tier accuracy for complex imagery where inference time is a secondary concern.
+DAMO-YOLOt achieves lower TensorRT latency than PP-YOLOE+t, and DAMO-YOLO is more accurate at the tiny and small scales, making it highly competitive for high-throughput video streams. However, PP-YOLOE+ scales incredibly well into its extra-large (`x`) variant, achieving top-tier accuracy for complex imagery where inference time is a secondary concern.
 
 ## The Ultralytics Advantage: Advancing Beyond 2022 Architectures
 
@@ -93,10 +93,10 @@ For developers looking to achieve the best performance balance today, [Ultralyti
 
 Released in early 2026, YOLO26 builds upon the legacy of [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) by introducing breakthrough technologies tailored for production:
 
-- **End-to-End NMS-Free Design:** YOLO26 eliminates Non-Maximum Suppression (NMS) post-processing. This translates to simpler deployment logic and consistent, highly predictable inference latencies.
+- **End-to-End NMS-Free Design:** YOLO26 can skip Non-Maximum Suppression (NMS) post-processing entirely with its optional one-to-one head (`nms=False`). This translates to simpler deployment logic and consistent, highly predictable inference latencies.
 - **MuSGD Optimizer:** Inspired by large language model training techniques, YOLO26 utilizes a hybrid MuSGD optimizer. This ensures incredibly stable training and rapid convergence, saving valuable GPU hours.
 - **Superior CPU Inference:** By removing Distribution Focal Loss (DFL) and optimizing the network graph, YOLO26 achieves up to 43% faster CPU inference, making it the premier choice for [edge AI devices](https://www.ultralytics.com/glossary/edge-ai).
-- **ProgLoss + STAL:** These advanced loss functions yield remarkable improvements in small-object recognition, which is critical for [drone operations](https://www.ultralytics.com/solutions/computer-vision-in-agriculture) and remote sensing.
+- **ProgLoss + STAL:** These advanced loss functions yield remarkable improvements in small-object recognition, which is critical for [drone operations](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations) and remote sensing.
 - **Unmatched Versatility:** Unlike PP-YOLOE+ which focuses strictly on detection, YOLO26 natively supports [pose estimation](https://docs.ultralytics.com/tasks/pose), [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb) seamlessly.
 
 ### Ease of Use and Training Efficiency
@@ -109,11 +109,11 @@ from ultralytics import YOLO
 # Initialize the cutting-edge YOLO26 model
 model = YOLO("yolo26n.pt")
 
-# Train the model with native MuSGD optimization
-results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
+# Train the model with the MuSGD optimizer
+results = model.train(data="coco8.yaml", epochs=100, imgsz=640, optimizer="MuSGD")
 
 # Run an end-to-end NMS-free inference
-results = model("https://ultralytics.com/images/bus.jpg")
+results = model("https://ultralytics.com/images/bus.jpg", nms=False)
 
 # Export to ONNX or TensorRT seamlessly
 model.export(format="onnx")

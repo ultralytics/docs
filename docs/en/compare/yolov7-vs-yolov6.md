@@ -69,9 +69,9 @@ When evaluating models for production, balancing accuracy (mAP) with inference s
 
 ## The Ultralytics Advantage
 
-While the standalone repositories for YOLOv7 and YOLOv6-3.0 are powerful, leveraging them within the [Ultralytics ecosystem](https://www.ultralytics.com) transforms the developer experience. The `ultralytics` Python package standardizes these diverse architectures under one intuitive framework.
+While the standalone repositories for YOLOv7 and YOLOv6-3.0 are powerful, the [Ultralytics ecosystem](https://www.ultralytics.com) transforms the developer experience. The `ultralytics` Python package standardizes diverse architectures under one intuitive framework.
 
-- **Ease of Use:** Gone are the days of complex setup scripts. The Ultralytics API allows you to load, train, and deploy YOLOv7 or YOLOv6 models with minimal boilerplate code. You can easily switch between architectures by merely changing the model weights file.
+- **Ease of Use:** Gone are the days of complex setup scripts. The Ultralytics API allows you to build, train, and deploy YOLOv6 models (from their YAML configurations) or modern models like YOLO26 with minimal boilerplate code. YOLOv7 is not natively supported; upstream YOLOv7 checkpoints must first be [exported to ONNX or TensorRT](https://docs.ultralytics.com/models/yolov7). You can easily switch between architectures by merely changing the model file.
 - **Well-Maintained Ecosystem:** Ultralytics provides a robust environment with frequent updates, ensuring native compatibility with the latest [PyTorch](https://pytorch.org/) distributions and CUDA versions.
 - **Training Efficiency:** Training pipelines are deeply optimized to utilize GPU resources effectively. Furthermore, Ultralytics YOLO models generally have lower memory requirements during training compared to heavy transformer-based models (like [RT-DETR](https://docs.ultralytics.com/models/rtdetr)), enabling larger [batch sizes](https://www.ultralytics.com/glossary/batch-size) on consumer-grade hardware.
 - **Versatility:** In addition to standard bounding box detection, the Ultralytics framework seamlessly supports advanced tasks like [pose estimation](https://docs.ultralytics.com/tasks/pose) and [instance segmentation](https://docs.ultralytics.com/tasks/segment) across compatible model families, a feature often lacking in isolated research repositories.
@@ -83,8 +83,8 @@ Integrating these models into your Python pipeline is straightforward. Ensure yo
 ```python
 from ultralytics import YOLO
 
-# Load a pretrained YOLOv7 model (or 'yolov6n.pt' for YOLOv6)
-model = YOLO("yolov7.pt")
+# Build a YOLOv6n model from its YAML config (no pretrained YOLOv6 weights are provided)
+model = YOLO("yolov6n.yaml")
 
 # Train the model with built-in hyperparameter management
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
@@ -118,7 +118,7 @@ While YOLOv7 and YOLOv6-3.0 are highly capable, the rapid pace of artificial int
 
 If you are starting a new project, **YOLO26 is strongly recommended** over previous generations. It introduces several groundbreaking features:
 
-- **End-to-End NMS-Free Design:** Building on the foundations laid by [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 natively eliminates Non-Maximum Suppression (NMS). This reduces post-processing overhead, simplifying deployment to mobile applications and ensuring highly deterministic, low-latency inference.
+- **End-to-End NMS-Free Design:** Building on the foundations laid by [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26's optional one-to-one head (`nms=False`) eliminates Non-Maximum Suppression (NMS). This reduces post-processing overhead, simplifying deployment to mobile applications and ensuring highly deterministic, low-latency inference.
 - **MuSGD Optimizer:** Inspired by advanced LLM training techniques (such as those used in Moonshot AI's Kimi K2), YOLO26 utilizes a hybrid optimizer combining SGD and Muon. This guarantees more stable training dynamics and drastically faster convergence.
 - **Up to 43% Faster CPU Inference:** By strategically removing the Distribution Focal Loss (DFL), YOLO26 achieves massive speedups on CPUs. This makes it the undisputed champion for edge environments like the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) and remote IoT sensors.
 - **ProgLoss + STAL:** Advanced loss functions specifically engineered to improve small-object recognition, a historic weakness of single-stage detectors.

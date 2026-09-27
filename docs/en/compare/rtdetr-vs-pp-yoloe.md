@@ -19,7 +19,7 @@ Before analyzing the performance data, it is important to understand the origins
 
 ### RTDETRv2
 
-RTDETRv2 represents a significant leap in transformer-based vision architectures. Building upon the original Real-Time Detection Transformer, it leverages a flexible vision transformer backbone paired with an efficient hybrid encoder. Its most defining characteristic is its natively end-to-end prediction capability, completely eliminating the need for Non-Maximum Suppression (NMS) during post-processing.
+RTDETRv2 represents a significant leap in transformer-based vision architectures. Building upon the original Real-Time Detection Transformer, it pairs a CNN backbone with an efficient hybrid encoder and a transformer decoder. Its most defining characteristic is its natively end-to-end prediction capability, completely eliminating the need for Non-Maximum Suppression (NMS) during post-processing.
 
 - **Author:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
 - **Organization:** [Baidu](https://www.baidu.com/)
@@ -27,7 +27,7 @@ RTDETRv2 represents a significant leap in transformer-based vision architectures
 - **Arxiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
 - **GitHub:** [RT-DETR Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 
-[Learn more about RTDETRv2](https://docs.ultralytics.com/models/rtdetr){ .md-button }
+[Learn more about RTDETRv2](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch){ .md-button }
 
 ### PP-YOLOE+
 
@@ -43,7 +43,7 @@ PP-YOLOE+ is an advanced iteration of the YOLO series, heavily optimized for hig
 
 !!! tip "Ecosystem Integration"
 
-    While both models have their standalone research repositories, you can easily experiment with RTDETRv2 directly within the [Ultralytics Python package](https://docs.ultralytics.com/usage/python), benefiting from a unified API and streamlined export options.
+    While both models have their standalone research repositories, you can easily experiment with the original RT-DETR directly within the [Ultralytics Python package](https://docs.ultralytics.com/usage/python), benefiting from a unified API and streamlined export options.
 
 ## Architectural Differences
 
@@ -76,7 +76,7 @@ While PP-YOLOE+x achieves a marginally higher mAP<sup>val</sup> of 54.7% on the 
 
 While RTDETRv2 and PP-YOLOE+ are formidable in their own right, the state-of-the-art has continued to evolve. For developers seeking the ultimate balance of speed, accuracy, and ecosystem support, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the new industry standard.
 
-YOLO26 synthesizes the best aspects of both CNNs and Transformers. It adopts the **End-to-End NMS-Free** design pioneered by modern architectures, effectively eliminating post-processing bottlenecks. Furthermore, it introduces the revolutionary **MuSGD Optimizer**, a hybrid approach inspired by LLM training innovations that ensures highly stable training and rapid convergence.
+YOLO26 synthesizes the best aspects of both CNNs and Transformers. It adopts an optional **End-to-End NMS-Free** inference mode (`nms=False`) pioneered by modern architectures, eliminating post-processing bottlenecks when enabled. Furthermore, it introduces the revolutionary **MuSGD Optimizer**, a hybrid approach inspired by LLM training innovations that ensures highly stable training and rapid convergence.
 
 !!! note "Optimized for the Edge"
 
@@ -94,12 +94,12 @@ With the Ultralytics API, you benefit from lower memory requirements during trai
 
 ### Code Example: Streamlined Inference
 
-Below is a demonstration of how easily you can utilize RTDETRv2 alongside the recommended YOLO26 model using the Ultralytics Python package:
+Below is a demonstration of how easily you can utilize RT-DETR alongside the recommended YOLO26 model using the Ultralytics Python package:
 
 ```python
 from ultralytics import RTDETR, YOLO
 
-# Initialize the RTDETRv2 model
+# Initialize an RT-DETR model (Ultralytics supports the original RT-DETR-L and RT-DETR-X)
 model_rtdetr = RTDETR("rtdetr-l.pt")
 
 # Perform NMS-free inference on a test image

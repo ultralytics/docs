@@ -42,14 +42,14 @@ EfficientDet was built around the BiFPN (Bi-directional Feature Pyramid Network)
 
 In contrast, [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26) represents the absolute cutting edge of real-time computer vision. It introduces several groundbreaking architectural improvements designed specifically for modern deployment pipelines:
 
-- **End-to-End NMS-Free Design:** YOLO26 is natively end-to-end, completely eliminating the need for Non-Maximum Suppression (NMS) post-processing. This breakthrough approach, first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), ensures faster, simpler deployment logic and drastically reduces latency variance on edge chips.
+- **End-to-End NMS-Free Design:** YOLO26 offers a native end-to-end one-to-one head (`nms=False`) that eliminates the need for Non-Maximum Suppression (NMS) post-processing. This breakthrough approach, first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), ensures faster, simpler deployment logic and drastically reduces latency variance on edge chips.
 - **DFL Removal:** By removing the Distribution Focal Loss (DFL), YOLO26 simplifies the output head, leading to superior compatibility with edge computing and low-power devices.
 - **MuSGD Optimizer:** Inspired by large language model innovations like Moonshot AI's Kimi K2, YOLO26 utilizes the MuSGD optimizer—a hybrid of SGD and Muon. This delivers dramatically more stable training and faster convergence than standard optimizers.
 - **ProgLoss + STAL:** The introduction of Progressive Loss (ProgLoss) combined with Small-Target-Aware Label Assignment (STAL) provides notable improvements in small-object recognition, which is highly critical for [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and robotics.
 
 !!! tip "Pro Tip: NMS-Free Deployment"
 
-    Because YOLO26 eliminates NMS, the entire model can be executed as a single, continuous compute graph. This makes exporting to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx) or [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) incredibly straightforward and maximizes NPU/GPU utilization.
+    With the NMS-free head selected (`nms=False`), the entire model can be executed as a single, continuous compute graph. This makes exporting to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx) or [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) incredibly straightforward and maximizes NPU/GPU utilization.
 
 ## Performance Metrics and Benchmarks
 
@@ -66,13 +66,13 @@ The true test of any object detection model lies in its real-world performance. 
 | EfficientDet-d6                                                        | 640                         | 52.6                       | 92.8                                 | 89.29                                     | 51.9                     | 226.0                   |
 | EfficientDet-d7                                                        | 640                         | 53.7                       | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
-| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | 40.9                       | 38.9                                 | **1.7**                                   | **2.4**                  | 5.4                     |
-| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.7                    |
-| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.2                    |
-| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.4                    |
-| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 193.9                   |
+| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | 40.9                       | 38.9                                 | **1.7**                                   | **2.4**                  | 5.5                     |
+| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.9                    |
+| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.4                    |
+| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.8                    |
+| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 194.4                   |
 
-As demonstrated above, YOLO26 offers a vastly superior **Performance Balance**. While older architectures might occasionally output low theoretical FLOPs, YOLO26 utilizes optimized memory access patterns to achieve significantly faster GPU inference. For instance, YOLO26x reaches an incredible **57.5 mAP** while operating nearly 10x faster on TensorRT hardware than the equivalent EfficientDet-d7. Furthermore, YOLO26 features optimizations that result in up to **43% faster CPU inference** compared to legacy YOLO variants, making it the premier choice for [edge AI](https://www.ultralytics.com/glossary/edge-ai).
+As demonstrated above, YOLO26 offers a vastly superior **Performance Balance**. While older architectures might occasionally output low theoretical FLOPs, YOLO26 utilizes optimized memory access patterns to achieve significantly faster GPU inference. For instance, YOLO26x reaches an incredible **57.5 mAP** while operating over 10x faster on TensorRT hardware than the equivalent EfficientDet-d7. Furthermore, YOLO26 features optimizations that result in up to **43% faster CPU inference** compared to legacy YOLO variants, making it the premier choice for [edge AI](https://www.ultralytics.com/glossary/edge-ai).
 
 ## The Ultralytics Ecosystem Advantage
 
@@ -124,16 +124,16 @@ from ultralytics import YOLO
 # Load the lightweight, end-to-end YOLO26n model
 model = YOLO("yolo26n.pt")
 
-# Train on the COCO8 dataset leveraging the robust MuSGD optimizer
+# Train on the COCO8 dataset
 results = model.train(
     data="coco8.yaml",
     epochs=100,
     imgsz=640,
-    device=0,  # Automatically engages GPU acceleration
+    device=0,  # Train on the first CUDA GPU
 )
 
-# Export natively to ONNX without NMS plugins
-exported_path = model.export(format="onnx")
+# Export the NMS-free end-to-end head to ONNX
+exported_path = model.export(format="onnx", nms=False)
 print(f"Model seamlessly exported to: {exported_path}")
 ```
 

@@ -63,15 +63,15 @@ The table below outlines the performance metrics of both architectures when eval
 | YOLOv6-3.0m                                                             | 640                         | 50.0                       | -                                    | 5.28                                      | 34.9                     | 85.8                    |
 | YOLOv6-3.0l                                                             | 640                         | **52.8**                   | -                                    | 8.95                                      | 59.6                     | 150.7                   |
 |                                                                         |                             |                            |                                      |                                           |                          |                         |
-| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | **73.6**                             | **1.12**                                  | **2.6**                  | **7.7**                 |
-| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
-| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
-| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
-| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
+| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | -                                    | **1.12**                                  | **1.9**                  | **4.5**                 |
+| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | -                                    | 1.92                                      | 7.2                      | 16.5                    |
+| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | -                                    | 4.03                                      | 21.2                     | 49.0                    |
+| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | -                                    | 6.61                                      | 46.5                     | 109.1                   |
+| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | -                                    | 11.89                                     | 86.7                     | 205.7                   |
 
 ### Analysis
 
-YOLOv6-3.0 achieves impressive mAP scores and is heavily optimized for TensorRT pipelines on T4 GPUs. However, YOLOv5 counters with an incredibly **Well-Maintained Ecosystem** that supports immediate export to multiple formats, including [ONNX](https://onnx.ai/), CoreML, and TFLite. This **Performance Balance** ensures that YOLOv5 performs reliably not just on dedicated servers, but also on mobile devices and edge computing environments like the [Raspberry Pi](https://www.raspberrypi.org/).
+YOLOv6-3.0 achieves impressive mAP scores and is heavily optimized for TensorRT pipelines on T4 GPUs. However, YOLOv5 counters with an incredibly **Well-Maintained Ecosystem** that supports immediate export to multiple formats, including [ONNX](https://onnx.ai/), CoreML, and LiteRT. This **Performance Balance** ensures that YOLOv5 performs reliably not just on dedicated servers, but also on mobile devices and edge computing environments like the [Raspberry Pi](https://www.raspberrypi.org/).
 
 ## Code Example: Seamless Training with Ultralytics
 
@@ -81,7 +81,7 @@ One of the greatest advantages of the Ultralytics ecosystem is the streamlined u
 from ultralytics import YOLO
 
 # Load a pre-trained YOLOv5 small model
-model = YOLO("yolov5s.pt")
+model = YOLO("yolov5su.pt")  # YOLOv5u: anchor-free YOLOv5 weights for the ultralytics package
 
 # Train the model on the COCO8 dataset
 # The API automatically handles dataset downloads and hyperparameter configuration
@@ -99,13 +99,13 @@ model.export(format="onnx")
 Choosing between these architectures often depends on your specific infrastructure constraints:
 
 - **When to deploy YOLOv6-3.0:** Ideal for automated manufacturing lines and high-throughput server analytics where dedicated NVIDIA GPUs are available and latency must be minimal. Its architecture thrives in environments where TensorRT optimizations can be fully utilized.
-- **When to deploy YOLOv5:** The perfect choice for rapid prototyping, cross-platform deployment, and teams looking for a unified pipeline. Its diverse export capabilities make it ideal for retail analytics on edge devices, agricultural drone monitoring, and [pose estimation](https://docs.ultralytics.com/tasks/pose) in fitness applications.
+- **When to deploy YOLOv5:** The perfect choice for rapid prototyping, cross-platform deployment, and teams looking for a unified pipeline. Its diverse export capabilities make it ideal for retail analytics on edge devices and agricultural drone monitoring.
 
 ## The Future of Object Detection: Enter YOLO26
 
 While YOLOv5 and YOLOv6 represent significant milestones, the field of computer vision advances rapidly. For developers starting new projects or seeking the absolute state-of-the-art, we highly recommend upgrading to **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** (released January 2026).
 
-YOLO26 redefines edge-first vision AI by introducing a groundbreaking **End-to-End NMS-Free Design**. By eliminating the need for Non-Maximum Suppression post-processing, it simplifies deployment logic and drastically reduces latency variance.
+YOLO26 redefines edge-first vision AI by introducing a groundbreaking **End-to-End NMS-Free Design**. When its NMS-free head is selected with `nms=False`, it eliminates Non-Maximum Suppression post-processing, which simplifies deployment logic and drastically reduces latency variance.
 
 Key innovations in YOLO26 include:
 

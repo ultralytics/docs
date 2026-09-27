@@ -57,10 +57,10 @@ When comparing these models, the balance of performance becomes clear. YOLO11 ac
 | YOLOXx                                                                 | 640                         | 51.1                       | -                                    | 16.1                                      | 99.1                     | 281.9                   |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
 | [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | 2.6                      | 6.5                     |
-| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
-| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
-| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
-| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
+| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.6                    |
+| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.1                    |
+| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 87.2                    |
+| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 195.3                   |
 
 As demonstrated, YOLO11 models consistently outperform YOLOX in accuracy while maintaining a leaner parameter footprint. For instance, YOLO11m achieves a **51.5 mAP** with only **20.1M parameters**, whereas YOLOXx achieves a similar 51.1 mAP but requires a massive **99.1M parameters**. This memory efficiency during training and inference makes YOLO11 highly suitable for deployment on edge AI devices, avoiding the heavy CUDA memory requirements typical of older or transformer-based models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr).
 
@@ -97,7 +97,7 @@ Choosing between these models often depends on the specifics of the deployment e
 
 ### When to use YOLOX
 
-- **Legacy Systems:** If you have an established pipeline explicitly built around the MegEngine framework or early 2021 object detection paradigms.
+- **Legacy Systems:** If you have an established pipeline explicitly built around the original YOLOX codebase or early 2021 object detection paradigms.
 - **Academic Baselines:** When conducting research that requires direct benchmarking against foundational anchor-free architectures from the 2021 era.
 
 ### When to use YOLO11
@@ -112,7 +112,7 @@ While YOLO11 represents a massive leap over YOLOX, the field of computer vision 
 
 Released in January 2026, YOLO26 takes the architectural brilliance of YOLO11 and introduces several groundbreaking features:
 
-- **End-to-End NMS-Free Design:** YOLO26 eliminates Non-Maximum Suppression (NMS) post-processing for faster, simpler deployment pipelines (a concept first explored in [YOLOv10](https://docs.ultralytics.com/models/yolov10)).
+- **End-to-End NMS-Free Design:** YOLO26's optional one-to-one head (`nms=False`) eliminates Non-Maximum Suppression (NMS) post-processing for faster, simpler deployment pipelines (a concept first explored in [YOLOv10](https://docs.ultralytics.com/models/yolov10)).
 - **Up to 43% Faster CPU Inference:** Through the removal of Distribution Focal Loss (DFL), YOLO26 is vastly more efficient on CPUs and low-power edge devices.
 - **MuSGD Optimizer:** Inspired by LLM training innovations from Moonshot AI, the MuSGD optimizer ensures highly stable training runs and rapid convergence.
 - **Advanced Loss Functions:** Utilizing ProgLoss + STAL, YOLO26 achieves notable improvements in small-object recognition, which is critical for [drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and autonomous robotics.

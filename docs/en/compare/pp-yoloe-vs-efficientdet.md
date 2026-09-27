@@ -88,7 +88,7 @@ EfficientDet is recommended for:
 
 - **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
 - **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
-- **Mobile Deployment via TFLite:** Projects that specifically require [TensorFlow Lite](https://developers.google.com/edge/litert) export for Android or embedded Linux devices.
+- **Mobile Deployment via LiteRT:** Projects that specifically require [LiteRT](https://developers.google.com/edge/litert) (formerly TensorFlow Lite) export for Android or embedded Linux devices.
 
 ### When to Choose Ultralytics (YOLO26)
 
@@ -104,14 +104,14 @@ While PP-YOLOE+ and EfficientDet represent significant historical milestones, de
 
 YOLO26 represents a massive leap forward in object detection, introducing several critical innovations:
 
-- **End-to-End NMS-Free Design:** Building on the breakthroughs of [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 natively eliminates Non-Maximum Suppression (NMS) during inference. This results in significantly lower latency and removes complex post-processing bottlenecks.
+- **End-to-End NMS-Free Design:** Building on the breakthroughs of [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26's optional end-to-end head (`nms=False`) eliminates Non-Maximum Suppression (NMS) during inference. This results in significantly lower latency and removes complex post-processing bottlenecks.
 - **MuSGD Optimizer:** Inspired by LLM training innovations, YOLO26 utilizes a hybrid SGD and Muon optimizer. This drastically improves training stability and reduces convergence time.
 - **Extreme Speed:** YOLO26 delivers up to **43% faster CPU inference** compared to older generations like [YOLO11](https://docs.ultralytics.com/models/yolo11), making it the absolute best choice for battery-powered or CPU-only edge devices.
 - **Advanced Loss Functions:** The integration of ProgLoss and STAL greatly improves small-object recognition, which is essential for tasks like [drone analytics](https://www.ultralytics.com/blog/build-ai-powered-drone-applications-with-ultralytics-yolo11) and [robotics](https://www.ultralytics.com/blog/from-algorithms-to-automation-ais-role-in-robotics).
 
 !!! note "Multi-Task Versatility"
 
-    Unlike EfficientDet which focuses purely on detection, YOLO26 natively handles [pose estimation](https://docs.ultralytics.com/tasks/pose), [image classification](https://docs.ultralytics.com/tasks/classify), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb), all within the same well-maintained ecosystem.
+    Unlike EfficientDet which focuses purely on detection, YOLO26 natively handles [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb), all within the same well-maintained ecosystem.
 
 ### Ease of Use and Ecosystem Integration
 
@@ -128,12 +128,12 @@ model = YOLO("yolo26s.pt")
 # Train the model on the COCO8 dataset
 results = model.train(data="coco8.yaml", epochs=100)
 
-# Run inference on a test image natively without NMS overhead
-predictions = model("https://ultralytics.com/images/bus.jpg")
+# Run NMS-free inference on a test image with the end-to-end head
+predictions = model("https://ultralytics.com/images/bus.jpg", nms=False)
 ```
 
 For those exploring other alternatives, architectures like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) or the legacy [YOLOv8](https://docs.ultralytics.com/models/yolov8) are also available within the Ultralytics ecosystem, allowing for seamless swapping and testing.
 
 ## Conclusion
 
-PP-YOLOE+ remains a strong choice for specific server deployments within the Paddle ecosystem, and EfficientDet continues to be an interesting study in automated architecture design. However, for modern applications demanding [real-time inference](https://www.ultralytics.com/glossary/real-time-inference), ease of deployment, and minimal memory requirements, **Ultralytics YOLO26** provides the most compelling performance balance. Its natively NMS-free design and lightning-fast CPU performance make it the definitive choice for future-proofing your AI infrastructure.
+PP-YOLOE+ remains a strong choice for specific server deployments within the Paddle ecosystem, and EfficientDet continues to be an interesting study in automated architecture design. However, for modern applications demanding [real-time inference](https://www.ultralytics.com/glossary/real-time-inference), ease of deployment, and minimal memory requirements, **Ultralytics YOLO26** provides the most compelling performance balance. Its optional NMS-free design and lightning-fast CPU performance make it the definitive choice for future-proofing your AI infrastructure.

@@ -25,13 +25,13 @@ Introduced by Ultralytics, YOLOv8 quickly established itself as a cornerstone fo
 
 ### Architectural Innovations and Versatility
 
-YOLOv8 features a highly optimized anchor-free design and incorporates a decoupled head to independently process objectness, classification, and regression tasks. This structural refinement leads to better feature representation and faster convergence during training.
+YOLOv8 features a highly optimized anchor-free design and incorporates a decoupled head to independently process classification and regression tasks. This structural refinement leads to better feature representation and faster convergence during training.
 
 Unlike many specialized models, YOLOv8 offers unmatched versatility. Beyond bounding box detection, the same unified architecture and API natively support [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
 !!! tip "Streamlined Development"
 
-    The unified Ultralytics ecosystem allows developers to seamlessly switch between detection, segmentation, and tracking tasks simply by changing the model weights, dramatically reducing technical debt.
+    The unified Ultralytics ecosystem allows developers to seamlessly switch between detection, segmentation, and pose estimation tasks simply by changing the model weights, dramatically reducing technical debt.
 
 ## PP-YOLOE+: The PaddlePaddle Powerhouse
 
@@ -61,7 +61,7 @@ Below is a detailed comparison table of the models evaluated on COCO val2017.
 | [YOLOv8n](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) | 640                         | 37.3                       | **80.4**                             | **1.47**                                  | **3.2**                  | **8.7**                 |
 | [YOLOv8s](https://platform.ultralytics.com/ultralytics/yolov8/yolov8s) | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
 | [YOLOv8m](https://platform.ultralytics.com/ultralytics/yolov8/yolov8m) | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
-| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
+| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.1                   |
 | [YOLOv8x](https://platform.ultralytics.com/ultralytics/yolov8/yolov8x) | 640                         | 53.9                       | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
 | PP-YOLOE+t                                                             | 640                         | 39.9                       | -                                    | 2.84                                      | 4.85                     | 19.15                   |
@@ -72,7 +72,7 @@ Below is a detailed comparison table of the models evaluated on COCO val2017.
 
 ### Analyzing the Trade-offs
 
-While the PP-YOLOE+x model edges out YOLOv8x slightly in raw mAP (54.7 vs 53.9), it comes at the steep cost of nearly 30 million additional parameters. Ultralytics YOLOv8 achieves a far superior parameter-to-accuracy ratio. The lightweight YOLOv8n requires only 3.2M parameters and 8.7B FLOPs, making it significantly more efficient for resource-constrained environments than the smallest PP-YOLOE+ variant.
+While the PP-YOLOE+x model edges out YOLOv8x slightly in raw mAP (54.7 vs 53.9), it comes at the steep cost of over 30 million additional parameters. Ultralytics YOLOv8 achieves a far superior parameter-to-accuracy ratio. The lightweight YOLOv8n requires only 3.2M parameters and 8.7B FLOPs, making it significantly more efficient for resource-constrained environments than the smallest PP-YOLOE+ variant.
 
 Furthermore, YOLO models heavily outperform large transformer-based architectures in terms of memory usage during training. Models with high CUDA memory footprints often necessitate expensive hardware, whereas YOLOv8 allows for highly efficient training processes on consumer-grade GPUs.
 
@@ -133,7 +133,7 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 
 For those looking to build future-proof applications, the recently released **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** represents the pinnacle of modern computer vision. Released in January 2026, it supersedes both YOLOv8 and the intermediate [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) by introducing groundbreaking features:
 
-- **End-to-End NMS-Free Design:** YOLO26 natively eliminates the need for Non-Maximum Suppression post-processing, dramatically reducing latency variability and simplifying deployment logic.
+- **End-to-End NMS-Free Design:** YOLO26's optional one-to-one head (`nms=False`) removes the need for Non-Maximum Suppression post-processing, dramatically reducing latency variability and simplifying deployment logic.
 - **MuSGD Optimizer:** Integrating LLM training innovations into vision AI, this hybrid of SGD and [Muon](https://github.com/KellerJordan/Muon) ensures incredibly stable training dynamics and faster convergence.
 - **Up to 43% Faster CPU Inference:** By removing Distribution Focal Loss (DFL), YOLO26 provides unmatched speed on edge devices and standard CPUs, making it ideal for IoT and mobile applications.
 - **ProgLoss + STAL:** These advanced loss functions deliver notable improvements in small-object recognition, a critical requirement for [drone analytics](https://docs.ultralytics.com/datasets/detect/visdrone) and aerial imagery.

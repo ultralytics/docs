@@ -67,11 +67,11 @@ When evaluating models, a balance of speed, accuracy, and parameter efficiency i
 | YOLOv6-3.0m                                                            | 640                         | 50.0                       | -                                    | 5.28                                      | 34.9                     | 85.8                    |
 | YOLOv6-3.0l                                                            | 640                         | 52.8                       | -                                    | 8.95                                      | 59.6                     | 150.7                   |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
-| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | 40.9                       | **38.9**                             | 1.7                                       | **2.4**                  | **5.4**                 |
-| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.7                    |
-| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.2                    |
-| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.4                    |
-| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 193.9                   |
+| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | 40.9                       | **38.9**                             | 1.7                                       | **2.4**                  | **5.5**                 |
+| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.9                    |
+| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.4                    |
+| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.8                    |
+| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 194.4                   |
 
 As seen in the data, YOLO26 consistently achieves a superior **Performance Balance**. For instance, YOLO26n provides a +3.4 boost in mAP over YOLOv6-3.0n while requiring roughly half the parameters and FLOPs.
 
@@ -82,7 +82,7 @@ Choosing a model involves evaluating the surrounding software ecosystem. Here, t
 - **Ease of Use:** Ultralytics provides a "zero-to-hero" developer experience. Its unified Python API allows users to switch between tasks and models simply by altering a single string parameter.
 - **Well-Maintained Ecosystem:** Through the [Ultralytics Platform](https://platform.ultralytics.com), developers gain access to an actively updated environment that supports continuous dataset management, cloud training, and seamless [model export](https://docs.ultralytics.com/modes/export) to formats like [ONNX](https://onnx.ai/) and OpenVINO.
 - **Memory Requirements:** YOLO26 boasts a highly efficient training methodology with significantly lower memory requirements during both training and inference. This contrasts favorably against transformer-based architectures, such as [RT-DETR](https://docs.ultralytics.com/models/rtdetr), which demand massive CUDA memory allocations.
-- **Versatility:** By natively supporting [classification](https://docs.ultralytics.com/tasks/classify), detection, segmentation, and pose estimation, YOLO26 serves as a one-stop-shop for complex, multi-task vision applications.
+- **Versatility:** By natively supporting detection, segmentation, [classification](https://docs.ultralytics.com/tasks/classify), pose estimation, and OBB, YOLO26 serves as a one-stop-shop for complex, multi-task vision applications.
 
 !!! note "Exploring Alternatives"
 
@@ -98,7 +98,7 @@ from ultralytics import YOLO
 # Load the highly efficient, end-to-end YOLO26 Nano model
 model = YOLO("yolo26n.pt")
 
-# Train the model on the COCO8 dataset with the advanced MuSGD optimizer
+# Train the model on the COCO8 dataset; optimizer="auto" selects MuSGD for longer runs (>10k iterations)
 results = model.train(
     data="coco8.yaml",
     epochs=100,
@@ -111,7 +111,7 @@ metrics = model.val()
 print(f"Validation mAP: {metrics.box.map}")
 
 # Run NMS-free inference on a sample image
-prediction = model.predict("https://ultralytics.com/images/bus.jpg")
+prediction = model.predict("https://ultralytics.com/images/bus.jpg", nms=False)
 ```
 
 ## Ideal Use Cases

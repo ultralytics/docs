@@ -100,7 +100,7 @@ While YOLOX and DAMO-YOLO represent important historical milestones, modern deve
 
 The integrated Ultralytics ecosystem outshines fragmented academic repositories by offering:
 
-- **End-to-End NMS-Free Design:** YOLO26 natively eliminates Non-Maximum Suppression (NMS) during inference. This results in incredibly fast, predictable latency critical for edge deployments and [autonomous vehicles](https://www.ultralytics.com/glossary/autonomous-vehicles).
+- **End-to-End NMS-Free Design:** YOLO26's optional one-to-one head (`nms=False`) eliminates Non-Maximum Suppression (NMS) during inference. This results in incredibly fast, predictable latency critical for edge deployments and [autonomous vehicles](https://www.ultralytics.com/glossary/autonomous-vehicles).
 - **DFL Removal:** By removing Distribution Focal Loss, YOLO26 simplifies export processes to edge devices, drastically lowering the memory requirements for lightweight applications.
 - **MuSGD Optimizer:** YOLO26 borrows LLM training innovations with its hybrid SGD and Muon optimizer, ensuring rock-solid training stability and ultra-fast convergence.
 - **Up to 43% Faster CPU Inference:** Thanks to deep structural optimizations, YOLO26 runs blazingly fast on CPUs without needing expensive GPU hardware.
@@ -121,7 +121,7 @@ model = YOLO("yolo26n.pt")
 train_results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
 # Run ultra-fast, NMS-free inference
-results = model("https://ultralytics.com/images/bus.jpg")
+results = model("https://ultralytics.com/images/bus.jpg", nms=False)
 
 # Export to ONNX or OpenVINO with a single command
 model.export(format="openvino")

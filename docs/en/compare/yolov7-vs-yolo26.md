@@ -44,7 +44,7 @@ YOLO26 is built from the ground up to solve modern engineering challenges. Its a
 
 - **End-to-End NMS-Free Design:** YOLO26 eliminates NMS post-processing natively, a breakthrough approach first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10). This results in a faster, much simpler deployment pipeline, avoiding the variable latency typically caused by crowded scenes.
 - **DFL Removal:** By removing the Distribution Focal Loss (DFL), the model is radically simplified for export, offering vastly better compatibility with edge devices and low-power IoT hardware.
-- **Up to 43% Faster CPU Inference:** Thanks to the architectural simplifications and structural pruning, YOLO26 is specifically optimized for edge computing and devices without dedicated GPUs, easily outperforming older architectures on standard processors.
+- **Up to 43% Faster CPU Inference:** Thanks to its architectural simplifications, YOLO26 is specifically optimized for edge computing and devices without dedicated GPUs, easily outperforming older architectures on standard processors.
 - **MuSGD Optimizer:** Inspired by large language model training techniques (specifically Moonshot AI's Kimi K2), YOLO26 uses the MuSGD optimizer—a hybrid of [Stochastic Gradient Descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent) and Muon. This brings unparalleled training stability and much faster convergence to computer vision tasks.
 - **ProgLoss + STAL:** The introduction of these advanced loss functions yields notable improvements in small-object recognition, which is critical for [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone), robotics, and automated quality inspection.
 - **Task-Specific Improvements:** Beyond standard [object detection](https://docs.ultralytics.com/tasks/detect), YOLO26 introduces multi-scale proto and specialized semantic segmentation loss for [segmentation tasks](https://docs.ultralytics.com/tasks/segment), Residual Log-Likelihood Estimation (RLE) for [pose estimation](https://docs.ultralytics.com/tasks/pose), and specialized angle loss algorithms to resolve boundary issues in [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
@@ -64,11 +64,11 @@ When comparing the computational footprint, YOLO26 demonstrates a clear superior
 | YOLOv7l                                                                | 640                         | 51.4                       | -                                    | 6.84                                      | 36.9                     | 104.7                   |
 | YOLOv7x                                                                | 640                         | 53.1                       | -                                    | 11.57                                     | 71.3                     | 189.9                   |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
-| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | 40.9                       | **38.9**                             | **1.7**                                   | **2.4**                  | **5.4**                 |
-| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.7                    |
-| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.2                    |
-| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.4                    |
-| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 193.9                   |
+| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | 40.9                       | **38.9**                             | **1.7**                                   | **2.4**                  | **5.5**                 |
+| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.9                    |
+| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.4                    |
+| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.8                    |
+| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 194.4                   |
 
 As seen above, the `YOLO26m` model achieves equivalent accuracy (53.1 mAP) to the massive `YOLOv7x`, but does so with less than one-third of the parameters (20.4M vs 71.3M) and incredibly fast inference times via [TensorRT](https://developer.nvidia.com/tensorrt).
 
@@ -78,7 +78,7 @@ Deploying legacy models often involves wrestling with complex third-party reposi
 
 - **Ease of Use:** With an intuitive Python API and exhaustive documentation, you can annotate, train, and deploy models in minutes. Exporting to formats like [ONNX](https://onnx.ai/) or [CoreML](https://developer.apple.com/documentation/coreml/) requires just a single line of code.
 - **Memory Requirements:** Ultralytics models are renowned for their low memory usage. Unlike some bulky vision transformers, YOLO26 can easily be fine-tuned on standard hardware without running into out-of-memory (OOM) errors.
-- **Versatility:** While YOLOv7 was primarily an object detector (with some experimental branches for other tasks), YOLO26 is a natively unified framework handling detection, classification, tracking, pose, and OBB with equal proficiency.
+- **Versatility:** While YOLOv7 was primarily an object detector (with some experimental branches for other tasks), YOLO26 is a natively unified framework handling detection, segmentation, classification, pose, and OBB, plus multi-object tracking.
 
 !!! note "Other Ultralytics Models"
 
@@ -104,7 +104,7 @@ results = model.train(
 )
 
 # Run an NMS-free, end-to-end inference on a test image
-predictions = model("https://ultralytics.com/images/bus.jpg")
+predictions = model("https://ultralytics.com/images/bus.jpg", nms=False)
 
 # Export directly to ONNX for edge deployment
 export_path = model.export(format="onnx")

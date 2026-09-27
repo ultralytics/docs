@@ -74,7 +74,7 @@ While YOLOv6-3.0 and PP-YOLOE+ are highly capable, the rapid evolution of [compu
 
 Released in January 2026, **YOLO26** establishes a new benchmark for edge-first and cloud-ready vision AI, offering significant advantages over legacy models:
 
-- **End-to-End NMS-Free Design:** Building on the foundations laid by [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 natively eliminates Non-Maximum Suppression (NMS) during post-processing. This significantly simplifies deployment logic and reduces latency variability in crowded scenes.
+- **End-to-End NMS-Free Design:** Building on the foundations laid by [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26's optional one-to-one head (`nms=False`) skips Non-Maximum Suppression (NMS) during post-processing. This significantly simplifies deployment logic and reduces latency variability in crowded scenes.
 - **Up to 43% Faster CPU Inference:** By strategically removing Distribution Focal Loss (DFL), YOLO26 drastically accelerates CPU performance, making it vastly superior to YOLOv6 or PP-YOLOE+ for IoT devices and mobile applications.
 - **MuSGD Optimizer:** Inspired by advanced LLM training techniques (like Moonshot AI's Kimi K2), the hybrid **MuSGD** optimizer delivers incredibly stable and efficient training, converging faster than traditional SGD or AdamW.
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, a critical factor for [drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and aerial surveillance.
@@ -92,7 +92,7 @@ from ultralytics import YOLO
 # Initialize the cutting-edge YOLO26 nano model
 model = YOLO("yolo26n.pt")
 
-# Train the model on your custom dataset with the MuSGD optimizer
+# Train the model on your custom dataset (optimizer='auto' selects MuSGD for longer training runs)
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
 # Validate the model's accuracy
@@ -120,7 +120,7 @@ Choosing the right model dictates the success of your deployment pipeline.
 
 ### When to Choose Ultralytics YOLO26
 
-- **Edge and IoT Devices:** With its NMS-free design and DFL removal, YOLO26 is the undisputed choice for deployments on Raspberry Pi, NXP, or mobile CPUs.
+- **Edge and IoT Devices:** With its optional NMS-free inference and DFL removal, YOLO26 is the undisputed choice for deployments on Raspberry Pi, NXP, or mobile CPUs.
 - **Multi-Task Applications:** Projects requiring simultaneous [object tracking](https://docs.ultralytics.com/modes/track), pose estimation, or segmentation using a unified API.
 - **Rapid Prototyping to Production:** Teams leveraging the [Ultralytics Platform](https://platform.ultralytics.com) for streamlined [dataset annotation](https://docs.ultralytics.com/platform/data/annotation), hyperparameter tuning, and one-click [model deployment](https://docs.ultralytics.com/guides/model-deployment-options).
 

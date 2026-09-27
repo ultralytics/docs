@@ -19,7 +19,7 @@ While both models represent significant milestones in deep learning research, th
 
 DAMO-YOLO excels in environments where heavy Neural Architecture Search (NAS) can be utilized to squeeze out specific performance profiles, making it an interesting study for customized edge deployment. Conversely, YOLOv9 focuses heavily on solving deep learning information bottlenecks, delivering exceptionally high parameter efficiency.
 
-However, for production-ready deployments, engineering teams consistently recommend leveraging the unified [Ultralytics ecosystem](https://docs.ultralytics.com). For new projects, the latest **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** model offers the best of both worlds: state-of-the-art accuracy combined with a native end-to-end design that eliminates the need for complex post-processing.
+However, for production-ready deployments, engineering teams consistently recommend leveraging the unified [Ultralytics ecosystem](https://docs.ultralytics.com). For new projects, the latest **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** model offers the best of both worlds: state-of-the-art accuracy combined with an optional end-to-end design that eliminates the need for complex post-processing.
 
 !!! tip "Future-Proof Your Computer Vision Pipeline"
 
@@ -71,7 +71,7 @@ To combat this, the authors introduced **Programmable Gradient Information (PGI)
 
 ## Performance Analysis and Metrics
 
-When evaluating performance, both models demonstrate strong mean Average Precision (mAP) on standard benchmarks like COCO. YOLOv9 achieves higher absolute accuracy across equivalent model sizes, leveraging its PGI architecture to maintain high fidelity on difficult datasets.
+When evaluating performance, both models demonstrate strong mean Average Precision (mAP) on standard benchmarks like COCO. YOLOv9 achieves higher accuracy at comparable parameter counts and the highest absolute accuracy overall, leveraging its PGI architecture to maintain high fidelity on difficult datasets.
 
 | Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -81,10 +81,10 @@ When evaluating performance, both models demonstrate strong mean Average Precisi
 | DAMO-YOLOl | 640                         | 50.8                       | -                                    | 7.18                                      | 42.1                     | 97.3                    |
 |            |                             |                            |                                      |                                           |                          |                         |
 | YOLOv9t    | 640                         | 38.3                       | -                                    | **2.3**                                   | **2.0**                  | **7.7**                 |
-| YOLOv9s    | 640                         | 46.8                       | -                                    | 3.54                                      | 7.1                      | 26.4                    |
-| YOLOv9m    | 640                         | 51.4                       | -                                    | 6.43                                      | 20.0                     | 76.3                    |
-| YOLOv9c    | 640                         | 53.0                       | -                                    | 7.16                                      | 25.3                     | 102.1                   |
-| YOLOv9e    | 640                         | **55.6**                   | -                                    | 16.77                                     | 57.3                     | 189.0                   |
+| YOLOv9s    | 640                         | 46.8                       | -                                    | 3.54                                      | 7.2                      | 26.7                    |
+| YOLOv9m    | 640                         | 51.4                       | -                                    | 6.43                                      | 20.1                     | 76.8                    |
+| YOLOv9c    | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
+| YOLOv9e    | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
 
 As shown above, YOLOv9-E achieves the highest accuracy, while the smaller DAMO-YOLO and YOLOv9 variants maintain highly competitive inference speeds via [TensorRT optimizations](https://developer.nvidia.com/tensorrt).
 
@@ -135,7 +135,7 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 
 For users comparing legacy architectures, transitioning to the modern Ultralytics ecosystem—specifically the [latest YOLO26 models](https://platform.ultralytics.com/ultralytics/yolo26)—provides an unparalleled advantage.
 
-YOLO26 fundamentally alters the deployment landscape through its **End-to-End NMS-Free Design**. By entirely eliminating Non-Maximum Suppression (NMS) post-processing, it delivers faster, dramatically simpler deployment architectures. Coupled with the removal of Distribution Focal Loss (DFL), YOLO26 offers superior compatibility for edge and low-power devices.
+YOLO26 fundamentally alters the deployment landscape through its **End-to-End NMS-Free Design**. Its optional one-to-one head (`nms=False`) eliminates Non-Maximum Suppression (NMS) post-processing, delivering faster, dramatically simpler deployment architectures. Coupled with the removal of Distribution Focal Loss (DFL), YOLO26 offers superior compatibility for edge and low-power devices.
 
 Furthermore, YOLO26 incorporates the revolutionary **MuSGD Optimizer**, a hybrid of Stochastic Gradient Descent and Muon optimizations inspired by LLM training innovations. This yields highly stable training convergence while maintaining remarkably low memory utilization compared to transformer-heavy alternatives.
 
@@ -146,7 +146,7 @@ Furthermore, YOLO26 incorporates the revolutionary **MuSGD Optimizer**, a hybrid
 ```python
 from ultralytics import YOLO
 
-# Load the latest NMS-free YOLO26 model
+# Load the latest YOLO26 model
 model = YOLO("yolo26n.pt")
 
 # Train on your custom dataset efficiently

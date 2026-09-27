@@ -42,7 +42,7 @@ RTDETRv2 (Real-Time Detection Transformer version 2) represents Baidu's effort t
 - **GitHub:** [RTDETRv2 Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 - **Docs:** [RTDETRv2 README](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
 
-[Learn more about RT-DETR](https://docs.ultralytics.com/models/rtdetr){ .md-button }
+[Learn more about RTDETRv2](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch){ .md-button }
 
 ### Architecture and Strengths
 
@@ -57,10 +57,10 @@ When evaluating these models on the standard [COCO dataset](https://docs.ultraly
 | Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
 | [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | **2.6**                  | **6.5**                 |
-| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
-| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
-| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
-| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
+| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.6                    |
+| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.1                    |
+| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 87.2                    |
+| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 195.3                   |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
 | RTDETRv2-s                                                             | 640                         | 48.1                       | -                                    | 5.03                                      | 20                       | 60                      |
 | RTDETRv2-m                                                             | 640                         | 51.9                       | -                                    | 7.51                                      | 36                       | 100                     |
@@ -69,7 +69,7 @@ When evaluating these models on the standard [COCO dataset](https://docs.ultraly
 
 ### Unpacking the Results
 
-As seen in the table, YOLO11 provides an incredible performance-to-size ratio. The YOLO11x achieves a higher mAP<sup>val</sup> (54.7) compared to RTDETRv2-x (54.3), while using significantly fewer parameters (56.9M vs 76M) and vastly fewer computational FLOPs (194.9B vs 259B).
+As seen in the table, YOLO11 provides an incredible performance-to-size ratio. The YOLO11x achieves a higher mAP<sup>val</sup> (54.7) compared to RTDETRv2-x (54.3), while using significantly fewer parameters (56.9M vs 76M) and vastly fewer computational FLOPs (195.3B vs 259B).
 
 Furthermore, YOLO11's inference speeds on T4 [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) are exceptionally fast. YOLO11s completes inference in just 2.5ms, whereas the smallest RTDETRv2-s takes 5.03ms. This makes YOLO11 the definitive choice for high-speed, real-time video analytics streams where frame processing time is the primary bottleneck.
 
@@ -107,7 +107,7 @@ Once trained, exporting a YOLO11 model to formats like [ONNX](https://docs.ultra
 
 !!! tip "Multi-Task Capabilities"
 
-    Remember that while RTDETRv2 focuses exclusively on bounding box detection, the YOLO11 architecture natively supports [pose estimation](https://docs.ultralytics.com/tasks/pose) and [instance segmentation](https://docs.ultralytics.com/tasks/segment), allowing you to consolidate multiple vision tasks into a single model family.
+    Remember that while RTDETRv2 focuses exclusively on bounding box detection, the YOLO11 architecture natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment) and [pose estimation](https://docs.ultralytics.com/tasks/pose), allowing you to consolidate multiple vision tasks into a single model family.
 
 ## Use Cases and Recommendations
 
@@ -139,7 +139,7 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 
 ## Looking Ahead: The Power of YOLO26
 
-While YOLO11 stands as an excellent production choice, teams looking for the absolute cutting-edge should strongly consider [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). Released in January 2026, YOLO26 bridges the architectural gap by incorporating an **End-to-End NMS-Free Design** (first pioneered in YOLOv10) directly into its core, eliminating post-processing latency and deployment logic complexity entirely.
+While YOLO11 stands as an excellent production choice, teams looking for the absolute cutting-edge should strongly consider [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26). Released in January 2026, YOLO26 bridges the architectural gap by incorporating an optional **End-to-End NMS-Free** head (`nms=False`, first pioneered in YOLOv10) directly into its core, removing NMS post-processing latency and deployment logic complexity.
 
 YOLO26 also introduces several revolutionary features:
 

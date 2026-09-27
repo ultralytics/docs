@@ -54,9 +54,9 @@ When analyzing raw performance, the generations of architectural refinement in Y
 | YOLOv10n    | 640                         | 39.5                       | -                                    | 1.56                                      | **2.3**                  | **6.7**                 |
 | YOLOv10s    | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
 | YOLOv10m    | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
-| YOLOv10b    | 640                         | 52.7                       | -                                    | 6.54                                      | 24.4                     | 92.0                    |
-| YOLOv10l    | 640                         | 53.3                       | -                                    | 8.33                                      | 29.5                     | 120.3                   |
-| YOLOv10x    | 640                         | **54.4**                   | -                                    | 12.2                                      | 56.9                     | 160.4                   |
+| YOLOv10b    | 640                         | 52.7                       | -                                    | 6.54                                      | 19.1                     | 92.0                    |
+| YOLOv10l    | 640                         | 53.3                       | -                                    | 8.33                                      | 24.4                     | 120.3                   |
+| YOLOv10x    | 640                         | **54.4**                   | -                                    | 12.2                                      | 29.5                     | 160.4                   |
 |             |                             |                            |                                      |                                           |                          |                         |
 | YOLOv6-3.0n | 640                         | 37.5                       | -                                    | **1.17**                                  | 4.7                      | 11.4                    |
 | YOLOv6-3.0s | 640                         | 45.0                       | -                                    | 2.66                                      | 18.5                     | 45.3                    |
@@ -74,7 +74,7 @@ While YOLOv6-3.0 retains slight speed advantages in its Nano and Medium variants
 Opting for an [Ultralytics](https://www.ultralytics.com) model like YOLOv10 goes far beyond raw architecture—it provides access to a meticulously maintained ecosystem that simplifies the entire machine learning lifecycle. YOLOv6, housed in a static research repository, lacks the robust tooling and multi-task versatility that the Ultralytics framework provides out of the box.
 
 - **Ease of Use:** The Ultralytics Python API provides a streamlined user experience, allowing developers to train and export models with just a few lines of code.
-- **Versatility:** Unlike YOLOv6, which strictly specializes in detection, the Ultralytics ecosystem empowers you to perform [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), [Image Classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) tracking using a unified interface.
+- **Versatility:** Unlike YOLOv6, which strictly specializes in detection, the Ultralytics ecosystem empowers you to perform [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), [Image Classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection using a unified interface.
 - **Well-Maintained Ecosystem:** Enjoy frequent updates, strong community support, and seamless integrations with industry standards like [OpenVINO](https://docs.ultralytics.com/integrations/openvino) and [ONNX](https://docs.ultralytics.com/integrations/onnx).
 
 ### Code Example: Consistent Training Workflows
@@ -84,7 +84,7 @@ With the Ultralytics SDK, training models is exceptionally straightforward. The 
 ```python
 from ultralytics import YOLO
 
-# Load an efficient, NMS-free YOLOv10 model
+# Load an efficient YOLOv10 model (select its NMS-free head with nms=False)
 model = YOLO("yolov10n.pt")
 
 # Train the model effortlessly using the Ultralytics pipeline
@@ -131,7 +131,7 @@ While YOLOv10 introduced the revolutionary NMS-free concept, and YOLOv6-3.0 opti
 
 Released in January 2026, YOLO26 takes the foundational ideas of its predecessors and refines them into the ultimate edge-first vision model.
 
-- **End-to-End NMS-Free Design:** Building on the foundations of YOLOv10, YOLO26 completely eliminates post-processing, standardizing the deployment pipeline and making inferences highly predictable.
+- **End-to-End NMS-Free Design:** Building on the foundations of YOLOv10, YOLO26's optional NMS-free head (`nms=False`) eliminates NMS post-processing, standardizing the deployment pipeline and making inferences highly predictable.
 - **DFL Removal:** By stripping out Distribution Focal Loss (DFL), the architecture heavily simplifies exportation, drastically improving compatibility and speed on low-power IoT architectures.
 - **MuSGD Optimizer:** Inspired by large language model innovations, YOLO26 utilizes the MuSGD optimizer (a hybrid of SGD and Muon), achieving unprecedented training stability and significantly faster convergence rates.
 - **Unrivaled CPU Speed:** With optimizations tailored specifically for edge devices, YOLO26 achieves up to **43% faster CPU inference** speeds compared to previous generations, leapfrogging the GPU-centric design of YOLOv6-3.0.

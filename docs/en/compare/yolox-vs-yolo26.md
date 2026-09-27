@@ -20,7 +20,7 @@ Understanding the origins and primary design goals of each model provides essent
 - **Authors:** Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun
 - **Organization:** [Megvii](https://en.megvii.com/)
 - **Date:** 2021-07-18
-- **Arxiv:** [2107.08430](https://arxiv.org/abs/2107.08430)
+- **arXiv:** [2107.08430](https://arxiv.org/abs/2107.08430)
 - **GitHub:** [Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
 - **Docs:** [YOLOX GitHub Docs](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
@@ -36,7 +36,7 @@ Introduced in mid-2021, YOLOX represented a major shift by adopting an anchor-fr
 - **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 - **Platform:** [Ultralytics Platform](https://platform.ultralytics.com)
 
-Released in early 2026, **YOLO26** is the culmination of years of iterative improvements, focusing heavily on edge deployment and simplified training pipelines. It introduces an **end-to-end NMS-free design**, completely eliminating the traditional Non-Maximum Suppression post-processing step. This breakthrough drastically simplifies model deployment across diverse hardware. Furthermore, by removing the Distribution Focal Loss (DFL) module, YOLO26 achieves significantly lower latency, cementing its status as the premier choice for modern [computer vision applications](https://www.ultralytics.com/blog/60-impactful-computer-vision-applications).
+Released in early 2026, **YOLO26** is the culmination of years of iterative improvements, focusing heavily on edge deployment and simplified training pipelines. It introduces an optional **end-to-end NMS-free** one-to-one head (`nms=False`) that skips the traditional Non-Maximum Suppression post-processing step. This breakthrough drastically simplifies model deployment across diverse hardware. Furthermore, by removing the Distribution Focal Loss (DFL) module, YOLO26 achieves significantly lower latency, cementing its status as the premier choice for modern [computer vision applications](https://www.ultralytics.com/blog/60-impactful-computer-vision-applications).
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
@@ -75,11 +75,11 @@ When evaluating models for production environments, analyzing the balance betwee
 | YOLOXl                                                                 | 640                         | 49.7                       | -                                    | 9.04                                      | 54.2                     | 155.6                   |
 | YOLOXx                                                                 | 640                         | 51.1                       | -                                    | 16.1                                      | 99.1                     | 281.9                   |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
-| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | 40.9                       | **38.9**                             | **1.7**                                   | 2.4                      | 5.4                     |
-| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.7                    |
-| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.2                    |
-| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.4                    |
-| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 193.9                   |
+| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | 40.9                       | **38.9**                             | **1.7**                                   | 2.4                      | 5.5                     |
+| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.9                    |
+| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.4                    |
+| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.8                    |
+| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 194.4                   |
 
 As the table illustrates, the YOLO26 series provides a superior performance balance. For instance, `YOLO26x` achieves an impressive 57.5 mAP while utilizing nearly half the parameters of the `YOLOXx` model, directly translating to faster GPU inference times (11.8 ms vs 16.1 ms) and vastly superior deployment flexibility.
 
@@ -87,7 +87,7 @@ As the table illustrates, the YOLO26 series provides a superior performance bala
 
 One of the most profound differences between these architectures lies in their usability and ecosystem support.
 
-While YOLOX remains a foundational repository for researchers studying gradient flow and anchor-free mechanics, its setup can be complex, often requiring manual configuration of dependencies and operators. Conversely, the **[Ultralytics ecosystem](https://docs.ultralytics.com)** defines the industry standard for ease of use.
+While YOLOX remains a foundational repository for researchers studying anchor-free mechanics and label assignment, its setup can be complex, often requiring manual configuration of dependencies and operators. Conversely, the **[Ultralytics ecosystem](https://docs.ultralytics.com)** defines the industry standard for ease of use.
 
 By utilizing the unified Python API, developers can initialize, train, and deploy YOLO26 models with unparalleled simplicity. The system inherently handles dataset downloading, hyperparameter tuning, and seamless export to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), and OpenVINO.
 
@@ -97,7 +97,7 @@ from ultralytics import YOLO
 # Initialize the cutting-edge, end-to-end YOLO26 small model
 model = YOLO("yolo26s.pt")
 
-# Train the model efficiently with built-in MuSGD optimization
+# Train the model; optimizer="auto" selects MuSGD for longer runs (>10k iterations)
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
 # Validate the model's performance on the validation set
@@ -115,7 +115,7 @@ Selecting between YOLOX and YOLO26 ultimately depends on your deployment constra
 
 ### Where YOLOX Excels
 
-YOLOX remains a viable candidate for specific academic benchmarks and legacy systems deeply integrated with the MegEngine framework. Its historical significance makes it a popular baseline for researching [anchor-free detectors](https://www.ultralytics.com/glossary/anchor-free-detectors) and custom assignment strategies.
+YOLOX remains a viable candidate for specific academic benchmarks and legacy systems built on the original YOLOX codebase. Its historical significance makes it a popular baseline for researching [anchor-free detectors](https://www.ultralytics.com/glossary/anchor-free-detectors) and custom assignment strategies.
 
 ### Where YOLO26 Excels
 

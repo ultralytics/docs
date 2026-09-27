@@ -60,10 +60,10 @@ When evaluating models for production, the trade-off between mAP (mean Average P
 | Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
 | YOLOv9t    | 640                         | 38.3                       | -                                    | **2.3**                                   | **2.0**                  | **7.7**                 |
-| YOLOv9s    | 640                         | 46.8                       | -                                    | 3.54                                      | 7.1                      | 26.4                    |
-| YOLOv9m    | 640                         | 51.4                       | -                                    | 6.43                                      | 20.0                     | 76.3                    |
-| YOLOv9c    | 640                         | 53.0                       | -                                    | 7.16                                      | 25.3                     | 102.1                   |
-| YOLOv9e    | 640                         | **55.6**                   | -                                    | 16.77                                     | 57.3                     | 189.0                   |
+| YOLOv9s    | 640                         | 46.8                       | -                                    | 3.54                                      | 7.2                      | 26.7                    |
+| YOLOv9m    | 640                         | 51.4                       | -                                    | 6.43                                      | 20.1                     | 76.8                    |
+| YOLOv9c    | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
+| YOLOv9e    | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
 |            |                             |                            |                                      |                                           |                          |                         |
 | PP-YOLOE+t | 640                         | 39.9                       | -                                    | 2.84                                      | 4.85                     | 19.15                   |
 | PP-YOLOE+s | 640                         | 43.7                       | -                                    | 2.62                                      | 7.93                     | 17.36                   |
@@ -108,7 +108,7 @@ This workflow highlights the superior **Training Efficiency** of Ultralytics mod
 
 !!! tip "Explore the Latest in Vision AI"
 
-    While YOLOv9 offers exceptional performance, we strongly recommend considering the newly released **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** for new projects. YOLO26 features a native **End-to-End NMS-Free Design**, drastically simplifying deployment. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), it delivers up to **43% faster CPU inference** for edge computing. Powered by the **MuSGD Optimizer**, it ensures stable training and fast convergence. Additionally, **ProgLoss + STAL** provides improved loss functions with notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery.
+    While YOLOv9 offers exceptional performance, we strongly recommend considering the newly released **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** for new projects. YOLO26 features a native **End-to-End NMS-Free Design** (optional via `nms=False`), drastically simplifying deployment. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), it delivers up to **43% faster CPU inference** for edge computing. Powered by the **MuSGD Optimizer**, it ensures stable training and fast convergence. Additionally, **ProgLoss + STAL** provides improved loss functions with notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery.
 
 ## Versatility and Task Support
 
@@ -116,7 +116,7 @@ Modern computer vision projects rarely stop at simple bounding boxes.
 
 PP-YOLOE+ is primarily engineered for standard object detection. Adapting its architecture for other tasks involves extensive custom engineering.
 
-Conversely, the Ultralytics framework is a multi-task powerhouse. By utilizing a unified API, developers can effortlessly switch from standard object detection to complex [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), highly accurate [Pose Estimation](https://docs.ultralytics.com/tasks/pose), [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection for aerial imagery, and Image [Classification](https://docs.ultralytics.com/tasks/classify). This unparalleled versatility is why enterprise teams consistently choose Ultralytics models like YOLOv9, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), and YOLO26.
+Conversely, the Ultralytics framework is a multi-task powerhouse. By utilizing a unified API, developers can effortlessly switch from standard object detection to complex [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), highly accurate [Pose Estimation](https://docs.ultralytics.com/tasks/pose), [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection for aerial imagery, and Image [Classification](https://docs.ultralytics.com/tasks/classify). This unparalleled versatility is why enterprise teams consistently choose Ultralytics-supported models like YOLOv9, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), and YOLO26.
 
 ## Ideal Use Cases and Applications
 

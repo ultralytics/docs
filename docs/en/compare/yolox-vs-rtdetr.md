@@ -47,7 +47,7 @@ RTDETRv2 fundamentally reimagines the detection pipeline by utilizing a transfor
 
 However, transformers are inherently resource-intensive. Training RTDETRv2 typically demands significantly more GPU memory and compute cycles than CNN-based alternatives, which can be a hurdle for teams operating within strict budget constraints or those requiring frequent [model tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning).
 
-[Learn more about RT-DETR](https://docs.ultralytics.com/models/rtdetr){ .md-button }
+[Learn more about RTDETRv2](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch){ .md-button }
 
 ## Performance Comparison Table
 
@@ -103,7 +103,7 @@ While both YOLOX and RTDETRv2 offer distinct strengths, the newly released [Ultr
 
 ### 1. End-to-End NMS-Free Architecture
 
-Taking inspiration from transformer models while retaining the efficiency of CNNs, YOLO26 features a natively **end-to-end NMS-free design**. By eliminating Non-Maximum Suppression as a post-processing step, YOLO26 dramatically simplifies deployment pipelines, ensuring consistent inference latency across various edge devices without the overhead of complex threshold tuning.
+Taking inspiration from transformer models while retaining the efficiency of CNNs, YOLO26 features an optional **end-to-end NMS-free design** (`nms=False`). By eliminating Non-Maximum Suppression as a post-processing step, YOLO26 dramatically simplifies deployment pipelines, ensuring consistent inference latency across various edge devices without the overhead of complex threshold tuning.
 
 ### 2. Up to 43% Faster CPU Inference
 
@@ -115,7 +115,7 @@ Training transformer models often leads to excessive [CUDA memory consumption](h
 
 ### 4. Unmatched Ecosystem and Versatility
 
-The [Ultralytics ecosystem](https://docs.ultralytics.com) provides an intuitive, streamlined developer experience. With extensive documentation, active community support, and the cloud-powered [Ultralytics Platform](https://platform.ultralytics.com), managing the complete AI lifecycle has never been easier. Furthermore, YOLO26 is highly versatile. While RTDETRv2 focuses on object detection, YOLO26 seamlessly supports [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), [image classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) tasks natively. Enhanced by the new **ProgLoss + STAL** loss functions, YOLO26 also excels at small-object recognition, a critical feature for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and [industrial defect detection](https://www.ultralytics.com/blog/how-vision-ai-enhances-defect-detection-on-production-lines).
+The [Ultralytics ecosystem](https://docs.ultralytics.com) provides an intuitive, streamlined developer experience. With extensive documentation, active community support, and the cloud-powered [Ultralytics Platform](https://platform.ultralytics.com), managing the complete AI lifecycle has never been easier. Furthermore, YOLO26 is highly versatile. While RTDETRv2 focuses on object detection, YOLO26 seamlessly supports [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) tasks natively. Enhanced by the new **ProgLoss + STAL** (Progressive Loss and Small-Target-Aware Label Assignment), YOLO26 also excels at small-object recognition, a critical feature for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and [industrial defect detection](https://www.ultralytics.com/blog/how-vision-ai-enhances-defect-detection-on-production-lines).
 
 !!! tip "Other Supported Models"
 
@@ -138,7 +138,7 @@ results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 metrics = model.val()
 
 # Export seamlessly to ONNX or TensorRT for deployment
-model.export(format="onnx", optimize=True)
+model.export(format="onnx")
 ```
 
 By leveraging Ultralytics, you sidestep the complicated environment configurations typically associated with research repositories, accelerating your time to market.

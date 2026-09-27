@@ -68,15 +68,15 @@ Understanding how these models perform under standardized benchmarks is crucial 
 | YOLOv10n   | 640                         | 39.5                       | -                                    | **1.56**                                  | **2.3**                  | **6.7**                 |
 | YOLOv10s   | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
 | YOLOv10m   | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
-| YOLOv10b   | 640                         | 52.7                       | -                                    | 6.54                                      | 24.4                     | 92.0                    |
-| YOLOv10l   | 640                         | 53.3                       | -                                    | 8.33                                      | 29.5                     | 120.3                   |
-| YOLOv10x   | 640                         | 54.4                       | -                                    | 12.2                                      | 56.9                     | 160.4                   |
+| YOLOv10b   | 640                         | 52.7                       | -                                    | 6.54                                      | 19.1                     | 92.0                    |
+| YOLOv10l   | 640                         | 53.3                       | -                                    | 8.33                                      | 24.4                     | 120.3                   |
+| YOLOv10x   | 640                         | 54.4                       | -                                    | 12.2                                      | 29.5                     | 160.4                   |
 
 ### Technical Analysis
 
 When analyzing the data, a few key trends emerge. The YOLOv10 nano and small models aggressively target edge efficiency, with YOLOv10n boasting a mere 2.3 million parameters and 6.7B FLOPs. This lightweight design, combined with its NMS-free architecture, drastically reduces latency on platforms utilizing [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) and [OpenVINO](https://docs.ultralytics.com/integrations/openvino).
 
-Conversely, PP-YOLOE+ demonstrates strong capability in the larger weight classes, with its X-large variant marginally edging out YOLOv10x in mAP (54.7% vs 54.4%). However, this comes at the cost of nearly double the parameter count (98.42M vs 56.9M), making YOLOv10x the significantly more efficient model for memory-constrained environments.
+Conversely, PP-YOLOE+ demonstrates strong capability in the larger weight classes, with its X-large variant marginally edging out YOLOv10x in mAP (54.7% vs 54.4%). However, this comes at the cost of more than triple the parameter count (98.42M vs 29.5M), making YOLOv10x the significantly more efficient model for memory-constrained environments.
 
 ## The Ultralytics Ecosystem Advantage
 
@@ -90,7 +90,7 @@ Released in January 2026, **Ultralytics YOLO26** represents the pinnacle of comp
 
 **Key Innovations of YOLO26:**
 
-- **End-to-End NMS-Free Design:** Building on the concept pioneered in YOLOv10, YOLO26 is natively end-to-end, completely eliminating NMS post-processing for faster, simpler deployment across diverse hardware.
+- **End-to-End NMS-Free Design:** Building on the concept pioneered in YOLOv10, YOLO26 offers an optional end-to-end head (`nms=False`) that eliminates NMS post-processing for faster, simpler deployment across diverse hardware.
 - **DFL Removal:** By removing Distribution Focal Loss (DFL), the model architecture is vastly simplified for export, ensuring flawless compatibility with low-power [edge AI devices](https://www.ultralytics.com/blog/edge-ai-and-edge-computing-powering-real-time-intelligence).
 - **MuSGD Optimizer:** Inspired by large language model training techniques (such as Moonshot AI's Kimi K2), YOLO26 utilizes a hybrid of SGD and Muon. This delivers unprecedented training stability and significantly faster convergence rates.
 - **Up to 43% Faster CPU Inference:** Optimized heavily for real-world scenarios, YOLO26 offers massive speedups for applications relying on CPU compute, making it perfect for [smart surveillance](https://www.ultralytics.com/blog/smart-surveillance-ultralytics-yolo11) and mobile deployments.
@@ -101,7 +101,7 @@ Released in January 2026, **Ultralytics YOLO26** represents the pinnacle of comp
 
 ## Practical Implementation
 
-Getting started with Ultralytics models is designed to be frictionless. With just a few lines of code, you can initiate a training run using automated hyperparameter tuning and modern data augmentation pipelines.
+Getting started with Ultralytics models is designed to be frictionless. With just a few lines of code, you can initiate a training run using modern data augmentation pipelines.
 
 ```python
 from ultralytics import YOLO
@@ -113,8 +113,8 @@ model = YOLO("yolo26n.pt")
 # Memory usage is highly optimized compared to transformer architectures
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640, device=0)
 
-# Run an end-to-end NMS-free inference
-inference_results = model("https://ultralytics.com/images/bus.jpg")
+# Run end-to-end NMS-free inference
+inference_results = model("https://ultralytics.com/images/bus.jpg", nms=False)
 
 # Export directly to ONNX or TensorRT for deployment
 model.export(format="onnx", simplify=True)

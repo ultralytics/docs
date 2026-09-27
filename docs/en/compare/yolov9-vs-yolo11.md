@@ -52,7 +52,7 @@ YOLOv9 introduces the concept of Programmable Gradient Information (PGI) alongsi
 
 ### Streamlined Efficiency in YOLO11
 
-YOLO11 builds on years of foundational research to deliver a highly optimized architecture. It improves upon previous iterations by reducing computational overhead while maximizing feature extraction. Unlike traditional NMS pipelines that bottleneck CPU performance, YOLO11 uses refined detection heads that achieve an incredible balance between latency and precision. Furthermore, YOLO11 boasts inherently lower memory usage during both [model training](https://docs.ultralytics.com/modes/train) and inference compared to heavy [Transformer](https://huggingface.co/docs/transformers/index) models, which are often slower to train and require massive amounts of CUDA memory.
+YOLO11 builds on years of foundational research to deliver a highly optimized architecture. It improves upon previous iterations by reducing computational overhead while maximizing feature extraction. YOLO11 still relies on standard NMS post-processing, but its refined detection heads achieve an incredible balance between latency and precision. Furthermore, YOLO11 boasts inherently lower memory usage during both [model training](https://docs.ultralytics.com/modes/train) and inference compared to heavy [Transformer](https://huggingface.co/docs/transformers/index) models, which are often slower to train and require massive amounts of CUDA memory.
 
 ## Performance Metrics Comparison
 
@@ -63,21 +63,21 @@ Below is a detailed breakdown of [YOLO Performance Metrics](https://docs.ultraly
 | Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
 | YOLOv9t                                                                | 640                         | 38.3                       | -                                    | 2.3                                       | **2.0**                  | 7.7                     |
-| YOLOv9s                                                                | 640                         | 46.8                       | -                                    | 3.54                                      | 7.1                      | 26.4                    |
-| YOLOv9m                                                                | 640                         | 51.4                       | -                                    | 6.43                                      | 20.0                     | 76.3                    |
-| YOLOv9c                                                                | 640                         | 53.0                       | -                                    | 7.16                                      | 25.3                     | 102.1                   |
-| YOLOv9e                                                                | 640                         | **55.6**                   | -                                    | 16.77                                     | 57.3                     | 189.0                   |
+| YOLOv9s                                                                | 640                         | 46.8                       | -                                    | 3.54                                      | 7.2                      | 26.7                    |
+| YOLOv9m                                                                | 640                         | 51.4                       | -                                    | 6.43                                      | 20.1                     | 76.8                    |
+| YOLOv9c                                                                | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
+| YOLOv9e                                                                | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
 | [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | 2.6                      | **6.5**                 |
-| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
-| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
-| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
-| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | 54.7                       | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
+| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.6                    |
+| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.1                    |
+| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 87.2                    |
+| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | 54.7                       | 462.8                                | 11.3                                      | 56.9                     | 195.3                   |
 
 ### Analysis of the Results
 
 1. **Speed and Hardware Efficiency:** YOLO11 consistently outperforms YOLOv9 in inference speed. For example, the YOLO11n achieves an astonishing 1.5ms on an [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) GPU using [TensorRT](https://developer.nvidia.com/tensorrt), making it incredibly viable for strict real-time pipelines.
-2. **Compute Requirements:** YOLO11 models generally require fewer FLOPs (e.g., 68.0B for YOLO11m vs 76.3B for YOLOv9m), translating to lower power draw on battery-operated edge devices like a [Raspberry Pi](https://www.raspberrypi.org/) or mobile hardware.
+2. **Compute Requirements:** YOLO11 models generally require fewer FLOPs (e.g., 68.1B for YOLO11m vs 76.8B for YOLOv9m), translating to lower power draw on battery-operated edge devices like a [Raspberry Pi](https://www.raspberrypi.org/) or mobile hardware.
 3. **Accuracy Parity:** While YOLOv9e edges out YOLO11x slightly in absolute mAP (55.6 vs 54.7), YOLO11 reaches its peak accuracy with substantially less latency (11.3ms vs 16.77ms), showcasing a more favorable performance balance for real-world deployments.
 
 ## Ecosystem and Ease of Use
@@ -97,7 +97,7 @@ YOLOv9 focuses predominantly on bounding box detection. In contrast, YOLO11 is a
 
 ### Seamless Deployment
 
-Using the Ultralytics ecosystem allows developers to seamlessly [export models](https://docs.ultralytics.com/modes/export) to an array of formats with a single line of [Python](https://www.python.org/) code. Whether targeting [ONNX](https://onnx.ai/), [OpenVINO](https://docs.openvino.ai/), [TFLite](https://developers.google.com/edge/litert), or [CoreML](https://developer.apple.com/documentation/coreml/), the transition from training to production is effortless.
+Using the Ultralytics ecosystem allows developers to seamlessly [export models](https://docs.ultralytics.com/modes/export) to an array of formats with a single line of [Python](https://www.python.org/) code. Whether targeting [ONNX](https://onnx.ai/), [OpenVINO](https://docs.openvino.ai/), [LiteRT](https://developers.google.com/edge/litert), or [CoreML](https://developer.apple.com/documentation/coreml/), the transition from training to production is effortless.
 
 ```python
 from ultralytics import YOLO

@@ -59,7 +59,7 @@ RTDETRv2 leverages a hybrid architecture, combining a CNN backbone for feature e
 
 The transformer architecture makes RTDETRv2 highly effective in scenarios where understanding global context is crucial. However, transformer models typically demand significantly higher CUDA memory during both training and inference compared to lightweight CNNs. It is best suited for environments with unconstrained hardware, such as cloud-based [video analytics](https://www.ultralytics.com/blog/behind-the-scenes-of-vision-ai-in-streaming) running on powerful GPU servers.
 
-[Learn more about RT-DETR](https://docs.ultralytics.com/models/rtdetr){ .md-button }
+[Learn more about RTDETRv2](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch){ .md-button }
 
 ## Performance and Metrics Comparison
 
@@ -118,7 +118,7 @@ Released in January 2026, YOLO26 establishes the new standard for edge-first vis
 
 YOLO26 introduces several pioneering enhancements that outclass traditional CNNs and heavy transformers:
 
-- **End-to-End NMS-Free Design:** Like RTDETRv2, YOLO26 is natively end-to-end. By eliminating Non-Maximum Suppression (NMS) post-processing, it delivers faster, simpler deployment with reduced latency jitter, ideal for real-time [robotics](https://www.ultralytics.com/glossary/robotics) and autonomous systems.
+- **End-to-End NMS-Free Design:** Like RTDETRv2, YOLO26 supports native end-to-end inference. By skipping Non-Maximum Suppression (NMS) post-processing with its optional one-to-one head (`nms=False`), it delivers faster, simpler deployment with reduced latency jitter, ideal for real-time [robotics](https://www.ultralytics.com/glossary/robotics) and autonomous systems.
 - **Up to 43% Faster CPU Inference:** Through deep architectural optimizations, YOLO26 significantly outperforms competing models on edge devices lacking discrete GPUs, making it the premier choice for IoT and [smart city](https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities) applications.
 - **MuSGD Optimizer:** Inspired by LLM training innovations, YOLO26 employs a hybrid of SGD and Muon. This delivers more stable training trajectories and remarkably faster convergence, drastically reducing GPU training hours.
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, an area where models like PP-YOLOE+ historically struggle, proving critical for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and drone applications.
@@ -159,4 +159,4 @@ For teams exploring alternatives, [YOLO11](https://platform.ultralytics.com/ultr
 
 ## Summary
 
-PP-YOLOE+ and RTDETRv2 have made substantial contributions to the evolution of computer vision, demonstrating the viability of advanced CNN pipelines and real-time transformers, respectively. However, for organizations looking to deploy robust, versatile, and highly optimized computer vision applications in 2026, **Ultralytics YOLO26** provides an unrivaled solution. Its natively NMS-free architecture, significantly faster CPU inference, and streamlined ecosystem empower developers to transition from ideation to scalable production faster than ever before.
+PP-YOLOE+ and RTDETRv2 have made substantial contributions to the evolution of computer vision, demonstrating the viability of advanced CNN pipelines and real-time transformers, respectively. However, for organizations looking to deploy robust, versatile, and highly optimized computer vision applications in 2026, **Ultralytics YOLO26** provides an unrivaled solution. Its optional NMS-free inference, significantly faster CPU inference, and streamlined ecosystem empower developers to transition from ideation to scalable production faster than ever before.

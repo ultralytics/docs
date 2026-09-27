@@ -67,7 +67,7 @@ When evaluating models for production, the trade-off between model size, inferen
 | [YOLOv8n](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) | 640                         | 37.3                       | **80.4**                             | **1.47**                                  | **3.2**                  | **8.7**                 |
 | [YOLOv8s](https://platform.ultralytics.com/ultralytics/yolov8/yolov8s) | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
 | [YOLOv8m](https://platform.ultralytics.com/ultralytics/yolov8/yolov8m) | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
-| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
+| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.1                   |
 | [YOLOv8x](https://platform.ultralytics.com/ultralytics/yolov8/yolov8x) | 640                         | 53.9                       | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
 | RTDETRv2-s                                                             | 640                         | 48.1                       | -                                    | 5.03                                      | 20                       | 60                      |
@@ -77,7 +77,7 @@ When evaluating models for production, the trade-off between model size, inferen
 
 !!! note "Hardware and Metrics"
 
-    Speeds were measured using an [Amazon EC2 P4d](https://aws.amazon.com/ec2/instance-types/p4/) instance. CPU inference leveraged [ONNX](https://onnx.ai/), while GPU speeds were tested with [TensorRT](https://developer.nvidia.com/tensorrt).
+    CPU inference leveraged [ONNX](https://onnx.ai/), while GPU speeds were tested with [TensorRT](https://developer.nvidia.com/tensorrt) on an NVIDIA T4 GPU.
 
 ## Use Cases and Recommendations
 
@@ -117,13 +117,13 @@ Furthermore, training efficiency is a hallmark of Ultralytics YOLO models. They 
 
 ## Looking Ahead: The Power of YOLO26
 
-While YOLOv8 remains a powerhouse, developers looking for the absolute cutting edge should consider upgrading to the highly anticipated [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26), released in January 2026. YOLO26 redefines the state-of-the-art with several groundbreaking innovations:
+While YOLOv8 remains a powerhouse, developers looking for the absolute cutting edge should consider upgrading to [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26), released in January 2026. YOLO26 redefines the state-of-the-art with several groundbreaking innovations:
 
-- **End-to-End NMS-Free Design:** YOLO26 eliminates Non-Maximum Suppression (NMS) post-processing, resulting in faster and more deterministic deployment workflows.
+- **End-to-End NMS-Free Design:** YOLO26's optional one-to-one head (`nms=False`) eliminates Non-Maximum Suppression (NMS) post-processing, resulting in faster and more deterministic deployment workflows.
 - **DFL Removal:** The removal of Distribution Focal Loss streamlines the model for enhanced edge and low-power device compatibility.
 - **MuSGD Optimizer:** Integrating LLM training innovations, the MuSGD optimizer ensures more stable training runs and faster convergence.
 - **Up to 43% Faster CPU Inference:** Heavily optimized for environments lacking dedicated GPUs.
-- **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, which is critical for aerial imagery and robotics.
+- **ProgLoss + STAL:** Progressive Loss and Small-Target-Aware Label Assignment yield notable improvements in small-object recognition, which is critical for aerial imagery and robotics.
 
 Other modern alternatives worth exploring within the Ultralytics suite include [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), which offers robust performance for legacy projects, though YOLO26 is recommended for all new deployments.
 

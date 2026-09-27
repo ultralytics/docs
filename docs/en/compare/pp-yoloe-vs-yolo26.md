@@ -50,7 +50,7 @@ Released in early 2026, **Ultralytics YOLO26** completely reimagines the real-ti
 
 Key YOLO26 innovations include:
 
-- **End-to-End NMS-Free Design:** YOLO26 is natively end-to-end, completely eliminating the need for Non-Maximum Suppression ([NMS](https://www.ultralytics.com/glossary/non-maximum-suppression-nms)) post-processing. This breakthrough, first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), ensures consistent inference latency regardless of scene crowding, making deployment significantly simpler.
+- **End-to-End NMS-Free Design:** YOLO26 supports native end-to-end inference (`nms=False`), removing the need for Non-Maximum Suppression ([NMS](https://www.ultralytics.com/glossary/non-maximum-suppression-nms)) post-processing. This breakthrough, first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), ensures consistent inference latency regardless of scene crowding, making deployment significantly simpler.
 - **DFL Removal:** By removing Distribution Focal Loss (DFL), YOLO26 drastically simplifies its output head. This results in far better compatibility with edge devices and microcontrollers.
 - **Up to 43% Faster CPU Inference:** Thanks to the DFL removal and structural optimizations, YOLO26 is heavily optimized for environments without dedicated GPUs, achieving up to 43% faster inference speeds on CPUs compared to [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11).
 - **MuSGD Optimizer:** Inspired by advanced LLM training techniques like those from [Moonshot AI](https://www.moonshot.ai/), YOLO26 introduces a hybrid of SGD and Muon. This brings unparalleled training stability and faster convergence to computer vision tasks.
@@ -72,18 +72,18 @@ The table below provides a comprehensive look at how PP-YOLOE+ compares against 
 | PP-YOLOE+l                                                             | 640                         | 52.9                       | -                                    | 8.36                                      | 52.2                     | 110.07                  |
 | PP-YOLOE+x                                                             | 640                         | 54.7                       | -                                    | 14.3                                      | 98.42                    | 206.59                  |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
-| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | **40.9**                   | **38.9**                             | **1.7**                                   | **2.4**                  | **5.4**                 |
-| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | **48.6**                   | 87.2                                 | **2.5**                                   | 9.5                      | 20.7                    |
-| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | **53.1**                   | 220.0                                | **4.7**                                   | **20.4**                 | 68.2                    |
-| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | **55.0**                   | 286.2                                | **6.2**                                   | **24.8**                 | **86.4**                |
-| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | **11.8**                                  | **55.7**                 | **193.9**               |
+| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | **40.9**                   | 38.9                                 | **1.7**                                   | **2.4**                  | **5.5**                 |
+| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | **48.6**                   | 87.2                                 | **2.5**                                   | 9.5                      | 20.9                    |
+| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | **53.1**                   | 220.0                                | **4.7**                                   | **20.4**                 | 68.4                    |
+| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | **55.0**                   | 286.2                                | **6.2**                                   | **24.8**                 | **86.8**                |
+| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | **11.8**                                  | **55.7**                 | **194.4**               |
 
-_Note: Bold values highlight the best-performing metrics across all models._
+_Note: Bold values highlight the better metric within each size-matched pair of models._
 
 ### Analysis
 
 - **Memory Requirements and Efficiency:** YOLO26 requires significantly fewer parameters and FLOPs to achieve higher mAP scores. For example, the YOLO26n (Nano) model achieves a 40.9 mAP with only 2.4M parameters, outperforming the PP-YOLOE+t model while being roughly half the size. This translates to lower memory usage during both [training](https://docs.ultralytics.com/modes/train) and deployment.
-- **Inference Speed:** When exported using [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), YOLO26 dominates the latency metrics. The removal of NMS ensures that the 1.7ms inference time on a T4 GPU remains perfectly stable, whereas PP-YOLOE+ relies on potentially variable post-processing times.
+- **Inference Speed:** When exported using [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), YOLO26 dominates the latency metrics. The NMS-free one-to-one head (`nms=False`, used for these benchmarks) ensures that the 1.7ms inference time on a T4 GPU remains perfectly stable, whereas PP-YOLOE+ relies on potentially variable post-processing times.
 
 ## The Ultralytics Advantage: Ecosystem and Ease of Use
 
@@ -113,7 +113,7 @@ results = model.train(
     epochs=100,
     imgsz=640,
     batch=16,
-    optimizer="auto",  # MuSGD is automatically engaged for YOLO26
+    optimizer="MuSGD",  # hybrid SGD + Muon optimizer
 )
 
 # Export seamlessly to ONNX for CPU deployment

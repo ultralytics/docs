@@ -105,7 +105,7 @@ Released in January 2026, YOLO26 builds upon the legacy of its predecessors, inc
 
 !!! tip "End-to-End Simplicity"
 
-    YOLO26 features a native **End-to-End NMS-Free Design**. By eliminating Non-Maximum Suppression (NMS) during post-processing—a bottleneck that has plagued object detectors for years—YOLO26 offers a simpler, vastly faster deployment pipeline, especially on edge hardware.
+    YOLO26 features a native **End-to-End NMS-Free Design** (`nms=False`). By eliminating Non-Maximum Suppression (NMS) during post-processing—a bottleneck that has plagued object detectors for years—YOLO26 offers a simpler, vastly faster deployment pipeline, especially on edge hardware.
 
 ### Unmatched Performance and Versatility
 
@@ -115,7 +115,7 @@ Furthermore, YOLO26 incorporates **ProgLoss + STAL**, heavily improving small-ob
 
 ### Ecosystem and Ease of Use
 
-One of the largest hurdles with models like EfficientDet is the complex integration process. In contrast, the [Ultralytics Platform](https://platform.ultralytics.com) offers a well-maintained, end-to-end ecosystem. With a unified API, users can easily pivot between detection, [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), [image classification](https://docs.ultralytics.com/tasks/classify), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
+One of the largest hurdles with models like EfficientDet is the complex integration process. In contrast, the [Ultralytics Platform](https://platform.ultralytics.com) offers a well-maintained, end-to-end ecosystem. With a unified API, users can easily pivot between detection, [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
 Here is how simple it is to train and run inference with YOLO26 using the Ultralytics Python package:
 
@@ -129,7 +129,7 @@ model = YOLO("yolo26n.pt")
 results = model.train(data="coco8.yaml", epochs=50, imgsz=640)
 
 # Run ultra-fast NMS-free inference
-predictions = model.predict("image.jpg")
+predictions = model.predict("https://ultralytics.com/images/bus.jpg", nms=False)
 ```
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }

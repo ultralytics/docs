@@ -81,7 +81,7 @@ When comparing these models, examining the trade-offs between precision, inferen
 
 !!! tip "Performance Takeaway"
 
-    While EfficientDet-d7 achieves the highest mAP, it requires nearly 128ms on a T4 GPU. In stark contrast, YOLOv7x achieves a comparable 53.1 mAP at an incredibly fast 11.57ms, demonstrating a massive generational leap in computational efficiency for real-time deployments.
+    While EfficientDet-d7 achieves the highest mAP, it requires about 128ms on a T4 GPU. In stark contrast, YOLOv7x achieves a comparable 53.1 mAP at an incredibly fast 11.57ms, demonstrating a massive generational leap in computational efficiency for real-time deployments.
 
 ## Use Cases and Recommendations
 
@@ -130,7 +130,7 @@ from ultralytics import YOLO
 # Load the highly recommended YOLO26 model
 model = YOLO("yolo26s.pt")
 
-# Train the model automatically handling hyperparameter tuning and augmentations
+# Train the model with built-in data augmentation
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
 # Export the model to TensorRT for deployment
@@ -143,7 +143,7 @@ While YOLOv7 and EfficientDet laid the groundwork for modern computer vision, th
 
 ### Key YOLO26 Innovations
 
-- **End-to-End NMS-Free Design:** Building on the foundations laid by [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 is natively end-to-end. By entirely eliminating Non-Maximum Suppression (NMS) post-processing, it delivers lower, more consistent latency, which is crucial for safety-critical systems like autonomous driving.
+- **End-to-End NMS-Free Design:** Building on the foundations laid by [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 offers a native end-to-end head (`nms=False`). By entirely eliminating Non-Maximum Suppression (NMS) post-processing, it delivers lower, more consistent latency, which is crucial for safety-critical systems like autonomous driving.
 - **Up to 43% Faster CPU Inference:** Thanks to the **removal of Distribution Focal Loss (DFL)**, YOLO26 features a drastically simplified export process and unparalleled speed on edge devices like the Raspberry Pi, making it the undisputed champion of edge computing.
 - **MuSGD Optimizer:** YOLO26 incorporates the revolutionary MuSGD Optimizer—a hybrid of SGD and Muon inspired by LLM training innovations from Moonshot AI. This leads to remarkably stable training dynamics and much faster convergence rates.
 - **ProgLoss + STAL:** The integration of Progressive Loss and Small-Target-Aware Label Assignment heavily improves the model's ability to detect tiny objects, solving a massive pain point for drone imagery and [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system).

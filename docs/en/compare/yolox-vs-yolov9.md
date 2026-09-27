@@ -73,10 +73,10 @@ When comparing the raw computational metrics of these architectures, it is clear
 | YOLOXx    | 640                         | 51.1                       | -                                    | 16.1                                      | 99.1                     | 281.9                   |
 |           |                             |                            |                                      |                                           |                          |                         |
 | YOLOv9t   | 640                         | 38.3                       | -                                    | **2.3**                                   | 2.0                      | 7.7                     |
-| YOLOv9s   | 640                         | 46.8                       | -                                    | 3.54                                      | 7.1                      | 26.4                    |
-| YOLOv9m   | 640                         | 51.4                       | -                                    | 6.43                                      | 20.0                     | 76.3                    |
-| YOLOv9c   | 640                         | 53.0                       | -                                    | 7.16                                      | 25.3                     | 102.1                   |
-| YOLOv9e   | 640                         | **55.6**                   | -                                    | 16.77                                     | 57.3                     | 189.0                   |
+| YOLOv9s   | 640                         | 46.8                       | -                                    | 3.54                                      | 7.2                      | 26.7                    |
+| YOLOv9m   | 640                         | 51.4                       | -                                    | 6.43                                      | 20.1                     | 76.8                    |
+| YOLOv9c   | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
+| YOLOv9e   | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
 
 While YOLOv9 demonstrates superior accuracy across comparable parameter counts, developers looking for the ultimate balance of speed, accuracy, and ease of use should consider the latest advancements from Ultralytics.
 
@@ -86,9 +86,9 @@ While evaluating historical models like YOLOX and YOLOv9 provides valuable conte
 
 ### Unmatched Architectural Innovations
 
-YOLO26 completely solves the post-processing bottlenecks of its predecessors with a **native end-to-end NMS-free design**, ensuring simpler deployment across all hardware. Furthermore, by removing Distribution Focal Loss (DFL) and integrating the novel **MuSGD Optimizer**—a hybrid of Stochastic Gradient Descent and Muon—YOLO26 achieves unprecedented training stability.
+YOLO26 solves the post-processing bottlenecks of its predecessors with an optional **end-to-end NMS-free design** (`nms=False`), ensuring simpler deployment across all hardware. Furthermore, by removing Distribution Focal Loss (DFL) and integrating the novel **MuSGD Optimizer**—a hybrid of Stochastic Gradient Descent and Muon—YOLO26 achieves unprecedented training stability.
 
-For developers deploying to constrained environments like the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi), YOLO26 delivers up to **43% faster CPU inference**. It also introduces **ProgLoss + STAL** loss functions, resulting in dramatic improvements in small-object recognition, which is critical for [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and drone analytics.
+For developers deploying to constrained environments like the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi), YOLO26 delivers up to **43% faster CPU inference**. It also introduces **ProgLoss + STAL** (Progressive Loss and Small-Target-Aware Label Assignment), resulting in dramatic improvements in small-object recognition, which is critical for [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and drone analytics.
 
 ### Streamlined Development Ecosystem
 
@@ -115,7 +115,7 @@ Choosing the right architecture depends entirely on your target deployment envir
 
 ### Edge Computing and Robotics
 
-For low-power devices, relying on models that require heavy post-processing can cripple performance. While YOLOX-Nano is incredibly small, its accuracy is often insufficient for safety-critical tasks. YOLO26 is the definitive choice here; its lack of DFL and NMS allows it to run smoothly on raw CPU threads, making it perfect for autonomous robotics or [smart parking management](https://docs.ultralytics.com/guides/parking-management).
+For low-power devices, relying on models that require heavy post-processing can cripple performance. While YOLOX-Nano is incredibly small, its accuracy is often insufficient for safety-critical tasks. YOLO26 is the definitive choice here; its DFL-free head and optional NMS-free inference allow it to run smoothly on raw CPU threads, making it perfect for autonomous robotics or [smart parking management](https://docs.ultralytics.com/guides/parking-management).
 
 ### Academic Benchmarking
 

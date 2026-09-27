@@ -61,9 +61,9 @@ When benchmarking these models, performance is typically measured across accurac
 | YOLOv10n    | 640                         | 39.5                       | -                                    | 1.56                                      | **2.3**                  | **6.7**                 |
 | YOLOv10s    | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
 | YOLOv10m    | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
-| YOLOv10b    | 640                         | 52.7                       | -                                    | 6.54                                      | 24.4                     | 92.0                    |
-| YOLOv10l    | 640                         | 53.3                       | -                                    | 8.33                                      | 29.5                     | 120.3                   |
-| YOLOv10x    | 640                         | **54.4**                   | -                                    | 12.2                                      | 56.9                     | 160.4                   |
+| YOLOv10b    | 640                         | 52.7                       | -                                    | 6.54                                      | 19.1                     | 92.0                    |
+| YOLOv10l    | 640                         | 53.3                       | -                                    | 8.33                                      | 24.4                     | 120.3                   |
+| YOLOv10x    | 640                         | **54.4**                   | -                                    | 12.2                                      | 29.5                     | 160.4                   |
 
 ### Analysis
 
@@ -109,7 +109,7 @@ Released in January 2026, YOLO26 incorporates the best innovations from the prec
 
 ### Key YOLO26 Innovations
 
-- **End-to-End NMS-Free Design:** Building on the concept pioneered in YOLOv10, YOLO26 natively eliminates NMS post-processing, resulting in smoother, more predictable inference times that are drastically [easier to ship to production](https://www.ultralytics.com/blog/exploring-why-ultralytics-yolo26-is-easier-to-ship-to-production).
+- **End-to-End NMS-Free Design:** Building on the concept pioneered in YOLOv10, YOLO26's optional one-to-one head (`nms=False`) skips NMS post-processing, resulting in smoother, more predictable inference times that are drastically [easier to ship to production](https://www.ultralytics.com/blog/exploring-why-ultralytics-yolo26-is-easier-to-ship-to-production).
 - **MuSGD Optimizer:** Inspired by large language model optimizations like Moonshot AI's Kimi K2, this hybrid of SGD and Muon ensures incredibly stable training and dramatically faster convergence.
 - **Up to 43% Faster CPU Inference:** For edge devices, YOLO26 features specific architectural simplifications, making it vastly superior for deployment on IoT chips and consumer CPUs.
 - **DFL Removal:** The removal of Distribution Focal Loss simplifies the head export, greatly improving compatibility with low-power deployment engines like [OpenVINO](https://docs.ultralytics.com/integrations/openvino) or NCNN.
@@ -138,7 +138,7 @@ results = model.train(data="coco8.yaml", epochs=100, imgsz=640, device=0)
 metrics = model.val()
 
 # Run real-time NMS-free inference on a target image
-predictions = model.predict("https://ultralytics.com/images/bus.jpg")
+predictions = model.predict("https://ultralytics.com/images/bus.jpg", nms=False)
 
 # Export to ONNX format for cross-platform deployment
 model.export(format="onnx")

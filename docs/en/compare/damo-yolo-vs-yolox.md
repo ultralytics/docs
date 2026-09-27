@@ -104,7 +104,7 @@ While DAMO-YOLO and YOLOX represent excellent milestones, developers today deman
 
 Released in January 2026, YOLO26 is the ultimate recommended model for all [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) tasks. It introduces a suite of breakthroughs that surpass older architectures:
 
-- **End-to-End NMS-Free Design:** YOLO26 natively eliminates Non-Maximum Suppression (NMS) post-processing. This allows for significantly simpler and faster deployment, avoiding the latency bottlenecks inherent in traditional detection heads.
+- **End-to-End NMS-Free Design:** YOLO26's optional one-to-one head (`nms=False`) skips Non-Maximum Suppression (NMS) post-processing. This allows for significantly simpler and faster deployment, avoiding the latency bottlenecks inherent in traditional detection heads.
 - **Up to 43% Faster CPU Inference:** By strategically removing Distribution Focal Loss (DFL) and optimizing the layers, YOLO26 delivers unparalleled speeds on CPUs and edge hardware.
 - **MuSGD Optimizer:** Inspired by large language model (LLM) training techniques, YOLO26 introduces the MuSGD optimizer (a hybrid of SGD and Muon), resulting in highly stable training runs and much faster convergence compared to the legacy setups in YOLOX.
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, making YOLO26 vastly superior for drone footage and robotics.
@@ -126,7 +126,7 @@ model = YOLO("yolo26n.pt")
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
 # Run fast, NMS-free inference on an image
-results = model("https://ultralytics.com/images/bus.jpg")
+results = model("https://ultralytics.com/images/bus.jpg", nms=False)
 
 # Export to ONNX or TensorRT seamlessly
 model.export(format="onnx")
@@ -140,6 +140,6 @@ model.export(format="onnx")
 
 Choosing between DAMO-YOLO and YOLOX depends on specific constraints: DAMO-YOLO offers exceptional speed-to-accuracy ratios on specific GPUs via NAS, while YOLOX provides a clean, anchor-free design ideal for lightweight edge scenarios.
 
-However, for teams seeking a modern, future-proof solution with an active community, the [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) architecture is the definitive choice. Its NMS-free design, rapid CPU inference, and unified API for detection, segmentation, and pose tasks make it unparalleled for transitioning smoothly from research to robust real-world production.
+However, for teams seeking a modern, future-proof solution with an active community, the [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) architecture is the definitive choice. Its optional NMS-free inference, rapid CPU inference, and unified API for detection, segmentation, and pose tasks make it unparalleled for transitioning smoothly from research to robust real-world production.
 
 For developers interested in exploring other modern architectures, we also recommend checking out [Ultralytics YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or transformer-based models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) available in the comprehensive Ultralytics documentation.

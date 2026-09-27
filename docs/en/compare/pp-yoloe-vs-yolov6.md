@@ -102,13 +102,13 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 
 While PP-YOLOE+ and YOLOv6-3.0 offer targeted solutions, modern AI development requires versatile, memory-efficient workflows. This is where the [Ultralytics Platform](https://platform.ultralytics.com) provides an unparalleled developer experience. With a unified Python API, you can seamlessly train, validate, and deploy cutting-edge models without the immense configuration overhead typically found in older research repositories.
 
-Ultralytics models natively support a wide array of vision tasks beyond standard detection, including [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), [image classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) extraction. Furthermore, they are highly optimized for lower memory usage during training—a stark contrast to [transformer-based models](https://www.ultralytics.com/glossary/transformer) like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) which generally demand massive GPU VRAM allocations.
+Ultralytics models natively support a wide array of vision tasks beyond standard detection, including [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) extraction. Furthermore, they are highly optimized for lower memory usage during training—a stark contrast to [transformer-based models](https://www.ultralytics.com/glossary/transformer) like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) which generally demand massive GPU VRAM allocations.
 
 ### Discover YOLO26: The New Standard
 
 For organizations looking to deploy the ultimate state-of-the-art vision models, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) (released in January 2026) redefines performance boundaries. It significantly outperforms older generations with several critical innovations:
 
-- **End-to-End NMS-Free Design:** Building on concepts from [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 completely eliminates [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing. This natively end-to-end approach guarantees predictable, ultra-low latency inference, crucial for real-time safety systems.
+- **End-to-End NMS-Free Design:** Building on concepts from [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26's optional one-to-one head (`nms=False`) completely eliminates [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing. This natively end-to-end approach guarantees predictable, ultra-low latency inference, crucial for real-time safety systems.
 - **Up to 43% Faster CPU Inference:** Through the removal of Distribution Focal Loss (DFL) from the architecture, YOLO26 is radically optimized for edge computing and environments lacking dedicated GPU acceleration.
 - **MuSGD Optimizer:** Integrating LLM training stability into vision models, this hybrid optimizer (inspired by Moonshot AI) enables rapid convergence and highly stable [custom training](https://docs.ultralytics.com/guides/custom-trainer) sessions.
 - **ProgLoss + STAL:** These advanced loss formulations deliver remarkable improvements in small-object recognition, vital for applications like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and crowded scene analysis.
@@ -130,8 +130,8 @@ model = YOLO("yolo26s.pt")
 # Train the model on the COCO8 example dataset
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
-# Run inference on a test image (NMS-free speed)
-predict_results = model.predict("https://ultralytics.com/images/bus.jpg")
+# Run NMS-free inference on a test image
+predict_results = model.predict("https://ultralytics.com/images/bus.jpg", nms=False)
 
 # Export to ONNX format for edge deployment
 model.export(format="onnx")

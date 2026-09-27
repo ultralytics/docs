@@ -90,9 +90,9 @@ Released in January 2026, YOLO26 establishes a new standard for modern [object d
 
 ### Why Developers Choose YOLO26
 
-1. **End-to-End NMS-Free Design:** Building on concepts pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 is natively end-to-end. By entirely removing Non-Maximum Suppression (NMS) post-processing, it ensures highly consistent latency and dramatically simplifies export pipelines for edge environments.
+1. **End-to-End NMS-Free Design:** Building on concepts pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 supports native end-to-end inference. By skipping Non-Maximum Suppression (NMS) post-processing with its optional one-to-one head (`nms=False`), it ensures highly consistent latency and dramatically simplifies export pipelines for edge environments.
 2. **Next-Generation Optimization:** Training stability is revolutionized by the **MuSGD Optimizer**, a hybrid of SGD and Muon (inspired by LLM methodologies like Moonshot AI's Kimi K2). This guarantees faster convergence. Furthermore, YOLO26 utilizes **ProgLoss + STAL** to drastically improve small-object recognition, a crucial feature for applications involving [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and robotics.
-3. **Unmatched Hardware Efficiency:** By removing Distribution Focal Loss (DFL), YOLO26 drastically lowers memory requirements. It boasts up to **43% faster CPU inference**, making it the definitive choice for devices lacking dedicated [GPU](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) acceleration.
+3. **Unmatched Hardware Efficiency:** By removing Distribution Focal Loss (DFL), YOLO26 simplifies its detection head and export graph. It boasts up to **43% faster CPU inference**, making it the definitive choice for devices lacking dedicated [GPU](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) acceleration.
 4. **Extreme Versatility:** Unlike PP-YOLOE+ which focuses strictly on detection, YOLO26 offers unified support across numerous tasks. It incorporates a specialized semantic segmentation loss for [instance segmentation](https://docs.ultralytics.com/tasks/segment), Residual Log-Likelihood Estimation (RLE) for accurate [pose estimation](https://docs.ultralytics.com/tasks/pose), and advanced angle loss mechanisms for [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
@@ -114,11 +114,11 @@ results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 predictions = model("https://ultralytics.com/images/bus.jpg")
 
 # Export to ONNX natively, fully benefiting from the NMS-free architecture
-model.export(format="onnx")
+model.export(format="onnx", nms=False)
 ```
 
 For users evaluating other robust architectures within the Ultralytics ecosystem, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains a highly reliable choice for legacy deployments, while the transformer-based [RT-DETR](https://docs.ultralytics.com/models/rtdetr) provides excellent capabilities for those seeking attention-based solutions.
 
 ## Summary
 
-Choosing between YOLOX and PP-YOLOE+ often comes down to your primary framework constraints—whether you prefer PyTorch-based flexibility or deep integration with Baidu's PaddlePaddle. However, for organizations looking to future-proof their AI infrastructure, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) provides a vastly superior alternative. With its revolutionary NMS-free design, lightweight memory footprint, and comprehensive task versatility, YOLO26 empowers teams to build faster, smarter, and more efficient computer vision applications with unprecedented ease.
+Choosing between YOLOX and PP-YOLOE+ often comes down to your primary framework constraints—whether you prefer PyTorch-based flexibility or deep integration with Baidu's PaddlePaddle. However, for organizations looking to future-proof their AI infrastructure, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) provides a vastly superior alternative. With its optional NMS-free inference, lightweight memory footprint, and comprehensive task versatility, YOLO26 empowers teams to build faster, smarter, and more efficient computer vision applications with unprecedented ease.

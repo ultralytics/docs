@@ -51,7 +51,7 @@ While YOLO11 relies on traditional post-processing methods that have powered com
 
 ### End-to-End NMS-Free Design
 
-One of the most significant upgrades in YOLO26 is its natively end-to-end architecture. It eliminates Non-Maximum Suppression (NMS) post-processing, a concept first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10). Bypassing NMS drastically simplifies the deployment pipeline and guarantees consistent latency, which is essential for real-time applications like [autonomous driving algorithms](https://www.ultralytics.com/glossary/autonomous-vehicles).
+One of the most significant upgrades in YOLO26 is its natively end-to-end architecture. Its optional one-to-one head (`nms=False`) eliminates Non-Maximum Suppression (NMS) post-processing, a concept first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10). Bypassing NMS drastically simplifies the deployment pipeline and guarantees consistent latency, which is essential for real-time applications like [autonomous driving algorithms](https://www.ultralytics.com/glossary/autonomous-vehicles).
 
 ### DFL Removal for Edge Optimization
 
@@ -63,7 +63,7 @@ Drawing inspiration from Large Language Model (LLM) training mechanisms, specifi
 
 ### Advanced Loss Functions
 
-YOLO26 incorporates **ProgLoss + STAL** (Progressive Loss and Small-Target-Aware Label Assignment). This combination drastically improves the detection of small and densely packed objects. Furthermore, YOLO26 introduces task-specific enhancements: a dedicated multi-scale prototype for semantic segmentation, Residual Log-Likelihood Estimation (RLE) for complex human pose estimations, and a specialized angle loss to mitigate boundary issues in OBB detection tasks.
+YOLO26 incorporates **ProgLoss + STAL** (Progressive Loss and Small-Target-Aware Label Assignment). This combination drastically improves the detection of small and densely packed objects. Furthermore, YOLO26 introduces task-specific enhancements: semantic segmentation loss and a multi-scale proto module for instance segmentation, Residual Log-Likelihood Estimation (RLE) for complex human pose estimations, and a specialized angle loss to mitigate boundary issues in OBB detection tasks.
 
 ## Performance Comparison
 
@@ -72,16 +72,16 @@ When evaluating these models, the balance between parameter count, computational
 | Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
 | [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) | 640                         | 39.5                       | 56.1                                 | **1.5**                                   | 2.6                      | 6.5                     |
-| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | **2.5**                                   | **9.4**                  | 21.5                    |
-| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | **183.2**                            | **4.7**                                   | **20.1**                 | **68.0**                |
-| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | **238.6**                            | **6.2**                                   | 25.3                     | 86.9                    |
-| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | 54.7                       | **462.8**                            | **11.3**                                  | 56.9                     | 194.9                   |
+| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | **2.5**                                   | **9.4**                  | 21.6                    |
+| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | **183.2**                            | **4.7**                                   | **20.1**                 | **68.1**                |
+| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | **238.6**                            | **6.2**                                   | 25.3                     | 87.2                    |
+| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | 54.7                       | **462.8**                            | **11.3**                                  | 56.9                     | 195.3                   |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
-| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | **40.9**                   | **38.9**                             | 1.7                                       | **2.4**                  | **5.4**                 |
-| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | **48.6**                   | **87.2**                             | **2.5**                                   | 9.5                      | **20.7**                |
-| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | **53.1**                   | 220.0                                | **4.7**                                   | 20.4                     | 68.2                    |
-| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | **55.0**                   | 286.2                                | **6.2**                                   | **24.8**                 | **86.4**                |
-| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | **55.7**                 | **193.9**               |
+| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | **40.9**                   | **38.9**                             | 1.7                                       | **2.4**                  | **5.5**                 |
+| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | **48.6**                   | **87.2**                             | **2.5**                                   | 9.5                      | **20.9**                |
+| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | **53.1**                   | 220.0                                | **4.7**                                   | 20.4                     | 68.4                    |
+| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | **55.0**                   | 286.2                                | **6.2**                                   | **24.8**                 | **86.8**                |
+| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | **55.7**                 | **194.4**               |
 
 As demonstrated, the YOLO26 Nano (YOLO26n) jumps significantly in accuracy while slicing CPU inference time from 56.1ms to 38.9ms using [ONNX Runtime](https://onnxruntime.ai/).
 
@@ -120,7 +120,7 @@ from ultralytics import YOLO
 model = YOLO("yolo26n.pt")
 
 # Train the model on the COCO8 dataset
-# The MuSGD optimizer and efficient memory management are handled automatically
+# Optimizer selection (MuSGD for longer runs) and memory management are handled automatically
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640, device=0)
 
 # Run a quick validation to verify the mAP metrics

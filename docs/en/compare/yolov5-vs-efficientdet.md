@@ -65,11 +65,11 @@ When comparing these models, evaluating their performance on standard benchmarks
 
 | Model                                                                   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ----------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | 73.6                                 | **1.12**                                  | **2.6**                  | 7.7                     |
-| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
-| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
-| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
-| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
+| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | -                                    | **1.12**                                  | **1.9**                  | 4.5                     |
+| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | -                                    | 1.92                                      | 7.2                      | 16.5                    |
+| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | -                                    | 4.03                                      | 21.2                     | 49.0                    |
+| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | -                                    | 6.61                                      | 46.5                     | 109.1                   |
+| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | -                                    | 11.89                                     | 86.7                     | 205.7                   |
 |                                                                         |                             |                            |                                      |                                           |                          |                         |
 | EfficientDet-d0                                                         | 640                         | 34.6                       | **10.2**                             | 3.92                                      | 3.9                      | **2.54**                |
 | EfficientDet-d1                                                         | 640                         | 40.5                       | 13.5                                 | 7.31                                      | 6.6                      | 6.1                     |
@@ -105,7 +105,7 @@ While YOLOv5 remains a reliable workhorse, the computer vision landscape has adv
 
 Building upon the legacy of its predecessors (like [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) and [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11)), YOLO26 introduces groundbreaking innovations:
 
-- **End-to-End NMS-Free Design:** YOLO26 natively eliminates the need for Non-Maximum Suppression post-processing. This significantly reduces latency variance and simplifies deployment architecture.
+- **End-to-End NMS-Free Design:** YOLO26's optional one-to-one head (`nms=False`) removes the need for Non-Maximum Suppression post-processing. This significantly reduces latency variance and simplifies deployment architecture.
 - **Up to 43% Faster CPU Inference:** Heavily optimized for [edge AI](https://www.ultralytics.com/glossary/edge-ai), it brings unprecedented speeds to low-power edge devices and standard CPUs without dedicated GPUs.
 - **MuSGD Optimizer:** Inspired by Large Language Model (LLM) training techniques, this hybrid of SGD and Muon ensures highly stable training and rapid convergence.
 - **Advanced Loss Functions:** The integration of ProgLoss and STAL drastically improves the recognition of small targets, which is vital for high-altitude drone imagery and [robotics](https://www.ultralytics.com/solutions/computer-vision-in-robotics).
@@ -124,8 +124,8 @@ To demonstrate the unmatched ease of use of the Ultralytics ecosystem, here is h
 ```python
 from ultralytics import YOLO
 
-# Load a modern model (Swap 'yolov5s.pt' for 'yolo26n.pt' to test the newest architecture!)
-model = YOLO("yolov5s.pt")
+# Load a modern model (Swap 'yolov5su.pt' for 'yolo26n.pt' to test the newest architecture!)
+model = YOLO("yolov5su.pt")  # YOLOv5u: anchor-free YOLOv5 weights for the ultralytics package
 
 # Train the model on the COCO8 example dataset for 20 epochs
 results = model.train(data="coco8.yaml", epochs=20, imgsz=640)

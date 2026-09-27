@@ -32,7 +32,7 @@ RTDETRv2's primary innovation is its end-to-end NMS-free architecture. By elimin
 
 However, because it relies on Transformers, RTDETRv2 typically suffers from significantly higher memory requirements during training. Transformers are generally slower to converge and require substantially more CUDA memory compared to traditional CNNs, making them less accessible for researchers operating on consumer-grade hardware or deploying to constrained [edge AI](https://www.ultralytics.com/glossary/edge-ai) environments.
 
-[Learn more about RT-DETR](https://docs.ultralytics.com/models/rtdetr){ .md-button }
+[Learn more about RTDETRv2](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch){ .md-button }
 
 ## Ultralytics YOLO11: The Pinnacle of CNN Efficiency
 
@@ -65,12 +65,12 @@ When comparing raw numbers, it becomes evident that while RTDETRv2 achieves impr
 | RTDETRv2-x                                                             | 640                         | 54.3                       | -                                    | 15.03                                     | 76                       | 259                     |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
 | [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | **2.6**                  | **6.5**                 |
-| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.5                    |
-| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.0                    |
-| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 86.9                    |
-| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 194.9                   |
+| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.6                    |
+| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.1                    |
+| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 87.2                    |
+| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | **54.7**                   | 462.8                                | 11.3                                      | 56.9                     | 195.3                   |
 
-As seen in the table, the **YOLO11x** model achieves a superior mAP<sup>val</sup> of 54.7% while utilizing fewer FLOPs (194.9B vs 259B) and delivering faster inference on TensorRT (11.3ms vs 15.03ms) compared to the RTDETRv2-x variant. The nano and small YOLO11 variants provide unparalleled lightweight options for constrained devices like the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi).
+As seen in the table, the **YOLO11x** model achieves a superior mAP<sup>val</sup> of 54.7% while utilizing fewer FLOPs (195.3B vs 259B) and delivering faster inference on TensorRT (11.3ms vs 15.03ms) compared to the RTDETRv2-x variant. The nano and small YOLO11 variants provide unparalleled lightweight options for constrained devices like the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi).
 
 ## Ecosystem, Ease of Use, and Training
 
@@ -142,7 +142,7 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 
 ## Looking Forward: The Arrival of YOLO26
 
-If you are beginning a new project, you should also consider the next generation of vision AI: **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**. Released in January 2026, YOLO26 incorporates the best of both worlds. It introduces an **End-to-End NMS-Free Design** (first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10)), completely eliminating post-processing latency just like RTDETRv2, but with the unmatched speed of a CNN.
+If you are beginning a new project, you should also consider the next generation of vision AI: **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**. Released in January 2026, YOLO26 incorporates the best of both worlds. It introduces an optional **End-to-End NMS-Free** head (`nms=False`, first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10)) that removes NMS post-processing just like RTDETRv2, but with the unmatched speed of a CNN.
 
 YOLO26 features the **MuSGD Optimizer**—inspired by LLM training innovations—for incredibly stable and fast convergence, and delivers up to **43% Faster CPU Inference** by removing Distribution Focal Loss (DFL). With its specialized **ProgLoss + STAL** loss functions vastly improving small-object recognition, YOLO26 is the ultimate recommendation for any modern computer vision pipeline.
 

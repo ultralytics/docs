@@ -50,17 +50,17 @@ When benchmarking these two powerhouses on the standard MS COCO dataset, distinc
 | Model    | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | -------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
 | YOLOv9t  | 640                         | 38.3                       | -                                    | 2.3                                       | **2.0**                  | 7.7                     |
-| YOLOv9s  | 640                         | 46.8                       | -                                    | 3.54                                      | 7.1                      | 26.4                    |
-| YOLOv9m  | 640                         | 51.4                       | -                                    | 6.43                                      | 20.0                     | 76.3                    |
-| YOLOv9c  | 640                         | 53.0                       | -                                    | 7.16                                      | 25.3                     | 102.1                   |
-| YOLOv9e  | 640                         | **55.6**                   | -                                    | 16.77                                     | 57.3                     | 189.0                   |
+| YOLOv9s  | 640                         | 46.8                       | -                                    | 3.54                                      | 7.2                      | 26.7                    |
+| YOLOv9m  | 640                         | 51.4                       | -                                    | 6.43                                      | 20.1                     | 76.8                    |
+| YOLOv9c  | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
+| YOLOv9e  | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
 |          |                             |                            |                                      |                                           |                          |                         |
 | YOLOv10n | 640                         | 39.5                       | -                                    | **1.56**                                  | 2.3                      | **6.7**                 |
 | YOLOv10s | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
 | YOLOv10m | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
-| YOLOv10b | 640                         | 52.7                       | -                                    | 6.54                                      | 24.4                     | 92.0                    |
-| YOLOv10l | 640                         | 53.3                       | -                                    | 8.33                                      | 29.5                     | 120.3                   |
-| YOLOv10x | 640                         | 54.4                       | -                                    | 12.2                                      | 56.9                     | 160.4                   |
+| YOLOv10b | 640                         | 52.7                       | -                                    | 6.54                                      | 19.1                     | 92.0                    |
+| YOLOv10l | 640                         | 53.3                       | -                                    | 8.33                                      | 24.4                     | 120.3                   |
+| YOLOv10x | 640                         | 54.4                       | -                                    | 12.2                                      | 29.5                     | 160.4                   |
 
 ### Analyzing the Data
 
@@ -98,7 +98,7 @@ metrics = model.val()
 model.export(format="onnx")
 ```
 
-Whether you need to log metrics to [MLflow](https://docs.ultralytics.com/integrations/mlflow) or export to [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) for high-speed hardware deployment, the Ultralytics platform handles it natively.
+Whether you need to log metrics to [MLflow](https://docs.ultralytics.com/integrations/mlflow) or export to [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) for high-speed hardware deployment, the Ultralytics Python package handles it natively.
 
 ## Ideal Use Cases
 
@@ -115,7 +115,7 @@ YOLO26 represents the ultimate synthesis of previous generations, combining the 
 
 ### Key YOLO26 Innovations
 
-- **End-to-End NMS-Free Design:** Building on the foundations laid by YOLOv10, YOLO26 natively eliminates NMS post-processing for simpler deployment.
+- **End-to-End NMS-Free Design:** Building on the foundations laid by YOLOv10, YOLO26's optional one-to-one head (`nms=False`) skips NMS post-processing for simpler deployment.
 - **MuSGD Optimizer:** A hybrid of SGD and Muon, bringing advanced LLM training innovations to computer vision for incredibly stable and fast convergence.
 - **Up to 43% Faster CPU Inference:** Specifically optimized for edge computing and devices without dedicated GPUs.
 - **DFL Removal:** Distribution Focal Loss was removed to simplify [model export](https://docs.ultralytics.com/modes/export) and boost low-power device compatibility.

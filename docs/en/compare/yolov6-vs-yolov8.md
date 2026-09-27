@@ -42,9 +42,9 @@ Released by Ultralytics, YOLOv8 represents a paradigm shift from specialized bou
 
 ### Architectural Highlights
 
-YOLOv8 natively features a decoupled head structure that separates objectness, classification, and regression tasks, significantly improving convergence speed. Its anchor-free design eliminates the need for manual anchor box configuration, ensuring robust generalization across highly diverse [computer vision datasets](https://docs.ultralytics.com/datasets/detect).
+YOLOv8 natively features a decoupled head structure that separates classification and regression tasks, significantly improving convergence speed. Its anchor-free design eliminates the need for manual anchor box configuration, ensuring robust generalization across highly diverse [computer vision datasets](https://docs.ultralytics.com/datasets/detect).
 
-The model integrates the advanced **C2f module** (Cross-Stage Partial bottleneck with two convolutions), replacing older C3 blocks. This enhances gradient flow and feature representation without inflating the computational budget. Crucially, YOLOv8 is not just a detection engine; it natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), [image classification](https://docs.ultralytics.com/tasks/classify), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) tasks within a single API.
+The model integrates the advanced **C2f module** (Cross-Stage Partial bottleneck with two convolutions), replacing older C3 blocks. This enhances gradient flow and feature representation without inflating the computational budget. Crucially, YOLOv8 is not just a detection engine; it natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) tasks within a single API.
 
 [Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
@@ -62,7 +62,7 @@ Evaluating models on the industry-standard [COCO dataset](https://cocodataset.or
 | [YOLOv8n](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) | 640                         | 37.3                       | **80.4**                             | 1.47                                      | **3.2**                  | **8.7**                 |
 | [YOLOv8s](https://platform.ultralytics.com/ultralytics/yolov8/yolov8s) | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
 | [YOLOv8m](https://platform.ultralytics.com/ultralytics/yolov8/yolov8m) | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
-| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
+| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.1                   |
 | [YOLOv8x](https://platform.ultralytics.com/ultralytics/yolov8/yolov8x) | 640                         | **53.9**                   | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
 
 !!! tip "Performance Balance and Hardware"
@@ -135,7 +135,7 @@ results = model.train(
 )
 
 # Run an inference on a test image
-metrics = model.predict("https://ultralytics.com/images/bus.jpg", save=True)
+predictions = model.predict("https://ultralytics.com/images/bus.jpg", save=True)
 
 # Export the trained model to ONNX format for deployment
 export_path = model.export(format="onnx")

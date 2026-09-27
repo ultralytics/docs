@@ -63,11 +63,11 @@ When comparing these models, it is crucial to look at the balance of mean Averag
 | DAMO-YOLOm                                                              | 640                         | 49.2                       | -                                    | 5.09                                      | 28.2                     | 61.8                    |
 | DAMO-YOLOl                                                              | 640                         | **50.8**                   | -                                    | 7.18                                      | 42.1                     | 97.3                    |
 |                                                                         |                             |                            |                                      |                                           |                          |                         |
-| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | **73.6**                             | **1.12**                                  | **2.6**                  | **7.7**                 |
-| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
-| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
-| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
-| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
+| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | -                                    | **1.12**                                  | **1.9**                  | **4.5**                 |
+| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | -                                    | 1.92                                      | 7.2                      | 16.5                    |
+| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | -                                    | 4.03                                      | 21.2                     | 49.0                    |
+| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | -                                    | 6.61                                      | 46.5                     | 109.1                   |
+| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | -                                    | 11.89                                     | 86.7                     | 205.7                   |
 
 ### Analyzing the Trade-offs
 
@@ -107,7 +107,7 @@ YOLOv5 is recommended for:
 
 - **Proven Production Systems:** Existing deployments where YOLOv5's long track record of stability, extensive documentation, and massive community support are valued.
 - **Resource-Constrained Training:** Environments with limited GPU resources where YOLOv5's efficient training pipeline and lower memory requirements are advantageous.
-- **Extensive Export Format Support:** Projects requiring deployment across many formats including [ONNX](https://docs.ultralytics.com/integrations/onnx), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), [CoreML](https://docs.ultralytics.com/integrations/coreml), and [TFLite](https://docs.ultralytics.com/integrations/tflite).
+- **Extensive Export Format Support:** Projects requiring deployment across many formats including [ONNX](https://docs.ultralytics.com/integrations/onnx), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), [CoreML](https://docs.ultralytics.com/integrations/coreml), and [LiteRT](https://docs.ultralytics.com/integrations/litert).
 
 ### When to Choose Ultralytics (YOLO26)
 
@@ -125,9 +125,9 @@ While YOLOv5 is legendary and DAMO-YOLO provides interesting academic insights, 
 
 YOLO26 addresses the traditional bottlenecks of edge deployment and training instability:
 
-- **End-to-End NMS-Free Design:** YOLO26 natively eliminates Non-Maximum Suppression post-processing. This breakthrough simplifies deployment logic and drastically reduces latency variability, making it ideal for high-speed [robotics](https://www.ultralytics.com/glossary/robotics) and autonomous systems.
+- **End-to-End NMS-Free Design:** YOLO26's optional end-to-end head (`nms=False`) eliminates Non-Maximum Suppression post-processing. This breakthrough simplifies deployment logic and drastically reduces latency variability, making it ideal for high-speed [robotics](https://www.ultralytics.com/glossary/robotics) and autonomous systems.
 - **MuSGD Optimizer:** Inspired by LLM training innovations (like Moonshot AI's Kimi K2), YOLO26 utilizes the MuSGD optimizer (a hybrid of SGD and Muon). This ensures highly stable training runs and remarkably faster convergence.
-- **Up to 43% Faster CPU Inference:** By strategically removing the Distribution Focal Loss (DFL), YOLO26 achieves vastly superior speeds on CPUs and edge devices compared to its predecessors like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8).
+- **Up to 43% Faster CPU Inference:** By strategically removing the Distribution Focal Loss (DFL), YOLO26n runs up to 43% faster than YOLO11n on CPU ONNX, delivering superior speeds on CPUs and edge devices compared to predecessors like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8).
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, which is critical for analyzing [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and IoT sensor feeds.
 
 ### Code Example: Simplicity in Action

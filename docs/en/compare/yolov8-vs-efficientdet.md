@@ -27,7 +27,7 @@ The architecture introduces an anchor-free detection head, which heavily reduces
 
 ### EfficientDet
 
-Authored by Mingxing Tan, Ruoming Pang, and Quoc V. Le at Google and released in late 2019, EfficientDet focuses on scalable efficiency. Described in their [official Arxiv paper](https://arxiv.org/abs/1911.09070), the model heavily leverages the [AutoML ecosystem](https://github.com/google/automl).
+Authored by Mingxing Tan, Ruoming Pang, and Quoc V. Le at Google and released in late 2019, EfficientDet focuses on scalable efficiency. Described in their [official arXiv paper](https://arxiv.org/abs/1911.09070), the model heavily leverages the [AutoML ecosystem](https://github.com/google/automl).
 
 The defining characteristic of EfficientDet is its **Bi-directional Feature Pyramid Network (BiFPN)**, which enables easy and fast multi-scale feature fusion. Combined with an EfficientNet backbone, the architecture uses a compound scaling method that uniformly scales the resolution, depth, and width for all backbone, feature network, and box/class prediction networks at the same time. While this results in excellent parameter efficiency, the complex network topology often struggles to achieve optimal real-time speeds on standard GPUs.
 
@@ -42,7 +42,7 @@ When comparing object detectors, [mean Average Precision (mAP)](https://docs.ult
 | [YOLOv8n](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) | 640                         | 37.3                       | 80.4                                 | **1.47**                                  | **3.2**                  | 8.7                     |
 | [YOLOv8s](https://platform.ultralytics.com/ultralytics/yolov8/yolov8s) | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
 | [YOLOv8m](https://platform.ultralytics.com/ultralytics/yolov8/yolov8m) | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
-| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
+| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.1                   |
 | [YOLOv8x](https://platform.ultralytics.com/ultralytics/yolov8/yolov8x) | 640                         | **53.9**                   | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
 | EfficientDet-d0                                                        | 640                         | 34.6                       | **10.2**                             | 3.92                                      | 3.9                      | **2.54**                |
@@ -92,7 +92,7 @@ inference_results[0].show()
 
 While YOLOv8 remains a highly capable production model, researchers and developers looking for the bleeding edge of AI performance should evaluate **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**, released in January 2026.
 
-YOLO26 redefines the object detection paradigm by introducing a native **End-to-End NMS-Free Design**. By eliminating the need for Non-Maximum Suppression during post-processing—a bottleneck that has existed since early YOLO versions—latency variance is practically eliminated. This is a game-changer for deployment on low-power devices.
+YOLO26 redefines the object detection paradigm by introducing a native **End-to-End NMS-Free Design**. By removing the need for Non-Maximum Suppression during post-processing with its optional one-to-one head (`nms=False`)—a bottleneck that has existed since early YOLO versions—latency variance is practically eliminated. This is a game-changer for deployment on low-power devices.
 
 Furthermore, YOLO26 incorporates several groundbreaking training innovations:
 

@@ -66,23 +66,23 @@ The following table highlights the performance differences between the two model
 | Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
 | [YOLOv8n](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) | 640                         | 37.3                       | 80.4                                 | **1.47**                                  | 3.2                      | 8.7                     |
-| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | **40.9**                   | **38.9**                             | 1.7                                       | **2.4**                  | **5.4**                 |
+| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | **40.9**                   | **38.9**                             | 1.7                                       | **2.4**                  | **5.5**                 |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
 | [YOLOv8s](https://platform.ultralytics.com/ultralytics/yolov8/yolov8s) | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
-| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | **48.6**                   | **87.2**                             | **2.5**                                   | **9.5**                  | **20.7**                |
+| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | **48.6**                   | **87.2**                             | **2.5**                                   | **9.5**                  | **20.9**                |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
 | [YOLOv8m](https://platform.ultralytics.com/ultralytics/yolov8/yolov8m) | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
-| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | **53.1**                   | **220.0**                            | **4.7**                                   | **20.4**                 | **68.2**                |
+| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | **53.1**                   | **220.0**                            | **4.7**                                   | **20.4**                 | **68.4**                |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
-| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
-| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | **55.0**                   | **286.2**                            | **6.2**                                   | **24.8**                 | **86.4**                |
+| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.1                   |
+| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | **55.0**                   | **286.2**                            | **6.2**                                   | **24.8**                 | **86.8**                |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
 | [YOLOv8x](https://platform.ultralytics.com/ultralytics/yolov8/yolov8x) | 640                         | 53.9                       | **479.1**                            | 14.37                                     | 68.2                     | 257.8                   |
-| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | **11.8**                                  | **55.7**                 | **193.9**               |
+| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | **11.8**                                  | **55.7**                 | **194.4**               |
 
 ### Analyzing the Metrics
 
-The data reveals a generational leap. YOLO26 significantly outperforms YOLOv8 across all metrics. The YOLO26 Nano (YOLO26n) model achieves a remarkable 40.9 mAP, substantially higher than YOLOv8n's 37.3, while utilizing fewer parameters and FLOPs.
+The data reveals a generational leap. YOLO26 outperforms YOLOv8 across nearly all metrics. The YOLO26 Nano (YOLO26n) model achieves a remarkable 40.9 mAP, substantially higher than YOLOv8n's 37.3, while utilizing fewer parameters and FLOPs.
 
 One of the most striking improvements is the CPU inference speed. Because of its optimized architecture and the removal of DFL, YOLO26 delivers **up to 43% faster CPU inference** via [ONNX](https://docs.ultralytics.com/integrations/onnx). This makes YOLO26 unparalleled for [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) and other low-resource edge devices. While GPU speeds using [TensorRT](https://developer.nvidia.com/tensorrt) are competitive in both models, the overall parameter efficiency of YOLO26 translates to lower memory footprints during both training and inference.
 
@@ -103,7 +103,7 @@ from ultralytics import YOLO
 model = YOLO("yolo26n.pt")
 
 # Train the model on the COCO8 dataset for 50 epochs
-# The MuSGD optimizer is automatically leveraged for YOLO26
+# optimizer="auto" selects MuSGD for longer runs (>10k iterations) and AdamW for short ones like this
 train_results = model.train(
     data="coco8.yaml",
     epochs=50,
@@ -113,7 +113,7 @@ train_results = model.train(
 
 # Run inference on a sample image
 # The NMS-free design provides clean, rapid predictions
-results = model("https://ultralytics.com/images/bus.jpg")
+results = model("https://ultralytics.com/images/bus.jpg", nms=False)
 
 # Display the predictions
 results[0].show()
@@ -138,7 +138,7 @@ Choosing the right model dictates your project's success.
 
 **When to retain YOLOv8:**
 
-- **Legacy Infrastructure:** If your current production pipeline is heavily coupled with the specific output tensors and anchor mechanisms of YOLOv8, migration may require minor adaptation.
+- **Legacy Infrastructure:** If your current production pipeline is heavily coupled with the specific output tensors and NMS post-processing of YOLOv8, migration may require minor adaptation.
 - **Academic Baselines:** YOLOv8 remains a highly cited and stable baseline for academic computer vision research comparing older architectures.
 
 In conclusion, while YOLOv8 established a phenomenal standard for real-time vision tasks, **YOLO26** redefines what is possible. By blending massive efficiency gains on CPUs with innovative LLM-inspired training optimizers, YOLO26 ensures developers can deploy highly accurate AI in virtually any hardware environment.

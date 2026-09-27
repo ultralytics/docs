@@ -27,7 +27,7 @@ Developed by Ultralytics, YOLO26 represents a massive generational leap for the 
 
 YOLO26 introduces several groundbreaking features that differentiate it not only from Transformer models but also from earlier iterations like [YOLO11](https://docs.ultralytics.com/models/yolo11):
 
-- **End-to-End NMS-Free Design:** YOLO26 eliminates traditional Non-Maximum Suppression (NMS) during post-processing. Pioneered in models like [YOLOv10](https://docs.ultralytics.com/models/yolov10), this natively end-to-end approach reduces inference latency variance and simplifies deployment logic, particularly on edge hardware.
+- **End-to-End NMS-Free Design:** YOLO26's optional one-to-one head (`nms=False`) eliminates traditional Non-Maximum Suppression (NMS) during post-processing. Pioneered in models like [YOLOv10](https://docs.ultralytics.com/models/yolov10), this end-to-end approach reduces inference latency variance and simplifies deployment logic, particularly on edge hardware.
 - **Up to 43% Faster CPU Inference:** Recognizing the growing need for decentralized AI, YOLO26 is highly optimized for devices lacking dedicated GPUs, such as the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi).
 - **DFL Removal:** By stripping out the Distribution Focal Loss (DFL), YOLO26 offers a simplified export process and vastly improved compatibility with low-power edge devices and microcontrollers.
 - **MuSGD Optimizer:** Bridging the gap between Large Language Model (LLM) training and computer vision, YOLO26 utilizes the MuSGD optimizer. This hybrid of SGD and Muon—inspired by Moonshot AI's Kimi K2—ensures robust training stability and faster convergence.
@@ -41,7 +41,7 @@ Unlike models limited strictly to bounding boxes, YOLO26 is a versatile powerhou
 
 !!! tip "Edge Deployment Strategy"
 
-    When deploying to edge devices, utilize the `YOLO26n` (Nano) or `YOLO26s` (Small) variants. Exporting these models to [CoreML](https://docs.ultralytics.com/integrations/coreml) or [TFLite](https://docs.ultralytics.com/integrations/tflite) is frictionless thanks to the DFL removal and NMS-free architecture, guaranteeing smooth real-time performance on iOS and Android.
+    When deploying to edge devices, utilize the `YOLO26n` (Nano) or `YOLO26s` (Small) variants. Exporting these models to [CoreML](https://docs.ultralytics.com/integrations/coreml) or [LiteRT](https://docs.ultralytics.com/integrations/litert) is frictionless thanks to the DFL removal and optional NMS-free head, guaranteeing smooth real-time performance on iOS and Android.
 
 ## RTDETRv2: Enhancing Real-Time Detection Transformers
 
@@ -61,7 +61,7 @@ RTDETRv2 employs a Transformer-based architecture, which inherently processes im
 - **Bag-of-Freebies:** The v2 iteration introduces a series of optimized training techniques (bag-of-freebies) that improve the baseline performance without adding inference cost.
 - **Global Context Awareness:** Because of the Transformer attention layers, RTDETRv2 is naturally adept at understanding complex scenes where global context is necessary to distinguish overlapping or occluded objects.
 
-[Learn more about RT-DETR](https://docs.ultralytics.com/models/rtdetr){ .md-button }
+[Learn more about RTDETRv2](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch){ .md-button }
 
 ### Limitations of Transformer Models
 
@@ -73,11 +73,11 @@ Evaluating these models head-to-head reveals the tangible benefits of the latest
 
 | Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | 40.9                       | **38.9**                             | **1.7**                                   | **2.4**                  | **5.4**                 |
-| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.7                    |
-| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.2                    |
-| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.4                    |
-| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 193.9                   |
+| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | 40.9                       | **38.9**                             | **1.7**                                   | **2.4**                  | **5.5**                 |
+| [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.9                    |
+| [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.4                    |
+| [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.8                    |
+| [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 194.4                   |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
 | RTDETRv2-s                                                             | 640                         | 48.1                       | -                                    | 5.03                                      | 20                       | 60                      |
 | RTDETRv2-m                                                             | 640                         | 51.9                       | -                                    | 7.51                                      | 36                       | 100                     |
@@ -124,7 +124,7 @@ model = YOLO("yolo26n.pt")
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
 # Execute high-speed, NMS-free inference
-predictions = model("https://ultralytics.com/images/bus.jpg")
+predictions = model("https://ultralytics.com/images/bus.jpg", nms=False)
 
 # Export to ONNX for seamless deployment
 model.export(format="onnx")
@@ -136,7 +136,7 @@ By utilizing Ultralytics models, developers gain access to an actively maintaine
 
 ### Performance Balance
 
-YOLO26 strikes an unparalleled balance between inference speed and accuracy. The removal of NMS combined with the MuSGD optimizer ensures that you are deploying a model that is both highly accurate on small objects (thanks to ProgLoss + STAL) and blazingly fast in production, making it the superior choice for almost all modern [computer vision applications](https://www.ultralytics.com/blog/60-impactful-computer-vision-applications).
+YOLO26 strikes an unparalleled balance between inference speed and accuracy. The optional removal of NMS combined with the MuSGD optimizer ensures that you are deploying a model that is both highly accurate on small objects (thanks to ProgLoss + STAL) and blazingly fast in production, making it the superior choice for almost all modern [computer vision applications](https://www.ultralytics.com/blog/60-impactful-computer-vision-applications).
 
 ## Other Models in the Ecosystem
 

@@ -61,10 +61,10 @@ When evaluating these models, analyzing empirical data helps determine which arc
 | EfficientDet-d7 | 640                         | 53.7                       | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
 |                 |                             |                            |                                      |                                           |                          |                         |
 | YOLOv9t         | 640                         | 38.3                       | -                                    | **2.3**                                   | **2.0**                  | 7.7                     |
-| YOLOv9s         | 640                         | 46.8                       | -                                    | 3.54                                      | 7.1                      | 26.4                    |
-| YOLOv9m         | 640                         | 51.4                       | -                                    | 6.43                                      | 20.0                     | 76.3                    |
-| YOLOv9c         | 640                         | 53.0                       | -                                    | 7.16                                      | 25.3                     | 102.1                   |
-| YOLOv9e         | 640                         | **55.6**                   | -                                    | 16.77                                     | 57.3                     | 189.0                   |
+| YOLOv9s         | 640                         | 46.8                       | -                                    | 3.54                                      | 7.2                      | 26.7                    |
+| YOLOv9m         | 640                         | 51.4                       | -                                    | 6.43                                      | 20.1                     | 76.8                    |
+| YOLOv9c         | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
+| YOLOv9e         | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
 
 ### Critical Analysis
 
@@ -84,7 +84,7 @@ EfficientDet is a strong choice for:
 
 - **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
 - **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
-- **Mobile Deployment via TFLite:** Projects that specifically require [TensorFlow Lite](https://developers.google.com/edge/litert) export for Android or embedded Linux devices.
+- **Mobile Deployment via LiteRT:** Projects that specifically require [LiteRT](https://developers.google.com/edge/litert) (formerly TensorFlow Lite) export for Android or embedded Linux devices.
 
 ### When to Choose YOLOv9
 
@@ -110,8 +110,8 @@ The [Ultralytics Platform](https://platform.ultralytics.com) offers unparalleled
 
 ### YOLO26 Technical Highlights
 
-- **End-to-End NMS-Free Design:** YOLO26 eliminates post-processing bottlenecks entirely. By removing Non-Maximum Suppression, deployment graphs are unified and inherently faster on edge AI chips.
-- **Up to 43% Faster CPU Inference:** Optimized heavily for embedded devices, making it substantially faster than both YOLOv9 and EfficientDet when GPUs are unavailable.
+- **End-to-End NMS-Free Design:** YOLO26's optional end-to-end head (`nms=False`) eliminates post-processing bottlenecks. By removing Non-Maximum Suppression, deployment graphs are unified and inherently faster on edge AI chips.
+- **Up to 43% Faster CPU Inference:** Optimized heavily for embedded devices, with YOLO26n running up to 43% faster than YOLO11n on CPU ONNX when GPUs are unavailable.
 - **MuSGD Optimizer:** Integrating LLM innovations into vision AI, this hybrid optimizer stabilizes training runs, allowing models to converge faster with fewer resources.
 - **Low Memory Requirements:** Unlike transformer-heavy architectures or unoptimized CNNs, YOLO26 minimizes CUDA memory consumption during training, letting you use larger batch sizes on consumer-grade hardware.
 - **ProgLoss + STAL:** Superior loss function design drastically boosts accuracy for detecting small objects, making YOLO26 ideal for aerial imagery and IoT networks.

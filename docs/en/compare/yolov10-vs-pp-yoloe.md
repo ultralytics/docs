@@ -49,7 +49,7 @@ PP-YOLOE+ is an upgraded version of the original PP-YOLOE, developed by Baidu's 
 
 ### Architectural Strengths and Weaknesses
 
-PP-YOLOE+ utilizes a scalable backbone and a powerful neck design (CSPRepResNet) that significantly boosts feature extraction. Its training methodology relies heavily on large-scale datasets like Objects365 for pre-training, which contributes to its impressive accuracy, particularly on the larger `x` and `l` variants.
+PP-YOLOE+ utilizes a scalable CSPRepResNet backbone and a powerful neck design that significantly boosts feature extraction. Its training methodology relies heavily on large-scale datasets like Objects365 for pre-training, which contributes to its impressive accuracy, particularly on the larger `x` and `l` variants.
 
 The primary drawback of PP-YOLOE+ is its deep entanglement with the PaddlePaddle framework. For teams accustomed to PyTorch or the unified Ultralytics ecosystem, adopting PP-YOLOE+ can introduce friction. Furthermore, its larger parameter count leads to higher memory requirements during training compared to equivalent [Ultralytics YOLO models](https://docs.ultralytics.com/models).
 
@@ -64,9 +64,9 @@ The following table presents a direct comparison of YOLOv10 and PP-YOLOE+ across
 | YOLOv10n   | 640                         | 39.5                       | -                                    | **1.56**                                  | **2.3**                  | **6.7**                 |
 | YOLOv10s   | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
 | YOLOv10m   | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
-| YOLOv10b   | 640                         | 52.7                       | -                                    | 6.54                                      | 24.4                     | 92.0                    |
-| YOLOv10l   | 640                         | 53.3                       | -                                    | 8.33                                      | 29.5                     | 120.3                   |
-| YOLOv10x   | 640                         | 54.4                       | -                                    | 12.2                                      | 56.9                     | 160.4                   |
+| YOLOv10b   | 640                         | 52.7                       | -                                    | 6.54                                      | 19.1                     | 92.0                    |
+| YOLOv10l   | 640                         | 53.3                       | -                                    | 8.33                                      | 24.4                     | 120.3                   |
+| YOLOv10x   | 640                         | 54.4                       | -                                    | 12.2                                      | 29.5                     | 160.4                   |
 |            |                             |                            |                                      |                                           |                          |                         |
 | PP-YOLOE+t | 640                         | 39.9                       | -                                    | 2.84                                      | 4.85                     | 19.15                   |
 | PP-YOLOE+s | 640                         | 43.7                       | -                                    | 2.62                                      | 7.93                     | 17.36                   |
@@ -74,7 +74,7 @@ The following table presents a direct comparison of YOLOv10 and PP-YOLOE+ across
 | PP-YOLOE+l | 640                         | 52.9                       | -                                    | 8.36                                      | 52.2                     | 110.07                  |
 | PP-YOLOE+x | 640                         | **54.7**                   | -                                    | 14.3                                      | 98.42                    | 206.59                  |
 
-As observed, YOLOv10 significantly outperforms PP-YOLOE+ in parameter efficiency and inference speed on TensorRT, making it a stronger candidate for [edge computing environments](https://www.ultralytics.com/glossary/edge-computing). PP-YOLOE+ slightly edges out in maximum theoretical accuracy on its largest variant, albeit with nearly double the parameter count.
+As observed, YOLOv10 significantly outperforms PP-YOLOE+ in parameter efficiency and inference speed on TensorRT, making it a stronger candidate for [edge computing environments](https://www.ultralytics.com/glossary/edge-computing). PP-YOLOE+ slightly edges out in maximum theoretical accuracy on its largest variant, albeit with more than three times the parameter count.
 
 ## Use Cases and Recommendations
 
@@ -114,7 +114,7 @@ While YOLOv10 and PP-YOLOE+ offer specialized benefits, the modern standard for 
 
 ### Key Innovations in YOLO26
 
-- **End-to-End NMS-Free Design:** By eliminating post-processing latency, YOLO26 guarantees stable, high-speed inferences, vital for [autonomous vehicles](https://www.ultralytics.com/glossary/autonomous-vehicles) and rapid robotics.
+- **End-to-End NMS-Free Design:** With its optional one-to-one head (`nms=False`) eliminating NMS post-processing latency, YOLO26 delivers stable, high-speed inference, vital for [autonomous vehicles](https://www.ultralytics.com/glossary/autonomous-vehicles) and rapid robotics.
 - **Edge-First Optimizations:** The removal of Distribution Focal Loss (DFL) simplifies model [export formats](https://docs.ultralytics.com/modes/export) and yields up to **43% faster CPU inference** over previous generations.
 - **Advanced Training Dynamics:** Leveraging the new **MuSGD Optimizer**—a hybrid of SGD and Muon—YOLO26 brings LLM training stability to vision tasks, converging faster and more reliably.
 - **Enhanced Accuracy via ProgLoss + STAL:** These advanced loss functions specifically target complex scenarios, offering exceptional gains in small-object detection crucial for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and [agriculture](https://www.ultralytics.com/solutions/computer-vision-in-agriculture).
@@ -144,6 +144,6 @@ Selecting the right model heavily depends on deployment constraints:
 - **YOLOv10** is optimal for dense [crowd management](https://www.ultralytics.com/blog/vision-ai-in-crowd-management) and environments where removing NMS drops latency variability, making real-time tracking more consistent.
 - **Ultralytics YOLO26** remains the definitive choice for enterprise-wide scaling. Whether analyzing traffic in [smart cities](https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities) or deploying to ultra-low-power edge nodes like the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi), its minimal memory footprint, comprehensive documentation, and unified training pipeline ensure rapid ROI.
 
-For those interested in exploring older supported architectures or transformer alternatives within the ecosystem, see the documentations for [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or [RT-DETR](https://docs.ultralytics.com/models/rtdetr).
+For those interested in exploring older supported architectures or transformer alternatives within the ecosystem, see the documentation for [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or [RT-DETR](https://docs.ultralytics.com/models/rtdetr).
 
 Ultimately, a well-maintained ecosystem combined with a simple API ensures that developers spend less time debugging configuration files and more time solving real-world [vision AI](https://www.ultralytics.com/blog) problems.

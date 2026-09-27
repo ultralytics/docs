@@ -51,7 +51,7 @@ Released in January 2023, YOLOv8 represented a monumental architectural shift, e
 
 Unlike its predecessor, YOLOv8 introduces an **anchor-free** detection head. This eliminates the need to manually tune anchor configurations based on dataset distributions, enhancing generalization across diverse custom datasets like the popular [COCO dataset](https://cocodataset.org/).
 
-The architecture also upgrades the backbone with a **C2f module** (Cross-Stage Partial bottleneck with two convolutions), replacing the older C3 module. This enhancement improves feature representation without heavily taxing memory. Additionally, the implementation of a decoupled head—separating objectness, classification, and regression tasks—drastically improves convergence during [model training](https://docs.ultralytics.com/modes/train).
+The architecture also upgrades the backbone with a **C2f module** (Cross-Stage Partial bottleneck with two convolutions), replacing the older C3 module. This enhancement improves feature representation without heavily taxing memory. Additionally, the implementation of a decoupled head—separating classification and regression tasks—drastically improves convergence during [model training](https://docs.ultralytics.com/modes/train).
 
 ### Versatility and Python API
 
@@ -81,17 +81,17 @@ Below is the detailed comparison of their performance metrics on the COCO datase
 
 | Model                                                                   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ----------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | **73.6**                             | **1.12**                                  | **2.6**                  | **7.7**                 |
-| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | **120.7**                            | **1.92**                                  | **9.1**                  | **24.0**                |
-| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | **233.9**                            | **4.03**                                  | **25.1**                 | **64.2**                |
-| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | 408.4                                | **6.61**                                  | 53.2                     | **135.0**               |
-| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | 763.2                                | **11.89**                                 | 97.2                     | **246.4**               |
+| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | -                                    | **1.12**                                  | **1.9**                  | **4.5**                 |
+| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | -                                    | **1.92**                                  | **7.2**                  | **16.5**                |
+| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | -                                    | **4.03**                                  | **21.2**                 | **49.0**                |
+| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | -                                    | **6.61**                                  | 46.5                     | **109.1**               |
+| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | -                                    | **11.89**                                 | 86.7                     | **205.7**               |
 |                                                                         |                             |                            |                                      |                                           |                          |                         |
 | [YOLOv8n](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n)  | 640                         | **37.3**                   | 80.4                                 | 1.47                                      | 3.2                      | 8.7                     |
 | [YOLOv8s](https://platform.ultralytics.com/ultralytics/yolov8/yolov8s)  | 640                         | **44.9**                   | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
 | [YOLOv8m](https://platform.ultralytics.com/ultralytics/yolov8/yolov8m)  | 640                         | **50.2**                   | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
-| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l)  | 640                         | **52.9**                   | **375.2**                            | 9.06                                      | **43.7**                 | 165.2                   |
-| [YOLOv8x](https://platform.ultralytics.com/ultralytics/yolov8/yolov8x)  | 640                         | **53.9**                   | **479.1**                            | 14.37                                     | **68.2**                 | 257.8                   |
+| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l)  | 640                         | **52.9**                   | 375.2                                | 9.06                                      | **43.7**                 | 165.1                   |
+| [YOLOv8x](https://platform.ultralytics.com/ultralytics/yolov8/yolov8x)  | 640                         | **53.9**                   | 479.1                                | 14.37                                     | **68.2**                 | 257.8                   |
 
 The data reveals that YOLOv8 provides a substantial boost in accuracy. For instance, `YOLOv8s` achieves a 44.9 mAP compared to `YOLOv5s` at 37.4 mAP, a massive leap that significantly improves performance in dense environments or when identifying small objects. However, for ultra-constrained environments, `YOLOv5n` remains incredibly efficient, boasting the lowest parameter count and FLOPs.
 
@@ -101,7 +101,7 @@ The data reveals that YOLOv8 provides a substantial boost in accuracy. For insta
 
 ## The Ecosystem Advantage
 
-Choosing either YOLOv5 or YOLOv8 grants developers access to the well-maintained [Ultralytics Platform](https://platform.ultralytics.com). This integrated environment offers simple tools for dataset annotation, [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning), cloud training, and model monitoring. The active development and strong community support ensure that developers can quickly resolve issues and integrate with external tools like [Weights & Biases](https://wandb.ai/site) and [ClearML](https://clear.ml/).
+Choosing either YOLOv5 or YOLOv8 grants developers access to the well-maintained [Ultralytics Platform](https://platform.ultralytics.com). This integrated environment offers simple tools for dataset annotation, cloud training, and model monitoring, while the `ultralytics` package adds built-in [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning). The active development and strong community support ensure that developers can quickly resolve issues and integrate with external tools like [Weights & Biases](https://wandb.ai/site) and [ClearML](https://clear.ml/).
 
 While other frameworks might suffer from steep learning curves, Ultralytics prioritizes a streamlined user experience, ensuring a favorable trade-off between speed and accuracy suitable for diverse real-world deployment scenarios.
 
@@ -111,7 +111,7 @@ While YOLOv8 is a highly capable framework, the field of artificial intelligence
 
 For those seeking the absolute bleeding edge of computer vision technology, we highly recommend **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**. Released in 2026, YOLO26 represents a massive leap forward:
 
-- **End-to-End NMS-Free Design:** Pioneered originally in experimental architectures, YOLO26 natively eliminates Non-Maximum Suppression post-processing, leading to drastically simpler and faster deployment pipelines.
+- **End-to-End NMS-Free Design:** Pioneered originally in experimental architectures, YOLO26's optional one-to-one head (`nms=False`) removes Non-Maximum Suppression post-processing, leading to drastically simpler and faster deployment pipelines.
 - **MuSGD Optimizer:** Inspired by the LLM training innovations seen in models like Kimi K2, YOLO26 utilizes a hybrid optimizer for more stable training and rapid convergence.
 - **Edge Computing Mastery:** With up to **43% faster CPU inference** compared to previous generations, it is the ultimate model for devices lacking dedicated GPUs.
 - **Enhanced Accuracy:** Utilizing the new ProgLoss + STAL loss functions, it dramatically improves small-object recognition, which is critical for [robotics](https://en.wikipedia.org/wiki/Robotics) and aerial drone imagery.

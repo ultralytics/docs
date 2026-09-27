@@ -51,7 +51,7 @@ YOLOv10 represents a major shift in the [YOLO object detection](https://www.ultr
 **Key Characteristics:**
 
 - **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
-- **Organization:** [Tsinghua University](https://github.com/THU-MIG/yolov10)
+- **Organization:** [Tsinghua University](https://www.tsinghua.edu.cn/en/)
 - **Date:** 2024-05-23
 - **Arxiv:** [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)
 - **GitHub:** [https://github.com/THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
@@ -88,9 +88,9 @@ When evaluating models for production, balancing accuracy with computational cos
 | YOLOv10n   | 640                         | 39.5                       | -                                    | **1.56**                                  | **2.3**                  | **6.7**                 |
 | YOLOv10s   | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
 | YOLOv10m   | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
-| YOLOv10b   | 640                         | 52.7                       | -                                    | 6.54                                      | 24.4                     | 92.0                    |
-| YOLOv10l   | 640                         | 53.3                       | -                                    | 8.33                                      | 29.5                     | 120.3                   |
-| YOLOv10x   | 640                         | **54.4**                   | -                                    | 12.2                                      | 56.9                     | 160.4                   |
+| YOLOv10b   | 640                         | 52.7                       | -                                    | 6.54                                      | 19.1                     | 92.0                    |
+| YOLOv10l   | 640                         | 53.3                       | -                                    | 8.33                                      | 24.4                     | 120.3                   |
+| YOLOv10x   | 640                         | **54.4**                   | -                                    | 12.2                                      | 29.5                     | 160.4                   |
 
 While RTDETRv2 offers robust accuracy, YOLOv10 demonstrates a remarkable advantage in latency and parameter efficiency, particularly in its smaller variants (Nano and Small), making it highly attractive for [edge computing and AIoT](https://www.ultralytics.com/blog/edge-ai-and-aiot-upgrade-any-camera-with-ultralytics-yolov8-in-a-no-code-way) applications.
 

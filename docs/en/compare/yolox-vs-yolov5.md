@@ -60,11 +60,11 @@ The trade-off between speed and accuracy is the ultimate test for these architec
 | YOLOXl                                                                  | 640                         | 49.7                       | -                                    | 9.04                                      | 54.2                     | 155.6                   |
 | YOLOXx                                                                  | 640                         | **51.1**                   | -                                    | 16.1                                      | 99.1                     | 281.9                   |
 |                                                                         |                             |                            |                                      |                                           |                          |                         |
-| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | **73.6**                             | **1.12**                                  | 2.6                      | 7.7                     |
-| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
-| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
-| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
-| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
+| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | -                                    | **1.12**                                  | 1.9                      | 4.5                     |
+| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | -                                    | 1.92                                      | 7.2                      | 16.5                    |
+| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | -                                    | 4.03                                      | 21.2                     | 49.0                    |
+| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | -                                    | 6.61                                      | 46.5                     | 109.1                   |
+| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | -                                    | 11.89                                     | 86.7                     | 205.7                   |
 
 While YOLOX achieves competitive mAP scores, especially in its larger variants, YOLOv5 maintains a remarkable advantage in TensorRT inference speed across the board. The YOLOv5s model, for instance, provides exceptional speed-to-accuracy ratios, making it highly desirable for real-time applications where every millisecond counts.
 
@@ -98,7 +98,10 @@ The difference in usability is best demonstrated through code.
 from ultralytics import YOLO
 
 # Load a pretrained YOLOv5s model
-model = YOLO("yolov5su.pt")
+model = YOLO("yolov5su.pt")  # YOLOv5u: anchor-free YOLOv5 weights for the ultralytics package
+
+# Train the model on the COCO8 example dataset
+model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
 # Run inference on an image
 results = model("https://ultralytics.com/images/zidane.jpg")
@@ -137,6 +140,6 @@ YOLOv5 is the undisputed champion of practical deployment.
 
 While YOLOv5 is a legendary model, the field of AI advances rapidly. If you are starting a new project today, we strongly advise looking at the latest generation of Ultralytics models.
 
-Released in 2026, **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** represents a massive leap forward. It features an **End-to-End NMS-Free Design**, completely removing the need for Non-Maximum Suppression post-processing, which drastically simplifies deployment logic. By removing Distribution Focal Loss (DFL) and utilizing the cutting-edge **MuSGD Optimizer**, YOLO26 achieves up to **43% faster CPU inference** than previous generations while maintaining higher accuracy, especially on small objects thanks to the new ProgLoss + STAL loss functions.
+Released in 2026, **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** represents a massive leap forward. It features an optional **End-to-End NMS-Free Design** (`nms=False`), removing the need for Non-Maximum Suppression post-processing, which drastically simplifies deployment logic. By removing Distribution Focal Loss (DFL) and utilizing the cutting-edge **MuSGD Optimizer**, YOLO26 achieves up to **43% faster CPU inference** than previous generations while maintaining higher accuracy, especially on small objects thanks to the new ProgLoss + STAL (Progressive Loss and Small-Target-Aware Label Assignment).
 
 Whether you choose the battle-tested reliability of YOLOv5 or the bleeding-edge performance of YOLO26, the [Ultralytics Platform](https://platform.ultralytics.com) ensures you have the best tools available to bring your computer vision solutions from concept to production seamlessly. Ensure to explore the comprehensive [Ultralytics documentation](https://docs.ultralytics.com) to unlock the full potential of your AI pipeline.

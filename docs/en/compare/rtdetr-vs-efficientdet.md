@@ -24,7 +24,7 @@ Building on the success of the original RT-DETR, RTDETRv2 refines the transforme
 
 ### Architecture and Core Strengths
 
-RTDETRv2 utilizes a hybrid architecture that pairs a potent CNN backbone (often ResNet or HGNet) with an efficient transformer decoder. The most defining characteristic of [RTDETRv2](https://docs.ultralytics.com/models/rtdetr) is its native ability to bypass non-maximum suppression (NMS). Traditional detectors require NMS to filter out duplicate bounding boxes, adding variable [inference latency](https://www.ultralytics.com/glossary/inference-latency) during post-processing. RTDETRv2 formulates detection as a direct set prediction problem, utilizing bipartite matching to output unique predictions.
+RTDETRv2 utilizes a hybrid architecture that pairs a potent CNN backbone (often ResNet or HGNet) with an efficient transformer decoder. The most defining characteristic of [RTDETRv2](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch) is its native ability to bypass non-maximum suppression (NMS). Traditional detectors require NMS to filter out duplicate bounding boxes, adding variable [inference latency](https://www.ultralytics.com/glossary/inference-latency) during post-processing. RTDETRv2 formulates detection as a direct set prediction problem, utilizing bipartite matching to output unique predictions.
 
 This model excels in server-side deployments where GPU memory is abundant. Its global attention mechanism provides exceptional context awareness, making it highly adept at separating overlapping objects in dense, cluttered environments such as automated [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system) or dense crowd monitoring.
 
@@ -32,7 +32,7 @@ This model excels in server-side deployments where GPU memory is abundant. Its g
 
 While powerful, transformer architectures inherently require more CUDA memory during training compared to standard CNNs. Furthermore, fine-tuning RTDETRv2 can require extended [training data](https://www.ultralytics.com/glossary/training-data) convergence times, making rapid prototyping slightly more resource-intensive.
 
-[Learn more about RTDETRv2](https://docs.ultralytics.com/models/rtdetr){ .md-button }
+[Learn more about RTDETRv2](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch){ .md-button }
 
 ## EfficientDet: Scalable and Efficient CNNs
 
@@ -77,7 +77,7 @@ Understanding the exact trade-offs between these models requires analyzing their
 | EfficientDet-d6 | 640                         | 52.6                       | 92.8                                 | 89.29                                     | 51.9                     | 226.0                   |
 | EfficientDet-d7 | 640                         | 53.7                       | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
 
-As seen above, RTDETRv2 achieves significantly higher [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) at comparable parameter counts to the mid-tier EfficientDet models, heavily utilizing its transformer architecture to boost accuracy.
+As seen above, RTDETRv2 matches or exceeds the [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) of similarly sized EfficientDet models while running far faster on GPU (for example, 53.4 mAP at 9.76 ms for RTDETRv2-l versus 52.6 mAP at 89.29 ms for EfficientDet-d6), heavily utilizing its transformer architecture to boost accuracy.
 
 ## Use Cases and Recommendations
 
@@ -97,7 +97,7 @@ EfficientDet is recommended for:
 
 - **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
 - **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
-- **Mobile Deployment via TFLite:** Projects that specifically require [TensorFlow Lite](https://developers.google.com/edge/litert) export for Android or embedded Linux devices.
+- **Mobile Deployment via LiteRT:** Projects that specifically require [LiteRT](https://developers.google.com/edge/litert) (formerly TensorFlow Lite) export for Android or embedded Linux devices.
 
 ### When to Choose Ultralytics (YOLO26)
 
@@ -115,14 +115,14 @@ If you are exploring state-of-the-art detection, the newly released [Ultralytics
 
 !!! tip "Why Choose YOLO26?"
 
-    YOLO26 implements an **End-to-End NMS-Free Design**, bringing the deployment simplicity of RTDETRv2 to the ultra-efficient YOLO architecture. Furthermore, it introduces the **MuSGD Optimizer**—inspired by LLM training innovations—for superior training stability. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), YOLO26 boasts up to **43% faster CPU inference** than previous generations, making it an exceptional choice for [edge computing](https://www.ultralytics.com/glossary/edge-computing) over heavier models. Additionally, **ProgLoss + STAL** delivers improved loss functions with notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery.
+    YOLO26 implements an optional **End-to-End NMS-Free Design** (`nms=False`), bringing the deployment simplicity of RTDETRv2 to the ultra-efficient YOLO architecture. Furthermore, it introduces the **MuSGD Optimizer**—inspired by LLM training innovations—for superior training stability. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), YOLO26 boasts up to **43% faster CPU inference** than previous generations, making it an exceptional choice for [edge computing](https://www.ultralytics.com/glossary/edge-computing) over heavier models. Additionally, **ProgLoss + STAL** delivers improved loss functions with notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery.
 
 The ease of use provided by the [Ultralytics Python package](https://docs.ultralytics.com/usage/python) is unmatched. Developers can train, validate, and [export models](https://docs.ultralytics.com/modes/export) using an intuitive API that abstracts away the boilerplate code typically required by research repositories.
 
 ```python
 from ultralytics import RTDETR
 
-# Load a pre-trained RTDETRv2 model from the Ultralytics ecosystem
+# Load a pre-trained RT-DETR model from the Ultralytics ecosystem
 model = RTDETR("rtdetr-l.pt")
 
 # Train the model on the COCO8 dataset

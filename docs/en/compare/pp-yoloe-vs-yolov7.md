@@ -82,13 +82,13 @@ When training and deploying these models, the framework you choose is just as im
 
 ### Simple API Implementation
 
-Training a YOLOv7 model with Ultralytics takes just a few lines of code, completely abstracting complex training scripts:
+The Ultralytics package does not support native YOLOv7 training (see the [YOLOv7 docs](https://docs.ultralytics.com/models/yolov7) for running upstream YOLOv7 exports), but training a modern Ultralytics YOLO model takes just a few lines of code, completely abstracting complex training scripts:
 
 ```python
 from ultralytics import YOLO
 
-# Load a pretrained YOLOv7 model
-model = YOLO("yolov7.pt")
+# Load a pretrained YOLO26 model
+model = YOLO("yolo26n.pt")
 
 # Train the model on your custom dataset
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
@@ -103,7 +103,7 @@ While PP-YOLOE+ and YOLOv7 are milestones in object detection, the landscape of 
 
 **Why YOLO26 Outperforms Older Architectures:**
 
-- **End-to-End NMS-Free Design:** YOLO26 is natively end-to-end. By eliminating Non-Maximum Suppression (NMS) post-processing, it guarantees predictable, deterministic inference latency—a breakthrough first seen in [YOLOv10](https://docs.ultralytics.com/models/yolov10).
+- **End-to-End NMS-Free Design:** YOLO26 is natively end-to-end. By skipping Non-Maximum Suppression (NMS) post-processing with its optional one-to-one head (`nms=False`), it guarantees predictable, deterministic inference latency—a breakthrough first seen in [YOLOv10](https://docs.ultralytics.com/models/yolov10).
 - **DFL Removal:** The removal of Distribution Focal Loss simplifies the export process and significantly improves compatibility for low-power edge devices.
 - **Up to 43% Faster CPU Inference:** For scenarios lacking dedicated GPUs—such as [smart city IoT sensors](https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities)—YOLO26 is heavily optimized to run efficiently directly on CPUs.
 - **MuSGD Optimizer:** Inspired by advanced LLM training techniques (like Moonshot AI's Kimi K2), YOLO26 uses a hybrid of SGD and Muon for incredibly stable training and fast convergence.
@@ -127,6 +127,6 @@ Depending on your exact needs, you might also be interested in comparing these a
 
 ## Conclusion
 
-Both PP-YOLOE+ and YOLOv7 brought significant improvements to the world of real-time object detection. While PP-YOLOE+ excels in environments standardized around PaddlePaddle, YOLOv7 offers incredible flexibility and performance via the PyTorch and Ultralytics ecosystems.
+Both PP-YOLOE+ and YOLOv7 brought significant improvements to the world of real-time object detection. While PP-YOLOE+ excels in environments standardized around PaddlePaddle, YOLOv7 offers incredible flexibility and performance via the PyTorch ecosystem.
 
 However, as [computer vision solutions](https://www.ultralytics.com/solutions) continue to advance, utilizing modern tools is essential. By embracing [Ultralytics Platform](https://platform.ultralytics.com) and next-generation architectures like **YOLO26**, developers can ensure their applications remain at the cutting edge of speed, accuracy, and ease of use.

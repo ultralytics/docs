@@ -66,11 +66,11 @@ Evaluating these models requires looking at the trade-off between mean Average P
 | PP-YOLOE+l                                                              | 640                         | 52.9                       | -                                    | 8.36                                      | 52.2                     | 110.07                  |
 | PP-YOLOE+x                                                              | 640                         | **54.7**                   | -                                    | 14.3                                      | 98.42                    | 206.59                  |
 |                                                                         |                             |                            |                                      |                                           |                          |                         |
-| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | **73.6**                             | **1.12**                                  | **2.6**                  | **7.7**                 |
-| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
-| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
-| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
-| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
+| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | -                                    | **1.12**                                  | **1.9**                  | **4.5**                 |
+| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | -                                    | 1.92                                      | 7.2                      | 16.5                    |
+| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | -                                    | 4.03                                      | 21.2                     | 49.0                    |
+| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | -                                    | 6.61                                      | 46.5                     | 109.1                   |
+| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | -                                    | 11.89                                     | 86.7                     | 205.7                   |
 
 While PP-YOLOE+ achieves highly competitive mAP scores at the larger scales (such as the X variant), **YOLOv5 provides superior speed and lower parameter counts** at the smaller end of the spectrum. The YOLOv5 Nano (`YOLOv5n`) requires a mere 2.6 million parameters, making it highly suitable for constrained edge devices where memory requirements are strict. Furthermore, training YOLO models typically consumes less CUDA memory compared to heavy transformer-based alternatives like [RT-DETR](https://docs.ultralytics.com/models/rtdetr).
 
@@ -94,7 +94,7 @@ Getting started requires only a few lines of code. This simplicity significantly
 from ultralytics import YOLO
 
 # Load a pretrained YOLOv5 small model
-model = YOLO("yolov5s.pt")
+model = YOLO("yolov5su.pt")  # YOLOv5u: anchor-free YOLOv5 weights for the ultralytics package
 
 # Train the model on the COCO8 dataset
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
@@ -120,7 +120,7 @@ While YOLOv5 is an iconic model, the frontier of computer vision has advanced. F
 
 **Key Innovations in YOLO26:**
 
-- **End-to-End NMS-Free Design:** YOLO26 eliminates Non-Maximum Suppression post-processing entirely. This reduces latency variability and simplifies the deployment pipeline drastically.
+- **End-to-End NMS-Free Design:** YOLO26's optional one-to-one head (`nms=False`) skips Non-Maximum Suppression post-processing entirely. This reduces latency variability and simplifies the deployment pipeline drastically.
 - **Up to 43% Faster CPU Inference:** By strategically removing Distribution Focal Loss (DFL), YOLO26 dramatically increases speed on edge devices without GPUs.
 - **MuSGD Optimizer:** Inspired by leading Large Language Models, this hybrid optimizer stabilizes training dynamics and allows for much faster convergence on custom datasets.
 - **Task-Specific Enhancements:** Features advanced loss functions like ProgLoss and STAL, yielding unprecedented accuracy on tiny objects. It natively supports [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection for aerial imagery.

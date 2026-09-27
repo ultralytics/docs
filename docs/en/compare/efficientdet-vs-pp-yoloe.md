@@ -92,7 +92,7 @@ Choosing between these architectures often depends heavily on your existing tech
 
 While EfficientDet and PP-YOLOE+ are formidable models, the rapid pace of AI innovation demands solutions that offer both cutting-edge performance and unparalleled ease of use. This is where [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) excels, establishing itself as the premier choice for modern computer vision applications.
 
-Released in 2026, YOLO26 completely redefines real-time object detection by introducing a native **End-to-End NMS-Free Design**. By eliminating Non-Maximum Suppression post-processing—a persistent bottleneck in older models—YOLO26 offers drastically simpler deployment and reduces inference latency jitter.
+Released in 2026, YOLO26 completely redefines real-time object detection by introducing a native **End-to-End NMS-Free Design**. By optionally skipping Non-Maximum Suppression post-processing (`nms=False`)—a persistent bottleneck in older models—YOLO26 offers drastically simpler deployment and reduces inference latency jitter.
 
 Furthermore, YOLO26 is specifically optimized for edge deployments. The removal of the Distribution Focal Loss (DFL) simplifies the export process to formats like ONNX and TensorRT, yielding up to **43% faster CPU inference** compared to previous generations. This makes it an absolute powerhouse for [battery-powered IoT devices](https://www.ultralytics.com/glossary/edge-ai).
 

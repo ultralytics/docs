@@ -42,7 +42,7 @@ YOLOv7 was introduced in mid-2022 and quickly became a popular baseline in acade
 - **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
 - **Organization:** Institute of Information Science, Academia Sinica, Taiwan
 - **Date:** 2022-07-06
-- **Arxiv:** [2207.02696](https://arxiv.org/abs/2207.02696)
+- **arXiv:** [2207.02696](https://arxiv.org/abs/2207.02696)
 - **GitHub:** [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
 
 ### Architectural Innovations
@@ -62,7 +62,7 @@ When evaluating these models, the trade-off between speed, accuracy, and model s
 | [YOLOv8n](https://platform.ultralytics.com/ultralytics/yolov8/yolov8n) | 640                         | 37.3                       | **80.4**                             | **1.47**                                  | **3.2**                  | **8.7**                 |
 | [YOLOv8s](https://platform.ultralytics.com/ultralytics/yolov8/yolov8s) | 640                         | 44.9                       | 128.4                                | 2.66                                      | 11.2                     | 28.6                    |
 | [YOLOv8m](https://platform.ultralytics.com/ultralytics/yolov8/yolov8m) | 640                         | 50.2                       | 234.7                                | 5.86                                      | 25.9                     | 78.9                    |
-| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.2                   |
+| [YOLOv8l](https://platform.ultralytics.com/ultralytics/yolov8/yolov8l) | 640                         | 52.9                       | 375.2                                | 9.06                                      | 43.7                     | 165.1                   |
 | [YOLOv8x](https://platform.ultralytics.com/ultralytics/yolov8/yolov8x) | 640                         | **53.9**                   | 479.1                                | 14.37                                     | 68.2                     | 257.8                   |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
 | YOLOv7l                                                                | 640                         | 51.4                       | -                                    | 6.84                                      | 36.9                     | 104.7                   |
@@ -121,13 +121,13 @@ The architectural differences between the two models dictate their ideal deploym
 
 **When to Consider YOLOv7:**
 
-- **Academic Benchmarking:** Researchers studying the effects of re-parameterization techniques often use YOLOv7 as a standard baseline, as reflected by its popularity on [Papers With Code](https://huggingface.co/papers/trending).
+- **Academic Benchmarking:** Researchers studying the effects of re-parameterization techniques often use YOLOv7 as a standard baseline, as reflected by its popularity on [Hugging Face Papers](https://huggingface.co/papers/trending).
 - **Legacy Server Pipelines:** If an existing heavy-compute pipeline is already strictly optimized around YOLOv7's specific anchor outputs, maintaining it might be practical in the short term.
 
 ## Looking Ahead: The Next Generation
 
 While YOLOv8 remains a versatile powerhouse, the AI landscape moves rapidly. For teams starting new projects, we highly recommend exploring the latest advancements in the Ultralytics lineup.
 
-The newest generation, **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**, represents the pinnacle of current vision AI. It features an **End-to-End NMS-Free Design**, eliminating Non-Maximum Suppression post-processing for simpler, faster deployment. With the removal of Distribution Focal Loss (DFL) and the introduction of the LLM-inspired **MuSGD Optimizer**, YOLO26 offers more stable training and up to 43% faster CPU inference. Its advanced **ProgLoss + STAL** loss functions drastically improve small-object recognition, making it the ultimate choice for modern edge computing and aerial imagery.
+The newest generation, **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**, represents the pinnacle of current vision AI. It features an **End-to-End NMS-Free Design** option (`nms=False`) that skips Non-Maximum Suppression post-processing for simpler, faster deployment. With the removal of Distribution Focal Loss (DFL) and the introduction of the LLM-inspired **MuSGD Optimizer**, YOLO26 offers more stable training and up to 43% faster CPU inference. Its advanced **ProgLoss + STAL** loss functions drastically improve small-object recognition, making it the ultimate choice for modern edge computing and aerial imagery.
 
 For users transitioning from older systems, the highly capable **[YOLO11](https://platform.ultralytics.com/ultralytics/yolo11)** and the classic **[YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5)** also remain fully supported within the unified Ultralytics ecosystem, ensuring that whatever your hardware constraints, there is a streamlined, high-performance model ready to deploy.

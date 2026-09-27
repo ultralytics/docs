@@ -68,11 +68,11 @@ Evaluating models on standard benchmarks like the [COCO dataset](https://docs.ul
 | EfficientDet-d6                                                         | 640                         | 52.6                       | 92.8                                 | 89.29                                     | 51.9                     | 226.0                   |
 | EfficientDet-d7                                                         | 640                         | **53.7**                   | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
 |                                                                         |                             |                            |                                      |                                           |                          |                         |
-| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | 73.6                                 | **1.12**                                  | **2.6**                  | 7.7                     |
-| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | 120.7                                | 1.92                                      | 9.1                      | 24.0                    |
-| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | 233.9                                | 4.03                                      | 25.1                     | 64.2                    |
-| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | 408.4                                | 6.61                                      | 53.2                     | 135.0                   |
-| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | 763.2                                | 11.89                                     | 97.2                     | 246.4                   |
+| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | -                                    | **1.12**                                  | **1.9**                  | 4.5                     |
+| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | -                                    | 1.92                                      | 7.2                      | 16.5                    |
+| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | -                                    | 4.03                                      | 21.2                     | 49.0                    |
+| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | -                                    | 6.61                                      | 46.5                     | 109.1                   |
+| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | -                                    | 11.89                                     | 86.7                     | 205.7                   |
 
 ### Analyzing the Trade-Offs
 
@@ -92,13 +92,13 @@ The well-maintained [Ultralytics ecosystem](https://docs.ultralytics.com/integra
 
 ### Code Example: Getting Started with YOLOv5
 
-Running inference with a pre-trained YOLOv5 model requires only a few lines of code via [PyTorch Hub](https://pytorch.org/hub/):
+Running inference with a pre-trained YOLOv5 model requires only a few lines of code via the [Ultralytics Python package](https://docs.ultralytics.com/usage/python):
 
 ```python
 from ultralytics import YOLO
 
 # Load the highly efficient YOLOv5s model
-model = YOLO("yolov5su.pt")
+model = YOLO("yolov5su.pt")  # YOLOv5u: anchor-free YOLOv5 weights for the ultralytics package
 
 # Run inference on an image
 results = model("https://ultralytics.com/images/zidane.jpg")
@@ -114,7 +114,7 @@ EfficientDet is strictly an object detection framework, which limits its utility
 ### Ideal Use Cases
 
 - **EfficientDet:** Best suited for offline processing, academic research, and cloud-based analytics where maximum accuracy is prioritized over latency, and where server-grade TPUs or high-memory GPUs are available.
-- **YOLOv5:** The definitive choice for [edge AI deployments](https://www.ultralytics.com/glossary/edge-ai). Its combination of low latency, tiny parameter footprint, and high accuracy makes it ideal for drone analytics, real-time retail automation, and mobile applications via [CoreML](https://developer.apple.com/documentation/coreml) or TFLite.
+- **YOLOv5:** The definitive choice for [edge AI deployments](https://www.ultralytics.com/glossary/edge-ai). Its combination of low latency, tiny parameter footprint, and high accuracy makes it ideal for drone analytics, real-time retail automation, and mobile applications via [CoreML](https://developer.apple.com/documentation/coreml) or [LiteRT](https://docs.ultralytics.com/integrations/litert).
 
 ## The Next Generation: Upgrading to YOLO26
 
@@ -124,7 +124,7 @@ YOLO26 redefines the Pareto frontier of speed and accuracy, introducing groundbr
 
 ### Key YOLO26 Advancements
 
-- **End-to-End NMS-Free Design:** YOLO26 natively eliminates Non-Maximum Suppression post-processing. This vastly simplifies the deployment logic and reduces latency variance, a breakthrough approach refined from early experiments in YOLOv10.
+- **End-to-End NMS-Free Design:** YOLO26's optional end-to-end head (`nms=False`) eliminates Non-Maximum Suppression post-processing. This vastly simplifies the deployment logic and reduces latency variance, a breakthrough approach refined from early experiments in YOLOv10.
 - **Up to 43% Faster CPU Inference:** Specifically engineered for edge computing and low-power IoT devices operating without dedicated GPUs.
 - **MuSGD Optimizer:** Inspired by large language model training techniques (like Moonshot AI's Kimi K2), this hybrid of SGD and Muon brings LLM innovations to computer vision, enabling faster convergence and highly stable training dynamics.
 - **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, which is critical for aerial imagery and robotics.

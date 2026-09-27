@@ -71,7 +71,7 @@ Unlike traditional CNNs, RTDETRv2 is natively end-to-end. By leveraging transfor
 - CPU inference speeds are notably slower than specialized edge CNNs, limiting its use in mobile or IoT devices.
 - Setup and tuning can be complex for teams accustomed to traditional [machine learning operations (MLOps)](https://www.ultralytics.com/glossary/machine-learning-operations-mlops).
 
-[Learn more about RT-DETR](https://docs.ultralytics.com/models/rtdetr){ .md-button }
+[Learn more about RTDETRv2](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch){ .md-button }
 
 ## Detailed Performance Comparison
 
@@ -129,7 +129,7 @@ Released in January 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/
 
 ### Why YOLO26 Outperforms the Competition
 
-1. **End-to-End NMS-Free Design:** First pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 natively eliminates NMS post-processing. This delivers the deployment simplicity of RTDETRv2 while maintaining the lightning-fast speed of a highly optimized CNN.
+1. **End-to-End NMS-Free Design:** First pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 offers a native NMS-free head (`nms=False`) that eliminates NMS post-processing. This delivers the deployment simplicity of RTDETRv2 while maintaining the lightning-fast speed of a highly optimized CNN.
 2. **MuSGD Optimizer:** Inspired by large language model innovations (such as Moonshot AI's Kimi K2), YOLO26 utilizes a hybrid of SGD and Muon. This ensures incredibly stable training dynamics and rapid convergence, reducing the time and compute resources required for custom datasets.
 3. **Unmatched Edge Performance:** By executing complete DFL Removal (Distribution Focal Loss), YOLO26 simplifies export architectures. This optimization yields up to **43% faster CPU inference** compared to legacy models, making it the undisputed champion for edge AI and IoT devices.
 4. **Enhanced Small Object Detection:** The introduction of ProgLoss and STAL loss functions provides a massive leap in detecting small objects—a critical requirement for drone analytics and aerial imagery that YOLOv6 historically struggled with.
@@ -150,7 +150,7 @@ from ultralytics import YOLO
 model = YOLO("yolo26n.pt")
 
 # Train the model on a custom dataset (e.g., COCO8) for 50 epochs
-# The API automatically handles dataset caching and environment config
+# The API automatically handles dataset download and environment config
 train_results = model.train(data="coco8.yaml", epochs=50, imgsz=640)
 
 # Validate the model's accuracy on the validation split

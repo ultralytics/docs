@@ -62,10 +62,10 @@ When analyzing raw performance, YOLOv9 demonstrates exceptional parameter effici
 | PP-YOLOE+x | 640                         | 54.7                       | -                                    | 14.3                                      | 98.42                    | 206.59                  |
 |            |                             |                            |                                      |                                           |                          |                         |
 | YOLOv9t    | 640                         | 38.3                       | -                                    | **2.3**                                   | **2.0**                  | **7.7**                 |
-| YOLOv9s    | 640                         | 46.8                       | -                                    | 3.54                                      | 7.1                      | 26.4                    |
-| YOLOv9m    | 640                         | 51.4                       | -                                    | 6.43                                      | 20.0                     | 76.3                    |
-| YOLOv9c    | 640                         | 53.0                       | -                                    | 7.16                                      | 25.3                     | 102.1                   |
-| YOLOv9e    | 640                         | **55.6**                   | -                                    | 16.77                                     | 57.3                     | 189.0                   |
+| YOLOv9s    | 640                         | 46.8                       | -                                    | 3.54                                      | 7.2                      | 26.7                    |
+| YOLOv9m    | 640                         | 51.4                       | -                                    | 6.43                                      | 20.1                     | 76.8                    |
+| YOLOv9c    | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
+| YOLOv9e    | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
 
 As seen in the table, YOLOv9c achieves a strong 53.0 mAP with significantly fewer parameters (25.3M) than the comparable PP-YOLOE+l (52.2M). This lower memory usage makes YOLOv9 a superior choice for developers working with constrained GPU resources.
 
@@ -129,7 +129,7 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 
 While both PP-YOLOE+ and YOLOv9 are powerful, the newly released [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) represents the definitive next step for production environments. Released in January 2026, YOLO26 establishes a new standard for edge computing and cloud deployments. We highly recommend YOLO26 for all new computer vision projects due to its breakthrough innovations:
 
-- **End-to-End NMS-Free Design:** YOLO26 is natively end-to-end, entirely eliminating the need for Non-Maximum Suppression (NMS) post-processing. This significantly simplifies deployment pipelines and reduces latency.
+- **End-to-End NMS-Free Design:** YOLO26 supports native end-to-end inference, removing the need for Non-Maximum Suppression (NMS) post-processing when run with `nms=False`. This significantly simplifies deployment pipelines and reduces latency.
 - **Up to 43% Faster CPU Inference:** By specifically optimizing the architecture for edge computing, YOLO26 is significantly faster on hardware lacking dedicated GPUs.
 - **DFL Removal:** The Distribution Focal Loss has been removed, making exports simpler and drastically improving compatibility with low-power edge devices.
 - **MuSGD Optimizer:** Inspired by large language model training techniques (like Moonshot AI's Kimi K2), this hybrid of SGD and Muon ensures highly stable training dynamics and rapid convergence.
@@ -146,4 +146,4 @@ Choosing between these architectures often comes down to your target deployment 
 
 **YOLOv9** excels in dynamic environments requiring rapid [real-time inference](https://www.ultralytics.com/blog/real-time-inferences-in-vision-ai-solutions-are-making-an-impact). Its superior parameter efficiency makes it ideal for autonomous drone navigation and edge-based security systems. Furthermore, its lower VRAM consumption lowers the barrier to entry for researchers training on consumer-grade GPUs.
 
-For the absolute best performance across [smart city traffic management](https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities) and high-speed robotics, the newer **YOLO26** is unmatched, offering end-to-end efficiency without the overhead of NMS bottlenecks.
+For the absolute best performance across [smart city traffic management](https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities) and high-speed robotics, the newer **YOLO26** is unmatched, offering optional end-to-end inference without the overhead of NMS bottlenecks.
