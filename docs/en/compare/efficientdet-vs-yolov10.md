@@ -66,14 +66,14 @@ When deploying models in real-world scenarios, developers must weigh [mean Avera
 | EfficientDet-d6 | 640                         | 52.6                       | 92.8                                 | 89.29                                     | 51.9                     | 226.0                   |
 | EfficientDet-d7 | 640                         | 53.7                       | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
 |                 |                             |                            |                                      |                                           |                          |                         |
-| YOLOv10n        | 640                         | 39.5                       | -                                    | **1.56**                                  | **2.3**                  | 6.7                     |
-| YOLOv10s        | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
-| YOLOv10m        | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
-| YOLOv10b        | 640                         | 52.7                       | -                                    | 6.54                                      | 19.1                     | 92.0                    |
-| YOLOv10l        | 640                         | 53.3                       | -                                    | 8.33                                      | 24.4                     | 120.3                   |
-| YOLOv10x        | 640                         | **54.4**                   | -                                    | 12.2                                      | 29.5                     | 160.4                   |
+| YOLOv10n        | 640                         | 38.5                       | -                                    | **1.84**                                  | **2.3**                  | 6.7                     |
+| YOLOv10s        | 640                         | 46.3                       | -                                    | 2.49                                      | 7.2                      | 21.6                    |
+| YOLOv10m        | 640                         | 51.1                       | -                                    | 4.74                                      | 15.4                     | 59.1                    |
+| YOLOv10b        | 640                         | 52.5                       | -                                    | 5.74                                      | 19.1                     | 92.0                    |
+| YOLOv10l        | 640                         | 53.2                       | -                                    | 7.28                                      | 24.4                     | 120.3                   |
+| YOLOv10x        | 640                         | **54.4**                   | -                                    | 10.70                                     | 29.5                     | 160.4                   |
 
-_Note: The YOLOv10n variant requires significantly fewer parameters (2.3M) and achieves vastly superior TensorRT speeds (1.56ms) compared to early EfficientDet iterations, making it much more viable for [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) in production._
+_Note: The YOLOv10n variant requires significantly fewer parameters (2.3M) and achieves vastly superior TensorRT speeds (1.84ms) compared to early EfficientDet iterations, making it much more viable for [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) in production._
 
 ## Why Choose Ultralytics for Model Deployment?
 

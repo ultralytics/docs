@@ -58,16 +58,16 @@ When benchmarking these models, performance is typically measured across accurac
 | YOLOv6-3.0m | 640                         | 50.0                       | -                                    | 5.28                                      | 34.9                     | 85.8                    |
 | YOLOv6-3.0l | 640                         | 52.8                       | -                                    | 8.95                                      | 59.6                     | 150.7                   |
 |             |                             |                            |                                      |                                           |                          |                         |
-| YOLOv10n    | 640                         | 39.5                       | -                                    | 1.56                                      | **2.3**                  | **6.7**                 |
-| YOLOv10s    | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
-| YOLOv10m    | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
-| YOLOv10b    | 640                         | 52.7                       | -                                    | 6.54                                      | 19.1                     | 92.0                    |
-| YOLOv10l    | 640                         | 53.3                       | -                                    | 8.33                                      | 24.4                     | 120.3                   |
-| YOLOv10x    | 640                         | **54.4**                   | -                                    | 12.2                                      | 29.5                     | 160.4                   |
+| YOLOv10n    | 640                         | 38.5                       | -                                    | 1.84                                      | **2.3**                  | **6.7**                 |
+| YOLOv10s    | 640                         | 46.3                       | -                                    | 2.49                                      | 7.2                      | 21.6                    |
+| YOLOv10m    | 640                         | 51.1                       | -                                    | 4.74                                      | 15.4                     | 59.1                    |
+| YOLOv10b    | 640                         | 52.5                       | -                                    | 5.74                                      | 19.1                     | 92.0                    |
+| YOLOv10l    | 640                         | 53.2                       | -                                    | 7.28                                      | 24.4                     | 120.3                   |
+| YOLOv10x    | 640                         | **54.4**                   | -                                    | 10.70                                     | 29.5                     | 160.4                   |
 
 ### Analysis
 
-YOLOv10 consistently achieves a superior [mean average precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) across equivalent size categories compared to YOLOv6-3.0. For instance, YOLOv10n reaches 39.5% mAP with only 2.3 million parameters, whereas YOLOv6-3.0n scores 37.5% using more than double the parameter count. However, YOLOv6-3.0n manages slightly faster pure TensorRT inference latency on a T4 GPU (1.17ms), showcasing its deep optimization for parallel processing hardware.
+YOLOv10 consistently achieves a superior [mean average precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) across equivalent size categories compared to YOLOv6-3.0. For instance, YOLOv10n reaches 38.5% mAP with only 2.3 million parameters, whereas YOLOv6-3.0n scores 37.5% using more than double the parameter count. However, YOLOv6-3.0n manages faster pure TensorRT inference latency on a T4 GPU (1.17ms), showcasing its deep optimization for parallel processing hardware.
 
 !!! tip "Deployment Considerations"
 

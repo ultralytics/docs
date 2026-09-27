@@ -85,12 +85,12 @@ When evaluating models for production, balancing accuracy with computational cos
 | RTDETRv2-l | 640                         | 53.4                       | -                                    | 9.76                                      | 42                       | 136                     |
 | RTDETRv2-x | 640                         | 54.3                       | -                                    | 15.03                                     | 76                       | 259                     |
 |            |                             |                            |                                      |                                           |                          |                         |
-| YOLOv10n   | 640                         | 39.5                       | -                                    | **1.56**                                  | **2.3**                  | **6.7**                 |
-| YOLOv10s   | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
-| YOLOv10m   | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
-| YOLOv10b   | 640                         | 52.7                       | -                                    | 6.54                                      | 19.1                     | 92.0                    |
-| YOLOv10l   | 640                         | 53.3                       | -                                    | 8.33                                      | 24.4                     | 120.3                   |
-| YOLOv10x   | 640                         | **54.4**                   | -                                    | 12.2                                      | 29.5                     | 160.4                   |
+| YOLOv10n   | 640                         | 38.5                       | -                                    | **1.84**                                  | **2.3**                  | **6.7**                 |
+| YOLOv10s   | 640                         | 46.3                       | -                                    | 2.49                                      | 7.2                      | 21.6                    |
+| YOLOv10m   | 640                         | 51.1                       | -                                    | 4.74                                      | 15.4                     | 59.1                    |
+| YOLOv10b   | 640                         | 52.5                       | -                                    | 5.74                                      | 19.1                     | 92.0                    |
+| YOLOv10l   | 640                         | 53.2                       | -                                    | 7.28                                      | 24.4                     | 120.3                   |
+| YOLOv10x   | 640                         | **54.4**                   | -                                    | 10.70                                     | 29.5                     | 160.4                   |
 
 While RTDETRv2 offers robust accuracy, YOLOv10 demonstrates a remarkable advantage in latency and parameter efficiency, particularly in its smaller variants (Nano and Small), making it highly attractive for [edge computing and AIoT](https://www.ultralytics.com/blog/edge-ai-and-aiot-upgrade-any-camera-with-ultralytics-yolov8-in-a-no-code-way) applications.
 

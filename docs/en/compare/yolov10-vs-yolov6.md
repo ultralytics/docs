@@ -51,19 +51,19 @@ When analyzing raw performance, the generations of architectural refinement in Y
 
 | Model       | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ----------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv10n    | 640                         | 39.5                       | -                                    | 1.56                                      | **2.3**                  | **6.7**                 |
-| YOLOv10s    | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
-| YOLOv10m    | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
-| YOLOv10b    | 640                         | 52.7                       | -                                    | 6.54                                      | 19.1                     | 92.0                    |
-| YOLOv10l    | 640                         | 53.3                       | -                                    | 8.33                                      | 24.4                     | 120.3                   |
-| YOLOv10x    | 640                         | **54.4**                   | -                                    | 12.2                                      | 29.5                     | 160.4                   |
+| YOLOv10n    | 640                         | 38.5                       | -                                    | 1.84                                      | **2.3**                  | **6.7**                 |
+| YOLOv10s    | 640                         | 46.3                       | -                                    | 2.49                                      | 7.2                      | 21.6                    |
+| YOLOv10m    | 640                         | 51.1                       | -                                    | 4.74                                      | 15.4                     | 59.1                    |
+| YOLOv10b    | 640                         | 52.5                       | -                                    | 5.74                                      | 19.1                     | 92.0                    |
+| YOLOv10l    | 640                         | 53.2                       | -                                    | 7.28                                      | 24.4                     | 120.3                   |
+| YOLOv10x    | 640                         | **54.4**                   | -                                    | 10.70                                     | 29.5                     | 160.4                   |
 |             |                             |                            |                                      |                                           |                          |                         |
 | YOLOv6-3.0n | 640                         | 37.5                       | -                                    | **1.17**                                  | 4.7                      | 11.4                    |
 | YOLOv6-3.0s | 640                         | 45.0                       | -                                    | 2.66                                      | 18.5                     | 45.3                    |
 | YOLOv6-3.0m | 640                         | 50.0                       | -                                    | 5.28                                      | 34.9                     | 85.8                    |
 | YOLOv6-3.0l | 640                         | 52.8                       | -                                    | 8.95                                      | 59.6                     | 150.7                   |
 
-While YOLOv6-3.0 retains slight speed advantages in its Nano and Medium variants under pure [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) execution on T4 GPUs, YOLOv10 requires nearly half the memory footprint to achieve superior accuracy, heavily leaning the performance balance in favor of modern, end-to-end architectures.
+While YOLOv6-3.0 retains a speed advantage in its Nano variant under pure [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) execution on T4 GPUs, YOLOv10 requires nearly half the memory footprint to achieve superior accuracy, heavily leaning the performance balance in favor of modern, end-to-end architectures.
 
 !!! tip "Memory Efficiency"
 

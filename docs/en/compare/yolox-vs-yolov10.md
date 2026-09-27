@@ -68,16 +68,16 @@ When evaluating models for production, balancing accuracy with computational ove
 | YOLOXl    | 640                         | 49.7                       | -                                    | 9.04                                      | 54.2                     | 155.6                   |
 | YOLOXx    | 640                         | 51.1                       | -                                    | 16.1                                      | 99.1                     | 281.9                   |
 |           |                             |                            |                                      |                                           |                          |                         |
-| YOLOv10n  | 640                         | 39.5                       | -                                    | **1.56**                                  | 2.3                      | 6.7                     |
-| YOLOv10s  | 640                         | 46.7                       | -                                    | 2.66                                      | 7.2                      | 21.6                    |
-| YOLOv10m  | 640                         | 51.3                       | -                                    | 5.48                                      | 15.4                     | 59.1                    |
-| YOLOv10b  | 640                         | 52.7                       | -                                    | 6.54                                      | 19.1                     | 92.0                    |
-| YOLOv10l  | 640                         | 53.3                       | -                                    | 8.33                                      | 24.4                     | 120.3                   |
-| YOLOv10x  | 640                         | **54.4**                   | -                                    | 12.2                                      | 29.5                     | 160.4                   |
+| YOLOv10n  | 640                         | 38.5                       | -                                    | **1.84**                                  | 2.3                      | 6.7                     |
+| YOLOv10s  | 640                         | 46.3                       | -                                    | 2.49                                      | 7.2                      | 21.6                    |
+| YOLOv10m  | 640                         | 51.1                       | -                                    | 4.74                                      | 15.4                     | 59.1                    |
+| YOLOv10b  | 640                         | 52.5                       | -                                    | 5.74                                      | 19.1                     | 92.0                    |
+| YOLOv10l  | 640                         | 53.2                       | -                                    | 7.28                                      | 24.4                     | 120.3                   |
+| YOLOv10x  | 640                         | **54.4**                   | -                                    | 10.70                                     | 29.5                     | 160.4                   |
 
 ### Analyzing the Data
 
-The metrics clearly demonstrate YOLOv10's generational leap. For instance, YOLOv10-S achieves a [mean Average Precision](https://docs.ultralytics.com/guides/yolo-performance-metrics) of 46.7% compared to YOLOX-m's 46.9%, but does so using less than a third of the parameters (7.2M vs 25.3M) and significantly fewer FLOPs. Furthermore, the top-tier YOLOv10-X model pushes the mAP to 54.4%, making it highly competitive for demanding accuracy tasks while remaining faster than the older YOLOX-x architecture.
+The metrics clearly demonstrate YOLOv10's generational leap. For instance, YOLOv10-S achieves a [mean Average Precision](https://docs.ultralytics.com/guides/yolo-performance-metrics) of 46.3% compared to YOLOX-m's 46.9%, but does so using less than a third of the parameters (7.2M vs 25.3M) and significantly fewer FLOPs. Furthermore, the top-tier YOLOv10-X model pushes the mAP to 54.4%, making it highly competitive for demanding accuracy tasks while remaining faster than the older YOLOX-x architecture.
 
 ## The Ultralytics Ecosystem Advantage
 
