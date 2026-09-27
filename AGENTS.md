@@ -2,7 +2,7 @@
 
 This file provides guidance to AI coding agents (Claude Code, etc.) when working with code in this repository. CLAUDE.md is a symlink to this file.
 
-This repository (AGPL-3.0) holds public documentation source consumed by https://docs.ultralytics.com plus automated QA workflows that check links, spelling, sitemaps, and image sizes across Ultralytics websites. Additional documentation source lives in `ultralytics/ultralytics` under `docs/en/`.
+This repository (AGPL-3.0) holds public documentation source consumed by https://docs.ultralytics.com plus automated QA workflows that check links, spelling, and image sizes across Ultralytics websites.
 
 ## Core Principles (CRITICAL)
 
@@ -31,25 +31,24 @@ After opening a PR:
 ## Commands
 
 ```bash
-uv pip install -r requirements.txt                            # beautifulsoup4, requests, pandas (for utils/)
-uv run python utils/check_image_sizes.py DOWNLOAD_DIR WEBSITE # flag images >750 KB, as links.yml runs it
-lychee --scheme 'https' './**/*.md' './**/*.html'             # PR link check (simplified); CI adds more flags, see .github/workflows/links_local.yml
-npx prettier --write "**/*.md" "**/*.yml"                     # Markdown/YAML formatting
-codespell docs utils README.md                                # spelling
+uv pip install -r requirements.txt                                        # beautifulsoup4, requests, pandas (for utils/)
+python utils/check_image_sizes.py DOWNLOAD_DIR WEBSITE                    # flag images >750 KB, as links.yml runs it
+lychee --scheme 'https' './**/*.md' './**/*.html'                         # PR link check (simplified); CI flags are in links_local.yml
+npx prettier@3.8.5 --tab-width 4 --print-width 120 --write "docs/**/*.md" # docs Markdown, exactly as Ultralytics Actions runs it
+npx prettier@3.8.5 --print-width 120 --write "*.md" "**/*.yml"            # root Markdown and YAML
 ```
 
-- There is no test suite, build, or coverage — PR CI is `links_local.yml` (lychee over all repo `*.md`/`*.html` against the live web, so a dead URL fails CI) plus Ultralytics Actions formatting in `format.yml` (source of truth for Prettier/Ruff/docformatter/codespell settings; it runs them server-side on PRs).
-- Workflows run on `ubuntu-latest` with unpinned Python (`3.x`); no language floor applies to this repo itself.
+- There is no test suite, build, or coverage — PR CI is `links_local.yml` (lychee over all repo `*.md`/`*.html` against the live web, so a dead URL fails CI) plus Ultralytics Actions in `format.yml`, which only toggles steps (Ruff, Prettier, codespell, headers, PR review); their flags live in `ultralytics/actions` `action.yml`.
 
 ## Architecture
 
 This repo is one public content source for https://docs.ultralytics.com. Additional source lives in `ultralytics/ultralytics` under `docs/en/`; the centralized validation path combines the sources before running `zensical build --strict`. Relative links may therefore resolve only in the complete content tree. This repository intentionally has no standalone Zensical configuration or site build; the centralized publisher renders and deploys production.
 
-The remaining workflows handle docs-specific publishing, website QA, and housekeeping: `publish.yml` triggers the centralized publisher on every `main` push and daily; `links.yml` downloads rendered www/docs/academy/handbook sites and checks links, spelling, and image sizes; `links_local.yml` checks repository links on push, PR, and daily; `download_websites.yml` is manual-only; and `stale.yml` manages inactive issues and PRs. Releases are manual: `tag.yml` is `workflow_dispatch`-only and gated to `github.repository == 'ultralytics/docs' && github.actor == 'glenn-jocher'`; there is no version file or package publish.
+Workflows: `publish.yml` triggers the centralized publisher on every `main` push and daily; `links.yml` downloads rendered www/docs/academy/handbook sites and checks links, spelling, and image sizes; `links_local.yml` checks repository links on push, PR, and daily; `download_websites.yml` is manual-only; and `stale.yml` manages inactive issues and PRs. Releases are manual: `tag.yml` is `workflow_dispatch`-only and gated to `github.repository == 'ultralytics/docs' && github.actor == 'glenn-jocher'`; there is no version file or package publish.
 
 ## Conventions
 
 - Every `.py`/`.yml` file opens with the `# Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license` header — Ultralytics Actions adds it automatically, so don't add or revert these manually.
 - Pairwise compare pages follow a fixed shape: YAML frontmatter (`title`, `comments: true`, `description`, `keywords` — the `index.md` hub omits `title`), a `<canvas>` whose `active-models` data is rendered by the centralized publisher, and benchmark tables where **bold** marks the better value; model `{ .md-button }` links (usually "Learn more about <model>") point to platform.ultralytics.com only for models with Platform pages (YOLO26, YOLO11, YOLOv8, YOLOv5) and to docs.ultralytics.com or GitHub for the rest.
-- Link-checker exclusions live in `.lycheeignore` (one regex per line) and in the `--exclude` lists inside `links.yml`/`links_local.yml`; the bot-protected-domain regex is duplicated verbatim in both workflows and should stay in sync, while the other `--exclude` patterns and `--accept` codes are intentionally workflow-specific.
-- All CI checks hit the live network by design (link checks, domain redirects, sitemap submission); expect occasional flakes from bot-protected domains, handled via `ultralytics/actions/retry` wrappers plus the accept-code and exclude lists.
+- Link-checker exclusions live in `.lycheeignore` (one regex per line) and in the `--exclude` lists inside `links.yml`/`links_local.yml`; the bot-protected-domain regex and `--accept` codes are duplicated verbatim in all three lychee calls (one in `links.yml`, two in `links_local.yml`) and must stay in sync, while the other `--exclude` patterns are workflow-specific.
+- All CI checks hit the live network by design (link checks, website downloads, the publish hook); expect occasional flakes from bot-protected domains, handled via `ultralytics/actions/retry` wrappers plus the accept-code and exclude lists.
