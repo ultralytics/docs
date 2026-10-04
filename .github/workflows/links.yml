@@ -164,8 +164,8 @@ jobs:
             echo "$MODIFIED_OUTPUT" >> "$GITHUB_STEP_SUMMARY"
 
             # Prepare limited output for Slack (first 10 errors)
-            SLACK_OUTPUT=$(echo "$MODIFIED_OUTPUT" | grep "==>" | head -10 | awk '{printf "%s\n", $0}')
-            SLACK_HEADER="*${TOTAL_ERRORS} Spelling Errors*\n"
+            SLACK_OUTPUT=$(echo "$MODIFIED_OUTPUT" | grep "==>" | head -10 | awk '{printf "%s\\n", $0}')
+            SLACK_HEADER="*${TOTAL_ERRORS} Spelling Errors*\\n"
             if [ "$TOTAL_ERRORS" -gt 10 ]; then
               SLACK_FOOTER="...$((TOTAL_ERRORS - 10)) more ➜ <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|Action summary>"
             else
@@ -230,7 +230,7 @@ jobs:
             ' summary.txt | tr -d '\r' | \
               sed -E 's/[[:space:]]*\|[[:space:]]*Rejected status code[^:]*:[[:space:]]*/ | /g' | \
               cat -s | \
-              sed -E 's/^\[([^]]*)\.html\]:$/\1:/; s/^\[([0-9]{3})\] /\1 /; s/"/\"/g' > /tmp/cleaned_summary.txt
+              sed -E 's/^\[([^]]*)\.html\]:$/\1:/; s/^\[([0-9]{3})\] /\1 /; s/"/\\"/g' > /tmp/cleaned_summary.txt
 
             # Keep the full output in Actions
             cat /tmp/cleaned_summary.txt >> "$GITHUB_STEP_SUMMARY"
@@ -242,8 +242,8 @@ jobs:
               /^[0-9][0-9][0-9] https?:\/\// && shown++ < 10 { print page "  " $0 }
             ' /tmp/cleaned_summary.txt | perl -pe '
               s{(https?://\S+)}{"<$1|" . (length($1) > 80 ? substr($1, 0, 77) . "..." : $1) . ">"}ge
-            ' | awk '{printf "%s\n", $0}')
-            SLACK_HEADER="*${TOTAL_ERRORS} Broken Links*\n"
+            ' | awk '{printf "%s\\n", $0}')
+            SLACK_HEADER="*${TOTAL_ERRORS} Broken Links*\\n"
             if [ "$TOTAL_ERRORS" -gt 10 ]; then
               SLACK_FOOTER="...$((TOTAL_ERRORS - 10)) more ➜ <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|Action summary>"
             else
