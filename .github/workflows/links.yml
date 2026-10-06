@@ -94,15 +94,9 @@ jobs:
           echo "Total URLs to be downloaded: $total_urls"
 
       - name: Download Website
+        id: download
         continue-on-error: true
         run: |
-          # Set higher wait seconds for discourse community to avoid 429 rate limit errors
-          if [ "${{ matrix.website }}" = "community.ultralytics.com" ]; then
-            WAIT=1
-          else
-            WAIT=0.001
-          fi
-
           # Download all URLs
           wget \
           --compression=auto \
@@ -111,7 +105,7 @@ jobs:
           --input-file=urls.txt \
           --no-clobber \
           --no-parent \
-          --wait=$WAIT \
+          --wait=0.001 \
           --random-wait \
           --tries=3 \
           --no-verbose \
@@ -120,13 +114,11 @@ jobs:
       - name: Check image sizes
         if: github.event_name != 'workflow_dispatch' || inputs.check_images
         id: image_sizes
-        continue-on-error: true
         run: python utils/check_image_sizes.py "${{ matrix.website }}" "${{ matrix.website }}"
 
       - name: Check spelling
-        if: github.event_name != 'workflow_dispatch' || inputs.check_spelling
+        if: ${{ !cancelled() && steps.download.conclusion == 'success' && (github.event_name != 'workflow_dispatch' || inputs.check_spelling) }}
         id: codespell
-        continue-on-error: true
         run: |
           # Install codespell
           uv pip install --system codespell
@@ -183,7 +175,7 @@ jobs:
           echo "No spelling errors found ✅"
 
       - name: Check broken links
-        if: github.event_name != 'workflow_dispatch' || inputs.check_links
+        if: ${{ !cancelled() && steps.download.conclusion == 'success' && (github.event_name != 'workflow_dispatch' || inputs.check_links) }}
         id: lychee
         uses: ultralytics/actions/retry@main
         with:
@@ -195,7 +187,6 @@ jobs:
             downloaded_files=$(find ${{ matrix.website }} -type f | wc -l)
             echo "Scanning $downloaded_files downloaded pages for broken links..."
 
-            rm -rf .lycheecache
             lychee \
             --scheme 'https' \
             --timeout 60 \
@@ -204,7 +195,6 @@ jobs:
             --exclude-all-private \
             --exclude 'https?://([a-zA-Z0-9-]+\.)*(linkedin\.com|twitter\.com|x\.com|instagram\.com|kaggle\.com|tiktok\.com|fonts\.gstatic\.com|fonts\.googleapis\.com|url\.com|tesla\.com|wellfound\.com|fda\.gov|ieee\.org|sciencedirect\.com|mckinsey\.com|st\.com|adobe\.com|dhl\.com|avangrid\.com|bhp\.com|businesswire\.com|bmw\.in|intuit\.com|epo\.org|orangepi\.org|gdpr\.eu|mvtec\.com|cv-foundation\.org|ntrs\.nasa\.gov|elib\.dlr\.de|burrsettles\.com|biomecardio\.com|glaze\.cs\.uchicago\.edu|miquido\.com|forensicexpertinvestigation\.com|newspace\.co\.in|agriplanting\.com|revistafuera\.com|ravindersingal\.com|qsdca\.com\.au|videologicanalytics\.com|gitee\.com|chemistryworld\.com|aegistechnologies\.com)([:/?#]|$)' \
             --exclude '(\.run\.app|\.cloudfunctions\.net|0\.0\.0\.0:5543/predict/from_files)' \
-            --exclude-path './**/ci.yml' \
             --github-token ${{ secrets.GITHUB_TOKEN }} \
             --header "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.183 Safari/537.36" \
             --header "Accept: */*" \
@@ -258,7 +248,7 @@ jobs:
             echo "EOF" >> $GITHUB_ENV
 
             # Raise error only if 4xx errors remain (not network errors, timeouts, or server errors)
-            if grep -v "^\[TIMEOUT\]" summary.txt | grep -v "^\[ERROR\]" | grep -v "^Error:" | grep -qE "^\[4[0-9]{2}\]"; then
+            if grep -qE "^\[4[0-9]{2}\]" summary.txt; then
               exit 1
             fi
 

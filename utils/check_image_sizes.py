@@ -80,12 +80,10 @@ def check_image_sizes(download_dir, website, threshold_kb=750, max_workers=32, i
 
     # Collect all image data
     all_images = []
-    with requests.Session() as session:
-        session.headers.update(HEADERS)
-        with ThreadPoolExecutor(max_workers=max_workers) as executor:
-            for url, size, fmt in executor.map(get_size, unique_images.keys()):
-                if size:
-                    all_images.append((size / 1024, fmt, len(unique_images[url]), url))
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        for url, size, fmt in executor.map(get_size, unique_images.keys()):
+            if size:
+                all_images.append((size / 1024, fmt, len(unique_images[url]), url))
 
     all_images.sort(reverse=True)
 
