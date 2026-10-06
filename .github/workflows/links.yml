@@ -52,17 +52,13 @@ jobs:
         with:
           fetch-depth: 1
 
-      - uses: actions/setup-python@v7
-        with:
-          python-version: "3.x"
-
       - uses: ultralytics/actions/setup-uv@main
 
       - name: Install lychee and dependencies
         run: |
           curl -sSfL "https://github.com/lycheeverse/lychee/releases/latest/download/lychee-x86_64-unknown-linux-gnu.tar.gz" |
             sudo tar xz --strip-components=1 -C /usr/local/bin lychee-x86_64-unknown-linux-gnu/lychee
-          uv pip install --system -r requirements.txt
+          uv pip install -r requirements.txt
 
       - name: Get Website URLs
         run: |
@@ -121,7 +117,7 @@ jobs:
         id: codespell
         run: |
           # Install codespell
-          uv pip install --system codespell
+          uv pip install codespell
 
           # Run codespell on rendered HTML text, not inline JS/CSS payloads.
           SPELLCHECK_ROOT=".codespell-html"
