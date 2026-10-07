@@ -23,25 +23,14 @@ This chart visualizes key [performance metrics](https://docs.ultralytics.com/gui
 Not sure where to start? Use this decision tree to narrow down the architecture that best fits your hardware and performance requirements.
 
 ```mermaid
-graph TD
-    A[Start: Define Project Needs]:::start --> B{Deployment Hardware?}:::decide
-    B -- "Edge / Mobile (CPU/NPU)" --> C{Latency Priority?}:::decide
-    B -- "Cloud / GPU" --> D{Accuracy vs Speed?}:::decide
-
-    C -- "Extreme Speed (Real-time)" --> E[YOLO26n / YOLO26s]:::out
-    C -- "Balanced Legacy" --> F[YOLO11s / YOLOv8s]:::out
-
-    D -- "Max Accuracy (SOTA)" --> G[YOLO26x / YOLO26l]:::out
-    D -- "Balanced Performance" --> H[YOLO26m / YOLO11m]:::out
-
-    A --> I{Specialized Features?}:::decide
-    I -- "NMS-Free Inference" --> J[YOLO26 / YOLOv10]:::out
-    I -- "Multitask (Seg/Pose/OBB)" --> K[YOLO26 / YOLO11]:::out
-    I -- "Video Analytics" --> L[YOLO26 + Tracking]:::out
-
-    classDef start fill:#4CAF50,color:#fff
-    classDef decide fill:#FF9800,color:#fff
-    classDef out fill:#9C27B0,color:#fff
+flowchart TD
+    A([Define project needs]) --> B{Existing YOLO11 pipeline?}
+    B -->|yes| C[YOLO11]
+    B -->|no| D{Edge or mobile?}
+    D -->|no| E{Accuracy first?}
+    D -->|yes| F[YOLO26n or YOLO26s]
+    E -->|yes| G[YOLO26l or YOLO26x]
+    E -->|no| H[YOLO26m]
 ```
 
 ## The Current Landscape: YOLO26 and Beyond
