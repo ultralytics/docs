@@ -25,12 +25,12 @@ Not sure where to start? Use this decision tree to narrow down the architecture 
 ```mermaid
 flowchart TD
     A([Define project needs]) --> B{Existing YOLO11 pipeline?}
-    B -->|yes| C[YOLO11]
+    B -->|yes| C([YOLO11])
     B -->|no| D{Edge or mobile?}
+    D -->|yes| F([YOLO26n or YOLO26s])
     D -->|no| E{Accuracy first?}
-    D -->|yes| F[YOLO26n or YOLO26s]
-    E -->|yes| G[YOLO26l or YOLO26x]
-    E -->|no| H[YOLO26m]
+    E -->|yes| G([YOLO26l or YOLO26x])
+    E -->|no| H([YOLO26m])
 ```
 
 ## The Current Landscape: YOLO26 and Beyond
