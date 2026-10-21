@@ -31,7 +31,7 @@ Additionally, the removal of Distribution Focal Loss (DFL) streamlines the expor
 
 !!! tip "Edge Device Inference"
 
-    Thanks to architectural simplifications and the removal of DFL, YOLO26 achieves up to **43% faster CPU inference**, making it the ideal choice for resource-constrained edge devices like the [Raspberry Pi](https://www.raspberrypi.org/) or [NVIDIA Jetson Nano](https://developer.nvidia.com/embedded/jetson-nano-developer-kit).
+    Thanks to architectural simplifications and the removal of DFL, YOLO26 achieves up to **43% faster CPU inference**, making it the ideal choice for resource-constrained edge devices like the [Raspberry Pi](https://www.raspberrypi.org/) or [NVIDIA Jetson Nano](https://docs.ultralytics.com/guides/nvidia-jetson).
 
 For detecting highly challenging items in scenes like [drone aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone), YOLO26 utilizes the updated **ProgLoss + STAL** loss functions. These provide notable improvements in small-object recognition recall. Furthermore, it boasts task-specific enhancements, including multi-scale proto for [instance segmentation](https://docs.ultralytics.com/tasks/segment), Residual Log-Likelihood Estimation (RLE) for [pose estimation](https://docs.ultralytics.com/tasks/pose), and specialized angle loss for detecting [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
