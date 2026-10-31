@@ -86,7 +86,7 @@ While YOLOX is strictly an object detection framework, the Ultralytics ecosystem
 
 !!! tip "Continuous Innovation"
 
-    If you require even more advanced tasks like [Pose Estimation](https://docs.ultralytics.com/tasks/pose) or [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection, consider upgrading to Ultralytics YOLO26, which supports these tasks natively with high accuracy.
+    If you require even more advanced tasks like [pose estimation](https://docs.ultralytics.com/tasks/pose) or [oriented bounding box (OBB)](https://docs.ultralytics.com/tasks/obb) detection, consider upgrading to Ultralytics YOLO26, which supports these tasks natively with high accuracy.
 
 ## Code Comparison
 

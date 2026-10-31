@@ -7,7 +7,7 @@ keywords: YOLOv5, YOLO26, object detection, model comparison, computer vision, b
 
 # YOLOv5 vs YOLO26
 
-The evolution of computer vision has been defined by the continuous push for faster, more accurate, and more accessible models. [Ultralytics YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5) and [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) bookend that progression, from a widely deployed legacy model to the current recommended Ultralytics model.
+The evolution of computer vision has been defined by the continuous push for faster, more accurate, and more accessible models. [Ultralytics YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5) and [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) mark two points in that progression: a widely deployed legacy model and the current recommended Ultralytics model.
 
 This guide provides a comprehensive technical breakdown of both architectures, highlighting their performance metrics, structural differences, and ideal deployment scenarios.
 
