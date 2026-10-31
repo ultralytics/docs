@@ -20,7 +20,7 @@ Released in mid-2021, YOLOX was a major step forward in bridging the gap between
 - **Authors:** Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun
 - **Organization:** [Megvii](https://en.megvii.com/)
 - **Release Date:** July 18, 2021
-- **Reference:** [Arxiv Paper](https://arxiv.org/abs/2107.08430)
+- **Reference:** [arXiv Paper](https://arxiv.org/abs/2107.08430)
 - **Source Code:** [YOLOX GitHub Repository](https://github.com/Megvii-BaseDetection/YOLOX)
 - **Documentation:** [YOLOX Official Docs](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
@@ -41,7 +41,7 @@ In 2024, YOLOv9 introduced a theory-driven approach to the information bottlenec
 - **Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao
 - **Organization:** [Institute of Information Science, Academia Sinica](https://www.iis.sinica.edu.tw/en/index.html)
 - **Release Date:** February 21, 2024
-- **Reference:** [Arxiv Paper](https://arxiv.org/abs/2402.13616)
+- **Reference:** [arXiv Paper](https://arxiv.org/abs/2402.13616)
 - **Source Code:** [YOLOv9 GitHub Repository](https://github.com/WongKinYiu/yolov9)
 - **Documentation:** [Ultralytics YOLOv9 Docs](https://docs.ultralytics.com/models/yolov9)
 
@@ -84,7 +84,7 @@ While YOLOv9 demonstrates higher accuracy across comparable parameter counts, de
 
 While evaluating historical models like YOLOX and YOLOv9 provides valuable context, the current recommended Ultralytics model is **Ultralytics YOLO26**, released in January 2026, which redesigns the detection pipeline for modern production environments.
 
-### Unmatched Architectural Innovations
+### Architectural Innovations
 
 YOLO26 addresses the post-processing bottlenecks of its predecessors with an optional **end-to-end NMS-free design** (`nms=False`), simplifying deployment across hardware. YOLO26 also removes Distribution Focal Loss (DFL) to simplify export and integrates the **MuSGD Optimizer**, a hybrid of Stochastic Gradient Descent and Muon, for more stable training.
 

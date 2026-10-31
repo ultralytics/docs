@@ -99,7 +99,7 @@ model.export(format="onnx")
 A major strength of the Ultralytics framework is its **versatility**. Both YOLOv8 and YOLO11 support a wide range of computer vision tasks beyond standard object detection:
 
 - **[Instance Segmentation](https://docs.ultralytics.com/tasks/segment):** Accurate pixel-level masks useful for medical imaging and autonomous driving.
-- **[Image Classification](https://docs.ultralytics.com/tasks/classify):** Lightweight categorization using backbones trained on [ImageNet](https://www.image-net.org/).
+- **[Image Classification](https://docs.ultralytics.com/tasks/classify):** Lightweight categorization using backbones trained on [ImageNet](https://docs.ultralytics.com/datasets/classify/imagenet).
 - **[Pose Estimation](https://docs.ultralytics.com/tasks/pose):** Keypoint detection for sports analytics and human-computer interaction.
 - **[Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb):** Critical for identifying rotated objects in satellite imagery.
 
@@ -133,11 +133,11 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference (YOLO26n vs YOLO11n) provides a decisive advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL improve accuracy on tiny objects.
 
-## The Cutting Edge: The YOLO26 Advantage
+## The YOLO26 Advantage
 
 YOLOv8 and YOLO11 are both strong architectures, but for new projects in 2026, Ultralytics YOLO26 is the recommended next step.
 
-YOLO26 simplifies the deployment pipeline. It features an **End-to-End NMS-Free Design**, an approach pioneered in YOLOv10, which (with `nms=False`) eliminates NMS post-processing. **DFL Removal** (Distribution Focal Loss) simplifies export logic and improves compatibility with low-power edge devices, and YOLO26n delivers up to **43% faster CPU inference** than YOLO11n.
+YOLO26 simplifies the deployment pipeline. It features an **End-to-End NMS-Free Design**, an approach introduced to YOLO models by YOLOv10, which (with `nms=False`) eliminates NMS post-processing. **DFL Removal** (Distribution Focal Loss) simplifies export logic and improves compatibility with low-power edge devices, and YOLO26n delivers up to **43% faster CPU inference** than YOLO11n.
 
 Training stability and convergence speed improve with the **MuSGD Optimizer**, a hybrid of SGD and Muon inspired by LLM training techniques. **ProgLoss + STAL** (Progressive Loss and Small-Target-Aware Label Assignment) improve small-object detection, a long-standing challenge for IoT and robotics. Task-specific improvements include RLE for pose estimation and a multi-scale proto module for segmentation.
 

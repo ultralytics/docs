@@ -22,7 +22,7 @@ The origins and design philosophies behind these models provide useful context f
 - **Authors:** PaddlePaddle Authors
 - **Organization:** [Baidu](https://www.baidu.com/)
 - **Date:** April 2, 2022
-- **Arxiv:** [https://arxiv.org/abs/2203.16250](https://arxiv.org/abs/2203.16250)
+- **arXiv:** [https://arxiv.org/abs/2203.16250](https://arxiv.org/abs/2203.16250)
 - **GitHub:** [PaddleDetection Repository](https://github.com/PaddlePaddle/PaddleDetection/)
 - **Docs:** [PP-YOLOE+ Documentation](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
 
@@ -44,7 +44,7 @@ The origins and design philosophies behind these models provide useful context f
 
 Building on PP-YOLOE and the earlier PP-YOLOv2, PP-YOLOE+ introduces a robust design tailored for industrial applications. It uses the CSPRepResNet backbone and an ET-head (Efficient Task-aligned head) to balance speed and [accuracy](https://www.ultralytics.com/glossary/accuracy). PP-YOLOE+ uses [dynamic label assignment](https://arxiv.org/abs/2108.07755) (TAL) and integrates tightly with Baidu's PaddlePaddle framework, making it highly optimized for NVIDIA GPUs like the T4 and V100. However, its heavy reliance on the PaddlePaddle ecosystem can present friction for developers entrenched in [PyTorch](https://pytorch.org/) workflows.
 
-### YOLO26 Architecture: The Edge-First Revolution
+### YOLO26 Architecture: Edge-First Design
 
 Released in January 2026, **Ultralytics YOLO26** redesigns the real-time detection pipeline, with a strong emphasis on deployment simplicity and edge efficiency.
 
@@ -104,7 +104,7 @@ Getting started with Ultralytics is straightforward. Here is a runnable example 
 ```python
 from ultralytics import YOLO
 
-# Load the cutting-edge YOLO26 small model
+# Load the YOLO26 small model
 model = YOLO("yolo26s.pt")
 
 # Train the model on the COCO8 dataset using the new MuSGD optimizer
@@ -116,7 +116,7 @@ results = model.train(
     optimizer="MuSGD",  # hybrid SGD + Muon optimizer
 )
 
-# Export seamlessly to ONNX for CPU deployment
+# Export to ONNX for CPU deployment
 export_path = model.export(format="onnx")
 print(f"Model successfully exported to: {export_path}")
 ```

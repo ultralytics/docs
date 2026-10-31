@@ -138,7 +138,7 @@ export_path = model.export(format="coreml")
 
     Because the Ultralytics API is standardized, upgrading a legacy pipeline from YOLOv8 to YOLO11 usually requires only changing the weights string from `"yolov8n.pt"` to `"yolo11n.pt"`.
 
-## Looking Forward: The Pinnacle of Edge AI with YOLO26
+## Looking Forward: Edge AI with YOLO26
 
 YOLO11 is a mature and capable architecture, but for developers starting new projects, Ultralytics YOLO26 (released January 2026) is the [recommended model](https://www.ultralytics.com/blog/ultralytics-yolo26-vs-yolo11-vs-yolov8-which-one-should-you-use).
 

@@ -17,7 +17,7 @@ Whether you are deploying vision models to edge devices or building high-through
 
 **DAMO-YOLO**, developed by the [Alibaba Group](https://www.alibabagroup.com/), was released on November 23, 2022. Designed by Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun, the model focuses on automated discovery of efficient architectures using Neural Architecture Search (NAS).
 
-You can review the original research in their [ArXiv paper](https://arxiv.org/abs/2211.15444v2) or explore the source code on the [DAMO-YOLO GitHub repository](https://github.com/tinyvision/DAMO-YOLO).
+You can review the original research in their [arXiv paper](https://arxiv.org/abs/2211.15444v2) or explore the source code on the [DAMO-YOLO GitHub repository](https://github.com/tinyvision/DAMO-YOLO).
 
 ### Key Architectural Features
 

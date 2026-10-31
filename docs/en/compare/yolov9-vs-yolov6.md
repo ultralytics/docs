@@ -20,7 +20,7 @@ Introduced in early 2024, YOLOv9 tackles one of the most persistent challenges i
 - **Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao
 - **Organization:** Institute of Information Science, Academia Sinica, Taiwan
 - **Date:** February 21, 2024
-- **Links:** [Arxiv Paper](https://arxiv.org/abs/2402.13616), [GitHub Repository](https://github.com/WongKinYiu/yolov9)
+- **Links:** [arXiv Paper](https://arxiv.org/abs/2402.13616), [GitHub Repository](https://github.com/WongKinYiu/yolov9)
 
 ### Architecture and Methodologies
 
@@ -35,7 +35,7 @@ Developed by Meituan, YOLOv6-3.0 (also referred to as v3.0) is engineered from t
 - **Authors:** Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu
 - **Organization:** Meituan
 - **Date:** January 13, 2023
-- **Links:** [Arxiv Paper](https://arxiv.org/abs/2301.05586), [GitHub Repository](https://github.com/meituan/YOLOv6)
+- **Links:** [arXiv Paper](https://arxiv.org/abs/2301.05586), [GitHub Repository](https://github.com/meituan/YOLOv6)
 
 ### Architecture and Methodologies
 
@@ -88,11 +88,11 @@ model = YOLO("yolov9c.pt")
 # Train the model with built-in data augmentation and caching
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640, device="0")
 
-# Export to ONNX or TensorRT seamlessly
+# Export to ONNX or TensorRT
 model.export(format="engine", quantize=16)
 ```
 
-### Unmatched Versatility Across Vision Tasks
+### Versatility Across Vision Tasks
 
 While YOLOv6-3.0 is heavily optimized for fast bounding box generation, modern computer vision projects often require a multi-task approach. Ultralytics models are known for their versatility. With models like [Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) and the newer YOLO26, a single framework handles [object detection](https://docs.ultralytics.com/tasks/detect), [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 

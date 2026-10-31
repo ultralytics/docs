@@ -30,7 +30,7 @@ Before comparing performance metrics, it helps to understand the background and 
 - **Authors:** Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu
 - **Organization:** [Meituan](https://tech.meituan.com/)
 - **Date:** 2023-01-13
-- **Arxiv:** [YOLOv6 v3.0 Paper](https://arxiv.org/abs/2301.05586)
+- **arXiv:** [YOLOv6 v3.0 Paper](https://arxiv.org/abs/2301.05586)
 - **GitHub:** [YOLOv6 GitHub Repository](https://github.com/meituan/YOLOv6)
 - **Docs:** [YOLOv6 Documentation](https://docs.ultralytics.com/models/yolov6)
 
@@ -42,7 +42,7 @@ Both models are designed for high-speed [object detection](https://docs.ultralyt
 
 ### Ultralytics YOLO26: The Edge-First Native End-to-End Model
 
-Released in January 2026, YOLO26 focuses on model efficiency. The most significant architectural upgrade is its optional **End-to-End NMS-Free** head (`nms=False`). By eliminating the traditional [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing step—a concept pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10)—YOLO26 reduces latency variability, making it more predictable for real-time edge deployments.
+Released in January 2026, YOLO26 focuses on model efficiency. The most significant architectural upgrade is its optional **End-to-End NMS-Free** head (`nms=False`). By eliminating the traditional [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing step—a concept introduced to YOLO models by [YOLOv10](https://docs.ultralytics.com/models/yolov10)—YOLO26 reduces latency variability, making it more predictable for real-time edge deployments.
 
 Additionally, YOLO26 features **DFL Removal**. Removing Distribution Focal Loss simplifies the export process and improves compatibility with low-power [edge computing](https://www.ultralytics.com/glossary/edge-computing) devices. Together with other optimizations, this makes YOLO26n up to **43% faster on CPU** than YOLO11n, a good fit for environments without dedicated [graphics processing units (GPUs)](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) like Raspberry Pi or mobile devices.
 
@@ -103,11 +103,11 @@ results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 # Run end-to-end NMS-free inference on an image
 results = model.predict("https://ultralytics.com/images/bus.jpg", nms=False)
 
-# Export seamlessly to ONNX for CPU deployment
+# Export to ONNX for CPU deployment
 model.export(format="onnx")
 ```
 
-## Unmatched Versatility Across Vision Tasks
+## Versatility Across Vision Tasks
 
 While YOLOv6-3.0 is strictly a bounding-box object detector, YOLO26 supports many more tasks. With the same API, developers can perform [instance segmentation](https://docs.ultralytics.com/tasks/segment), semantic segmentation, depth estimation, [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection.
 

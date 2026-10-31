@@ -36,7 +36,7 @@ PP-YOLOE+ is an upgraded version of PP-YOLOE, which evolved from PP-YOLOv2, and 
 - **Authors:** PaddlePaddle Authors
 - **Organization:** [Baidu](https://github.com/PaddlePaddle/PaddleDetection/)
 - **Date:** 2022-04-02
-- **Arxiv:** [https://arxiv.org/abs/2203.16250](https://arxiv.org/abs/2203.16250)
+- **arXiv:** [https://arxiv.org/abs/2203.16250](https://arxiv.org/abs/2203.16250)
 - **GitHub:** [https://github.com/PaddlePaddle/PaddleDetection/](https://github.com/PaddlePaddle/PaddleDetection/)
 - **Docs:** [PP-YOLOE+ Configuration Docs](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
 

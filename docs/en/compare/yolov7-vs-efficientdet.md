@@ -1,7 +1,7 @@
 ---
 title: YOLOv7 vs EfficientDet Comparison
 comments: true
-description: Compare YOLOv7 and EfficientDet for object detection, covering E-ELAN vs BiFPN and compound scaling, COCO mAP, CPU and TensorRT speed, and ideal use cases.
+description: Compare YOLOv7 and EfficientDet for object detection, covering E-ELAN vs BiFPN and compound scaling, COCO mAP, TensorRT speed, and ideal use cases.
 keywords: YOLOv7, EfficientDet, object detection, model comparison, computer vision, benchmark, real-time detection, AI models, machine learning
 ---
 
@@ -20,7 +20,7 @@ Both models were developed by prominent research teams and introduced significan
 - **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
 - **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)
 - **Date:** 2022-07-06
-- **Arxiv:** [YOLOv7: Trainable bag-of-freebies sets new state-of-the-art for real-time object detectors](https://arxiv.org/abs/2207.02696)
+- **arXiv:** [YOLOv7: Trainable bag-of-freebies sets new state-of-the-art for real-time object detectors](https://arxiv.org/abs/2207.02696)
 - **GitHub:** [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
 - **Docs:** [Ultralytics YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7)
 
@@ -31,7 +31,7 @@ Both models were developed by prominent research teams and introduced significan
 - **Authors:** Mingxing Tan, Ruoming Pang, and Quoc V. Le
 - **Organization:** [Google Research](https://research.google/)
 - **Date:** 2019-11-20
-- **Arxiv:** [EfficientDet: Scalable and Efficient Object Detection](https://arxiv.org/abs/1911.09070)
+- **arXiv:** [EfficientDet: Scalable and Efficient Object Detection](https://arxiv.org/abs/1911.09070)
 - **GitHub:** [Google AutoML EfficientDet](https://github.com/google/automl/tree/master/efficientdet)
 
 [Learn more about EfficientDet](https://github.com/google/automl/tree/master/efficientdet){ .md-button }
@@ -69,14 +69,14 @@ The table below contrasts key [performance metrics](https://docs.ultralytics.com
 | YOLOv7l         | 640                         | 51.4                       | -                                    | 6.84                                      | 36.9                     | 104.7                   |
 | YOLOv7x         | 640                         | 53.1                       | -                                    | 11.57                                     | 71.3                     | 189.9                   |
 |                 |                             |                            |                                      |                                           |                          |                         |
-| EfficientDet-d0 | 640                         | 34.6                       | **10.2**                             | **3.92**                                  | **3.9**                  | **2.54**                |
-| EfficientDet-d1 | 640                         | 40.5                       | 13.5                                 | 7.31                                      | 6.6                      | 6.1                     |
-| EfficientDet-d2 | 640                         | 43.0                       | 17.7                                 | 10.92                                     | 8.1                      | 11.0                    |
-| EfficientDet-d3 | 640                         | 47.5                       | 28.0                                 | 19.59                                     | 12.0                     | 24.9                    |
-| EfficientDet-d4 | 640                         | 49.7                       | 42.8                                 | 33.55                                     | 20.7                     | 55.2                    |
-| EfficientDet-d5 | 640                         | 51.5                       | 72.5                                 | 67.86                                     | 33.7                     | 130.0                   |
-| EfficientDet-d6 | 640                         | 52.6                       | 92.8                                 | 89.29                                     | 51.9                     | 226.0                   |
-| EfficientDet-d7 | 640                         | **53.7**                   | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
+| EfficientDet-d0 | 512                         | 34.6                       | -                                    | **3.92**                                  | **3.9**                  | **2.54**                |
+| EfficientDet-d1 | 640                         | 40.5                       | -                                    | 7.31                                      | 6.6                      | 6.1                     |
+| EfficientDet-d2 | 768                         | 43.0                       | -                                    | 10.92                                     | 8.1                      | 11.0                    |
+| EfficientDet-d3 | 896                         | 47.5                       | -                                    | 19.59                                     | 12.0                     | 24.9                    |
+| EfficientDet-d4 | 1024                        | 49.7                       | -                                    | 33.55                                     | 20.7                     | 55.2                    |
+| EfficientDet-d5 | 1280                        | 51.5                       | -                                    | 67.86                                     | 33.7                     | 130.0                   |
+| EfficientDet-d6 | 1280                        | 52.6                       | -                                    | 89.29                                     | 51.9                     | 226.0                   |
+| EfficientDet-d7 | 1536                        | **53.7**                   | -                                    | 128.07                                    | 51.9                     | 325.0                   |
 
 As shown, while EfficientDet-d7 achieves a high mAP, its [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) speed severely lags behind YOLOv7 variants, highlighting the latter's advantage in GPU-accelerated real-time object detection.
 
@@ -90,7 +90,7 @@ YOLO26 addresses the limitations of previous generations and offers broad [versa
 
 ### Key YOLO26 Innovations
 
-- **End-to-End NMS-Free Design:** YOLO26 offers an optional one-to-one head (`nms=False`) that skips Non-Maximum Suppression (NMS) post-processing. Pioneered initially in [YOLOv10](https://docs.ultralytics.com/models/yolov10), this simplifies deployment logic and keeps latency consistent regardless of object density.
+- **End-to-End NMS-Free Design:** YOLO26 offers an optional one-to-one head (`nms=False`) that skips Non-Maximum Suppression (NMS) post-processing. Introduced to YOLO models by [YOLOv10](https://docs.ultralytics.com/models/yolov10), this design simplifies deployment logic and keeps latency consistent regardless of object density.
 - **DFL Removal:** By removing the Distribution Focal Loss (DFL), the model architecture is simplified, improving compatibility with highly constrained [edge computing](https://www.ultralytics.com/glossary/edge-computing) environments.
 - **Up to 43% Faster CPU Inference:** YOLO26n runs up to 43% faster on CPU than YOLO11n, making it well suited to hardware without dedicated GPUs.
 - **MuSGD Optimizer:** Inspired by large language model techniques (such as Moonshot AI's Kimi K2), this hybrid of SGD and Muon brings more stable training and faster convergence to [computer vision training](https://docs.ultralytics.com/modes/train).
@@ -140,11 +140,11 @@ model.export(format="openvino")
 
 When architecting a solution, aligning the model's strengths with the specific use case is important.
 
-### When to Utilize EfficientDet
+### When to Use EfficientDet
 
 EfficientDet remains a candidate for legacy academic research or environments strictly bound to the [Google Cloud](https://cloud.google.com/) ecosystem where compound scaling experiments are the primary focus. Its smaller variants (d0-d2) are beneficial when absolute disk size is heavily constrained.
 
-### When to Utilize YOLOv7
+### When to Use YOLOv7
 
 YOLOv7 excels in high-performance legacy setups, particularly where PyTorch integration is preferred over TensorFlow. It remains widely deployed in:
 

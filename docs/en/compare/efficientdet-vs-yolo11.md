@@ -24,7 +24,7 @@ Developed by researchers at Google Brain, EfficientDet introduced a principled a
 - **Authors:** Mingxing Tan, Ruoming Pang, and Quoc V. Le
 - **Organization:** [Google](https://research.google/)
 - **Date:** 2019-11-20
-- **Arxiv:** [https://arxiv.org/abs/1911.09070](https://arxiv.org/abs/1911.09070)
+- **arXiv:** [https://arxiv.org/abs/1911.09070](https://arxiv.org/abs/1911.09070)
 - **GitHub:** [https://github.com/google/automl/tree/master/efficientdet](https://github.com/google/automl/tree/master/efficientdet)
 - **Docs:** [https://github.com/google/automl/tree/master/efficientdet#readme](https://github.com/google/automl/tree/master/efficientdet#readme)
 
@@ -60,16 +60,16 @@ The table below contrasts the performance of both model families across various 
 
 | Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| EfficientDet-d0                                                        | 640                         | 34.6                       | **10.2**                             | 3.92                                      | 3.9                      | **2.54**                |
-| EfficientDet-d1                                                        | 640                         | 40.5                       | 13.5                                 | 7.31                                      | 6.6                      | 6.1                     |
-| EfficientDet-d2                                                        | 640                         | 43.0                       | 17.7                                 | 10.92                                     | 8.1                      | 11.0                    |
-| EfficientDet-d3                                                        | 640                         | 47.5                       | 28.0                                 | 19.59                                     | 12.0                     | 24.9                    |
-| EfficientDet-d4                                                        | 640                         | 49.7                       | 42.8                                 | 33.55                                     | 20.7                     | 55.2                    |
-| EfficientDet-d5                                                        | 640                         | 51.5                       | 72.5                                 | 67.86                                     | 33.7                     | 130.0                   |
-| EfficientDet-d6                                                        | 640                         | 52.6                       | 92.8                                 | 89.29                                     | 51.9                     | 226.0                   |
-| EfficientDet-d7                                                        | 640                         | 53.7                       | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
+| EfficientDet-d0                                                        | 512                         | 34.6                       | -                                    | 3.92                                      | 3.9                      | **2.54**                |
+| EfficientDet-d1                                                        | 640                         | 40.5                       | -                                    | 7.31                                      | 6.6                      | 6.1                     |
+| EfficientDet-d2                                                        | 768                         | 43.0                       | -                                    | 10.92                                     | 8.1                      | 11.0                    |
+| EfficientDet-d3                                                        | 896                         | 47.5                       | -                                    | 19.59                                     | 12.0                     | 24.9                    |
+| EfficientDet-d4                                                        | 1024                        | 49.7                       | -                                    | 33.55                                     | 20.7                     | 55.2                    |
+| EfficientDet-d5                                                        | 1280                        | 51.5                       | -                                    | 67.86                                     | 33.7                     | 130.0                   |
+| EfficientDet-d6                                                        | 1280                        | 52.6                       | -                                    | 89.29                                     | 51.9                     | 226.0                   |
+| EfficientDet-d7                                                        | 1536                        | 53.7                       | -                                    | 128.07                                    | 51.9                     | 325.0                   |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
-| [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) | 640                         | 39.5                       | 56.1                                 | **1.5**                                   | **2.6**                  | 6.5                     |
+| [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) | 640                         | 39.5                       | **56.1**                             | **1.5**                                   | **2.6**                  | 6.5                     |
 | [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | 47.0                       | 90.0                                 | 2.5                                       | 9.4                      | 21.6                    |
 | [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | 51.5                       | 183.2                                | 4.7                                       | 20.1                     | 68.1                    |
 | [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | 53.4                       | 238.6                                | 6.2                                       | 25.3                     | 87.2                    |
@@ -77,9 +77,7 @@ The table below contrasts the performance of both model families across various 
 
 ### Balanced Analysis: Strengths and Weaknesses
 
-**GPU Acceleration:** YOLO11 leads in GPU environments. For instance, YOLO11m delivers an mAP of 51.5% at 4.7ms on a T4 GPU using [TensorRT](https://developer.nvidia.com/tensorrt). To achieve the same accuracy, EfficientDet-d5 takes 67.86ms, over 14 times slower. This highlights the performance balance of Ultralytics models for real-time applications.
-
-**CPU Environments:** EfficientDet's smaller variants (like d0 and d1) run fast on CPU with [ONNX](https://onnx.ai/). However, its accuracy gains come with large latency penalties in larger variants like d7.
+YOLO11 leads in GPU environments. For instance, YOLO11m delivers an mAP of 51.5% at 4.7ms on a T4 GPU using [TensorRT](https://developer.nvidia.com/tensorrt). To achieve the same accuracy, EfficientDet-d5 takes 67.86ms, over 14 times slower. This highlights the performance balance of Ultralytics models for real-time applications.
 
 ## Training Methodology and Ecosystem
 
@@ -110,7 +108,7 @@ results[0].show()
 ## Ideal Use Cases
 
 **When to use EfficientDet:**
-EfficientDet remains a viable choice for research environments heavily entrenched in TensorFlow pipelines or specific CPU-bound constraints where early architectures like d0 perform adequately.
+EfficientDet remains a viable choice for research environments heavily entrenched in TensorFlow pipelines.
 
 **When to use YOLO11:**
 YOLO11 is a strong choice for modern enterprise deployments. Its speed makes it well suited to [autonomous vehicles](https://www.ultralytics.com/blog/ai-in-self-driving-cars), real-time sports analytics, and high-throughput manufacturing defect detection. Its lower memory usage also enables flexible deployment on resource-constrained hardware like the [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson).

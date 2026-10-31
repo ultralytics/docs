@@ -29,14 +29,14 @@ Introduced by Ultralytics, YOLOv5 has long been recognized for its strong balanc
 
 YOLOv5 relies on an anchor-based detection mechanism combined with a deeply optimized CSPDarknet backbone. This architecture relies heavily on standard operations supported across virtually all inference engines, making it highly portable. Its major strength lies in the [Ultralytics Python SDK](https://docs.ultralytics.com/usage/python), which provides a streamlined user experience, a simple API, and extensive documentation. Additionally, YOLOv5's lower memory requirements compared to transformer-based models mean it trains rapidly on consumer-grade GPUs without the steep VRAM overhead.
 
-### YOLOv10: Advancing the Paradigm
+### YOLOv10: NMS-Free Real-Time Detection
 
 Developed by researchers at Tsinghua University, YOLOv10 aimed to address specific latency bottlenecks found in previous architectures.
 
 - **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
 - **Organization:** [Tsinghua University](https://www.tsinghua.edu.cn/en/)
 - **Date:** 2024-05-23
-- **ArXiv:** [2405.14458](https://arxiv.org/abs/2405.14458)
+- **arXiv:** [2405.14458](https://arxiv.org/abs/2405.14458)
 - **GitHub:** [YOLOv10 Repository](https://github.com/THU-MIG/yolov10)
 - **Documentation:** [YOLOv10 Docs](https://docs.ultralytics.com/models/yolov10)
 
@@ -75,7 +75,7 @@ A model's value is deeply tied to the ecosystem surrounding it. Ultralytics main
 
 Furthermore, training an Ultralytics model requires significantly lower memory overhead than competing transformer-based methods, keeping the development cycle fast and cost-effective.
 
-### Seamless Code Execution
+### Code Example
 
 Training, validating, and exporting models is unified under a single API. You can switch between models just by altering a string.
 
@@ -93,7 +93,7 @@ results = model_v5.train(
     data="coco8.yaml",
     epochs=100,
     imgsz=640,
-    device="0",  # Automatically utilizes PyTorch CUDA acceleration
+    device="0",  # Automatically uses PyTorch CUDA acceleration
     batch=16,
 )
 

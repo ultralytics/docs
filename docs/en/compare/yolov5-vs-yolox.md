@@ -38,7 +38,7 @@ One of the greatest strengths of YOLOv5 is its well-maintained ecosystem. It off
 - **Authors:** Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun
 - **Organization:** [Megvii](https://en.megvii.com/)
 - **Date:** 2021-07-18
-- **Arxiv:** [YOLOX: Exceeding YOLO Series in 2021](https://arxiv.org/abs/2107.08430)
+- **arXiv:** [YOLOX: Exceeding YOLO Series in 2021](https://arxiv.org/abs/2107.08430)
 - **GitHub:** [Megvii YOLOX Repository](https://github.com/Megvii-BaseDetection/YOLOX)
 - **Documentation:** [YOLOX GitHub Docs](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 

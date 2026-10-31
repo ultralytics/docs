@@ -38,7 +38,7 @@ RTDETRv2 (Real-Time Detection Transformer version 2) represents Baidu's effort t
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
 - **Organization:** [Baidu](https://www.baidu.com/)
 - **Date:** 2024-07-24
-- **Arxiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
+- **arXiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
 - **GitHub:** [RTDETRv2 Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 - **Docs:** [RTDETRv2 README](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
 
@@ -96,7 +96,7 @@ train_results = model.train(
     data="coco8.yaml",
     epochs=100,
     imgsz=640,
-    device=0,  # Utilize CUDA GPU
+    device=0,  # Use CUDA GPU
 )
 
 # Export the trained model to ONNX for widespread deployment
@@ -139,7 +139,7 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 
 ## Looking Ahead: The Power of YOLO26
 
-YOLO11 remains a solid production choice, but new projects should start with YOLO26. Released in January 2026, YOLO26 narrows the architectural gap with transformers through an optional end-to-end NMS-free head (`nms=False`, first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10)), which removes NMS post-processing latency and simplifies deployment logic.
+YOLO11 remains a solid production choice, but new projects should start with YOLO26. Released in January 2026, YOLO26 narrows the architectural gap with transformers through an optional end-to-end NMS-free head (`nms=False`, introduced to YOLO models by [YOLOv10](https://docs.ultralytics.com/models/yolov10)), which removes NMS post-processing latency and simplifies deployment logic.
 
 YOLO26 also introduces several other changes:
 

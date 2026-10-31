@@ -24,7 +24,7 @@ Released in mid-2022, YOLOv7 became a widely used, well-optimized architecture. 
 - **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
 - **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)
 - **Date:** July 6, 2022
-- **Arxiv:** [2207.02696](https://arxiv.org/abs/2207.02696)
+- **arXiv:** [2207.02696](https://arxiv.org/abs/2207.02696)
 - **GitHub:** [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
 
 **Architectural Innovations:** YOLOv7 features the Extended Efficient Layer Aggregation Network (E-ELAN), which allows the model to learn more diverse features by expanding, shuffling, and merging cardinality. This design results in excellent GPU utilization and [inference latency](https://www.ultralytics.com/glossary/inference-latency). However, it can require significant memory during complex training runs compared to modern iterations.
@@ -38,7 +38,7 @@ Introduced in early 2024 by the same research team, YOLOv9 tackles the "informat
 - **Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao
 - **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)
 - **Date:** February 21, 2024
-- **Arxiv:** [2402.13616](https://arxiv.org/abs/2402.13616)
+- **arXiv:** [2402.13616](https://arxiv.org/abs/2402.13616)
 - **GitHub:** [WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9)
 
 **Architectural Innovations:** YOLOv9 introduces Programmable Gradient Information (PGI) and the Generalized Efficient Layer Aggregation Network (GELAN). PGI ensures that reliable gradients are preserved and fed back to update weights accurately. GELAN maximizes parameter efficiency, enabling YOLOv9 to achieve high accuracy with significantly fewer [FLOPs](https://www.ultralytics.com/glossary/flops) than its predecessors.
@@ -106,7 +106,7 @@ metrics = model.val()
 model.export(format="onnx")
 ```
 
-### Unmatched Versatility Across Tasks
+### Versatility Across Tasks
 
 A well-maintained ecosystem also provides access to more computer vision tasks. While YOLOv7 was primarily built for object detection (with later experimental branches for other tasks), modern Ultralytics models support multiple tasks natively. Out of the box, you can perform [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection.
 
@@ -114,13 +114,13 @@ A well-maintained ecosystem also provides access to more computer vision tasks. 
 
 The decision between YOLOv7 and YOLOv9 often depends on your specific industry constraints and hardware availability.
 
-### When to Utilize YOLOv7
+### When to Use YOLOv7
 
 - **Legacy Edge Deployments:** For hardware environments already tuned for YOLOv7's E-ELAN architecture, it remains a solid choice for [industrial IoT](https://www.ultralytics.com/blog/industrial-iot-iiot-internet-of-things-explained).
 - **Traffic Monitoring:** YOLOv7's high frame rates and proven stability make it a good fit for smart city infrastructure and [real-time traffic management](https://www.ultralytics.com/blog/optimizingtraffic-management-with-ultralytics-yolo11).
 - **Robotics Integration:** Navigating dynamic environments requires low-latency processing, a scenario where YOLOv7 variants have been heavily tested.
 
-### When to Utilize YOLOv9
+### When to Use YOLOv9
 
 - **Medical Imaging:** PGI helps YOLOv9 preserve fine-grained details through deep layers, which is valuable for [medical image analysis](https://www.ultralytics.com/glossary/medical-image-analysis) tasks like tumor detection.
 - **Dense Retail Analytics:** For tracking and counting densely packed items on retail shelves, YOLOv9's feature integration can improve accuracy and reduce false negatives.

@@ -36,7 +36,7 @@ Developed independently by researchers at Academia Sinica, YOLOv9 focuses heavil
 - **Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao
 - **Organization:** Institute of Information Science, Academia Sinica, Taiwan
 - **Date:** 2024-02-21
-- **Arxiv:** [2402.13616](https://arxiv.org/abs/2402.13616)
+- **arXiv:** [2402.13616](https://arxiv.org/abs/2402.13616)
 - **GitHub:** [WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9)
 
 [Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9){ .md-button }

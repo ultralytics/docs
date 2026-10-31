@@ -13,7 +13,7 @@ This technical comparison explores their architectures, performance metrics, and
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv9", "YOLOv10"]'></canvas>
 
-## Model Origins and Architectural Breakthroughs
+## Model Origins and Architecture
 
 Understanding the lineage and theoretical foundations of these models is crucial for selecting the right architecture for your specific [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) project.
 

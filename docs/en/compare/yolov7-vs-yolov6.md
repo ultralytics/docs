@@ -18,7 +18,7 @@ Released in mid-2022, YOLOv7 introduced several innovative strategies to optimiz
 - **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
 - **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)
 - **Date:** 2022-07-06
-- **Arxiv:** [2207.02696](https://arxiv.org/abs/2207.02696)
+- **arXiv:** [2207.02696](https://arxiv.org/abs/2207.02696)
 - **GitHub:** [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
 - **Docs:** [Ultralytics YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7)
 
@@ -37,7 +37,7 @@ Developed by the Meituan Vision AI Department, YOLOv6-3.0 was explicitly designe
 - **Authors:** Chuyi Li, Lulu Li, Yifei Geng, et al.
 - **Organization:** [Meituan](https://www.meituan.com/)
 - **Date:** 2023-01-13
-- **Arxiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
+- **arXiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
 - **GitHub:** [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
 - **Docs:** [Ultralytics YOLOv6 Documentation](https://docs.ultralytics.com/models/yolov6)
 

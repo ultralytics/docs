@@ -90,7 +90,7 @@ results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 # Easily validate the model
 metrics = model.val()
 
-# Export seamlessly to ONNX for production
+# Export to ONNX for production
 model.export(format="onnx")
 ```
 

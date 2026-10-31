@@ -25,7 +25,7 @@ YOLOv7 leverages an extended efficient layer aggregation network (E-ELAN) to gui
 
 ### YOLOv10: Real-Time End-to-End Detection
 
-Developed by Ao Wang and colleagues at [Tsinghua University](https://www.tsinghua.edu.cn/en/), YOLOv10 was released on May 23, 2024. As detailed in its [arxiv publication](https://arxiv.org/abs/2405.14458) and the [Tsinghua GitHub repository](https://github.com/THU-MIG/yolov10), this model eliminates a long-standing bottleneck in object detection: [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms).
+Developed by Ao Wang and colleagues at [Tsinghua University](https://www.tsinghua.edu.cn/en/), YOLOv10 was released on May 23, 2024. As detailed in its [arXiv publication](https://arxiv.org/abs/2405.14458) and the [Tsinghua GitHub repository](https://github.com/THU-MIG/yolov10), this model eliminates a long-standing bottleneck in object detection: [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms).
 
 YOLOv10 introduced consistent dual assignments for NMS-free training, changing the post-processing pipeline. Its holistic efficiency-accuracy driven model design reduces computational redundancy, resulting in an architecture well suited to edge devices that need low latency.
 
@@ -59,11 +59,11 @@ The metrics above reveal a clear generational gap. While YOLOv7x delivers a stro
 
 The architectural differences between these models dictate their optimal use cases.
 
-### When to Utilize YOLOv7
+### When to Use YOLOv7
 
 YOLOv7's rich feature representation suits complex scenes on GPU hardware. Use cases such as [monitoring traffic flow](https://www.ultralytics.com/blog/ai-in-traffic-management-from-congestion-to-coordination) in dense urban areas, analyzing satellite imagery, or identifying defects in heavy [manufacturing automation](https://www.ultralytics.com/blog/manufacturing-automation) can benefit from its re-parameterized architecture. It also remains common in legacy environments built around specific PyTorch 1.x pipelines.
 
-### When to Utilize YOLOv10
+### When to Use YOLOv10
 
 The NMS-free, lightweight design of YOLOv10 suits constrained environments, including [edge computing devices](https://www.ultralytics.com/blog/edge-ai-and-edge-computing-powering-real-time-intelligence) such as NVIDIA Jetson modules or a Raspberry Pi. Its low-latency performance makes it a good fit for fast-moving applications like [sports analytics](https://www.ultralytics.com/blog/exploring-the-applications-of-computer-vision-in-sports), autonomous drone navigation, and high-speed robotic sorting on conveyor belts.
 

@@ -28,7 +28,7 @@ YOLOv7 introduced several key advancements designed to improve accuracy without 
 - **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
 - **Organization:** Institute of Information Science, Academia Sinica, Taiwan
 - **Date:** 2022-07-06
-- **Arxiv:** [https://arxiv.org/abs/2207.02696](https://arxiv.org/abs/2207.02696)
+- **arXiv:** [https://arxiv.org/abs/2207.02696](https://arxiv.org/abs/2207.02696)
 
 [Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 
@@ -45,7 +45,7 @@ Developed by Baidu within the PaddlePaddle ecosystem, PP-YOLOE+ builds upon its 
 - **Authors:** PaddlePaddle Authors
 - **Organization:** Baidu
 - **Date:** 2022-04-02
-- **Arxiv:** [https://arxiv.org/abs/2203.16250](https://arxiv.org/abs/2203.16250)
+- **arXiv:** [https://arxiv.org/abs/2203.16250](https://arxiv.org/abs/2203.16250)
 
 [Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md){ .md-button }
 

@@ -32,7 +32,7 @@ Understanding the origins and core philosophies of these models is essential for
 - **Authors:** Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun
 - **Organization:** [Megvii](https://en.megvii.com/)
 - **Date:** 2021-07-18
-- **Arxiv:** [YOLOX Technical Report](https://arxiv.org/abs/2107.08430)
+- **arXiv:** [YOLOX Technical Report](https://arxiv.org/abs/2107.08430)
 - **GitHub:** [YOLOX GitHub Repository](https://github.com/Megvii-BaseDetection/YOLOX)
 - **Docs:** [YOLOX Documentation](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
@@ -44,7 +44,7 @@ Understanding the origins and core philosophies of these models is essential for
 
 The differences between YOLO26 and YOLOX reflect the progress in deep learning design between 2021 and 2026.
 
-While YOLOX championed the anchor-free approach, it still relied on traditional Non-Maximum Suppression (NMS) to filter redundant bounding boxes. YOLO26 introduces an optional **End-to-End NMS-Free** head (`nms=False`). This approach, first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), skips NMS post-processing, resulting in faster and simpler deployment pipelines with lower latency variance.
+While YOLOX championed the anchor-free approach, it still relied on traditional Non-Maximum Suppression (NMS) to filter redundant bounding boxes. YOLO26 adds an optional **End-to-End NMS-Free** head (`nms=False`). This approach, introduced to YOLO models by [YOLOv10](https://docs.ultralytics.com/models/yolov10), skips NMS post-processing, resulting in faster and simpler deployment pipelines with lower latency variance.
 
 Furthermore, YOLO26 features **DFL Removal**. Removing Distribution Focal Loss simplifies the export process and improves compatibility with edge devices and low-power hardware. Combined with other architectural optimizations, this makes YOLO26n up to **43% faster on CPU** than YOLO11n, a strong fit for environments lacking dedicated GPUs.
 
@@ -88,10 +88,10 @@ Training a model on a custom dataset with Ultralytics is efficient. The training
 ```python
 from ultralytics import YOLO
 
-# Initialize the cutting-edge YOLO26 small model
+# Initialize the YOLO26 small model
 model = YOLO("yolo26s.pt")
 
-# Train the model effortlessly on the COCO8 dataset
+# Train the model on the COCO8 dataset
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640, device=0)
 
 # Export the trained model to ONNX format for deployment

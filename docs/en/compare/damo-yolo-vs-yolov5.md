@@ -18,7 +18,7 @@ Released by the Alibaba Group, DAMO-YOLO introduced several novel techniques aim
 - **Authors:** Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun
 - **Organization:** [Alibaba Group](https://www.alibabagroup.com/)
 - **Date:** November 23, 2022
-- **Arxiv:** [2211.15444v2](https://arxiv.org/abs/2211.15444v2)
+- **arXiv:** [2211.15444v2](https://arxiv.org/abs/2211.15444v2)
 - **GitHub:** [tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)
 - **Docs:** [README.md](https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md)
 
@@ -137,10 +137,10 @@ The Ultralytics package allows you to train and deploy models with just a few li
 ```python
 from ultralytics import YOLO
 
-# Load the state-of-the-art YOLO26 small model
+# Load the YOLO26 small model
 model = YOLO("yolo26s.pt")
 
-# Train on a custom dataset effortlessly
+# Train on a custom dataset
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
 # Run inference on an image and display results

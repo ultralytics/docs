@@ -18,7 +18,7 @@ Developed to maximize throughput in server-side industrial applications, YOLOv6-
 - **Authors:** Chuyi Li, Lulu Li, Yifei Geng, et al.
 - **Organization:** [Meituan](https://github.com/meituan/YOLOv6)
 - **Date:** 2023-01-13
-- **Arxiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
+- **arXiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
 - **GitHub:** [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
 
 ### Architectural Highlights
@@ -29,14 +29,14 @@ Powered by an EfficientRep backbone, this model suits heavy-duty [manufacturing 
 
 [Learn more about YOLOv6](https://docs.ultralytics.com/models/yolov6){ .md-button }
 
-## Unpacking YOLOv10: The NMS-Free Pioneer
+## Unpacking YOLOv10: NMS-Free Real-Time Detection
 
 Introduced over a year later, YOLOv10 addressed one of the most persistent bottlenecks in traditional detection pipelines: non-maximum suppression (NMS) post-processing.
 
 - **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
 - **Organization:** [Tsinghua University](https://github.com/THU-MIG/yolov10)
 - **Date:** 2024-05-23
-- **Arxiv:** [2405.14458](https://arxiv.org/abs/2405.14458)
+- **arXiv:** [2405.14458](https://arxiv.org/abs/2405.14458)
 - **GitHub:** [THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
 
 ### Architectural Highlights
@@ -101,7 +101,7 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26n runs up to 43% faster on CPU than YOLO11n.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL improve accuracy on tiny objects.
 
-## The Ultralytics Advantage: Why YOLO26 is the Superior Choice
+## The Ultralytics Advantage: Why Choose YOLO26
 
 While YOLOv6-3.0 and YOLOv10 provide solid baseline architectures, modern production environments demand models that combine high accuracy with usability. This is where Ultralytics YOLO26 improves on standalone academic releases.
 
@@ -109,7 +109,7 @@ Released in January 2026, YOLO26 builds on innovations from earlier models withi
 
 ### Key YOLO26 Innovations
 
-- **End-to-End NMS-Free Design:** Building on the concept pioneered in YOLOv10, YOLO26's optional one-to-one head (`nms=False`) skips NMS post-processing, resulting in smoother, more predictable inference times that are [easier to ship to production](https://www.ultralytics.com/blog/exploring-why-ultralytics-yolo26-is-easier-to-ship-to-production).
+- **End-to-End NMS-Free Design:** Building on the NMS-free training that YOLOv10 introduced to YOLO models, YOLO26's optional one-to-one head (`nms=False`) skips NMS post-processing, resulting in smoother, more predictable inference times that are [easier to ship to production](https://www.ultralytics.com/blog/exploring-why-ultralytics-yolo26-is-easier-to-ship-to-production).
 - **MuSGD Optimizer:** Inspired by large language model (LLM) optimizations like Moonshot AI's Kimi K2, this hybrid of SGD and Muon provides stable training and faster convergence.
 - **Up to 43% Faster CPU Inference:** Architectural simplifications let [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) run up to 43% faster on CPU than YOLO11n, which benefits deployment on IoT chips and consumer CPUs.
 - **DFL Removal:** The removal of Distribution Focal Loss simplifies the head export, improving compatibility with low-power deployment engines like [OpenVINO](https://docs.ultralytics.com/integrations/openvino) or NCNN.

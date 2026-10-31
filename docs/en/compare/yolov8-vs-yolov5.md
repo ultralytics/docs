@@ -131,7 +131,7 @@ Between the two, YOLOv8 is the better choice for new projects. Its architecture 
 
     While YOLOv8 is capable, Ultralytics recommends **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** for new projects. Released in January 2026, it introduces several advancements:
 
-    *   **End-to-End NMS-Free Design:** An optional one-to-one head (`nms=False`) eliminates NMS post-processing for faster, simpler deployment, an approach pioneered in YOLOv10.
+    *   **End-to-End NMS-Free Design:** An optional one-to-one head (`nms=False`) eliminates NMS post-processing for faster, simpler deployment, an approach introduced to YOLO models by YOLOv10.
     *   **MuSGD Optimizer:** A hybrid of SGD and Muon that brings LLM training innovations to computer vision, enabling more stable training and faster convergence.
     *   **Up to 43% Faster CPU Inference:** YOLO26n runs up to 43% faster than YOLO11n on CPU, which suits edge computing environments without dedicated GPUs.
     *   **DFL Removal:** Distribution Focal Loss has been removed for simplified export and enhanced edge device compatibility.

@@ -15,18 +15,18 @@ Computer vision applications keep demanding faster, more accurate, and more effi
 
 For years, the YOLO (You Only Look Once) family relied on [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) to filter out redundant bounding boxes during post-processing. While effective, NMS introduces inference latency and complicates deployment on edge devices like the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) or specialized neural processing units (NPUs).
 
-YOLOv10 pioneered an end-to-end NMS-free design for the YOLO family. Ultralytics YOLO26 refined the approach for production environments as an optional one-to-one head, and extended it across a wider range of tasks.
+YOLOv10 introduced an end-to-end NMS-free design to the YOLO family. Ultralytics YOLO26 refined the approach for production environments as an optional one-to-one head, and extended it across a wider range of tasks.
 
 !!! info "The Post-Processing Bottleneck"
 
     Removing NMS eliminates the dynamic, data-dependent post-processing step that traditionally hindered the optimization of computer vision models on hardware accelerators like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) and [OpenVINO](https://docs.ultralytics.com/integrations/openvino).
 
-## YOLOv10: Pioneering NMS-Free Detection
+## YOLOv10: NMS-Free Real-Time Detection
 
 - **Date:** 2024-05-23
 - **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
 - **Organization:** [Tsinghua University](https://www.tsinghua.edu.cn/en/)
-- **Resources:** [ArXiv Paper](https://arxiv.org/abs/2405.14458) | [GitHub Repository](https://github.com/THU-MIG/yolov10)
+- **Resources:** [arXiv Paper](https://arxiv.org/abs/2405.14458) | [GitHub Repository](https://github.com/THU-MIG/yolov10)
 
 Developed by researchers at Tsinghua University, YOLOv10 introduced a consistent dual-assignment strategy to eliminate the need for NMS. By employing a holistic efficiency-accuracy driven model design, it reduced computational redundancy while maintaining strong [mAP (mean Average Precision)](https://www.ultralytics.com/glossary/mean-average-precision-map).
 
@@ -97,7 +97,7 @@ Here is an example that trains, runs inference, and exports with YOLO26:
 ```python
 from ultralytics import YOLO
 
-# 1. Load the state-of-the-art YOLO26 nano model
+# 1. Load the YOLO26 nano model
 model = YOLO("yolo26n.pt")
 
 # 2. Train the model on the COCO8 dataset efficiently

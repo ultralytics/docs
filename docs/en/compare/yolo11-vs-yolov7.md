@@ -30,7 +30,7 @@ Both models have influenced the deep learning community, but they come from diff
 - **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
 - **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)
 - **Date:** 2022-07-06
-- **Arxiv:** [https://arxiv.org/abs/2207.02696](https://arxiv.org/abs/2207.02696)
+- **arXiv:** [https://arxiv.org/abs/2207.02696](https://arxiv.org/abs/2207.02696)
 - **GitHub:** [https://github.com/WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
 - **Docs:** [https://docs.ultralytics.com/models/yolov7](https://docs.ultralytics.com/models/yolov7)
 
@@ -83,7 +83,7 @@ from ultralytics import YOLO
 # Load a pretrained YOLO11 small model
 model = YOLO("yolo11s.pt")
 
-# Train the model effortlessly using the unified API
+# Train the model using the unified API
 results = model.train(data="coco8.yaml", epochs=50, imgsz=640)
 
 # Quickly export to ONNX format
@@ -117,7 +117,7 @@ Choosing between YOLOv7 and YOLO11 depends on the project scope and deployment c
 - **Resource-Constrained Environments:** The lightweight footprint of YOLO11n makes it well suited for deployment on mobile and edge devices via [ONNX](https://onnx.ai/).
 - **Multi-task Projects:** If a single application needs to identify a person, map their skeleton (pose), and segment an object they are holding, YOLO11 provides a unified solution.
 
-## The Cutting Edge: Moving Forward with YOLO26
+## Moving Forward with YOLO26
 
 YOLO11 remains a reliable choice, but for engineers starting new projects today, **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** is the recommended model.
 

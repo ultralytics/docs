@@ -24,7 +24,7 @@ Introduced in early 2024, YOLOv9 tackles the data loss that occurs as informatio
 - **Authors:** Chien-Yao Wang, Hong-Yuan Mark Liao
 - **Organization:** Institute of Information Science, Academia Sinica, Taiwan
 - **Date:** February 21, 2024
-- **Arxiv:** [2402.13616](https://arxiv.org/abs/2402.13616)
+- **arXiv:** [2402.13616](https://arxiv.org/abs/2402.13616)
 - **GitHub:** [WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9)
 - **Docs:** [Ultralytics YOLOv9 Documentation](https://docs.ultralytics.com/models/yolov9)
 
@@ -37,7 +37,7 @@ Released by Baidu in 2022, PP-YOLOE+ is an iterative improvement over PP-YOLOv2.
 - **Authors:** PaddlePaddle Authors
 - **Organization:** Baidu
 - **Date:** April 2, 2022
-- **Arxiv:** [2203.16250](https://arxiv.org/abs/2203.16250)
+- **arXiv:** [2203.16250](https://arxiv.org/abs/2203.16250)
 - **GitHub:** [PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection/)
 - **Docs:** [PP-YOLOE+ Configuration](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
 
@@ -94,7 +94,7 @@ from ultralytics import YOLO
 # Load a pre-trained YOLOv9 model
 model = YOLO("yolov9c.pt")
 
-# Train on a custom dataset effortlessly
+# Train on a custom dataset
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640, device=0)
 
 # Run inference and visualize results

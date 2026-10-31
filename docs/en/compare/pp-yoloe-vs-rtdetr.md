@@ -20,7 +20,7 @@ Developed as an iteration over its predecessors, PP-YOLOE+ shows how far traditi
 - **Authors:** PaddlePaddle Authors
 - **Organization:** [Baidu](https://github.com/PaddlePaddle)
 - **Date:** 2022-04-02
-- **Arxiv:** [2203.16250](https://arxiv.org/abs/2203.16250)
+- **arXiv:** [2203.16250](https://arxiv.org/abs/2203.16250)
 - **GitHub:** [PaddleDetection Repository](https://github.com/PaddlePaddle/PaddleDetection/)
 - **Docs:** [PP-YOLOE+ Documentation](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
 
@@ -47,7 +47,7 @@ Moving away from pure CNNs, RTDETRv2 (Real-Time Detection Transformer version 2)
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
 - **Organization:** [Baidu](https://www.baidu.com/)
 - **Date:** 2024-07-24
-- **Arxiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
+- **arXiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
 - **GitHub:** [RTDETRv2 Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 - **Docs:** [RTDETRv2 README](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
 
@@ -130,7 +130,7 @@ YOLO26 introduces several enhancements over traditional CNNs and heavy transform
 
     Unlike specialized object detectors, YOLO26 is highly versatile, supporting [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Classification](https://docs.ultralytics.com/tasks/classify), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb). It includes tailored enhancements like RLE for Pose and specialized angle loss for OBB.
 
-### Unmatched Ease of Use
+### Ease of Use
 
 One of the largest drawbacks of adopting complex architectures like RTDETRv2 is the steep learning curve and disjointed integration processes. The Ultralytics ecosystem abstracts these complexities through an intuitive Python API and the web-based Ultralytics Platform.
 
@@ -139,13 +139,13 @@ Whether you are [training on custom datasets](https://www.ultralytics.com/blog/t
 ```python
 from ultralytics import RTDETR, YOLO
 
-# Initialize the state-of-the-art YOLO26 model
+# Initialize the YOLO26 model
 model_yolo = YOLO("yolo26n.pt")
 
 # Alternatively, initialize an RT-DETR model via the same simple API
 model_rtdetr = RTDETR("rtdetr-l.pt")
 
-# Run real-time inference effortlessly
+# Run real-time inference
 results = model_yolo("https://ultralytics.com/images/zidane.jpg")
 results[0].show()
 

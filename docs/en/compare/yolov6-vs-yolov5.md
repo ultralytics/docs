@@ -18,7 +18,7 @@ Developed by the Vision AI Department at [Meituan](https://en.wikipedia.org/wiki
 - **Authors:** Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu
 - **Organization:** Meituan
 - **Date:** 2023-01-13
-- **Arxiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
+- **arXiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
 - **GitHub:** [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
 - **Docs:** [YOLOv6 Documentation](https://docs.ultralytics.com/models/yolov6)
 
@@ -73,7 +73,7 @@ The table below outlines the performance metrics of both architectures when eval
 
 YOLOv6-3.0 achieves higher mAP at comparable sizes and is heavily optimized for TensorRT pipelines on T4 GPUs. However, YOLOv5 offers a **Well-Maintained Ecosystem** that supports direct export to multiple formats, including [ONNX](https://onnx.ai/), CoreML, and LiteRT. This **Performance Balance** lets YOLOv5 run reliably not just on dedicated servers, but also on mobile devices and edge computing environments like the [Raspberry Pi](https://www.raspberrypi.org/).
 
-## Code Example: Seamless Training with Ultralytics
+## Code Example: Training with Ultralytics
 
 A key advantage of the Ultralytics ecosystem is the streamlined user experience. Training a model, evaluating it, and exporting it requires only a few lines of Python.
 

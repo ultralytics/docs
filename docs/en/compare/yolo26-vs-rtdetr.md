@@ -13,7 +13,7 @@ This guide compares their structures, performance metrics, and ideal use cases t
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO26", "RTDETRv2"]'></canvas>
 
-## Ultralytics YOLO26: The Pinnacle of Edge-First Vision AI
+## Ultralytics YOLO26: Edge-First Vision AI
 
 Developed by Ultralytics and released in January 2026, YOLO26 is the latest YOLO model and the recommended choice for new projects. It is designed for speed, accuracy, and straightforward deployment across cloud and edge environments.
 
@@ -27,7 +27,7 @@ Developed by Ultralytics and released in January 2026, YOLO26 is the latest YOLO
 
 YOLO26 introduces several features that differentiate it not only from transformer models but also from earlier iterations like [YOLO11](https://docs.ultralytics.com/models/yolo11):
 
-- **End-to-End NMS-Free Design:** YOLO26's optional one-to-one head (`nms=False`) skips traditional Non-Maximum Suppression (NMS) during post-processing. Pioneered in models like [YOLOv10](https://docs.ultralytics.com/models/yolov10), this end-to-end approach reduces inference latency variance and simplifies deployment logic, particularly on edge hardware.
+- **End-to-End NMS-Free Design:** YOLO26's optional one-to-one head (`nms=False`) skips traditional Non-Maximum Suppression (NMS) during post-processing. Introduced to YOLO models by [YOLOv10](https://docs.ultralytics.com/models/yolov10), this end-to-end approach reduces inference latency variance and simplifies deployment logic, particularly on edge hardware.
 - **Up to 43% Faster CPU Inference:** YOLO26n runs up to 43% faster on CPU than YOLO11n, which suits devices lacking dedicated GPUs, such as the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi).
 - **DFL Removal:** Removing Distribution Focal Loss (DFL) simplifies the export process and improves compatibility with low-power edge devices.
 - **MuSGD Optimizer:** Bringing large language model (LLM) training ideas to computer vision, YOLO26 uses the MuSGD optimizer. This hybrid of SGD and Muon, inspired by Moonshot AI's Kimi K2, provides more stable training and faster convergence.
@@ -50,7 +50,7 @@ RTDETRv2, developed by researchers at Baidu, builds upon the original RT-DETR fr
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
 - **Organization:** [Baidu](https://www.baidu.com/)
 - **Date:** 2024-07-24
-- **Arxiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
+- **arXiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
 - **GitHub:** [RTDETRv2 PyTorch Implementation](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 - **Docs:** [RTDETRv2 README](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
 
@@ -117,7 +117,7 @@ The [Ultralytics Python API](https://docs.ultralytics.com/usage/python) keeps tr
 ```python
 from ultralytics import YOLO
 
-# Initialize the cutting-edge YOLO26 Nano model
+# Initialize the YOLO26 Nano model
 model = YOLO("yolo26n.pt")
 
 # Train on the COCO8 dataset for 100 epochs
@@ -126,7 +126,7 @@ results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 # Execute high-speed, NMS-free inference
 predictions = model("https://ultralytics.com/images/bus.jpg", nms=False)
 
-# Export to ONNX for seamless deployment
+# Export to ONNX for deployment
 model.export(format="onnx")
 ```
 

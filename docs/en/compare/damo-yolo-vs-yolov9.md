@@ -36,7 +36,7 @@ Developed by researchers at Alibaba Group, DAMO-YOLO focuses heavily on automate
 - **Authors:** Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun
 - **Organization:** [Alibaba Group](https://www.alibabagroup.com/)
 - **Release Date:** November 23, 2022
-- **Arxiv Paper:** [DAMO-YOLO Research Paper](https://arxiv.org/abs/2211.15444v2)
+- **arXiv Paper:** [DAMO-YOLO Research Paper](https://arxiv.org/abs/2211.15444v2)
 - **Official GitHub:** [tinyvision/DAMO-YOLO Repository](https://github.com/tinyvision/DAMO-YOLO)
 - **Documentation:** [DAMO-YOLO README](https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md)
 
@@ -49,7 +49,7 @@ Introduced as a solution to information loss in deep convolutional networks, YOL
 - **Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao
 - **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)
 - **Release Date:** February 21, 2024
-- **Arxiv Paper:** [YOLOv9 Research Paper](https://arxiv.org/abs/2402.13616)
+- **arXiv Paper:** [YOLOv9 Research Paper](https://arxiv.org/abs/2402.13616)
 - **Official GitHub:** [WongKinYiu/yolov9 Repository](https://github.com/WongKinYiu/yolov9)
 - **Documentation:** [YOLOv9 Ultralytics Docs](https://docs.ultralytics.com/models/yolov9)
 

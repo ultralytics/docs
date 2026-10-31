@@ -1,7 +1,7 @@
 ---
 title: EfficientDet vs PP-YOLOE+ Comparison
 comments: true
-description: "EfficientDet vs PP-YOLOE+: compare BiFPN compound scaling with CSPRepResNet and the ET-head on COCO mAP, CPU and T4 TensorRT latency, and deployment fit."
+description: "EfficientDet vs PP-YOLOE+: compare BiFPN compound scaling with CSPRepResNet and the ET-head on COCO mAP, T4 TensorRT latency, and deployment fit."
 keywords: EfficientDet, PP-YOLOE+, object detection, model comparison, EfficientDet features, PP-YOLOE+ benefits, Ultralytics models, computer vision, AI benchmarks
 ---
 
@@ -24,7 +24,7 @@ Developed by Google Research, EfficientDet changed how detectors are scaled, rep
 - **Authors:** Mingxing Tan, Ruoming Pang, and Quoc V. Le
 - **Organization:** [Google Research](https://research.google/)
 - **Date:** 2019-11-20
-- **Arxiv:** [1911.09070](https://arxiv.org/abs/1911.09070)
+- **arXiv:** [1911.09070](https://arxiv.org/abs/1911.09070)
 - **GitHub:** [google/automl](https://github.com/google/automl/tree/master/efficientdet)
 - **Docs:** [EfficientDet Documentation](https://github.com/google/automl/tree/master/efficientdet#readme)
 
@@ -43,7 +43,7 @@ Building on the successes of its predecessors, PP-YOLOE+ was engineered by the P
 - **Authors:** PaddlePaddle Authors
 - **Organization:** [Baidu](https://github.com/PaddlePaddle)
 - **Date:** 2022-04-02
-- **Arxiv:** [2203.16250](https://arxiv.org/abs/2203.16250)
+- **arXiv:** [2203.16250](https://arxiv.org/abs/2203.16250)
 - **GitHub:** [PaddlePaddle/PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection/)
 - **Docs:** [PP-YOLOE+ Configuration](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
 
@@ -57,14 +57,14 @@ When selecting a model for [real-time inference](https://www.ultralytics.com/glo
 
 | Model           | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | --------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| EfficientDet-d0 | 640                         | 34.6                       | **10.2**                             | 3.92                                      | **3.9**                  | **2.54**                |
-| EfficientDet-d1 | 640                         | 40.5                       | 13.5                                 | 7.31                                      | 6.6                      | 6.1                     |
-| EfficientDet-d2 | 640                         | 43.0                       | 17.7                                 | 10.92                                     | 8.1                      | 11.0                    |
-| EfficientDet-d3 | 640                         | 47.5                       | 28.0                                 | 19.59                                     | 12.0                     | 24.9                    |
-| EfficientDet-d4 | 640                         | 49.7                       | 42.8                                 | 33.55                                     | 20.7                     | 55.2                    |
-| EfficientDet-d5 | 640                         | 51.5                       | 72.5                                 | 67.86                                     | 33.7                     | 130.0                   |
-| EfficientDet-d6 | 640                         | 52.6                       | 92.8                                 | 89.29                                     | 51.9                     | 226.0                   |
-| EfficientDet-d7 | 640                         | 53.7                       | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
+| EfficientDet-d0 | 512                         | 34.6                       | -                                    | 3.92                                      | **3.9**                  | **2.54**                |
+| EfficientDet-d1 | 640                         | 40.5                       | -                                    | 7.31                                      | 6.6                      | 6.1                     |
+| EfficientDet-d2 | 768                         | 43.0                       | -                                    | 10.92                                     | 8.1                      | 11.0                    |
+| EfficientDet-d3 | 896                         | 47.5                       | -                                    | 19.59                                     | 12.0                     | 24.9                    |
+| EfficientDet-d4 | 1024                        | 49.7                       | -                                    | 33.55                                     | 20.7                     | 55.2                    |
+| EfficientDet-d5 | 1280                        | 51.5                       | -                                    | 67.86                                     | 33.7                     | 130.0                   |
+| EfficientDet-d6 | 1280                        | 52.6                       | -                                    | 89.29                                     | 51.9                     | 226.0                   |
+| EfficientDet-d7 | 1536                        | 53.7                       | -                                    | 128.07                                    | 51.9                     | 325.0                   |
 |                 |                             |                            |                                      |                                           |                          |                         |
 | PP-YOLOE+t      | 640                         | 39.9                       | -                                    | 2.84                                      | 4.85                     | 19.15                   |
 | PP-YOLOE+s      | 640                         | 43.7                       | -                                    | **2.62**                                  | 7.93                     | 17.36                   |
@@ -81,7 +81,7 @@ Choosing between these architectures often depends on your existing tech stack a
 **When to choose EfficientDet:**
 
 - **AutoML Workflows:** If you are heavily invested in Google's ecosystem and rely on automated architecture search capabilities.
-- **Resource-Constrained Edge:** The lower-tier models (d0, d1) provide predictable performance on mobile CPUs where parameter footprint is a strict constraint.
+- **Resource-Constrained Edge:** The lower-tier models (d0, d1) have small parameter counts (3.9M and 6.6M), which suits devices where model size is a strict constraint.
 
 **When to choose PP-YOLOE+:**
 
@@ -102,7 +102,7 @@ YOLO26 is also optimized for edge deployments. The removal of Distribution Focal
 
 Developers also benefit from YOLO26's progressive loss and small-target-aware label assignment (ProgLoss + STAL), which improve small-object recognition, a critical requirement for aerial imagery and [precision agriculture applications](https://www.ultralytics.com/blog/sowing-success-ai-in-agriculture).
 
-### Seamless Deployment with Ultralytics
+### Deployment with Ultralytics
 
 The main strength of Ultralytics lies in its unified ecosystem. Unlike models that require complex, bespoke training scripts, YOLO26 offers a streamlined API. Training a model on your custom dataset requires just a few lines of Python code:
 

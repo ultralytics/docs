@@ -18,7 +18,7 @@ RTDETRv2 (Real-Time Detection Transformer version 2) builds on its predecessor t
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
 - **Organization:** [Baidu](https://www.baidu.com/)
 - **Date:** 2024-07-24
-- **Arxiv:** [https://arxiv.org/abs/2407.17140](https://arxiv.org/abs/2407.17140)
+- **arXiv:** [https://arxiv.org/abs/2407.17140](https://arxiv.org/abs/2407.17140)
 - **GitHub:** [RTDETRv2 Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 
 ### Architectural Highlights
@@ -40,7 +40,7 @@ Released two years before RTDETRv2, YOLOv7 introduced several structural optimiz
 - **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
 - **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)
 - **Date:** 2022-07-06
-- **Arxiv:** [https://arxiv.org/abs/2207.02696](https://arxiv.org/abs/2207.02696)
+- **arXiv:** [https://arxiv.org/abs/2207.02696](https://arxiv.org/abs/2207.02696)
 - **GitHub:** [YOLOv7 Repository](https://github.com/WongKinYiu/yolov7)
 
 ### Architectural Highlights
@@ -95,13 +95,13 @@ A key advantage of Ultralytics models like YOLO26 (or the widely used [YOLO11](h
 ```python
 from ultralytics import YOLO
 
-# Initialize the state-of-the-art YOLO26 model
+# Initialize the YOLO26 model
 model = YOLO("yolo26s.pt")
 
 # Train the model on the COCO8 dataset
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
-# Export seamlessly for edge deployment
+# Export for edge deployment
 model.export(format="onnx", dynamic=True)
 ```
 

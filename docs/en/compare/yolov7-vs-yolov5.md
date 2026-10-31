@@ -27,7 +27,7 @@ You can explore the source code on the [YOLOv5 GitHub repository](https://github
 ### YOLOv7
 
 Introduced by Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao from the Institute of Information Science, Academia Sinica, Taiwan, on July 6, 2022, YOLOv7 focused heavily on architectural innovations like Extended Efficient Layer Aggregation Networks (E-ELAN) and a trainable "bag-of-freebies" to push the state-of-the-art in accuracy.
-Details can be found in their [official Arxiv paper](https://arxiv.org/abs/2207.02696) and the [YOLOv7 GitHub repository](https://github.com/WongKinYiu/yolov7). For running exported YOLOv7 models with Ultralytics, see the [Ultralytics YOLOv7 documentation](https://docs.ultralytics.com/models/yolov7).
+Details can be found in their [official arXiv paper](https://arxiv.org/abs/2207.02696) and the [YOLOv7 GitHub repository](https://github.com/WongKinYiu/yolov7). For running exported YOLOv7 models with Ultralytics, see the [Ultralytics YOLOv7 documentation](https://docs.ultralytics.com/models/yolov7).
 
 [Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
 
@@ -116,7 +116,7 @@ While YOLOv5 and YOLOv7 hold vital places in the history of vision AI, the lands
 
 YOLO26 introduces several key features:
 
-- **End-to-End NMS-Free Design:** Building on concepts pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 offers an optional end-to-end head (`nms=False`) that skips [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing, reducing latency and simplifying deployment logic.
+- **End-to-End NMS-Free Design:** Building on the NMS-free training that [YOLOv10](https://docs.ultralytics.com/models/yolov10) introduced to YOLO models, YOLO26 offers an optional end-to-end head (`nms=False`) that skips [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing, reducing latency and simplifying deployment logic.
 - **MuSGD Optimizer:** Inspired by Moonshot AI's Kimi K2, this hybrid optimizer combines standard SGD with Muon, bringing LLM training ideas into computer vision for more stable training and faster convergence.
 - **Enhanced CPU Speed:** By removing the Distribution Focal Loss (DFL), YOLO26n achieves up to **43% faster CPU inference** than YOLO11n, making YOLO26 well suited to edge AI and low-power IoT device deployment.
 - **ProgLoss + STAL:** Progressive Loss and small-target-aware label assignment improve small-object recognition, which is critical for aerial imagery and precision robotics.

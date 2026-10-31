@@ -20,7 +20,7 @@ RTDETRv2 (Real-Time Detection Transformer version 2) builds on the original [RT-
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
 - **Organization:** [Baidu](https://www.baidu.com/)
 - **Date:** 2024-07-24
-- **Links:** [ArXiv Publication](https://arxiv.org/abs/2407.17140) | [GitHub Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
+- **Links:** [arXiv Publication](https://arxiv.org/abs/2407.17140) | [GitHub Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 
 ### Architecture and Strengths
 
@@ -91,7 +91,7 @@ The Ultralytics Python API runs both model families with the same interface.
 ```python
 from ultralytics import RTDETR, YOLO
 
-# Load an RT-DETR model and a YOLOv8 model seamlessly
+# Load an RT-DETR model and a YOLOv8 model
 model_transformer = RTDETR("rtdetr-l.pt")
 model_cnn = YOLO("yolov8l.pt")
 

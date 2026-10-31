@@ -13,7 +13,7 @@ This technical guide analyzes these two architectures, covering their [performan
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "PP-YOLOE+"]'></canvas>
 
-## YOLOv10: The Pioneer of NMS-Free Detection
+## YOLOv10: NMS-Free Real-Time Detection
 
 Developed by researchers at Tsinghua University, YOLOv10 introduced a major architectural shift by eliminating the need for [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) during post-processing. This end-to-end approach addresses a long-standing bottleneck in real-time inference, making deployments faster and more predictable, particularly on devices with limited computational resources.
 
@@ -22,7 +22,7 @@ Developed by researchers at Tsinghua University, YOLOv10 introduced a major arch
 - **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
 - **Organization:** [Tsinghua University](https://www.tsinghua.edu.cn/en/)
 - **Date:** 2024-05-23
-- **Arxiv:** [2405.14458](https://arxiv.org/abs/2405.14458)
+- **arXiv:** [2405.14458](https://arxiv.org/abs/2405.14458)
 - **GitHub:** [THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
 - **Docs:** [YOLOv10 Documentation](https://docs.ultralytics.com/models/yolov10)
 
@@ -34,7 +34,7 @@ However, as a strictly detection-focused model, it lacks the native versatility 
 
 [Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10){ .md-button }
 
-## PP-YOLOE+: The PaddlePaddle Powerhouse
+## PP-YOLOE+: Anchor-Free Detection in PaddlePaddle
 
 PP-YOLOE+ is an upgraded version of the original PP-YOLOE, developed by Baidu's PaddlePaddle team. It builds on an optimized anchor-free design and incorporates improved training strategies to raise [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) on standard benchmarks.
 
@@ -43,7 +43,7 @@ PP-YOLOE+ is an upgraded version of the original PP-YOLOE, developed by Baidu's 
 - **Authors:** PaddlePaddle Authors
 - **Organization:** [Baidu](https://github.com/PaddlePaddle)
 - **Date:** 2022-04-02
-- **Arxiv:** [2203.16250](https://arxiv.org/abs/2203.16250)
+- **arXiv:** [2203.16250](https://arxiv.org/abs/2203.16250)
 - **GitHub:** [PaddlePaddle/PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection/)
 - **Docs:** [PP-YOLOE+ GitHub README](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
 
@@ -106,7 +106,7 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 
 ## The Ultralytics Advantage and the Future: YOLO26
 
-YOLOv10 and PP-YOLOE+ each offer specialized benefits, but for new production-grade computer vision projects we recommend **Ultralytics YOLO26**. Released in January 2026, YOLO26 adopts proven architectural ideas, including the NMS-free design pioneered by YOLOv10, within a multi-task framework.
+YOLOv10 and PP-YOLOE+ each offer specialized benefits, but for new production-grade computer vision projects we recommend **Ultralytics YOLO26**. Released in January 2026, YOLO26 adopts proven architectural ideas, including the NMS-free design introduced to YOLO models by YOLOv10, within a multi-task framework.
 
 !!! tip "Why Choose YOLO26?"
 
@@ -119,20 +119,20 @@ YOLOv10 and PP-YOLOE+ each offer specialized benefits, but for new production-gr
 - **Advanced Training Dynamics:** With the **MuSGD Optimizer**, a hybrid of SGD and Muon, YOLO26 brings large language model (LLM) training stability to vision tasks, converging faster and more reliably.
 - **Enhanced Accuracy via ProgLoss + STAL:** Progressive Loss and Small-Target-Aware Label Assignment (STAL) target difficult scenarios, improving small-object detection for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and [agriculture](https://www.ultralytics.com/solutions/computer-vision-in-agriculture).
 
-### Unmatched Versatility
+### Versatility
 
 Unlike PP-YOLOE+, which focuses on detection, YOLO26 handles instance segmentation, semantic segmentation, depth estimation, [image classification](https://docs.ultralytics.com/tasks/classify), pose estimation, and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb) from a single, unified codebase. You can manage [datasets](https://docs.ultralytics.com/datasets), train, and deploy models directly via the [Ultralytics Platform](https://platform.ultralytics.com).
 
 ```python
 from ultralytics import YOLO
 
-# Initialize the state-of-the-art YOLO26 nano model
+# Initialize the YOLO26 nano model
 model = YOLO("yolo26n.pt")
 
-# Train smoothly with the powerful Ultralytics engine
+# Train with the Ultralytics engine
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
-# Export to TensorRT for blazing fast deployment
+# Export to TensorRT for GPU deployment
 model.export(format="engine", quantize=16)
 ```
 

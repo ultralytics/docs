@@ -20,7 +20,7 @@ Developed by researchers at Baidu, RTDETRv2 builds on the original [RT-DETR](htt
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
 - **Organization:** [Baidu](https://www.baidu.com/)
 - **Date:** 2024-07-24
-- **Links:** [Arxiv](https://arxiv.org/abs/2407.17140), [GitHub](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
+- **Links:** [arXiv](https://arxiv.org/abs/2407.17140), [GitHub](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 
 A defining characteristic of RTDETRv2 is its natively **end-to-end NMS-free design**. By removing [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) from post-processing, the model stabilizes inference latency and simplifies the deployment pipeline. The global attention mechanism helps the model with complex scenes and dense crowds, as it evaluates the entire image context simultaneously.
 
@@ -33,7 +33,7 @@ YOLOv9, an efficient CNN-based architecture, tackles the information bottleneck 
 - **Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao
 - **Organization:** [Institute of Information Science, Academia Sinica](https://www.iis.sinica.edu.tw/en/index.html)
 - **Date:** February 21, 2024
-- **Links:** [Arxiv](https://arxiv.org/abs/2402.13616), [GitHub](https://github.com/WongKinYiu/yolov9)
+- **Links:** [arXiv](https://arxiv.org/abs/2402.13616), [GitHub](https://github.com/WongKinYiu/yolov9)
 
 YOLOv9 builds on proven [convolutional neural network](https://www.ultralytics.com/glossary/convolutional-neural-network-cnn) foundations with a focus on parameter efficiency. By retaining key information during the feed-forward process, PGI keeps gradients reliable, resulting in a lightweight yet accurate model. However, unlike RTDETRv2, YOLOv9 still relies on standard NMS post-processing.
 

@@ -36,7 +36,7 @@ Originally introduced for industrial applications at Meituan, YOLOv6 received a 
 - **Authors:** Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu
 - **Organization:** [Meituan](https://tech.meituan.com/)
 - **Date:** 2023-01-13
-- **Arxiv:** [https://arxiv.org/abs/2301.05586](https://arxiv.org/abs/2301.05586)
+- **arXiv:** [https://arxiv.org/abs/2301.05586](https://arxiv.org/abs/2301.05586)
 - **GitHub:** [https://github.com/meituan/YOLOv6](https://github.com/meituan/YOLOv6)
 - **Docs:** [https://docs.ultralytics.com/models/yolov6](https://docs.ultralytics.com/models/yolov6)
 
@@ -100,7 +100,7 @@ results = model.train(
     data="coco8.yaml",
     epochs=100,
     imgsz=640,
-    device=0,  # Utilize GPU for efficient training
+    device=0,  # Use GPU for efficient training
     batch=32,
 )
 

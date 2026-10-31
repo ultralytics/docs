@@ -20,7 +20,7 @@ Before covering the technical architectures, it helps to understand the origins 
 - **Authors:** PaddlePaddle Authors
 - **Organization:** [Baidu](https://github.com/PaddlePaddle)
 - **Date:** 2022-04-02
-- **Arxiv:** [https://arxiv.org/abs/2203.16250](https://arxiv.org/abs/2203.16250)
+- **arXiv:** [https://arxiv.org/abs/2203.16250](https://arxiv.org/abs/2203.16250)
 - **GitHub:** [https://github.com/PaddlePaddle/PaddleDetection/](https://github.com/PaddlePaddle/PaddleDetection/)
 - **Docs:** [PaddleDetection PP-YOLOE+ README](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
 
@@ -31,7 +31,7 @@ Before covering the technical architectures, it helps to understand the origins 
 - **Authors:** Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun
 - **Organization:** [Megvii](https://en.megvii.com/)
 - **Date:** 2021-07-18
-- **Arxiv:** [https://arxiv.org/abs/2107.08430](https://arxiv.org/abs/2107.08430)
+- **arXiv:** [https://arxiv.org/abs/2107.08430](https://arxiv.org/abs/2107.08430)
 - **GitHub:** [https://github.com/Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
 - **Docs:** [YOLOX Official Documentation](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
@@ -144,7 +144,7 @@ results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 # Validate the model's performance
 metrics = model.val()
 
-# Export seamlessly to ONNX or TensorRT
+# Export to ONNX or TensorRT
 model.export(format="engine")
 ```
 

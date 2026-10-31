@@ -20,7 +20,7 @@ Developed by the Vision AI Department at Meituan, YOLOv6-3.0 is positioned as a 
 - **Authors:** Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu
 - **Organization:** [Meituan](https://tech.meituan.com/)
 - **Date:** 2023-01-13
-- **Arxiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
+- **arXiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
 - **GitHub:** [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
 - **Docs:** [YOLOv6 Documentation](https://docs.ultralytics.com/models/yolov6)
 

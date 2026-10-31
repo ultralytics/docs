@@ -109,14 +109,14 @@ python train.py --img 640 --batch 16 --epochs 50 --data coco128.yaml --weights y
 
 Both models possess distinct strengths tailored to different operational environments.
 
-### When to Utilize YOLOv5
+### When to Use YOLOv5
 
 Despite the newer generation, YOLOv5 remains a reliable option for:
 
 - **Legacy Systems Integration:** Environments deeply integrated with YOLOv5's specific tensor structures or deployment pipelines that cannot easily be refactored.
 - **Academic Baselines:** Researchers needing established, long-standing baselines for reproducible academic studies in [medical image analysis](https://www.ultralytics.com/glossary/medical-image-analysis).
 
-### When to Utilize YOLO11
+### When to Use YOLO11
 
 YOLO11 is the better choice for modern production pipelines due to its versatility:
 

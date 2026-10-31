@@ -36,7 +36,7 @@ Created by researchers at the Alibaba Group, DAMO-YOLO focuses heavily on Neural
 - **Authors:** Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun
 - **Organization:** [Alibaba Group](https://www.alibabagroup.com/)
 - **Date:** 2022-11-23
-- **Arxiv:** [2211.15444v2](https://arxiv.org/abs/2211.15444v2)
+- **arXiv:** [2211.15444v2](https://arxiv.org/abs/2211.15444v2)
 - **GitHub:** [tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)
 
 [Learn more about DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md){ .md-button }

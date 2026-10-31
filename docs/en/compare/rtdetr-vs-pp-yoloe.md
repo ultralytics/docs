@@ -24,7 +24,7 @@ RTDETRv2 builds on the original Real-Time Detection Transformer and pairs a CNN 
 - **Author:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
 - **Organization:** [Baidu](https://www.baidu.com/)
 - **Date:** 2024-07-24
-- **Arxiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
+- **arXiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
 - **GitHub:** [RT-DETR Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 
 [Learn more about RTDETRv2](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch){ .md-button }
@@ -36,7 +36,7 @@ PP-YOLOE+ is an improved version of PP-YOLOE from the PaddleDetection team, opti
 - **Author:** PaddlePaddle Authors
 - **Organization:** Baidu
 - **Date:** 2022-04-02
-- **Arxiv:** [2203.16250](https://arxiv.org/abs/2203.16250)
+- **arXiv:** [2203.16250](https://arxiv.org/abs/2203.16250)
 - **GitHub:** [PaddleDetection Repository](https://github.com/PaddlePaddle/PaddleDetection/)
 
 [Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md){ .md-button }
@@ -106,10 +106,10 @@ model_rtdetr = RTDETR("rtdetr-l.pt")
 results_rtdetr = model_rtdetr("https://ultralytics.com/images/bus.jpg")
 results_rtdetr[0].show()
 
-# For superior speed and versatility, initialize the latest YOLO26 model
+# Initialize the latest YOLO26 model
 model_yolo26 = YOLO("yolo26n.pt")
 
-# Train the YOLO26 model effortlessly with optimized memory usage
+# Train the YOLO26 model with optimized memory usage
 model_yolo26.train(data="coco8.yaml", epochs=50, imgsz=640)
 
 # Export to TensorRT for edge deployment

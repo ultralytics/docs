@@ -22,7 +22,7 @@ Developed by the researchers who maintained the CSPNet and Scaled-YOLOv4 archite
 - **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
 - **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)
 - **Date:** 2022-07-06
-- **Arxiv:** [https://arxiv.org/abs/2207.02696](https://arxiv.org/abs/2207.02696)
+- **arXiv:** [https://arxiv.org/abs/2207.02696](https://arxiv.org/abs/2207.02696)
 - **GitHub:** [https://github.com/WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
 - **Docs:** [Ultralytics YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7)
 
@@ -35,7 +35,7 @@ YOLOX took a different path by returning to anchor-free detection, simplifying t
 - **Authors:** Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun
 - **Organization:** [Megvii](https://en.megvii.com/)
 - **Date:** 2021-07-18
-- **Arxiv:** [https://arxiv.org/abs/2107.08430](https://arxiv.org/abs/2107.08430)
+- **arXiv:** [https://arxiv.org/abs/2107.08430](https://arxiv.org/abs/2107.08430)
 - **GitHub:** [https://github.com/Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
 - **Docs:** [YOLOX Official Docs](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
@@ -101,10 +101,10 @@ results = model.train(
     epochs=100,
     imgsz=640,
     batch=16,
-    device="0",  # Utilizes optimal CUDA memory management
+    device="0",  # Use the first CUDA GPU
 )
 
-# Export seamlessly to ONNX or TensorRT
+# Export to ONNX or TensorRT
 model.export(format="onnx")
 ```
 
@@ -123,7 +123,7 @@ YOLOv7 and YOLOX were influential when released, but the field has advanced sign
 
 Key improvements include:
 
-- **End-to-End NMS-Free Design:** YOLO26's optional one-to-one head (`nms=False`) eliminates Non-Maximum Suppression (NMS) during post-processing. Pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), this approach keeps latency consistently low and simplifies deployment on devices without efficient NMS support.
+- **End-to-End NMS-Free Design:** YOLO26's optional one-to-one head (`nms=False`) eliminates Non-Maximum Suppression (NMS) during post-processing. Introduced to YOLO models by [YOLOv10](https://docs.ultralytics.com/models/yolov10), this approach keeps latency consistently low and simplifies deployment on devices without efficient NMS support.
 - **DFL Removal:** Removing Distribution Focal Loss improves compatibility with low-power edge devices and simplifies ONNX export.
 - **MuSGD Optimizer:** Inspired by LLM training, YOLO26 uses MuSGD, a hybrid of SGD and Muon, for faster convergence and more stable training.
 - **Up to 43% Faster CPU Inference:** YOLO26n runs up to 43% faster than YOLO11n in CPU ONNX inference, so it performs well on standard CPUs without dedicated GPU infrastructure.

@@ -20,7 +20,7 @@ Developed by the Vision AI Department at [Meituan](https://tech.meituan.com/), Y
 - **Authors:** Chuyi Li, Lulu Li, Yifei Geng, et al.
 - **Organization:** Meituan
 - **Date:** 2023-01-13
-- **Arxiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
+- **arXiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
 - **GitHub:** [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
 - **Docs:** [Ultralytics YOLOv6 Documentation](https://docs.ultralytics.com/models/yolov6)
 
@@ -35,7 +35,7 @@ Created by [Alibaba Group](https://www.alibabagroup.com/), DAMO-YOLO uses Neural
 - **Authors:** Xianzhe Xu, Yiqi Jiang, Weihua Chen, et al.
 - **Organization:** Alibaba Group
 - **Date:** 2022-11-23
-- **Arxiv:** [2211.15444v2](https://arxiv.org/abs/2211.15444v2)
+- **arXiv:** [2211.15444v2](https://arxiv.org/abs/2211.15444v2)
 - **GitHub:** [tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)
 
 DAMO-YOLO stands out with its RepGFPN (Reparameterized Generalized Feature Pyramid Network) for efficient multi-scale feature fusion and its ZeroHead design, which significantly reduces the computational overhead in the detection head. It also incorporates AlignedOTA label assignment and knowledge distillation techniques to boost accuracy without inflating the model's parameter count.
@@ -72,7 +72,7 @@ While YOLOv6-3.0 and DAMO-YOLO are powerful tools, developers often face challen
 
 ### Key Innovations in YOLO26
 
-- **End-to-End NMS-Free Design:** Building on concepts pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26's optional one-to-one head (`nms=False`) removes Non-Maximum Suppression (NMS) post-processing. This reduces latency variance and simplifies deployment on edge devices via [CoreML](https://developer.apple.com/documentation/coreml/) or [LiteRT](https://developers.google.com/edge/litert).
+- **End-to-End NMS-Free Design:** Building on the NMS-free training that [YOLOv10](https://docs.ultralytics.com/models/yolov10) introduced to YOLO models, YOLO26's optional one-to-one head (`nms=False`) removes Non-Maximum Suppression (NMS) post-processing. This reduces latency variance and simplifies deployment on edge devices via [CoreML](https://developer.apple.com/documentation/coreml/) or [LiteRT](https://developers.google.com/edge/litert).
 - **DFL Removal:** By removing Distribution Focal Loss, YOLO26 simplifies the export process and improves compatibility with low-power edge hardware.
 - **Up to 43% Faster CPU Inference:** For applications lacking dedicated GPU hardware, YOLO26n runs up to 43% faster on CPU than YOLO11n.
 - **MuSGD Optimizer:** Inspired by LLM training techniques like Moonshot AI's Kimi K2, YOLO26 utilizes the MuSGD optimizer (a hybrid of SGD and Muon) for stable training and faster convergence.

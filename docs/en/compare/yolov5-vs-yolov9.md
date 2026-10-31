@@ -38,7 +38,7 @@ Introduced by Chien-Yao Wang and Hong-Yuan Mark Liao from the Institute of Infor
 - **Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao
 - **Organization:** Institute of Information Science, Academia Sinica, Taiwan
 - **Date:** 2024-02-21
-- **Arxiv:** [2402.13616](https://arxiv.org/abs/2402.13616)
+- **arXiv:** [2402.13616](https://arxiv.org/abs/2402.13616)
 - **GitHub:** [YOLOv9 Repository](https://github.com/WongKinYiu/yolov9)
 - **Docs:** [YOLOv9 Documentation](https://docs.ultralytics.com/models/yolov9)
 
@@ -58,7 +58,7 @@ Understanding what powers these vision models under the hood is vital for optimi
 
 YOLOv5 utilizes a Cross Stage Partial Network (CSPNet) backbone, which effectively reduces computation overhead while maintaining accurate gradient flow during backpropagation. This design is highly optimized for traditional [GPU operations](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) and ensures lower memory requirements during training compared to heavy transformer alternatives.
 
-YOLOv9 introduces GELAN, a generic architecture that extends CSPNet principles. Coupled with PGI—an auxiliary reversible branch—YOLOv9 helps deep layers retain the semantic information needed to compute reliable gradients. This allows YOLOv9 to achieve high [accuracy](https://www.ultralytics.com/glossary/accuracy), particularly on smaller objects, though the complex auxiliary branching can sometimes complicate export pipelines to highly constrained edge hardware.
+YOLOv9 introduces GELAN, a generic architecture that extends CSPNet principles. Coupled with PGI—an auxiliary reversible branch—YOLOv9 helps deep layers retain the semantic information needed to compute reliable gradients. This allows YOLOv9 to achieve high [accuracy](https://www.ultralytics.com/glossary/accuracy), particularly on smaller objects.
 
 ### Memory Requirements and Training Efficiency
 

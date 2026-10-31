@@ -33,14 +33,14 @@ Unlike many specialized models, YOLOv8 supports multiple tasks. Beyond bounding 
 
     The unified Ultralytics ecosystem allows developers to switch between detection, segmentation, and pose estimation tasks by changing the model weights, reducing technical debt.
 
-## PP-YOLOE+: The PaddlePaddle Powerhouse
+## PP-YOLOE+: Anchor-Free Detection in PaddlePaddle
 
 PP-YOLOE+ is an evolutionary step from previous PP-YOLO iterations, designed to run efficiently on Baidu's [PaddlePaddle](https://github.com/PaddlePaddle) framework.
 
 - **Authors:** PaddlePaddle Authors
 - **Organization:** [Baidu](https://www.baidu.com/)
 - **Date:** 2022-04-02
-- **Arxiv:** [PP-YOLOE Paper](https://arxiv.org/abs/2203.16250)
+- **arXiv:** [PP-YOLOE Paper](https://arxiv.org/abs/2203.16250)
 - **GitHub:** [PaddleDetection Repository](https://github.com/PaddlePaddle/PaddleDetection/)
 - **Docs:** [PP-YOLOE+ Configuration](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
 

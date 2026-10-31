@@ -36,7 +36,7 @@ YOLOv6-3.0 was explicitly tailored for industrial applications where dedicated [
 - **Authors:** Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu
 - **Organization:** [Meituan](https://tech.meituan.com/)
 - **Date:** 2023-01-13
-- **Arxiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
+- **arXiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
 - **GitHub:** [Meituan YOLOv6 Repository](https://github.com/meituan/YOLOv6)
 - **Docs:** [YOLOv6 Documentation](https://docs.ultralytics.com/models/yolov6)
 
@@ -112,13 +112,13 @@ If you maintain a legacy industrial system built explicitly around specific Tens
 **When to choose YOLO11:**
 For most modern applications, YOLO11 is the better choice. Whether you are building [smart manufacturing](https://www.ultralytics.com/blog/smart-manufacturing) solutions, deploying [edge AI](https://www.ultralytics.com/glossary/edge-ai) on Raspberry Pi devices, or performing multi-task operations like detecting and segmenting medical imagery, YOLO11 provides a strong balance of speed, accuracy, and deployment flexibility.
 
-## Looking Ahead: The Cutting-Edge YOLO26
+## Looking Ahead: YOLO26
 
 Ultralytics continues to develop new models after YOLO11. Released in January 2026, the **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** model series is the latest Ultralytics YOLO generation and the recommended model for new projects.
 
 YOLO26 introduces several features designed for modern deployment challenges:
 
-- **End-to-End NMS-Free Design:** Building on concepts pioneered by [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 offers an optional end-to-end head (`nms=False`) that removes Non-Maximum Suppression (NMS) post-processing, resulting in faster, simpler deployment pipelines.
+- **End-to-End NMS-Free Design:** Building on the NMS-free training that [YOLOv10](https://docs.ultralytics.com/models/yolov10) introduced to YOLO models, YOLO26 offers an optional end-to-end head (`nms=False`) that removes Non-Maximum Suppression (NMS) post-processing, resulting in faster, simpler deployment pipelines.
 - **DFL Removal:** By removing Distribution Focal Loss, YOLO26 simplifies the network head, improving compatibility with low-power [Internet of Things (IoT)](https://en.wikipedia.org/wiki/Internet_of_things) and edge devices.
 - **MuSGD Optimizer:** Inspired by large language model (LLM) training methods (such as Moonshot AI's Kimi K2), YOLO26 uses a hybrid Muon-SGD optimizer for more stable training and faster convergence.
 - **Up to 43% Faster CPU Inference:** For applications running without dedicated GPU accelerators, YOLO26n runs up to 43% faster than YOLO11n on CPU.

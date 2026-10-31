@@ -11,7 +11,7 @@ This technical comparison examines the differences between **YOLO26** and **YOLO
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLO26", "YOLOv9"]'></canvas>
 
-## YOLO26: The Edge-Optimized Powerhouse
+## YOLO26: Edge-Optimized Detection
 
 Released in early 2026, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) focuses on deployment efficiency and training stability. Its optional end-to-end inference addresses deployment bottlenecks that have long affected edge AI applications.
 
@@ -46,7 +46,7 @@ Introduced in early 2024, YOLOv9 brought theoretical advancements to the way neu
 - **Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao
 - **Organization:** Institute of Information Science, Academia Sinica, Taiwan
 - **Date:** 2024-02-21
-- **Arxiv:** [YOLOv9 Paper](https://arxiv.org/abs/2402.13616)
+- **arXiv:** [YOLOv9 Paper](https://arxiv.org/abs/2402.13616)
 - **GitHub:** [YOLOv9 Repository](https://github.com/WongKinYiu/yolov9)
 - **Docs:** [YOLOv9 Documentation](https://docs.ultralytics.com/models/yolov9)
 
@@ -129,7 +129,7 @@ The following Python snippet demonstrates how to load a pre-trained model, train
 ```python
 from ultralytics import YOLO
 
-# Load the latest state-of-the-art YOLO26 nano model
+# Load the latest YOLO26 nano model
 model = YOLO("yolo26n.pt")
 
 # Train the model on the COCO8 dataset (optimizer='auto' selects MuSGD for longer training runs)

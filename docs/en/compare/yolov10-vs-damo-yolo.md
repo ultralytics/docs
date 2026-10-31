@@ -22,7 +22,7 @@ Introduced by researchers at Tsinghua University, [YOLOv10](https://docs.ultraly
 - **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
 - **Organization:** [Tsinghua University](https://www.tsinghua.edu.cn/en/)
 - **Date:** 2024-05-23
-- **Arxiv:** [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)
+- **arXiv:** [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)
 - **GitHub:** [https://github.com/THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
 - **Docs:** [https://docs.ultralytics.com/models/yolov10](https://docs.ultralytics.com/models/yolov10)
 
@@ -67,7 +67,7 @@ Developed by the Alibaba Group, DAMO-YOLO focuses on discovering efficient netwo
 - **Authors:** Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun
 - **Organization:** [Alibaba Group](https://www.alibabagroup.com/)
 - **Date:** 2022-11-23
-- **Arxiv:** [https://arxiv.org/abs/2211.15444v2](https://arxiv.org/abs/2211.15444v2)
+- **arXiv:** [https://arxiv.org/abs/2211.15444v2](https://arxiv.org/abs/2211.15444v2)
 - **GitHub:** [https://github.com/tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)
 
 ### Key Architectural Features
@@ -148,7 +148,7 @@ A limitation of many specialized detection models, including YOLOv10 and DAMO-YO
 
 ## Looking Ahead: The YOLO26 Evolution
 
-YOLOv10 pioneered NMS-free YOLO inference and DAMO-YOLO showed what NAS can achieve. For developers starting new projects today, we recommend Ultralytics YOLO26.
+YOLOv10 introduced NMS-free inference to YOLO models and DAMO-YOLO showed what NAS can achieve. For developers starting new projects today, we recommend Ultralytics YOLO26.
 
 Released in January 2026 as the successor to [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), YOLO26 builds on the NMS-free foundation set by YOLOv10 with an optional one-to-one head (`nms=False`).
 

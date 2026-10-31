@@ -20,7 +20,7 @@ Developed by researchers at [Megvii](https://en.megvii.com/), YOLOX was introduc
 - **Authors:** Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, Jian Sun
 - **Organization:** Megvii
 - **Date:** 2021-07-18
-- **Arxiv:** [2107.08430](https://arxiv.org/abs/2107.08430)
+- **arXiv:** [2107.08430](https://arxiv.org/abs/2107.08430)
 - **GitHub:** [Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
 
 ### Architectural Highlights
@@ -42,7 +42,7 @@ Developed by the Vision AI Department at [Meituan](https://www.meituan.com/), YO
 - **Authors:** Chuyi Li, Lulu Li, Yifei Geng, et al.
 - **Organization:** Meituan
 - **Date:** 2023-01-13
-- **Arxiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
+- **arXiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
 - **GitHub:** [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
 
 ### Optimization for Deployment
@@ -109,7 +109,7 @@ With the Ultralytics package, developers get a consistent user experience. This 
 
 Unlike specialized models, Ultralytics architectures are versatile, supporting [Object Detection](https://docs.ultralytics.com/tasks/detect), [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), Image Classification, [Pose Estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb) out of the box.
 
-### Enter YOLO26: The Ultimate Edge Solution
+### Enter YOLO26
 
 For teams starting new computer vision projects, Ultralytics recommends **Ultralytics YOLO26**, released in January 2026. Building on [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8), YOLO26 introduces several new features:
 

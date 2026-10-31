@@ -22,7 +22,7 @@ YOLOv7 introduced several structural optimizations to the traditional YOLO famil
 - **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, Hong-Yuan Mark Liao
 - **Organization:** [Institute of Information Science, Academia Sinica](https://www.iis.sinica.edu.tw/en/index.html)
 - **Date:** 2022-07-06
-- **Arxiv:** [https://arxiv.org/abs/2207.02696](https://arxiv.org/abs/2207.02696)
+- **arXiv:** [https://arxiv.org/abs/2207.02696](https://arxiv.org/abs/2207.02696)
 - **GitHub:** [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
 
 ### Architecture and Strengths
@@ -46,7 +46,7 @@ RTDETRv2 builds upon the original [RT-DETR](https://docs.ultralytics.com/models/
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, Yi Liu
 - **Organization:** [Baidu](https://www.baidu.com/)
 - **Date:** 2024-07-24
-- **Arxiv:** [https://arxiv.org/abs/2407.17140](https://arxiv.org/abs/2407.17140)
+- **arXiv:** [https://arxiv.org/abs/2407.17140](https://arxiv.org/abs/2407.17140)
 - **GitHub:** [lyuwenyu/RT-DETR](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 
 ### Architecture and Strengths
@@ -81,15 +81,15 @@ When benchmarking these models, it helps to look at accuracy, raw inference spee
 
 While YOLOv7 and RTDETRv2 offer robust capabilities, deploying them in production environments often uncovers logistical friction. The **Ultralytics ecosystem** is designed to reduce that friction, providing developers with a unified API that abstracts away the typical complexities of computer vision pipelines.
 
-### Unmatched Versatility and Memory Efficiency
+### Versatility and Memory Efficiency
 
 Unlike transformer models that need large amounts of VRAM, Ultralytics YOLO models are memory-efficient. This enables rapid [model training](https://docs.ultralytics.com/modes/train) on accessible hardware. The ecosystem inherently supports multiple computer vision tasks from a single codebase, including [image classification](https://docs.ultralytics.com/tasks/classify) and [oriented bounding box (OBB) detection](https://docs.ultralytics.com/tasks/obb), offering a flexibility that RTDETRv2 currently lacks.
 
-### Seamless Deployment
+### Deployment
 
 Moving from research to production requires robust deployment options. The Ultralytics API handles [model export](https://docs.ultralytics.com/modes/export) to industry-standard formats with a single call. Whether you are targeting [ONNX](https://docs.ultralytics.com/integrations/onnx) for cross-platform compatibility or [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) for maximum GPU acceleration, the conversion is automated.
 
-## The Ultimate Upgrade: Ultralytics YOLO26
+## Upgrading to Ultralytics YOLO26
 
 For developers debating between YOLOv7 and RTDETRv2, the recommended option is **Ultralytics YOLO26**. Released in January 2026, YOLO26 combines the speed of CNNs with the end-to-end inference of transformers, while addressing many of their respective weaknesses.
 
@@ -97,7 +97,7 @@ For developers debating between YOLOv7 and RTDETRv2, the recommended option is *
 
 YOLO26 introduces several innovations for both server and edge deployments:
 
-- **End-to-End NMS-Free Design:** First pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 offers an optional NMS-free head (`nms=False`) that skips NMS post-processing. This gives the predictable latency of RTDETRv2 without the computational overhead of a transformer.
+- **End-to-End NMS-Free Design:** Building on the NMS-free training that [YOLOv10](https://docs.ultralytics.com/models/yolov10) introduced to YOLO models, YOLO26 offers an optional NMS-free head (`nms=False`) that skips NMS post-processing. This gives the predictable latency of RTDETRv2 without the computational overhead of a transformer.
 - **MuSGD Optimizer:** Inspired by large language model training techniques (such as Moonshot AI's Kimi K2), YOLO26 utilizes a hybrid of SGD and Muon. This improves training stability and convergence speed compared to the standard AdamW setups used by many ViTs.
 - **ProgLoss + STAL:** Progressive Loss and small-target-aware label assignment improve small-object recognition, directly competing with the multi-scale feature advantages of RTDETRv2, which is critical for robotic automation.
 - **Edge Optimization & DFL Removal:** By removing Distribution Focal Loss (DFL), YOLO26 streamlines the output head, and YOLO26n runs up to **43% faster on CPU** than YOLO11n—making YOLO26 much easier to deploy on edge devices than heavy transformer models.

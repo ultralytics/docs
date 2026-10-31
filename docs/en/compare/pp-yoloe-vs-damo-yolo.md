@@ -30,7 +30,7 @@ PP-YOLOE+ introduces several architectural enhancements to improve upon previous
 - **Authors:** PaddlePaddle Authors
 - **Organization:** [Baidu](https://github.com/PaddlePaddle)
 - **Date:** 2022-04-02
-- **Arxiv:** [2203.16250](https://arxiv.org/abs/2203.16250)
+- **arXiv:** [2203.16250](https://arxiv.org/abs/2203.16250)
 - **GitHub:** [PaddlePaddle/PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection/)
 - **Docs:** [PP-YOLOE+ Documentation](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
 
@@ -54,7 +54,7 @@ DAMO-YOLO emphasizes low latency and high accuracy through an automated and dist
 - **Authors:** Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun
 - **Organization:** [Alibaba Group](https://www.alibabagroup.com/)
 - **Date:** 2022-11-23
-- **Arxiv:** [2211.15444v2](https://arxiv.org/abs/2211.15444v2)
+- **arXiv:** [2211.15444v2](https://arxiv.org/abs/2211.15444v2)
 - **GitHub:** [tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)
 - **Docs:** [DAMO-YOLO Documentation](https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md)
 
@@ -106,7 +106,7 @@ Training a DAMO-YOLO model requires managing a heavy teacher-student distillatio
 ```python
 from ultralytics import YOLO
 
-# Initialize the cutting-edge YOLO26 model
+# Initialize the YOLO26 model
 model = YOLO("yolo26n.pt")
 
 # Train the model with the MuSGD optimizer
@@ -115,7 +115,7 @@ results = model.train(data="coco8.yaml", epochs=100, imgsz=640, optimizer="MuSGD
 # Run an end-to-end NMS-free inference
 results = model("https://ultralytics.com/images/bus.jpg", nms=False)
 
-# Export to ONNX or TensorRT seamlessly
+# Export to ONNX or TensorRT
 model.export(format="onnx")
 ```
 

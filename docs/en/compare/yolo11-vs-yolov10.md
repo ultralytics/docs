@@ -36,7 +36,7 @@ YOLO11 uses an [anchor-free design](https://www.ultralytics.com/glossary/anchor-
 - **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
 - **Organization:** Tsinghua University
 - **Date:** 2024-05-23
-- **Arxiv:** [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)
+- **arXiv:** [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)
 - **GitHub:** [https://github.com/THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
 - **Docs:** [https://docs.ultralytics.com/models/yolov10](https://docs.ultralytics.com/models/yolov10)
 
@@ -132,7 +132,7 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 
 YOLOv10 introduced NMS-free YOLO detection and YOLO11 refined multi-task versatility. For developers starting new production deployments today, we recommend Ultralytics YOLO26.
 
-Released in January 2026, YOLO26 combines strengths of both. It offers the [end-to-end NMS-free design](https://www.ultralytics.com/blog/why-ultralytics-yolo26-removes-nms-and-how-that-changes-deployment) pioneered by YOLOv10 as an optional one-to-one head (`nms=False`), which simplifies the deployment pipeline and keeps latency consistent. YOLO26 also adds edge-focused optimizations: **DFL Removal** (removing Distribution Focal Loss) simplifies export, and YOLO26n runs **up to 43% faster on CPU** than YOLO11n, making YOLO26 a strong choice for low-power IoT devices and mobile applications.
+Released in January 2026, YOLO26 combines strengths of both. It offers YOLOv10's [end-to-end NMS-free design](https://www.ultralytics.com/blog/why-ultralytics-yolo26-removes-nms-and-how-that-changes-deployment) as an optional one-to-one head (`nms=False`), which simplifies the deployment pipeline and keeps latency consistent. YOLO26 also adds edge-focused optimizations: **DFL Removal** (removing Distribution Focal Loss) simplifies export, and YOLO26n runs **up to 43% faster on CPU** than YOLO11n, making YOLO26 a strong choice for low-power IoT devices and mobile applications.
 
 YOLO26 also brings [large language model (LLM)](https://www.ultralytics.com/glossary/large-language-model-llm) training stability to computer vision with the **MuSGD Optimizer**, a hybrid of SGD and Muon. Together with **ProgLoss + STAL** (Progressive Loss and Small-Target-Aware Label Assignment), YOLO26 improves precision on small objects, which is essential for detailed [traffic video detection](https://www.ultralytics.com/blog/traffic-video-detection-at-nighttime-a-look-at-why-accuracy-is-key) and complex robotic automation.
 

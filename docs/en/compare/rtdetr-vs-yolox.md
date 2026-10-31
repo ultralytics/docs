@@ -20,7 +20,7 @@ Introduced as a successor to the original [RT-DETR](https://docs.ultralytics.com
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
 - **Organization:** [Baidu](https://www.baidu.com/)
 - **Date:** 2024-07-24
-- **Links:** [Arxiv Paper](https://arxiv.org/abs/2407.17140), [Official GitHub](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch), [Documentation](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
+- **Links:** [arXiv Paper](https://arxiv.org/abs/2407.17140), [Official GitHub](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch), [Documentation](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
 
 ### Architecture and Design
 
@@ -43,7 +43,7 @@ Developed to bridge the gap between academic research and industrial application
 - **Authors:** Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun
 - **Organization:** Megvii
 - **Date:** July 18, 2021
-- **Links:** [Arxiv Paper](https://arxiv.org/abs/2107.08430), [Official GitHub](https://github.com/Megvii-BaseDetection/YOLOX), [Documentation](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
+- **Links:** [arXiv Paper](https://arxiv.org/abs/2107.08430), [Official GitHub](https://github.com/Megvii-BaseDetection/YOLOX), [Documentation](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
 ### Architecture and Design
 
@@ -81,12 +81,12 @@ Many projects need a single model that combines high accuracy, fast inference, a
 
 ### Key Innovations of YOLO26
 
-- **End-to-End NMS-Free Design:** Building on concepts first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 offers an optional NMS-free head (`nms=False`). It provides the end-to-end inference of RTDETRv2 without the high memory requirements of transformers.
+- **End-to-End NMS-Free Design:** Building on the NMS-free training that [YOLOv10](https://docs.ultralytics.com/models/yolov10) introduced to YOLO models, YOLO26 offers an optional NMS-free head (`nms=False`). It provides the end-to-end inference of RTDETRv2 without the high memory requirements of transformers.
 - **MuSGD Optimizer:** Inspired by large language model (LLM) training, the hybrid MuSGD optimizer (combining SGD and Muon) stabilizes training and speeds up convergence.
 - **Up to 43% Faster CPU Inference:** Removing the Distribution Focal Loss (DFL) module simplifies the head for edge computing and low-power devices, making YOLO26n up to 43% faster on CPU (ONNX) than [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n).
 - **ProgLoss + STAL:** Progressive Loss and Small-Target-Aware Label Assignment (STAL) improve small-object recognition, a common pain point in aerial imagery and [robotics applications](https://www.ultralytics.com/solutions/computer-vision-in-robotics).
 
-### Unmatched Versatility and Ecosystem
+### Versatility and Ecosystem
 
 Beyond raw performance, [Ultralytics Platform](https://platform.ultralytics.com) covers the full path from data to production. Unlike static academic repositories, Ultralytics models are actively maintained and support multiple tasks through a single API. Whether you are running [instance segmentation](https://docs.ultralytics.com/tasks/segment), [pose estimation](https://docs.ultralytics.com/tasks/pose), or [oriented bounding box (OBB)](https://docs.ultralytics.com/tasks/obb) detection, the workflow stays the same.
 
@@ -105,7 +105,7 @@ model = YOLO("yolo26n.pt")
 # Train the model on the standard COCO8 dataset
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640, batch=16)
 
-# Validate the model's performance seamlessly
+# Validate the model's performance
 metrics = model.val()
 print(f"Validation mAP: {metrics.box.map}")
 

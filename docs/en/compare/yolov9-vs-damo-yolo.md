@@ -24,7 +24,7 @@ YOLOv9 was designed to directly address the information loss that occurs as data
 - **Authors:** Chien-Yao Wang, Hong-Yuan Mark Liao
 - **Organization:** Institute of Information Science, Academia Sinica, Taiwan
 - **Date:** February 21, 2024
-- **Links:** [Arxiv](https://arxiv.org/abs/2402.13616), [GitHub](https://github.com/WongKinYiu/yolov9), [Docs](https://docs.ultralytics.com/models/yolov9)
+- **Links:** [arXiv](https://arxiv.org/abs/2402.13616), [GitHub](https://github.com/WongKinYiu/yolov9), [Docs](https://docs.ultralytics.com/models/yolov9)
 
 [Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9){ .md-button }
 
@@ -37,7 +37,7 @@ Developed by Alibaba Group, DAMO-YOLO takes a different approach, using automate
 - **Authors:** Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun
 - **Organization:** Alibaba Group
 - **Date:** November 23, 2022
-- **Links:** [Arxiv](https://arxiv.org/abs/2211.15444v2), [GitHub](https://github.com/tinyvision/DAMO-YOLO)
+- **Links:** [arXiv](https://arxiv.org/abs/2211.15444v2), [GitHub](https://github.com/tinyvision/DAMO-YOLO)
 
 [Learn more about DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md){ .md-button }
 
@@ -140,7 +140,7 @@ Released in January 2026, YOLO26 builds on its predecessors, improving both accu
 
 ### Key YOLO26 Innovations
 
-- **End-to-End NMS-Free Design:** YOLO26's optional one-to-one head (`nms=False`) [eliminates Non-Maximum Suppression (NMS) post-processing](https://www.ultralytics.com/blog/why-ultralytics-yolo26-removes-nms-and-how-that-changes-deployment) entirely. This creates a streamlined, natively end-to-end deployment pipeline, an approach pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10).
+- **End-to-End NMS-Free Design:** YOLO26's optional one-to-one head (`nms=False`) [eliminates Non-Maximum Suppression (NMS) post-processing](https://www.ultralytics.com/blog/why-ultralytics-yolo26-removes-nms-and-how-that-changes-deployment) entirely. This creates a streamlined, natively end-to-end deployment pipeline, an approach introduced to YOLO models by [YOLOv10](https://docs.ultralytics.com/models/yolov10).
 - **DFL Removal:** Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility.
 - **Up to 43% Faster CPU Inference:** With DFL and NMS removed, YOLO26n runs up to 43% faster than YOLO11n on CPU, which suits edge computing scenarios without dedicated GPUs.
 - **MuSGD Optimizer:** Inspired by LLM training innovations, YOLO26 uses a hybrid of SGD and Muon (MuSGD) for more stable training and faster convergence.

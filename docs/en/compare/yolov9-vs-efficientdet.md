@@ -59,19 +59,19 @@ When analyzing model performance, balancing accuracy with [inference latency](ht
 | YOLOv9c         | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
 | YOLOv9e         | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
 |                 |                             |                            |                                      |                                           |                          |                         |
-| EfficientDet-d0 | 640                         | 34.6                       | **10.2**                             | 3.92                                      | 3.9                      | **2.54**                |
-| EfficientDet-d1 | 640                         | 40.5                       | 13.5                                 | 7.31                                      | 6.6                      | 6.1                     |
-| EfficientDet-d2 | 640                         | 43.0                       | 17.7                                 | 10.92                                     | 8.1                      | 11.0                    |
-| EfficientDet-d3 | 640                         | 47.5                       | 28.0                                 | 19.59                                     | 12.0                     | 24.9                    |
-| EfficientDet-d4 | 640                         | 49.7                       | 42.8                                 | 33.55                                     | 20.7                     | 55.2                    |
-| EfficientDet-d5 | 640                         | 51.5                       | 72.5                                 | 67.86                                     | 33.7                     | 130.0                   |
-| EfficientDet-d6 | 640                         | 52.6                       | 92.8                                 | 89.29                                     | 51.9                     | 226.0                   |
-| EfficientDet-d7 | 640                         | 53.7                       | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
+| EfficientDet-d0 | 512                         | 34.6                       | -                                    | 3.92                                      | 3.9                      | **2.54**                |
+| EfficientDet-d1 | 640                         | 40.5                       | -                                    | 7.31                                      | 6.6                      | 6.1                     |
+| EfficientDet-d2 | 768                         | 43.0                       | -                                    | 10.92                                     | 8.1                      | 11.0                    |
+| EfficientDet-d3 | 896                         | 47.5                       | -                                    | 19.59                                     | 12.0                     | 24.9                    |
+| EfficientDet-d4 | 1024                        | 49.7                       | -                                    | 33.55                                     | 20.7                     | 55.2                    |
+| EfficientDet-d5 | 1280                        | 51.5                       | -                                    | 67.86                                     | 33.7                     | 130.0                   |
+| EfficientDet-d6 | 1280                        | 52.6                       | -                                    | 89.29                                     | 51.9                     | 226.0                   |
+| EfficientDet-d7 | 1536                        | 53.7                       | -                                    | 128.07                                    | 51.9                     | 325.0                   |
 
 ### Critical Analysis of Metrics
 
 1. **Accuracy Thresholds:** YOLOv9e achieves the highest overall accuracy at 55.6% [mAP (mean Average Precision)](https://www.ultralytics.com/glossary/mean-average-precision-map), outperforming the heaviest EfficientDet-d7 model (53.7%) while maintaining faster TensorRT speeds.
-2. **Real-Time Speed:** YOLOv9t requires only 2.3ms on a T4 GPU using [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), emphasizing the efficiency of the GELAN architecture for high-speed video streams. EfficientDet-d0 posts the fastest CPU ONNX time in this table but trails YOLOv9t by 3.7 mAP.
+2. **Real-Time Speed:** YOLOv9t requires only 2.3ms on a T4 GPU using [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), emphasizing the efficiency of the GELAN architecture for high-speed video streams. EfficientDet-d0 is slower at 3.92 ms and trails YOLOv9t by 3.7 mAP.
 3. **Computational Complexity:** EfficientDet scales heavily in parameter count and FLOPs as the compound factor increases. The d7 variant reaches 128 ms latency, making it roughly 7.6x slower than the more accurate YOLOv9e (16.77 ms), which limits its use in [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) environments.
 
 ## Training Efficiency and Ecosystem
@@ -118,7 +118,7 @@ While YOLOv9 and EfficientDet are capable models, developers looking for the bes
 
 Released in January 2026, **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** is the current recommended Ultralytics model. It improves on previous generations (including [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8)) with several key changes:
 
-- **End-to-End NMS-Free Design:** YOLO26 offers an optional one-to-one head (`nms=False`) that skips Non-Maximum Suppression (NMS) entirely, an approach pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), resulting in faster and simpler [model deployment](https://docs.ultralytics.com/guides/model-deployment-options).
+- **End-to-End NMS-Free Design:** YOLO26 offers an optional one-to-one head (`nms=False`) that skips Non-Maximum Suppression (NMS) entirely, an approach introduced to YOLO models by [YOLOv10](https://docs.ultralytics.com/models/yolov10), resulting in faster and simpler [model deployment](https://docs.ultralytics.com/guides/model-deployment-options).
 - **DFL Removal:** Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility.
 - **Up to 43% Faster CPU Inference:** YOLO26n runs up to 43% faster than YOLO11n on CPU, which suits [IoT devices](https://www.ultralytics.com/blog/industrial-iot-iiot-internet-of-things-explained) and environments without dedicated GPUs.
 - **MuSGD Optimizer:** A hybrid of SGD and Muon (inspired by LLM training innovations) for faster convergence and more stable training.

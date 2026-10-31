@@ -22,7 +22,7 @@ RTDETRv2 builds upon the original [RT-DETR](https://docs.ultralytics.com/models/
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
 - **Organization:** [Baidu](https://www.baidu.com/)
 - **Date:** 2024-07-24
-- **Arxiv:** [https://arxiv.org/abs/2407.17140](https://arxiv.org/abs/2407.17140)
+- **arXiv:** [https://arxiv.org/abs/2407.17140](https://arxiv.org/abs/2407.17140)
 - **GitHub:** [https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 
 ### Architecture and Training Methodologies
@@ -53,7 +53,7 @@ YOLOv10 represents a major shift in the [YOLO object detection](https://www.ultr
 - **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
 - **Organization:** [Tsinghua University](https://www.tsinghua.edu.cn/en/)
 - **Date:** 2024-05-23
-- **Arxiv:** [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)
+- **arXiv:** [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)
 - **GitHub:** [https://github.com/THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
 
 ### Architecture and Training Methodologies
@@ -132,7 +132,7 @@ RTDETRv2 and YOLOv10 are both strong research contributions, but deploying them 
 
 For new projects in 2026, **Ultralytics YOLO26** is the recommended model. It builds on ideas from both architectures and adds several improvements:
 
-- **End-to-End NMS-Free Design:** Building on the concept pioneered by YOLOv10, YOLO26 offers an optional one-to-one head (`nms=False`) that skips NMS post-processing, resulting in faster, simpler deployment logic and more consistent latency.
+- **End-to-End NMS-Free Design:** Building on the NMS-free training that YOLOv10 introduced to YOLO models, YOLO26 offers an optional one-to-one head (`nms=False`) that skips NMS post-processing, resulting in faster, simpler deployment logic and more consistent latency.
 - **DFL Removal:** By removing the Distribution Focal Loss, YOLO26 simplifies model export and improves compatibility with edge and low-power devices.
 - **MuSGD Optimizer:** A hybrid of SGD and Muon inspired by LLM training techniques, this optimizer provides more stable training and faster convergence.
 - **Up to 43% Faster CPU Inference:** YOLO26n runs up to 43% faster than YOLO11n on CPU with ONNX, which helps in environments without dedicated GPUs.
@@ -141,14 +141,14 @@ For new projects in 2026, **Ultralytics YOLO26** is the recommended model. It bu
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
-### Seamless Implementation with Python
+### Implementation with Python
 
 Training and deploying these models using the [Ultralytics Python API](https://docs.ultralytics.com/usage/python) is designed to be simple. Memory requirements during training are lower than for transformer-heavy architectures, allowing you to train powerful models on standard hardware.
 
 ```python
 from ultralytics import YOLO
 
-# Load the cutting-edge YOLO26 model (recommended)
+# Load the YOLO26 model (recommended)
 # Alternatively, load a YOLOv10 model using YOLO('yolov10n.pt')
 model = YOLO("yolo26n.pt")
 

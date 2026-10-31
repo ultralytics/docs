@@ -95,7 +95,7 @@ Training a model or running inference with Ultralytics takes only a few lines of
 ```python
 from ultralytics import YOLO
 
-# Load the cutting-edge YOLO26 nano model
+# Load the YOLO26 nano model
 model = YOLO("yolo26n.pt")
 
 # Train the model on the COCO8 dataset efficiently
@@ -104,7 +104,7 @@ train_results = model.train(
     data="coco8.yaml",
     epochs=100,
     imgsz=640,
-    device="0",  # Utilize GPU for accelerated training
+    device="0",  # Use GPU for accelerated training
 )
 
 # Perform NMS-free inference directly on an image

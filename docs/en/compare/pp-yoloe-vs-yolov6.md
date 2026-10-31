@@ -20,7 +20,7 @@ Developed by the PaddlePaddle Authors, PP-YOLOE+ is a prominent [anchor-free det
 - **Authors:** PaddlePaddle Authors
 - **Organization:** Baidu
 - **Date:** 2022-04-02
-- **Arxiv:** [2203.16250](https://arxiv.org/abs/2203.16250)
+- **arXiv:** [2203.16250](https://arxiv.org/abs/2203.16250)
 - **GitHub:** [PaddlePaddle/PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection/)
 
 ### Architecture Highlights
@@ -42,7 +42,7 @@ Released by the Meituan Vision AI Department, YOLOv6-3.0 was explicitly engineer
 - **Authors:** Chuyi Li, Lulu Li, Yifei Geng, et al.
 - **Organization:** [Meituan](https://tech.meituan.com/)
 - **Date:** 2023-01-13
-- **Arxiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
+- **arXiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
 - **GitHub:** [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
 
 ### Architecture Highlights
@@ -117,14 +117,14 @@ For organizations looking to deploy the latest vision models, Ultralytics YOLO26
 
     If you are building a new project today, start with **YOLO26** rather than older architectures. Its memory efficiency and NMS-free speed make it significantly easier to ship to production.
 
-### Seamless Implementation
+### Implementation
 
 Training and exporting models with the [Ultralytics Python package](https://docs.ultralytics.com/usage/python) is simple. The following example demonstrates how to train the latest YOLO26 model and export it to ONNX for rapid edge deployment:
 
 ```python
 from ultralytics import YOLO
 
-# Load the cutting-edge YOLO26 small model
+# Load the YOLO26 small model
 model = YOLO("yolo26s.pt")
 
 # Train the model on the COCO8 example dataset

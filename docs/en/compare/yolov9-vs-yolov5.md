@@ -115,7 +115,7 @@ train_results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 # Run inference on new images
 predictions = model.predict("https://ultralytics.com/images/zidane.jpg")
 
-# Export to ONNX for seamless deployment
+# Export to ONNX for deployment
 model.export(format="onnx")
 ```
 

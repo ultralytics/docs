@@ -11,7 +11,7 @@ Real-time object detection has shifted from complex, post-processing-heavy archi
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "YOLO26"]'></canvas>
 
-## YOLOv10: Pioneering End-to-End Object Detection
+## YOLOv10: NMS-Free Real-Time Detection
 
 - **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
 - **Organization:** [Tsinghua University](https://www.tsinghua.edu.cn/en/)

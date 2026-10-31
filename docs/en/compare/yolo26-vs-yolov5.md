@@ -37,13 +37,13 @@ The key details of both models are summarized below.
 
 !!! tip "Exploring Other Options"
 
-    While this guide focuses on YOLO26 and YOLOv5, developers migrating legacy systems might also be interested in comparing [YOLO11](https://docs.ultralytics.com/models/yolo11) or the pioneering NMS-free architecture of [YOLOv10](https://docs.ultralytics.com/models/yolov10). Both offer excellent stepping stones for specific deployment environments.
+    While this guide focuses on YOLO26 and YOLOv5, developers migrating legacy systems might also be interested in comparing [YOLO11](https://docs.ultralytics.com/models/yolo11) or the NMS-free architecture of [YOLOv10](https://docs.ultralytics.com/models/yolov10). Both offer excellent stepping stones for specific deployment environments.
 
 ## Architectural Innovations
 
 The gap of more than five years between YOLOv5 and YOLO26 spans major advances in deep learning research. YOLOv5 helped popularize [PyTorch](https://pytorch.org/)-based YOLO training, offering an optimized, anchor-based detection mechanism that became an industry standard. However, it relied on [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) during post-processing, which could introduce latency bottlenecks on resource-constrained devices.
 
-YOLO26 redesigns the inference pipeline with an **End-to-End NMS-Free Design**. Its optional one-to-one head (`nms=False`) removes the need for NMS post-processing, delivering faster and simpler deployment logic, a concept first pioneered in YOLOv10. YOLO26 also features **DFL Removal** (Distribution Focal Loss), which simplifies the output head. This makes exporting the model to formats like [ONNX](https://onnx.ai/) and [TensorRT](https://developer.nvidia.com/tensorrt) more straightforward and improves compatibility with edge and low-power devices.
+YOLO26 redesigns the inference pipeline with an **End-to-End NMS-Free Design**. Its optional one-to-one head (`nms=False`) removes the need for NMS post-processing, delivering faster and simpler deployment logic, a concept introduced to YOLO models by YOLOv10. YOLO26 also features **DFL Removal** (Distribution Focal Loss), which simplifies the output head. This makes exporting the model to formats like [ONNX](https://onnx.ai/) and [TensorRT](https://developer.nvidia.com/tensorrt) more straightforward and improves compatibility with edge and low-power devices.
 
 During training, YOLO26 uses the **MuSGD Optimizer**, a hybrid of SGD and Muon inspired by [Moonshot AI's Kimi K2](https://www.moonshot.ai). This brings LLM training ideas into computer vision, providing more stable training and faster convergence than the plain SGD optimizer YOLOv5 uses by default.
 
@@ -76,7 +76,7 @@ Ultralytics models typically need less [CUDA memory](https://developer.nvidia.co
 ```python
 from ultralytics import YOLO
 
-# Initialize the cutting-edge YOLO26 Nano model
+# Initialize the YOLO26 Nano model
 model = YOLO("yolo26n.pt")
 
 # Train the model (optimizer='auto' selects MuSGD for longer training runs)

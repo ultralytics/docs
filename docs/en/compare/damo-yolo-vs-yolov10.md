@@ -17,7 +17,7 @@ Developed by the [Alibaba Group](https://www.alibabagroup.com/), DAMO-YOLO is a 
 
 - **Authors:** Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun
 - **Date:** November 23, 2022
-- **Arxiv:** [2211.15444v2](https://arxiv.org/abs/2211.15444v2)
+- **arXiv:** [2211.15444v2](https://arxiv.org/abs/2211.15444v2)
 - **GitHub:** [tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)
 
 ### Architectural Highlights
@@ -32,14 +32,14 @@ To handle feature fusion across scales, the model employs an efficient RepGFPN (
 
 [Learn more about DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md){ .md-button }
 
-## YOLOv10: Pioneering End-to-End Object Detection
+## YOLOv10: NMS-Free Real-Time Detection
 
 Released a year and a half later, YOLOv10 removed the need for Non-Maximum Suppression (NMS) during inference.
 
 - **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
 - **Organization:** [Tsinghua University](https://www.tsinghua.edu.cn/en/)
 - **Date:** May 23, 2024
-- **Arxiv:** [2405.14458](https://arxiv.org/abs/2405.14458)
+- **arXiv:** [2405.14458](https://arxiv.org/abs/2405.14458)
 - **Docs:** [Ultralytics YOLOv10](https://docs.ultralytics.com/models/yolov10)
 
 ### Architectural Highlights
@@ -85,7 +85,7 @@ model = YOLO("yolov10n.pt")
 # Train on a custom dataset with built-in validation
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
-# Run inference on an image seamlessly
+# Run inference on an image
 prediction = model("path/to/image.jpg")
 prediction[0].show()
 ```

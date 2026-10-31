@@ -22,7 +22,7 @@ Developed to resolve long-standing latency bottlenecks, YOLOv10 introduced a nat
 - **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
 - **Organization:** [Tsinghua University](https://www.tsinghua.edu.cn/en/)
 - **Date:** May 23, 2024
-- **ArXiv:** [2405.14458](https://arxiv.org/abs/2405.14458)
+- **arXiv:** [2405.14458](https://arxiv.org/abs/2405.14458)
 - **GitHub:** [THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
 - **Docs:** [Ultralytics YOLOv10 Documentation](https://docs.ultralytics.com/models/yolov10)
 
@@ -35,7 +35,7 @@ YOLOX emerged as an [anchor-free](https://www.ultralytics.com/glossary/anchor-fr
 - **Authors:** Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun
 - **Organization:** [Megvii](https://en.megvii.com/)
 - **Date:** July 18, 2021
-- **ArXiv:** [2107.08430](https://arxiv.org/abs/2107.08430)
+- **arXiv:** [2107.08430](https://arxiv.org/abs/2107.08430)
 - **GitHub:** [Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
 - **Docs:** [YOLOX Official Documentation](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
@@ -145,7 +145,7 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 
 While YOLOv10 and YOLOX represent major milestones, the field keeps moving forward. For developers starting new projects, **Ultralytics YOLO26** is the recommended choice.
 
-Released in January 2026, Ultralytics YOLO26 builds on the **end-to-end NMS-free design** pioneered by YOLOv10 and offers it as an optional one-to-one head (`nms=False`).
+Released in January 2026, Ultralytics YOLO26 builds on the **end-to-end NMS-free design** introduced to YOLO models by YOLOv10 and offers it as an optional one-to-one head (`nms=False`).
 
 YOLO26 also introduces several other improvements:
 

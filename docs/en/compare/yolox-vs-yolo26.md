@@ -94,7 +94,7 @@ With the unified Python API, developers can initialize, train, and deploy YOLO26
 ```python
 from ultralytics import YOLO
 
-# Initialize the cutting-edge, end-to-end YOLO26 small model
+# Initialize the end-to-end YOLO26 small model
 model = YOLO("yolo26s.pt")
 
 # Train the model; optimizer="auto" selects MuSGD for longer runs (>10k iterations)

@@ -106,7 +106,7 @@ While YOLOv10 offers excellent detection capabilities, relying on academic repos
 - **Training Efficiency:** Ultralytics YOLO architectures are optimized for low memory use during training. Unlike heavier transformer models (such as [RT-DETR](https://docs.ultralytics.com/models/rtdetr)), which require much more CUDA memory, YOLOv5 and YOLOv10 train comfortably on standard consumer GPUs.
 - **Ecosystem Integration:** [Ultralytics Platform](https://platform.ultralytics.com) lets developers manage datasets visually and train in the cloud, while the Python package integrates with experiment trackers like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases) and supports [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning).
 
-### Code Example: Seamless Training
+### Code Example: Training
 
 Using the Ultralytics library, switching between these architectures is as simple as changing the model string. The training pipeline automatically handles data augmentation, scaling, and optimizer configuration.
 
@@ -136,7 +136,7 @@ path = model.export(format="onnx")
 
 If you are starting a new [machine learning](https://www.ultralytics.com/glossary/machine-learning-ml) project, evaluate the latest **Ultralytics YOLO26**. Released in January 2026, it combines key innovations from recent YOLO generations.
 
-YOLO26 incorporates the **[End-to-End NMS-Free Design](https://www.ultralytics.com/blog/why-ultralytics-yolo26-removes-nms-and-how-that-changes-deployment)** pioneered by YOLOv10 as an optional one-to-one head (`nms=False`), which simplifies deployment. YOLO26 also introduces several other improvements:
+YOLO26 incorporates YOLOv10's **[End-to-End NMS-Free Design](https://www.ultralytics.com/blog/why-ultralytics-yolo26-removes-nms-and-how-that-changes-deployment)** as an optional one-to-one head (`nms=False`), which simplifies deployment. YOLO26 also introduces several other improvements:
 
 - **Up to 43% Faster CPU Inference:** With the Distribution Focal Loss (DFL) module removed, YOLO26n runs up to 43% faster than YOLO11n on standard CPUs, making YOLO26 well suited to [mobile deployment](https://docs.ultralytics.com/guides/model-deployment-options) and low-power IoT sensors.
 - **MuSGD Optimizer:** Inspired by Large Language Model (LLM) training techniques like Moonshot AI's Kimi K2, YOLO26 uses a hybrid of SGD and Muon. This provides more stable training and faster convergence than the standard SGD and AdamW optimizers used in earlier YOLO models.

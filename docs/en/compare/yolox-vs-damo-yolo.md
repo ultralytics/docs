@@ -114,10 +114,10 @@ Compared with separate academic repositories, the integrated Ultralytics ecosyst
 ```python
 from ultralytics import YOLO
 
-# Load the cutting-edge YOLO26 nano model
+# Load the YOLO26 nano model
 model = YOLO("yolo26n.pt")
 
-# Train the model effortlessly on a custom dataset
+# Train the model on a custom dataset
 train_results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
 # Run ultra-fast, NMS-free inference

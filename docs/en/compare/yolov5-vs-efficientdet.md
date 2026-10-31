@@ -1,7 +1,7 @@
 ---
 title: YOLOv5 vs EfficientDet Comparison
 comments: true
-description: Compare Ultralytics YOLOv5 and Google EfficientDet for object detection, including BiFPN and compound scaling, COCO mAP, CPU and TensorRT speed, and use cases.
+description: Compare Ultralytics YOLOv5 and Google EfficientDet for object detection, including BiFPN and compound scaling, COCO mAP, TensorRT speed, and use cases.
 keywords: YOLOv5, EfficientDet, object detection, model comparison, computer vision, performance metrics, Ultralytics, real-time detection, deep learning
 ---
 
@@ -42,7 +42,7 @@ Introduced by Google Research in 2019, EfficientDet aimed to provide a family of
 - **Authors:** Mingxing Tan, Ruoming Pang, and Quoc V. Le
 - **Organization:** [Google](https://ai.google/)
 - **Date:** 2019-11-20
-- **Arxiv:** <https://arxiv.org/abs/1911.09070>
+- **arXiv:** <https://arxiv.org/abs/1911.09070>
 - **GitHub:** <https://github.com/google/automl/tree/master/efficientdet>
 - **Docs:** <https://github.com/google/automl/tree/master/efficientdet#readme>
 
@@ -71,20 +71,20 @@ When comparing these models, evaluating their performance on standard benchmarks
 | YOLOv5l         | 640                         | 49.0                       | -                                    | 6.61                                      | 46.5                     | 109.1                   |
 | YOLOv5x         | 640                         | 50.7                       | -                                    | 11.89                                     | 86.7                     | 205.7                   |
 |                 |                             |                            |                                      |                                           |                          |                         |
-| EfficientDet-d0 | 640                         | 34.6                       | **10.2**                             | 3.92                                      | 3.9                      | **2.54**                |
-| EfficientDet-d1 | 640                         | 40.5                       | 13.5                                 | 7.31                                      | 6.6                      | 6.1                     |
-| EfficientDet-d2 | 640                         | 43.0                       | 17.7                                 | 10.92                                     | 8.1                      | 11.0                    |
-| EfficientDet-d3 | 640                         | 47.5                       | 28.0                                 | 19.59                                     | 12.0                     | 24.9                    |
-| EfficientDet-d4 | 640                         | 49.7                       | 42.8                                 | 33.55                                     | 20.7                     | 55.2                    |
-| EfficientDet-d5 | 640                         | 51.5                       | 72.5                                 | 67.86                                     | 33.7                     | 130.0                   |
-| EfficientDet-d6 | 640                         | 52.6                       | 92.8                                 | 89.29                                     | 51.9                     | 226.0                   |
-| EfficientDet-d7 | 640                         | **53.7**                   | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
+| EfficientDet-d0 | 512                         | 34.6                       | -                                    | 3.92                                      | 3.9                      | **2.54**                |
+| EfficientDet-d1 | 640                         | 40.5                       | -                                    | 7.31                                      | 6.6                      | 6.1                     |
+| EfficientDet-d2 | 768                         | 43.0                       | -                                    | 10.92                                     | 8.1                      | 11.0                    |
+| EfficientDet-d3 | 896                         | 47.5                       | -                                    | 19.59                                     | 12.0                     | 24.9                    |
+| EfficientDet-d4 | 1024                        | 49.7                       | -                                    | 33.55                                     | 20.7                     | 55.2                    |
+| EfficientDet-d5 | 1280                        | 51.5                       | -                                    | 67.86                                     | 33.7                     | 130.0                   |
+| EfficientDet-d6 | 1280                        | 52.6                       | -                                    | 89.29                                     | 51.9                     | 226.0                   |
+| EfficientDet-d7 | 1536                        | **53.7**                   | -                                    | 128.07                                    | 51.9                     | 325.0                   |
 
 ### Balanced Analysis
 
 **YOLOv5** stands out for deployment flexibility and hardware acceleration compatibility. Its T4 TensorRT speeds are much faster than EfficientDet's at similar accuracy; for example, YOLOv5m reaches 45.4 mAP in 4.03 ms, versus 43.0 mAP in 10.92 ms for EfficientDet-d2. This makes YOLOv5 well suited for high-throughput video analytics and [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) pipelines. Furthermore, the Ultralytics ecosystem makes exporting to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx), [CoreML](https://docs.ultralytics.com/integrations/coreml), and [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) a one-line command.
 
-**EfficientDet** offers excellent parameter efficiency. For a given parameter count, it often extracts a high [mean Average Precision (mAP)](https://docs.ultralytics.com/guides/yolo-performance-metrics). However, its parameter efficiency does not always translate to faster wall-clock inference times on GPUs due to the complex routing of the BiFPN layer, which can be memory-bandwidth bound rather than compute-bound. The table also lists CPU ONNX speeds for EfficientDet (10.2 ms for EfficientDet-d0) but not for YOLOv5.
+**EfficientDet** offers excellent parameter efficiency. For a given parameter count, it often extracts a high [mean Average Precision (mAP)](https://docs.ultralytics.com/guides/yolo-performance-metrics). However, its parameter efficiency does not always translate to faster wall-clock inference times on GPUs due to the complex routing of the BiFPN layer, which can be memory-bandwidth bound rather than compute-bound.
 
 ## Ecosystem and Ease of Use
 

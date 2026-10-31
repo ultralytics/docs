@@ -1,7 +1,7 @@
 ---
 title: YOLOv6-3.0 vs EfficientDet Comparison
 comments: true
-description: Compare YOLOv6-3.0 and EfficientDet for object detection, including architectures, COCO mAP, CPU and GPU latency benchmarks, and the best use cases for each.
+description: Compare YOLOv6-3.0 and EfficientDet for object detection, including architectures, COCO mAP, GPU latency benchmarks, and the best use cases for each.
 keywords: YOLOv6, EfficientDet, object detection, model comparison, YOLOv6-3.0, EfficientDet-d7, computer vision, benchmarks, architecture, real-time detection
 ---
 
@@ -20,7 +20,7 @@ YOLOv6-3.0 was explicitly designed by Meituan to serve as a high-performance sin
 - **Authors:** Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu
 - **Organization:** [Meituan](https://github.com/meituan)
 - **Date:** 2023-01-13
-- **Arxiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
+- **arXiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
 - **GitHub:** [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
 
 ### Architectural Highlights
@@ -40,7 +40,7 @@ Developed by Google Research, EfficientDet takes a fundamentally different appro
 - **Authors:** Mingxing Tan, Ruoming Pang, and Quoc V. Le
 - **Organization:** [Google Brain](https://research.google/)
 - **Date:** 2019-11-20
-- **Arxiv:** [1911.09070](https://arxiv.org/abs/1911.09070)
+- **arXiv:** [1911.09070](https://arxiv.org/abs/1911.09070)
 - **GitHub:** [google/automl](https://github.com/google/automl/tree/master/efficientdet)
 
 ### Architectural Highlights
@@ -64,14 +64,14 @@ The table below contrasts the technical specifications of YOLOv6-3.0 and Efficie
 | YOLOv6-3.0m     | 640                         | 50.0                       | -                                    | 5.28                                      | 34.9                     | 85.8                    |
 | YOLOv6-3.0l     | 640                         | 52.8                       | -                                    | 8.95                                      | 59.6                     | 150.7                   |
 |                 |                             |                            |                                      |                                           |                          |                         |
-| EfficientDet-d0 | 640                         | 34.6                       | **10.2**                             | 3.92                                      | **3.9**                  | **2.54**                |
-| EfficientDet-d1 | 640                         | 40.5                       | 13.5                                 | 7.31                                      | 6.6                      | 6.1                     |
-| EfficientDet-d2 | 640                         | 43.0                       | 17.7                                 | 10.92                                     | 8.1                      | 11.0                    |
-| EfficientDet-d3 | 640                         | 47.5                       | 28.0                                 | 19.59                                     | 12.0                     | 24.9                    |
-| EfficientDet-d4 | 640                         | 49.7                       | 42.8                                 | 33.55                                     | 20.7                     | 55.2                    |
-| EfficientDet-d5 | 640                         | 51.5                       | 72.5                                 | 67.86                                     | 33.7                     | 130.0                   |
-| EfficientDet-d6 | 640                         | 52.6                       | 92.8                                 | 89.29                                     | 51.9                     | 226.0                   |
-| EfficientDet-d7 | 640                         | **53.7**                   | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
+| EfficientDet-d0 | 512                         | 34.6                       | -                                    | 3.92                                      | **3.9**                  | **2.54**                |
+| EfficientDet-d1 | 640                         | 40.5                       | -                                    | 7.31                                      | 6.6                      | 6.1                     |
+| EfficientDet-d2 | 768                         | 43.0                       | -                                    | 10.92                                     | 8.1                      | 11.0                    |
+| EfficientDet-d3 | 896                         | 47.5                       | -                                    | 19.59                                     | 12.0                     | 24.9                    |
+| EfficientDet-d4 | 1024                        | 49.7                       | -                                    | 33.55                                     | 20.7                     | 55.2                    |
+| EfficientDet-d5 | 1280                        | 51.5                       | -                                    | 67.86                                     | 33.7                     | 130.0                   |
+| EfficientDet-d6 | 1280                        | 52.6                       | -                                    | 89.29                                     | 51.9                     | 226.0                   |
+| EfficientDet-d7 | 1536                        | **53.7**                   | -                                    | 128.07                                    | 51.9                     | 325.0                   |
 
 !!! tip "Latency vs. Throughput"
 
@@ -85,7 +85,7 @@ While YOLOv6-3.0 and EfficientDet serve specific niches, modern computer vision 
 
 Unlike EfficientDet, which requires navigating complex TensorFlow configurations, Ultralytics models are built on an intuitive PyTorch foundation with a single Python API, and the [Ultralytics Platform](https://platform.ultralytics.com) covers the rest of the machine learning lifecycle, from annotation to deployment. Training an Ultralytics model typically requires less CUDA memory, which speeds up experimentation and reduces compute costs.
 
-### Unmatched Versatility
+### Versatility
 
 YOLOv6-3.0 and EfficientDet are primarily bound to [object detection](https://docs.ultralytics.com/tasks/detect). In contrast, modern Ultralytics architectures are inherently multi-task. A single interface allows you to train models for [instance segmentation](https://docs.ultralytics.com/tasks/segment), semantic segmentation, depth estimation, [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding box (OBB)](https://docs.ultralytics.com/tasks/obb) tasks, with semantic segmentation and depth estimation available in YOLO26.
 
@@ -116,7 +116,7 @@ YOLOv6 is a strong choice for:
 
 EfficientDet is recommended for:
 
-- **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
+- **Google Cloud and TPU Pipelines:** TensorFlow-based systems on Google Cloud TPU infrastructure, where EfficientDet's reference implementation supports TPU training.
 - **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
 - **Mobile Deployment via LiteRT:** Projects that specifically require [LiteRT](https://developers.google.com/edge/litert) (formerly TensorFlow Lite) export for Android or embedded Linux devices.
 

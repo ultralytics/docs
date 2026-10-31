@@ -34,7 +34,7 @@ YOLOv9 is an academic contribution that introduces new concepts to reduce inform
 - **Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao
 - **Organization:** Institute of Information Science, Academia Sinica, Taiwan
 - **Date:** 2024-02-21
-- **Arxiv:** [https://arxiv.org/abs/2402.13616](https://arxiv.org/abs/2402.13616)
+- **arXiv:** [https://arxiv.org/abs/2402.13616](https://arxiv.org/abs/2402.13616)
 - **GitHub:** [https://github.com/WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9)
 - **Docs:** [https://docs.ultralytics.com/models/yolov9](https://docs.ultralytics.com/models/yolov9)
 
@@ -111,7 +111,7 @@ YOLOv9 is a good choice for researchers exploring deep learning architectures an
 
 YOLO11 is the stronger choice for production. Its [object detection](https://docs.ultralytics.com/tasks/detect) capabilities suit [smart city traffic management](https://www.ultralytics.com/blog/optimizingtraffic-management-with-ultralytics-yolo11) and edge devices like the Raspberry Pi or NVIDIA Jetson. Furthermore, its versatility across various tasks means a single development pipeline can handle [segmentation in manufacturing](https://www.ultralytics.com/blog/improving-manufacturing-with-computer-vision) and [pose estimation in sports analytics](https://www.ultralytics.com/blog/using-pose-estimation-to-perfect-your-running-technique).
 
-## The Cutting Edge: Enter YOLO26
+## Enter YOLO26
 
 For developers starting new projects today, Ultralytics recommends [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) (released January 2026), the latest Ultralytics YOLO model.
 

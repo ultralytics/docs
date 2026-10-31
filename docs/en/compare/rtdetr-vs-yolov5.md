@@ -20,7 +20,7 @@ Building upon the original Real-Time Detection Transformer (RT-DETR), RTDETRv2 i
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
 - **Organization:** [Baidu](https://www.baidu.com/)
 - **Date:** 2024-07-24
-- **Links:** [Arxiv Paper](https://arxiv.org/abs/2407.17140), [GitHub Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
+- **Links:** [arXiv Paper](https://arxiv.org/abs/2407.17140), [GitHub Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 
 ### Architecture and Capabilities
 
@@ -85,10 +85,10 @@ model_yolo = YOLO("yolov5su.pt")  # YOLOv5u: anchor-free YOLOv5 weights for the 
 # Load the RT-DETR large model via Ultralytics
 model_rtdetr = RTDETR("rtdetr-l.pt")
 
-# Train YOLOv5 effortlessly on your custom data
+# Train YOLOv5 on your custom data
 model_yolo.train(data="coco8.yaml", epochs=100, imgsz=640)
 
-# Run inference with both models seamlessly
+# Run inference with both models
 results_yolo = model_yolo("https://ultralytics.com/images/bus.jpg")
 results_rtdetr = model_rtdetr("https://ultralytics.com/images/bus.jpg")
 
@@ -106,7 +106,7 @@ RTDETRv2 is best suited for environments where hardware is not a constraint and 
 - **Server-Side Medical Imaging:** Detecting subtle anomalies in high-resolution X-rays.
 - **Satellite Imagery:** Tracking dense, overlapping objects in [aerial surveillance](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) tasks on powerful cloud clusters.
 
-### Where YOLOv5 Dominates
+### Where YOLOv5 Excels
 
 YOLOv5 is a practical choice for real-world deployment across diverse hardware.
 
