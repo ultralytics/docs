@@ -45,7 +45,7 @@ The move from YOLO11 to YOLO26 changes both the model architecture and the train
 
 ### End-to-End NMS-Free Design
 
-One of the most significant upgrades in YOLO26 is native end-to-end inference. Unlike YOLO11, which relies on [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing to filter overlapping bounding boxes, YOLO26 can skip this step entirely with its optional one-to-one head (`nms=False`). This approach, introduced to the YOLO family by [YOLOv10](https://docs.ultralytics.com/models/yolov10), reduces latency variability and simplifies deployment logic across diverse edge devices.
+One of the most significant upgrades in YOLO26 is native end-to-end inference. Unlike YOLO11, which relies on [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing to filter overlapping bounding boxes, YOLO26 can skip this step entirely with its optional one-to-one head (`nms=False`). This approach, introduced to the YOLO family by YOLOv10, reduces latency variability and simplifies deployment logic across diverse edge devices.
 
 ### DFL Removal for Edge Efficiency
 
