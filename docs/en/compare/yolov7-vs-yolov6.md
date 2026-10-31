@@ -121,6 +121,6 @@ If you are starting a new project, **YOLO26 is recommended** over previous gener
 - **End-to-End NMS-Free Design:** Building on the foundations laid by [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26's optional one-to-one head (`nms=False`) skips Non-Maximum Suppression (NMS). This reduces post-processing overhead, simplifying deployment to mobile applications and keeping inference latency low and consistent.
 - **MuSGD Optimizer:** Inspired by advanced LLM training techniques (such as those used in Moonshot AI's Kimi K2), YOLO26 utilizes a hybrid optimizer combining SGD and Muon. This gives more stable training and faster convergence.
 - **Up to 43% Faster CPU Inference:** By removing the Distribution Focal Loss (DFL), YOLO26n runs up to 43% faster on CPU than YOLO11n. This makes YOLO26 well suited to edge environments like the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) and remote IoT sensors.
-- **ProgLoss + STAL:** Loss functions designed to improve small-object recognition, a historic weakness of single-stage detectors.
+- **ProgLoss + STAL:** A progressive loss and small-target-aware label assignment designed to improve small-object recognition, a historic weakness of single-stage detectors.
 
 By combining these innovations with the [Ultralytics Platform](https://docs.ultralytics.com/platform), YOLO26 offers strong performance, multi-task versatility, and simple deployment for machine learning engineers.

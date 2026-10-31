@@ -105,7 +105,7 @@ RT-DETR is recommended for:
 For most new projects, Ultralytics YOLO26 offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
-- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a clear advantage.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference (YOLO26n vs YOLO11n) provides a clear advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultralytics Advantage: Introducing YOLO26
@@ -119,9 +119,9 @@ Released in January 2026, YOLO26 is built for edge-first vision AI. It addresses
 YOLO26 introduces several enhancements over traditional CNNs and heavy transformers:
 
 - **End-to-End NMS-Free Design:** Like RTDETRv2, YOLO26 supports [native end-to-end inference](https://docs.ultralytics.com/guides/end2end-detection). By skipping NMS post-processing with its optional one-to-one head (`nms=False`), it delivers faster, simpler deployment with reduced latency jitter, ideal for real-time [robotics](https://www.ultralytics.com/glossary/robotics) and autonomous systems.
-- **Up to 43% Faster CPU Inference:** Through architectural optimizations, YOLO26 significantly outperforms competing models on edge devices lacking discrete GPUs, making it a strong choice for IoT and [smart city](https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities) applications.
+- **Up to 43% Faster CPU Inference:** Through architectural optimizations, YOLO26 significantly outperforms competing models on edge devices lacking discrete GPUs, with YOLO26n up to 43% faster on CPU than YOLO11n, making it a strong choice for IoT and [smart city](https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities) applications.
 - **MuSGD Optimizer:** Inspired by LLM training innovations, YOLO26 employs a hybrid of SGD and Muon. This delivers more stable training and faster convergence, substantially reducing GPU training hours.
-- **ProgLoss + STAL:** These loss functions yield notable improvements in small-object recognition, an area where models like PP-YOLOE+ historically struggle, proving critical for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and drone applications.
+- **ProgLoss + STAL:** The progressive loss and small-target-aware label assignment yield notable improvements in small-object recognition, an area where models like PP-YOLOE+ historically struggle, proving critical for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and drone applications.
 - **DFL Removal:** The removal of Distribution Focal Loss simplifies the export process, improving compatibility across various edge and low-power devices.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }

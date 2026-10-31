@@ -35,7 +35,7 @@ Building on the NMS-free concepts introduced by YOLOv10, YOLO26 is the current r
 
 YOLO26 also introduces several architectural changes. Removing Distribution Focal Loss (DFL) simplifies the model's export process and improves compatibility with low-power edge AI devices. With these structural changes, YOLO26n achieves up to **43% faster CPU inference** than YOLO11n, making YOLO26 a strong choice for IoT and robotics applications where GPU acceleration may be unavailable.
 
-Training stability and convergence speed also improve with the **MuSGD Optimizer**, a hybrid of SGD and Muon inspired by LLM training techniques. Combined with the **ProgLoss + STAL** loss functions, YOLO26 improves small-object recognition. It also introduces task-specific enhancements, including multi-scale prototyping for segmentation, Residual Log-Likelihood Estimation (RLE) for pose estimation, and a specialized angle loss to resolve boundary issues in Oriented Bounding Box (OBB) detection.
+Training stability and convergence speed also improve with the **MuSGD Optimizer**, a hybrid of SGD and Muon inspired by LLM training techniques. Combined with **ProgLoss + STAL**, which pairs a progressive loss with small-target-aware label assignment, YOLO26 improves small-object recognition. It also introduces task-specific enhancements, including multi-scale prototyping for segmentation, Residual Log-Likelihood Estimation (RLE) for pose estimation, and a specialized angle loss to resolve boundary issues in Oriented Bounding Box (OBB) detection.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 

@@ -145,7 +145,7 @@ Released in January 2026, YOLO26 introduces several advancements designed for mo
 - **End-to-End NMS-Free Design:** Building on concepts first pioneered in YOLOv10, YOLO26 supports native end-to-end inference. Its optional one-to-one head (`nms=False`) removes the need for Non-Maximum Suppression (NMS) post-processing, simplifying deployment pipelines and reducing latency.
 - **MuSGD Optimizer:** Inspired by LLM training innovations from models like Moonshot AI's Kimi K2, this hybrid of SGD and Muon provides more stable training and faster convergence.
 - **Faster CPU Inference:** With Distribution Focal Loss (DFL) removed, YOLO26n runs up to **43% faster on CPU** than YOLO11n, making YOLO26 well suited to edge devices and environments without dedicated GPUs.
-- **Advanced Loss Functions:** The integration of ProgLoss and STAL yields notable improvements in small-object recognition, which is critical for drone analytics, IoT, and robotics.
+- **Advanced Training Methods:** The integration of ProgLoss and STAL yields notable improvements in small-object recognition, which is critical for drone analytics, IoT, and robotics.
 - **Task-Specific Enhancements:** It introduces specialized optimizations, such as Residual Log-Likelihood Estimation (RLE) for Pose and specialized angle loss for [oriented bounding boxes](https://docs.ultralytics.com/tasks/obb), improving accuracy across supported tasks.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }

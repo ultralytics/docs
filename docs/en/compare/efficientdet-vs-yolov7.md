@@ -108,7 +108,7 @@ YOLOv7 is recommended for:
 For most new projects, Ultralytics YOLO26 offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
-- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a clear advantage.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26n's up to 43% faster CPU inference than YOLO11n provides a clear advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultralytics Advantage
@@ -144,7 +144,7 @@ While YOLOv7 and EfficientDet laid the groundwork for modern computer vision, th
 ### Key YOLO26 Innovations
 
 - **End-to-End NMS-Free Design:** Building on the foundations laid by [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 offers a native [end-to-end head](https://docs.ultralytics.com/guides/end2end-detection) (`nms=False`). By eliminating NMS post-processing entirely, it delivers lower, more consistent latency, which is crucial for safety-critical systems like autonomous driving.
-- **Up to 43% Faster CPU Inference:** Thanks to the **removal of Distribution Focal Loss (DFL)**, YOLO26 has a simpler export process and fast inference on edge devices like the Raspberry Pi, making it a strong fit for edge computing.
+- **Up to 43% Faster CPU Inference:** Thanks to the **removal of Distribution Focal Loss (DFL)**, YOLO26 has a simpler export process and fast inference on edge devices like the Raspberry Pi (YOLO26n is up to 43% faster on CPU than YOLO11n), making it a strong fit for edge computing.
 - **MuSGD Optimizer:** YOLO26 incorporates the MuSGD Optimizer, a hybrid of SGD and Muon inspired by LLM training techniques from Moonshot AI. This leads to stable training dynamics and faster convergence.
 - **ProgLoss + STAL:** [Progressive Loss and Small-Target-Aware Label Assignment](https://www.ultralytics.com/blog/how-ultralytics-yolo26-trains-smarter-with-progloss-stal-and-musgd) improve the model's ability to detect tiny objects, a common pain point for drone imagery and [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system).
 - **Task-Specific Improvements:** YOLO26 is more than a detector. It features a semantic segmentation loss and multi-scale proto for higher-quality instance segmentation, Residual Log-Likelihood Estimation (RLE) for more accurate pose estimation, and specialized angle loss for resolving OBB boundary ambiguities.

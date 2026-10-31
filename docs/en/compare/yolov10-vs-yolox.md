@@ -151,7 +151,7 @@ YOLO26 also introduces several other improvements:
 
 - **Up to 43% Faster CPU Inference:** With Distribution Focal Loss (DFL) removed, YOLO26n runs up to 43% faster than YOLO11n on CPU, which helps on edge devices without GPUs.
 - **MuSGD Optimizer:** Inspired by LLM training, this hybrid of SGD and Muon provides faster convergence and stable training runs.
-- **ProgLoss + STAL:** These loss functions improve small-object recognition, a critical factor for aerial imagery and IoT sensors.
+- **ProgLoss + STAL:** Progressive Loss and small-target-aware label assignment improve small-object recognition, a critical factor for aerial imagery and IoT sensors.
 - **Versatility:** Unlike YOLOX, which is strictly an object detector, YOLO26 natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment), semantic segmentation, depth estimation, [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [OBB detection](https://docs.ultralytics.com/tasks/obb) within a single, unified library.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }

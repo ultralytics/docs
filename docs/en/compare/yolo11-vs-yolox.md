@@ -131,7 +131,7 @@ YOLOX is recommended for:
 For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
-- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26n's up to 43% faster CPU inference than YOLO11n provides a decisive advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL improve accuracy on small objects.
 
 ## Looking Ahead: The Power of YOLO26

@@ -127,7 +127,7 @@ For older mobile phones or heavily constrained embedded hardware where minimal F
 
 ### The Modern Standard: AIoT and Robotics
 
-For most modern use cases, including [smart city infrastructure](https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities), [retail analytics](https://www.ultralytics.com/solutions/computer-vision-in-retail), and autonomous navigation, **Ultralytics YOLO26** is the recommended choice. Its up to 43% faster CPU inference suits edge computing, and its optional NMS-free head delivers low, consistent latency. Together with the Ultralytics documentation and active community, it helps teams move from dataset annotation to deployment quickly.
+For most modern use cases, including [smart city infrastructure](https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities), [retail analytics](https://www.ultralytics.com/solutions/computer-vision-in-retail), and autonomous navigation, **Ultralytics YOLO26** is the recommended choice. YOLO26n's up to 43% faster CPU inference versus YOLO11n suits edge computing, and its optional NMS-free head delivers low, consistent latency. Together with the Ultralytics documentation and active community, it helps teams move from dataset annotation to deployment quickly.
 
 !!! tip "Streamline Your Workflow"
 

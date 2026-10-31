@@ -114,7 +114,7 @@ YOLOv5 is recommended for:
 For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
-- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a clear advantage.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26n's up to 43% faster CPU inference than YOLO11n provides a clear advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Future: Moving to YOLO26
@@ -128,7 +128,7 @@ YOLO26 addresses the traditional bottlenecks of edge deployment and training ins
 - **End-to-End NMS-Free Design:** YOLO26's optional [end-to-end head](https://docs.ultralytics.com/guides/end2end-detection) (`nms=False`) eliminates Non-Maximum Suppression (NMS) post-processing. This simplifies deployment logic and reduces latency variability, making it well suited to high-speed [robotics](https://www.ultralytics.com/glossary/robotics) and autonomous systems.
 - **MuSGD Optimizer:** Inspired by LLM training innovations (like Moonshot AI's Kimi K2), YOLO26 uses the MuSGD optimizer (a hybrid of SGD and Muon) for stable training runs and faster convergence.
 - **Up to 43% Faster CPU Inference:** By removing Distribution Focal Loss (DFL), YOLO26n runs up to 43% faster than YOLO11n on CPU ONNX, delivering faster speeds on CPUs and edge devices than predecessors like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8).
-- **ProgLoss + STAL:** These loss functions yield notable improvements in small-object recognition, which is critical for analyzing aerial drone imagery and IoT sensor feeds.
+- **ProgLoss + STAL:** The progressive loss and small-target-aware label assignment yield notable improvements in small-object recognition, which is critical for analyzing aerial drone imagery and IoT sensor feeds.
 
 ### Code Example: Simplicity in Action
 

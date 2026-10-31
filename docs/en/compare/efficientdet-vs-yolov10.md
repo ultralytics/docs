@@ -128,7 +128,7 @@ YOLOv10 is recommended for:
 For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
-- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a clear advantage.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26n's up to 43% faster CPU inference than YOLO11n provides a clear advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Future is Here: Enter Ultralytics YOLO26
@@ -142,9 +142,9 @@ While YOLOv10 introduced the NMS-free YOLO design, the technology has evolved. R
 **Key Innovations in YOLO26:**
 
 - **End-to-End NMS-Free Design:** Building on the foundations laid by YOLOv10, YOLO26 offers an optional [end-to-end one-to-one head](https://docs.ultralytics.com/guides/end2end-detection) (`nms=False`) that skips NMS, minimizing deployment logic.
-- **Up to 43% Faster CPU Inference:** With the removal of Distribution Focal Loss (DFL), YOLO26 cuts computational overhead substantially, making it well suited to [edge AI devices](https://www.ultralytics.com/blog/picking-the-right-edge-device-for-your-computer-vision-project).
+- **Up to 43% Faster CPU Inference:** With the removal of Distribution Focal Loss (DFL), YOLO26 cuts computational overhead substantially, with YOLO26n up to 43% faster on CPU than YOLO11n, making it well suited to [edge AI devices](https://www.ultralytics.com/blog/picking-the-right-edge-device-for-your-computer-vision-project).
 - **MuSGD Optimizer:** YOLO26 borrows techniques from Large Language Model (LLM) training. By combining the stability of SGD with the speed of Muon, it converges faster and more reliably.
-- **ProgLoss + STAL:** Improved loss formulations address long-standing issues with small-object detection, an area where EfficientDet traditionally struggled.
+- **ProgLoss + STAL:** Progressive Loss and small-target-aware label assignment address long-standing issues with small-object detection, an area where EfficientDet traditionally struggled.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 

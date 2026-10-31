@@ -48,7 +48,7 @@ YOLO26 introduces several advancements over previous generations:
 - **Up to 43% Faster CPU Inference:** Optimized for edge computing, YOLO26n runs up to 43% faster on CPU than YOLO11n, making YOLO26 well suited to devices without GPUs such as mobile phones, IoT sensors, and robotics.
 - **DFL Removal:** The Distribution Focal Loss has been removed, simplifying the model export process and enhancing compatibility with low-power edge devices.
 - **MuSGD Optimizer:** Inspired by large language model (LLM) training innovations like Moonshot AI's Kimi K2, the new MuSGD optimizer (a hybrid of [Stochastic Gradient Descent](https://www.ultralytics.com/glossary/stochastic-gradient-descent-sgd) and Muon) brings LLM-style training stability to vision tasks and faster convergence.
-- **ProgLoss + STAL:** These loss functions improve small-object recognition, a critical enhancement for applications dealing with [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and crowded scenes.
+- **ProgLoss + STAL:** A progressive loss and a small-target-aware label assignment strategy improve small-object recognition, a critical enhancement for applications dealing with [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and crowded scenes.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 

@@ -115,7 +115,7 @@ model.export(format="engine")
 
 **When to use YOLO26:**
 
-- **Edge Computing & Mobile:** With up to 43% faster CPU inference than YOLO11 and optional NMS-free inference, YOLO26 performs well on devices with strictly constrained compute budgets like Raspberry Pis or mobile phones.
+- **Edge Computing & Mobile:** With YOLO26n up to 43% faster on CPU than YOLO11n and optional NMS-free inference, YOLO26 performs well on devices with strictly constrained compute budgets like Raspberry Pis or mobile phones.
 - **Multitasking:** When a single pipeline requires bounding boxes, segmentation masks, and tracking, YOLO26 handles all of them in one framework.
 - **Drone & Aerial Imagery:** The combination of ProgLoss and STAL improves the detection of small objects from high altitudes.
 

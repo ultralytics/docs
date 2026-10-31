@@ -105,9 +105,9 @@ While PP-YOLOE+ and YOLOv7 are milestones in object detection, the landscape of 
 
 - **End-to-End NMS-Free Design:** YOLO26 is [natively end-to-end](https://docs.ultralytics.com/guides/end2end-detection). By skipping Non-Maximum Suppression (NMS) post-processing with its optional one-to-one head (`nms=False`), it provides predictable inference latency, an approach first introduced in [YOLOv10](https://docs.ultralytics.com/models/yolov10).
 - **DFL Removal:** The removal of Distribution Focal Loss simplifies the export process and significantly improves compatibility for low-power edge devices.
-- **Up to 43% Faster CPU Inference:** For scenarios lacking dedicated GPUs—such as [smart city IoT sensors](https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities)—YOLO26 is optimized to run efficiently on CPUs.
+- **Up to 43% Faster CPU Inference:** For scenarios lacking dedicated GPUs—such as [smart city IoT sensors](https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities)—YOLO26 is optimized to run efficiently on CPUs, where YOLO26n is up to 43% faster than YOLO11n.
 - **MuSGD Optimizer:** Inspired by advanced LLM training techniques (like Moonshot AI's Kimi K2), YOLO26 uses a hybrid of SGD and Muon for stable training and fast convergence.
-- **ProgLoss + STAL:** These improved loss functions bring notable gains in small-object detection, which is vital for use cases like [drone aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and manufacturing defect detection.
+- **ProgLoss + STAL:** The progressive loss and small-target-aware label assignment bring notable gains in small-object detection, which is vital for use cases like [drone aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and manufacturing defect detection.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 

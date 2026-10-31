@@ -130,7 +130,7 @@ YOLOv8 is recommended for:
 For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
-- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a clear advantage.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference (YOLO26n vs YOLO11n) provides a clear advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## Looking Forward: The YOLO26 Advantage
@@ -141,8 +141,8 @@ Released in January 2026, YOLO26 builds on the successes of its predecessors (in
 
 - **End-to-End NMS-Free Design:** YOLO26's optional [one-to-one head](https://docs.ultralytics.com/guides/end2end-detection) (`nms=False`) removes the need for [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing, simplifying deployment logic and reducing latency variance.
 - **MuSGD Optimizer:** Integrating techniques from Large Language Model (LLM) training, this hybrid optimizer provides more stable training and rapid convergence.
-- **Up to 43% Faster CPU Inference:** Optimized for [edge AI](https://www.ultralytics.com/glossary/edge-ai) scenarios lacking dedicated GPUs.
-- **ProgLoss + STAL:** These [loss functions](https://www.ultralytics.com/blog/how-ultralytics-yolo26-trains-smarter-with-progloss-stal-and-musgd) deliver notable improvements in small-object recognition, a historical weak point for many real-time detectors.
+- **Up to 43% Faster CPU Inference:** Optimized for [edge AI](https://www.ultralytics.com/glossary/edge-ai) scenarios lacking dedicated GPUs, YOLO26n runs up to 43% faster on CPU than YOLO11n.
+- **ProgLoss + STAL:** These [training refinements](https://www.ultralytics.com/blog/how-ultralytics-yolo26-trains-smarter-with-progloss-stal-and-musgd) deliver notable improvements in small-object recognition, a historical weak point for many real-time detectors.
 
 ## Conclusion
 

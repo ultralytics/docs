@@ -125,6 +125,6 @@ YOLO26 offers several advantages over both YOLOv5 and YOLOv7:
 - **End-to-End NMS-Free Design:** By optionally skipping Non-Maximum Suppression post-processing (`nms=False`), YOLO26 offers simpler deployment and more consistent latency.
 - **MuSGD Optimizer:** Inspired by LLM innovations from Moonshot AI, this hybrid optimizer delivers stable training and faster convergence.
 - **Faster Edge Inference:** Optimized for edge environments, YOLO26n runs up to **43% faster on CPU** than YOLO11n, helped by removing Distribution Focal Loss (DFL).
-- **Higher Accuracy:** New loss functions like **ProgLoss + STAL** improve small-object recognition, which helps with drone footage and robotics.
+- **Higher Accuracy:** New training techniques like **ProgLoss + STAL** improve small-object recognition, which helps with drone footage and robotics.
 
 Whether you are maintaining an existing YOLOv5 pipeline or adopting YOLO26, the [Ultralytics Platform](https://platform.ultralytics.com) provides tools for annotation, training, and deployment.

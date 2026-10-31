@@ -122,6 +122,6 @@ While YOLO11 is very capable, developers starting new projects should evaluate t
 - **End-to-End NMS-Free Design:** Building on [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 can skip Non-Maximum Suppression (NMS) post-processing entirely with its optional [one-to-one head](https://docs.ultralytics.com/guides/end2end-detection) (`nms=False`), reducing latency and simplifying deployment pipelines.
 - **MuSGD Optimizer:** A hybrid optimizer blending standard SGD with Muon (inspired by large language model training), improving training stability.
 - **Up to 43% Faster CPU Inference:** YOLO26n runs up to 43% faster than YOLO11n on CPU, making YOLO26 well suited to edge devices without discrete GPUs.
-- **ProgLoss + STAL:** Loss functions that improve small-object detection, critical for aerial imagery and robotics.
+- **ProgLoss + STAL:** Progressive Loss and small-target-aware label assignment improve small-object detection, critical for aerial imagery and robotics.
 
 Explore the broader landscape of vision architectures, including transformer-based detectors like [RT-DETR](https://docs.ultralytics.com/models/rtdetr), in the Ultralytics Docs.

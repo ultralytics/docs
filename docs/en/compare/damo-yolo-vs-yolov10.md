@@ -125,7 +125,7 @@ YOLOv10 is recommended for:
 For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
-- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a clear advantage.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference (YOLO26n vs YOLO11n) provides a clear advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Next Generation: Enter Ultralytics YOLO26
@@ -134,9 +134,9 @@ While YOLOv10 laid the groundwork for NMS-free detection, the technology has evo
 
 YOLO26 features a native [end-to-end mode](https://docs.ultralytics.com/guides/end2end-detection) (`nms=False`) that skips NMS post-processing for simpler deployment pipelines across edge devices. The removal of Distribution Focal Loss (DFL) also improves compatibility with low-power [edge AI](https://www.ultralytics.com/glossary/edge-ai) hardware.
 
-On the training side, YOLO26 introduces the **MuSGD Optimizer**, a hybrid inspired by Large Language Model (LLM) training techniques, for more stable training and faster convergence. Combined with the **ProgLoss + STAL** loss functions, YOLO26 improves small-object recognition, a critical feature for [wildlife conservation](https://www.ultralytics.com/blog/ai-in-wildlife-conservation) and [drone operations](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations).
+On the training side, YOLO26 introduces the **MuSGD Optimizer**, a hybrid inspired by Large Language Model (LLM) training techniques, for more stable training and faster convergence. Combined with **ProgLoss + STAL** (Progressive Loss and small-target-aware label assignment), YOLO26 improves small-object recognition, a critical feature for [wildlife conservation](https://www.ultralytics.com/blog/ai-in-wildlife-conservation) and [drone operations](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations).
 
-YOLO26 is also more than an object detector. It offers task-specific improvements across tasks, natively supporting [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose) using Residual Log-Likelihood Estimation (RLE), and specialized angle losses for [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb). With up to 43% faster CPU inference than YOLO11, it is the recommended choice for agile engineering teams.
+YOLO26 is also more than an object detector. It offers task-specific improvements across tasks, natively supporting [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose) using Residual Log-Likelihood Estimation (RLE), and specialized angle losses for [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb). With up to 43% faster CPU inference for YOLO26n versus YOLO11n, it is the recommended choice for agile engineering teams.
 
 For centralized management, annotation, and cloud training of YOLO26 models, the [Ultralytics Platform](https://platform.ultralytics.com) provides an intuitive interface that streamlines the entire computer vision lifecycle.
 

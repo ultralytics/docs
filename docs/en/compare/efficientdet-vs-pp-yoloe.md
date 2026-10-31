@@ -100,7 +100,7 @@ YOLO26 is also optimized for edge deployments. The removal of Distribution Focal
 
     YOLO26 incorporates the MuSGD Optimizer, a hybrid of SGD and Muon. Inspired by advances in LLM training, this optimizer provides stable training and rapid convergence, saving GPU compute hours.
 
-Developers also benefit from YOLO26's ProgLoss + STAL loss functions, which improve small-object recognition, a critical requirement for aerial imagery and [precision agriculture applications](https://www.ultralytics.com/blog/sowing-success-ai-in-agriculture).
+Developers also benefit from YOLO26's progressive loss and small-target-aware label assignment (ProgLoss + STAL), which improve small-object recognition, a critical requirement for aerial imagery and [precision agriculture applications](https://www.ultralytics.com/blog/sowing-success-ai-in-agriculture).
 
 ### Seamless Deployment with Ultralytics
 

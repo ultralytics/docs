@@ -99,7 +99,7 @@ YOLOv9 is recommended for:
 For most new projects, Ultralytics YOLO26 offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
-- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a clear advantage.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26n's up to 43% faster CPU inference than YOLO11n provides a clear advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultralytics Advantage: Choosing YOLO26
@@ -114,7 +114,7 @@ The [Ultralytics Platform](https://platform.ultralytics.com) is designed for eas
 - **Up to 43% Faster CPU Inference:** Optimized for embedded devices, with YOLO26n running up to 43% faster than YOLO11n on CPU ONNX when GPUs are unavailable.
 - **MuSGD Optimizer:** Bringing LLM training techniques to vision AI, this hybrid optimizer stabilizes training runs, allowing models to converge faster with fewer resources.
 - **Low Memory Requirements:** Unlike transformer-heavy architectures or unoptimized CNNs, YOLO26 minimizes CUDA memory consumption during training, letting you use larger batch sizes on consumer-grade hardware.
-- **ProgLoss + STAL:** Improved loss function design significantly boosts accuracy for detecting small objects, making YOLO26 well suited to aerial imagery and IoT networks.
+- **ProgLoss + STAL:** Progressive Loss and small-target-aware label assignment significantly boost accuracy for detecting small objects, making YOLO26 well suited to aerial imagery and IoT networks.
 - **DFL Removal:** A simplified structural design enables smooth conversion to mobile deployment formats.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }

@@ -134,7 +134,7 @@ Released in January 2026, YOLO26 introduces several efficiency and accuracy impr
 - **End-to-End NMS-Free Design:** Optionally skipping [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) with the one-to-one head (`nms=False`) reduces post-processing latency, an approach first introduced in [YOLOv10](https://docs.ultralytics.com/models/yolov10).
 - **MuSGD Optimizer:** Bringing large language model (LLM) training techniques to vision, this optimizer combines SGD and Muon for stable, faster convergence.
 - **CPU Optimized:** By removing the Distribution Focal Loss (DFL), [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) achieves up to 43% faster CPU inference than YOLO11n, making YOLO26 a strong choice for mobile, IoT, and [edge AI applications](https://www.ultralytics.com/glossary/edge-ai).
-- **Advanced Loss Functions:** ProgLoss and STAL improve small-object recognition, which matters for aerial imagery and robotics.
+- **Advanced Training Refinements:** ProgLoss and STAL improve small-object recognition, which matters for aerial imagery and robotics.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 

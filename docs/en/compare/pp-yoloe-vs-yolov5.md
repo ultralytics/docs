@@ -121,8 +121,8 @@ While YOLOv5 is a landmark model, computer vision has advanced. For all new deve
 **Key Innovations in YOLO26:**
 
 - **End-to-End NMS-Free Design:** YOLO26's optional [one-to-one head](https://docs.ultralytics.com/guides/end2end-detection) (`nms=False`) skips Non-Maximum Suppression (NMS) post-processing entirely. This reduces latency variability and greatly simplifies the deployment pipeline.
-- **Up to 43% Faster CPU Inference:** By removing Distribution Focal Loss (DFL), YOLO26 significantly increases speed on edge devices without GPUs.
+- **Up to 43% Faster CPU Inference:** By removing Distribution Focal Loss (DFL), YOLO26 significantly increases speed on edge devices without GPUs, where YOLO26n runs up to 43% faster than YOLO11n.
 - **MuSGD Optimizer:** Inspired by large language model (LLM) training techniques, this hybrid optimizer stabilizes training dynamics and allows for faster convergence on custom datasets.
-- **Task-Specific Enhancements:** Features loss functions like ProgLoss and STAL, improving accuracy on tiny objects. It natively supports [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection for aerial imagery.
+- **Task-Specific Enhancements:** Features ProgLoss and STAL (a progressive loss and small-target-aware label assignment), improving accuracy on tiny objects. It natively supports [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection for aerial imagery.
 
 If you are exploring modern vision models, you may also be interested in comparing the previous generation [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or transformer-based approaches like RT-DETR. The robust ecosystem, combined with ongoing architectural advancements, makes Ultralytics a strong choice for modern computer vision tasks.

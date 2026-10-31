@@ -138,7 +138,7 @@ YOLO26 combines the reliability of the Ultralytics ecosystem with several advanc
 - **End-to-End NMS-Free Design:** Incorporating the NMS-free paradigm directly into the Ultralytics framework as an optional one-to-one head (`nms=False`), YOLO26 simplifies deployment and lowers latency.
 - **Up to 43% Faster CPU Inference:** With Distribution Focal Loss (DFL) removed, YOLO26n runs up to 43% faster on CPU than YOLO11n, which helps on edge devices without GPUs.
 - **MuSGD Optimizer:** Inspired by LLM training innovations from Moonshot AI, the MuSGD optimizer provides more stable training and faster convergence.
-- **ProgLoss + STAL:** These loss functions improve small-object recognition, vital for fields like drone imagery and robotics.
+- **ProgLoss + STAL:** Progressive Loss and small-target-aware label assignment improve small-object recognition, vital for fields like drone imagery and robotics.
 
 You can manage, train, and deploy YOLO26 directly via the [Ultralytics Platform](https://platform.ultralytics.com).
 

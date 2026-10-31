@@ -52,9 +52,9 @@ Key YOLO26 innovations include:
 
 - **End-to-End NMS-Free Design:** YOLO26 supports [native end-to-end inference](https://docs.ultralytics.com/guides/end2end-detection) (`nms=False`), removing the need for Non-Maximum Suppression ([NMS](https://www.ultralytics.com/glossary/non-maximum-suppression-nms)) post-processing. This approach, first introduced in [YOLOv10](https://docs.ultralytics.com/models/yolov10), keeps inference latency consistent regardless of scene crowding, making deployment significantly simpler.
 - **DFL Removal:** By removing Distribution Focal Loss (DFL), YOLO26 simplifies its output head, improving compatibility with low-power edge devices.
-- **Up to 43% Faster CPU Inference:** Thanks to the DFL removal and structural optimizations, YOLO26 is optimized for environments without dedicated GPUs, achieving up to 43% faster inference speeds on CPUs compared to [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11).
+- **Up to 43% Faster CPU Inference:** Thanks to the DFL removal and structural optimizations, YOLO26 is optimized for environments without dedicated GPUs, with YOLO26n achieving up to 43% faster inference speeds on CPUs compared to [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11).
 - **MuSGD Optimizer:** Inspired by advanced LLM training techniques like those from [Moonshot AI](https://www.moonshot.ai/), YOLO26 introduces a hybrid of SGD and Muon. This brings stable training and faster convergence to computer vision tasks.
-- **ProgLoss + STAL:** These loss functions specifically target and improve small-object recognition, which is critical for IoT edge sensors and for drone imagery like the [VisDrone](https://docs.ultralytics.com/datasets/detect/visdrone) dataset.
+- **ProgLoss + STAL:** Progressive Loss and small-target-aware label assignment specifically target and improve small-object recognition, which is critical for IoT edge sensors and for drone imagery like the [VisDrone](https://docs.ultralytics.com/datasets/detect/visdrone) dataset.
 
 !!! tip "Task-Specific Improvements in YOLO26"
 
@@ -130,7 +130,7 @@ print(f"Model successfully exported to: {export_path}")
 
 ### When to Choose YOLO26
 
-- **Edge Computing and IoT:** The **up to 43% faster CPU inference** and DFL removal make YOLO26 a strong fit for deployment on Raspberry Pi boards, mobile phones, and embedded devices.
+- **Edge Computing and IoT:** The **up to 43% faster CPU inference** (YOLO26n vs YOLO11n) and DFL removal make YOLO26 a strong fit for deployment on Raspberry Pi boards, mobile phones, and embedded devices.
 - **Crowded Scenes and Smart Cities:** The **End-to-End NMS-Free** architecture keeps latency stable in dense environments like [parking management](https://docs.ultralytics.com/guides/parking-management) and traffic monitoring, where traditional NMS would cause bottlenecks.
 - **Multi-Task Projects:** If your pipeline requires tracking objects, estimating human poses, or generating precise segmentation masks, YOLO26 handles it all within a single, unified Python package.
 

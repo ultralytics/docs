@@ -140,7 +140,7 @@ YOLO26 brings several improvements designed for modern deployment environments:
 - **Up to 43% Faster CPU Inference:** YOLO26n runs up to 43% faster than YOLO11n on CPU, which suits edge computing and devices without dedicated GPUs and can lower hardware costs.
 - **DFL Removal:** Removing Distribution Focal Loss (DFL) simplifies export logic and improves compatibility with low-power edge devices.
 - **MuSGD Optimizer:** Inspired by Moonshot AI's Kimi K2, this hybrid of SGD and Muon brings [Large Language Model (LLM)](https://www.ultralytics.com/glossary/large-language-model-llm) training techniques into computer vision for more stable training and faster convergence.
-- **ProgLoss + STAL:** These loss functions improve small-object recognition, a historically challenging area that is critical for drones, robotics, and [smart city monitoring](https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities).
+- **ProgLoss + STAL:** A progressive loss and a small-target-aware label assignment strategy improve small-object recognition, a historically challenging area that is critical for drones, robotics, and [smart city monitoring](https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities).
 - **Task-Specific Improvements:** YOLO26 is not just a detector. It adds a semantic segmentation loss that improves instance segmentation convergence, Residual Log-Likelihood Estimation (RLE) for more accurate pose estimation, and a specialized angle loss that resolves OBB boundary issues.
 
 !!! note "Managing Datasets and Training"

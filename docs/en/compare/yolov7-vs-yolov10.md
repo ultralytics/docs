@@ -133,7 +133,7 @@ If you are starting a new computer vision project today, YOLO26 is the recommend
 - **End-to-End NMS-Free Design:** Taking inspiration from YOLOv10, YOLO26's optional one-to-one head (`nms=False`) skips NMS post-processing, giving lower and more consistent latency for real-time robotics.
 - **Up to 43% Faster CPU Inference:** By removing the Distribution Focal Loss (DFL) module, YOLO26 speeds up execution on non-GPU edge hardware, with YOLO26n running up to 43% faster on CPU than YOLO11n, making it a good fit for [IoT devices](https://www.ultralytics.com/blog/industrial-iot-iiot-internet-of-things-explained).
 - **MuSGD Optimizer:** Inspired by recent large language model training innovations, YOLO26 incorporates a hybrid of SGD and Muon for more stable training and faster convergence.
-- **ProgLoss + STAL:** These loss functions improve small-object recognition, overcoming a historical weakness in older YOLO generations.
+- **ProgLoss + STAL:** The progressive loss and small-target-aware label assignment improve small-object recognition, overcoming a historical weakness in older YOLO generations.
 - **Multi-Task Versatility:** YOLO26 covers detection, instance segmentation, semantic segmentation, depth estimation, classification, pose estimation, and OBB, with task-specific optimizations such as Residual Log-Likelihood Estimation (RLE) for pose estimation and specialized angle losses for precise OBB detection in aerial imagery.
 
 For engineers seeking the best balance of speed, accuracy, and deployment simplicity, YOLO26 is the natural upgrade from legacy models.

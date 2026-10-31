@@ -101,7 +101,7 @@ YOLO11 is recommended for:
 For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
-- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a clear advantage.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26n's up to 43% faster CPU inference than YOLO11n provides a clear advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultralytics Advantage
@@ -140,9 +140,9 @@ While YOLO11 remains a powerful tool, the field of AI moves rapidly. Released in
 YOLO26 introduces several innovations:
 
 - **End-to-End NMS-Free Design:** Building on concepts first introduced in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 offers a native [end-to-end head](https://docs.ultralytics.com/guides/end2end-detection) (`nms=False`) that completely eliminates [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing, making deployment simpler and significantly reducing latency variability.
-- **Up to 43% Faster CPU Inference:** Removing Distribution Focal Loss (DFL) makes the model lighter, which makes it a strong choice for [edge computing](https://www.ultralytics.com/glossary/edge-computing) and low-power IoT devices.
+- **Up to 43% Faster CPU Inference:** Removing Distribution Focal Loss (DFL) makes the model lighter, and YOLO26n runs up to 43% faster on CPU than YOLO11n, making it a strong choice for [edge computing](https://www.ultralytics.com/glossary/edge-computing) and low-power IoT devices.
 - **MuSGD Optimizer:** YOLO26 brings LLM training innovations to computer vision. Using the MuSGD optimizer (a hybrid of SGD and Muon), it achieves highly stable training dynamics and faster convergence.
-- **ProgLoss + STAL:** These [loss functions](https://www.ultralytics.com/blog/how-ultralytics-yolo26-trains-smarter-with-progloss-stal-and-musgd) yield notable improvements in small-object recognition, a critical feature for drone imagery and aerial surveillance.
+- **ProgLoss + STAL:** [Progressive Loss and small-target-aware label assignment](https://www.ultralytics.com/blog/how-ultralytics-yolo26-trains-smarter-with-progloss-stal-and-musgd) yield notable improvements in small-object recognition, a critical feature for drone imagery and aerial surveillance.
 
 ## Conclusion and Real-World Applications
 

@@ -116,7 +116,7 @@ Key innovations in YOLO26 include:
 
 - **MuSGD Optimizer:** A hybrid of SGD and Muon, inspired by large language model (LLM) training, that provides stable training dynamics and faster convergence.
 - **DFL Removal:** By removing Distribution Focal Loss, YOLO26 simplifies export compatibility and boosts performance on low-power devices.
-- **ProgLoss + STAL:** Loss functions that improve small-object recognition.
+- **ProgLoss + STAL:** A progressive loss and a small-target-aware label assignment strategy improve small-object recognition.
 - **CPU Speed:** [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) achieves up to 43% faster CPU inference than YOLO11n, making YOLO26 well suited to embedded systems like the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) or [Apple CoreML](https://docs.ultralytics.com/integrations/coreml) deployments.
 
 Other capable models within the ecosystem include [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8), both of which remain well suited to existing hardware integrations.

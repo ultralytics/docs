@@ -86,7 +86,7 @@ Released in January 2026, YOLO26 improves deployment efficiency by removing seve
 
 1. **MuSGD Optimizer:** Inspired by large language model (LLM) training (like Moonshot AI's Kimi K2), YOLO26 utilizes a hybrid of SGD and Muon. This brings stable training and faster convergence to computer vision tasks.
 2. **Up to 43% Faster CPU Inference:** Unlike YOLOv6's heavy GPU focus, YOLO26 is optimized for edge devices: [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) runs up to 43% faster on CPU than YOLO11n. The removal of Distribution Focal Loss (DFL) simplifies the head, making it compatible with low-power CPUs and [edge computing](https://www.ultralytics.com/glossary/edge-computing) hardware.
-3. **ProgLoss + STAL:** These loss functions improve small-object detection, which is critical for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and robotics.
+3. **ProgLoss + STAL:** Progressive Loss and small-target-aware label assignment improve small-object detection, which is critical for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and robotics.
 4. **Versatility:** While YOLOv6 is purely a detection engine, YOLO26 also handles [instance segmentation](https://docs.ultralytics.com/tasks/segment), semantic segmentation, depth estimation, classification, [pose estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }

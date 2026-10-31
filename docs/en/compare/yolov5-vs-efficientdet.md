@@ -108,7 +108,7 @@ Building upon the legacy of its predecessors (like [YOLOv8](https://platform.ult
 - **End-to-End NMS-Free Design:** YOLO26's optional one-to-one head (`nms=False`) removes the need for Non-Maximum Suppression post-processing. This reduces latency variance and simplifies deployment architecture.
 - **Up to 43% Faster CPU Inference:** YOLO26n runs up to 43% faster than YOLO11n on CPU, which benefits low-power [edge AI](https://www.ultralytics.com/glossary/edge-ai) devices and standard CPUs without dedicated GPUs.
 - **MuSGD Optimizer:** Inspired by Large Language Model (LLM) training techniques, this hybrid of SGD and Muon provides stable training and fast convergence.
-- **Advanced Loss Functions:** The integration of ProgLoss and STAL improves the recognition of small targets, which is vital for high-altitude drone imagery and [robotics](https://www.ultralytics.com/solutions/computer-vision-in-robotics).
+- **Advanced Training Strategies:** The integration of ProgLoss and STAL improves the recognition of small targets, which is vital for high-altitude drone imagery and [robotics](https://www.ultralytics.com/solutions/computer-vision-in-robotics).
 - **DFL Removal:** By removing Distribution Focal Loss, the model export process is streamlined, improving compatibility across diverse hardware accelerators.
 
 Users interested in exploring other recent architectures within the Ultralytics ecosystem might also compare models like [YOLOv10](https://docs.ultralytics.com/models/yolov10) or [RT-DETR](https://docs.ultralytics.com/models/rtdetr).

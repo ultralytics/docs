@@ -48,7 +48,7 @@ The core of YOLOv9 relies on two major theoretical innovations: Programmable Gra
 
 !!! tip "Future-Proof Your Deployments"
 
-    While YOLOv5 and YOLOv9 are powerful, the newer [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) offers a strong balance of speed and accuracy. Featuring optional end-to-end NMS-free inference and up to 43% faster CPU inference than YOLO11, YOLO26 is recommended for modern edge computing and production deployments.
+    While YOLOv5 and YOLOv9 are powerful, the newer [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) offers a strong balance of speed and accuracy. Featuring optional end-to-end NMS-free inference and up to 43% faster CPU inference (YOLO26n vs YOLO11n), YOLO26 is recommended for modern edge computing and production deployments.
 
 ## Architectural and Technical Differences
 
@@ -132,6 +132,6 @@ YOLOv9 is ideal for scenarios where capturing intricate details and minimizing f
 
 ## Expanding Your Horizons
 
-While comparing YOLOv5 and YOLOv9 offers a clear view of how architectures have evolved from 2020 to 2024, the field continues to move quickly. For developers who want the latest performance, the [YOLO26 models](https://platform.ultralytics.com/ultralytics/yolo26) are the recommended choice. By offering a native **End-to-End NMS-Free Design** (`nms=False`) as an alternative to traditional Non-Maximum Suppression and utilizing the advanced **MuSGD Optimizer**, YOLO26 bridges the gap between research-level accuracy and production-level speed. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), YOLO26n achieves up to **43% faster CPU inference** than YOLO11n, making it well suited to edge computing. Additionally, **ProgLoss + STAL** provides improved loss functions with notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery.
+While comparing YOLOv5 and YOLOv9 offers a clear view of how architectures have evolved from 2020 to 2024, the field continues to move quickly. For developers who want the latest performance, the [YOLO26 models](https://platform.ultralytics.com/ultralytics/yolo26) are the recommended choice. By offering a native **End-to-End NMS-Free Design** (`nms=False`) as an alternative to traditional Non-Maximum Suppression and utilizing the advanced **MuSGD Optimizer**, YOLO26 bridges the gap between research-level accuracy and production-level speed. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), YOLO26n achieves up to **43% faster CPU inference** than YOLO11n, making it well suited to edge computing. Additionally, **ProgLoss + STAL** pairs a progressive loss with small-target-aware label assignment for notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery.
 
 You might also be interested in comparing these architectures against other models, such as [YOLOv5 vs RT-DETR](https://docs.ultralytics.com/compare/yolov5-vs-rtdetr) or [YOLOv5 vs YOLO11](https://docs.ultralytics.com/compare/yolov5-vs-yolo11). The unified Ultralytics framework keeps your development pipeline consistent whichever model you choose.

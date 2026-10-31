@@ -143,7 +143,7 @@ Released in January 2026, YOLO26 is the latest Ultralytics model family and impr
 - **End-to-End NMS-Free Design:** Building on concepts from [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26's optional one-to-one head (`nms=False`) skips [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing, cutting latency and simplifying deployment logic.
 - **DFL Removal:** With Distribution Focal Loss removed, YOLO26n achieves up to 43% faster CPU inference than YOLO11n, which suits low-power edge devices.
 - **MuSGD Optimizer:** Inspired by LLM training techniques, this hybrid of SGD and Muon provides stable training runs and faster convergence.
-- **ProgLoss + STAL:** These loss functions improve small-object recognition, which is critical for drone imagery and smart agriculture.
+- **ProgLoss + STAL:** The progressive loss and small-target-aware label assignment improve small-object recognition, which is critical for drone imagery and smart agriculture.
 
 Additionally, you might consider [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11), which offers strong performance and remains a reliable, fully supported option between legacy systems and YOLO26.
 

@@ -125,9 +125,9 @@ YOLO26 improves the speed-accuracy trade-off with architectural changes that mak
 ### Key YOLO26 Advancements
 
 - **End-to-End NMS-Free Design:** YOLO26's optional [end-to-end head](https://docs.ultralytics.com/guides/end2end-detection) (`nms=False`) eliminates Non-Maximum Suppression (NMS) post-processing. This simplifies deployment logic and reduces latency variance, refining an approach first introduced in YOLOv10.
-- **Up to 43% Faster CPU Inference:** Engineered for edge computing and low-power IoT devices operating without dedicated GPUs.
+- **Up to 43% Faster CPU Inference:** Compared with YOLO11n, YOLO26n is up to 43% faster on CPU, which suits edge computing and low-power IoT devices operating without dedicated GPUs.
 - **MuSGD Optimizer:** Inspired by large language model training techniques (like those behind Moonshot AI's Kimi K2), this hybrid of SGD and Muon brings LLM training ideas to computer vision, enabling faster convergence and stable training dynamics.
-- **ProgLoss + STAL:** These loss functions yield notable improvements in small-object recognition, which is critical for aerial imagery and robotics.
+- **ProgLoss + STAL:** A progressive loss and a small-target-aware label assignment strategy yield notable improvements in small-object recognition, which is critical for aerial imagery and robotics.
 - **DFL Removal:** Removing Distribution Focal Loss simplifies the model head, improving compatibility when exporting to older or highly constrained edge hardware.
 
 For teams deploying multi-task pipelines, YOLO26 also introduces task-specific upgrades, such as multi-scale proto for segmentation and specialized angle loss for [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb). To explore other modern alternatives within the ecosystem, you can also review [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) or the YOLOv8 architecture.

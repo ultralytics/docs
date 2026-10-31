@@ -99,7 +99,7 @@ YOLO26 introduces several innovations for both server and edge deployments:
 
 - **End-to-End NMS-Free Design:** First pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 offers an optional NMS-free head (`nms=False`) that skips NMS post-processing. This gives the predictable latency of RTDETRv2 without the computational overhead of a transformer.
 - **MuSGD Optimizer:** Inspired by large language model training techniques (such as Moonshot AI's Kimi K2), YOLO26 utilizes a hybrid of SGD and Muon. This improves training stability and convergence speed compared to the standard AdamW setups used by many ViTs.
-- **ProgLoss + STAL:** These loss functions improve small-object recognition, directly competing with the multi-scale feature advantages of RTDETRv2, which is critical for robotic automation.
+- **ProgLoss + STAL:** Progressive Loss and small-target-aware label assignment improve small-object recognition, directly competing with the multi-scale feature advantages of RTDETRv2, which is critical for robotic automation.
 - **Edge Optimization & DFL Removal:** By removing Distribution Focal Loss (DFL), YOLO26 streamlines the output head, and YOLO26n runs up to **43% faster on CPU** than YOLO11n—making YOLO26 much easier to deploy on edge devices than heavy transformer models.
 
 ### Training Example with Ultralytics

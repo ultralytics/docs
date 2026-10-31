@@ -119,7 +119,7 @@ YOLO26 combines recent architectural advances into a single framework. It adopts
 Key improvements in YOLO26 include:
 
 - **Up to 43% Faster CPU Inference:** YOLO26n runs up to 43% faster than YOLO11n on CPU, helped by the removal of Distribution Focal Loss (DFL).
-- **ProgLoss + STAL:** Loss functions that improve small-object recognition, which is critical for drone imagery and IoT sensors.
+- **ProgLoss + STAL:** The progressive loss and small-target-aware label assignment improve small-object recognition, which is critical for drone imagery and IoT sensors.
 - **Task-Specific Enhancements:** Task-specific heads and losses across instance segmentation, semantic segmentation, depth estimation, pose estimation, and OBB.
 
 ## Ideal Use Cases and Deployment Strategies

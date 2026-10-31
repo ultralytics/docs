@@ -122,7 +122,7 @@ YOLOv9 is recommended for:
 For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
-- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a clear advantage.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26n's up to 43% faster CPU inference than YOLO11n provides a clear advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## Looking Forward: The YOLO26 Advantage
@@ -130,10 +130,10 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 While both PP-YOLOE+ and YOLOv9 are powerful, the newly released YOLO26 is the natural next step for production environments. Released in January 2026, YOLO26 is designed for both edge computing and cloud deployments, and it is the recommended model for new computer vision projects thanks to these innovations:
 
 - **End-to-End NMS-Free Design:** YOLO26 supports [native end-to-end inference](https://docs.ultralytics.com/guides/end2end-detection), removing the need for [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing when run with `nms=False`. This significantly simplifies deployment pipelines and reduces latency.
-- **Up to 43% Faster CPU Inference:** By optimizing the architecture for edge computing, YOLO26 is significantly faster on hardware lacking dedicated GPUs.
+- **Up to 43% Faster CPU Inference:** By optimizing the architecture for edge computing, YOLO26n runs up to 43% faster than YOLO11n on CPU-only hardware.
 - **DFL Removal:** Distribution Focal Loss has been removed, making exports simpler and improving compatibility with low-power edge devices.
 - **MuSGD Optimizer:** Inspired by large language model training techniques (like those behind Moonshot AI's Kimi K2), this hybrid of SGD and Muon provides stable training dynamics and rapid convergence.
-- **ProgLoss + STAL:** These loss functions yield notable improvements in small-object recognition, an essential upgrade for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and [robotics](https://www.ultralytics.com/blog/from-algorithms-to-automation-ais-role-in-robotics).
+- **ProgLoss + STAL:** Progressive Loss and small-target-aware label assignment yield notable improvements in small-object recognition, an essential upgrade for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and [robotics](https://www.ultralytics.com/blog/from-algorithms-to-automation-ais-role-in-robotics).
 - **Task-Specific Improvements:** YOLO26 includes customized architectures for specific tasks, such as multi-scale proto for segmentation and Residual Log-Likelihood Estimation (RLE) for pose estimation.
 
 You can easily train and deploy YOLO26 models through the [Ultralytics Platform](https://platform.ultralytics.com), an all-in-one solution for dataset annotation, cloud training, and model monitoring.

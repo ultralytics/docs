@@ -104,7 +104,7 @@ EfficientDet is recommended for:
 For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
-- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a clear advantage.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26n's up to 43% faster CPU inference than YOLO11n provides a clear advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultralytics Alternative: Advancing the State-of-the-Art
@@ -115,7 +115,7 @@ If you are exploring modern detection options, the newly released Ultralytics YO
 
 !!! tip "Why Choose YOLO26?"
 
-    YOLO26 implements an optional [End-to-End NMS-Free Design](https://docs.ultralytics.com/guides/end2end-detection) (`nms=False`), bringing the deployment simplicity of RTDETRv2 to the efficient YOLO architecture. It also introduces the **MuSGD Optimizer**, inspired by LLM training techniques, for better training stability. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge and low-power device compatibility), YOLO26 delivers up to **43% faster CPU inference** than YOLO11, making it a strong choice for [edge computing](https://www.ultralytics.com/glossary/edge-computing) over heavier models. **ProgLoss + STAL** also delivers improved loss functions with notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery.
+    YOLO26 implements an optional [End-to-End NMS-Free Design](https://docs.ultralytics.com/guides/end2end-detection) (`nms=False`), bringing the deployment simplicity of RTDETRv2 to the efficient YOLO architecture. It also introduces the **MuSGD Optimizer**, inspired by LLM training techniques, for better training stability. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge and low-power device compatibility), YOLO26n delivers up to **43% faster CPU inference** than YOLO11n, making it a strong choice for [edge computing](https://www.ultralytics.com/glossary/edge-computing) over heavier models. **ProgLoss + STAL** (Progressive Loss and small-target-aware label assignment) also delivers notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery.
 
 The [Ultralytics Python package](https://docs.ultralytics.com/usage/python) is designed for ease of use. Developers can train, validate, and [export models](https://docs.ultralytics.com/modes/export) using an intuitive API that abstracts away the boilerplate code typically required by research repositories.
 

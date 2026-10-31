@@ -140,7 +140,7 @@ YOLO26 incorporates the **[End-to-End NMS-Free Design](https://www.ultralytics.c
 
 - **Up to 43% Faster CPU Inference:** With the Distribution Focal Loss (DFL) module removed, YOLO26n runs up to 43% faster than YOLO11n on standard CPUs, making YOLO26 well suited to [mobile deployment](https://docs.ultralytics.com/guides/model-deployment-options) and low-power IoT sensors.
 - **MuSGD Optimizer:** Inspired by Large Language Model (LLM) training techniques like Moonshot AI's Kimi K2, YOLO26 uses a hybrid of SGD and Muon. This provides more stable training and faster convergence than the standard SGD and AdamW optimizers used in earlier YOLO models.
-- **ProgLoss + STAL:** These loss functions improve small-object recognition, which is critical for drone imagery and aerial security applications.
+- **ProgLoss + STAL:** The progressive loss and small-target-aware label assignment improve small-object recognition, which is critical for drone imagery and aerial security applications.
 - **Task-Specific Improvements:** While YOLOv10 is strictly a bounding box detector, YOLO26 supports detection, instance segmentation, semantic segmentation, depth estimation, classification, pose estimation, and OBB, with task-specific improvements such as Residual Log-Likelihood Estimation (RLE) for pose and a specialized angle loss for Oriented Bounding Boxes (OBB).
 
 !!! note "Explore Further"

@@ -84,7 +84,7 @@ Explore the technical comparisons below to understand specific architectural dif
 
 ### YOLO26 vs
 
-YOLO26 is the latest Ultralytics model, featuring NMS-free end-to-end detection, the MuSGD optimizer, and up to 43% faster CPU inference. It is optimized for edge deployment while achieving high accuracy.
+YOLO26 is the latest Ultralytics model, featuring NMS-free end-to-end detection, the MuSGD optimizer, and up to 43% faster CPU inference for YOLO26n versus YOLO11n. It is optimized for edge deployment while achieving high accuracy.
 
 - [YOLO26 vs YOLO11](yolo26-vs-yolo11.md)
 - [YOLO26 vs YOLOv10](yolo26-vs-yolov10.md)

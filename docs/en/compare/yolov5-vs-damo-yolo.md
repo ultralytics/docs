@@ -152,7 +152,7 @@ Key innovations in YOLO26 include:
 
 - **MuSGD Optimizer:** Inspired by LLM training innovations, this hybrid of SGD and Muon provides stable training and fast convergence.
 - **Up to 43% Faster CPU Inference:** YOLO26n runs up to 43% faster than YOLO11n on CPU, which suits edge computing and IoT devices without dedicated GPUs.
-- **ProgLoss + STAL:** Loss functions that improve the recognition of small objects, which is critical for aerial drone imagery and robotics.
+- **ProgLoss + STAL:** A progressive loss and a small-target-aware label assignment strategy improve the recognition of small objects, which is critical for aerial drone imagery and robotics.
 - **Task-Specific Improvements:** From specialized angle loss for [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb) to Residual Log-Likelihood Estimation (RLE) for accurate [pose estimation](https://docs.ultralytics.com/tasks/pose), YOLO26 includes improvements for each supported task.
 
 ## Conclusion

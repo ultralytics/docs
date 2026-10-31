@@ -104,7 +104,7 @@ YOLOX is recommended for:
 For most new projects, Ultralytics YOLO26 offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
-- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a clear advantage.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference (YOLO26n vs YOLO11n) provides a clear advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultralytics Advantage: Introducing YOLO26
@@ -114,9 +114,9 @@ While EfficientDet and YOLOX were significant advances in their respective eras,
 YOLO26 is a major step in the YOLO lineage, addressing the limitations found in older models like YOLOX and EfficientDet:
 
 - **End-to-End NMS-Free Design:** Unlike EfficientDet and YOLOX, which require costly [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing, YOLO26 supports [native end-to-end inference](https://docs.ultralytics.com/guides/end2end-detection) through its optional one-to-one head (`nms=False`). This eliminates NMS latency bottlenecks and simplifies edge deployment.
-- **Up to 43% Faster CPU Inference:** Through architectural tuning and **DFL Removal** (Distribution Focal Loss), YOLO26 is optimized for environments without dedicated GPUs, delivering excellent performance on [edge AI](https://www.ultralytics.com/glossary/edge-ai) hardware like Raspberry Pi.
+- **Up to 43% Faster CPU Inference:** Through architectural tuning and **DFL Removal** (Distribution Focal Loss), YOLO26 is optimized for environments without dedicated GPUs, with YOLO26n up to 43% faster on CPU than YOLO11n and excellent performance on [edge AI](https://www.ultralytics.com/glossary/edge-ai) hardware like Raspberry Pi.
 - **MuSGD Optimizer:** Inspired by LLM training innovations (like Moonshot AI's Kimi K2), YOLO26 uses a hybrid of SGD and Muon. This provides stable training and faster convergence than older training setups.
-- **ProgLoss + STAL:** These loss functions bring notable improvements in small-object recognition, a historic weakness for both YOLOX and EfficientDet. This is critical for drone analytics and IoT.
+- **ProgLoss + STAL:** Progressive Loss and small-target-aware label assignment bring notable improvements in small-object recognition, a historic weakness for both YOLOX and EfficientDet. This is critical for drone analytics and IoT.
 - **Multi-Task Versatility:** While EfficientDet and YOLOX are strictly bounding box detectors, YOLO26 natively supports [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose) (via Residual Log-Likelihood Estimation), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }

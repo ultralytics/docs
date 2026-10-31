@@ -96,7 +96,7 @@ For developers seeking the best balance of speed and accuracy, [Ultralytics YOLO
 - **End-to-End NMS-Free Design:** YOLO26's optional one-to-one head (`nms=False`) removes the need for Non-Maximum Suppression (NMS) post-processing, lowering latency variance and simplifying deployment logic on edge devices.
 - **MuSGD Optimizer:** Inspired by large language model (LLM) training, this hybrid of SGD and Muon provides stable training and faster convergence.
 - **Up to 43% Faster CPU Inference:** With Distribution Focal Loss (DFL) removed, [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) runs up to 43% faster on CPU than YOLO11n, which suits low-power IoT devices.
-- **ProgLoss + STAL:** These loss functions improve small-object recognition, making YOLO26 well suited to drone and aerial imagery applications.
+- **ProgLoss + STAL:** The progressive loss and small-target-aware label assignment improve small-object recognition, making YOLO26 well suited to drone and aerial imagery applications.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 

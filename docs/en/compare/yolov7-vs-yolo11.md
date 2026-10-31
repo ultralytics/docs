@@ -94,7 +94,7 @@ Released in January 2026, YOLO26 introduces several features that improve on bot
 - **Optional NMS-Free Architecture:** YOLO26's optional one-to-one head (`nms=False`) removes the need for [Non-Maximum Suppression](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing. This end-to-end design simplifies deployment pipelines and reduces latency variability.
 - **Up to 43% Faster CPU Inference:** By removing the Distribution Focal Loss (DFL) module, YOLO26 is optimized for edge devices and environments without dedicated GPUs; YOLO26n runs up to 43% faster on CPU than YOLO11n.
 - **MuSGD Optimizer Integration:** Inspired by advanced LLM training techniques from [Moonshot AI](https://www.moonshot.cn/), this hybrid optimizer improves training stability and convergence speed.
-- **Improved Small Object Detection:** The ProgLoss and STAL loss functions improve accuracy on small objects, which helps when analyzing [drone aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and complex IoT sensor data.
+- **Improved Small Object Detection:** Progressive Loss (ProgLoss) and small-target-aware label assignment (STAL) improve accuracy on small objects, which helps when analyzing [drone aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and complex IoT sensor data.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 

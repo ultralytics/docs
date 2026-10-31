@@ -95,7 +95,7 @@ EfficientDet is recommended for:
 For most new projects, Ultralytics YOLO26 offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
-- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a clear advantage.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26n's up to 43% faster CPU inference than YOLO11n provides a clear advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Modern Alternative: Ultralytics YOLO26
@@ -106,8 +106,8 @@ YOLO26 is a major step forward in object detection, introducing several importan
 
 - **End-to-End NMS-Free Design:** Building on [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26's optional [end-to-end head](https://docs.ultralytics.com/guides/end2end-detection) (`nms=False`) eliminates [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) during inference. This results in significantly lower latency and removes complex post-processing bottlenecks.
 - **MuSGD Optimizer:** Inspired by LLM training innovations, YOLO26 uses a hybrid SGD and Muon optimizer that improves training stability and reduces convergence time.
-- **Faster CPU Inference:** YOLO26 delivers up to **43% faster CPU inference** than [YOLO11](https://docs.ultralytics.com/models/yolo11), making it a strong choice for battery-powered or CPU-only edge devices.
-- **Advanced Loss Functions:** ProgLoss and STAL greatly improve small-object recognition, which is essential for tasks like [drone analytics](https://www.ultralytics.com/blog/build-ai-powered-drone-applications-with-ultralytics-yolo11) and [robotics](https://www.ultralytics.com/blog/from-algorithms-to-automation-ais-role-in-robotics).
+- **Faster CPU Inference:** YOLO26n delivers up to **43% faster CPU inference** than [YOLO11n](https://docs.ultralytics.com/models/yolo11), making it a strong choice for battery-powered or CPU-only edge devices.
+- **Advanced Training Techniques:** ProgLoss and STAL greatly improve small-object recognition, which is essential for tasks like [drone analytics](https://www.ultralytics.com/blog/build-ai-powered-drone-applications-with-ultralytics-yolo11) and [robotics](https://www.ultralytics.com/blog/from-algorithms-to-automation-ais-role-in-robotics).
 
 !!! note "Multi-Task Versatility"
 

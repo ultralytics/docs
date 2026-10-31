@@ -114,6 +114,6 @@ For new projects, Ultralytics recommends **[Ultralytics YOLO26](https://platform
 - **End-to-End NMS-Free Design:** First pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26's optional one-to-one head (`nms=False`) removes Non-Maximum Suppression post-processing, leading to simpler and faster deployment pipelines.
 - **MuSGD Optimizer:** Inspired by the LLM training innovations seen in models like Kimi K2, YOLO26 utilizes a hybrid optimizer for more stable training and faster convergence.
 - **Edge Computing:** YOLO26n runs up to **43% faster on CPU** than YOLO11n, making YOLO26 well suited to devices without dedicated GPUs.
-- **Enhanced Accuracy:** Utilizing the new ProgLoss + STAL loss functions, it improves small-object recognition, which is critical for [robotics](https://www.ultralytics.com/glossary/robotics) and aerial drone imagery.
+- **Enhanced Accuracy:** Utilizing the new progressive loss and small-target-aware label assignment (ProgLoss + STAL), it improves small-object recognition, which is critical for [robotics](https://www.ultralytics.com/glossary/robotics) and aerial drone imagery.
 
 Whether maintaining a legacy system with YOLOv5, scaling a versatile application with YOLOv8, or adopting YOLO26 for new projects, the Ultralytics ecosystem provides the tooling to train, deploy, and maintain modern vision AI.

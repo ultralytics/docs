@@ -100,8 +100,8 @@ While DAMO-YOLO and PP-YOLOE+ each offer specific advantages, developers seeking
 
 When upgrading your computer vision pipeline, **Ultralytics YOLO26** offers a streamlined developer experience:
 
-- **Up to 43% Faster CPU Inference:** With the complete removal of Distribution Focal Loss (DFL), YOLO26 runs fast on edge CPUs and low-power IoT devices.
-- **Improved Small Object Detection:** The ProgLoss and STAL loss functions improve small-object recognition, which is vital for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision).
+- **Up to 43% Faster CPU Inference:** With the complete removal of Distribution Focal Loss (DFL), YOLO26n runs up to 43% faster on CPU than YOLO11n, suiting edge CPUs and low-power IoT devices.
+- **Improved Small Object Detection:** The ProgLoss objective and STAL label assignment improve small-object recognition, which is vital for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision).
 - **Extensive Versatility:** Unlike PP-YOLOE+ which focuses strictly on detection, YOLO26 also handles [pose estimation](https://docs.ultralytics.com/tasks/pose), [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb), and semantic segmentation with task-specific architectural improvements.
 
 ## Conclusion

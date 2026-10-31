@@ -115,7 +115,7 @@ While YOLOv7 remains a strong legacy architecture, the field has advanced rapidl
 - **End-to-End NMS-Free Design:** First pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26's optional one-to-one head (`nms=False`) skips [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing. This lowers latency variance and simplifies deployment for robotics and self-driving systems.
 - **MuSGD Optimizer:** Inspired by advanced LLM training techniques (like Moonshot AI's Kimi K2), this hybrid optimizer blends SGD and Muon for more stable training and faster convergence.
 - **Up to 43% Faster CPU Inference:** By removing Distribution Focal Loss (DFL), YOLO26 simplifies export and speeds up inference on edge devices and CPUs, with YOLO26n running up to 43% faster on CPU than YOLO11n.
-- **ProgLoss + STAL:** These loss functions improve small-object detection, making YOLO26 well suited for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and detailed surveillance.
+- **ProgLoss + STAL:** A progressive loss and a small-target-aware label assignment strategy improve small-object detection, making YOLO26 well suited for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and detailed surveillance.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 

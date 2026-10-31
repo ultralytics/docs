@@ -95,7 +95,7 @@ Choosing between YOLO11 and YOLO26 largely depends on your specific infrastructu
 
 ### Edge Computing and IoT
 
-For applications constrained by power and hardware, such as smart agriculture monitoring via drones or local [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system), **YOLO26** is the better fit. DFL removal and up to 43% faster CPU inference let you run complex vision models on devices without dedicated GPUs while maintaining high frame rates.
+For applications constrained by power and hardware, such as smart agriculture monitoring via drones or local [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system), **YOLO26** is the better fit. DFL removal and up to 43% faster CPU inference (YOLO26n vs YOLO11n) let you run complex vision models on devices without dedicated GPUs while maintaining high frame rates.
 
 ### Cloud and Enterprise Scale
 

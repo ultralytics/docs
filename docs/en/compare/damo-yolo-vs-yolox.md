@@ -105,9 +105,9 @@ While DAMO-YOLO and YOLOX are important milestones, developers today need more c
 Released in January 2026, YOLO26 is the recommended Ultralytics model across supported computer vision tasks. It introduces several improvements over older architectures:
 
 - **End-to-End NMS-Free Design:** YOLO26's optional [one-to-one head](https://docs.ultralytics.com/guides/end2end-detection) (`nms=False`) skips Non-Maximum Suppression (NMS) post-processing. This allows for significantly simpler and faster deployment, avoiding the latency bottlenecks inherent in traditional detection heads.
-- **Up to 43% Faster CPU Inference:** By removing Distribution Focal Loss (DFL) and optimizing the layers, YOLO26 delivers fast inference on CPUs and edge hardware.
+- **Up to 43% Faster CPU Inference:** By removing Distribution Focal Loss (DFL) and optimizing the layers, YOLO26 delivers fast inference on CPUs and edge hardware, with YOLO26n up to 43% faster on CPU than YOLO11n.
 - **MuSGD Optimizer:** Inspired by large language model (LLM) training techniques, YOLO26 introduces the MuSGD optimizer (a hybrid of SGD and Muon), resulting in stable training runs and faster convergence than the older training setup in YOLOX.
-- **ProgLoss + STAL:** These loss functions yield notable improvements in small-object recognition, making YOLO26 better suited to drone footage and robotics.
+- **ProgLoss + STAL:** Progressive Loss and small-target-aware label assignment yield notable improvements in small-object recognition, making YOLO26 better suited to drone footage and robotics.
 - **Versatility:** Unlike DAMO-YOLO, which is strictly for object detection, YOLO26 natively handles [instance segmentation](https://docs.ultralytics.com/tasks/segment), [classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb) within the same well-maintained ecosystem.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }

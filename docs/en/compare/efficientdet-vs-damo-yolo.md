@@ -106,7 +106,7 @@ DAMO-YOLO is recommended for:
 For most new projects, Ultralytics YOLO26 offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing.
-- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a clear advantage.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference (YOLO26n vs YOLO11n) provides a clear advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultralytics Advantage: Advancing Beyond Legacy Models
@@ -135,10 +135,10 @@ model.export(format="onnx")
 For developers evaluating EfficientDet or DAMO-YOLO, Ultralytics YOLO26 is the natural next step. Released in January 2026, it introduces several new capabilities:
 
 - **End-to-End NMS-Free Design:** Building on [YOLOv10](https://docs.ultralytics.com/models/yolov10)'s NMS-free training, YOLO26's native [one-to-one head](https://docs.ultralytics.com/guides/end2end-detection) (`nms=False`) eliminates the need for NMS post-processing. This means simpler deployment architectures and consistent latency across diverse hardware.
-- **Up to 43% Faster CPU Inference:** For edge deployments without powerful GPUs, which DAMO-YOLO was not designed for, YOLO26 is optimized to deliver large speedups on standard CPUs.
+- **Up to 43% Faster CPU Inference:** For edge deployments without powerful GPUs, which DAMO-YOLO was not designed for, YOLO26 is optimized for standard CPUs, where YOLO26n runs up to 43% faster than YOLO11n.
 - **MuSGD Optimizer:** Bringing LLM training techniques to computer vision, YOLO26 incorporates the MuSGD optimizer (inspired by Moonshot AI) for stable training and rapid convergence, compared to the more sensitive training setup of EfficientDet.
 - **DFL Removal:** The removal of Distribution Focal Loss simplifies the export process and improves compatibility with low-power edge devices such as the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi).
-- **ProgLoss + STAL:** These loss functions yield notable improvements in small-object recognition, an area where older architectures traditionally struggle.
+- **ProgLoss + STAL:** A progressive loss and a small-target-aware label assignment strategy yield notable improvements in small-object recognition, an area where older architectures traditionally struggle.
 
 ### Memory Efficiency and Task Versatility
 

@@ -39,10 +39,10 @@ Released on January 14, 2026, by Glenn Jocher and Jing Qiu at [Ultralytics](http
 Ultralytics YOLO26 introduces several features aimed at modern computer vision applications:
 
 - **End-to-End NMS-Free Design:** YOLO26's native [one-to-one head](https://docs.ultralytics.com/guides/end2end-detection) (`nms=False`) eliminates Non-Maximum Suppression (NMS) post-processing. Building on YOLOv10's NMS-free training, this end-to-end approach simplifies deployment pipelines and provides predictable, low-latency inference.
-- **Up to 43% Faster CPU Inference:** Architecturally optimized for edge computing, YOLO26 delivers fast inference on edge devices and standard [CPUs](https://www.ultralytics.com/glossary/cpu), making it well suited to battery-powered IoT devices.
+- **Up to 43% Faster CPU Inference:** Architecturally optimized for edge computing, YOLO26 delivers fast inference on edge devices and standard [CPUs](https://www.ultralytics.com/glossary/cpu), with YOLO26n up to 43% faster than YOLO11n, making it well suited to battery-powered IoT devices.
 - **MuSGD Optimizer:** Inspired by LLM training (like Moonshot AI's Kimi K2), YOLO26 incorporates a hybrid of SGD and Muon. This brings large language model training stability to computer vision, resulting in faster and more reliable convergence.
 - **DFL Removal:** By removing Distribution Focal Loss, the model graph is simplified, simplifying export to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx) and [TensorRT](https://docs.ultralytics.com/integrations/tensorrt).
-- **ProgLoss + STAL:** These loss functions provide notable improvements in small-object recognition, a critical feature for [drone operations](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations) and [agriculture](https://www.ultralytics.com/solutions/computer-vision-in-agriculture).
+- **ProgLoss + STAL:** A progressive loss and a small-target-aware label assignment strategy provide notable improvements in small-object recognition, a critical feature for [drone operations](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations) and [agriculture](https://www.ultralytics.com/solutions/computer-vision-in-agriculture).
 
 !!! tip "Task-Specific Enhancements"
 
@@ -113,7 +113,7 @@ For high-speed [manufacturing automation](https://www.ultralytics.com/blog/manuf
 
 ### Edge AI and Mobile Devices
 
-Deploying computer vision on battery-powered devices requires high efficiency. While DAMO-YOLO relies on specific RepGFPN necks, **YOLO26n** (Nano) is optimized for edge computing. Its DFL removal and **up to 43% faster CPU inference** make it a strong fit for smart cameras, mobile applications, and [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system).
+Deploying computer vision on battery-powered devices requires high efficiency. While DAMO-YOLO relies on specific RepGFPN necks, **YOLO26n** (Nano) is optimized for edge computing. Its DFL removal and **up to 43% faster CPU inference** than YOLO11n make it a strong fit for smart cameras, mobile applications, and [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system).
 
 ### Multi-Task Project Requirements
 
@@ -136,13 +136,13 @@ DAMO-YOLO is a strong choice for:
 YOLO26 is recommended for:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
-- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a clear advantage.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26n's up to 43% faster CPU inference than YOLO11n provides a clear advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## Conclusion
 
 Both architectures represent significant achievements in deep learning. **DAMO-YOLO** shows what Neural Architecture Search and distillation techniques can achieve when tailored for specific hardware benchmarks.
 
-However, for developers, researchers, and enterprises looking for a production-ready solution, **Ultralytics YOLO26** is the stronger choice. Its combination of an end-to-end NMS-free design, up to 43% faster CPU inference, multi-task versatility, and integration into the well-maintained Ultralytics ecosystem makes it the most robust and practical tool for solving real-world computer vision challenges today.
+However, for developers, researchers, and enterprises looking for a production-ready solution, **Ultralytics YOLO26** is the stronger choice. Its combination of an end-to-end NMS-free design, up to 43% faster CPU inference (YOLO26n vs YOLO11n), multi-task versatility, and integration into the well-maintained Ultralytics ecosystem makes it the most robust and practical tool for solving real-world computer vision challenges today.
 
 For users interested in exploring other models within the Ultralytics ecosystem, pretrained [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) models are available on Ultralytics Platform, and the transformer-based [RT-DETR](https://docs.ultralytics.com/models/rtdetr) is documented in the Ultralytics docs.

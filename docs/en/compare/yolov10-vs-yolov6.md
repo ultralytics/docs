@@ -135,7 +135,7 @@ Released in January 2026, YOLO26 takes the foundational ideas of its predecessor
 - **DFL Removal:** Removing Distribution Focal Loss (DFL) simplifies export and improves compatibility and speed on low-power IoT hardware.
 - **MuSGD Optimizer:** Inspired by large language model innovations, YOLO26 utilizes the MuSGD optimizer (a hybrid of SGD and Muon), for more stable training and faster convergence.
 - **Faster CPU Inference:** With optimizations tailored for edge devices, YOLO26n achieves up to **43% faster CPU inference** than YOLO11n, whereas YOLOv6-3.0 is designed primarily for GPU throughput.
-- **ProgLoss + STAL:** These loss functions improve [small object detection](https://www.ultralytics.com/blog/exploring-small-object-detection-with-ultralytics-yolo11), making YOLO26 well suited to aerial imagery and drone analytics.
+- **ProgLoss + STAL:** Progressive Loss and small-target-aware label assignment improve [small object detection](https://www.ultralytics.com/blog/exploring-small-object-detection-with-ultralytics-yolo11), making YOLO26 well suited to aerial imagery and drone analytics.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 

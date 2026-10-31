@@ -129,7 +129,7 @@ Choosing between YOLO26 and YOLOv10 depends on your specific project requirement
 YOLO26 is a strong choice for:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
-- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26n's up to 43% faster CPU inference than YOLO11n provides a decisive advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL improve accuracy on small objects.
 
 ### When to Choose YOLOv10
@@ -142,6 +142,6 @@ YOLOv10 is recommended for:
 
 ## Conclusion
 
-YOLOv10 made a significant contribution to the research community by introducing NMS-free YOLO detection, and **YOLO26** brings the approach to production. With up to 43% faster CPU inference, the MuSGD optimizer, and support for seven vision tasks, YOLO26 is the recommended choice for both edge computing and large-scale cloud deployments.
+YOLOv10 made a significant contribution to the research community by introducing NMS-free YOLO detection, and **YOLO26** brings the approach to production. With up to 43% faster CPU inference (YOLO26n vs YOLO11n), the MuSGD optimizer, and support for seven vision tasks, YOLO26 is the recommended choice for both edge computing and large-scale cloud deployments.
 
 For teams prioritizing an active community, comprehensive [documentation](https://docs.ultralytics.com), and a smooth developer experience, the Ultralytics ecosystem is a strong fit. For specialized scenarios, you may also want to investigate [YOLO-World](https://docs.ultralytics.com/models/yolo-world) for zero-shot open-vocabulary detection. For most real-world use cases, **YOLO26** is the recommended choice.

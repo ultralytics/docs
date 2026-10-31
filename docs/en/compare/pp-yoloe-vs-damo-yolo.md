@@ -95,8 +95,8 @@ Released in January 2026, YOLO26 builds on [YOLO11](https://platform.ultralytics
 
 - **End-to-End NMS-Free Design:** YOLO26 can skip [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing entirely with its optional [one-to-one head](https://docs.ultralytics.com/guides/end2end-detection) (`nms=False`). This means simpler deployment logic and consistent, predictable inference latency.
 - **MuSGD Optimizer:** Inspired by large language model training techniques, YOLO26 uses a hybrid MuSGD optimizer for stable training and rapid convergence, saving GPU hours.
-- **Faster CPU Inference:** By removing Distribution Focal Loss (DFL) and optimizing the network graph, YOLO26 achieves up to 43% faster CPU inference, making it a strong choice for [edge AI devices](https://www.ultralytics.com/glossary/edge-ai).
-- **ProgLoss + STAL:** These loss functions yield notable improvements in small-object recognition, which is critical for [drone operations](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations) and remote sensing.
+- **Faster CPU Inference:** By removing Distribution Focal Loss (DFL) and optimizing the network graph, YOLO26n achieves up to 43% faster CPU inference than YOLO11n, making it a strong choice for [edge AI devices](https://www.ultralytics.com/glossary/edge-ai).
+- **ProgLoss + STAL:** A progressive loss and a small-target-aware label assignment strategy yield notable improvements in small-object recognition, which is critical for [drone operations](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations) and remote sensing.
 - **Multi-Task Versatility:** Unlike PP-YOLOE+, which focuses strictly on detection, YOLO26 natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
 ### Ease of Use and Training Efficiency

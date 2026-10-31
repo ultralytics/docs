@@ -112,7 +112,7 @@ RT-DETR is recommended for:
 For most new projects, Ultralytics YOLO26 offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
-- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a clear advantage.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26n's up to 43% faster CPU inference than YOLO11n provides a clear advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Ultralytics Advantage: Introducing YOLO26
@@ -125,9 +125,9 @@ YOLO26 stands out by combining the streamlined ecosystem [Ultralytics](https://w
 
 - **End-to-End NMS-Free Design:** Like transformers such as RTDETRv2, YOLO26 offers an [end-to-end head](https://docs.ultralytics.com/guides/end2end-detection) (`nms=False`) that eliminates NMS post-processing, enabling faster, simpler deployment pipelines without the large parameter counts of pure transformers.
 - **MuSGD Optimizer:** Inspired by large language model training techniques (like those behind Moonshot AI's Kimi K2), YOLO26 uses a hybrid of SGD and Muon. This brings stable training and faster convergence compared to the long schedules required by RTDETRv2.
-- **Optimized for Edge:** With up to **43% faster CPU inference** than YOLO11, YOLO26 is built for [edge AI](https://www.ultralytics.com/glossary/edge-ai). It outperforms heavy transformer models on constrained hardware like mobile phones and smart cameras.
+- **Optimized for Edge:** With YOLO26n delivering up to **43% faster CPU inference** than YOLO11n, YOLO26 is built for [edge AI](https://www.ultralytics.com/glossary/edge-ai). It outperforms heavy transformer models on constrained hardware like mobile phones and smart cameras.
 - **DFL Removal:** The removal of Distribution Focal Loss simplifies the model graph, facilitating [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) and [ONNX](https://docs.ultralytics.com/integrations/onnx) exports.
-- **ProgLoss + STAL:** These loss functions yield notable improvements in small-object recognition, addressing a common bottleneck in aerial imagery and robotics.
+- **ProgLoss + STAL:** The progressive loss and small-target-aware label assignment yield notable improvements in small-object recognition, addressing a common bottleneck in aerial imagery and robotics.
 - **Versatility:** Unlike RTDETRv2, which primarily focuses on detection, YOLO26 natively supports [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb) with task-specific improvements like RLE for pose and specialized angle loss for OBB.
 
 !!! tip "Integrated Ecosystem"

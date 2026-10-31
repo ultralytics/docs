@@ -129,7 +129,7 @@ YOLO11 is recommended for:
 For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing.
-- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a clear advantage.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference (YOLO26n vs YOLO11n) provides a clear advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Next Generation: Introducing YOLO26
@@ -139,9 +139,9 @@ While YOLO11 remains a powerful and reliable choice, the computer vision landsca
 Released in January 2026, YOLO26 introduces several advancements:
 
 - **End-to-End NMS-Free Design:** With its optional [one-to-one head](https://docs.ultralytics.com/guides/end2end-detection) (`nms=False`), YOLO26 skips Non-Maximum Suppression post-processing, delivering faster, more predictable inference times and simpler deployment pipelines.
-- **Up to 43% Faster CPU Inference:** With Distribution Focal Loss (DFL) removed, the model is well suited to edge and low-power devices lacking dedicated GPUs.
+- **Up to 43% Faster CPU Inference:** With Distribution Focal Loss (DFL) removed, YOLO26n runs up to 43% faster on CPU than YOLO11n and is well suited to edge and low-power devices lacking dedicated GPUs.
 - **MuSGD Optimizer:** Bringing LLM training techniques (inspired by Moonshot AI) to vision, this hybrid optimizer provides stable, rapid convergence during training.
-- **Advanced Loss Functions:** With [ProgLoss + STAL](https://www.ultralytics.com/blog/how-ultralytics-yolo26-trains-smarter-with-progloss-stal-and-musgd), YOLO26 improves small-object recognition, which is crucial for aerial imagery and robotics.
+- **Advanced Training Techniques:** With [ProgLoss + STAL](https://www.ultralytics.com/blog/how-ultralytics-yolo26-trains-smarter-with-progloss-stal-and-musgd), YOLO26 improves small-object recognition, which is crucial for aerial imagery and robotics.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 

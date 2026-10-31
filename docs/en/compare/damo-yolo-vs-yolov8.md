@@ -123,8 +123,8 @@ For most commercial projects, Ultralytics models provide a better performance ba
 
 While YOLOv8 remains a foundational model, the field has continued to advance. For all new developments, **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)** is the recommended model. Released in January 2026, it is a major step forward in the Ultralytics lineup.
 
-YOLO26 offers a native [end-to-end NMS-free design](https://docs.ultralytics.com/guides/end2end-detection) (`nms=False`) that removes the traditional Non-Maximum Suppression bottleneck when enabled. Together with the removal of Distribution Focal Loss (DFL), this design delivers up to **43% faster CPU inference** than YOLO11, making it well suited to edge computing and IoT hardware.
+YOLO26 offers a native [end-to-end NMS-free design](https://docs.ultralytics.com/guides/end2end-detection) (`nms=False`) that removes the traditional Non-Maximum Suppression bottleneck when enabled. Together with the removal of Distribution Focal Loss (DFL), this design gives YOLO26n up to **43% faster CPU inference** than YOLO11n, making it well suited to edge computing and IoT hardware.
 
-YOLO26 also introduces the **MuSGD Optimizer**, a hybrid inspired by Large Language Model (LLM) training techniques that provides faster convergence and stable training. Combined with the new ProgLoss + STAL loss functions, YOLO26 improves small-object recognition, so deployments can be both fast and accurate.
+YOLO26 also introduces the **MuSGD Optimizer**, a hybrid inspired by Large Language Model (LLM) training techniques that provides faster convergence and stable training. Combined with the new ProgLoss + STAL training strategy, YOLO26 improves small-object recognition, so deployments can be both fast and accurate.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }

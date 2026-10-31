@@ -76,7 +76,7 @@ While YOLOv6-3.0 and DAMO-YOLO are powerful tools, developers often face challen
 - **DFL Removal:** By removing Distribution Focal Loss, YOLO26 simplifies the export process and improves compatibility with low-power edge hardware.
 - **Up to 43% Faster CPU Inference:** For applications lacking dedicated GPU hardware, YOLO26n runs up to 43% faster on CPU than YOLO11n.
 - **MuSGD Optimizer:** Inspired by LLM training techniques like Moonshot AI's Kimi K2, YOLO26 utilizes the MuSGD optimizer (a hybrid of SGD and Muon) for stable training and faster convergence.
-- **ProgLoss + STAL:** These loss functions improve small-object recognition, which benefits [drone operations](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations) and distant target tracking.
+- **ProgLoss + STAL:** A progressive loss and a small-target-aware label assignment strategy improve small-object recognition, which benefits [drone operations](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations) and distant target tracking.
 - **Multi-Task Versatility:** Unlike DAMO-YOLO, which is strictly a detector, YOLO26 provides out-of-the-box support for [instance segmentation](https://docs.ultralytics.com/tasks/segment), semantic segmentation, depth estimation, classification, [pose estimation](https://docs.ultralytics.com/tasks/pose) (via Residual Log-Likelihood Estimation), and [oriented bounding boxes (OBB)](https://docs.ultralytics.com/tasks/obb) within a single, unified API.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }

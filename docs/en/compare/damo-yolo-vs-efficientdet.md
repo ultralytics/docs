@@ -94,7 +94,7 @@ EfficientDet is recommended for:
 For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing.
-- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a clear advantage.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26n's up to 43% faster CPU inference than YOLO11n provides a clear advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
 ## The Modern Alternative: Ultralytics YOLO26
@@ -111,7 +111,7 @@ Released in January 2026, YOLO26 builds upon the legacy of its predecessors, inc
 
 YOLO26 improves training stability and accuracy as well as speed. It introduces the **MuSGD Optimizer**, a hybrid of SGD and Muon inspired by LLM training, for faster convergence and more efficient training. Unlike heavier transformer-based alternatives such as [RT-DETR](https://docs.ultralytics.com/models/rtdetr), YOLO26 keeps memory requirements low, so it can be trained on consumer-grade hardware.
 
-YOLO26 also incorporates **ProgLoss + STAL**, which improves small-object recognition for use cases like [drone aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and robotics. To optimize for low-power devices, YOLO26 removed the Distribution Focal Loss (DFL), resulting in up to **43% faster CPU inference** compared to previous generations.
+YOLO26 also incorporates **ProgLoss + STAL**, which improves small-object recognition for use cases like [drone aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and robotics. To optimize for low-power devices, YOLO26 removed the Distribution Focal Loss (DFL), resulting in up to **43% faster CPU inference** for YOLO26n compared to YOLO11n.
 
 ### Ecosystem and Ease of Use
 
