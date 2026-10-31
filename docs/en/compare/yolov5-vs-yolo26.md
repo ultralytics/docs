@@ -139,7 +139,7 @@ yolo predict model=yolo26n.engine source=path/to/video.mp4
 
 For new computer vision projects, **YOLO26 is the recommended choice**.
 
-- **Edge AI and IoT:** Its up to 43% faster CPU inference than YOLO11n and removal of DFL make it well suited to deployment on a [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) or mobile devices.
+- **Edge AI and IoT:** Its up to 43% faster CPU inference (YOLO26n vs YOLO11n) and removal of DFL make it well suited to deployment on a [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) or mobile devices.
 - **High-Speed Pipelines:** The optional NMS-free head provides more predictable latency, which matters for autonomous robotics and real-time [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system).
 - **Complex Scenarios:** If your application requires detecting small objects (e.g., [drone monitoring](https://docs.ultralytics.com/datasets/detect/visdrone)) or rotated objects (OBB), YOLO26's training improvements (ProgLoss + STAL, plus a dedicated angle loss for OBB) improve accuracy.
 

@@ -61,7 +61,7 @@ YOLO26 removes Distribution Focal Loss (DFL). While DFL was useful in YOLO11 for
 
 Drawing inspiration from large language model (LLM) training methods, specifically [Moonshot AI's Kimi K2](https://www.moonshot.cn/), YOLO26 uses the **MuSGD Optimizer**. This hybrid of Stochastic Gradient Descent (SGD) and Muon provides more stable training and faster convergence; with `optimizer=auto`, Ultralytics selects MuSGD for longer training runs.
 
-### Advanced Loss Functions
+### Loss and Label Assignment
 
 YOLO26 incorporates **ProgLoss + STAL** (Progressive Loss and Small-Target-Aware Label Assignment). This combination improves the detection of small and densely packed objects. Furthermore, YOLO26 introduces task-specific enhancements: semantic segmentation loss and a multi-scale proto module for instance segmentation, Residual Log-Likelihood Estimation (RLE) for pose estimation, and a specialized angle loss to mitigate boundary issues in OBB detection tasks.
 

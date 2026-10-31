@@ -119,7 +119,7 @@ prediction = model.predict("https://ultralytics.com/images/bus.jpg", nms=False)
 Choosing the right architecture requires mapping model strengths to real-world constraints:
 
 - **When to deploy YOLOv6-3.0:** Ideal for static, server-side deployments where batch processing is paramount. Environments such as high-speed manufacturing lines or centralized smart city video hubs with dedicated A100 or T4 GPUs will benefit from its EfficientRep backbone.
-- **When to deploy YOLO26:** The recommended choice for modern, scalable applications. Its faster CPU inference (up to 43% versus YOLO11n) and optional NMS-free head make it well suited to drone analytics, remote IoT sensors, mobile robotics, and any edge computing scenario where low latency and high accuracy must coexist within strict power constraints.
+- **When to deploy YOLO26:** The recommended choice for modern, scalable applications. Its faster CPU inference (up to 43% for YOLO26n versus YOLO11n) and optional NMS-free head make it well suited to drone analytics, remote IoT sensors, mobile robotics, and any edge computing scenario where low latency and high accuracy must coexist within strict power constraints.
 
 ## Conclusion
 

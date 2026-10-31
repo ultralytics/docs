@@ -55,7 +55,7 @@ YOLO26 brings several under-the-hood advancements that improve on YOLOv8's basel
 
 Ultralytics models are known for efficient training and typically need less memory than transformer-based architectures like [RT-DETR](https://docs.ultralytics.com/models/rtdetr). YOLO26 improves on this with the **MuSGD Optimizer**. Inspired by Large Language Model (LLM) training techniques (specifically Moonshot AI's Kimi K2), this hybrid of Stochastic Gradient Descent (SGD) and Muon provides faster convergence and more stable training across complex datasets.
 
-### Advanced Loss Functions
+### Loss and Label Assignment
 
 For tasks requiring high accuracy, such as [drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensors, YOLO26 introduces **ProgLoss + STAL**. Progressive Loss and Small-Target-Aware Label Assignment (STAL) improve small-object detection. Additionally, YOLO26 brings task-specific improvements across the board: a multi-scale proto for superior mask generation in segmentation, Residual Log-Likelihood Estimation (RLE) for finer pose estimation, and specialized angle loss to resolve boundary issues in [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection.
 

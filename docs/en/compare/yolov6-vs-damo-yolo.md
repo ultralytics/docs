@@ -122,7 +122,7 @@ Choosing the right architecture depends on your deployment constraints:
 
 ### When to use Ultralytics YOLO26
 
-- **Edge and Mobile Deployments:** The optional NMS-free head, DFL removal, and up to 43% faster CPU inference than YOLO11n make it well suited to iOS, Android, and [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) deployments.
+- **Edge and Mobile Deployments:** The optional NMS-free head, DFL removal, and up to 43% faster CPU inference (YOLO26n vs YOLO11n) make it well suited to iOS, Android, and [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) deployments.
 - **Rapid Prototyping to Production:** Integration with the [Ultralytics Platform](https://platform.ultralytics.com) enables teams to go from dataset annotation to global cloud deployment in days, not months.
 - **Complex Vision Pipelines:** When a project combines bounding boxes, human pose keypoints, and precise segmentation masks.
 

@@ -105,7 +105,7 @@ YOLO26 is the recommended choice for new computer vision projects, and it covers
 
 YOLO26 introduces **Task-Specific Improvements**, such as a specialized semantic segmentation loss, Residual Log-Likelihood Estimation (RLE) for more precise pose keypoints, and a specialized angle loss for OBB that resolves boundary issues.
 
-- **Edge IoT and Robotics:** Optional NMS-free inference and up to 43% faster CPU inference than YOLO11n make YOLO26 well suited to real-time robotic navigation and smart home cameras.
+- **Edge IoT and Robotics:** Optional NMS-free inference and up to 43% faster CPU inference (YOLO26n vs YOLO11n) make YOLO26 well suited to real-time robotic navigation and smart home cameras.
 - **Aerial Imagery:** The ProgLoss + STAL enhancements make detecting tiny objects from drones—like vehicles in parking lots or crops in agricultural fields—more reliable.
 - **Real-Time Video Analytics:** Whether tracking athletes in sports broadcasts or monitoring traffic flows, YOLO26 balances accuracy and speed for real-time video.
 

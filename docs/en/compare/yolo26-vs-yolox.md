@@ -50,7 +50,7 @@ Furthermore, YOLO26 features **DFL Removal**. Removing Distribution Focal Loss s
 
 Training stability is another critical differentiator. YOLO26 uses the **MuSGD Optimizer**, a hybrid of SGD and Muon inspired by LLM training innovations from [Moonshot AI](https://www.moonshot.cn/). This optimizer brings large language model training stability to computer vision, facilitating faster convergence.
 
-!!! note "Advanced Loss Functions"
+!!! note "Training Refinements"
 
     YOLO26 uses **ProgLoss + STAL**, a progressive loss balancing scheme and a small-target-aware label assignment strategy that improve small-object recognition. This is important for tasks like processing [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and analyzing dense environments.
 
