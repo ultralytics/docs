@@ -72,7 +72,7 @@ Below is a detailed comparison table of the models evaluated on COCO val2017.
 
 ### Analyzing the Trade-offs
 
-While PP-YOLOE+x edges out YOLOv8x in mAP (54.7 vs 53.9), it needs over 30 million additional parameters. In the small and medium sizes the two families are close, with PP-YOLOE+ using fewer FLOPs and YOLOv8 offering measured CPU ONNX speeds. The lightweight YOLOv8n requires only 3.2M parameters and 8.7B FLOPs, making it the smallest model in this comparison, although PP-YOLOE+t reaches higher mAP (39.9 vs 37.3) with 4.85M parameters.
+While PP-YOLOE+x edges out YOLOv8x in mAP (54.7 vs 53.9), it needs over 30 million additional parameters. In the small and medium sizes the two families are close, with PP-YOLOE+ using fewer FLOPs and only YOLOv8 reporting CPU ONNX speeds in this table. The lightweight YOLOv8n requires only 3.2M parameters and 8.7B FLOPs, making it the smallest model in this comparison, although PP-YOLOE+t reaches higher mAP (39.9 vs 37.3) with 4.85M parameters.
 
 YOLO models also typically use less memory during training than large transformer-based architectures. Models with high CUDA memory footprints often require expensive hardware, whereas YOLOv8 trains efficiently on consumer-grade GPUs.
 

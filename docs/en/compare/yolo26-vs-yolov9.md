@@ -80,7 +80,7 @@ Below is a direct comparison of YOLO26 and YOLOv9 performance on the [COCO datas
 | YOLOv9c                                                                | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
 | YOLOv9e                                                                | 640                         | 55.6                       | -                                    | 16.77                                     | 58.1                     | 192.5                   |
 
-_Note: CPU ONNX speeds for YOLOv9 are not reported in this table. On T4 TensorRT, YOLO26 is faster than YOLOv9 at every size, and YOLO26 is more accurate at each comparable size except YOLOv9e, which edges out YOLO26l (55.6 vs 55.0 mAP) with more than twice the parameters._
+_Note: CPU ONNX speeds for YOLOv9 are not reported in this table. On T4 TensorRT, YOLO26 is faster than YOLOv9 at every size, and YOLO26 is more accurate at each comparable size (for example, 57.5 vs 55.6 mAP for YOLO26x vs YOLOv9e, with fewer parameters)._
 
 ## Use Cases and Recommendations
 
@@ -108,7 +108,7 @@ Choosing a model involves more than reading an accuracy benchmark; the surroundi
 
 ### Ease of Use and Ecosystem
 
-The [Ultralytics Python API](https://docs.ultralytics.com/usage/python) keeps the workflow simple. Instead of cloning complex repositories or manually configuring distributed training scripts, developers can install the package via `pip` and start training immediately. The actively maintained [Ultralytics ecosystem](https://platform.ultralytics.com) provides frequent updates, integrations with ML platforms like [Weights & Biases](https://wandb.ai/site), and extensive documentation.
+The [Ultralytics Python API](https://docs.ultralytics.com/usage/python) keeps the workflow simple. Instead of cloning complex repositories or manually configuring distributed training scripts, developers can install the package via `pip` and start training immediately. The actively maintained [Ultralytics ecosystem](https://github.com/ultralytics/ultralytics) provides frequent updates, integrations with ML platforms like [Weights & Biases](https://wandb.ai/site), and extensive documentation.
 
 !!! note "Other Ultralytics Models"
 

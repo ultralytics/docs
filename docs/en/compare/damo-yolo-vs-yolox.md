@@ -134,7 +134,7 @@ model.export(format="onnx")
 
 !!! note "Cloud Training and Deployment"
 
-    You can auto-annotate datasets with [vision-language models](https://platform.ultralytics.com/models), then train and deploy models to the edge using the Ultralytics Platform, which handles data versioning and cloud GPU provisioning for you.
+    You can auto-annotate, train, and deploy models to the edge using the [Ultralytics Platform](https://platform.ultralytics.com), which handles data versioning and cloud GPU provisioning for you.
 
 ## Conclusion
 

@@ -63,7 +63,7 @@ YOLO26 introduces several architectural changes:
 
 ## Performance Analysis and Metrics
 
-The following table compares the COCO detection performance of YOLO26 and YOLOv10 models. YOLO26 is more accurate at every size, from +2.4 mAP for the n models to +3.1 for the x models, while YOLOv10 uses fewer parameters and FLOPs at the largest scales.
+The following table compares the COCO detection performance of YOLO26 and YOLOv10 models. YOLO26 is more accurate at every size, from +2.4 mAP for the n models to +3.1 for the x models, while YOLOv10 uses fewer parameters and FLOPs at the x scale (29.5M vs 55.7M parameters, 160.4B vs 194.4B FLOPs).
 
 | Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |

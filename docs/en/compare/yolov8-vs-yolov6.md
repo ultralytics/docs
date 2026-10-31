@@ -75,7 +75,7 @@ When evaluated on the [COCO validation dataset](https://cocodataset.org/), both 
 | YOLOv6-3.0m                                                            | 640                         | 50.0                       | -                                    | 5.28                                      | 34.9                     | 85.8                    |
 | YOLOv6-3.0l                                                            | 640                         | 52.8                       | -                                    | 8.95                                      | 59.6                     | 150.7                   |
 
-YOLOv6-3.0 is slightly faster on T4 TensorRT at most sizes and roughly matches YOLOv8 in mAP, while YOLOv8 uses fewer parameters and FLOPs at every size, which translates to better flexibility across varied hardware, including mobile and embedded CPUs.
+YOLOv6-3.0 is slightly faster on T4 TensorRT at most sizes and roughly matches YOLOv8 in mAP, while YOLOv8 uses fewer parameters at every size and fewer FLOPs at the n, s, and m sizes, which translates to better flexibility across varied hardware, including mobile and embedded CPUs.
 
 ## Ecosystem and Versatility
 

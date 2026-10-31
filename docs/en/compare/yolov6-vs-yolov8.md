@@ -67,7 +67,7 @@ Evaluating models on the industry-standard [COCO dataset](https://cocodataset.or
 
 !!! tip "Performance Balance and Hardware"
 
-    While YOLOv6-3.0 achieves slightly faster GPU throughput on GPUs like the T4, YOLOv8 requires significantly fewer parameters and FLOPs for comparable accuracy. This lower memory requirement is critical for training efficiency and deploying on resource-constrained [Edge AI](https://www.ultralytics.com/glossary/edge-ai) devices.
+    While YOLOv6-3.0 achieves slightly faster TensorRT throughput on GPUs like the T4, YOLOv8 requires significantly fewer parameters, and fewer FLOPs at most sizes, for comparable accuracy. This lower memory requirement is critical for training efficiency and deploying on resource-constrained [Edge AI](https://www.ultralytics.com/glossary/edge-ai) devices.
 
 ## Use Cases and Recommendations
 
@@ -146,4 +146,4 @@ print(f"Model exported successfully to: {export_path}")
 
 Choosing the right architecture dictates the long-term maintainability of your pipeline. **YOLOv6-3.0** serves as a specialized tool for industrial pipelines with heavy GPU accelerators. However, **Ultralytics YOLOv8** provides a better balance of multi-task versatility and lower parameter counts, backed by a mature training ecosystem.
 
-For new implementations, upgrading to **YOLO26** via the Ultralytics Platform gives you faster CPU inference and an optional end-to-end, NMS-free head. When planning production rollouts, see the [model deployment best practices](https://docs.ultralytics.com/guides/model-deployment-practices).
+For new [production deployments](https://docs.ultralytics.com/guides/model-deployment-practices), upgrading to **YOLO26** via the Ultralytics Platform gives you faster CPU inference and an optional end-to-end, NMS-free head.

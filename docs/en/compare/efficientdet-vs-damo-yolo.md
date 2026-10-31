@@ -134,7 +134,7 @@ model.export(format="onnx")
 
 For developers evaluating EfficientDet or DAMO-YOLO, Ultralytics YOLO26 is the natural next step. Released in January 2026, it introduces several new capabilities:
 
-- **End-to-End NMS-Free Design:** First introduced by [YOLOv10](https://docs.ultralytics.com/models/yolov10), the [NMS-free approach](https://docs.ultralytics.com/guides/end2end-detection) is available through YOLO26's native one-to-one head (`nms=False`), which eliminates the need for NMS post-processing. This means simpler deployment architectures and consistent latency across diverse hardware.
+- **End-to-End NMS-Free Design:** Building on [YOLOv10](https://docs.ultralytics.com/models/yolov10)'s NMS-free training, YOLO26's native [one-to-one head](https://docs.ultralytics.com/guides/end2end-detection) (`nms=False`) eliminates the need for NMS post-processing. This means simpler deployment architectures and consistent latency across diverse hardware.
 - **Up to 43% Faster CPU Inference:** For edge deployments without powerful GPUs, which DAMO-YOLO was not designed for, YOLO26 is optimized to deliver large speedups on standard CPUs.
 - **MuSGD Optimizer:** Bringing LLM training techniques to computer vision, YOLO26 incorporates the MuSGD optimizer (inspired by Moonshot AI) for stable training and rapid convergence, compared to the more sensitive training setup of EfficientDet.
 - **DFL Removal:** The removal of Distribution Focal Loss simplifies the export process and improves compatibility with low-power edge devices such as the [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi).

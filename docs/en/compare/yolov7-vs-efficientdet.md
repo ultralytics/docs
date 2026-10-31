@@ -156,7 +156,7 @@ YOLOv7 excels in high-performance legacy setups, particularly where PyTorch inte
 For new deployments, **YOLO26** is the recommended choice. Its **Performance Balance** and [well-maintained ecosystem](https://docs.ultralytics.com) make it a strong fit for:
 
 - **Smart Cities and Traffic Management:** Its optional NMS-free head keeps inference latency consistent for real-time [traffic coordination](https://www.ultralytics.com/blog/ai-in-traffic-management-from-congestion-to-coordination).
-- **Robotics and Autonomous Systems:** Up to 43% faster CPU inference than YOLO11 helps keep navigation responsive on embedded devices.
+- **Robotics and Autonomous Systems:** YOLO26n's up to 43% faster CPU inference than YOLO11n helps keep navigation responsive on embedded devices.
 - **Agricultural and Aerial Monitoring:** Using ProgLoss and STAL to identify small objects like specific crops or wildlife from high-altitude imagery.
 
 In summary, while EfficientDet and YOLOv7 offer valuable historical context and specific niche utility, the modern computer vision engineer is best served by adopting the [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) architecture, which addresses earlier bottlenecks in deployment, CPU speed, and small-object accuracy.

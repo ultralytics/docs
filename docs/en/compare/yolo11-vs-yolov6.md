@@ -71,7 +71,7 @@ When evaluating models, [mean Average Precision (mAP)](https://www.ultralytics.c
 | YOLOv6-3.0m                                                            | 640                         | 50.0                       | -                                    | 5.28                                      | 34.9                     | 85.8                    |
 | YOLOv6-3.0l                                                            | 640                         | 52.8                       | -                                    | 8.95                                      | 59.6                     | 150.7                   |
 
-YOLO11 achieves higher mAP with roughly half the parameters and FLOPs at each comparable tier; for example, YOLO11s reaches 47.0 mAP with 9.4M parameters versus 45.0 mAP with 18.5M for YOLOv6-3.0s. YOLOv6-3.0n is the fastest model on T4 TensorRT (1.17 ms), while YOLO11 is faster from the s scale upward. This parameter efficiency translates to lower memory requirements during both [model training](https://docs.ultralytics.com/modes/train) and inference.
+YOLO11 achieves higher mAP with fewer parameters and FLOPs at each comparable tier; for example, YOLO11s reaches 47.0 mAP with 9.4M parameters versus 45.0 mAP with 18.5M for YOLOv6-3.0s. YOLOv6-3.0n is the fastest model on T4 TensorRT (1.17 ms), while YOLO11 is faster from the s scale upward. This parameter efficiency translates to lower memory requirements during both [model training](https://docs.ultralytics.com/modes/train) and inference.
 
 ## The Ultralytics Advantage
 

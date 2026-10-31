@@ -82,7 +82,7 @@ When training and deploying these models, the framework you choose is just as im
 
 ### Simple API Implementation
 
-The Ultralytics package does not support native YOLOv7 training (see the YOLOv7 docs for running upstream YOLOv7 exports), but training a modern Ultralytics YOLO model takes just a few lines of code, replacing complex training scripts:
+The Ultralytics package does not support native YOLOv7 training (see the [YOLOv7 docs](https://docs.ultralytics.com/models/yolov7) for running upstream YOLOv7 exports), but training a modern Ultralytics YOLO model takes just a few lines of code, replacing complex training scripts:
 
 ```python
 from ultralytics import YOLO
@@ -103,7 +103,7 @@ While PP-YOLOE+ and YOLOv7 are milestones in object detection, the landscape of 
 
 **Why YOLO26 Outperforms Older Architectures:**
 
-- **End-to-End NMS-Free Design:** YOLO26 is [natively end-to-end](https://docs.ultralytics.com/guides/end2end-detection). By skipping [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing with its optional one-to-one head (`nms=False`), it provides predictable inference latency, an approach first introduced in [YOLOv10](https://docs.ultralytics.com/models/yolov10).
+- **End-to-End NMS-Free Design:** YOLO26 is [natively end-to-end](https://docs.ultralytics.com/guides/end2end-detection). By skipping Non-Maximum Suppression (NMS) post-processing with its optional one-to-one head (`nms=False`), it provides predictable inference latency, an approach first introduced in [YOLOv10](https://docs.ultralytics.com/models/yolov10).
 - **DFL Removal:** The removal of Distribution Focal Loss simplifies the export process and significantly improves compatibility for low-power edge devices.
 - **Up to 43% Faster CPU Inference:** For scenarios lacking dedicated GPUs—such as [smart city IoT sensors](https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities)—YOLO26 is optimized to run efficiently on CPUs.
 - **MuSGD Optimizer:** Inspired by advanced LLM training techniques (like Moonshot AI's Kimi K2), YOLO26 uses a hybrid of SGD and Muon for stable training and fast convergence.

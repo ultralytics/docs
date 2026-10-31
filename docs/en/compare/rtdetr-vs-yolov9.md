@@ -41,7 +41,7 @@ YOLOv9 builds on proven [convolutional neural network](https://www.ultralytics.c
 
 ## Performance and Resource Efficiency
 
-The table below compares mean Average Precision (mAP) and computational cost on the [MS COCO dataset](https://cocodataset.org/). YOLOv9 uses far fewer parameters at similar accuracy (YOLOv9m reaches 51.4 mAP with 20.1M parameters vs 51.9 mAP and 36M for RTDETRv2-m) and is faster on T4 TensorRT up to the c/l size. YOLOv9e reaches the highest mAP (55.6) but is also the slowest model in the table (16.77 ms).
+The table below compares mean Average Precision (mAP) and computational cost on the [MS COCO dataset](https://cocodataset.org/). YOLOv9 uses far fewer parameters at similar accuracy (YOLOv9m reaches 51.4 mAP with 20.1M parameters vs 51.9 mAP and 36M for RTDETRv2-m) and is faster on T4 TensorRT at every size except YOLOv9e. YOLOv9e reaches the highest mAP (55.6) but is also the slowest model in the table (16.77 ms).
 
 | Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |

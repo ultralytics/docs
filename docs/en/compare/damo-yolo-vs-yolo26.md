@@ -38,7 +38,7 @@ Released on January 14, 2026, by Glenn Jocher and Jing Qiu at [Ultralytics](http
 
 Ultralytics YOLO26 introduces several features aimed at modern computer vision applications:
 
-- **End-to-End NMS-Free Design:** YOLO26's native [one-to-one head](https://docs.ultralytics.com/guides/end2end-detection) (`nms=False`) eliminates Non-Maximum Suppression (NMS) post-processing. First introduced in YOLOv10, this end-to-end approach simplifies deployment pipelines and provides predictable, low-latency inference.
+- **End-to-End NMS-Free Design:** YOLO26's native [one-to-one head](https://docs.ultralytics.com/guides/end2end-detection) (`nms=False`) eliminates Non-Maximum Suppression (NMS) post-processing. Building on YOLOv10's NMS-free training, this end-to-end approach simplifies deployment pipelines and provides predictable, low-latency inference.
 - **Up to 43% Faster CPU Inference:** Architecturally optimized for edge computing, YOLO26 delivers fast inference on edge devices and standard [CPUs](https://www.ultralytics.com/glossary/cpu), making it well suited to battery-powered IoT devices.
 - **MuSGD Optimizer:** Inspired by LLM training (like Moonshot AI's Kimi K2), YOLO26 incorporates a hybrid of SGD and Muon. This brings large language model training stability to computer vision, resulting in faster and more reliable convergence.
 - **DFL Removal:** By removing Distribution Focal Loss, the model graph is simplified, simplifying export to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx) and [TensorRT](https://docs.ultralytics.com/integrations/tensorrt).
@@ -77,7 +77,7 @@ While DAMO-YOLO achieves competitive accuracy, its training method is complex. T
 
 ### The Streamlined Ultralytics Experience
 
-Ultralytics YOLO26, by contrast, is designed for fast onboarding. The entire training, validation, and deployment lifecycle is available through a clean, unified Python API and CLI. YOLO26 also requires significantly less [CUDA](https://developer.nvidia.com/cuda/toolkit) memory during training compared to transformer-based models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr), allowing researchers to train accurate models on consumer-grade hardware.
+Ultralytics YOLO26, by contrast, is designed for fast onboarding. The entire training, validation, and deployment lifecycle is available through a clean, unified Python API and CLI. YOLO26 also requires significantly less [CUDA](https://developer.nvidia.com/cuda/toolkit) memory during training compared to transformer-based models like RT-DETR, allowing researchers to train accurate models on consumer-grade hardware.
 
 Here is an example of training, evaluating, and exporting a YOLO26 model with the Ultralytics Python package:
 
@@ -145,4 +145,4 @@ Both architectures represent significant achievements in deep learning. **DAMO-Y
 
 However, for developers, researchers, and enterprises looking for a production-ready solution, **Ultralytics YOLO26** is the stronger choice. Its combination of an end-to-end NMS-free design, up to 43% faster CPU inference, multi-task versatility, and integration into the well-maintained Ultralytics ecosystem makes it the most robust and practical tool for solving real-world computer vision challenges today.
 
-For users interested in exploring other models within the Ultralytics ecosystem, pretrained [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) models are available on Ultralytics Platform, and the transformer-based RT-DETR is documented in the Ultralytics docs.
+For users interested in exploring other models within the Ultralytics ecosystem, pretrained [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) models are available on Ultralytics Platform, and the transformer-based [RT-DETR](https://docs.ultralytics.com/models/rtdetr) is documented in the Ultralytics docs.

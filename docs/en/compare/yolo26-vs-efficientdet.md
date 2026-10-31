@@ -126,6 +126,6 @@ model.export(format="engine")
 
 ## Exploring Other Alternatives
 
-This guide focuses on YOLO26 and EfficientDet (see also the reverse [EfficientDet vs YOLO26](https://docs.ultralytics.com/compare/efficientdet-vs-yolo26) comparison), but the Ultralytics ecosystem includes other architectures. If your application relies on transformers, [RT-DETR](https://docs.ultralytics.com/models/rtdetr) offers real-time transformer-based detection. Alternatively, if you are supporting legacy systems, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains fully supported. For a broader overview, visit the [Ultralytics Model Comparisons Hub](https://docs.ultralytics.com/compare).
+This guide focuses on YOLO26 and EfficientDet, but the Ultralytics ecosystem includes other architectures. If your application relies on transformers, [RT-DETR](https://docs.ultralytics.com/models/rtdetr) offers real-time transformer-based detection. Alternatively, if you are supporting legacy systems, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains fully supported. For a broader overview, visit the [Ultralytics Model Comparisons Hub](https://docs.ultralytics.com/compare).
 
 For new computer vision pipelines, the speed, ease of use, and accuracy of **YOLO26** make it the recommended choice for researchers and developers.

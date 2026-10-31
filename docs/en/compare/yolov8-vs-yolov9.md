@@ -83,7 +83,7 @@ _Note: Best values in each column are highlighted in **bold**._
 
 ### Analyzing the Trade-offs
 
-YOLOv9 achieves higher accuracy ([mAP](https://www.ultralytics.com/glossary/mean-average-precision-map)) at each comparable size, with the largest gain in its `e` variant, and uses fewer parameters at each size. However, Ultralytics YOLOv8 is faster in **inference speed** on GPU, for example 1.47 ms for YOLOv8n versus 2.3 ms for YOLOv9t when compiled with [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), and it exports easily to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx). For applications requiring high frames-per-second (FPS) on constrained edge hardware (like a [Raspberry Pi](https://www.raspberrypi.org/) or older mobile chips), YOLOv8's `n` and `s` variants offer a practical performance balance.
+YOLOv9 achieves higher accuracy ([mAP](https://www.ultralytics.com/glossary/mean-average-precision-map)) at each comparable size and uses fewer parameters at each size. However, Ultralytics YOLOv8 is faster in **inference speed** on GPU, for example 1.47 ms for YOLOv8n versus 2.3 ms for YOLOv9t when compiled with [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), and it exports easily to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx). For applications requiring high frames-per-second (FPS) on constrained edge hardware (like a [Raspberry Pi](https://www.raspberrypi.org/) or older mobile chips), YOLOv8's `n` and `s` variants offer a practical performance balance.
 
 ## Training Efficiency and Ecosystem Integration
 

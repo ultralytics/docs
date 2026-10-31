@@ -123,7 +123,7 @@ YOLOv7 and YOLOX were influential when released, but the field has advanced sign
 
 Key improvements include:
 
-- **End-to-End NMS-Free Design:** YOLO26's optional one-to-one head (`nms=False`) eliminates Non-Maximum Suppression (NMS) during post-processing. Pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), this approach keeps latency consistently low and simplifies deployment on devices without efficient NMS support, as described in why YOLO26 removes NMS.
+- **End-to-End NMS-Free Design:** YOLO26's optional one-to-one head (`nms=False`) eliminates Non-Maximum Suppression (NMS) during post-processing. Pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), this approach keeps latency consistently low and simplifies deployment on devices without efficient NMS support.
 - **DFL Removal:** Removing Distribution Focal Loss improves compatibility with low-power edge devices and simplifies ONNX export.
 - **MuSGD Optimizer:** Inspired by LLM training, YOLO26 uses MuSGD, a hybrid of SGD and Muon, for faster convergence and more stable training.
 - **Up to 43% Faster CPU Inference:** YOLO26n runs up to 43% faster than YOLO11n in CPU ONNX inference, so it performs well on standard CPUs without dedicated GPU infrastructure.

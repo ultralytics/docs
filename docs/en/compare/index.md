@@ -16,7 +16,7 @@ Visualizing the relationship between speed and accuracy is essential for identif
 
 <canvas id="modelComparisonChart" width="1024" height="400"></canvas>
 
-This chart visualizes key [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics) so you can quickly assess the trade-offs between different models. Understanding these metrics is fundamental to selecting a model that fits your deployment constraints. For official YOLO26 GPU training, inference, and on-device mobile measurements, see [Ultralytics Benchmarks](https://www.ultralytics.com/benchmarks).
+This chart visualizes key [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics) so you can quickly assess the trade-offs between different models. Understanding these metrics is fundamental to selecting a model that fits your deployment constraints.
 
 ## Quick Decision Guide
 
@@ -152,7 +152,7 @@ Developed by Tsinghua University, [YOLOv10](../models/yolov10.md) focuses on rem
 
 ### YOLOv8 vs
 
-[Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) remains a highly popular choice. Its [architecture](../models/yolov8.md) features an advanced backbone and neck and an anchor-free split head for strong accuracy-speed trade-offs.
+[Ultralytics YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8) remains a highly popular choice. Its architecture combines an advanced backbone and neck with an anchor-free split head for strong accuracy-speed trade-offs.
 
 - [YOLOv8 vs YOLO26](yolov8-vs-yolo26.md)
 - [YOLOv8 vs YOLO11](yolov8-vs-yolo11.md)
@@ -203,7 +203,7 @@ Meituan's [YOLOv6](../models/yolov6.md) is designed for industrial applications,
 
 ### YOLOv5 vs
 
-[Ultralytics YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5) is known for its ease of use, stability, and speed. It remains a robust choice for projects requiring broad device compatibility; see the [YOLOv5 documentation](../models/yolov5.md) for details.
+[Ultralytics YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5) is known for its ease of use, stability, and speed. It remains a robust choice for projects requiring broad device compatibility.
 
 - [YOLOv5 vs YOLO26](yolov5-vs-yolo26.md)
 - [YOLOv5 vs YOLO11](yolov5-vs-yolo11.md)

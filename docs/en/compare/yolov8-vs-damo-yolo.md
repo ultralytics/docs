@@ -155,6 +155,6 @@ YOLOv8 remains a dependable workhorse, but the computer vision field moves rapid
 
 !!! tip "Streamline Your Workflow"
 
-    To take models from prototype to production, use [Ultralytics Platform](https://platform.ultralytics.com) to [auto-annotate datasets](https://platform.ultralytics.com/models), track experiments, and deploy models to the cloud or edge devices.
+    To take models from prototype to production, use [Ultralytics Platform](https://platform.ultralytics.com) to [auto-annotate datasets](https://docs.ultralytics.com/platform/data/annotation#smart-annotation), track experiments, and deploy models to the cloud or edge devices.
 
 In conclusion, while DAMO-YOLO offers useful research insights into architecture search, Ultralytics models provide a more mature, versatile, and developer-friendly ecosystem. Whether you stay with YOLOv8 or upgrade to the NMS-free YOLO26 architecture, Ultralytics provides a complete toolkit for real-time vision AI.

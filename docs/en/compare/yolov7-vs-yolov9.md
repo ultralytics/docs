@@ -68,7 +68,7 @@ When choosing between architectures, AI engineers must balance accuracy, [infere
 
 !!! tip "Future-Proofing Your Computer Vision Projects"
 
-    While YOLOv7 and YOLOv9 are capable models, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) is the current recommended Ultralytics model for new projects. It introduces a native **end-to-end NMS-free design** (optional via `nms=False`) that skips [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing, and delivers up to 43% faster CPU inference. The **MuSGD optimizer** improves training stability, while **ProgLoss + STAL** (Progressive Loss and Small-Target-Aware Label Assignment) improves small-object detection.
+    While YOLOv7 and YOLOv9 are capable models, [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) is the current recommended Ultralytics model for new projects. It introduces a native **end-to-end NMS-free design** (optional via `nms=False`) that skips [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing, and delivers up to 43% faster CPU inference (YOLO26n versus YOLO11n). The **MuSGD optimizer** improves training stability, while **ProgLoss + STAL** (Progressive Loss and Small-Target-Aware Label Assignment) improves small-object detection.
 
 ## The Ultralytics Advantage
 

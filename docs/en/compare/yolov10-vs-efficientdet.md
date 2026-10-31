@@ -97,7 +97,7 @@ The real test of these models is their empirical performance on standard benchma
 | EfficientDet-d6 | 640                         | 52.6                       | 92.8                                 | 89.29                                     | 51.9                     | 226.0                   |
 | EfficientDet-d7 | 640                         | 53.7                       | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
 
-YOLOv10 holds a large advantage in GPU inference speed. For example, YOLOv10s achieves 46.3 mAP with a TensorRT latency of 2.49 ms, whereas EfficientDet-d3 reaches a similar 47.5 mAP but takes 19.59 ms. At the high end, YOLOv10m (51.1 mAP, 4.74 ms) nearly matches EfficientDet-d5 (51.5 mAP, 67.86 ms). This makes YOLOv10 much better suited to real-time video streaming or fast-moving manufacturing pipelines, while the smallest EfficientDet-d0 has the lowest FLOPs (2.54B).
+YOLOv10 holds a large advantage in GPU inference speed. For example, YOLOv10s achieves 46.3 mAP with a TensorRT latency of 2.49 ms, whereas EfficientDet-d3 reaches a similar 47.5 mAP but takes 19.59 ms. At the high end, YOLOv10m (51.1 mAP, 4.74 ms) nearly matches EfficientDet-d5 (51.5 mAP, 67.86 ms). This makes YOLOv10 much better suited to real-time video streaming or fast-moving manufacturing pipelines. EfficientDet-d0 has the lowest FLOPs in the table (2.54B).
 
 ## Use Cases and Recommendations
 

@@ -102,7 +102,7 @@ results[0].show()
 
 ### PP-YOLOE+ Ecosystem
 
-PP-YOLOE+ operates within the PaddleDetection ecosystem. While this framework is powerful and deeply integrated with Baidu's industrial solutions, it requires developers to adopt the specific PaddlePaddle deep learning framework. This can introduce a steeper learning curve for teams already standardized on PyTorch. Exporting PP-YOLOE+ models to common edge formats can also require extra conversion steps compared with the built-in export pipelines in Ultralytics. Teams that deploy on Paddle infrastructure can also [export YOLO11 to PaddlePaddle format](https://docs.ultralytics.com/integrations/paddlepaddle).
+PP-YOLOE+ operates within the PaddleDetection ecosystem. While this framework is powerful and deeply integrated with Baidu's industrial solutions, it requires developers to adopt the specific PaddlePaddle deep learning framework. This can introduce a steeper learning curve for teams already standardized on PyTorch. Exporting PP-YOLOE+ models to common edge formats can also require extra conversion steps compared with the built-in Ultralytics export pipeline, which converts YOLO11 to ONNX, TensorRT, and even [PaddlePaddle](https://docs.ultralytics.com/integrations/paddlepaddle) with one command.
 
 ## Ideal Use Cases
 

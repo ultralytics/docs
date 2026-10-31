@@ -124,7 +124,7 @@ export_path = model.export(format="onnx")
 
 !!! info "Deployment Simplicity"
 
-    Deploying YOLO26 exports in formats like [CoreML](https://docs.ultralytics.com/integrations/coreml) or [OpenVINO](https://docs.ultralytics.com/integrations/openvino) is simpler than with older models: exported with `nms=False`, the model outputs final detections directly, so there is no separate NMS step to implement on the target device.
+    Deploying YOLO26 in formats like [CoreML](https://docs.ultralytics.com/integrations/coreml) or [OpenVINO](https://docs.ultralytics.com/integrations/openvino) is simpler than with older models: exported with `nms=False`, the model outputs final detections directly, so there is no separate NMS step to implement on the target device.
 
 ## Ideal Use Cases
 

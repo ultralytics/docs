@@ -66,7 +66,7 @@ YOLOv7 took a structural engineering approach, focusing on gradient path optimiz
 
 ## Performance Analysis
 
-When evaluating [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map), speed, and efficiency, both models perform well, though they target slightly different segments. YOLOv7 focuses on high-accuracy GPU deployment, while DAMO-YOLO's NAS-derived structures aim for aggressive low-latency inference under tight GPU latency budgets.
+When evaluating [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map), speed, and efficiency, both models perform well, though they target slightly different segments. YOLOv7 focuses on high-accuracy GPU deployment, while DAMO-YOLO's NAS-derived structures aim for low latency under tight GPU budgets.
 
 | Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -127,7 +127,7 @@ Choosing the right architecture depends on your target deployment environment an
 **When to choose DAMO-YOLO:**
 
 - You are deploying on dedicated GPU hardware with tight latency budgets, where DAMO-YOLO's small, NAS-searched variants keep parameter counts low.
-- You are researching automated machine learning techniques such as neural architecture search and distillation.
+- You are researching neural architecture search or knowledge distillation.
 
 **When to choose YOLOv7:**
 

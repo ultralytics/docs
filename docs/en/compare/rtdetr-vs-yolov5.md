@@ -103,7 +103,7 @@ By leveraging the Ultralytics library, developers automatically gain access to a
 
 RTDETRv2 is best suited for environments where hardware is not a constraint and accuracy is the main objective.
 
-- **Server-Side Medical Imaging:** Detecting subtle anomalies in high-resolution X-rays for medical image analysis.
+- **Server-Side Medical Imaging:** Detecting subtle anomalies in high-resolution X-rays.
 - **Satellite Imagery:** Tracking dense, overlapping objects in [aerial surveillance](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) tasks on powerful cloud clusters.
 
 ### Where YOLOv5 Dominates

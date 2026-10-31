@@ -105,7 +105,7 @@ YOLOv10 is limited to bounding box detection, so projects that need other tasks 
 
 !!! note "Alternative Options"
 
-    If your project requires open-vocabulary detection, consider YOLOE or [YOLO-World](https://docs.ultralytics.com/models/yolo-world); the [VLM leaderboard](https://www.ultralytics.com/benchmarks/vlm) ranks open-vocabulary detectors and vision language models by detection accuracy, cost, and speed. For existing pipelines, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains a fully supported alternative within the Ultralytics framework.
+    If your project requires open-vocabulary detection, consider [YOLOE](https://docs.ultralytics.com/models/yoloe) or [YOLO-World](https://docs.ultralytics.com/models/yolo-world). For existing pipelines, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) remains a fully supported alternative within the Ultralytics framework.
 
 ## Use Cases and Recommendations
 

@@ -81,7 +81,7 @@ YOLO11 is also versatile. By changing the model suffix, developers can move from
 
 Understanding the strengths of each model helps dictate their best use cases.
 
-- **Legacy Benchmark Reproduction:** **YOLOv7** remains useful for academic researchers who need to reproduce specific 2022 benchmarks or study the effects of re-parameterization techniques on anchor-based networks (see also [YOLOv7 vs YOLOv8](https://docs.ultralytics.com/compare/yolov7-vs-yolov8)).
+- **Legacy Benchmark Reproduction:** **YOLOv7** remains useful for academic researchers who need to reproduce specific 2022 benchmarks or study the effects of re-parameterization techniques on anchor-based networks.
 - **Commercial Production Environments:** **YOLO11** is a strong choice for enterprise systems. Its stability, active maintenance, and integration with the cloud-based Ultralytics Platform make it well suited to large-scale [retail analytics](https://www.ultralytics.com/solutions/computer-vision-in-retail), security monitoring, and manufacturing quality control.
 - **Resource-Constrained Edge Computing:** The lightweight YOLO11n variant is designed for low-power edge devices, running efficiently on a [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) or [NVIDIA Jetson modules](https://developer.nvidia.com/embedded-computing).
 

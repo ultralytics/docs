@@ -66,7 +66,7 @@ The trade-off between speed and accuracy is the key test for these architectures
 | YOLOv5l   | 640                         | 49.0                       | -                                    | 6.61                                      | 46.5                     | 109.1                   |
 | YOLOv5x   | 640                         | 50.7                       | -                                    | 11.89                                     | 86.7                     | 205.7                   |
 
-YOLOX is slightly more accurate at each comparable size, while YOLOv5 is faster on T4 TensorRT across the board. YOLOv5s, for instance, runs in 1.92 ms versus 2.56 ms for YOLOXs, which matters for real-time applications where every millisecond counts.
+YOLOX is more accurate at the s through x sizes, while YOLOv5 is faster on T4 TensorRT across the board. YOLOv5s, for instance, runs in 1.92 ms versus 2.56 ms for YOLOXs, which matters for real-time applications where every millisecond counts.
 
 ## The Ultralytics Advantage: Training and Usability
 

@@ -54,7 +54,7 @@ Key YOLO26 innovations include:
 - **DFL Removal:** By removing Distribution Focal Loss (DFL), YOLO26 simplifies its output head, improving compatibility with low-power edge devices.
 - **Up to 43% Faster CPU Inference:** Thanks to the DFL removal and structural optimizations, YOLO26 is optimized for environments without dedicated GPUs, achieving up to 43% faster inference speeds on CPUs compared to [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11).
 - **MuSGD Optimizer:** Inspired by advanced LLM training techniques like those from [Moonshot AI](https://www.moonshot.ai/), YOLO26 introduces a hybrid of SGD and Muon. This brings stable training and faster convergence to computer vision tasks.
-- **ProgLoss + STAL:** These loss functions specifically target and improve small-object recognition, which is critical for drone imagery datasets like [VisDrone](https://docs.ultralytics.com/datasets/detect/visdrone) and IoT edge sensors.
+- **ProgLoss + STAL:** These loss functions specifically target and improve small-object recognition, which is critical for IoT edge sensors and for drone imagery like the [VisDrone](https://docs.ultralytics.com/datasets/detect/visdrone) dataset.
 
 !!! tip "Task-Specific Improvements in YOLO26"
 

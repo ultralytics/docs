@@ -73,7 +73,7 @@ When evaluating these models on standard benchmarks like the [COCO dataset](http
 
 The benchmark data highlights the **performance balance** that Ultralytics engineers into their architectures. While EfficientDet-d0 offers very low CPU [ONNX](https://onnx.ai/) latency, YOLOv8 leads in GPU-accelerated environments. The YOLOv8n model runs in **1.47 ms** on an NVIDIA T4 using [TensorRT](https://developer.nvidia.com/tensorrt), making it much better suited to real-time video analytics streams.
 
-YOLOv8x also achieves the highest overall accuracy at **53.9 mAP**, outperforming the much larger EfficientDet-d7 while requiring significantly fewer FLOPs (257.8B vs 325.0B). This computational efficiency translates directly to lower memory requirements and reduced energy costs during enterprise deployment.
+YOLOv8x also achieves the highest overall accuracy at **53.9 mAP**, outperforming EfficientDet-d7 with fewer FLOPs (257.8B vs 325.0B). This computational efficiency translates directly to lower memory requirements and reduced energy costs during enterprise deployment.
 
 ## Ecosystem and Ease of Use
 
