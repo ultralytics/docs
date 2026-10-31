@@ -1,7 +1,7 @@
 ---
 title: YOLOv10 vs YOLOv5 Comparison
 comments: true
-description: Compare YOLOv10 and YOLOv5 models for object detection. Explore key features, performance metrics, strengths, and use cases to choose the right model.
+description: Compare YOLOv10 and YOLOv5 for object detection, including NMS-free design, COCO mAP, TensorRT speed, parameter efficiency, ecosystem support, and use cases.
 keywords: YOLOv10, YOLOv5, object detection, real-time models, computer vision, NMS-free, model comparison, YOLO, Ultralytics, machine learning
 ---
 
@@ -17,7 +17,7 @@ This guide evaluates these architectures based on [mean Average Precision (mAP)]
 
 ### YOLOv10: Real-Time End-to-End Object Detection
 
-Developed by researchers at Tsinghua University, YOLOv10 introduced a novel approach to object detection by eliminating the need for post-processing.
+Developed by researchers at Tsinghua University, YOLOv10 introduced a novel approach to object detection by eliminating the need for NMS post-processing.
 
 - **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
 - **Organization:** [Tsinghua University](https://www.tsinghua.edu.cn/en/)
@@ -25,20 +25,20 @@ Developed by researchers at Tsinghua University, YOLOv10 introduced a novel appr
 - **Research Paper:** [arXiv:2405.14458](https://arxiv.org/abs/2405.14458)
 - **Source Code:** [YOLOv10 GitHub Repository](https://github.com/THU-MIG/yolov10)
 
-The defining breakthrough of YOLOv10 is its **End-to-End NMS-Free Design**. Historically, YOLO models relied on [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) to filter out redundant bounding boxes. YOLOv10 utilizes consistent dual assignments for NMS-free training, which drastically reduces inference latency variability and simplifies deployment logic. Additionally, the architecture features a holistic efficiency-accuracy driven design that thoroughly optimizes various components to reduce computational redundancy.
+The defining feature of YOLOv10 is its **End-to-End NMS-Free Design**. Historically, YOLO models relied on [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) to filter out redundant bounding boxes. YOLOv10 utilizes consistent dual assignments for NMS-free training, which reduces inference latency variability and simplifies deployment logic. Additionally, the architecture follows a holistic efficiency-accuracy driven design that optimizes various components to reduce computational redundancy.
 
 [Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10){ .md-button }
 
 ### YOLOv5: The Industry Standard for Usability
 
-Released shortly after the inception of the Ultralytics PyTorch repository, YOLOv5 redefined what developers expected from an open-source vision AI framework. It remains one of the most widely deployed architectures globally.
+Released by Ultralytics in June 2020, YOLOv5 raised expectations for usability in open-source vision AI frameworks. It remains one of the most widely deployed architectures globally.
 
 - **Author:** Glenn Jocher
 - **Organization:** [Ultralytics](https://www.ultralytics.com)
 - **Date:** 2020-06-26
 - **Source Code:** [YOLOv5 GitHub Repository](https://github.com/ultralytics/yolov5)
 
-YOLOv5 is celebrated for its **Ease of Use** and highly **Well-Maintained Ecosystem**. Written entirely in PyTorch, it offered a seamless "zero-to-hero" experience with out-of-the-box support for training, validation, and export to formats like [ONNX](https://onnx.ai/) and [TensorRT](https://developer.nvidia.com/tensorrt). Unlike YOLOv10, which focuses primarily on pure object detection, YOLOv5 demonstrates exceptional **Versatility**, supporting [instance segmentation](https://docs.ultralytics.com/tasks/segment) and [image classification](https://docs.ultralytics.com/tasks/classify) within the same unified Python API.
+YOLOv5 is known for its **Ease of Use** and **Well-Maintained Ecosystem**. Written entirely in PyTorch, it offered out-of-the-box support for training, validation, and export to formats like [ONNX](https://onnx.ai/) and [TensorRT](https://developer.nvidia.com/tensorrt). Unlike YOLOv10, which focuses on object detection, YOLOv5 also offers **Versatility**: the original YOLOv5 repository added [instance segmentation](https://docs.ultralytics.com/tasks/segment) in v7.0 and [image classification](https://docs.ultralytics.com/tasks/classify) in v6.2.
 
 [Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
 
@@ -46,30 +46,30 @@ YOLOv5 is celebrated for its **Ease of Use** and highly **Well-Maintained Ecosys
 
 Visualizing the relationship between speed and accuracy is essential for identifying the models that offer the best accuracy for a given speed constraint. Understanding these [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics) is fundamental to selecting a model that aligns with your specific hardware constraints.
 
-| Model                                                                   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ----------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv10n                                                                | 640                         | 38.5                       | -                                    | 1.84                                      | 2.3                      | 6.7                     |
-| YOLOv10s                                                                | 640                         | 46.3                       | -                                    | 2.49                                      | 7.2                      | 21.6                    |
-| YOLOv10m                                                                | 640                         | 51.1                       | -                                    | 4.74                                      | 15.4                     | 59.1                    |
-| YOLOv10b                                                                | 640                         | 52.5                       | -                                    | 5.74                                      | 19.1                     | 92.0                    |
-| YOLOv10l                                                                | 640                         | 53.2                       | -                                    | 7.28                                      | 24.4                     | 120.3                   |
-| YOLOv10x                                                                | 640                         | **54.4**                   | -                                    | 10.70                                     | 29.5                     | 160.4                   |
-|                                                                         |                             |                            |                                      |                                           |                          |                         |
-| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | -                                    | **1.12**                                  | **1.9**                  | **4.5**                 |
-| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | -                                    | 1.92                                      | 7.2                      | 16.5                    |
-| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | -                                    | 4.03                                      | 21.2                     | 49.0                    |
-| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | -                                    | 6.61                                      | 46.5                     | 109.1                   |
-| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | -                                    | 11.89                                     | 86.7                     | 205.7                   |
+| Model    | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| -------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOv10n | 640                         | 38.5                       | -                                    | 1.84                                      | 2.3                      | 6.7                     |
+| YOLOv10s | 640                         | 46.3                       | -                                    | 2.49                                      | 7.2                      | 21.6                    |
+| YOLOv10m | 640                         | 51.1                       | -                                    | 4.74                                      | 15.4                     | 59.1                    |
+| YOLOv10b | 640                         | 52.5                       | -                                    | 5.74                                      | 19.1                     | 92.0                    |
+| YOLOv10l | 640                         | 53.2                       | -                                    | 7.28                                      | 24.4                     | 120.3                   |
+| YOLOv10x | 640                         | **54.4**                   | -                                    | 10.70                                     | 29.5                     | 160.4                   |
+|          |                             |                            |                                      |                                           |                          |                         |
+| YOLOv5n  | 640                         | 28.0                       | -                                    | **1.12**                                  | **1.9**                  | **4.5**                 |
+| YOLOv5s  | 640                         | 37.4                       | -                                    | 1.92                                      | 7.2                      | 16.5                    |
+| YOLOv5m  | 640                         | 45.4                       | -                                    | 4.03                                      | 21.2                     | 49.0                    |
+| YOLOv5l  | 640                         | 49.0                       | -                                    | 6.61                                      | 46.5                     | 109.1                   |
+| YOLOv5x  | 640                         | 50.7                       | -                                    | 11.89                                     | 86.7                     | 205.7                   |
 
 ### Technical Analysis
 
-1. **Accuracy (mAP):** YOLOv10 demonstrates a clear generational advantage in accuracy. For instance, the YOLOv10-X model achieves a 54.4% mAP<sup>val</sup>, outperforming YOLOv5x (50.7% mAP). This leap is largely due to the NMS-free training strategy and architectural refinements introduced in 2024.
-2. **Inference Latency:** While YOLOv5 models are exceptionally fast on raw T4 TensorRT benchmarks (e.g., YOLOv5n at 1.12ms), YOLOv10 eliminates the post-processing NMS step entirely. In end-to-end practical deployments, YOLOv10's NMS-free design provides more consistent and deterministic latency, which is critical for real-time applications like [autonomous vehicles](https://www.ultralytics.com/glossary/autonomous-vehicles) and robotics.
-3. **Parameter Efficiency:** YOLOv10 models maintain a highly competitive **Performance Balance**. YOLOv10-S achieves 46.3% mAP with 7.2M parameters, the same count as YOLOv5s, which reaches 37.4% mAP.
+1. **Accuracy (mAP):** YOLOv10 shows a clear generational advantage in accuracy. For instance, the YOLOv10-X model achieves 54.4% mAP<sup>val</sup>, outperforming YOLOv5x (50.7% mAP). This gain comes largely from YOLOv10's anchor-free head and accuracy-driven refinements such as large-kernel convolutions and partial self-attention.
+2. **Inference Latency:** While YOLOv5 models are very fast on raw T4 TensorRT benchmarks (e.g., YOLOv5n at 1.12 ms), YOLOv10 can skip the NMS post-processing step entirely. In practical end-to-end deployments, YOLOv10's NMS-free design provides more consistent latency, which is critical for real-time applications like [autonomous vehicles](https://www.ultralytics.com/glossary/autonomous-vehicles) and robotics.
+3. **Parameter Efficiency:** YOLOv10 models offer a strong **Performance Balance**. YOLOv10-S achieves 46.3% mAP with 7.2M parameters, the same count as YOLOv5s, which reaches 37.4% mAP.
 
 !!! tip "Deployment Tip"
 
-    When deploying to [edge AI](https://www.ultralytics.com/glossary/edge-ai) devices like the [NVIDIA Jetson](https://developer.nvidia.com/embedded-computing), models without NMS logic (like YOLOv10, or YOLO26 exported with `nms=False`) often compile more cleanly to TensorRT, avoiding fallback operations to the CPU.
+    When deploying to [edge AI](https://www.ultralytics.com/glossary/edge-ai) devices like the [NVIDIA Jetson](https://developer.nvidia.com/embedded-computing), models without NMS logic (YOLOv10 or YOLO26 exported with `nms=False`) often compile more cleanly to TensorRT, avoiding fallback operations to the CPU.
 
 ## Use Cases and Recommendations
 
@@ -87,7 +87,7 @@ YOLOv10 is a strong choice for:
 
 YOLOv5 is recommended for:
 
-- **Proven Production Systems:** Existing deployments where YOLOv5's long track record of stability, extensive documentation, and massive community support are valued.
+- **Proven Production Systems:** Existing deployments where YOLOv5's long track record of stability, extensive documentation, and large community are valued.
 - **Resource-Constrained Training:** Environments with limited GPU resources where YOLOv5's efficient training pipeline and lower memory requirements are advantageous.
 - **Extensive Export Format Support:** Projects requiring deployment across many formats including [ONNX](https://docs.ultralytics.com/integrations/onnx), [TensorRT](https://docs.ultralytics.com/integrations/tensorrt), [CoreML](https://docs.ultralytics.com/integrations/coreml), and [LiteRT](https://docs.ultralytics.com/integrations/litert).
 
@@ -96,15 +96,15 @@ YOLOv5 is recommended for:
 For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) offers the best combination of performance and developer experience:
 
 - **NMS-Free Edge Deployment:** Applications requiring consistent, low-latency inference without the complexity of Non-Maximum Suppression post-processing.
-- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26's up to 43% faster CPU inference provides a decisive advantage.
-- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
+- **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26n runs up to 43% faster on CPU than YOLO11n.
+- **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL improve accuracy on tiny objects.
 
 ## The Ultralytics Advantage
 
 While YOLOv10 offers excellent detection capabilities, relying on academic repositories can sometimes complicate production pipelines. By using the official [Ultralytics Python package](https://pypi.org/project/ultralytics/), you gain access to a unified ecosystem that supports both YOLOv5 and YOLOv10, along with advanced features.
 
-- **Training Efficiency:** Ultralytics YOLO architectures are deeply optimized for lower [memory requirements](https://docs.ultralytics.com/guides/yolo-performance-metrics) during training. Unlike heavy transformer models (such as RT-DETR) which require massive CUDA memory, you can comfortably train YOLOv5 and YOLOv10 on standard consumer GPUs.
-- **Ecosystem Integration:** The integration with [Ultralytics Platform](https://platform.ultralytics.com) allows developers to visually manage datasets, track experiments using [Weights & Biases](https://wandb.ai/site), and automatically tune hyperparameters.
+- **Training Efficiency:** Ultralytics YOLO architectures are optimized for low memory use during training. Unlike heavier transformer models (such as [RT-DETR](https://docs.ultralytics.com/models/rtdetr)), which require much more CUDA memory, YOLOv5 and YOLOv10 train comfortably on standard consumer GPUs.
+- **Ecosystem Integration:** [Ultralytics Platform](https://platform.ultralytics.com) lets developers manage datasets visually and train in the cloud, while the Python package integrates with experiment trackers like [Weights & Biases](https://docs.ultralytics.com/integrations/weights-biases) and supports [hyperparameter tuning](https://docs.ultralytics.com/guides/hyperparameter-tuning).
 
 ### Code Example: Seamless Training
 
@@ -134,17 +134,17 @@ path = model.export(format="onnx")
 
 ## The Next Generation: Ultralytics YOLO26
 
-If you are starting a new [machine learning](https://www.ultralytics.com/glossary/machine-learning-ml) project today, we strongly recommend evaluating the latest **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**. Released in January 2026, it represents the absolute state-of-the-art by combining the best innovations of the past five years.
+If you are starting a new [machine learning](https://www.ultralytics.com/glossary/machine-learning-ml) project, evaluate the latest **Ultralytics YOLO26**. Released in January 2026, it combines key innovations from recent YOLO generations.
 
-YOLO26 natively incorporates the **End-to-End NMS-Free Design** pioneered by YOLOv10 as an optional one-to-one head (`nms=False`), enabling rapid, deterministic deployment. Furthermore, YOLO26 introduces several critical breakthroughs:
+YOLO26 incorporates the **[End-to-End NMS-Free Design](https://www.ultralytics.com/blog/why-ultralytics-yolo26-removes-nms-and-how-that-changes-deployment)** pioneered by YOLOv10 as an optional one-to-one head (`nms=False`), which simplifies deployment. YOLO26 also introduces several other improvements:
 
-- **Up to 43% Faster CPU Inference:** By removing the Distribution Focal Loss (DFL) module, YOLO26 achieves massive speedups on standard CPUs, making it the premier choice for [mobile deployment](https://docs.ultralytics.com/guides/model-deployment-options) and low-power IoT sensors.
-- **MuSGD Optimizer:** Inspired by Large Language Model (LLM) training techniques like Moonshot AI's Kimi K2, YOLO26 utilizes a hybrid of SGD and Muon. This ensures incredibly stable training runs and vastly accelerated convergence compared to the standard SGD and AdamW optimizers used in earlier YOLO models.
-- **ProgLoss + STAL:** These advanced loss functions yield notable improvements in small-object recognition, which is critical for [drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) and aerial security applications.
-- **Task-Specific Mastery:** While YOLOv10 is strictly a bounding box detector, YOLO26 offers dedicated architectural improvements for all tasks, including Residual Log-Likelihood Estimation (RLE) for Pose and specialized angle losses for Oriented Bounding Boxes (OBB).
+- **Up to 43% Faster CPU Inference:** With the Distribution Focal Loss (DFL) module removed, YOLO26n runs up to 43% faster than YOLO11n on standard CPUs, making YOLO26 well suited to [mobile deployment](https://docs.ultralytics.com/guides/model-deployment-options) and low-power IoT sensors.
+- **MuSGD Optimizer:** Inspired by Large Language Model (LLM) training techniques like Moonshot AI's Kimi K2, YOLO26 uses a hybrid of SGD and Muon. This provides more stable training and faster convergence than the standard SGD and AdamW optimizers used in earlier YOLO models.
+- **ProgLoss + STAL:** The progressive loss and small-target-aware label assignment improve small-object recognition, which is critical for drone imagery and aerial security applications.
+- **Task-Specific Improvements:** While YOLOv10 is strictly a bounding box detector, YOLO26 supports detection, instance segmentation, semantic segmentation, depth estimation, classification, pose estimation, and OBB, with task-specific improvements such as Residual Log-Likelihood Estimation (RLE) for pose and a specialized angle loss for Oriented Bounding Boxes (OBB).
 
 !!! note "Explore Further"
 
-    If you are exploring the broader landscape of object detection, you may also be interested in comparing these architectures against other frameworks. Check out our deep dives on [YOLO11 vs EfficientDet](https://docs.ultralytics.com/compare/yolo11-vs-efficientdet) or [RT-DETR vs YOLOv8](https://docs.ultralytics.com/compare/rtdetr-vs-yolov8) for more comprehensive benchmarking.
+    To compare these architectures against other detector families, see the [YOLO11 vs EfficientDet](https://docs.ultralytics.com/compare/yolo11-vs-efficientdet) and [RT-DETR vs YOLOv8](https://docs.ultralytics.com/compare/rtdetr-vs-yolov8) comparisons.
 
-Whether you rely on the robust legacy of YOLOv5, the NMS-free innovation of YOLOv10, or the unparalleled cutting-edge performance of YOLO26, the Ultralytics ecosystem provides the tools necessary to bring your vision AI applications to life quickly and efficiently.
+Whether you rely on the proven YOLOv5, the NMS-free YOLOv10, or the latest YOLO26, the Ultralytics ecosystem provides the tools to bring your vision AI applications to production quickly.

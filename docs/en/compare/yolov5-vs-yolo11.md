@@ -1,13 +1,13 @@
 ---
 title: YOLOv5 vs YOLO11 Comparison
 comments: true
-description: Explore the ultimate comparison between YOLOv5 and YOLO11. Learn about their architecture, performance metrics, and ideal use cases for object detection.
+description: Compare Ultralytics YOLOv5 and YOLO11 for object detection, covering architecture changes, COCO mAP, CPU and GPU speeds, code examples, and use cases.
 keywords: YOLOv5, YOLO11, object detection, Ultralytics, YOLO comparison, performance metrics, computer vision, real-time detection, model architecture
 ---
 
 # YOLOv5 vs YOLO11
 
-When choosing the right computer vision architecture for a new project, understanding the evolution of state-of-the-art models is crucial. The progression from earlier architectures to modern unified frameworks highlights significant leaps in both algorithmic efficiency and developer experience. This guide provides an in-depth technical comparison between two landmark models developed by Ultralytics: the pioneering YOLOv5 and the highly refined YOLO11.
+When choosing the right computer vision architecture for a new project, understanding how state-of-the-art models have evolved is important. The progression from earlier architectures to modern unified frameworks highlights significant leaps in both algorithmic efficiency and developer experience. This guide provides a technical comparison between two widely used models developed by Ultralytics: YOLOv5 and its successor YOLO11.
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv5", "YOLO11"]'></canvas>
 
@@ -17,7 +17,7 @@ Both of these architectures represent significant milestones in the field of rea
 
 ### YOLOv5: The Industry Workhorse
 
-Released in the summer of 2020, YOLOv5 quickly became an industry standard due to its native [PyTorch](https://pytorch.org/) implementation, which drastically lowered the barrier to entry for training and deployment. It moved away from the complex Darknet C frameworks of its predecessors, offering a Pythonic approach to model building.
+Released in the summer of 2020, YOLOv5 quickly became an industry standard due to its native [PyTorch](https://pytorch.org/) implementation, which lowered the barrier to entry for training and deployment. It moved away from the complex Darknet C frameworks of its predecessors, offering a Pythonic approach to model building.
 
 - **Authors:** Glenn Jocher
 - **Organization:** [Ultralytics](https://www.ultralytics.com)
@@ -25,7 +25,7 @@ Released in the summer of 2020, YOLOv5 quickly became an industry standard due t
 - **GitHub:** [ultralytics/yolov5](https://github.com/ultralytics/yolov5)
 - **Docs:** [YOLOv5 Documentation](https://docs.ultralytics.com/models/yolov5)
 
-YOLOv5 established a strong baseline for ease of use and introduced powerful training methodologies, including advanced mosaic data augmentation and auto-anchoring. It remains incredibly popular for researchers building upon a well-documented, heavily tested codebase.
+YOLOv5 established a strong baseline for ease of use and introduced powerful training methodologies, including mosaic data augmentation and auto-anchoring. It remains popular with researchers building upon a well-documented, heavily tested codebase.
 
 [Learn more about YOLOv5](https://platform.ultralytics.com/ultralytics/yolov5){ .md-button }
 
@@ -49,31 +49,31 @@ YOLO11 offers a streamlined user experience through the `ultralytics` Python pac
 
 ## Performance and Metrics Comparison
 
-A direct comparison of these models reveals how architectural refinements translate to tangible performance gains. The table below illustrates the mean Average Precision (mAP) evaluated on the [COCO dataset](https://cocodataset.org/), alongside CPU and GPU inference speeds and parameter counts.
+A direct comparison of these models reveals how architectural refinements translate to tangible performance gains. The table below shows the mean Average Precision (mAP) evaluated on the [COCO dataset](https://cocodataset.org/), alongside CPU and GPU inference speeds and parameter counts.
 
-| Model                                                                   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ----------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| [YOLOv5n](https://platform.ultralytics.com/ultralytics/yolov5/yolov5nu) | 640                         | 28.0                       | -                                    | **1.12**                                  | **1.9**                  | **4.5**                 |
-| [YOLOv5s](https://platform.ultralytics.com/ultralytics/yolov5/yolov5su) | 640                         | 37.4                       | -                                    | **1.92**                                  | **7.2**                  | **16.5**                |
-| [YOLOv5m](https://platform.ultralytics.com/ultralytics/yolov5/yolov5mu) | 640                         | 45.4                       | -                                    | **4.03**                                  | 21.2                     | **49.0**                |
-| [YOLOv5l](https://platform.ultralytics.com/ultralytics/yolov5/yolov5lu) | 640                         | 49.0                       | -                                    | 6.61                                      | 46.5                     | 109.1                   |
-| [YOLOv5x](https://platform.ultralytics.com/ultralytics/yolov5/yolov5xu) | 640                         | 50.7                       | -                                    | 11.89                                     | 86.7                     | 205.7                   |
-|                                                                         |                             |                            |                                      |                                           |                          |                         |
-| [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n)  | 640                         | **39.5**                   | 56.1                                 | 1.5                                       | 2.6                      | 6.5                     |
-| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s)  | 640                         | **47.0**                   | 90.0                                 | 2.5                                       | 9.4                      | 21.6                    |
-| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m)  | 640                         | **51.5**                   | 183.2                                | 4.7                                       | **20.1**                 | 68.1                    |
-| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l)  | 640                         | **53.4**                   | 238.6                                | **6.2**                                   | **25.3**                 | **87.2**                |
-| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x)  | 640                         | **54.7**                   | 462.8                                | **11.3**                                  | **56.9**                 | **195.3**               |
+| Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOv5n                                                                | 640                         | 28.0                       | -                                    | **1.12**                                  | **1.9**                  | **4.5**                 |
+| YOLOv5s                                                                | 640                         | 37.4                       | -                                    | **1.92**                                  | **7.2**                  | **16.5**                |
+| YOLOv5m                                                                | 640                         | 45.4                       | -                                    | **4.03**                                  | 21.2                     | **49.0**                |
+| YOLOv5l                                                                | 640                         | 49.0                       | -                                    | 6.61                                      | 46.5                     | 109.1                   |
+| YOLOv5x                                                                | 640                         | 50.7                       | -                                    | 11.89                                     | 86.7                     | 205.7                   |
+|                                                                        |                             |                            |                                      |                                           |                          |                         |
+| [YOLO11n](https://platform.ultralytics.com/ultralytics/yolo11/yolo11n) | 640                         | **39.5**                   | 56.1                                 | 1.5                                       | 2.6                      | 6.5                     |
+| [YOLO11s](https://platform.ultralytics.com/ultralytics/yolo11/yolo11s) | 640                         | **47.0**                   | 90.0                                 | 2.5                                       | 9.4                      | 21.6                    |
+| [YOLO11m](https://platform.ultralytics.com/ultralytics/yolo11/yolo11m) | 640                         | **51.5**                   | 183.2                                | 4.7                                       | **20.1**                 | 68.1                    |
+| [YOLO11l](https://platform.ultralytics.com/ultralytics/yolo11/yolo11l) | 640                         | **53.4**                   | 238.6                                | **6.2**                                   | **25.3**                 | **87.2**                |
+| [YOLO11x](https://platform.ultralytics.com/ultralytics/yolo11/yolo11x) | 640                         | **54.7**                   | 462.8                                | **11.3**                                  | **56.9**                 | **195.3**               |
 
 ### Analyzing the Results
 
-The metrics highlight a clear leap in the **performance balance** achieved by YOLO11. For instance, the YOLO11n (nano) model achieves a 39.5% mAP compared to YOLOv5n's 28.0%, an 11.5-point gain for only 0.7M additional parameters. Furthermore, YOLO11 maintains remarkably lower memory requirements during training compared to heavy transformer-based models, making it highly accessible for deployment on consumer hardware and edge devices.
+The metrics highlight a clear improvement in the **performance balance** achieved by YOLO11. For instance, the YOLO11n (nano) model achieves a 39.5% mAP compared to YOLOv5n's 28.0%, an 11.5-point gain for only 0.7M additional parameters. YOLO11 also keeps memory requirements during training lower than transformer-based models, making it practical to train on consumer hardware and deploy on edge devices.
 
 ## Architectural Differences
 
 The performance improvements in YOLO11 stem from several key architectural evolutions. While YOLOv5 utilized a standard CSPNet backbone with C3 modules, newer Ultralytics models introduced more efficient feature extraction blocks like C2f (YOLOv8) and C3k2 (YOLO11), which optimize gradient flow and reduce computational overhead.
 
-YOLO11 also features a heavily refined head. Moving away from the anchor-based design of older models, newer Ultralytics architectures adopt an anchor-free approach. This reduces the number of box predictions, streamlining the post-processing pipeline and improving the model's ability to generalize across different scales and aspect ratios. Additionally, these models boast superior [training efficiency](https://docs.ultralytics.com/guides/model-training-tips) and readily available pre-trained weights that accelerate the convergence of fine-tuned datasets.
+YOLO11 also features a heavily refined head. Moving away from the anchor-based design of older models, newer Ultralytics architectures adopt an anchor-free approach. This reduces the number of box predictions, streamlining the post-processing pipeline and improving the model's ability to generalize across different scales and aspect ratios. Additionally, these models offer better [training efficiency](https://docs.ultralytics.com/guides/model-training-tips) and readily available pretrained weights that speed up convergence when fine-tuning on custom datasets.
 
 ## Implementation and Code Examples
 
@@ -81,7 +81,7 @@ One of the standout features of the Ultralytics ecosystem is its simplicity. Whi
 
 ### Training with YOLO11
 
-Loading, training, and validating a model requires minimal boilerplate code. The API handles hyperparameter tuning and model management seamlessly.
+Loading, training, and validating a model requires minimal boilerplate code. The API provides sensible training defaults and handles checkpoints and logging automatically.
 
 ```python
 from ultralytics import YOLO
@@ -102,7 +102,7 @@ model.export(format="engine")
 
 ### Legacy Inference with YOLOv5
 
-If you are maintaining an older pipeline, YOLOv5 integrates directly with PyTorch's native loading mechanism, making it trivial to drop into existing inference scripts.
+If you are maintaining an older pipeline, YOLOv5 integrates directly with PyTorch's native loading mechanism, making it easy to drop into existing inference scripts.
 
 ```python
 import torch
@@ -134,20 +134,20 @@ Choosing between these models depends largely on your project's lifecycle stage 
 
 - **Multi-Task Projects:** When your application requires a mix of tasks such as [pose estimation](https://docs.ultralytics.com/tasks/pose) and [instance segmentation](https://docs.ultralytics.com/tasks/segment) using a single, unified API.
 - **Edge Deployments:** For [edge computing](https://www.ultralytics.com/glossary/edge-computing) scenarios where squeezing out maximum mAP for a given computational budget (FLOPs) is critical.
-- **Commercial AI Solutions:** Ideal for enterprise applications in retail and security, leveraging the robust support of the [Ultralytics Platform](https://platform.ultralytics.com).
+- **Commercial AI Solutions:** Ideal for enterprise applications in retail and security, with support from the [Ultralytics Platform](https://platform.ultralytics.com).
 
 ## The Next Generation: Ultralytics YOLO26
 
-While YOLO11 represents a fantastic balance of speed and accuracy, the field of artificial intelligence evolves rapidly. For developers starting new projects today, we strongly recommend exploring the latest standard in vision AI: **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**.
+While YOLO11 offers a strong balance of speed and accuracy, the field evolves rapidly. For developers starting new projects today, Ultralytics recommends its latest model: **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**.
 
-Released in January 2026, YOLO26 introduces paradigm-shifting advancements designed specifically for modern deployment needs:
+Released in January 2026, YOLO26 introduces several advancements designed for modern deployment needs:
 
-- **End-to-End NMS-Free Design:** Building on concepts first pioneered in YOLOv10, YOLO26 is natively end-to-end. Its optional one-to-one head (`nms=False`) removes the need for Non-Maximum Suppression (NMS) post-processing, significantly simplifying deployment pipelines and reducing latency.
-- **MuSGD Optimizer:** Inspired by LLM training innovations from models like Moonshot AI's Kimi K2, this hybrid of SGD and Muon ensures incredibly stable training and dramatically faster convergence.
-- **Unprecedented CPU Speed:** By removing Distribution Focal Loss (DFL), YOLO26 achieves up to **43% faster CPU inference**, making it the absolute best choice for edge devices and environments without dedicated GPUs.
-- **Advanced Loss Functions:** The integration of ProgLoss and STAL yields notable improvements in small-object recognition, which is critical for drone analytics, IoT, and robotics.
-- **Task-Specific Enhancements:** It introduces specialized optimizations, such as Residual Log-Likelihood Estimation (RLE) for Pose and specialized angle loss for [oriented bounding boxes](https://docs.ultralytics.com/tasks/obb), ensuring superior performance across all computer vision tasks.
+- **End-to-End NMS-Free Design:** Building on concepts first pioneered in YOLOv10, YOLO26 supports native end-to-end inference. Its optional one-to-one head (`nms=False`) removes the need for Non-Maximum Suppression (NMS) post-processing, simplifying deployment pipelines and reducing latency.
+- **MuSGD Optimizer:** Inspired by LLM training innovations from models like Moonshot AI's Kimi K2, this hybrid of SGD and Muon provides more stable training and faster convergence.
+- **Faster CPU Inference:** With Distribution Focal Loss (DFL) removed, YOLO26n runs up to **43% faster on CPU** than YOLO11n, making YOLO26 well suited to edge devices and environments without dedicated GPUs.
+- **Advanced Training Methods:** The integration of ProgLoss and STAL yields notable improvements in small-object recognition, which is critical for drone analytics, IoT, and robotics.
+- **Task-Specific Enhancements:** It introduces specialized optimizations, such as Residual Log-Likelihood Estimation (RLE) for Pose and specialized angle loss for [oriented bounding boxes](https://docs.ultralytics.com/tasks/obb), improving accuracy across supported tasks.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
-For users interested in specialized architectures beyond standard object detection, you might also explore models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) for transformer-based detection, or [YOLO-World](https://docs.ultralytics.com/models/yolo-world) for open-vocabulary tracking and detection. Embracing these well-maintained, highly optimized tools ensures your computer vision pipelines remain efficient, scalable, and ahead of the curve.
+For users interested in specialized architectures beyond standard object detection, you might also explore models like [RT-DETR](https://docs.ultralytics.com/models/rtdetr) for transformer-based detection, or [YOLO-World](https://docs.ultralytics.com/models/yolo-world) for open-vocabulary tracking and detection. These well-maintained tools help keep your computer vision pipelines efficient and scalable.
