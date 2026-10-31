@@ -36,6 +36,25 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v7
 
+      - uses: ultralytics/actions/setup-uv@main
+
+      - name: Validate Markdown frontmatter YAML
+        run: |
+          # Zensical fails the centralized docs build on frontmatter it cannot parse, e.g. an unquoted ": "
+          uv run --no-project --with pyyaml python - <<'EOF'
+          import pathlib, sys, yaml
+          errors = []
+          for path in sorted(pathlib.Path("docs").rglob("*.md")):
+              text = path.read_text(encoding="utf-8")
+              if text.startswith("---\n"):
+                  try:
+                      yaml.safe_load(text.split("---\n", 2)[1])
+                  except yaml.YAMLError as e:
+                      errors.append(f"{path}: {' '.join(str(e).split())}")
+          print("\n".join(errors) or "All Markdown frontmatter is valid YAML")
+          sys.exit(bool(errors))
+          EOF
+
       - name: Install lychee
         run: |
           curl -sSfL "https://github.com/lycheeverse/lychee/releases/latest/download/lychee-x86_64-unknown-linux-gnu.tar.gz" |
