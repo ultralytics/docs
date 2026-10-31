@@ -82,11 +82,11 @@ Ultralytics models are designed to minimize memory usage during training. YOLOv5
 
 ### Versatility Across Tasks
 
-While YOLOX is strictly an object detection framework, the Ultralytics ecosystem has evolved YOLOv5 to support multiple vision tasks. Out of the box, you can perform object detection, [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), and [Image Classification](https://docs.ultralytics.com/tasks/classify) using the same API syntax.
+While YOLOX is strictly an object detection framework, the Ultralytics ecosystem has evolved YOLOv5 to support multiple vision tasks. Out of the box, you can perform object detection, [instance segmentation](https://docs.ultralytics.com/tasks/segment), and [image classification](https://docs.ultralytics.com/tasks/classify) using the same API syntax.
 
 !!! tip "Continuous Innovation"
 
-    If you require even more advanced tasks like [Pose Estimation](https://docs.ultralytics.com/tasks/pose) or [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection, consider upgrading to Ultralytics YOLO26, which supports these tasks natively with high accuracy.
+    If you require even more advanced tasks like [pose estimation](https://docs.ultralytics.com/tasks/pose) or [oriented bounding box (OBB)](https://docs.ultralytics.com/tasks/obb) detection, consider upgrading to Ultralytics YOLO26, which supports these tasks natively with high accuracy.
 
 ## Code Comparison
 
