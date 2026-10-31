@@ -18,7 +18,7 @@ Developed by researchers at Alibaba Group, DAMO-YOLO introduces a novel approach
 - **Authors:** Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun
 - **Organization:** [Alibaba Group](https://www.alibabagroup.com/)
 - **Date:** 2022-11-23
-- **Arxiv:** [2211.15444v2](https://arxiv.org/abs/2211.15444v2)
+- **arXiv:** [2211.15444v2](https://arxiv.org/abs/2211.15444v2)
 - **GitHub:** [tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)
 
 ### Architectural Innovations
@@ -40,7 +40,7 @@ Developed by the Meituan Vision AI Department, [YOLOv6-3.0](https://docs.ultraly
 - **Authors:** Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu
 - **Organization:** [Meituan](https://www.meituan.com/)
 - **Date:** 2023-01-13
-- **Arxiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
+- **arXiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
 - **GitHub:** [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
 
 ### Key Features and Enhancements
@@ -117,7 +117,7 @@ Released in January 2026, YOLO26 is designed for both edge and cloud deployment,
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
-### Seamless Ecosystem Experience
+### Ecosystem Experience
 
 The [Ultralytics Platform](https://platform.ultralytics.com) covers the entire machine learning lifecycle. Training a model does not require a multi-stage distillation pipeline. With automatic data augmentation, unified hyperparameter tuning, and one-click exports to formats like [ONNX](https://docs.ultralytics.com/integrations/onnx), [OpenVINO](https://docs.ultralytics.com/integrations/openvino), and CoreML, you can go from dataset to production quickly.
 
@@ -133,7 +133,7 @@ from ultralytics import YOLO
 # Load the highly efficient YOLO26 nano model
 model = YOLO("yolo26n.pt")
 
-# Train the model on your custom dataset seamlessly
+# Train the model on your custom dataset
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
 # Run inference on a sample image

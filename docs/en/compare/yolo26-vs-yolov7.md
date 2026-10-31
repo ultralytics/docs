@@ -32,7 +32,7 @@ Before examining the performance data, it is important to understand the origins
 - **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
 - **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)
 - **Date:** 2022-07-06
-- **Arxiv:** [YOLOv7 Paper](https://arxiv.org/abs/2207.02696)
+- **arXiv:** [YOLOv7 Paper](https://arxiv.org/abs/2207.02696)
 - **GitHub:** [YOLOv7 Repository](https://github.com/WongKinYiu/yolov7)
 
 [Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7){ .md-button }
@@ -45,7 +45,7 @@ Before examining the performance data, it is important to understand the origins
 
 The architectural philosophies behind YOLO26 and YOLOv7 diverge significantly, reflecting the shift from maximizing high-end GPU performance to optimizing for end-to-end edge deployment.
 
-### YOLO26: The Edge-First Paradigm
+### YOLO26: Edge-First Design
 
 Released in January 2026, YOLO26 rethinks the deployment pipeline. Its most significant change is the **End-to-End NMS-Free Design**. By skipping Non-Maximum Suppression (NMS) post-processing with its optional one-to-one head (`nms=False`), YOLO26 reduces latency variability, a concept first introduced in [YOLOv10](https://docs.ultralytics.com/models/yolov10). This ensures consistent frame rates even in densely populated scenes, which is critical for autonomous robotics and traffic monitoring.
 
@@ -53,7 +53,7 @@ YOLO26 also removes Distribution Focal Loss (DFL). This **DFL Removal** simplifi
 
 Training stability is another major focus. The introduction of the **MuSGD Optimizer**—a hybrid of standard [Stochastic Gradient Descent](https://www.ultralytics.com/glossary/stochastic-gradient-descent-sgd) and Muon (inspired by the training dynamics of Kimi K2)—brings LLM training stability to computer vision. Combined with **ProgLoss + STAL** (Progressive Loss and Small-Target-Aware Label Assignment), YOLO26 improves small-object recognition, a long-standing challenge for real-time detectors.
 
-### YOLOv7: The Bag-of-Freebies Mastery
+### YOLOv7: Trainable Bag-of-Freebies
 
 YOLOv7 was built on a detailed study of gradient path optimization. Its core innovation is the Extended Efficient Layer Aggregation Network (E-ELAN), which allows the model to learn more diverse features without disrupting the original gradient paths.
 
@@ -115,7 +115,7 @@ The developer experience differs from that of standard research repositories. Tr
 ```python
 from ultralytics import YOLO
 
-# Load the latest state-of-the-art YOLO26 small model
+# Load the latest YOLO26 small model
 model = YOLO("yolo26s.pt")
 
 # Train the model on your custom dataset with automated caching and logging

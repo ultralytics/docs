@@ -29,7 +29,7 @@ YOLOv8 quickly became widely adopted thanks to its performance balance and deep 
 
 [Learn more about YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8){ .md-button }
 
-### YOLO26: The Next-Generation Edge Powerhouse
+### YOLO26: Next-Generation Edge AI
 
 Released in January 2026, YOLO26 builds on its predecessors and optimizes them for modern deployment scenarios, particularly edge AI and low-power devices.
 
@@ -39,7 +39,7 @@ Released in January 2026, YOLO26 builds on its predecessors and optimizes them f
 - **GitHub:** [Ultralytics Repository](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26)
 
-YOLO26 introduces several technical improvements. Most notably, it features an **End-to-End NMS-Free Design**. Pioneered by [YOLOv10](https://docs.ultralytics.com/models/yolov10), this architecture eliminates the need for NMS post-processing, simplifying export pipelines and reducing latency variance. The removal of Distribution Focal Loss (DFL) also streamlines the detection head, making it easier to deploy on edge AI hardware.
+YOLO26 introduces several technical improvements. Most notably, it features the **End-to-End NMS-Free Design** that [YOLOv10](https://docs.ultralytics.com/models/yolov10) brought to YOLO models. This architecture eliminates the need for NMS post-processing, simplifying export pipelines and reducing latency variance. The removal of Distribution Focal Loss (DFL) also streamlines the detection head, making it easier to deploy on edge AI hardware.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
@@ -99,7 +99,7 @@ Below is a complete, runnable example of training, inference, and export using t
 ```python
 from ultralytics import YOLO
 
-# Load the latest state-of-the-art YOLO26 Nano model
+# Load the latest YOLO26 Nano model
 model = YOLO("yolo26n.pt")
 
 # Train the model on the COCO8 dataset for 50 epochs
@@ -118,7 +118,7 @@ results = model("https://ultralytics.com/images/bus.jpg", nms=False)
 # Display the predictions
 results[0].show()
 
-# Export seamlessly to ONNX for CPU deployment
+# Export to ONNX for CPU deployment
 export_path = model.export(format="onnx")
 ```
 

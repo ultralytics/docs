@@ -20,7 +20,7 @@ Developed by the Vision AI Department at [Meituan](https://tech.meituan.com/), Y
 - **Authors:** Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu
 - **Organization:** Meituan
 - **Date:** 2023-01-13
-- **Arxiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
+- **arXiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
 - **GitHub:** [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
 
 ### Architectural Innovations
@@ -42,7 +42,7 @@ Released by researchers at [Academia Sinica](https://www.iis.sinica.edu.tw/en/in
 - **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
 - **Organization:** Institute of Information Science, Academia Sinica, Taiwan
 - **Date:** 2022-07-06
-- **Arxiv:** [2207.02696](https://arxiv.org/abs/2207.02696)
+- **arXiv:** [2207.02696](https://arxiv.org/abs/2207.02696)
 - **GitHub:** [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
 
 ### Architectural Innovations
@@ -141,7 +141,7 @@ results = model.train(
     data="coco8.yaml",
     epochs=100,
     imgsz=640,
-    device="cuda:0",  # Automatically utilizes PyTorch GPU acceleration
+    device="cuda:0",  # Automatically uses PyTorch GPU acceleration
 )
 
 # Run an end-to-end, NMS-free inference on a test image

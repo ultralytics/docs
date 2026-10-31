@@ -22,7 +22,7 @@ Understanding the origins of these models provides valuable context regarding th
 - **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
 - **Organization:** [Tsinghua University](https://www.tsinghua.edu.cn/en/)
 - **Date:** 2024-05-23
-- **Arxiv:** [YOLOv10: Real-Time End-to-End Object Detection](https://arxiv.org/abs/2405.14458)
+- **arXiv:** [YOLOv10: Real-Time End-to-End Object Detection](https://arxiv.org/abs/2405.14458)
 - **GitHub:** [THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
 - **Docs:** [Ultralytics YOLOv10 Documentation](https://docs.ultralytics.com/models/yolov10)
 
@@ -33,7 +33,7 @@ Understanding the origins of these models provides valuable context regarding th
 - **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
 - **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)
 - **Date:** 2022-07-06
-- **Arxiv:** [YOLOv7: Trainable bag-of-freebies sets new state-of-the-art](https://arxiv.org/abs/2207.02696)
+- **arXiv:** [YOLOv7: Trainable bag-of-freebies sets new state-of-the-art](https://arxiv.org/abs/2207.02696)
 - **GitHub:** [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7)
 - **Docs:** [Ultralytics YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7)
 
@@ -45,7 +45,7 @@ Understanding the origins of these models provides valuable context regarding th
 
 Released in 2022, YOLOv7 focused heavily on optimizing gradient pathways. It introduced the Extended Efficient Layer Aggregation Network (E-ELAN), which allowed the model to learn more diverse features without destroying the original gradient path. Furthermore, the authors implemented a "trainable bag-of-freebies" methodology, utilizing re-parameterization techniques during training that could be fused away during inference to maintain fast execution speeds. Despite these optimizations, YOLOv7 still relied on NMS for post-processing, creating variable latency during dense scene analysis.
 
-### The YOLOv10 Breakthrough
+### The YOLOv10 Approach
 
 YOLOv10 addressed the NMS bottleneck directly. By introducing consistent dual assignments during training, the Tsinghua University team enabled NMS-free end-to-end detection. This dual-head approach uses one branch with one-to-many assignments for rich supervisory signals during training, and another branch with one-to-one assignments for NMS-free inference. This architectural shift provides consistent, low [inference latency](https://www.ultralytics.com/glossary/inference-latency) suitable for high-speed video analytics. Furthermore, YOLOv10 employs a holistic efficiency-accuracy driven model design, stripping away computational redundancy found in earlier generations.
 
@@ -79,7 +79,7 @@ While studying architectural papers is insightful, modern computer vision develo
 
 YOLOv10 is natively supported by the standard Ultralytics Python package, while YOLOv7 checkpoints trained upstream can be run in Ultralytics only after [export to ONNX or TensorRT](https://docs.ultralytics.com/models/yolov7). Native support provides **Ease of Use**, replacing boilerplate code with a simple, intuitive API. Ultralytics YOLO models also need less CUDA memory during training than heavy transformer architectures, enabling larger batch sizes on consumer-grade hardware.
 
-### Unmatched Versatility
+### Versatility
 
 While older repositories often focus strictly on bounding box detection, the Ultralytics framework supports a wide range of tasks through models like YOLO26 and YOLO11. Whether you are performing [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), or [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection, the workflow remains the same.
 

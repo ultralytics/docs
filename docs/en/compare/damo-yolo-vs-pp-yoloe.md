@@ -22,7 +22,7 @@ Developed by the [Alibaba Group](https://www.alibabagroup.com/), DAMO-YOLO intro
 - **Authors:** Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun
 - **Organization:** Alibaba Group
 - **Date:** 2022-11-23
-- **Arxiv:** [DAMO-YOLO: A Report on Real-Time Object Detection Design](https://arxiv.org/abs/2211.15444v2)
+- **arXiv:** [DAMO-YOLO: A Report on Real-Time Object Detection Design](https://arxiv.org/abs/2211.15444v2)
 - **GitHub:** [tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)
 - **Docs:** [DAMO-YOLO README](https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md)
 
@@ -37,7 +37,7 @@ From the [Baidu](https://www.baidu.com/) PaddlePaddle team, PP-YOLOE+ is an incr
 - **Authors:** PaddlePaddle Authors
 - **Organization:** Baidu
 - **Date:** 2022-04-02
-- **Arxiv:** [PP-YOLOE: An evolved version of YOLO](https://arxiv.org/abs/2203.16250)
+- **arXiv:** [PP-YOLOE: An evolved version of YOLO](https://arxiv.org/abs/2203.16250)
 - **GitHub:** [PaddlePaddle/PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection/)
 - **Docs:** [PP-YOLOE+ Configs](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
 

@@ -20,7 +20,7 @@ YOLOv9 addresses the information bottleneck problem inherent in deep neural netw
 - **Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao
 - **Organization:** Institute of Information Science, Academia Sinica, Taiwan
 - **Date:** February 21, 2024
-- **Arxiv:** [2402.13616](https://arxiv.org/abs/2402.13616)
+- **arXiv:** [2402.13616](https://arxiv.org/abs/2402.13616)
 - **GitHub:** [WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9)
 
 By retaining crucial feature data during the feed-forward process, YOLOv9 helps keep the gradients used to update weights during backpropagation accurate. This architecture excels at [feature extraction](https://www.ultralytics.com/glossary/feature-extraction), making it effective at detecting small objects in complex environments, such as those found in [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and detailed medical scans.
@@ -34,7 +34,7 @@ Released in mid-2021, YOLOX shifted the YOLO series toward an anchor-free design
 - **Authors:** Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun
 - **Organization:** Megvii
 - **Date:** July 18, 2021
-- **Arxiv:** [2107.08430](https://arxiv.org/abs/2107.08430)
+- **arXiv:** [2107.08430](https://arxiv.org/abs/2107.08430)
 - **GitHub:** [Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
 
 While YOLOX was influential in its time, achieving excellent [mean average precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) and eliminating anchor box hyperparameter tuning, its underlying architecture has since been surpassed by modern networks that better balance parameter count and feature retention.
@@ -78,7 +78,7 @@ from ultralytics import YOLO
 # Initialize the YOLOv9c model
 model = YOLO("yolov9c.pt")
 
-# Train the model on your custom dataset seamlessly
+# Train the model on your custom dataset
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
 # Validate the model's performance

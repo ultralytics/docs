@@ -22,7 +22,7 @@ YOLOX emerged as an important model that helped bridge the gap between academic 
 - **Authors:** Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun
 - **Organization:** [Megvii](https://en.megvii.com/)
 - **Date:** 2021-07-18
-- **Arxiv:** [YOLOX: Exceeding YOLO Series in 2021](https://arxiv.org/abs/2107.08430)
+- **arXiv:** [YOLOX: Exceeding YOLO Series in 2021](https://arxiv.org/abs/2107.08430)
 - **GitHub:** [Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
 - **Docs:** [YOLOX Documentation](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
@@ -89,7 +89,7 @@ from ultralytics import YOLO
 # Initialize the YOLOv8 small model
 model = YOLO("yolov8s.pt")
 
-# Train the model effortlessly on a custom dataset
+# Train the model on a custom dataset
 train_results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
 # Validate the model's accuracy

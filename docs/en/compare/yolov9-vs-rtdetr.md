@@ -30,7 +30,7 @@ Understanding the origins and design intent of these models provides useful cont
 - **Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao
 - **Organization:** [Institute of Information Science, Academia Sinica](https://www.iis.sinica.edu.tw/en/index.html)
 - **Date:** 2024-02-21
-- **Arxiv:** [https://arxiv.org/abs/2402.13616](https://arxiv.org/abs/2402.13616)
+- **arXiv:** [https://arxiv.org/abs/2402.13616](https://arxiv.org/abs/2402.13616)
 - **GitHub:** [WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9)
 
 [Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9){ .md-button }
@@ -40,7 +40,7 @@ Understanding the origins and design intent of these models provides useful cont
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
 - **Organization:** [Baidu](https://www.baidu.com/)
 - **Date:** 2024-07-24
-- **Arxiv:** [https://arxiv.org/abs/2407.17140](https://arxiv.org/abs/2407.17140)
+- **arXiv:** [https://arxiv.org/abs/2407.17140](https://arxiv.org/abs/2407.17140)
 - **GitHub:** [lyuwenyu/RT-DETR](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 
 [Learn more about RTDETRv2](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch){ .md-button }
@@ -107,11 +107,11 @@ model_yolo.train(data="coco8.yaml", epochs=100, imgsz=640)
 model_rtdetr = RTDETR("rtdetr-l.pt")
 model_rtdetr.train(data="coco8.yaml", epochs=100, imgsz=640)
 
-# Export models to OpenVINO or TensorRT seamlessly
+# Export models to OpenVINO or TensorRT
 model_yolo.export(format="openvino")
 ```
 
-### Unmatched Task Versatility
+### Task Versatility
 
 A major limitation of specialized models like RTDETRv2 is their narrow focus on bounding box detection. In contrast, the broader Ultralytics ecosystem, encompassing models like [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8), supports a wide array of [computer vision tasks](https://docs.ultralytics.com/tasks). This includes pixel-level [instance segmentation](https://docs.ultralytics.com/tasks/segment), whole-image [classification](https://docs.ultralytics.com/tasks/classify), skeletal [pose estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection for aerial imagery.
 
@@ -157,6 +157,6 @@ For most new projects, Ultralytics YOLO26 offers the best combination of perform
 
 While YOLOv9 and RTDETRv2 are significant achievements, the computer vision field moves rapidly. For new projects, **YOLO26** is the recommended model.
 
-Released in January 2026, YOLO26 combines CNN efficiency with DETR-style end-to-end inference. It features an optional **End-to-End NMS-Free Design** (`nms=False`) that [eliminates NMS post-processing](https://www.ultralytics.com/blog/why-ultralytics-yolo26-removes-nms-and-how-that-changes-deployment), an approach pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10). YOLO26 also removes Distribution Focal Loss (DFL) for better edge compatibility and introduces the **MuSGD Optimizer**. Inspired by large language model training (specifically Moonshot AI's Kimi K2), this hybrid of SGD and Muon improves training stability and convergence speed.
+Released in January 2026, YOLO26 combines CNN efficiency with DETR-style end-to-end inference. It features an optional **End-to-End NMS-Free Design** (`nms=False`) that [eliminates NMS post-processing](https://www.ultralytics.com/blog/why-ultralytics-yolo26-removes-nms-and-how-that-changes-deployment), an approach introduced to YOLO models by [YOLOv10](https://docs.ultralytics.com/models/yolov10). YOLO26 also removes Distribution Focal Loss (DFL) for better edge compatibility and introduces the **MuSGD Optimizer**. Inspired by large language model training (specifically Moonshot AI's Kimi K2), this hybrid of SGD and Muon improves training stability and convergence speed.
 
 Together with ProgLoss and STAL (Progressive Loss and Small-Target-Aware Label Assignment) for better small-object detection, these changes make YOLO26 a strong choice for modern AI deployments, with YOLO26n running up to **43% faster on CPU** than YOLO11n.

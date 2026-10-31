@@ -13,7 +13,7 @@ This guide analyzes their architectural innovations, [performance metrics](https
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "YOLOv9"]'></canvas>
 
-## YOLOv10: The NMS-Free End-to-End Pioneer
+## YOLOv10: NMS-Free Real-Time Detection
 
 Developed to address the latency bottlenecks of traditional object detectors, YOLOv10 introduces an end-to-end architecture that removes the need for [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms).
 
@@ -22,7 +22,7 @@ Developed to address the latency bottlenecks of traditional object detectors, YO
 - **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
 - **Organization:** Tsinghua University
 - **Date:** May 23, 2024
-- **Links:** [Arxiv Publication](https://arxiv.org/abs/2405.14458), [GitHub Repository](https://github.com/THU-MIG/yolov10), [Ultralytics Docs](https://docs.ultralytics.com/models/yolov10)
+- **Links:** [arXiv Publication](https://arxiv.org/abs/2405.14458), [GitHub Repository](https://github.com/THU-MIG/yolov10), [Ultralytics Docs](https://docs.ultralytics.com/models/yolov10)
 
 [Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10){ .md-button }
 
@@ -47,7 +47,7 @@ Prior to YOLOv10, YOLOv9 introduced novel architectural concepts to solve the in
 - **Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao
 - **Organization:** Institute of Information Science, Academia Sinica, Taiwan
 - **Date:** February 21, 2024
-- **Links:** [Arxiv Publication](https://arxiv.org/abs/2402.13616), [GitHub Repository](https://github.com/WongKinYiu/yolov9), [Ultralytics Docs](https://docs.ultralytics.com/models/yolov9)
+- **Links:** [arXiv Publication](https://arxiv.org/abs/2402.13616), [GitHub Repository](https://github.com/WongKinYiu/yolov9), [Ultralytics Docs](https://docs.ultralytics.com/models/yolov9)
 
 [Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9){ .md-button }
 
@@ -78,7 +78,7 @@ The table below illustrates the core metrics for both models. Notice how YOLOv10
 | YOLOv9c  | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
 | YOLOv9e  | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
 
-## The Next Generation: Why YOLO26 is the Ultimate Recommendation
+## The Next Generation: Why YOLO26 Is Recommended
 
 While YOLOv9 and YOLOv10 are important milestones, the machine learning field moves quickly. For production environments, many developers rely on the integrated, well-maintained ecosystem of [Ultralytics Platform](https://platform.ultralytics.com). As of 2026, the Ultralytics recommendation for both research and enterprise is **YOLO26**.
 
@@ -146,6 +146,6 @@ For most new projects, Ultralytics YOLO26 offers the best combination of perform
 
 ## Conclusion
 
-Both YOLOv9 and YOLOv10 offer unique advantages. YOLOv9 maximizes parameter efficiency and gradient flow, and YOLOv9e reaches the highest accuracy in this comparison. YOLOv10 pioneered end-to-end bounding box detection in the YOLO family without the latency cost of NMS.
+Both YOLOv9 and YOLOv10 offer unique advantages. YOLOv9 maximizes parameter efficiency and gradient flow, and YOLOv9e reaches the highest accuracy in this comparison. YOLOv10 introduced end-to-end bounding box detection in the YOLO family without the latency cost of NMS.
 
 For developers seeking the best balance of performance, versatility, and ease of use, upgrading to newer models is worthwhile. With its MuSGD optimizer, ProgLoss + STAL for improved small-object detection, and multi-task support, YOLO26 is the recommended choice for real-world computer vision projects.

@@ -90,27 +90,27 @@ Released in January 2026, YOLO26 sets a new standard for modern [object detectio
 
 ### Why Developers Choose YOLO26
 
-1. **End-to-End NMS-Free Design:** Building on concepts pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 supports native end-to-end inference. By skipping NMS post-processing with its optional one-to-one head (`nms=False`), it provides consistent latency and simplifies export pipelines for edge environments.
+1. **End-to-End NMS-Free Design:** Building on the NMS-free training that [YOLOv10](https://docs.ultralytics.com/models/yolov10) introduced to YOLO models, YOLO26 supports native end-to-end inference. By skipping NMS post-processing with its optional one-to-one head (`nms=False`), it provides consistent latency and simplifies export pipelines for edge environments.
 2. **Training Optimization:** The **MuSGD Optimizer**, a hybrid of SGD and Muon (inspired by LLM methodologies like Moonshot AI's Kimi K2), improves training stability and convergence speed. YOLO26 also uses **ProgLoss + STAL** (Progressive Loss and Small-Target-Aware Label Assignment) to improve small-object detection, a crucial feature for applications involving aerial imagery and robotics.
 3. **Hardware Efficiency:** By removing Distribution Focal Loss (DFL), YOLO26 simplifies its detection head and export graph. YOLO26n delivers up to **43% faster CPU inference** than YOLO11n, making it a strong choice for devices lacking dedicated [GPU](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) acceleration.
 4. **Versatility:** Unlike PP-YOLOE+, which focuses strictly on detection, YOLO26 offers unified support across numerous tasks. It incorporates a specialized semantic segmentation loss for [instance segmentation](https://docs.ultralytics.com/tasks/segment), Residual Log-Likelihood Estimation (RLE) for accurate [pose estimation](https://docs.ultralytics.com/tasks/pose), and a specialized angle loss for [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb).
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
-### Seamless Ecosystem Integration
+### Ecosystem Integration
 
 Ultralytics avoids complex framework installations. Using the unified Python API or the intuitive [Ultralytics Platform](https://platform.ultralytics.com), you can train, validate, and export models with just a few lines of code.
 
 ```python
 from ultralytics import YOLO
 
-# Load the cutting-edge YOLO26 small model
+# Load the YOLO26 small model
 model = YOLO("yolo26s.pt")
 
 # Train on a custom dataset with minimal CUDA memory overhead
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
-# Effortlessly run inference
+# Run inference
 predictions = model("https://ultralytics.com/images/bus.jpg")
 
 # Export to ONNX natively, fully benefiting from the NMS-free architecture

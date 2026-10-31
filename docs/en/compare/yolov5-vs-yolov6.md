@@ -33,7 +33,7 @@ Developed by the Vision AI Department at Meituan, YOLOv6-3.0 is tailored specifi
 - **Authors:** Chuyi Li, Lulu Li, Yifei Geng, et al.
 - **Organization:** Meituan
 - **Date:** 2023-01-13
-- **Arxiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
+- **arXiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
 - **GitHub:** [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
 
 YOLOv6 aims to maximize processing speed on GPUs like the [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/). It uses dedicated quantization schemes and specialized backbones to achieve its performance, making it a strong candidate for backend server processing where batch inference is heavily utilized.

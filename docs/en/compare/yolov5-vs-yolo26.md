@@ -47,7 +47,7 @@ YOLO26 offers a strong balance of accuracy and speed and was designed specifical
 
     If you are migrating an older codebase, you might also be interested in [comparing YOLOv5 with YOLO11](https://docs.ultralytics.com/compare/yolov5-vs-yolo11), the previous generation model supporting diverse tasks like pose estimation and oriented bounding boxes (OBB).
 
-## Architectural Breakthroughs in YOLO26
+## Architectural Innovations in YOLO26
 
 While YOLOv5 relies on anchor-based detection heads and standard loss functions, YOLO26 reworks the head, loss functions, and optimizer to remove deployment bottlenecks.
 

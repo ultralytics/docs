@@ -11,14 +11,14 @@ In [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv), s
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "YOLOv6-3.0"]'></canvas>
 
-## YOLOv10 Overview: The End-to-End Pioneer
+## YOLOv10 Overview: NMS-Free Real-Time Detection
 
 Released in May 2024, **YOLOv10** brought NMS-free training to the YOLO family, removing the need for [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) during post-processing. This end-to-end design minimizes [inference latency](https://www.ultralytics.com/glossary/inference-latency) bottlenecks, making it a highly attractive option for [edge AI](https://www.ultralytics.com/glossary/edge-ai) and embedded deployments.
 
 - **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
 - **Organization:** [Tsinghua University](https://www.tsinghua.edu.cn/en/)
 - **Date:** 2024-05-23
-- **ArXiv:** [2405.14458](https://arxiv.org/abs/2405.14458)
+- **arXiv:** [2405.14458](https://arxiv.org/abs/2405.14458)
 - **GitHub:** [THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
 - **Docs:** [Ultralytics YOLOv10 Documentation](https://docs.ultralytics.com/models/yolov10)
 
@@ -35,7 +35,7 @@ Developed specifically for industrial applications, **YOLOv6-3.0** prioritizes h
 - **Authors:** Chuyi Li, Lulu Li, Yifei Geng, et al.
 - **Organization:** [Meituan](https://en.wikipedia.org/wiki/Meituan)
 - **Date:** 2023-01-13
-- **ArXiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
+- **arXiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
 - **GitHub:** [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
 - **Docs:** [Ultralytics YOLOv6 Documentation](https://docs.ultralytics.com/models/yolov6)
 
@@ -125,9 +125,9 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26n runs up to 43% faster on CPU than YOLO11n.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL improve accuracy on tiny objects.
 
-## The Ultimate Recommendation: Ultralytics YOLO26
+## The Recommended Model: Ultralytics YOLO26
 
-While YOLOv10 introduced the NMS-free concept and YOLOv6-3.0 optimized GPU throughput, the recommended choice for production environments is **Ultralytics YOLO26**.
+While YOLOv10 brought NMS-free training to YOLO models and YOLOv6-3.0 optimized GPU throughput, the recommended choice for production environments is **Ultralytics YOLO26**.
 
 Released in January 2026, YOLO26 takes the foundational ideas of its predecessors and refines them into an [edge-first vision model family](https://www.ultralytics.com/blog/ultralytics-yolo26-the-new-standard-for-edge-first-vision-ai).
 

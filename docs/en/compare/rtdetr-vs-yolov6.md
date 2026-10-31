@@ -20,7 +20,7 @@ Developed by researchers at Baidu, RTDETRv2 builds on the original [RT-DETR](htt
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
 - **Organization:** [Baidu](https://www.baidu.com/)
 - **Date:** 2024-07-24
-- **Arxiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
+- **arXiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
 - **GitHub:** [lyuwenyu/RT-DETR](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 - **Docs:** [RTDETRv2 GitHub README](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
 
@@ -43,7 +43,7 @@ Originating from the Vision AI Department at Meituan, YOLOv6-3.0 was designed fo
 - **Authors:** Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu
 - **Organization:** Meituan
 - **Date:** 2023-01-13
-- **Arxiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
+- **arXiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
 - **GitHub:** [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
 
 ### Architectural Focus
@@ -113,7 +113,7 @@ Choosing a model involves more than benchmark numbers; developer experience, dep
 
     Using the Ultralytics CLI, exporting a trained model for edge deployment is as simple as running: `yolo export model=yolo11n.pt format=tensorrt`.
 
-## Enter YOLO26: The Ultimate Solution
+## Enter YOLO26
 
 RTDETRv2 and YOLOv6-3.0 each have specific strengths, but for teams starting new computer vision projects, we recommend **YOLO26**, released by Ultralytics in January 2026.
 

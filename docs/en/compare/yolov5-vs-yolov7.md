@@ -30,7 +30,7 @@ Understanding the origins and design philosophies behind these models provides c
 - **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
 - **Organization:** [Institute of Information Science, Academia Sinica, Taiwan](https://www.iis.sinica.edu.tw/en/index.html)
 - **Date:** 2022-07-06
-- **Arxiv:** [YOLOv7 Paper](https://arxiv.org/abs/2207.02696)
+- **arXiv:** [YOLOv7 Paper](https://arxiv.org/abs/2207.02696)
 - **GitHub:** [YOLOv7 Repository](https://github.com/WongKinYiu/yolov7)
 - **Docs:** [YOLOv7 Documentation](https://docs.ultralytics.com/models/yolov7)
 

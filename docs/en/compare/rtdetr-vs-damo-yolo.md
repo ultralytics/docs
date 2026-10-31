@@ -61,7 +61,7 @@ While independent repositories like the official RT-DETR and DAMO-YOLO GitHub pr
 
 This is where the [Ultralytics ecosystem](https://www.ultralytics.com) greatly simplifies the developer experience. Ultralytics integrates transformer detectors like the original [RT-DETR](https://docs.ultralytics.com/models/rtdetr) directly into its unified API, allowing users to train, validate, and export models with a single line of code. Ultralytics models are also known for their low memory requirements during training compared to heavy transformer-based standalone repositories.
 
-### Code Example: Seamless Integration
+### Code Example: Integration
 
 Here is how to run inference with the Ultralytics Python library. The API remains consistent whether you are using a transformer model or a modern CNN.
 
@@ -71,10 +71,10 @@ from ultralytics import RTDETR, YOLO
 # Load an RT-DETR model for complex scene understanding
 model_rtdetr = RTDETR("rtdetr-l.pt")
 
-# Load the latest Ultralytics YOLO26 model for ultimate edge performance
+# Load the latest Ultralytics YOLO26 model
 model_yolo26 = YOLO("yolo26n.pt")
 
-# Run inference on a sample image effortlessly
+# Run inference on a sample image
 results_rtdetr = model_rtdetr("https://ultralytics.com/images/bus.jpg")
 results_yolo = model_yolo26("https://ultralytics.com/images/bus.jpg")
 
@@ -110,7 +110,7 @@ Unlike models limited strictly to bounding boxes, the YOLO26 family supports tas
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
 - **Organization:** [Baidu](https://www.baidu.com/)
 - **Date:** 2024-07-24
-- **Arxiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
+- **arXiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
 - **GitHub:** [RT-DETR Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 
 ### DAMO-YOLO
@@ -118,7 +118,7 @@ Unlike models limited strictly to bounding boxes, the YOLO26 family supports tas
 - **Authors:** Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun
 - **Organization:** [Alibaba Group](https://www.alibabagroup.com/)
 - **Date:** 2022-11-23
-- **Arxiv:** [2211.15444v2](https://arxiv.org/abs/2211.15444v2)
+- **arXiv:** [2211.15444v2](https://arxiv.org/abs/2211.15444v2)
 - **GitHub:** [DAMO-YOLO Repository](https://github.com/tinyvision/DAMO-YOLO)
 
 For other comparisons, see the guides on [RTDETRv2 vs. YOLO11](https://docs.ultralytics.com/compare/rtdetr-vs-yolo11) or [DAMO-YOLO vs. YOLOv8](https://docs.ultralytics.com/compare/damo-yolo-vs-yolov8) to see how these models perform against previous generations of the Ultralytics family.

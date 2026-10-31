@@ -111,7 +111,7 @@ While YOLOv8 is a highly capable framework, the field of artificial intelligence
 
 For new projects, Ultralytics recommends **[Ultralytics YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**. Released in January 2026, YOLO26 introduces several improvements:
 
-- **End-to-End NMS-Free Design:** First pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26's optional one-to-one head (`nms=False`) removes Non-Maximum Suppression post-processing, leading to simpler and faster deployment pipelines.
+- **End-to-End NMS-Free Design:** Building on the NMS-free training that [YOLOv10](https://docs.ultralytics.com/models/yolov10) introduced to YOLO models, YOLO26's optional one-to-one head (`nms=False`) removes Non-Maximum Suppression post-processing, leading to simpler and faster deployment pipelines.
 - **MuSGD Optimizer:** Inspired by the LLM training innovations seen in models like Kimi K2, YOLO26 utilizes a hybrid optimizer for more stable training and faster convergence.
 - **Edge Computing:** YOLO26n runs up to **43% faster on CPU** than YOLO11n, making YOLO26 well suited to devices without dedicated GPUs.
 - **Enhanced Accuracy:** Utilizing the new progressive loss and small-target-aware label assignment (ProgLoss + STAL), it improves small-object recognition, which is critical for [robotics](https://www.ultralytics.com/glossary/robotics) and aerial drone imagery.

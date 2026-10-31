@@ -30,7 +30,7 @@ Both models were introduced around the same time but stem from different design 
 - **Authors:** Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun
 - **Organization:** [Alibaba Group](https://www.alibabagroup.com/)
 - **Date:** 2022-11-23
-- **Arxiv:** [DAMO-YOLO Research Paper](https://arxiv.org/abs/2211.15444v2)
+- **arXiv:** [DAMO-YOLO Research Paper](https://arxiv.org/abs/2211.15444v2)
 - **GitHub:** [DAMO-YOLO GitHub Repository](https://github.com/tinyvision/DAMO-YOLO)
 
 [Learn more about DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md){ .md-button }

@@ -43,7 +43,7 @@ However, YOLOv9 relies on traditional [Non-Maximum Suppression (NMS)](https://ww
 
 ### The Edge-First Architecture of YOLO26
 
-YOLO26 takes a different approach, with an edge-first design that optimizes the entire pipeline from training to real-time deployment. It builds on the **End-to-End NMS-Free Design** first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), [eliminating the need for NMS post-processing](https://www.ultralytics.com/blog/why-ultralytics-yolo26-removes-nms-and-how-that-changes-deployment). This reduces latency and makes it well suited to edge devices like the [Raspberry Pi](https://www.raspberrypi.org/) or [NVIDIA Jetson](https://developer.nvidia.com/embedded/jetson-nano).
+YOLO26 takes a different approach, with an edge-first design that optimizes the entire pipeline from training to real-time deployment. It builds on the **End-to-End NMS-Free Design** introduced to YOLO models by [YOLOv10](https://docs.ultralytics.com/models/yolov10), [eliminating the need for NMS post-processing](https://www.ultralytics.com/blog/why-ultralytics-yolo26-removes-nms-and-how-that-changes-deployment). This reduces latency and makes it well suited to edge devices like the [Raspberry Pi](https://www.raspberrypi.org/) or [NVIDIA Jetson](https://developer.nvidia.com/embedded/jetson-nano).
 
 YOLO26 also removes Distribution Focal Loss (DFL). This structural change simplifies model [exporting to ONNX](https://docs.ultralytics.com/integrations/onnx) and provides better compatibility with low-power edge devices.
 
@@ -94,12 +94,12 @@ results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 model.export(format="onnx")
 ```
 
-### Unmatched Task Versatility
+### Task Versatility
 
 Unlike YOLOv9, which is primarily tailored for standard object detection, YOLO26 natively supports all seven Ultralytics [computer vision tasks](https://docs.ultralytics.com/tasks), including semantic segmentation and depth estimation. The architecture includes specific enhancements for diverse applications:
 
 - **[Instance Segmentation](https://docs.ultralytics.com/tasks/segment):** Adds a semantic segmentation loss and a multi-scale proto module for higher-quality masks.
-- **[Image Classification](https://docs.ultralytics.com/tasks/classify):** Robust categorization for entire images based on [ImageNet](https://www.image-net.org/) standards.
+- **[Image Classification](https://docs.ultralytics.com/tasks/classify):** Robust categorization for entire images based on [ImageNet](https://docs.ultralytics.com/datasets/classify/imagenet) standards.
 - **[Pose Estimation](https://docs.ultralytics.com/tasks/pose):** Integrates Residual Log-Likelihood Estimation (RLE) for more accurate keypoint localization.
 - **[Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb):** Includes a specialized angle loss designed to address boundary issues in rotated object detection for aerial imagery.
 

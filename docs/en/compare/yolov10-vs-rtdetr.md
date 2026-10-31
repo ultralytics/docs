@@ -13,7 +13,7 @@ keywords: YOLOv10, RTDETRv2, object detection, model comparison, AI, computer vi
 
 This technical comparison analyzes their architectures, training methodologies, and ideal deployment scenarios to help developers and researchers choose the right tool for their next vision AI project.
 
-## YOLOv10: The NMS-Free Pioneer
+## YOLOv10: NMS-Free Real-Time Detection
 
 Developed by researchers at Tsinghua University, YOLOv10 focuses on architectural efficiency and the removal of post-processing bottlenecks. By introducing consistent dual assignments for NMS-free training, it achieves competitive accuracy with lower inference latency.
 
@@ -22,7 +22,7 @@ Developed by researchers at Tsinghua University, YOLOv10 focuses on architectura
 - **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
 - **Organization:** [Tsinghua University](https://www.tsinghua.edu.cn/en/)
 - **Date:** 2024-05-23
-- **ArXiv:** [YOLOv10 Paper](https://arxiv.org/abs/2405.14458)
+- **arXiv:** [YOLOv10 Paper](https://arxiv.org/abs/2405.14458)
 - **GitHub:** [THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
 - **Docs:** [YOLOv10 Documentation](https://docs.ultralytics.com/models/yolov10)
 
@@ -45,7 +45,7 @@ Building upon the original Real-Time Detection Transformer, RTDETRv2 incorporate
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
 - **Organization:** [Baidu](https://www.baidu.com/)
 - **Date:** 2024-07-24
-- **ArXiv:** [RTDETRv2 Paper](https://arxiv.org/abs/2407.17140)
+- **arXiv:** [RTDETRv2 Paper](https://arxiv.org/abs/2407.17140)
 - **GitHub:** [lyuwenyu/RT-DETR](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 - **Docs:** [RTDETRv2 README](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
 
@@ -113,7 +113,7 @@ YOLOv10 and RTDETRv2 are both capable detectors, but choosing a model is often a
 
 ### The New Standard: Ultralytics YOLO26
 
-For developers seeking the best performance, Ultralytics YOLO26 brings together recent architectural advances. Released in January 2026, YOLO26 inherits the end-to-end NMS-free design pioneered by YOLOv10 as an optional head (`nms=False`), eliminating NMS post-processing for faster, simpler deployment.
+For developers seeking the best performance, Ultralytics YOLO26 brings together recent architectural advances. Released in January 2026, YOLO26 inherits YOLOv10's end-to-end NMS-free design as an optional head (`nms=False`), eliminating NMS post-processing for faster, simpler deployment.
 
 !!! tip "Why Choose YOLO26?"
 

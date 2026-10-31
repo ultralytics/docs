@@ -44,7 +44,7 @@ RTDETRv2 (Real-Time Detection Transformer version 2) builds on the original [RT-
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
 - **Organization:** [Baidu](https://www.baidu.com/)
 - **Date:** 2024-07-24
-- **Arxiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
+- **arXiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
 - **GitHub:** [RT-DETR Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 - **Docs:** [RTDETRv2 README](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
 
@@ -147,7 +147,7 @@ results = model("https://ultralytics.com/images/bus.jpg")
 # Display the results
 results[0].show()
 
-# Export seamlessly for edge deployment
+# Export for edge deployment
 export_path = model.export(format="onnx")
 ```
 

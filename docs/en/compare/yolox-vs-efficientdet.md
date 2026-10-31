@@ -69,14 +69,14 @@ When evaluating these models for real-world [computer vision applications](https
 | YOLOXl          | 640                         | 49.7                       | -                                    | 9.04                                      | 54.2                     | 155.6                   |
 | YOLOXx          | 640                         | 51.1                       | -                                    | 16.1                                      | 99.1                     | 281.9                   |
 |                 |                             |                            |                                      |                                           |                          |                         |
-| EfficientDet-d0 | 640                         | 34.6                       | **10.2**                             | 3.92                                      | 3.9                      | 2.54                    |
-| EfficientDet-d1 | 640                         | 40.5                       | 13.5                                 | 7.31                                      | 6.6                      | 6.1                     |
-| EfficientDet-d2 | 640                         | 43.0                       | 17.7                                 | 10.92                                     | 8.1                      | 11.0                    |
-| EfficientDet-d3 | 640                         | 47.5                       | 28.0                                 | 19.59                                     | 12.0                     | 24.9                    |
-| EfficientDet-d4 | 640                         | 49.7                       | 42.8                                 | 33.55                                     | 20.7                     | 55.2                    |
-| EfficientDet-d5 | 640                         | 51.5                       | 72.5                                 | 67.86                                     | 33.7                     | 130.0                   |
-| EfficientDet-d6 | 640                         | 52.6                       | 92.8                                 | 89.29                                     | 51.9                     | 226.0                   |
-| EfficientDet-d7 | 640                         | **53.7**                   | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
+| EfficientDet-d0 | 512                         | 34.6                       | -                                    | 3.92                                      | 3.9                      | 2.54                    |
+| EfficientDet-d1 | 640                         | 40.5                       | -                                    | 7.31                                      | 6.6                      | 6.1                     |
+| EfficientDet-d2 | 768                         | 43.0                       | -                                    | 10.92                                     | 8.1                      | 11.0                    |
+| EfficientDet-d3 | 896                         | 47.5                       | -                                    | 19.59                                     | 12.0                     | 24.9                    |
+| EfficientDet-d4 | 1024                        | 49.7                       | -                                    | 33.55                                     | 20.7                     | 55.2                    |
+| EfficientDet-d5 | 1280                        | 51.5                       | -                                    | 67.86                                     | 33.7                     | 130.0                   |
+| EfficientDet-d6 | 1280                        | 52.6                       | -                                    | 89.29                                     | 51.9                     | 226.0                   |
+| EfficientDet-d7 | 1536                        | **53.7**                   | -                                    | 128.07                                    | 51.9                     | 325.0                   |
 
 ### Analyzing the Trade-offs
 
@@ -98,7 +98,7 @@ YOLOX is a strong choice for:
 
 EfficientDet is recommended for:
 
-- **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
+- **Google Cloud and TPU Pipelines:** TensorFlow-based systems on Google Cloud TPU infrastructure, where EfficientDet's reference implementation supports TPU training.
 - **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
 - **Mobile Deployment via LiteRT:** Projects that specifically require [LiteRT](https://developers.google.com/edge/litert) (formerly TensorFlow Lite) export for Android or embedded Linux devices.
 
@@ -118,7 +118,7 @@ YOLO26 offers a well-maintained ecosystem and significant gains in speed and eas
 
 ### Key YOLO26 Innovations
 
-- **End-to-End NMS-Free Design:** YOLO26's optional one-to-one head (`nms=False`) [removes the need for NMS post-processing](https://www.ultralytics.com/blog/why-ultralytics-yolo26-removes-nms-and-how-that-changes-deployment). This natively end-to-end approach, pioneered by YOLOv10, simplifies the export process and reduces deployment latency.
+- **End-to-End NMS-Free Design:** YOLO26's optional one-to-one head (`nms=False`) [removes the need for NMS post-processing](https://www.ultralytics.com/blog/why-ultralytics-yolo26-removes-nms-and-how-that-changes-deployment). This natively end-to-end approach, introduced to YOLO models by YOLOv10, simplifies the export process and reduces deployment latency.
 - **Up to 43% Faster CPU Inference:** With NMS and Distribution Focal Loss (DFL) removed, YOLO26n runs up to 43% faster than YOLO11n on CPU, which suits edge devices without discrete GPUs.
 - **MuSGD Optimizer:** Bringing [Large Language Model (LLM)](https://www.ultralytics.com/glossary/large-language-model-llm) innovations to vision, YOLO26 uses the MuSGD optimizer (a hybrid of SGD and Muon) for stable training and fast convergence, improving [training efficiency](https://docs.ultralytics.com/guides/model-training-tips).
 - **ProgLoss + STAL:** Progressive Loss and Small-Target-Aware Label Assignment (STAL) improve small-object detection, which is critical for use cases like [drone operations](https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations) and aerial imagery analysis.
@@ -136,10 +136,10 @@ from ultralytics import YOLO
 # Initialize the natively end-to-end YOLO26 model
 model = YOLO("yolo26n.pt")
 
-# Train the model effortlessly on your custom dataset
+# Train the model on your custom dataset
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
-# Export the trained model to TensorRT for blazing-fast inference
+# Export the trained model to TensorRT for GPU inference
 model.export(format="engine", dynamic=True)
 ```
 
@@ -157,7 +157,7 @@ EfficientDet remains a subject of academic interest for environments where infer
 
 YOLOX is suitable for applications requiring a balance of speed and accuracy without the complexities of anchor boxes. It has historically performed well in [industrial manufacturing](https://www.ultralytics.com/solutions/computer-vision-in-manufacturing) scenarios where rapid defect detection on conveyor belts is required.
 
-### Why YOLO26 is the Superior Choice
+### Why Choose YOLO26
 
 For most modern applications, YOLO26 is the best fit. Its NMS-free design provides predictable latency, making it a strong candidate for autonomous driving, fast-response [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system), and smart city deployments. Active community support and frequent updates from Ultralytics also help developers avoid deprecated dependencies.
 

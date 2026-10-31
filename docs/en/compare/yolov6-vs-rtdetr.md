@@ -20,7 +20,7 @@ Developed by the Vision AI Department at Meituan, YOLOv6-3.0 focuses heavily on 
 - **Authors:** Chuyi Li, Lulu Li, Yifei Geng, et al.
 - **Organization:** [Meituan](https://tech.meituan.com/)
 - **Date:** 2023-01-13
-- **ArXiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
+- **arXiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
 - **GitHub:** [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
 
 ### Architecture Highlights
@@ -50,7 +50,7 @@ Spearheaded by researchers at Baidu, RTDETRv2 builds upon the original RT-DETR b
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
 - **Organization:** [Baidu](https://www.baidu.com/)
 - **Date:** 2024-07-24
-- **ArXiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
+- **arXiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
 - **GitHub:** [lyuwenyu/RT-DETR](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 
 ### Architecture Highlights
@@ -129,7 +129,7 @@ Released in January 2026, Ultralytics YOLO26 is the recommended Ultralytics mode
 
 ### Why YOLO26 Outperforms the Competition
 
-1. **End-to-End NMS-Free Design:** First pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 offers an optional NMS-free one-to-one head (`nms=False`) that skips NMS post-processing. This provides the deployment simplicity of RTDETRv2 while keeping the speed of an optimized CNN.
+1. **End-to-End NMS-Free Design:** Building on the NMS-free training that [YOLOv10](https://docs.ultralytics.com/models/yolov10) introduced to YOLO models, YOLO26 offers an optional NMS-free one-to-one head (`nms=False`) that skips NMS post-processing. This provides the deployment simplicity of RTDETRv2 while keeping the speed of an optimized CNN.
 2. **MuSGD Optimizer:** Inspired by large language model (LLM) training (such as Moonshot AI's Kimi K2), YOLO26 utilizes a hybrid of SGD and Muon. This provides stable training dynamics and faster convergence, reducing the time and compute resources required for custom datasets.
 3. **Edge Performance:** Removing Distribution Focal Loss (DFL) simplifies export. Together with the lighter head, this gives [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) up to **43% faster CPU inference** than YOLO11n, making YOLO26 a strong fit for edge AI and IoT devices.
 4. **Enhanced Small Object Detection:** The ProgLoss objective and STAL assignment strategy improve small-object detection, a critical requirement for drone analytics and aerial imagery.

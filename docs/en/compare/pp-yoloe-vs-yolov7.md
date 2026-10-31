@@ -22,7 +22,7 @@ Developed by the PaddlePaddle Authors at Baidu, PP-YOLOE+ builds on PP-YOLOE and
 - **Authors:** PaddlePaddle Authors
 - **Organization:** [Baidu](https://github.com/PaddlePaddle/PaddleDetection/)
 - **Date:** 2022-04-02
-- **Arxiv:** [2203.16250](https://arxiv.org/abs/2203.16250)
+- **arXiv:** [2203.16250](https://arxiv.org/abs/2203.16250)
 - **GitHub:** [PaddleDetection Repository](https://github.com/PaddlePaddle/PaddleDetection/)
 - **Docs:** [PP-YOLOE+ Documentation](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
 
@@ -35,7 +35,7 @@ Developed by Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao, YOLOv7
 - **Authors:** Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao
 - **Organization:** Institute of Information Science, Academia Sinica, Taiwan
 - **Date:** 2022-07-06
-- **Arxiv:** [2207.02696](https://arxiv.org/abs/2207.02696)
+- **arXiv:** [2207.02696](https://arxiv.org/abs/2207.02696)
 - **GitHub:** [YOLOv7 Repository](https://github.com/WongKinYiu/yolov7)
 - **Docs:** [Ultralytics YOLOv7 Docs](https://docs.ultralytics.com/models/yolov7)
 

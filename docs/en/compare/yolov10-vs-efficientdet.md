@@ -13,7 +13,7 @@ This guide covers their designs, training methodologies, and deployment characte
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["YOLOv10", "EfficientDet"]'></canvas>
 
-## YOLOv10: The NMS-Free Pioneer
+## YOLOv10: NMS-Free Real-Time Detection
 
 Developed to reduce real-time latency, YOLOv10 tackled one of the most persistent bottlenecks in the YOLO family: [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms). By eliminating this post-processing step, the model achieves predictable latency, which is critical for [autonomous vehicles](https://www.ultralytics.com/glossary/autonomous-vehicles) and high-speed robotics.
 
@@ -88,14 +88,14 @@ The real test of these models is their empirical performance on standard benchma
 | YOLOv10l        | 640                         | 53.2                       | -                                    | 7.28                                      | 24.4                     | 120.3                   |
 | YOLOv10x        | 640                         | **54.4**                   | -                                    | 10.70                                     | 29.5                     | 160.4                   |
 |                 |                             |                            |                                      |                                           |                          |                         |
-| EfficientDet-d0 | 640                         | 34.6                       | **10.2**                             | 3.92                                      | 3.9                      | **2.54**                |
-| EfficientDet-d1 | 640                         | 40.5                       | 13.5                                 | 7.31                                      | 6.6                      | 6.1                     |
-| EfficientDet-d2 | 640                         | 43.0                       | 17.7                                 | 10.92                                     | 8.1                      | 11.0                    |
-| EfficientDet-d3 | 640                         | 47.5                       | 28.0                                 | 19.59                                     | 12.0                     | 24.9                    |
-| EfficientDet-d4 | 640                         | 49.7                       | 42.8                                 | 33.55                                     | 20.7                     | 55.2                    |
-| EfficientDet-d5 | 640                         | 51.5                       | 72.5                                 | 67.86                                     | 33.7                     | 130.0                   |
-| EfficientDet-d6 | 640                         | 52.6                       | 92.8                                 | 89.29                                     | 51.9                     | 226.0                   |
-| EfficientDet-d7 | 640                         | 53.7                       | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
+| EfficientDet-d0 | 512                         | 34.6                       | -                                    | 3.92                                      | 3.9                      | **2.54**                |
+| EfficientDet-d1 | 640                         | 40.5                       | -                                    | 7.31                                      | 6.6                      | 6.1                     |
+| EfficientDet-d2 | 768                         | 43.0                       | -                                    | 10.92                                     | 8.1                      | 11.0                    |
+| EfficientDet-d3 | 896                         | 47.5                       | -                                    | 19.59                                     | 12.0                     | 24.9                    |
+| EfficientDet-d4 | 1024                        | 49.7                       | -                                    | 33.55                                     | 20.7                     | 55.2                    |
+| EfficientDet-d5 | 1280                        | 51.5                       | -                                    | 67.86                                     | 33.7                     | 130.0                   |
+| EfficientDet-d6 | 1280                        | 52.6                       | -                                    | 89.29                                     | 51.9                     | 226.0                   |
+| EfficientDet-d7 | 1536                        | 53.7                       | -                                    | 128.07                                    | 51.9                     | 325.0                   |
 
 YOLOv10 holds a large advantage in GPU inference speed. For example, YOLOv10s achieves 46.3 mAP with a TensorRT latency of 2.49 ms, whereas EfficientDet-d3 reaches a similar 47.5 mAP but takes 19.59 ms. At the high end, YOLOv10m (51.1 mAP, 4.74 ms) nearly matches EfficientDet-d5 (51.5 mAP, 67.86 ms). This makes YOLOv10 much better suited to real-time video streaming or fast-moving manufacturing pipelines. EfficientDet-d0 has the lowest FLOPs in the table (2.54B).
 
@@ -115,7 +115,7 @@ YOLOv10 is a strong choice for:
 
 EfficientDet is recommended for:
 
-- **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
+- **Google Cloud and TPU Pipelines:** TensorFlow-based systems on Google Cloud TPU infrastructure, where EfficientDet's reference implementation supports TPU training.
 - **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
 - **Mobile Deployment via LiteRT:** Projects that specifically require [LiteRT](https://developers.google.com/edge/litert) (formerly TensorFlow Lite) export for Android or embedded Linux devices.
 
@@ -133,7 +133,7 @@ YOLOv10 introduced NMS-free YOLO detection and EfficientDet showed the value of 
 
 ### Why YOLO26 Outperforms the Competition
 
-1. **End-to-End NMS-Free Design:** YOLO26 offers the end-to-end NMS-free design pioneered in YOLOv10 as an optional one-to-one head (`nms=False`), streamlining deployment and accelerating inference.
+1. **End-to-End NMS-Free Design:** YOLO26 offers YOLOv10's end-to-end NMS-free design as an optional one-to-one head (`nms=False`), streamlining deployment and accelerating inference.
 2. **Up to 43% Faster CPU Inference:** For edge devices without dedicated accelerators, YOLO26n runs up to 43% faster than YOLO11n on standard CPUs.
 3. **Advanced MuSGD Optimizer:** Inspired by large language model (LLM) training methods, YOLO26 uses a hybrid of SGD and Muon for stable training and fast convergence, improving [training efficiency](https://docs.ultralytics.com/guides/model-training-tips) compared to EfficientDet.
 4. **ProgLoss + STAL:** Progressive Loss and Small-Target-Aware Label Assignment (STAL) improve small-object recognition, an area where earlier detectors often struggle.

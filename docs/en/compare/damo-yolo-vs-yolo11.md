@@ -14,7 +14,7 @@ When choosing a real-time object detection architecture for your next computer v
 - **Authors:** Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun
 - **Organization:** [Alibaba Group](https://www.alibabagroup.com/)
 - **Date:** 2022-11-23
-- **Arxiv:** [2211.15444v2](https://arxiv.org/abs/2211.15444v2)
+- **arXiv:** [2211.15444v2](https://arxiv.org/abs/2211.15444v2)
 - **GitHub:** [tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)
 - **Docs:** [DAMO-YOLO Documentation](https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md)
 
@@ -77,10 +77,10 @@ from ultralytics import YOLO
 # Load a pretrained YOLO11 small model
 model = YOLO("yolo11s.pt")
 
-# Train the model effortlessly on a custom dataset
+# Train the model on a custom dataset
 model.train(data="coco8.yaml", epochs=100, imgsz=640, device=0)
 
-# Export the trained model to ONNX for seamless deployment
+# Export the trained model to ONNX for deployment
 model.export(format="onnx")
 ```
 

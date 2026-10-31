@@ -20,7 +20,7 @@ RTDETRv2 builds upon the original [RT-DETR](https://docs.ultralytics.com/models/
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
 - **Organization:** [Baidu](https://www.baidu.com/)
 - **Date:** 2024-07-24
-- **Links:** [Arxiv](https://arxiv.org/abs/2407.17140), [GitHub](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch), [Docs](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
+- **Links:** [arXiv](https://arxiv.org/abs/2407.17140), [GitHub](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch), [Docs](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
 
 ### Architecture and Strengths
 
@@ -32,7 +32,7 @@ RTDETRv2 achieves strong benchmark results, but it can be harder to run in produ
 
 [Learn more about RTDETRv2](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch){ .md-button }
 
-## YOLO26: The Pinnacle of Edge-First Vision AI
+## YOLO26: Edge-First Vision AI
 
 Released in January 2026, **Ultralytics YOLO26** is the latest Ultralytics YOLO model and the recommended choice for new projects. Its design targets simple production deployment and efficient inference on edge hardware.
 
@@ -43,11 +43,11 @@ Released in January 2026, **Ultralytics YOLO26** is the latest Ultralytics YOLO 
 - **Date:** January 14, 2026
 - **Links:** [GitHub](https://github.com/ultralytics/ultralytics), [Docs](https://docs.ultralytics.com/models/yolo26)
 
-### Architectural Breakthroughs
+### Architectural Innovations
 
 YOLO26 introduces several changes that address common pain points in model deployment:
 
-- **End-to-End NMS-Free Design:** Building on concepts pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 supports native end-to-end inference. Its optional one-to-one head (`nms=False`) skips NMS post-processing, which reduces latency variability and makes inference times more predictable in production.
+- **End-to-End NMS-Free Design:** Building on the NMS-free training that [YOLOv10](https://docs.ultralytics.com/models/yolov10) introduced to YOLO models, YOLO26 supports native end-to-end inference. Its optional one-to-one head (`nms=False`) skips NMS post-processing, which reduces latency variability and makes inference times more predictable in production.
 - **Up to 43% Faster CPU Inference:** Architectural refinements and the removal of Distribution Focal Loss (DFL) make YOLO26n up to 43% faster on CPU than YOLO11n, which suits [edge computing](https://www.ultralytics.com/glossary/edge-computing) devices without dedicated GPUs.
 - **MuSGD Optimizer:** Inspired by large language model (LLM) training techniques such as Moonshot AI's Kimi K2, YOLO26 uses the MuSGD optimizer, a hybrid of SGD and Muon, for more stable training and faster convergence.
 - **ProgLoss + STAL:** Progressive Loss and Small-Target-Aware Label Assignment (STAL) improve small-object recognition, which matters for applications involving [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and drone-based surveillance.
@@ -97,10 +97,10 @@ from ultralytics import RTDETR, YOLO
 # Load an RT-DETR model
 model_rtdetr = RTDETR("rtdetr-l.pt")
 
-# Load a state-of-the-art YOLO26 model
+# Load a YOLO26 model
 model_yolo = YOLO("yolo26n.pt")
 
-# Run inference on an image seamlessly
+# Run inference on an image
 results_rtdetr = model_rtdetr("https://ultralytics.com/images/bus.jpg")
 results_yolo = model_yolo("https://ultralytics.com/images/bus.jpg")
 

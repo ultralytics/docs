@@ -1,7 +1,7 @@
 ---
 title: EfficientDet vs YOLOv9 Comparison
 comments: true
-description: "EfficientDet vs YOLOv9: compare BiFPN compound scaling with PGI and GELAN on COCO mAP, CPU and T4 TensorRT latency, parameters, and real-world use cases."
+description: "EfficientDet vs YOLOv9: compare BiFPN compound scaling with PGI and GELAN on COCO mAP, T4 TensorRT latency, parameters, and real-world use cases."
 keywords: EfficientDet, YOLOv9, object detection comparison, computer vision, model performance, AI benchmarks, real-time detection, edge deployments
 ---
 
@@ -24,7 +24,7 @@ Developed by Google Research, EfficientDet focuses on systematic scaling and eff
 - **Authors:** Mingxing Tan, Ruoming Pang, and Quoc V. Le
 - **Organization:** [Google](https://research.google/)
 - **Date:** November 20, 2019
-- **Links:** [Arxiv](https://arxiv.org/abs/1911.09070), [GitHub](https://github.com/google/automl/tree/master/efficientdet)
+- **Links:** [arXiv](https://arxiv.org/abs/1911.09070), [GitHub](https://github.com/google/automl/tree/master/efficientdet)
 
 **Key Architectural Features:**
 EfficientDet relies heavily on a Bi-directional Feature Pyramid Network (BiFPN), which enables fast multi-scale feature fusion. Alongside this, it uses a compound scaling method that uniformly scales the resolution, depth, and width of the network. While highly accurate for its time, EfficientDet is heavily tethered to older [TensorFlow](https://www.tensorflow.org/) environments, making modern deployment pipelines complex.
@@ -38,7 +38,7 @@ Developed by researchers at Academia Sinica, YOLOv9 tackles the degradation of i
 - **Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao
 - **Organization:** Institute of Information Science, Academia Sinica
 - **Date:** February 21, 2024
-- **Links:** [Arxiv](https://arxiv.org/abs/2402.13616), [GitHub](https://github.com/WongKinYiu/yolov9), [Docs](https://docs.ultralytics.com/models/yolov9)
+- **Links:** [arXiv](https://arxiv.org/abs/2402.13616), [GitHub](https://github.com/WongKinYiu/yolov9), [Docs](https://docs.ultralytics.com/models/yolov9)
 
 **Key Architectural Features:**
 YOLOv9 introduces Programmable Gradient Information (PGI) to provide auxiliary supervision, ensuring crucial data is retained for updating network weights reliably. It also features the Generalized Efficient Layer Aggregation Network (GELAN) to maximize parameter efficiency. Despite these advancements, YOLOv9 still requires [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) during post-processing, which adds latency.
@@ -51,14 +51,14 @@ When evaluating these models, analyzing empirical [performance metrics](https://
 
 | Model           | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | --------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| EfficientDet-d0 | 640                         | 34.6                       | **10.2**                             | 3.92                                      | 3.9                      | **2.54**                |
-| EfficientDet-d1 | 640                         | 40.5                       | 13.5                                 | 7.31                                      | 6.6                      | 6.1                     |
-| EfficientDet-d2 | 640                         | 43.0                       | 17.7                                 | 10.92                                     | 8.1                      | 11.0                    |
-| EfficientDet-d3 | 640                         | 47.5                       | 28.0                                 | 19.59                                     | 12.0                     | 24.9                    |
-| EfficientDet-d4 | 640                         | 49.7                       | 42.8                                 | 33.55                                     | 20.7                     | 55.2                    |
-| EfficientDet-d5 | 640                         | 51.5                       | 72.5                                 | 67.86                                     | 33.7                     | 130.0                   |
-| EfficientDet-d6 | 640                         | 52.6                       | 92.8                                 | 89.29                                     | 51.9                     | 226.0                   |
-| EfficientDet-d7 | 640                         | 53.7                       | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
+| EfficientDet-d0 | 512                         | 34.6                       | -                                    | 3.92                                      | 3.9                      | **2.54**                |
+| EfficientDet-d1 | 640                         | 40.5                       | -                                    | 7.31                                      | 6.6                      | 6.1                     |
+| EfficientDet-d2 | 768                         | 43.0                       | -                                    | 10.92                                     | 8.1                      | 11.0                    |
+| EfficientDet-d3 | 896                         | 47.5                       | -                                    | 19.59                                     | 12.0                     | 24.9                    |
+| EfficientDet-d4 | 1024                        | 49.7                       | -                                    | 33.55                                     | 20.7                     | 55.2                    |
+| EfficientDet-d5 | 1280                        | 51.5                       | -                                    | 67.86                                     | 33.7                     | 130.0                   |
+| EfficientDet-d6 | 1280                        | 52.6                       | -                                    | 89.29                                     | 51.9                     | 226.0                   |
+| EfficientDet-d7 | 1536                        | 53.7                       | -                                    | 128.07                                    | 51.9                     | 325.0                   |
 |                 |                             |                            |                                      |                                           |                          |                         |
 | YOLOv9t         | 640                         | 38.3                       | -                                    | **2.3**                                   | **2.0**                  | 7.7                     |
 | YOLOv9s         | 640                         | 46.8                       | -                                    | 3.54                                      | 7.2                      | 26.7                    |
@@ -82,7 +82,7 @@ Choosing between EfficientDet and YOLOv9 depends on your specific project requir
 
 EfficientDet is a strong choice for:
 
-- **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
+- **Google Cloud and TPU Pipelines:** TensorFlow-based systems on Google Cloud TPU infrastructure, where EfficientDet's reference implementation supports TPU training.
 - **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
 - **Mobile Deployment via LiteRT:** Projects that specifically require [LiteRT](https://developers.google.com/edge/litert) (formerly TensorFlow Lite) export for Android or embedded Linux devices.
 
@@ -128,7 +128,7 @@ Ultralytics models prioritize developer experience. Training a model takes just 
 ```python
 from ultralytics import YOLO
 
-# Initialize the state-of-the-art YOLO26 model
+# Initialize the YOLO26 model
 model = YOLO("yolo26n.pt")
 
 # Train with optimized memory usage and built-in augmentations

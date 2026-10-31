@@ -22,7 +22,7 @@ Developed by a team of researchers at the Alibaba Group, DAMO-YOLO was introduce
 - **Authors:** Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun
 - **Organization:** [Alibaba Group](https://www.alibabagroup.com/)
 - **Date:** 2022-11-23
-- **Arxiv:** [https://arxiv.org/abs/2211.15444v2](https://arxiv.org/abs/2211.15444v2)
+- **arXiv:** [https://arxiv.org/abs/2211.15444v2](https://arxiv.org/abs/2211.15444v2)
 - **GitHub:** [https://github.com/tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)
 - **Docs:** [DAMO-YOLO Documentation](https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md)
 
@@ -35,7 +35,7 @@ Created by researchers at Megvii, YOLOX aimed to bridge the gap between research
 - **Authors:** Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun
 - **Organization:** [Megvii](https://en.megvii.com/)
 - **Date:** 2021-07-18
-- **Arxiv:** [https://arxiv.org/abs/2107.08430](https://arxiv.org/abs/2107.08430)
+- **arXiv:** [https://arxiv.org/abs/2107.08430](https://arxiv.org/abs/2107.08430)
 - **GitHub:** [https://github.com/Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
 - **Docs:** [YOLOX Documentation](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
@@ -128,7 +128,7 @@ results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 # Run fast, NMS-free inference on an image
 results = model("https://ultralytics.com/images/bus.jpg", nms=False)
 
-# Export to ONNX or TensorRT seamlessly
+# Export to ONNX or TensorRT
 model.export(format="onnx")
 ```
 

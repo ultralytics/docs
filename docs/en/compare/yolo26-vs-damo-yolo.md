@@ -13,13 +13,13 @@ Choosing a computer vision model means balancing inference speed, accuracy, and 
 
 ## Architectural Innovations and Design
 
-### Ultralytics YOLO26: The Edge-First Vision Standard
+### Ultralytics YOLO26: Edge-First Vision AI
 
 Developed by Glenn Jocher and Jing Qiu at [Ultralytics](https://www.ultralytics.com) and released on January 14, 2026, YOLO26 is the latest model in the Ultralytics YOLO lineage and the recommended choice for new projects. It is designed for edge computing and borrows optimization ideas from LLM training.
 
 Key architectural features of YOLO26 include:
 
-- **End-to-End NMS-Free Design:** Building on pioneering work from [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 supports native end-to-end inference. Its optional one-to-one head (`nms=False`) skips Non-Maximum Suppression (NMS) post-processing, which makes latency more predictable and simplifies deployment pipelines.
+- **End-to-End NMS-Free Design:** Building on the NMS-free training that [YOLOv10](https://docs.ultralytics.com/models/yolov10) introduced to YOLO models, YOLO26 supports native end-to-end inference. Its optional one-to-one head (`nms=False`) skips Non-Maximum Suppression (NMS) post-processing, which makes latency more predictable and simplifies deployment pipelines.
 - **DFL Removal:** The removal of Distribution Focal Loss streamlines the model graph. This makes exporting to deployment frameworks like [ONNX](https://onnx.ai/) and [TensorRT](https://developer.nvidia.com/tensorrt) much smoother and ensures better compatibility with low-power edge devices.
 - **MuSGD Optimizer:** Inspired by Moonshot AI's Kimi K2, this hybrid of Stochastic Gradient Descent (SGD) and Muon brings LLM training innovations into computer vision, for more stable training and faster convergence.
 - **ProgLoss + STAL:** Progressive Loss and Small-Target-Aware Label Assignment (STAL) improve small-object recognition, which matters for drone-based [aerial imagery analysis](https://www.ultralytics.com/blog/using-computer-vision-to-analyze-satellite-imagery) and robotics pipelines.
@@ -92,7 +92,7 @@ from ultralytics import YOLO
 # Initialize the natively end-to-end YOLO26 nano model
 model = YOLO("yolo26n.pt")
 
-# Train on a custom dataset effortlessly
+# Train on a custom dataset
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640, device=0)
 
 # Export the optimized, NMS-free model

@@ -18,7 +18,7 @@ Developed by the Vision AI Department at [Meituan](https://en.wikipedia.org/wiki
 - **Authors:** Chuyi Li, Lulu Li, Yifei Geng, et al.
 - **Organization:** Meituan
 - **Date:** 2023-01-13
-- **Arxiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
+- **arXiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
 - **GitHub:** [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
 - **Docs:** [Ultralytics YOLOv6 Documentation](https://docs.ultralytics.com/models/yolov6)
 
@@ -105,18 +105,18 @@ While raw inference speed is important, the lifecycle of a machine learning proj
 - **Ease of Use:** A unified Python API allows developers to train and export models to formats like [ONNX](https://onnx.ai/) and [OpenVINO](https://docs.ultralytics.com/integrations/openvino) with a single line of code.
 - **Lower Memory Requirements:** Ultralytics models are designed to keep CUDA memory usage low during training, making advanced AI accessible on consumer-grade hardware, in contrast to more memory-intensive transformer architectures like [RT-DETR](https://docs.ultralytics.com/models/rtdetr).
 
-## Looking Forward: The Ultimate Upgrade to YOLO26
+## Looking Forward: Upgrading to YOLO26
 
 For developers seeking the best current performance and modern deployment capabilities, Ultralytics YOLO26 (released January 2026) is the recommended model. It builds on YOLOv8 and the previous [YOLO11](https://docs.ultralytics.com/models/yolo11) generation with several architectural improvements:
 
-- **End-to-End NMS-Free Design:** YOLO26 offers an optional one-to-one head (`nms=False`) that skips [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing, a concept pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10). This streamlines deployment logic and reduces latency variance.
+- **End-to-End NMS-Free Design:** YOLO26 offers an optional one-to-one head (`nms=False`) that skips [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing, a concept introduced to YOLO models by [YOLOv10](https://docs.ultralytics.com/models/yolov10). This streamlines deployment logic and reduces latency variance.
 - **MuSGD Optimizer:** Inspired by large language model (LLM) innovations like Moonshot AI's Kimi K2, the new MuSGD optimizer (a hybrid of SGD and Muon) stabilizes training and accelerates convergence across diverse datasets.
 - **DFL Removal & CPU Speed:** By removing Distribution Focal Loss (DFL), YOLO26 simplifies its export graph. Together with other optimizations, this gives [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) **up to 43% faster CPU inference** than YOLO11n, making YOLO26 a strong choice for [mobile and IoT edge deployment](https://docs.ultralytics.com/guides/model-deployment-options).
 - **ProgLoss + STAL:** The progressive loss and small-target-aware label assignment improve small-object recognition, which is critical for aerial drone imagery and robotics.
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
-### Seamless Python Training Example
+### Python Training Example
 
 The versatility of the Ultralytics API means upgrading from YOLOv8 to YOLO26 requires changing only a single string. The following runnable code snippet demonstrates the workflow:
 

@@ -20,7 +20,7 @@ YOLOX emerged as a popular anchor-free adaptation of the YOLO series, introducin
 - **Authors:** Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun
 - **Organization:** [Megvii](https://en.megvii.com/)
 - **Date:** July 18, 2021
-- **Links:** [Arxiv](https://arxiv.org/abs/2107.08430), [GitHub](https://github.com/Megvii-BaseDetection/YOLOX), [Docs](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
+- **Links:** [arXiv](https://arxiv.org/abs/2107.08430), [GitHub](https://github.com/Megvii-BaseDetection/YOLOX), [Docs](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
 ### Architectural Innovations
 
@@ -39,7 +39,7 @@ Building on its predecessor, RT-DETR, RTDETRv2 uses Vision Transformers (ViTs) t
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
 - **Organization:** [Baidu](https://www.baidu.com/)
 - **Date:** 2024-07-24
-- **Links:** [Arxiv](https://arxiv.org/abs/2407.17140), [GitHub](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
+- **Links:** [arXiv](https://arxiv.org/abs/2407.17140), [GitHub](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 
 ### Architectural Innovations
 
@@ -113,7 +113,7 @@ Unlike transformer architectures like RTDETRv2, which typically rely on GPUs, YO
 
 Training transformer models often leads to excessive [CUDA memory consumption](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) and prolonged training times. YOLO26 introduces the **MuSGD Optimizer**, a hybrid of Stochastic Gradient Descent and the LLM-inspired Muon optimizer, for stable training and faster convergence. Together with its CNN architecture, this keeps training hardware requirements lower than those of RTDETRv2.
 
-### 4. Unmatched Ecosystem and Versatility
+### 4. Ecosystem and Versatility
 
 The [Ultralytics ecosystem](https://docs.ultralytics.com) provides an intuitive, streamlined developer experience. With extensive documentation, active community support, and the cloud-powered [Ultralytics Platform](https://platform.ultralytics.com), managing the complete AI lifecycle is straightforward. YOLO26 is also versatile: while RTDETRv2 focuses on object detection, YOLO26 supports [instance segmentation](https://docs.ultralytics.com/tasks/segment), [image classification](https://docs.ultralytics.com/tasks/classify), [pose estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) tasks natively. Enhanced by the new **ProgLoss + STAL** (Progressive Loss and Small-Target-Aware Label Assignment), YOLO26 also improves small-object detection, a critical feature for [aerial imagery](https://www.ultralytics.com/blog/12-aerial-imagery-use-cases-powered-by-computer-vision) and [industrial defect detection](https://www.ultralytics.com/blog/how-vision-ai-enhances-defect-detection-on-production-lines).
 
@@ -121,7 +121,7 @@ The [Ultralytics ecosystem](https://docs.ultralytics.com) provides an intuitive,
 
     The Ultralytics framework also supports the previous generation [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) and [YOLOv8](https://platform.ultralytics.com/ultralytics/yolov8), allowing users to easily benchmark and transition legacy pipelines.
 
-## Seamless Integration with Ultralytics
+## Integration with Ultralytics
 
 Deploying models shouldn't require grappling with complex, fragmented codebases. The Ultralytics Python API allows you to load, train, and export state-of-the-art models in just a few lines of code.
 
@@ -137,7 +137,7 @@ results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 # Validate the model's performance
 metrics = model.val()
 
-# Export seamlessly to ONNX or TensorRT for deployment
+# Export to ONNX or TensorRT for deployment
 model.export(format="onnx")
 ```
 

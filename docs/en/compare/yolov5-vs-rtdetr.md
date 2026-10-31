@@ -47,7 +47,7 @@ RTDETRv2 (Real-Time Detection Transformer v2) applies transformer architectures 
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
 - **Organization:** [Baidu](https://www.baidu.com/)
 - **Date:** 2024-07-24
-- **Links:** [Arxiv Paper](https://arxiv.org/abs/2407.17140), [GitHub Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
+- **Links:** [arXiv Paper](https://arxiv.org/abs/2407.17140), [GitHub Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 
 ### Architecture and Strengths
 
@@ -86,7 +86,7 @@ The table below compares the performance metrics of both architectures. Values h
 
 When moving a model from a research notebook to a production environment, the software surrounding the model is as important as the neural network architecture. The **Well-Maintained Ecosystem** provided by Ultralytics accelerates the development lifecycle.
 
-### Unmatched Ease of Use
+### Ease of Use
 
 Ultralytics models prioritize a streamlined user experience. Whether you want to train a custom model, run validation, or export to hardware-specific formats like [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) or [ONNX](https://docs.ultralytics.com/integrations/onnx), the [Ultralytics Python API](https://docs.ultralytics.com/usage/python) makes it achievable in just a few lines of code.
 
@@ -144,7 +144,7 @@ If you are starting a new vision project today, consider the latest generations 
 
 While YOLOv5 remains reliable, [YOLO11](https://platform.ultralytics.com/ultralytics/yolo11) offers improved accuracy and an expanded set of tasks including [Oriented Bounding Box (OBB)](https://docs.ultralytics.com/tasks/obb) detection.
 
-[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) goes further by combining strengths of both approaches. It offers an optional **End-to-End NMS-Free Design** (`nms=False`, first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10)) that removes the NMS post-processing step while keeping the efficiency of a CNN. YOLO26 also introduces the **MuSGD Optimizer**, inspired by LLM training innovations, for faster convergence. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), YOLO26n delivers **up to 43% faster CPU inference** than YOLO11n, making YOLO26 a strong choice for edge AI. Additionally, **ProgLoss + STAL** (Progressive Loss and small-target-aware label assignment) provides notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery.
+[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26) goes further by combining strengths of both approaches. It offers an optional **End-to-End NMS-Free Design** (`nms=False`, introduced to YOLO models by [YOLOv10](https://docs.ultralytics.com/models/yolov10)) that removes the NMS post-processing step while keeping the efficiency of a CNN. YOLO26 also introduces the **MuSGD Optimizer**, inspired by LLM training innovations, for faster convergence. With **DFL Removal** (Distribution Focal Loss removed for simplified export and better edge/low-power device compatibility), YOLO26n delivers **up to 43% faster CPU inference** than YOLO11n, making YOLO26 a strong choice for edge AI. Additionally, **ProgLoss + STAL** (Progressive Loss and small-target-aware label assignment) provides notable improvements in small-object recognition, critical for IoT, robotics, and aerial imagery.
 
 ## Conclusion
 

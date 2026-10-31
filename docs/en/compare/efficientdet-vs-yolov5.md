@@ -1,7 +1,7 @@
 ---
 title: EfficientDet vs YOLOv5 Comparison
 comments: true
-description: "EfficientDet vs Ultralytics YOLOv5: compare BiFPN compound scaling with a CSPDarknet PyTorch detector on COCO mAP, CPU and T4 TensorRT latency, and deployment."
+description: "EfficientDet vs Ultralytics YOLOv5: compare BiFPN compound scaling with a CSPDarknet PyTorch detector on COCO mAP, T4 TensorRT latency, and deployment."
 keywords: EfficientDet, YOLOv5, object detection, model comparison, computer vision, Ultralytics, performance metrics, inference speed, mAP, architecture
 ---
 
@@ -22,7 +22,7 @@ Introduced by Google Research, EfficientDet was designed to systematically scale
 - **Authors:** Mingxing Tan, Ruoming Pang, and Quoc V. Le
 - **Organization:** [Google Research](https://research.google/)
 - **Date:** November 20, 2019
-- **Arxiv:** [EfficientDet: Scalable and Efficient Object Detection](https://arxiv.org/abs/1911.09070)
+- **arXiv:** [EfficientDet: Scalable and Efficient Object Detection](https://arxiv.org/abs/1911.09070)
 - **GitHub:** [google/automl/efficientdet](https://github.com/google/automl/tree/master/efficientdet)
 
 ### Architectural Innovations
@@ -59,14 +59,14 @@ Evaluating models on standard benchmarks like the [COCO dataset](https://docs.ul
 
 | Model           | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | --------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| EfficientDet-d0 | 640                         | 34.6                       | **10.2**                             | 3.92                                      | 3.9                      | **2.54**                |
-| EfficientDet-d1 | 640                         | 40.5                       | 13.5                                 | 7.31                                      | 6.6                      | 6.1                     |
-| EfficientDet-d2 | 640                         | 43.0                       | 17.7                                 | 10.92                                     | 8.1                      | 11.0                    |
-| EfficientDet-d3 | 640                         | 47.5                       | 28.0                                 | 19.59                                     | 12.0                     | 24.9                    |
-| EfficientDet-d4 | 640                         | 49.7                       | 42.8                                 | 33.55                                     | 20.7                     | 55.2                    |
-| EfficientDet-d5 | 640                         | 51.5                       | 72.5                                 | 67.86                                     | 33.7                     | 130.0                   |
-| EfficientDet-d6 | 640                         | 52.6                       | 92.8                                 | 89.29                                     | 51.9                     | 226.0                   |
-| EfficientDet-d7 | 640                         | **53.7**                   | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
+| EfficientDet-d0 | 512                         | 34.6                       | -                                    | 3.92                                      | 3.9                      | **2.54**                |
+| EfficientDet-d1 | 640                         | 40.5                       | -                                    | 7.31                                      | 6.6                      | 6.1                     |
+| EfficientDet-d2 | 768                         | 43.0                       | -                                    | 10.92                                     | 8.1                      | 11.0                    |
+| EfficientDet-d3 | 896                         | 47.5                       | -                                    | 19.59                                     | 12.0                     | 24.9                    |
+| EfficientDet-d4 | 1024                        | 49.7                       | -                                    | 33.55                                     | 20.7                     | 55.2                    |
+| EfficientDet-d5 | 1280                        | 51.5                       | -                                    | 67.86                                     | 33.7                     | 130.0                   |
+| EfficientDet-d6 | 1280                        | 52.6                       | -                                    | 89.29                                     | 51.9                     | 226.0                   |
+| EfficientDet-d7 | 1536                        | **53.7**                   | -                                    | 128.07                                    | 51.9                     | 325.0                   |
 |                 |                             |                            |                                      |                                           |                          |                         |
 | YOLOv5n         | 640                         | 28.0                       | -                                    | **1.12**                                  | **1.9**                  | 4.5                     |
 | YOLOv5s         | 640                         | 37.4                       | -                                    | 1.92                                      | 7.2                      | 16.5                    |

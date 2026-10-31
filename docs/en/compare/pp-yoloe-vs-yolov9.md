@@ -24,7 +24,7 @@ Developed by the PaddlePaddle Authors at Baidu, PP-YOLOE+ was introduced on Apri
 - **Authors:** PaddlePaddle Authors
 - **Organization:** [Baidu](https://github.com/PaddlePaddle/PaddleDetection/)
 - **Date:** 2022-04-02
-- **Arxiv:** [2203.16250](https://arxiv.org/abs/2203.16250)
+- **arXiv:** [2203.16250](https://arxiv.org/abs/2203.16250)
 - **GitHub:** [PaddleDetection Repository](https://github.com/PaddlePaddle/PaddleDetection/)
 
 PP-YOLOE+ introduces a robust anchor-free architecture, heavily optimized for deployment within the PaddlePaddle ecosystem. It utilizes a modified CSPRepResNet backbone and an ET-head to improve feature extraction and bounding box regression. While it achieves high [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map), its reliance on the PaddlePaddle framework can sometimes introduce integration friction for developers accustomed to PyTorch or TensorFlow.
@@ -38,7 +38,7 @@ Introduced by Chien-Yao Wang and Hong-Yuan Mark Liao from the Institute of Infor
 - **Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao
 - **Organization:** Institute of Information Science, Academia Sinica, Taiwan
 - **Date:** 2024-02-21
-- **Arxiv:** [2402.13616](https://arxiv.org/abs/2402.13616)
+- **arXiv:** [2402.13616](https://arxiv.org/abs/2402.13616)
 - **GitHub:** [WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9)
 
 YOLOv9's main contribution is Programmable Gradient Information (PGI), which mitigates information loss as features pass through deep neural networks. Combined with the Generalized Efficient Layer Aggregation Network (GELAN), YOLOv9 maximizes parameter efficiency and computational flow. It is also natively integrated into the [Ultralytics ecosystem](https://docs.ultralytics.com), making it highly accessible for both research and commercial applications.

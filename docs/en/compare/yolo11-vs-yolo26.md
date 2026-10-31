@@ -29,7 +29,7 @@ Released in late 2024, YOLO11 refined the advancements of earlier generations, c
 
 [Learn more about YOLO11](https://platform.ultralytics.com/ultralytics/yolo11){ .md-button }
 
-### YOLO26: The New Frontier
+### YOLO26: The Next Generation
 
 Introduced in January 2026, YOLO26 focuses on edge deployment and optional end-to-end inference, improving CPU speed and ease of integration.
 
@@ -51,7 +51,7 @@ While YOLO11 relies on traditional post-processing methods that have powered com
 
 ### End-to-End NMS-Free Design
 
-One of the most significant upgrades in YOLO26 is its natively end-to-end architecture. Its optional one-to-one head (`nms=False`) eliminates [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing, a concept first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10). Bypassing NMS simplifies the deployment pipeline and keeps latency consistent, which is essential for real-time applications like autonomous driving algorithms.
+One of the most significant upgrades in YOLO26 is its natively end-to-end architecture. Its optional one-to-one head (`nms=False`) eliminates [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing, a concept introduced to YOLO models by [YOLOv10](https://docs.ultralytics.com/models/yolov10). Bypassing NMS simplifies the deployment pipeline and keeps latency consistent, which is essential for real-time applications like autonomous driving algorithms.
 
 ### DFL Removal for Edge Optimization
 
@@ -101,7 +101,7 @@ For applications constrained by power and hardware, such as smart agriculture mo
 
 **YOLO11** remains a good choice for existing enterprise deployments built around it, such as cloud-based video analytics and large-scale media processing pipelines already integrated with its output formats.
 
-### Complex Multi-Tasking
+### Small Object Detection
 
 If your project requires high accuracy on small objects, such as detecting defects on a circuit board or tracking distant vehicles in [aerial imagery](https://docs.ultralytics.com/datasets/detect/visdrone), the **ProgLoss + STAL** implementation in **YOLO26** improves recall and precision on those difficult cases.
 

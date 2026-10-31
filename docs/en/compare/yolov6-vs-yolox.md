@@ -20,7 +20,7 @@ Developed by the Vision AI Department at Meituan, YOLOv6-3.0 is explicitly brand
 - **Authors:** Chuyi Li, Lulu Li, Yifei Geng, et al.
 - **Organization:** [Meituan](https://en.wikipedia.org/wiki/Meituan)
 - **Date:** 2023-01-13
-- **Arxiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
+- **arXiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
 - **GitHub:** [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
 
 ### Architecture and Methodology
@@ -42,7 +42,7 @@ Introduced by Megvii, YOLOX represented a significant shift in the YOLO family b
 - **Authors:** Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun
 - **Organization:** [Megvii](https://en.megvii.com/)
 - **Date:** 2021-07-18
-- **Arxiv:** [2107.08430](https://arxiv.org/abs/2107.08430)
+- **arXiv:** [2107.08430](https://arxiv.org/abs/2107.08430)
 - **GitHub:** [Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
 
 ### Architecture and Methodology
@@ -113,7 +113,7 @@ Released in January 2026, YOLO26 improves the accuracy-latency trade-off while k
 
 ### Key YOLO26 Innovations
 
-- **End-to-End NMS-Free Design:** Building on concepts pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 offers an optional NMS-free head (`nms=False`) that removes the need for Non-Maximum Suppression (NMS) post-processing. This reduces latency variance and simplifies edge deployment.
+- **End-to-End NMS-Free Design:** Building on the NMS-free training that [YOLOv10](https://docs.ultralytics.com/models/yolov10) introduced to YOLO models, YOLO26 offers an optional NMS-free head (`nms=False`) that removes the need for Non-Maximum Suppression (NMS) post-processing. This reduces latency variance and simplifies edge deployment.
 - **MuSGD Optimizer:** YOLO26 borrows ideas from LLM training, using a hybrid MuSGD optimizer (inspired by Moonshot AI's Kimi K2) that combines SGD with Muon. This gives more stable training and faster convergence than older optimizers.
 - **Up to 43% Faster CPU Inference:** Unlike YOLOv6, which targets GPUs, YOLO26 is optimized for edge devices. Removing Distribution Focal Loss (DFL) simplifies the output head, and YOLO26n runs up to 43% faster on CPU than YOLO11n.
 - **ProgLoss + STAL:** Progressive Loss and small-target-aware label assignment boost small object detection, an area where older architectures like YOLOX often struggled. This makes YOLO26 ideal for aerial imagery and IoT sensors.

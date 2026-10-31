@@ -74,7 +74,7 @@ As seen in the data, YOLOv8x achieves the highest accuracy (**53.9 mAP**), while
 
 While YOLOv7 provides strong raw detection metrics, **Ultralytics YOLOv8** offers a better developer experience, deeper ecosystem integration, and multi-task support.
 
-### Unmatched Versatility
+### Versatility
 
 YOLOv7 is primarily a detection model, with experimental branches for other tasks. In contrast, YOLOv8 natively supports [Object Detection](https://docs.ultralytics.com/tasks/detect), [Instance Segmentation](https://docs.ultralytics.com/tasks/segment), [Image Classification](https://docs.ultralytics.com/tasks/classify), [Pose Estimation](https://docs.ultralytics.com/tasks/pose), and [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb). This unified approach means a team can learn one API and deploy it across entirely different project requirements.
 

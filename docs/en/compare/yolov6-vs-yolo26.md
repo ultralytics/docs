@@ -20,7 +20,7 @@ Developed by the Meituan Vision AI Department, YOLOv6-3.0 was designed as a "nex
 - **Authors:** Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu
 - **Organization:** [Meituan](https://www.meituan.com/)
 - **Date:** 2023-01-13
-- **Arxiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
+- **arXiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
 - **GitHub:** [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
 - **Docs:** [YOLOv6 Documentation](https://docs.ultralytics.com/models/yolov6)
 
@@ -40,11 +40,11 @@ Released in January 2026, **Ultralytics YOLO26** makes complex post-processing o
 - **GitHub:** [ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 - **Docs:** [YOLO26 Documentation](https://docs.ultralytics.com/models/yolo26)
 
-### Key Architectural Breakthroughs
+### Key Architectural Features
 
 YOLO26 introduces several advancements over previous generations:
 
-- **End-to-End NMS-Free Design:** Building on concepts first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 offers an optional end-to-end one-to-one head (`nms=False`) that skips [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing, reducing latency variability and simplifying deployment logic.
+- **End-to-End NMS-Free Design:** Building on the NMS-free training that [YOLOv10](https://docs.ultralytics.com/models/yolov10) introduced to YOLO models, YOLO26 offers an optional end-to-end one-to-one head (`nms=False`) that skips [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing, reducing latency variability and simplifying deployment logic.
 - **Up to 43% Faster CPU Inference:** Optimized for edge computing, YOLO26n runs up to 43% faster on CPU than YOLO11n, making YOLO26 well suited to devices without GPUs such as mobile phones, IoT sensors, and robotics.
 - **DFL Removal:** The Distribution Focal Loss has been removed, simplifying the model export process and enhancing compatibility with low-power edge devices.
 - **MuSGD Optimizer:** Inspired by large language model (LLM) training innovations like Moonshot AI's Kimi K2, the new MuSGD optimizer (a hybrid of [Stochastic Gradient Descent](https://www.ultralytics.com/glossary/stochastic-gradient-descent-sgd) and Muon) brings LLM-style training stability to vision tasks and faster convergence.
@@ -103,7 +103,7 @@ results = model.train(
     data="coco8.yaml",
     epochs=100,
     imgsz=640,
-    device=0,  # Utilizes GPU for accelerated training
+    device=0,  # Uses GPU for accelerated training
 )
 
 # Validate the trained model's performance

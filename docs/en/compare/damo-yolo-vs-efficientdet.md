@@ -24,7 +24,7 @@ Developed to push the boundaries of real-time detection, DAMO-YOLO leverages aut
 - **Authors:** Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun
 - **Organization:** [Alibaba Group](https://www.alibabagroup.com/)
 - **Date:** 2022-11-23
-- **Arxiv:** [https://arxiv.org/abs/2211.15444v2](https://arxiv.org/abs/2211.15444v2)
+- **arXiv:** [https://arxiv.org/abs/2211.15444v2](https://arxiv.org/abs/2211.15444v2)
 - **GitHub:** [https://github.com/tinyvision/DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO)
 
 DAMO-YOLO is built around a Neural Architecture Search (NAS) backbone that optimizes for both speed and accuracy. It introduces the RepGFPN (Reparameterized Generalized Feature Pyramid Network), which enhances feature fusion while maintaining high inference speeds. Furthermore, its ZeroHead design minimizes the computational overhead typically associated with detection heads. The model also uses AlignedOTA (Aligned Optimal Transport Assignment) label assignment and knowledge distillation, so even the smallest variants learn rich representations from larger models.
@@ -40,7 +40,7 @@ Contrasting with the speed-first approach, EfficientDet focuses on systematic sc
 - **Authors:** Mingxing Tan, Ruoming Pang, and Quoc V. Le
 - **Organization:** [Google Brain](https://research.google/)
 - **Date:** 2019-11-20
-- **Arxiv:** [https://arxiv.org/abs/1911.09070](https://arxiv.org/abs/1911.09070)
+- **arXiv:** [https://arxiv.org/abs/1911.09070](https://arxiv.org/abs/1911.09070)
 - **GitHub:** [https://github.com/google/automl/tree/master/efficientdet](https://github.com/google/automl/tree/master/efficientdet)
 
 EfficientDet introduces the BiFPN (Bidirectional Feature Pyramid Network), which enables fast multi-scale feature fusion. Unlike traditional methods that scale up architectures by arbitrarily adding layers or channels, EfficientDet uses a compound scaling method that uniformly scales the resolution, depth, and width of the backbone, feature network, and box/class prediction networks simultaneously. This allowed it to achieve state-of-the-art accuracy at the time of its release on high-end hardware, while offering smaller variants for constrained environments.
@@ -58,14 +58,14 @@ Side by side, the trade-off between accuracy and inference speed becomes clear. 
 | DAMO-YOLOm      | 640                         | 49.2                       | -                                    | 5.09                                      | 28.2                     | 61.8                    |
 | DAMO-YOLOl      | 640                         | 50.8                       | -                                    | 7.18                                      | 42.1                     | 97.3                    |
 |                 |                             |                            |                                      |                                           |                          |                         |
-| EfficientDet-d0 | 640                         | 34.6                       | **10.2**                             | 3.92                                      | **3.9**                  | **2.54**                |
-| EfficientDet-d1 | 640                         | 40.5                       | 13.5                                 | 7.31                                      | 6.6                      | 6.1                     |
-| EfficientDet-d2 | 640                         | 43.0                       | 17.7                                 | 10.92                                     | 8.1                      | 11.0                    |
-| EfficientDet-d3 | 640                         | 47.5                       | 28.0                                 | 19.59                                     | 12.0                     | 24.9                    |
-| EfficientDet-d4 | 640                         | 49.7                       | 42.8                                 | 33.55                                     | 20.7                     | 55.2                    |
-| EfficientDet-d5 | 640                         | 51.5                       | 72.5                                 | 67.86                                     | 33.7                     | 130.0                   |
-| EfficientDet-d6 | 640                         | 52.6                       | 92.8                                 | 89.29                                     | 51.9                     | 226.0                   |
-| EfficientDet-d7 | 640                         | **53.7**                   | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
+| EfficientDet-d0 | 512                         | 34.6                       | -                                    | 3.92                                      | **3.9**                  | **2.54**                |
+| EfficientDet-d1 | 640                         | 40.5                       | -                                    | 7.31                                      | 6.6                      | 6.1                     |
+| EfficientDet-d2 | 768                         | 43.0                       | -                                    | 10.92                                     | 8.1                      | 11.0                    |
+| EfficientDet-d3 | 896                         | 47.5                       | -                                    | 19.59                                     | 12.0                     | 24.9                    |
+| EfficientDet-d4 | 1024                        | 49.7                       | -                                    | 33.55                                     | 20.7                     | 55.2                    |
+| EfficientDet-d5 | 1280                        | 51.5                       | -                                    | 67.86                                     | 33.7                     | 130.0                   |
+| EfficientDet-d6 | 1280                        | 52.6                       | -                                    | 89.29                                     | 51.9                     | 226.0                   |
+| EfficientDet-d7 | 1536                        | **53.7**                   | -                                    | 128.07                                    | 51.9                     | 325.0                   |
 
 EfficientDet-d7 achieves the highest overall accuracy, making it suitable for demanding cloud-based applications. The DAMO-YOLO series offers competitive accuracy with much lower latency on GPU hardware, making it a stronger candidate for real-time edge deployments.
 
@@ -85,7 +85,7 @@ DAMO-YOLO is a strong choice for:
 
 EfficientDet is recommended for:
 
-- **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
+- **Google Cloud and TPU Pipelines:** TensorFlow-based systems on Google Cloud TPU infrastructure, where EfficientDet's reference implementation supports TPU training.
 - **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
 - **Mobile Deployment via LiteRT:** Projects that specifically require [LiteRT](https://developers.google.com/edge/litert) (formerly TensorFlow Lite) export for Android or embedded Linux devices.
 
@@ -107,7 +107,7 @@ Released in January 2026, YOLO26 builds upon the legacy of its predecessors, inc
 
     YOLO26 features a native [end-to-end NMS-free design](https://docs.ultralytics.com/guides/end2end-detection) (`nms=False`). By removing Non-Maximum Suppression (NMS) from post-processing, a long-standing deployment bottleneck for object detectors, YOLO26 offers a simpler and faster deployment pipeline, especially on edge hardware.
 
-### Unmatched Performance and Versatility
+### Performance and Versatility
 
 YOLO26 improves training stability and accuracy as well as speed. It introduces the **MuSGD Optimizer**, a hybrid of SGD and Muon inspired by LLM training, for faster convergence and more efficient training. Unlike heavier transformer-based alternatives such as [RT-DETR](https://docs.ultralytics.com/models/rtdetr), YOLO26 keeps memory requirements low, so it can be trained on consumer-grade hardware.
 
@@ -122,7 +122,7 @@ Training and running inference with YOLO26 takes only a few lines with the Ultra
 ```python
 from ultralytics import YOLO
 
-# Load the state-of-the-art YOLO26 nano model
+# Load the YOLO26 nano model
 model = YOLO("yolo26n.pt")
 
 # Train the model on your custom dataset with minimal memory footprint

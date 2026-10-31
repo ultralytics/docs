@@ -22,7 +22,7 @@ Understanding the origins of these models provides context for their architectur
 - **Authors:** Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun
 - **Organization:** [Megvii](https://en.megvii.com/)
 - **Date:** 2021-07-18
-- **Arxiv:** [https://arxiv.org/abs/2107.08430](https://arxiv.org/abs/2107.08430)
+- **arXiv:** [https://arxiv.org/abs/2107.08430](https://arxiv.org/abs/2107.08430)
 - **GitHub:** [https://github.com/Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
 - **Docs:** [https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
@@ -33,7 +33,7 @@ Understanding the origins of these models provides context for their architectur
 - **Authors:** Ao Wang, Hui Chen, Lihao Liu, Kai Chen, Zijia Lin, Jungong Han, and Guiguang Ding
 - **Organization:** [Tsinghua University](https://www.tsinghua.edu.cn/en/)
 - **Date:** 2024-05-23
-- **Arxiv:** [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)
+- **arXiv:** [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)
 - **GitHub:** [https://github.com/THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
 - **Docs:** [https://docs.ultralytics.com/models/yolov10](https://docs.ultralytics.com/models/yolov10)
 
@@ -47,7 +47,7 @@ The core differences between YOLOX and YOLOv10 lie in how they handle bounding b
 
 YOLOX moved the YOLO family to an anchor-free architecture. By predicting the center of an object rather than relying on predefined anchor boxes, YOLOX significantly reduced the number of design parameters and heuristic tuning required for custom datasets. It also introduced a decoupled head, separating classification and regression tasks into distinct pathways. This approach reduced the conflict between identifying _what_ an object is and determining _where_ it is, leading to noticeable gains in convergence speed and accuracy.
 
-### YOLOv10: The NMS-Free Revolution
+### YOLOv10: NMS-Free Real-Time Detection
 
 While YOLOX simplified the detection head, it still relied on NMS to filter out redundant bounding box predictions. YOLOv10 tackled this fundamental bottleneck. By utilizing consistent dual assignments during training, YOLOv10 achieves native end-to-end detection. It employs a one-to-many head during training to ensure rich supervisory signals, while utilizing a one-to-one head during inference to output final predictions directly. This holistic efficiency-accuracy driven design eliminates NMS entirely, significantly reducing inference latency on embedded chips.
 
@@ -119,7 +119,7 @@ For applications requiring very low latency, such as autonomous driving or real-
 
 YOLOX still holds value in academic settings where researchers want a clean, decoupled-head baseline for experimenting with label assignment strategies. Additionally, the very small YOLOX-Nano (under 1 million parameters) can fit on highly constrained edge devices where memory is tightly limited, provided the hardware can support standard convolution operations.
 
-## The Ultimate Standard: Ultralytics YOLO26
+## The Recommended Model: Ultralytics YOLO26
 
 YOLOv10 was a major step forward in removing NMS, but the field of computer vision advances rapidly. For new projects, Ultralytics recommends [YOLO26](https://platform.ultralytics.com/ultralytics/yolo26), released in January 2026.
 

@@ -1,7 +1,7 @@
 ---
 title: EfficientDet vs YOLOX Comparison
 comments: true
-description: "EfficientDet vs YOLOX: compare BiFPN compound scaling with YOLOX's anchor-free decoupled head and SimOTA on COCO mAP, CPU and T4 TensorRT latency, and use cases."
+description: "EfficientDet vs YOLOX: compare BiFPN compound scaling with YOLOX's anchor-free decoupled head and SimOTA on COCO mAP, T4 TensorRT latency, and use cases."
 keywords: EfficientDet, YOLOX, object detection, model comparison, EfficientDet vs YOLOX, BiFPN, anchor-free detection, SimOTA, computer vision, deep learning
 ---
 
@@ -20,7 +20,7 @@ Introduced by the Google Brain team, EfficientDet pioneered a structured approac
 - **Authors:** Mingxing Tan, Ruoming Pang, and Quoc V. Le
 - **Organization:** [Google](https://research.google/)
 - **Date:** 2019-11-20
-- **ArXiv:** [1911.09070](https://arxiv.org/abs/1911.09070)
+- **arXiv:** [1911.09070](https://arxiv.org/abs/1911.09070)
 - **GitHub:** [google/automl/efficientdet](https://github.com/google/automl/tree/master/efficientdet)
 - **Docs:** [EfficientDet Documentation](https://github.com/google/automl/tree/master/efficientdet#readme)
 
@@ -41,7 +41,7 @@ Released two years later, YOLOX sought to bridge the gap between academic resear
 - **Authors:** Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun
 - **Organization:** [Megvii](https://en.megvii.com/)
 - **Date:** 2021-07-18
-- **ArXiv:** [2107.08430](https://arxiv.org/abs/2107.08430)
+- **arXiv:** [2107.08430](https://arxiv.org/abs/2107.08430)
 - **GitHub:** [Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
 - **Docs:** [YOLOX Documentation](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
@@ -59,14 +59,14 @@ When evaluating models for production, balancing [mean Average Precision (mAP)](
 
 | Model           | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | --------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| EfficientDet-d0 | 640                         | 34.6                       | **10.2**                             | 3.92                                      | 3.9                      | 2.54                    |
-| EfficientDet-d1 | 640                         | 40.5                       | 13.5                                 | 7.31                                      | 6.6                      | 6.1                     |
-| EfficientDet-d2 | 640                         | 43.0                       | 17.7                                 | 10.92                                     | 8.1                      | 11.0                    |
-| EfficientDet-d3 | 640                         | 47.5                       | 28.0                                 | 19.59                                     | 12.0                     | 24.9                    |
-| EfficientDet-d4 | 640                         | 49.7                       | 42.8                                 | 33.55                                     | 20.7                     | 55.2                    |
-| EfficientDet-d5 | 640                         | 51.5                       | 72.5                                 | 67.86                                     | 33.7                     | 130.0                   |
-| EfficientDet-d6 | 640                         | 52.6                       | 92.8                                 | 89.29                                     | 51.9                     | 226.0                   |
-| EfficientDet-d7 | 640                         | **53.7**                   | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
+| EfficientDet-d0 | 512                         | 34.6                       | -                                    | 3.92                                      | 3.9                      | 2.54                    |
+| EfficientDet-d1 | 640                         | 40.5                       | -                                    | 7.31                                      | 6.6                      | 6.1                     |
+| EfficientDet-d2 | 768                         | 43.0                       | -                                    | 10.92                                     | 8.1                      | 11.0                    |
+| EfficientDet-d3 | 896                         | 47.5                       | -                                    | 19.59                                     | 12.0                     | 24.9                    |
+| EfficientDet-d4 | 1024                        | 49.7                       | -                                    | 33.55                                     | 20.7                     | 55.2                    |
+| EfficientDet-d5 | 1280                        | 51.5                       | -                                    | 67.86                                     | 33.7                     | 130.0                   |
+| EfficientDet-d6 | 1280                        | 52.6                       | -                                    | 89.29                                     | 51.9                     | 226.0                   |
+| EfficientDet-d7 | 1536                        | **53.7**                   | -                                    | 128.07                                    | 51.9                     | 325.0                   |
 |                 |                             |                            |                                      |                                           |                          |                         |
 | YOLOXnano       | 416                         | 25.8                       | -                                    | -                                         | **0.91**                 | **1.08**                |
 | YOLOXtiny       | 416                         | 32.8                       | -                                    | -                                         | 5.06                     | 6.45                    |
@@ -87,7 +87,7 @@ Choosing between EfficientDet and YOLOX depends on your specific project require
 
 EfficientDet is a strong choice for:
 
-- **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
+- **Google Cloud and TPU Pipelines:** TensorFlow-based systems on Google Cloud TPU infrastructure, where EfficientDet's reference implementation supports TPU training.
 - **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
 - **Mobile Deployment via LiteRT:** Projects that specifically require [LiteRT](https://developers.google.com/edge/litert) (formerly TensorFlow Lite) export for Android or embedded Linux devices.
 
@@ -128,13 +128,13 @@ One of the largest hurdles with models like YOLOX is setting up the training env
 ```python
 from ultralytics import YOLO
 
-# Load the cutting-edge YOLO26n model (NMS-free inference available with nms=False)
+# Load the YOLO26n model (NMS-free inference available with nms=False)
 model = YOLO("yolo26n.pt")
 
 # Train the model on your custom dataset
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
-# Export the model seamlessly to ONNX or OpenVINO for edge deployment
+# Export the model to ONNX or OpenVINO for edge deployment
 model.export(format="openvino")
 ```
 

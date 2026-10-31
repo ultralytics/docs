@@ -82,7 +82,7 @@ from ultralytics import YOLO
 # Load a pretrained YOLO11 model
 model = YOLO("yolo11n.pt")
 
-# Train the model effortlessly on custom data
+# Train the model on custom data
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
 # Export the trained model to TensorRT for optimized deployment

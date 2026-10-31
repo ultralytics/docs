@@ -11,7 +11,7 @@ Choosing a real-time computer vision model requires understanding the trade-offs
 
 Both models achieve strong results on benchmark datasets, but their design philosophies and ecosystem integrations differ significantly. Examining their architectures shows which one best fits your deployment constraints and project goals.
 
-## YOLOv10: Pioneering NMS-Free End-to-End Detection
+## YOLOv10: NMS-Free Real-Time Detection
 
 Released in the spring of 2024, YOLOv10 introduced a novel approach to the traditional object detection pipeline by directly addressing the latency overhead associated with post-processing.
 

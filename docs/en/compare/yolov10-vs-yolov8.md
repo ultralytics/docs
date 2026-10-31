@@ -24,7 +24,7 @@ Developed by researchers at Tsinghua University, YOLOv10 was designed to address
 - **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
 - **Organization:** [Tsinghua University](https://www.tsinghua.edu.cn/en/)
 - **Date:** 2024-05-23
-- **Arxiv:** [2405.14458](https://arxiv.org/abs/2405.14458)
+- **arXiv:** [2405.14458](https://arxiv.org/abs/2405.14458)
 - **GitHub:** [THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
 - **Docs:** [YOLOv10 Documentation](https://docs.ultralytics.com/models/yolov10)
 
@@ -114,7 +114,7 @@ predictions[0].show()
 
 While YOLOv8 and YOLOv10 are important milestones, the field keeps advancing. For new projects, Ultralytics recommends **[YOLO26](https://platform.ultralytics.com/ultralytics/yolo26)**, its latest model family, released in January 2026.
 
-YOLO26 combines recent architectural advances into a single framework. It adopts the **End-to-End NMS-Free Design** pioneered by YOLOv10 as an optional one-to-one head (`nms=False`), which streamlines deployment pipelines and reduces latency variability. YOLO26 also introduces the **MuSGD Optimizer**, a hybrid of SGD and Muon inspired by LLM training, for faster and more stable convergence.
+YOLO26 combines recent architectural advances into a single framework. It adopts YOLOv10's **End-to-End NMS-Free Design** as an optional one-to-one head (`nms=False`), which streamlines deployment pipelines and reduces latency variability. YOLO26 also introduces the **MuSGD Optimizer**, a hybrid of SGD and Muon inspired by LLM training, for faster and more stable convergence.
 
 Key improvements in YOLO26 include:
 

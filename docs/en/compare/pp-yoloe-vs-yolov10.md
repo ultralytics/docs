@@ -22,7 +22,7 @@ Developed by the PaddlePaddle Authors at Baidu, PP-YOLOE+ is an evolutionary ste
 - **Authors:** PaddlePaddle Authors
 - **Organization:** [Baidu](https://www.baidu.com/)
 - **Date:** 2022-04-02
-- **Arxiv:** [https://arxiv.org/abs/2203.16250](https://arxiv.org/abs/2203.16250)
+- **arXiv:** [https://arxiv.org/abs/2203.16250](https://arxiv.org/abs/2203.16250)
 - **GitHub:** [PaddleDetection Repository](https://github.com/PaddlePaddle/PaddleDetection/)
 - **Docs:** [PP-YOLOE+ Official Documentation](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
 
@@ -39,7 +39,7 @@ Released by researchers at Tsinghua University, YOLOv10 brought a significant ar
 - **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
 - **Organization:** [Tsinghua University](https://www.tsinghua.edu.cn/en/)
 - **Date:** 2024-05-23
-- **Arxiv:** [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)
+- **arXiv:** [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)
 - **GitHub:** [YOLOv10 Repository](https://github.com/THU-MIG/yolov10)
 - **Docs:** [YOLOv10 Documentation](https://docs.ultralytics.com/models/yolov10)
 
@@ -90,7 +90,7 @@ Released in January 2026, **Ultralytics YOLO26** combines the best insights from
 
 **Key Innovations of YOLO26:**
 
-- **End-to-End NMS-Free Design:** Building on the concept pioneered in YOLOv10, YOLO26 offers an optional [end-to-end head](https://docs.ultralytics.com/guides/end2end-detection) (`nms=False`) that eliminates NMS post-processing for faster, simpler deployment across diverse hardware.
+- **End-to-End NMS-Free Design:** Building on the NMS-free training that YOLOv10 introduced to YOLO models, YOLO26 offers an optional [end-to-end head](https://docs.ultralytics.com/guides/end2end-detection) (`nms=False`) that eliminates NMS post-processing for faster, simpler deployment across diverse hardware.
 - **DFL Removal:** By removing Distribution Focal Loss (DFL), the model architecture is simpler to export, improving compatibility with low-power [edge AI devices](https://www.ultralytics.com/blog/edge-ai-and-edge-computing-powering-real-time-intelligence).
 - **MuSGD Optimizer:** Inspired by large language model training techniques (such as Moonshot AI's Kimi K2), YOLO26 uses a hybrid of SGD and Muon. This delivers stable training and significantly faster convergence.
 - **Up to 43% Faster CPU Inference:** Optimized for real-world scenarios, YOLO26n is up to 43% faster than YOLO11n for applications relying on CPU compute, making it well suited to [smart surveillance](https://www.ultralytics.com/blog/smart-surveillance-ultralytics-yolo11) and mobile deployments.

@@ -40,7 +40,7 @@ Developed by researchers at Tsinghua University, YOLOv10 aimed to tackle one of 
 - **Authors:** Ao Wang, Hui Chen, Lihao Liu, et al.
 - **Organization:** [Tsinghua University](https://www.tsinghua.edu.cn/en/)
 - **Date:** 2024-05-23
-- **Arxiv:** [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)
+- **arXiv:** [https://arxiv.org/abs/2405.14458](https://arxiv.org/abs/2405.14458)
 - **GitHub:** [https://github.com/THU-MIG/yolov10](https://github.com/THU-MIG/yolov10)
 - **Docs:** [https://docs.ultralytics.com/models/yolov10](https://docs.ultralytics.com/models/yolov10)
 
@@ -144,7 +144,7 @@ YOLOv8 is a versatile all-rounder and YOLOv10 provides useful insights into NMS-
 
 Released in January 2026, [YOLO26](https://docs.ultralytics.com/models/yolo26) combines the strengths of its predecessors with several new features:
 
-- **End-to-End NMS-Free Design:** Building on the approach pioneered by YOLOv10, YOLO26 offers optional NMS-free inference (`nms=False`) for faster, simpler deployment.
+- **End-to-End NMS-Free Design:** Building on the NMS-free training that YOLOv10 introduced to YOLO models, YOLO26 offers optional NMS-free inference (`nms=False`) for faster, simpler deployment.
 - **DFL Removal:** The removal of Distribution Focal Loss makes exporting the model to [CoreML](https://docs.ultralytics.com/integrations/coreml) and edge devices smoother.
 - **MuSGD Optimizer:** Inspired by Large Language Model (LLM) training, this hybrid of SGD and Muon provides faster convergence and more stable training.
 - **Faster CPU Inference:** YOLO26n delivers up to 43% faster CPU inference than YOLO11n, making it well suited to [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) and IoT applications.

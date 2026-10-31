@@ -34,7 +34,7 @@ Developed as an evolution of the PP-YOLO series, PP-YOLOE+ is an [anchor-free de
 - **Authors:** PaddlePaddle Authors
 - **Organization:** [Baidu](https://www.baidu.com/)
 - **Date:** 2022-04-02
-- **Arxiv:** [PP-YOLOE+ Research Paper](https://arxiv.org/abs/2203.16250)
+- **arXiv:** [PP-YOLOE+ Research Paper](https://arxiv.org/abs/2203.16250)
 - **GitHub:** [PaddleDetection Repository](https://github.com/PaddlePaddle/PaddleDetection/)
 - **Docs:** [PP-YOLOE+ Documentation](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
 
@@ -44,7 +44,7 @@ Developed as an evolution of the PP-YOLO series, PP-YOLOE+ is an [anchor-free de
 
 The differences in how these models process visual data affect their memory requirements, training stability, and inference latency.
 
-### YOLO26: The NMS-Free Frontier
+### YOLO26: Native End-to-End Detection
 
 YOLO26 introduces several architectural changes designed for simpler [model deployment](https://docs.ultralytics.com/guides/model-deployment-options):
 
@@ -99,7 +99,7 @@ from ultralytics import YOLO
 # Load a pre-trained YOLO26 nano model for optimal edge performance
 model = YOLO("yolo26n.pt")
 
-# Train the model effortlessly on the COCO8 dataset
+# Train the model on the COCO8 dataset
 results = model.train(data="coco8.yaml", epochs=50, imgsz=640, device="cpu")
 
 # Perform NMS-free inference on a target image

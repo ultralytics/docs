@@ -20,7 +20,7 @@ Developed by the Vision AI Department at Meituan, [YOLOv6-3.0](https://docs.ultr
 - **Authors:** Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu
 - **Organization:** [Meituan](https://github.com/meituan)
 - **Date:** January 13, 2023
-- **Arxiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
+- **arXiv:** [2301.05586](https://arxiv.org/abs/2301.05586)
 - **GitHub:** [meituan/YOLOv6](https://github.com/meituan/YOLOv6)
 
 ### Architectural Innovations
@@ -42,7 +42,7 @@ Released a year later, [YOLOv9](https://docs.ultralytics.com/models/yolov9) focu
 - **Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao
 - **Organization:** [Institute of Information Science, Academia Sinica](https://www.iis.sinica.edu.tw/en/index.html)
 - **Date:** February 21, 2024
-- **Arxiv:** [2402.13616](https://arxiv.org/abs/2402.13616)
+- **arXiv:** [2402.13616](https://arxiv.org/abs/2402.13616)
 - **GitHub:** [WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9)
 
 ### Architectural Innovations
@@ -91,7 +91,7 @@ Released in January 2026, YOLO26 improves deployment efficiency by removing seve
 
 [Learn more about YOLO26](https://platform.ultralytics.com/ultralytics/yolo26){ .md-button }
 
-### Seamless Training with Ultralytics
+### Training with Ultralytics
 
 Training state-of-the-art models shouldn't require complex bash scripts. The Ultralytics Python API provides a streamlined experience with automatic data loading, minimal [CUDA memory usage](https://docs.ultralytics.com/guides/yolo-common-issues), and built-in tracking.
 

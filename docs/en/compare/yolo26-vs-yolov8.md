@@ -41,11 +41,11 @@ Understanding the origins of these architectures provides context for their desi
 
 The transition from YOLOv8 to YOLO26 changes how the network produces predictions and calculates loss.
 
-### YOLO26: The Pinnacle of Edge Efficiency
+### YOLO26: Edge Efficiency
 
 YOLO26 was designed to remove deployment bottlenecks and maximize inference speed on constrained hardware.
 
-- **End-to-End NMS-Free Design:** Building on concepts first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10), YOLO26 supports end-to-end inference through an optional one-to-one head (`nms=False`). By skipping Non-Maximum Suppression (NMS) post-processing, it reduces latency variance and simplifies deployment logic for applications requiring strict real-time guarantees.
+- **End-to-End NMS-Free Design:** Building on the NMS-free training that [YOLOv10](https://docs.ultralytics.com/models/yolov10) introduced to YOLO models, YOLO26 supports end-to-end inference through an optional one-to-one head (`nms=False`). By skipping Non-Maximum Suppression (NMS) post-processing, it reduces latency variance and simplifies deployment logic for applications requiring strict real-time guarantees.
 - **DFL Removal:** The removal of Distribution Focal Loss (DFL) simplifies the output head. This architectural choice improves compatibility with low-power edge devices and simpler exports to formats like [ONNX](https://onnx.ai/) and [CoreML](https://developer.apple.com/documentation/coreml/).
 - **MuSGD Optimizer:** Inspired by the training stability seen in [large language models (LLMs)](https://www.ultralytics.com/glossary/large-language-model-llm) like Moonshot AI's Kimi K2, YOLO26 uses the MuSGD optimizer—a hybrid of Stochastic Gradient Descent and Muon. This brings LLM training ideas into computer vision, yielding faster convergence and more stable training runs.
 - **ProgLoss + STAL:** To address the difficult problem of recognizing small subjects, YOLO26 implements Progressive Loss (ProgLoss) combined with Small-Target-Aware Label Assignment (STAL). This improves [small object detection](https://www.ultralytics.com/blog/exploring-small-object-detection-with-ultralytics-yolo11), making it well suited to drone applications.

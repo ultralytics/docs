@@ -22,7 +22,7 @@ Introduced as an evolution of the original Real-Time Detection Transformer, RTDE
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
 - **Organization:** [Baidu](https://www.baidu.com/)
 - **Date:** 2024-07-24
-- **Arxiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
+- **arXiv:** [2407.17140](https://arxiv.org/abs/2407.17140)
 - **GitHub:** [RT-DETR Repository](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch)
 - **Docs:** [RTDETRv2 Documentation](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
 
@@ -34,7 +34,7 @@ However, because it relies on transformers, RTDETRv2 typically has higher memory
 
 [Learn more about RTDETRv2](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch){ .md-button }
 
-## Ultralytics YOLO11: The Pinnacle of CNN Efficiency
+## Ultralytics YOLO11: CNN Efficiency
 
 Building on earlier YOLO research, Ultralytics YOLO11 refines the CNN architecture for a better speed-accuracy trade-off while keeping the flexible, developer-friendly Ultralytics ecosystem.
 
@@ -81,7 +81,7 @@ The Ultralytics package also runs RT-DETR models alongside YOLO models, so both 
 ```python
 from ultralytics import RTDETR, YOLO
 
-# Load an RTDETR model seamlessly through the Ultralytics API
+# Load an RTDETR model through the Ultralytics API
 model_rtdetr = RTDETR("rtdetr-l.pt")
 
 # Load a highly optimized YOLO11 model
@@ -142,7 +142,7 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 
 ## Looking Forward: The Arrival of YOLO26
 
-If you are beginning a new project, also consider **Ultralytics YOLO26**, released in January 2026 and the recommended Ultralytics model. It combines ideas from both approaches: an optional **End-to-End NMS-Free** head (`nms=False`, first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10)) removes NMS post-processing like RTDETRv2 while keeping the speed of a CNN.
+If you are beginning a new project, also consider **Ultralytics YOLO26**, released in January 2026 and the recommended Ultralytics model. It combines ideas from both approaches: an optional **End-to-End NMS-Free** head (`nms=False`, introduced to YOLO models by [YOLOv10](https://docs.ultralytics.com/models/yolov10)) removes NMS post-processing like RTDETRv2 while keeping the speed of a CNN.
 
 YOLO26 uses the **MuSGD Optimizer**, inspired by LLM training techniques, for stable and fast convergence, and YOLO26n delivers up to **43% Faster CPU Inference** than YOLO11n, helped by the removal of Distribution Focal Loss (DFL). Progressive Loss and Small-Target-Aware Label Assignment (**ProgLoss + STAL**) improve small-object recognition, making YOLO26 the recommended choice for new computer vision pipelines.
 

@@ -85,7 +85,7 @@ Understanding the strengths of each model helps dictate their best use cases.
 - **Commercial Production Environments:** **YOLO11** is a strong choice for enterprise systems. Its stability, active maintenance, and integration with the cloud-based Ultralytics Platform make it well suited to large-scale [retail analytics](https://www.ultralytics.com/solutions/computer-vision-in-retail), security monitoring, and manufacturing quality control.
 - **Resource-Constrained Edge Computing:** The lightweight YOLO11n variant is designed for low-power edge devices, running efficiently on a [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi) or [NVIDIA Jetson modules](https://developer.nvidia.com/embedded-computing).
 
-## Looking Forward: The Paradigm Shift of YOLO26
+## Looking Forward: YOLO26
 
 While YOLO11 remains a mature, well-supported model, the field keeps advancing. For new vision projects, the recommended choice is **Ultralytics YOLO26**.
 

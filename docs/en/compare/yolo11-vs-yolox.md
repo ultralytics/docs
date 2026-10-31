@@ -36,7 +36,7 @@ Developed by researchers at Megvii, **YOLOX** gained wide attention in 2021 by b
 - **Authors:** Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, and Jian Sun
 - **Organization:** Megvii
 - **Date:** 2021-07-18
-- **Arxiv:** [https://arxiv.org/abs/2107.08430](https://arxiv.org/abs/2107.08430)
+- **arXiv:** [https://arxiv.org/abs/2107.08430](https://arxiv.org/abs/2107.08430)
 - **GitHub:** [https://github.com/Megvii-BaseDetection/YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
 - **Docs:** [https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs](https://github.com/Megvii-BaseDetection/YOLOX/tree/main/docs)
 
@@ -83,7 +83,7 @@ from ultralytics import YOLO
 # Load a pre-trained YOLO11 model
 model = YOLO("yolo11n.pt")
 
-# Train the model effortlessly using the Ultralytics API
+# Train the model using the Ultralytics API
 results = model.train(data="coco8.yaml", epochs=100, imgsz=640)
 
 # Export to ONNX
@@ -138,7 +138,7 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 
 YOLO11 remains a strong choice, but **YOLO26** (released January 2026) is the recommended model for new computer vision projects that need the best efficiency and training stability.
 
-YOLO26 implements an optional [end-to-end NMS-free head](https://www.ultralytics.com/blog/why-ultralytics-yolo26-removes-nms-and-how-that-changes-deployment) (`nms=False`). By eliminating [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing, it removes latency variability and simplifies deployment logic, a concept first pioneered in [YOLOv10](https://docs.ultralytics.com/models/yolov10).
+YOLO26 implements an optional [end-to-end NMS-free head](https://www.ultralytics.com/blog/why-ultralytics-yolo26-removes-nms-and-how-that-changes-deployment) (`nms=False`). By eliminating [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing, it removes latency variability and simplifies deployment logic, a concept introduced to YOLO models by [YOLOv10](https://docs.ultralytics.com/models/yolov10).
 
 YOLO26 also features **DFL Removal** (Distribution Focal Loss), which helps YOLO26n reach up to **43% faster CPU inference** than YOLO11n, making it well suited to low-power and edge devices. Training stability improves with the **MuSGD Optimizer**, a hybrid of SGD and Muon inspired by [large language model (LLM)](https://www.ultralytics.com/glossary/large-language-model-llm) training that accelerates convergence. Combined with **ProgLoss + STAL** (Progressive Loss and Small-Target-Aware Label Assignment), YOLO26 excels at detecting small objects in challenging settings like drone imagery and IoT edge sensors.
 

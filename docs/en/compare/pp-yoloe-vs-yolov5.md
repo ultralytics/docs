@@ -20,7 +20,7 @@ Both models come from strong engineering teams but target slightly different eco
 - **Authors:** PaddlePaddle Authors
 - **Organization:** [Baidu](https://github.com/PaddlePaddle)
 - **Date:** 2022-04-02
-- **Arxiv:** [https://arxiv.org/abs/2203.16250](https://arxiv.org/abs/2203.16250)
+- **arXiv:** [https://arxiv.org/abs/2203.16250](https://arxiv.org/abs/2203.16250)
 - **GitHub:** [https://github.com/PaddlePaddle/PaddleDetection/](https://github.com/PaddlePaddle/PaddleDetection/)
 - **Docs:** [PaddleDetection README](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
 
@@ -78,7 +78,7 @@ While PP-YOLOE+ achieves highly competitive mAP scores at the larger scales (suc
 
 When choosing an architecture, raw metrics are only part of the equation. The developer experience, ecosystem support, and deployment pipelines often determine a project's real-world success. This is where Ultralytics models stand out.
 
-### Unmatched Ease of Use
+### Ease of Use
 
 The [Python API](https://docs.ultralytics.com/usage/python) for Ultralytics abstracts away complex boilerplate code. Developers can start training, validate performance, and deploy models with minimal code. The documentation is extensive, actively maintained, and supported by a large global open-source community.
 

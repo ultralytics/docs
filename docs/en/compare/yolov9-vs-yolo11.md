@@ -28,7 +28,7 @@ YOLOv9 brought a strong academic focus on deep learning information bottlenecks,
 - **Authors:** Chien-Yao Wang and Hong-Yuan Mark Liao
 - **Organization:** [Institute of Information Science, Academia Sinica](https://www.iis.sinica.edu.tw/en/index.html)
 - **Date:** February 21, 2024
-- **Arxiv:** [https://arxiv.org/abs/2402.13616](https://arxiv.org/abs/2402.13616)
+- **arXiv:** [https://arxiv.org/abs/2402.13616](https://arxiv.org/abs/2402.13616)
 - **GitHub:** [https://github.com/WongKinYiu/yolov9](https://github.com/WongKinYiu/yolov9)
 
 [Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9){ .md-button }
@@ -95,7 +95,7 @@ YOLOv9 focuses predominantly on bounding box detection. In contrast, YOLO11 is a
 - [Pose Estimation](https://docs.ultralytics.com/tasks/pose)
 - [Oriented Bounding Boxes (OBB)](https://docs.ultralytics.com/tasks/obb)
 
-### Seamless Deployment
+### Deployment
 
 Using the Ultralytics ecosystem allows developers to [export models](https://docs.ultralytics.com/modes/export) to an array of formats with a single line of [Python](https://www.python.org/) code. Whether targeting [ONNX](https://onnx.ai/), [OpenVINO](https://docs.openvino.ai/), [LiteRT](https://developers.google.com/edge/litert), or [CoreML](https://developer.apple.com/documentation/coreml/), the move from training to production is straightforward.
 
@@ -114,11 +114,11 @@ model.export(format="openvino")
 
 ## Ideal Use Cases
 
-### When to Utilize YOLOv9
+### When to Use YOLOv9
 
 YOLOv9 is a useful tool for research-centric environments or scenarios prioritizing high feature fidelity where hardware latency is not the primary constraint. Its GELAN architecture can help in medical image analysis, where detecting the smallest pixel variations is crucial.
 
-### Why YOLO11 is the Superior Choice
+### Why Choose YOLO11
 
 For developers, engineers, and production teams choosing between these two, **YOLO11 is the recommended option**. It excels in environments demanding high-speed, scalable deployment:
 

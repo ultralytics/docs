@@ -1,7 +1,7 @@
 ---
 title: RTDETRv2 vs EfficientDet Comparison
 comments: true
-description: "RTDETRv2 vs EfficientDet: compare an NMS-free real-time detection transformer with BiFPN compound scaling on COCO mAP, CPU and T4 latency, and model size."
+description: "RTDETRv2 vs EfficientDet: compare an NMS-free real-time detection transformer with BiFPN compound scaling on COCO mAP, T4 latency, and model size."
 keywords: RTDETRv2, EfficientDet, object detection, model comparison, Vision Transformer, BiFPN, computer vision, real-time detection, efficient models, Ultralytics
 ---
 
@@ -20,7 +20,7 @@ Building on the success of the original RT-DETR, RTDETRv2 refines the transforme
 - **Authors:** Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu
 - **Organization:** [Baidu](https://www.baidu.com/)
 - **Date:** 2024-07-24
-- **Links:** [Arxiv](https://arxiv.org/abs/2407.17140), [GitHub](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch), [Docs](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
+- **Links:** [arXiv](https://arxiv.org/abs/2407.17140), [GitHub](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch), [Docs](https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme)
 
 ### Architecture and Core Strengths
 
@@ -43,7 +43,7 @@ EfficientDet introduced a family of object detection models optimized for both a
 - **Authors:** Mingxing Tan, Ruoming Pang, and Quoc V. Le
 - **Organization:** [Google](https://github.com/google/automl/tree/master/efficientdet)
 - **Date:** 2019-11-20
-- **Links:** [Arxiv](https://arxiv.org/abs/1911.09070), [GitHub](https://github.com/google/automl/tree/master/efficientdet), [Docs](https://github.com/google/automl/tree/master/efficientdet#readme)
+- **Links:** [arXiv](https://arxiv.org/abs/1911.09070), [GitHub](https://github.com/google/automl/tree/master/efficientdet), [Docs](https://github.com/google/automl/tree/master/efficientdet#readme)
 
 ### Architecture and Core Strengths
 
@@ -68,14 +68,14 @@ Understanding the exact trade-offs between these models requires analyzing their
 | RTDETRv2-l      | 640                         | 53.4                       | -                                    | 9.76                                      | 42                       | 136                     |
 | RTDETRv2-x      | 640                         | **54.3**                   | -                                    | 15.03                                     | 76                       | 259                     |
 |                 |                             |                            |                                      |                                           |                          |                         |
-| EfficientDet-d0 | 640                         | 34.6                       | **10.2**                             | **3.92**                                  | **3.9**                  | **2.54**                |
-| EfficientDet-d1 | 640                         | 40.5                       | 13.5                                 | 7.31                                      | 6.6                      | 6.1                     |
-| EfficientDet-d2 | 640                         | 43.0                       | 17.7                                 | 10.92                                     | 8.1                      | 11.0                    |
-| EfficientDet-d3 | 640                         | 47.5                       | 28.0                                 | 19.59                                     | 12.0                     | 24.9                    |
-| EfficientDet-d4 | 640                         | 49.7                       | 42.8                                 | 33.55                                     | 20.7                     | 55.2                    |
-| EfficientDet-d5 | 640                         | 51.5                       | 72.5                                 | 67.86                                     | 33.7                     | 130.0                   |
-| EfficientDet-d6 | 640                         | 52.6                       | 92.8                                 | 89.29                                     | 51.9                     | 226.0                   |
-| EfficientDet-d7 | 640                         | 53.7                       | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
+| EfficientDet-d0 | 512                         | 34.6                       | -                                    | **3.92**                                  | **3.9**                  | **2.54**                |
+| EfficientDet-d1 | 640                         | 40.5                       | -                                    | 7.31                                      | 6.6                      | 6.1                     |
+| EfficientDet-d2 | 768                         | 43.0                       | -                                    | 10.92                                     | 8.1                      | 11.0                    |
+| EfficientDet-d3 | 896                         | 47.5                       | -                                    | 19.59                                     | 12.0                     | 24.9                    |
+| EfficientDet-d4 | 1024                        | 49.7                       | -                                    | 33.55                                     | 20.7                     | 55.2                    |
+| EfficientDet-d5 | 1280                        | 51.5                       | -                                    | 67.86                                     | 33.7                     | 130.0                   |
+| EfficientDet-d6 | 1280                        | 52.6                       | -                                    | 89.29                                     | 51.9                     | 226.0                   |
+| EfficientDet-d7 | 1536                        | 53.7                       | -                                    | 128.07                                    | 51.9                     | 325.0                   |
 
 As seen above, RTDETRv2 matches or exceeds the [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) of similarly sized EfficientDet models while running far faster on GPU (for example, 53.4 mAP at 9.76 ms for RTDETRv2-l versus 52.6 mAP at 89.29 ms for EfficientDet-d6), using its transformer architecture to boost accuracy.
 
@@ -95,7 +95,7 @@ RT-DETR is a strong choice for:
 
 EfficientDet is recommended for:
 
-- **Google Cloud and TPU Pipelines:** Systems deeply integrated with Google Cloud Vision APIs or TPU infrastructure where EfficientDet has native optimization.
+- **Google Cloud and TPU Pipelines:** TensorFlow-based systems on Google Cloud TPU infrastructure, where EfficientDet's reference implementation supports TPU training.
 - **Compound Scaling Research:** Academic benchmarking focused on studying the effects of balanced network depth, width, and resolution scaling.
 - **Mobile Deployment via LiteRT:** Projects that specifically require [LiteRT](https://developers.google.com/edge/litert) (formerly TensorFlow Lite) export for Android or embedded Linux devices.
 
@@ -107,7 +107,7 @@ For most new projects, [Ultralytics YOLO26](https://platform.ultralytics.com/ult
 - **CPU-Only Environments:** Devices without dedicated GPU acceleration, where YOLO26n's up to 43% faster CPU inference than YOLO11n provides a clear advantage.
 - **Small Object Detection:** Challenging scenarios like [aerial drone imagery](https://docs.ultralytics.com/datasets/detect/visdrone) or IoT sensor analysis where ProgLoss and STAL significantly boost accuracy on tiny objects.
 
-## The Ultralytics Alternative: Advancing the State-of-the-Art
+## The Ultralytics Alternative
 
 While both RTDETRv2 and EfficientDet have strong merits, modern AI development demands frameworks that offer a smooth [developer experience](https://docs.ultralytics.com/quickstart) alongside strong performance. The [Ultralytics ecosystem](https://docs.ultralytics.com) provides a significantly more streamlined approach to computer vision tasks.
 

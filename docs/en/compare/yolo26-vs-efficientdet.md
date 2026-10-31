@@ -25,7 +25,7 @@ Released in early 2026, [YOLO26](https://docs.ultralytics.com/models/yolo26) is 
 
 YOLO26 introduces several features that improve both training stability and inference speed:
 
-- **End-to-End NMS-Free Design:** Building on concepts pioneered in YOLOv10, YOLO26 offers an optional end-to-end one-to-one head (`nms=False`) that removes the need for [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing. This leads to simpler deployment logic and lower latency variance.
+- **End-to-End NMS-Free Design:** Building on the NMS-free training that YOLOv10 introduced to YOLO models, YOLO26 offers an optional end-to-end one-to-one head (`nms=False`) that removes the need for [Non-Maximum Suppression (NMS)](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing. This leads to simpler deployment logic and lower latency variance.
 - **Up to 43% Faster CPU Inference:** Architectural optimizations make YOLO26n up to 43% faster than YOLO11n on standard [CPUs](https://www.ultralytics.com/glossary/cpu), which suits IoT and embedded environments.
 - **DFL Removal:** The Distribution Focal Loss has been removed, resulting in a cleaner export process and enhanced compatibility with low-power edge devices using tools like [ONNX](https://onnx.ai/).
 - **MuSGD Optimizer:** Inspired by the LLM training routines of [Moonshot AI's Kimi K2](https://www.moonshot.ai), this hybrid of SGD and Muon brings large language model training innovations directly to computer vision, for faster convergence and more stable training.
@@ -42,7 +42,7 @@ YOLO26 introduces several features that improve both training stability and infe
 - **Authors:** Mingxing Tan, Ruoming Pang, and Quoc V. Le
 - **Organization:** [Google Research](https://research.google/)
 - **Date:** 2019-11-20
-- **Arxiv:** [EfficientDet Paper](https://arxiv.org/abs/1911.09070)
+- **arXiv:** [EfficientDet Paper](https://arxiv.org/abs/1911.09070)
 - **GitHub:** [Google AutoML Repository](https://github.com/google/automl/tree/master/efficientdet)
 
 Introduced by Google, EfficientDet is built on the [TensorFlow](https://www.tensorflow.org/) ecosystem and was designed around the concept of compound scaling. Its architecture scales up the backbone network, feature network, and box/class prediction networks simultaneously based on resource constraints.
@@ -62,22 +62,22 @@ The following table compares both architectures on the [COCO dataset](https://co
 
 | Model                                                                  | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ---------------------------------------------------------------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | 40.9                       | 38.9                                 | **1.7**                                   | **2.4**                  | 5.5                     |
+| [YOLO26n](https://platform.ultralytics.com/ultralytics/yolo26/yolo26n) | 640                         | 40.9                       | **38.9**                             | **1.7**                                   | **2.4**                  | 5.5                     |
 | [YOLO26s](https://platform.ultralytics.com/ultralytics/yolo26/yolo26s) | 640                         | 48.6                       | 87.2                                 | 2.5                                       | 9.5                      | 20.9                    |
 | [YOLO26m](https://platform.ultralytics.com/ultralytics/yolo26/yolo26m) | 640                         | 53.1                       | 220.0                                | 4.7                                       | 20.4                     | 68.4                    |
 | [YOLO26l](https://platform.ultralytics.com/ultralytics/yolo26/yolo26l) | 640                         | 55.0                       | 286.2                                | 6.2                                       | 24.8                     | 86.8                    |
 | [YOLO26x](https://platform.ultralytics.com/ultralytics/yolo26/yolo26x) | 640                         | **57.5**                   | 525.8                                | 11.8                                      | 55.7                     | 194.4                   |
 |                                                                        |                             |                            |                                      |                                           |                          |                         |
-| EfficientDet-d0                                                        | 640                         | 34.6                       | **10.2**                             | 3.92                                      | 3.9                      | **2.54**                |
-| EfficientDet-d1                                                        | 640                         | 40.5                       | 13.5                                 | 7.31                                      | 6.6                      | 6.1                     |
-| EfficientDet-d2                                                        | 640                         | 43.0                       | 17.7                                 | 10.92                                     | 8.1                      | 11.0                    |
-| EfficientDet-d3                                                        | 640                         | 47.5                       | 28.0                                 | 19.59                                     | 12.0                     | 24.9                    |
-| EfficientDet-d4                                                        | 640                         | 49.7                       | 42.8                                 | 33.55                                     | 20.7                     | 55.2                    |
-| EfficientDet-d5                                                        | 640                         | 51.5                       | 72.5                                 | 67.86                                     | 33.7                     | 130.0                   |
-| EfficientDet-d6                                                        | 640                         | 52.6                       | 92.8                                 | 89.29                                     | 51.9                     | 226.0                   |
-| EfficientDet-d7                                                        | 640                         | 53.7                       | 122.0                                | 128.07                                    | 51.9                     | 325.0                   |
+| EfficientDet-d0                                                        | 512                         | 34.6                       | -                                    | 3.92                                      | 3.9                      | **2.54**                |
+| EfficientDet-d1                                                        | 640                         | 40.5                       | -                                    | 7.31                                      | 6.6                      | 6.1                     |
+| EfficientDet-d2                                                        | 768                         | 43.0                       | -                                    | 10.92                                     | 8.1                      | 11.0                    |
+| EfficientDet-d3                                                        | 896                         | 47.5                       | -                                    | 19.59                                     | 12.0                     | 24.9                    |
+| EfficientDet-d4                                                        | 1024                        | 49.7                       | -                                    | 33.55                                     | 20.7                     | 55.2                    |
+| EfficientDet-d5                                                        | 1280                        | 51.5                       | -                                    | 67.86                                     | 33.7                     | 130.0                   |
+| EfficientDet-d6                                                        | 1280                        | 52.6                       | -                                    | 89.29                                     | 51.9                     | 226.0                   |
+| EfficientDet-d7                                                        | 1536                        | 53.7                       | -                                    | 128.07                                    | 51.9                     | 325.0                   |
 
-YOLO26x achieves the highest accuracy (**57.5 mAP**), 3.8 points above EfficientDet-d7, while running at 11.8 ms instead of 128.07 ms on a T4 with TensorRT. YOLO26 is much faster on GPU across the range (as low as **1.7 ms**). The smallest EfficientDet models are faster on CPU (10.2 ms for d0), but at much lower accuracy (34.6 mAP vs 40.9 for YOLO26n).
+YOLO26x achieves the highest accuracy (**57.5 mAP**), 3.8 points above EfficientDet-d7, while running at 11.8 ms instead of 128.07 ms on a T4 with TensorRT. YOLO26 is much faster on GPU across the range (as low as **1.7 ms**).
 
 ## Training Efficiency and The Ecosystem Advantage
 
