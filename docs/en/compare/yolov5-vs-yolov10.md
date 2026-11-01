@@ -67,7 +67,7 @@ When comparing these models, the balance between accuracy (mAP) and computationa
 | YOLOv10l | 640                         | 53.2                              | -                                    | 7.28                                      | 24.4                     | 120.3                   |
 | YOLOv10x | 640                         | **54.4**                          | -                                    | 10.70                                     | 29.5                     | 160.4                   |
 
-YOLOv10 clearly achieves a higher mAP<sub>50-95</sub> at equivalent size scales, leveraging its modernized efficiency-accuracy driven model design. However, YOLOv5 keeps lower GPU latency at the Nano and Small tiers, making it a practical choice for constrained embedded environments like the [NVIDIA Jetson](https://developer.nvidia.com/embedded-computing) line or standard CPUs via [OpenVINO](https://docs.ultralytics.com/integrations/openvino).
+YOLOv10 clearly achieves a higher mAP<sup>val</sup><sub>50-95</sub> at equivalent size scales, leveraging its modernized efficiency-accuracy driven model design. However, YOLOv5 keeps lower GPU latency at the Nano and Small tiers, making it a practical choice for constrained embedded environments like the [NVIDIA Jetson](https://developer.nvidia.com/embedded-computing) line or standard CPUs via [OpenVINO](https://docs.ultralytics.com/integrations/openvino).
 
 ## Training Methodologies and Ecosystem
 
