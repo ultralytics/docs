@@ -59,17 +59,17 @@ YOLOv7's architecture is built around the Extended Efficient Layer Aggregation N
 
 When evaluating these models for real-world applications, understanding their performance across different scales is crucial. The table below compares the standard metrics for various sizes of YOLOX and YOLOv7.
 
-| Model     | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| --------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOXnano | 416                         | 25.8                       | -                                    | -                                         | **0.91**                 | **1.08**                |
-| YOLOXtiny | 416                         | 32.8                       | -                                    | -                                         | 5.06                     | 6.45                    |
-| YOLOXs    | 640                         | 40.5                       | -                                    | **2.56**                                  | 9.0                      | 26.8                    |
-| YOLOXm    | 640                         | 46.9                       | -                                    | 5.43                                      | 25.3                     | 73.8                    |
-| YOLOXl    | 640                         | 49.7                       | -                                    | 9.04                                      | 54.2                     | 155.6                   |
-| YOLOXx    | 640                         | 51.1                       | -                                    | 16.1                                      | 99.1                     | 281.9                   |
-|           |                             |                            |                                      |                                           |                          |                         |
-| YOLOv7l   | 640                         | 51.4                       | -                                    | 6.84                                      | 36.9                     | 104.7                   |
-| YOLOv7x   | 640                         | **53.1**                   | -                                    | 11.57                                     | 71.3                     | 189.9                   |
+| Model     | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| --------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOXnano | 416                         | 25.8                              | -                                    | -                                         | **0.91**                 | **1.08**                |
+| YOLOXtiny | 416                         | 32.8                              | -                                    | -                                         | 5.06                     | 6.45                    |
+| YOLOXs    | 640                         | 40.5                              | -                                    | **2.56**                                  | 9.0                      | 26.8                    |
+| YOLOXm    | 640                         | 46.9                              | -                                    | 5.43                                      | 25.3                     | 73.8                    |
+| YOLOXl    | 640                         | 49.7                              | -                                    | 9.04                                      | 54.2                     | 155.6                   |
+| YOLOXx    | 640                         | 51.1                              | -                                    | 16.1                                      | 99.1                     | 281.9                   |
+|           |                             |                                   |                                      |                                           |                          |                         |
+| YOLOv7l   | 640                         | 51.4                              | -                                    | 6.84                                      | 36.9                     | 104.7                   |
+| YOLOv7x   | 640                         | **53.1**                          | -                                    | 11.57                                     | 71.3                     | 189.9                   |
 
 ### Analysis
 

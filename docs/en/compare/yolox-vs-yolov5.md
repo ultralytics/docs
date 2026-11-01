@@ -51,20 +51,20 @@ YOLOX utilizes SimOTA for label assignment, which formulates the pairing of grou
 
 The trade-off between speed and accuracy is the key test for these architectures. The table below illustrates the performance of various model sizes on standard benchmarks.
 
-| Model     | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| --------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOXnano | 416                         | 25.8                       | -                                    | -                                         | **0.91**                 | **1.08**                |
-| YOLOXtiny | 416                         | 32.8                       | -                                    | -                                         | 5.06                     | 6.45                    |
-| YOLOXs    | 640                         | 40.5                       | -                                    | 2.56                                      | 9.0                      | 26.8                    |
-| YOLOXm    | 640                         | 46.9                       | -                                    | 5.43                                      | 25.3                     | 73.8                    |
-| YOLOXl    | 640                         | 49.7                       | -                                    | 9.04                                      | 54.2                     | 155.6                   |
-| YOLOXx    | 640                         | **51.1**                   | -                                    | 16.1                                      | 99.1                     | 281.9                   |
-|           |                             |                            |                                      |                                           |                          |                         |
-| YOLOv5n   | 640                         | 28.0                       | -                                    | **1.12**                                  | 1.9                      | 4.5                     |
-| YOLOv5s   | 640                         | 37.4                       | -                                    | 1.92                                      | 7.2                      | 16.5                    |
-| YOLOv5m   | 640                         | 45.4                       | -                                    | 4.03                                      | 21.2                     | 49.0                    |
-| YOLOv5l   | 640                         | 49.0                       | -                                    | 6.61                                      | 46.5                     | 109.1                   |
-| YOLOv5x   | 640                         | 50.7                       | -                                    | 11.89                                     | 86.7                     | 205.7                   |
+| Model     | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| --------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOXnano | 416                         | 25.8                              | -                                    | -                                         | **0.91**                 | **1.08**                |
+| YOLOXtiny | 416                         | 32.8                              | -                                    | -                                         | 5.06                     | 6.45                    |
+| YOLOXs    | 640                         | 40.5                              | -                                    | 2.56                                      | 9.0                      | 26.8                    |
+| YOLOXm    | 640                         | 46.9                              | -                                    | 5.43                                      | 25.3                     | 73.8                    |
+| YOLOXl    | 640                         | 49.7                              | -                                    | 9.04                                      | 54.2                     | 155.6                   |
+| YOLOXx    | 640                         | **51.1**                          | -                                    | 16.1                                      | 99.1                     | 281.9                   |
+|           |                             |                                   |                                      |                                           |                          |                         |
+| YOLOv5n   | 640                         | 28.0                              | -                                    | **1.12**                                  | 1.9                      | 4.5                     |
+| YOLOv5s   | 640                         | 37.4                              | -                                    | 1.92                                      | 7.2                      | 16.5                    |
+| YOLOv5m   | 640                         | 45.4                              | -                                    | 4.03                                      | 21.2                     | 49.0                    |
+| YOLOv5l   | 640                         | 49.0                              | -                                    | 6.61                                      | 46.5                     | 109.1                   |
+| YOLOv5x   | 640                         | 50.7                              | -                                    | 11.89                                     | 86.7                     | 205.7                   |
 
 YOLOX is more accurate at the s through x sizes, while YOLOv5 is faster on T4 TensorRT across the board. YOLOv5s, for instance, runs in 1.92 ms versus 2.56 ms for YOLOXs, which matters for real-time applications where every millisecond counts.
 

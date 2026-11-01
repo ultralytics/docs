@@ -82,19 +82,19 @@ The architecture also uses an **Efficient RepGFPN** neck. This feature pyramid n
 
 When evaluating object detection architectures, finding the right trade-off between inference speed, parameter efficiency, and detection accuracy is essential. The table below compares the performance of YOLOv10 and DAMO-YOLO across their respective model sizes.
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv10n   | 640                         | 38.5                       | -                                    | **1.84**                                  | **2.3**                  | **6.7**                 |
-| YOLOv10s   | 640                         | 46.3                       | -                                    | 2.49                                      | 7.2                      | 21.6                    |
-| YOLOv10m   | 640                         | 51.1                       | -                                    | 4.74                                      | 15.4                     | 59.1                    |
-| YOLOv10b   | 640                         | 52.5                       | -                                    | 5.74                                      | 19.1                     | 92.0                    |
-| YOLOv10l   | 640                         | 53.2                       | -                                    | 7.28                                      | 24.4                     | 120.3                   |
-| YOLOv10x   | 640                         | **54.4**                   | -                                    | 10.70                                     | 29.5                     | 160.4                   |
-|            |                             |                            |                                      |                                           |                          |                         |
-| DAMO-YOLOt | 640                         | 42.0                       | -                                    | 2.32                                      | 8.5                      | 18.1                    |
-| DAMO-YOLOs | 640                         | 46.0                       | -                                    | 3.45                                      | 16.3                     | 37.8                    |
-| DAMO-YOLOm | 640                         | 49.2                       | -                                    | 5.09                                      | 28.2                     | 61.8                    |
-| DAMO-YOLOl | 640                         | 50.8                       | -                                    | 7.18                                      | 42.1                     | 97.3                    |
+| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOv10n   | 640                         | 38.5                              | -                                    | **1.84**                                  | **2.3**                  | **6.7**                 |
+| YOLOv10s   | 640                         | 46.3                              | -                                    | 2.49                                      | 7.2                      | 21.6                    |
+| YOLOv10m   | 640                         | 51.1                              | -                                    | 4.74                                      | 15.4                     | 59.1                    |
+| YOLOv10b   | 640                         | 52.5                              | -                                    | 5.74                                      | 19.1                     | 92.0                    |
+| YOLOv10l   | 640                         | 53.2                              | -                                    | 7.28                                      | 24.4                     | 120.3                   |
+| YOLOv10x   | 640                         | **54.4**                          | -                                    | 10.70                                     | 29.5                     | 160.4                   |
+|            |                             |                                   |                                      |                                           |                          |                         |
+| DAMO-YOLOt | 640                         | 42.0                              | -                                    | 2.32                                      | 8.5                      | 18.1                    |
+| DAMO-YOLOs | 640                         | 46.0                              | -                                    | 3.45                                      | 16.3                     | 37.8                    |
+| DAMO-YOLOm | 640                         | 49.2                              | -                                    | 5.09                                      | 28.2                     | 61.8                    |
+| DAMO-YOLOl | 640                         | 50.8                              | -                                    | 7.18                                      | 42.1                     | 97.3                    |
 
 YOLOv10 is more accurate than DAMO-YOLO at comparable scales while using fewer parameters: YOLOv10s reaches 46.3 mAP with 7.2M parameters at 2.49 ms, versus 46.0 mAP with 16.3M parameters at 3.45 ms for DAMO-YOLOs. DAMO-YOLOt offers strong accuracy for its size (42.0 mAP), and DAMO-YOLOl is marginally faster than YOLOv10l on T4 TensorRT (7.18 ms vs 7.28 ms), but the parameter efficiency of the YOLOv10 family gives it an advantage in constrained deployment environments.
 

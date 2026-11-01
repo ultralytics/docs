@@ -54,19 +54,19 @@ The authors also focused on a holistic efficiency-accuracy driven model design. 
 
 The table below illustrates the raw performance metrics on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco). Best overall values in each column are highlighted in **bold**.
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| DAMO-YOLOt | 640                         | 42.0                       | -                                    | 2.32                                      | 8.5                      | 18.1                    |
-| DAMO-YOLOs | 640                         | 46.0                       | -                                    | 3.45                                      | 16.3                     | 37.8                    |
-| DAMO-YOLOm | 640                         | 49.2                       | -                                    | 5.09                                      | 28.2                     | 61.8                    |
-| DAMO-YOLOl | 640                         | 50.8                       | -                                    | 7.18                                      | 42.1                     | 97.3                    |
-|            |                             |                            |                                      |                                           |                          |                         |
-| YOLOv10n   | 640                         | 38.5                       | -                                    | **1.84**                                  | **2.3**                  | **6.7**                 |
-| YOLOv10s   | 640                         | 46.3                       | -                                    | 2.49                                      | 7.2                      | 21.6                    |
-| YOLOv10m   | 640                         | 51.1                       | -                                    | 4.74                                      | 15.4                     | 59.1                    |
-| YOLOv10b   | 640                         | 52.5                       | -                                    | 5.74                                      | 19.1                     | 92.0                    |
-| YOLOv10l   | 640                         | 53.2                       | -                                    | 7.28                                      | 24.4                     | 120.3                   |
-| YOLOv10x   | 640                         | **54.4**                   | -                                    | 10.70                                     | 29.5                     | 160.4                   |
+| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| DAMO-YOLOt | 640                         | 42.0                              | -                                    | 2.32                                      | 8.5                      | 18.1                    |
+| DAMO-YOLOs | 640                         | 46.0                              | -                                    | 3.45                                      | 16.3                     | 37.8                    |
+| DAMO-YOLOm | 640                         | 49.2                              | -                                    | 5.09                                      | 28.2                     | 61.8                    |
+| DAMO-YOLOl | 640                         | 50.8                              | -                                    | 7.18                                      | 42.1                     | 97.3                    |
+|            |                             |                                   |                                      |                                           |                          |                         |
+| YOLOv10n   | 640                         | 38.5                              | -                                    | **1.84**                                  | **2.3**                  | **6.7**                 |
+| YOLOv10s   | 640                         | 46.3                              | -                                    | 2.49                                      | 7.2                      | 21.6                    |
+| YOLOv10m   | 640                         | 51.1                              | -                                    | 4.74                                      | 15.4                     | 59.1                    |
+| YOLOv10b   | 640                         | 52.5                              | -                                    | 5.74                                      | 19.1                     | 92.0                    |
+| YOLOv10l   | 640                         | 53.2                              | -                                    | 7.28                                      | 24.4                     | 120.3                   |
+| YOLOv10x   | 640                         | **54.4**                          | -                                    | 10.70                                     | 29.5                     | 160.4                   |
 
 While DAMO-YOLO holds its own in terms of accuracy, YOLOv10 delivers higher accuracy at comparable scales and significantly smaller [model weights](https://www.ultralytics.com/glossary/model-weights). For instance, YOLOv10s achieves a slightly higher mAP (46.3%) than DAMO-YOLOs (46.0%) while using fewer than half the parameters (7.2M vs 16.3M). The lower memory requirements make YOLOv10 a versatile choice for embedded systems.
 

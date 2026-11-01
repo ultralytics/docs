@@ -48,19 +48,19 @@ DAMO-YOLO's strategy was built on automating the design of efficient structures:
 
 When comparing these two models, it is important to look at their parameter counts, required FLOPs, and latency profiles. Below is the benchmark data comparing YOLOX and DAMO-YOLO across multiple scales.
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOXnano  | 416                         | 25.8                       | -                                    | -                                         | **0.91**                 | **1.08**                |
-| YOLOXtiny  | 416                         | 32.8                       | -                                    | -                                         | 5.06                     | 6.45                    |
-| YOLOXs     | 640                         | 40.5                       | -                                    | 2.56                                      | 9.0                      | 26.8                    |
-| YOLOXm     | 640                         | 46.9                       | -                                    | 5.43                                      | 25.3                     | 73.8                    |
-| YOLOXl     | 640                         | 49.7                       | -                                    | 9.04                                      | 54.2                     | 155.6                   |
-| YOLOXx     | 640                         | **51.1**                   | -                                    | 16.1                                      | 99.1                     | 281.9                   |
-|            |                             |                            |                                      |                                           |                          |                         |
-| DAMO-YOLOt | 640                         | 42.0                       | -                                    | **2.32**                                  | 8.5                      | 18.1                    |
-| DAMO-YOLOs | 640                         | 46.0                       | -                                    | 3.45                                      | 16.3                     | 37.8                    |
-| DAMO-YOLOm | 640                         | 49.2                       | -                                    | 5.09                                      | 28.2                     | 61.8                    |
-| DAMO-YOLOl | 640                         | 50.8                       | -                                    | 7.18                                      | 42.1                     | 97.3                    |
+| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOXnano  | 416                         | 25.8                              | -                                    | -                                         | **0.91**                 | **1.08**                |
+| YOLOXtiny  | 416                         | 32.8                              | -                                    | -                                         | 5.06                     | 6.45                    |
+| YOLOXs     | 640                         | 40.5                              | -                                    | 2.56                                      | 9.0                      | 26.8                    |
+| YOLOXm     | 640                         | 46.9                              | -                                    | 5.43                                      | 25.3                     | 73.8                    |
+| YOLOXl     | 640                         | 49.7                              | -                                    | 9.04                                      | 54.2                     | 155.6                   |
+| YOLOXx     | 640                         | **51.1**                          | -                                    | 16.1                                      | 99.1                     | 281.9                   |
+|            |                             |                                   |                                      |                                           |                          |                         |
+| DAMO-YOLOt | 640                         | 42.0                              | -                                    | **2.32**                                  | 8.5                      | 18.1                    |
+| DAMO-YOLOs | 640                         | 46.0                              | -                                    | 3.45                                      | 16.3                     | 37.8                    |
+| DAMO-YOLOm | 640                         | 49.2                              | -                                    | 5.09                                      | 28.2                     | 61.8                    |
+| DAMO-YOLOl | 640                         | 50.8                              | -                                    | 7.18                                      | 42.1                     | 97.3                    |
 
 DAMO-YOLO is more accurate than YOLOX at comparable latency; for example, DAMO-YOLOt reaches 42.0 mAP at 2.32 ms versus 40.5 mAP at 2.56 ms for YOLOXs. Both models come with caveats, however: YOLOX's design predates many newer training techniques, while DAMO-YOLO's reliance on distillation makes retraining on custom datasets more resource-intensive and increases [GPU memory](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) requirements.
 

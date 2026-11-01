@@ -49,16 +49,16 @@ YOLOv7 introduced several structural re-parameterizations and the E-ELAN archite
 
 When comparing these models, developers must balance mAP<sup>val</sup>, inference speed, and computational complexity (FLOPs). The table below demonstrates the performance of both architectures evaluated on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco).
 
-| Model   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv7l | 640                         | 51.4                       | -                                    | 6.84                                      | 36.9                     | 104.7                   |
-| YOLOv7x | 640                         | **53.1**                   | -                                    | 11.57                                     | 71.3                     | 189.9                   |
-|         |                             |                            |                                      |                                           |                          |                         |
-| YOLOv5n | 640                         | 28.0                       | -                                    | **1.12**                                  | **1.9**                  | **4.5**                 |
-| YOLOv5s | 640                         | 37.4                       | -                                    | 1.92                                      | 7.2                      | 16.5                    |
-| YOLOv5m | 640                         | 45.4                       | -                                    | 4.03                                      | 21.2                     | 49.0                    |
-| YOLOv5l | 640                         | 49.0                       | -                                    | 6.61                                      | 46.5                     | 109.1                   |
-| YOLOv5x | 640                         | 50.7                       | -                                    | 11.89                                     | 86.7                     | 205.7                   |
+| Model   | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOv7l | 640                         | 51.4                              | -                                    | 6.84                                      | 36.9                     | 104.7                   |
+| YOLOv7x | 640                         | **53.1**                          | -                                    | 11.57                                     | 71.3                     | 189.9                   |
+|         |                             |                                   |                                      |                                           |                          |                         |
+| YOLOv5n | 640                         | 28.0                              | -                                    | **1.12**                                  | **1.9**                  | **4.5**                 |
+| YOLOv5s | 640                         | 37.4                              | -                                    | 1.92                                      | 7.2                      | 16.5                    |
+| YOLOv5m | 640                         | 45.4                              | -                                    | 4.03                                      | 21.2                     | 49.0                    |
+| YOLOv5l | 640                         | 49.0                              | -                                    | 6.61                                      | 46.5                     | 109.1                   |
+| YOLOv5x | 640                         | 50.7                              | -                                    | 11.89                                     | 86.7                     | 205.7                   |
 
 ### Key Takeaways
 

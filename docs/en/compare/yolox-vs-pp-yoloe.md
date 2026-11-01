@@ -35,20 +35,20 @@ PP-YOLOE+ relies on a CSPRepResNet backbone and uses an Efficient Task-aligned h
 
 Understanding how these models perform across different scales is essential for deployment. The table below outlines key metrics, including [mAP](https://docs.ultralytics.com/guides/yolo-performance-metrics) and inference speeds when exported to [TensorRT](https://docs.ultralytics.com/integrations/tensorrt).
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOXnano  | 416                         | 25.8                       | -                                    | -                                         | **0.91**                 | **1.08**                |
-| YOLOXtiny  | 416                         | 32.8                       | -                                    | -                                         | 5.06                     | 6.45                    |
-| YOLOXs     | 640                         | 40.5                       | -                                    | **2.56**                                  | 9.0                      | 26.8                    |
-| YOLOXm     | 640                         | 46.9                       | -                                    | 5.43                                      | 25.3                     | 73.8                    |
-| YOLOXl     | 640                         | 49.7                       | -                                    | 9.04                                      | 54.2                     | 155.6                   |
-| YOLOXx     | 640                         | 51.1                       | -                                    | 16.1                                      | 99.1                     | 281.9                   |
-|            |                             |                            |                                      |                                           |                          |                         |
-| PP-YOLOE+t | 640                         | 39.9                       | -                                    | 2.84                                      | 4.85                     | 19.15                   |
-| PP-YOLOE+s | 640                         | 43.7                       | -                                    | 2.62                                      | 7.93                     | 17.36                   |
-| PP-YOLOE+m | 640                         | 49.8                       | -                                    | 5.56                                      | 23.43                    | 49.91                   |
-| PP-YOLOE+l | 640                         | 52.9                       | -                                    | 8.36                                      | 52.2                     | 110.07                  |
-| PP-YOLOE+x | 640                         | **54.7**                   | -                                    | 14.3                                      | 98.42                    | 206.59                  |
+| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOXnano  | 416                         | 25.8                              | -                                    | -                                         | **0.91**                 | **1.08**                |
+| YOLOXtiny  | 416                         | 32.8                              | -                                    | -                                         | 5.06                     | 6.45                    |
+| YOLOXs     | 640                         | 40.5                              | -                                    | **2.56**                                  | 9.0                      | 26.8                    |
+| YOLOXm     | 640                         | 46.9                              | -                                    | 5.43                                      | 25.3                     | 73.8                    |
+| YOLOXl     | 640                         | 49.7                              | -                                    | 9.04                                      | 54.2                     | 155.6                   |
+| YOLOXx     | 640                         | 51.1                              | -                                    | 16.1                                      | 99.1                     | 281.9                   |
+|            |                             |                                   |                                      |                                           |                          |                         |
+| PP-YOLOE+t | 640                         | 39.9                              | -                                    | 2.84                                      | 4.85                     | 19.15                   |
+| PP-YOLOE+s | 640                         | 43.7                              | -                                    | 2.62                                      | 7.93                     | 17.36                   |
+| PP-YOLOE+m | 640                         | 49.8                              | -                                    | 5.56                                      | 23.43                    | 49.91                   |
+| PP-YOLOE+l | 640                         | 52.9                              | -                                    | 8.36                                      | 52.2                     | 110.07                  |
+| PP-YOLOE+x | 640                         | **54.7**                          | -                                    | 14.3                                      | 98.42                    | 206.59                  |
 
 !!! note "Deployment Considerations"
 

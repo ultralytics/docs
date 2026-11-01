@@ -57,19 +57,19 @@ The smaller models use the hardware-friendly EfficientRep backbone (larger ones 
 
 When comparing these models, developers must weigh raw accuracy against inference speed and parameter count. The following table highlights the performance of both model families across various sizes.
 
-| Model       | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ----------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOXnano   | 416                         | 25.8                       | -                                    | -                                         | **0.91**                 | **1.08**                |
-| YOLOXtiny   | 416                         | 32.8                       | -                                    | -                                         | 5.06                     | 6.45                    |
-| YOLOXs      | 640                         | 40.5                       | -                                    | 2.56                                      | 9.0                      | 26.8                    |
-| YOLOXm      | 640                         | 46.9                       | -                                    | 5.43                                      | 25.3                     | 73.8                    |
-| YOLOXl      | 640                         | 49.7                       | -                                    | 9.04                                      | 54.2                     | 155.6                   |
-| YOLOXx      | 640                         | 51.1                       | -                                    | 16.1                                      | 99.1                     | 281.9                   |
-|             |                             |                            |                                      |                                           |                          |                         |
-| YOLOv6-3.0n | 640                         | 37.5                       | -                                    | **1.17**                                  | 4.7                      | 11.4                    |
-| YOLOv6-3.0s | 640                         | 45.0                       | -                                    | 2.66                                      | 18.5                     | 45.3                    |
-| YOLOv6-3.0m | 640                         | 50.0                       | -                                    | 5.28                                      | 34.9                     | 85.8                    |
-| YOLOv6-3.0l | 640                         | **52.8**                   | -                                    | 8.95                                      | 59.6                     | 150.7                   |
+| Model       | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ----------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOXnano   | 416                         | 25.8                              | -                                    | -                                         | **0.91**                 | **1.08**                |
+| YOLOXtiny   | 416                         | 32.8                              | -                                    | -                                         | 5.06                     | 6.45                    |
+| YOLOXs      | 640                         | 40.5                              | -                                    | 2.56                                      | 9.0                      | 26.8                    |
+| YOLOXm      | 640                         | 46.9                              | -                                    | 5.43                                      | 25.3                     | 73.8                    |
+| YOLOXl      | 640                         | 49.7                              | -                                    | 9.04                                      | 54.2                     | 155.6                   |
+| YOLOXx      | 640                         | 51.1                              | -                                    | 16.1                                      | 99.1                     | 281.9                   |
+|             |                             |                                   |                                      |                                           |                          |                         |
+| YOLOv6-3.0n | 640                         | 37.5                              | -                                    | **1.17**                                  | 4.7                      | 11.4                    |
+| YOLOv6-3.0s | 640                         | 45.0                              | -                                    | 2.66                                      | 18.5                     | 45.3                    |
+| YOLOv6-3.0m | 640                         | 50.0                              | -                                    | 5.28                                      | 34.9                     | 85.8                    |
+| YOLOv6-3.0l | 640                         | **52.8**                          | -                                    | 8.95                                      | 59.6                     | 150.7                   |
 
 YOLOv6-3.0 achieves higher mAP than YOLOX at each comparable size with similar or faster TensorRT speeds, while YOLOX remains competitive thanks to its simplicity and its very small Nano and Tiny variants.
 

@@ -17,16 +17,16 @@ This technical comparison explores the architectural differences, [performance m
 
 When comparing these models, raw performance and efficiency are critical factors. The following table details the mean Average Precision (mAP) and computational requirements on the standard COCO dataset benchmark.
 
-| Model   | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv9t | 640                         | 38.3                       | -                                    | **2.3**                                   | **2.0**                  | **7.7**                 |
-| YOLOv9s | 640                         | 46.8                       | -                                    | 3.54                                      | 7.2                      | 26.7                    |
-| YOLOv9m | 640                         | 51.4                       | -                                    | 6.43                                      | 20.1                     | 76.8                    |
-| YOLOv9c | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
-| YOLOv9e | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
-|         |                             |                            |                                      |                                           |                          |                         |
-| YOLOv7l | 640                         | 51.4                       | -                                    | 6.84                                      | 36.9                     | 104.7                   |
-| YOLOv7x | 640                         | 53.1                       | -                                    | 11.57                                     | 71.3                     | 189.9                   |
+| Model   | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOv9t | 640                         | 38.3                              | -                                    | **2.3**                                   | **2.0**                  | **7.7**                 |
+| YOLOv9s | 640                         | 46.8                              | -                                    | 3.54                                      | 7.2                      | 26.7                    |
+| YOLOv9m | 640                         | 51.4                              | -                                    | 6.43                                      | 20.1                     | 76.8                    |
+| YOLOv9c | 640                         | 53.0                              | -                                    | 7.16                                      | 25.5                     | 102.8                   |
+| YOLOv9e | 640                         | **55.6**                          | -                                    | 16.77                                     | 58.1                     | 192.5                   |
+|         |                             |                                   |                                      |                                           |                          |                         |
+| YOLOv7l | 640                         | 51.4                              | -                                    | 6.84                                      | 36.9                     | 104.7                   |
+| YOLOv7x | 640                         | 53.1                              | -                                    | 11.57                                     | 71.3                     | 189.9                   |
 
 !!! tip "Performance Balance"
 

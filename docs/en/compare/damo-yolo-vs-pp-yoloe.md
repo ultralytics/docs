@@ -63,18 +63,18 @@ PP-YOLOE+ relies on the more traditional but effective CSPRepResNet. While this 
 
 When evaluating these models for production, the balance between accuracy (mAP), inference speed, and parameter size is critical. Below is a direct comparison of their primary variants.
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| DAMO-YOLOt | 640                         | 42.0                       | -                                    | **2.32**                                  | 8.5                      | 18.1                    |
-| DAMO-YOLOs | 640                         | 46.0                       | -                                    | 3.45                                      | 16.3                     | 37.8                    |
-| DAMO-YOLOm | 640                         | 49.2                       | -                                    | 5.09                                      | 28.2                     | 61.8                    |
-| DAMO-YOLOl | 640                         | 50.8                       | -                                    | 7.18                                      | 42.1                     | 97.3                    |
-|            |                             |                            |                                      |                                           |                          |                         |
-| PP-YOLOE+t | 640                         | 39.9                       | -                                    | 2.84                                      | **4.85**                 | 19.15                   |
-| PP-YOLOE+s | 640                         | 43.7                       | -                                    | 2.62                                      | 7.93                     | **17.36**               |
-| PP-YOLOE+m | 640                         | 49.8                       | -                                    | 5.56                                      | 23.43                    | 49.91                   |
-| PP-YOLOE+l | 640                         | 52.9                       | -                                    | 8.36                                      | 52.2                     | 110.07                  |
-| PP-YOLOE+x | 640                         | **54.7**                   | -                                    | 14.3                                      | 98.42                    | 206.59                  |
+| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| DAMO-YOLOt | 640                         | 42.0                              | -                                    | **2.32**                                  | 8.5                      | 18.1                    |
+| DAMO-YOLOs | 640                         | 46.0                              | -                                    | 3.45                                      | 16.3                     | 37.8                    |
+| DAMO-YOLOm | 640                         | 49.2                              | -                                    | 5.09                                      | 28.2                     | 61.8                    |
+| DAMO-YOLOl | 640                         | 50.8                              | -                                    | 7.18                                      | 42.1                     | 97.3                    |
+|            |                             |                                   |                                      |                                           |                          |                         |
+| PP-YOLOE+t | 640                         | 39.9                              | -                                    | 2.84                                      | **4.85**                 | 19.15                   |
+| PP-YOLOE+s | 640                         | 43.7                              | -                                    | 2.62                                      | 7.93                     | **17.36**               |
+| PP-YOLOE+m | 640                         | 49.8                              | -                                    | 5.56                                      | 23.43                    | 49.91                   |
+| PP-YOLOE+l | 640                         | 52.9                              | -                                    | 8.36                                      | 52.2                     | 110.07                  |
+| PP-YOLOE+x | 640                         | **54.7**                          | -                                    | 14.3                                      | 98.42                    | 206.59                  |
 
 As the table illustrates, DAMO-YOLO delivers higher accuracy at the tiny (t) and small (s) scales, and DAMO-YOLOt posts the lowest T4 TensorRT latency of any model here, thanks to its NAS-optimized backbones. However, PP-YOLOE+ scales well into the medium (m) and large (l) tiers, reaching higher mAP scores at a slight cost to T4 TensorRT speed.
 

@@ -52,20 +52,20 @@ YOLOX also incorporates a decoupled head—separating the classification and reg
 
 When evaluating computer vision models, the trade-off between mean Average Precision (mAP) and inference speed is critical. Both models offer a range of sizes (from Nano to Extra-Large) to suit different hardware constraints.
 
-| Model     | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| --------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv5n   | 640                         | 28.0                       | -                                    | **1.12**                                  | 1.9                      | 4.5                     |
-| YOLOv5s   | 640                         | 37.4                       | -                                    | 1.92                                      | 7.2                      | 16.5                    |
-| YOLOv5m   | 640                         | 45.4                       | -                                    | 4.03                                      | 21.2                     | 49.0                    |
-| YOLOv5l   | 640                         | 49.0                       | -                                    | 6.61                                      | 46.5                     | 109.1                   |
-| YOLOv5x   | 640                         | 50.7                       | -                                    | 11.89                                     | 86.7                     | 205.7                   |
-|           |                             |                            |                                      |                                           |                          |                         |
-| YOLOXnano | 416                         | 25.8                       | -                                    | -                                         | **0.91**                 | **1.08**                |
-| YOLOXtiny | 416                         | 32.8                       | -                                    | -                                         | 5.06                     | 6.45                    |
-| YOLOXs    | 640                         | 40.5                       | -                                    | 2.56                                      | 9.0                      | 26.8                    |
-| YOLOXm    | 640                         | 46.9                       | -                                    | 5.43                                      | 25.3                     | 73.8                    |
-| YOLOXl    | 640                         | 49.7                       | -                                    | 9.04                                      | 54.2                     | 155.6                   |
-| YOLOXx    | 640                         | **51.1**                   | -                                    | 16.1                                      | 99.1                     | 281.9                   |
+| Model     | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| --------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOv5n   | 640                         | 28.0                              | -                                    | **1.12**                                  | 1.9                      | 4.5                     |
+| YOLOv5s   | 640                         | 37.4                              | -                                    | 1.92                                      | 7.2                      | 16.5                    |
+| YOLOv5m   | 640                         | 45.4                              | -                                    | 4.03                                      | 21.2                     | 49.0                    |
+| YOLOv5l   | 640                         | 49.0                              | -                                    | 6.61                                      | 46.5                     | 109.1                   |
+| YOLOv5x   | 640                         | 50.7                              | -                                    | 11.89                                     | 86.7                     | 205.7                   |
+|           |                             |                                   |                                      |                                           |                          |                         |
+| YOLOXnano | 416                         | 25.8                              | -                                    | -                                         | **0.91**                 | **1.08**                |
+| YOLOXtiny | 416                         | 32.8                              | -                                    | -                                         | 5.06                     | 6.45                    |
+| YOLOXs    | 640                         | 40.5                              | -                                    | 2.56                                      | 9.0                      | 26.8                    |
+| YOLOXm    | 640                         | 46.9                              | -                                    | 5.43                                      | 25.3                     | 73.8                    |
+| YOLOXl    | 640                         | 49.7                              | -                                    | 9.04                                      | 54.2                     | 155.6                   |
+| YOLOXx    | 640                         | **51.1**                          | -                                    | 16.1                                      | 99.1                     | 281.9                   |
 
 While YOLOXx achieves a slightly higher peak accuracy (51.1 mAP), YOLOv5 provides a more mature, widely tested deployment pipeline across CPU and GPU hardware. YOLOv5 also posts lower T4 TensorRT latency than YOLOX at matched sizes, making it a reliable choice for real-time video analytics.
 

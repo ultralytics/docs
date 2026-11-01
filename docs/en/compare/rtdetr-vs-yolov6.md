@@ -58,17 +58,17 @@ During training, it employs an Anchor-Aided Training (AAT) strategy to benefit f
 
 The table below compares accuracy (mAP), inference speed, and computational cost (FLOPs) on the COCO validation set.
 
-| Model       | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ----------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| RTDETRv2-s  | 640                         | 48.1                       | -                                    | 5.03                                      | 20                       | 60                      |
-| RTDETRv2-m  | 640                         | 51.9                       | -                                    | 7.51                                      | 36                       | 100                     |
-| RTDETRv2-l  | 640                         | 53.4                       | -                                    | 9.76                                      | 42                       | 136                     |
-| RTDETRv2-x  | 640                         | **54.3**                   | -                                    | 15.03                                     | 76                       | 259                     |
-|             |                             |                            |                                      |                                           |                          |                         |
-| YOLOv6-3.0n | 640                         | 37.5                       | -                                    | **1.17**                                  | **4.7**                  | **11.4**                |
-| YOLOv6-3.0s | 640                         | 45.0                       | -                                    | 2.66                                      | 18.5                     | 45.3                    |
-| YOLOv6-3.0m | 640                         | 50.0                       | -                                    | 5.28                                      | 34.9                     | 85.8                    |
-| YOLOv6-3.0l | 640                         | 52.8                       | -                                    | 8.95                                      | 59.6                     | 150.7                   |
+| Model       | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ----------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| RTDETRv2-s  | 640                         | 48.1                              | -                                    | 5.03                                      | 20                       | 60                      |
+| RTDETRv2-m  | 640                         | 51.9                              | -                                    | 7.51                                      | 36                       | 100                     |
+| RTDETRv2-l  | 640                         | 53.4                              | -                                    | 9.76                                      | 42                       | 136                     |
+| RTDETRv2-x  | 640                         | **54.3**                          | -                                    | 15.03                                     | 76                       | 259                     |
+|             |                             |                                   |                                      |                                           |                          |                         |
+| YOLOv6-3.0n | 640                         | 37.5                              | -                                    | **1.17**                                  | **4.7**                  | **11.4**                |
+| YOLOv6-3.0s | 640                         | 45.0                              | -                                    | 2.66                                      | 18.5                     | 45.3                    |
+| YOLOv6-3.0m | 640                         | 50.0                              | -                                    | 5.28                                      | 34.9                     | 85.8                    |
+| YOLOv6-3.0l | 640                         | 52.8                              | -                                    | 8.95                                      | 59.6                     | 150.7                   |
 
 YOLOv6-3.0 is faster on T4 TensorRT at every comparable size (for example, 5.28 ms vs 7.51 ms for the medium models), while RTDETRv2 reaches higher mAP (51.9 vs 50.0 at medium, 53.4 vs 52.8 at large) and scales to 54.3 mAP with RTDETRv2-x. Both models focus on detection: neither offers [instance segmentation](https://docs.ultralytics.com/tasks/segment) or [pose estimation](https://docs.ultralytics.com/tasks/pose) in its main release.
 

@@ -59,18 +59,18 @@ YOLOv9 achieves high [mean Average Precision (mAP)](https://www.ultralytics.com/
 
 When comparing these models, it is essential to look at the balance of accuracy, parameter count, and inference speed.
 
-| Model       | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ----------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv6-3.0n | 640                         | 37.5                       | -                                    | **1.17**                                  | 4.7                      | 11.4                    |
-| YOLOv6-3.0s | 640                         | 45.0                       | -                                    | 2.66                                      | 18.5                     | 45.3                    |
-| YOLOv6-3.0m | 640                         | 50.0                       | -                                    | 5.28                                      | 34.9                     | 85.8                    |
-| YOLOv6-3.0l | 640                         | 52.8                       | -                                    | 8.95                                      | 59.6                     | 150.7                   |
-|             |                             |                            |                                      |                                           |                          |                         |
-| YOLOv9t     | 640                         | 38.3                       | -                                    | 2.3                                       | **2.0**                  | **7.7**                 |
-| YOLOv9s     | 640                         | 46.8                       | -                                    | 3.54                                      | 7.2                      | 26.7                    |
-| YOLOv9m     | 640                         | 51.4                       | -                                    | 6.43                                      | 20.1                     | 76.8                    |
-| YOLOv9c     | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
-| YOLOv9e     | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
+| Model       | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ----------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOv6-3.0n | 640                         | 37.5                              | -                                    | **1.17**                                  | 4.7                      | 11.4                    |
+| YOLOv6-3.0s | 640                         | 45.0                              | -                                    | 2.66                                      | 18.5                     | 45.3                    |
+| YOLOv6-3.0m | 640                         | 50.0                              | -                                    | 5.28                                      | 34.9                     | 85.8                    |
+| YOLOv6-3.0l | 640                         | 52.8                              | -                                    | 8.95                                      | 59.6                     | 150.7                   |
+|             |                             |                                   |                                      |                                           |                          |                         |
+| YOLOv9t     | 640                         | 38.3                              | -                                    | 2.3                                       | **2.0**                  | **7.7**                 |
+| YOLOv9s     | 640                         | 46.8                              | -                                    | 3.54                                      | 7.2                      | 26.7                    |
+| YOLOv9m     | 640                         | 51.4                              | -                                    | 6.43                                      | 20.1                     | 76.8                    |
+| YOLOv9c     | 640                         | 53.0                              | -                                    | 7.16                                      | 25.5                     | 102.8                   |
+| YOLOv9e     | 640                         | **55.6**                          | -                                    | 16.77                                     | 58.1                     | 192.5                   |
 
 ## The Ultralytics Advantage: Introducing YOLO26
 

@@ -57,20 +57,20 @@ Released by researchers at Tsinghua University, YOLOv10 brought a significant ar
 
 Understanding how these models perform under standardized benchmarks is crucial for selecting the right architecture. The table below compares their size, accuracy, and latency.
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| PP-YOLOE+t | 640                         | 39.9                       | -                                    | 2.84                                      | 4.85                     | 19.15                   |
-| PP-YOLOE+s | 640                         | 43.7                       | -                                    | 2.62                                      | 7.93                     | 17.36                   |
-| PP-YOLOE+m | 640                         | 49.8                       | -                                    | 5.56                                      | 23.43                    | 49.91                   |
-| PP-YOLOE+l | 640                         | 52.9                       | -                                    | 8.36                                      | 52.2                     | 110.07                  |
-| PP-YOLOE+x | 640                         | **54.7**                   | -                                    | 14.3                                      | 98.42                    | 206.59                  |
-|            |                             |                            |                                      |                                           |                          |                         |
-| YOLOv10n   | 640                         | 38.5                       | -                                    | **1.84**                                  | **2.3**                  | **6.7**                 |
-| YOLOv10s   | 640                         | 46.3                       | -                                    | 2.49                                      | 7.2                      | 21.6                    |
-| YOLOv10m   | 640                         | 51.1                       | -                                    | 4.74                                      | 15.4                     | 59.1                    |
-| YOLOv10b   | 640                         | 52.5                       | -                                    | 5.74                                      | 19.1                     | 92.0                    |
-| YOLOv10l   | 640                         | 53.2                       | -                                    | 7.28                                      | 24.4                     | 120.3                   |
-| YOLOv10x   | 640                         | 54.4                       | -                                    | 10.70                                     | 29.5                     | 160.4                   |
+| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| PP-YOLOE+t | 640                         | 39.9                              | -                                    | 2.84                                      | 4.85                     | 19.15                   |
+| PP-YOLOE+s | 640                         | 43.7                              | -                                    | 2.62                                      | 7.93                     | 17.36                   |
+| PP-YOLOE+m | 640                         | 49.8                              | -                                    | 5.56                                      | 23.43                    | 49.91                   |
+| PP-YOLOE+l | 640                         | 52.9                              | -                                    | 8.36                                      | 52.2                     | 110.07                  |
+| PP-YOLOE+x | 640                         | **54.7**                          | -                                    | 14.3                                      | 98.42                    | 206.59                  |
+|            |                             |                                   |                                      |                                           |                          |                         |
+| YOLOv10n   | 640                         | 38.5                              | -                                    | **1.84**                                  | **2.3**                  | **6.7**                 |
+| YOLOv10s   | 640                         | 46.3                              | -                                    | 2.49                                      | 7.2                      | 21.6                    |
+| YOLOv10m   | 640                         | 51.1                              | -                                    | 4.74                                      | 15.4                     | 59.1                    |
+| YOLOv10b   | 640                         | 52.5                              | -                                    | 5.74                                      | 19.1                     | 92.0                    |
+| YOLOv10l   | 640                         | 53.2                              | -                                    | 7.28                                      | 24.4                     | 120.3                   |
+| YOLOv10x   | 640                         | 54.4                              | -                                    | 10.70                                     | 29.5                     | 160.4                   |
 
 ### Technical Analysis
 

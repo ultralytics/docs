@@ -49,22 +49,22 @@ YOLOv9 introduces Programmable Gradient Information (PGI) to provide auxiliary s
 
 When evaluating these models, analyzing empirical [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics) helps determine which architecture provides the best trade-off for your hardware.
 
-| Model           | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| --------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| EfficientDet-d0 | 512                         | 34.6                       | -                                    | 3.92                                      | 3.9                      | **2.54**                |
-| EfficientDet-d1 | 640                         | 40.5                       | -                                    | 7.31                                      | 6.6                      | 6.1                     |
-| EfficientDet-d2 | 768                         | 43.0                       | -                                    | 10.92                                     | 8.1                      | 11.0                    |
-| EfficientDet-d3 | 896                         | 47.5                       | -                                    | 19.59                                     | 12.0                     | 24.9                    |
-| EfficientDet-d4 | 1024                        | 49.7                       | -                                    | 33.55                                     | 20.7                     | 55.2                    |
-| EfficientDet-d5 | 1280                        | 51.5                       | -                                    | 67.86                                     | 33.7                     | 130.0                   |
-| EfficientDet-d6 | 1280                        | 52.6                       | -                                    | 89.29                                     | 51.9                     | 226.0                   |
-| EfficientDet-d7 | 1536                        | 53.7                       | -                                    | 128.07                                    | 51.9                     | 325.0                   |
-|                 |                             |                            |                                      |                                           |                          |                         |
-| YOLOv9t         | 640                         | 38.3                       | -                                    | **2.3**                                   | **2.0**                  | 7.7                     |
-| YOLOv9s         | 640                         | 46.8                       | -                                    | 3.54                                      | 7.2                      | 26.7                    |
-| YOLOv9m         | 640                         | 51.4                       | -                                    | 6.43                                      | 20.1                     | 76.8                    |
-| YOLOv9c         | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
-| YOLOv9e         | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
+| Model           | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| --------------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| EfficientDet-d0 | 512                         | 34.6                              | -                                    | 3.92                                      | 3.9                      | **2.54**                |
+| EfficientDet-d1 | 640                         | 40.5                              | -                                    | 7.31                                      | 6.6                      | 6.1                     |
+| EfficientDet-d2 | 768                         | 43.0                              | -                                    | 10.92                                     | 8.1                      | 11.0                    |
+| EfficientDet-d3 | 896                         | 47.5                              | -                                    | 19.59                                     | 12.0                     | 24.9                    |
+| EfficientDet-d4 | 1024                        | 49.7                              | -                                    | 33.55                                     | 20.7                     | 55.2                    |
+| EfficientDet-d5 | 1280                        | 51.5                              | -                                    | 67.86                                     | 33.7                     | 130.0                   |
+| EfficientDet-d6 | 1280                        | 52.6                              | -                                    | 89.29                                     | 51.9                     | 226.0                   |
+| EfficientDet-d7 | 1536                        | 53.7                              | -                                    | 128.07                                    | 51.9                     | 325.0                   |
+|                 |                             |                                   |                                      |                                           |                          |                         |
+| YOLOv9t         | 640                         | 38.3                              | -                                    | **2.3**                                   | **2.0**                  | 7.7                     |
+| YOLOv9s         | 640                         | 46.8                              | -                                    | 3.54                                      | 7.2                      | 26.7                    |
+| YOLOv9m         | 640                         | 51.4                              | -                                    | 6.43                                      | 20.1                     | 76.8                    |
+| YOLOv9c         | 640                         | 53.0                              | -                                    | 7.16                                      | 25.5                     | 102.8                   |
+| YOLOv9e         | 640                         | **55.6**                          | -                                    | 16.77                                     | 58.1                     | 192.5                   |
 
 ### Critical Analysis
 

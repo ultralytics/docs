@@ -61,19 +61,19 @@ Additionally, YOLOX built strong data augmentation strategies (such as MixUp and
 
 When comparing these models head-to-head, trade-offs between speed, parameter count, and accuracy become evident. Below is a detailed performance table highlighting key models from both families.
 
-| Model       | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ----------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv6-3.0n | 640                         | 37.5                       | -                                    | **1.17**                                  | 4.7                      | 11.4                    |
-| YOLOv6-3.0s | 640                         | 45.0                       | -                                    | 2.66                                      | 18.5                     | 45.3                    |
-| YOLOv6-3.0m | 640                         | 50.0                       | -                                    | 5.28                                      | 34.9                     | 85.8                    |
-| YOLOv6-3.0l | 640                         | **52.8**                   | -                                    | 8.95                                      | 59.6                     | 150.7                   |
-|             |                             |                            |                                      |                                           |                          |                         |
-| YOLOXnano   | 416                         | 25.8                       | -                                    | -                                         | **0.91**                 | **1.08**                |
-| YOLOXtiny   | 416                         | 32.8                       | -                                    | -                                         | 5.06                     | 6.45                    |
-| YOLOXs      | 640                         | 40.5                       | -                                    | 2.56                                      | 9.0                      | 26.8                    |
-| YOLOXm      | 640                         | 46.9                       | -                                    | 5.43                                      | 25.3                     | 73.8                    |
-| YOLOXl      | 640                         | 49.7                       | -                                    | 9.04                                      | 54.2                     | 155.6                   |
-| YOLOXx      | 640                         | 51.1                       | -                                    | 16.1                                      | 99.1                     | 281.9                   |
+| Model       | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ----------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOv6-3.0n | 640                         | 37.5                              | -                                    | **1.17**                                  | 4.7                      | 11.4                    |
+| YOLOv6-3.0s | 640                         | 45.0                              | -                                    | 2.66                                      | 18.5                     | 45.3                    |
+| YOLOv6-3.0m | 640                         | 50.0                              | -                                    | 5.28                                      | 34.9                     | 85.8                    |
+| YOLOv6-3.0l | 640                         | **52.8**                          | -                                    | 8.95                                      | 59.6                     | 150.7                   |
+|             |                             |                                   |                                      |                                           |                          |                         |
+| YOLOXnano   | 416                         | 25.8                              | -                                    | -                                         | **0.91**                 | **1.08**                |
+| YOLOXtiny   | 416                         | 32.8                              | -                                    | -                                         | 5.06                     | 6.45                    |
+| YOLOXs      | 640                         | 40.5                              | -                                    | 2.56                                      | 9.0                      | 26.8                    |
+| YOLOXm      | 640                         | 46.9                              | -                                    | 5.43                                      | 25.3                     | 73.8                    |
+| YOLOXl      | 640                         | 49.7                              | -                                    | 9.04                                      | 54.2                     | 155.6                   |
+| YOLOXx      | 640                         | 51.1                              | -                                    | 16.1                                      | 99.1                     | 281.9                   |
 
 While YOLOX offers very lightweight variants like the Nano, YOLOv6-3.0 scales better at the high end, providing higher mAP for larger models and strong TensorRT acceleration. However, both models rely on legacy training repositories that can be cumbersome to integrate into modern applications.
 

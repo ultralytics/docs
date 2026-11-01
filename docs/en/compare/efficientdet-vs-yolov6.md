@@ -59,21 +59,21 @@ Built on the hardware-friendly EfficientRep backbone, YOLOv6-3.0 performs well i
 
 Understanding the raw [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics) is fundamental to selecting a model that aligns with your specific deployment constraints. The table below breaks down accuracy, speed, and computational footprint.
 
-| Model           | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| --------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| EfficientDet-d0 | 512                         | 34.6                       | -                                    | 3.92                                      | **3.9**                  | **2.54**                |
-| EfficientDet-d1 | 640                         | 40.5                       | -                                    | 7.31                                      | 6.6                      | 6.1                     |
-| EfficientDet-d2 | 768                         | 43.0                       | -                                    | 10.92                                     | 8.1                      | 11.0                    |
-| EfficientDet-d3 | 896                         | 47.5                       | -                                    | 19.59                                     | 12.0                     | 24.9                    |
-| EfficientDet-d4 | 1024                        | 49.7                       | -                                    | 33.55                                     | 20.7                     | 55.2                    |
-| EfficientDet-d5 | 1280                        | 51.5                       | -                                    | 67.86                                     | 33.7                     | 130.0                   |
-| EfficientDet-d6 | 1280                        | 52.6                       | -                                    | 89.29                                     | 51.9                     | 226.0                   |
-| EfficientDet-d7 | 1536                        | **53.7**                   | -                                    | 128.07                                    | 51.9                     | 325.0                   |
-|                 |                             |                            |                                      |                                           |                          |                         |
-| YOLOv6-3.0n     | 640                         | 37.5                       | -                                    | **1.17**                                  | 4.7                      | 11.4                    |
-| YOLOv6-3.0s     | 640                         | 45.0                       | -                                    | 2.66                                      | 18.5                     | 45.3                    |
-| YOLOv6-3.0m     | 640                         | 50.0                       | -                                    | 5.28                                      | 34.9                     | 85.8                    |
-| YOLOv6-3.0l     | 640                         | 52.8                       | -                                    | 8.95                                      | 59.6                     | 150.7                   |
+| Model           | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| --------------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| EfficientDet-d0 | 512                         | 34.6                              | -                                    | 3.92                                      | **3.9**                  | **2.54**                |
+| EfficientDet-d1 | 640                         | 40.5                              | -                                    | 7.31                                      | 6.6                      | 6.1                     |
+| EfficientDet-d2 | 768                         | 43.0                              | -                                    | 10.92                                     | 8.1                      | 11.0                    |
+| EfficientDet-d3 | 896                         | 47.5                              | -                                    | 19.59                                     | 12.0                     | 24.9                    |
+| EfficientDet-d4 | 1024                        | 49.7                              | -                                    | 33.55                                     | 20.7                     | 55.2                    |
+| EfficientDet-d5 | 1280                        | 51.5                              | -                                    | 67.86                                     | 33.7                     | 130.0                   |
+| EfficientDet-d6 | 1280                        | 52.6                              | -                                    | 89.29                                     | 51.9                     | 226.0                   |
+| EfficientDet-d7 | 1536                        | **53.7**                          | -                                    | 128.07                                    | 51.9                     | 325.0                   |
+|                 |                             |                                   |                                      |                                           |                          |                         |
+| YOLOv6-3.0n     | 640                         | 37.5                              | -                                    | **1.17**                                  | 4.7                      | 11.4                    |
+| YOLOv6-3.0s     | 640                         | 45.0                              | -                                    | 2.66                                      | 18.5                     | 45.3                    |
+| YOLOv6-3.0m     | 640                         | 50.0                              | -                                    | 5.28                                      | 34.9                     | 85.8                    |
+| YOLOv6-3.0l     | 640                         | 52.8                              | -                                    | 8.95                                      | 59.6                     | 150.7                   |
 
 !!! tip "Hardware Considerations"
 

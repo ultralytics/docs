@@ -57,19 +57,19 @@ While PP-YOLOE+ is robust, YOLOv9's GELAN architecture uses fewer parameters at 
 
 When evaluating models for production, the trade-off between mAP (mean Average Precision), inference speed, and model size is crucial.
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv9t    | 640                         | 38.3                       | -                                    | **2.3**                                   | **2.0**                  | **7.7**                 |
-| YOLOv9s    | 640                         | 46.8                       | -                                    | 3.54                                      | 7.2                      | 26.7                    |
-| YOLOv9m    | 640                         | 51.4                       | -                                    | 6.43                                      | 20.1                     | 76.8                    |
-| YOLOv9c    | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
-| YOLOv9e    | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
-|            |                             |                            |                                      |                                           |                          |                         |
-| PP-YOLOE+t | 640                         | 39.9                       | -                                    | 2.84                                      | 4.85                     | 19.15                   |
-| PP-YOLOE+s | 640                         | 43.7                       | -                                    | 2.62                                      | 7.93                     | 17.36                   |
-| PP-YOLOE+m | 640                         | 49.8                       | -                                    | 5.56                                      | 23.43                    | 49.91                   |
-| PP-YOLOE+l | 640                         | 52.9                       | -                                    | 8.36                                      | 52.2                     | 110.07                  |
-| PP-YOLOE+x | 640                         | 54.7                       | -                                    | 14.3                                      | 98.42                    | 206.59                  |
+| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOv9t    | 640                         | 38.3                              | -                                    | **2.3**                                   | **2.0**                  | **7.7**                 |
+| YOLOv9s    | 640                         | 46.8                              | -                                    | 3.54                                      | 7.2                      | 26.7                    |
+| YOLOv9m    | 640                         | 51.4                              | -                                    | 6.43                                      | 20.1                     | 76.8                    |
+| YOLOv9c    | 640                         | 53.0                              | -                                    | 7.16                                      | 25.5                     | 102.8                   |
+| YOLOv9e    | 640                         | **55.6**                          | -                                    | 16.77                                     | 58.1                     | 192.5                   |
+|            |                             |                                   |                                      |                                           |                          |                         |
+| PP-YOLOE+t | 640                         | 39.9                              | -                                    | 2.84                                      | 4.85                     | 19.15                   |
+| PP-YOLOE+s | 640                         | 43.7                              | -                                    | 2.62                                      | 7.93                     | 17.36                   |
+| PP-YOLOE+m | 640                         | 49.8                              | -                                    | 5.56                                      | 23.43                    | 49.91                   |
+| PP-YOLOE+l | 640                         | 52.9                              | -                                    | 8.36                                      | 52.2                     | 110.07                  |
+| PP-YOLOE+x | 640                         | 54.7                              | -                                    | 14.3                                      | 98.42                    | 206.59                  |
 
 ### Analysis
 

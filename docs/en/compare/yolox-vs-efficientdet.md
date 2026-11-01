@@ -60,23 +60,23 @@ Its defining feature is the Bi-directional [Feature Pyramid Network](https://www
 
 When evaluating these models for real-world [computer vision applications](https://www.ultralytics.com/blog/60-impactful-computer-vision-applications), metrics such as mean Average Precision, inference speed, and parameter count are essential.
 
-| Model           | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| --------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOXnano       | 416                         | 25.8                       | -                                    | -                                         | **0.91**                 | **1.08**                |
-| YOLOXtiny       | 416                         | 32.8                       | -                                    | -                                         | 5.06                     | 6.45                    |
-| YOLOXs          | 640                         | 40.5                       | -                                    | **2.56**                                  | 9.0                      | 26.8                    |
-| YOLOXm          | 640                         | 46.9                       | -                                    | 5.43                                      | 25.3                     | 73.8                    |
-| YOLOXl          | 640                         | 49.7                       | -                                    | 9.04                                      | 54.2                     | 155.6                   |
-| YOLOXx          | 640                         | 51.1                       | -                                    | 16.1                                      | 99.1                     | 281.9                   |
-|                 |                             |                            |                                      |                                           |                          |                         |
-| EfficientDet-d0 | 512                         | 34.6                       | -                                    | 3.92                                      | 3.9                      | 2.54                    |
-| EfficientDet-d1 | 640                         | 40.5                       | -                                    | 7.31                                      | 6.6                      | 6.1                     |
-| EfficientDet-d2 | 768                         | 43.0                       | -                                    | 10.92                                     | 8.1                      | 11.0                    |
-| EfficientDet-d3 | 896                         | 47.5                       | -                                    | 19.59                                     | 12.0                     | 24.9                    |
-| EfficientDet-d4 | 1024                        | 49.7                       | -                                    | 33.55                                     | 20.7                     | 55.2                    |
-| EfficientDet-d5 | 1280                        | 51.5                       | -                                    | 67.86                                     | 33.7                     | 130.0                   |
-| EfficientDet-d6 | 1280                        | 52.6                       | -                                    | 89.29                                     | 51.9                     | 226.0                   |
-| EfficientDet-d7 | 1536                        | **53.7**                   | -                                    | 128.07                                    | 51.9                     | 325.0                   |
+| Model           | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| --------------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOXnano       | 416                         | 25.8                              | -                                    | -                                         | **0.91**                 | **1.08**                |
+| YOLOXtiny       | 416                         | 32.8                              | -                                    | -                                         | 5.06                     | 6.45                    |
+| YOLOXs          | 640                         | 40.5                              | -                                    | **2.56**                                  | 9.0                      | 26.8                    |
+| YOLOXm          | 640                         | 46.9                              | -                                    | 5.43                                      | 25.3                     | 73.8                    |
+| YOLOXl          | 640                         | 49.7                              | -                                    | 9.04                                      | 54.2                     | 155.6                   |
+| YOLOXx          | 640                         | 51.1                              | -                                    | 16.1                                      | 99.1                     | 281.9                   |
+|                 |                             |                                   |                                      |                                           |                          |                         |
+| EfficientDet-d0 | 512                         | 34.6                              | -                                    | 3.92                                      | 3.9                      | 2.54                    |
+| EfficientDet-d1 | 640                         | 40.5                              | -                                    | 7.31                                      | 6.6                      | 6.1                     |
+| EfficientDet-d2 | 768                         | 43.0                              | -                                    | 10.92                                     | 8.1                      | 11.0                    |
+| EfficientDet-d3 | 896                         | 47.5                              | -                                    | 19.59                                     | 12.0                     | 24.9                    |
+| EfficientDet-d4 | 1024                        | 49.7                              | -                                    | 33.55                                     | 20.7                     | 55.2                    |
+| EfficientDet-d5 | 1280                        | 51.5                              | -                                    | 67.86                                     | 33.7                     | 130.0                   |
+| EfficientDet-d6 | 1280                        | 52.6                              | -                                    | 89.29                                     | 51.9                     | 226.0                   |
+| EfficientDet-d7 | 1536                        | **53.7**                          | -                                    | 128.07                                    | 51.9                     | 325.0                   |
 
 ### Analyzing the Trade-offs
 

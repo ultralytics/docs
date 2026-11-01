@@ -49,19 +49,19 @@ YOLOv6-3.0 distinguishes itself with a heavily optimized **EfficientRep** backbo
 
 When analyzing raw performance, the architectural refinements in YOLOv10 become apparent. YOLOv10 delivers higher [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) while requiring significantly fewer parameters and [FLOPs](https://www.ultralytics.com/glossary/flops).
 
-| Model       | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ----------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv10n    | 640                         | 38.5                       | -                                    | 1.84                                      | **2.3**                  | **6.7**                 |
-| YOLOv10s    | 640                         | 46.3                       | -                                    | 2.49                                      | 7.2                      | 21.6                    |
-| YOLOv10m    | 640                         | 51.1                       | -                                    | 4.74                                      | 15.4                     | 59.1                    |
-| YOLOv10b    | 640                         | 52.5                       | -                                    | 5.74                                      | 19.1                     | 92.0                    |
-| YOLOv10l    | 640                         | 53.2                       | -                                    | 7.28                                      | 24.4                     | 120.3                   |
-| YOLOv10x    | 640                         | **54.4**                   | -                                    | 10.70                                     | 29.5                     | 160.4                   |
-|             |                             |                            |                                      |                                           |                          |                         |
-| YOLOv6-3.0n | 640                         | 37.5                       | -                                    | **1.17**                                  | 4.7                      | 11.4                    |
-| YOLOv6-3.0s | 640                         | 45.0                       | -                                    | 2.66                                      | 18.5                     | 45.3                    |
-| YOLOv6-3.0m | 640                         | 50.0                       | -                                    | 5.28                                      | 34.9                     | 85.8                    |
-| YOLOv6-3.0l | 640                         | 52.8                       | -                                    | 8.95                                      | 59.6                     | 150.7                   |
+| Model       | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ----------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOv10n    | 640                         | 38.5                              | -                                    | 1.84                                      | **2.3**                  | **6.7**                 |
+| YOLOv10s    | 640                         | 46.3                              | -                                    | 2.49                                      | 7.2                      | 21.6                    |
+| YOLOv10m    | 640                         | 51.1                              | -                                    | 4.74                                      | 15.4                     | 59.1                    |
+| YOLOv10b    | 640                         | 52.5                              | -                                    | 5.74                                      | 19.1                     | 92.0                    |
+| YOLOv10l    | 640                         | 53.2                              | -                                    | 7.28                                      | 24.4                     | 120.3                   |
+| YOLOv10x    | 640                         | **54.4**                          | -                                    | 10.70                                     | 29.5                     | 160.4                   |
+|             |                             |                                   |                                      |                                           |                          |                         |
+| YOLOv6-3.0n | 640                         | 37.5                              | -                                    | **1.17**                                  | 4.7                      | 11.4                    |
+| YOLOv6-3.0s | 640                         | 45.0                              | -                                    | 2.66                                      | 18.5                     | 45.3                    |
+| YOLOv6-3.0m | 640                         | 50.0                              | -                                    | 5.28                                      | 34.9                     | 85.8                    |
+| YOLOv6-3.0l | 640                         | 52.8                              | -                                    | 8.95                                      | 59.6                     | 150.7                   |
 
 While YOLOv6-3.0 retains a speed advantage in its Nano variant under pure [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) execution on T4 GPUs, YOLOv10 uses about half the parameters or fewer at each size while achieving higher accuracy, which shifts the overall performance balance in its favor.
 
