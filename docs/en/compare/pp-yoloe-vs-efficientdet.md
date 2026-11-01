@@ -51,22 +51,22 @@ While highly efficient in terms of FLOPs, EfficientDet models can struggle to tr
 
 The table below contrasts key metrics on standard [datasets like COCO](https://docs.ultralytics.com/datasets/detect/coco). Comparing [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) against inference speed shows where each model sits on the speed-accuracy Pareto frontier.
 
-| Model           | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| --------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| PP-YOLOE+t      | 640                         | 39.9                       | -                                    | 2.84                                      | 4.85                     | 19.15                   |
-| PP-YOLOE+s      | 640                         | 43.7                       | -                                    | **2.62**                                  | 7.93                     | 17.36                   |
-| PP-YOLOE+m      | 640                         | 49.8                       | -                                    | 5.56                                      | 23.43                    | 49.91                   |
-| PP-YOLOE+l      | 640                         | 52.9                       | -                                    | 8.36                                      | 52.2                     | 110.07                  |
-| PP-YOLOE+x      | 640                         | **54.7**                   | -                                    | 14.3                                      | 98.42                    | 206.59                  |
-|                 |                             |                            |                                      |                                           |                          |                         |
-| EfficientDet-d0 | 512                         | 34.6                       | -                                    | 3.92                                      | **3.9**                  | **2.54**                |
-| EfficientDet-d1 | 640                         | 40.5                       | -                                    | 7.31                                      | 6.6                      | 6.1                     |
-| EfficientDet-d2 | 768                         | 43.0                       | -                                    | 10.92                                     | 8.1                      | 11.0                    |
-| EfficientDet-d3 | 896                         | 47.5                       | -                                    | 19.59                                     | 12.0                     | 24.9                    |
-| EfficientDet-d4 | 1024                        | 49.7                       | -                                    | 33.55                                     | 20.7                     | 55.2                    |
-| EfficientDet-d5 | 1280                        | 51.5                       | -                                    | 67.86                                     | 33.7                     | 130.0                   |
-| EfficientDet-d6 | 1280                        | 52.6                       | -                                    | 89.29                                     | 51.9                     | 226.0                   |
-| EfficientDet-d7 | 1536                        | 53.7                       | -                                    | 128.07                                    | 51.9                     | 325.0                   |
+| Model           | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| --------------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| PP-YOLOE+t      | 640                         | 39.9                              | -                                    | 2.84                                      | 4.85                     | 19.15                   |
+| PP-YOLOE+s      | 640                         | 43.7                              | -                                    | **2.62**                                  | 7.93                     | 17.36                   |
+| PP-YOLOE+m      | 640                         | 49.8                              | -                                    | 5.56                                      | 23.43                    | 49.91                   |
+| PP-YOLOE+l      | 640                         | 52.9                              | -                                    | 8.36                                      | 52.2                     | 110.07                  |
+| PP-YOLOE+x      | 640                         | **54.7**                          | -                                    | 14.3                                      | 98.42                    | 206.59                  |
+|                 |                             |                                   |                                      |                                           |                          |                         |
+| EfficientDet-d0 | 512                         | 34.6                              | -                                    | 3.92                                      | **3.9**                  | **2.54**                |
+| EfficientDet-d1 | 640                         | 40.5                              | -                                    | 7.31                                      | 6.6                      | 6.1                     |
+| EfficientDet-d2 | 768                         | 43.0                              | -                                    | 10.92                                     | 8.1                      | 11.0                    |
+| EfficientDet-d3 | 896                         | 47.5                              | -                                    | 19.59                                     | 12.0                     | 24.9                    |
+| EfficientDet-d4 | 1024                        | 49.7                              | -                                    | 33.55                                     | 20.7                     | 55.2                    |
+| EfficientDet-d5 | 1280                        | 51.5                              | -                                    | 67.86                                     | 33.7                     | 130.0                   |
+| EfficientDet-d6 | 1280                        | 52.6                              | -                                    | 89.29                                     | 51.9                     | 226.0                   |
+| EfficientDet-d7 | 1536                        | 53.7                              | -                                    | 128.07                                    | 51.9                     | 325.0                   |
 
 As shown, PP-YOLOE+ generally scales better in raw mAP for high-end GPUs, while EfficientDet attempts to minimize parameters. However, both fall behind the real-time performance that modern [edge AI](https://www.ultralytics.com/glossary/edge-ai) applications require.
 

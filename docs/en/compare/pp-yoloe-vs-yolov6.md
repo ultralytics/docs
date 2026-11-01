@@ -57,18 +57,18 @@ However, because YOLOv6-3.0 is highly optimized for server-grade GPUs, its laten
 
 The following table highlights key performance metrics, directly comparing the different scale variants of both architectures.
 
-| Model       | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ----------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| PP-YOLOE+t  | 640                         | 39.9                       | -                                    | 2.84                                      | 4.85                     | 19.15                   |
-| PP-YOLOE+s  | 640                         | 43.7                       | -                                    | 2.62                                      | 7.93                     | 17.36                   |
-| PP-YOLOE+m  | 640                         | 49.8                       | -                                    | 5.56                                      | 23.43                    | 49.91                   |
-| PP-YOLOE+l  | 640                         | 52.9                       | -                                    | 8.36                                      | 52.2                     | 110.07                  |
-| PP-YOLOE+x  | 640                         | **54.7**                   | -                                    | 14.3                                      | 98.42                    | 206.59                  |
-|             |                             |                            |                                      |                                           |                          |                         |
-| YOLOv6-3.0n | 640                         | 37.5                       | -                                    | **1.17**                                  | **4.7**                  | **11.4**                |
-| YOLOv6-3.0s | 640                         | 45.0                       | -                                    | 2.66                                      | 18.5                     | 45.3                    |
-| YOLOv6-3.0m | 640                         | 50.0                       | -                                    | 5.28                                      | 34.9                     | 85.8                    |
-| YOLOv6-3.0l | 640                         | 52.8                       | -                                    | 8.95                                      | 59.6                     | 150.7                   |
+| Model       | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ----------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| PP-YOLOE+t  | 640                         | 39.9                              | -                                    | 2.84                                      | 4.85                     | 19.15                   |
+| PP-YOLOE+s  | 640                         | 43.7                              | -                                    | 2.62                                      | 7.93                     | 17.36                   |
+| PP-YOLOE+m  | 640                         | 49.8                              | -                                    | 5.56                                      | 23.43                    | 49.91                   |
+| PP-YOLOE+l  | 640                         | 52.9                              | -                                    | 8.36                                      | 52.2                     | 110.07                  |
+| PP-YOLOE+x  | 640                         | **54.7**                          | -                                    | 14.3                                      | 98.42                    | 206.59                  |
+|             |                             |                                   |                                      |                                           |                          |                         |
+| YOLOv6-3.0n | 640                         | 37.5                              | -                                    | **1.17**                                  | **4.7**                  | **11.4**                |
+| YOLOv6-3.0s | 640                         | 45.0                              | -                                    | 2.66                                      | 18.5                     | 45.3                    |
+| YOLOv6-3.0m | 640                         | 50.0                              | -                                    | 5.28                                      | 34.9                     | 85.8                    |
+| YOLOv6-3.0l | 640                         | 52.8                              | -                                    | 8.95                                      | 59.6                     | 150.7                   |
 
 ## Use Cases and Recommendations
 

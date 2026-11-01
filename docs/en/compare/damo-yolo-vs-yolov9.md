@@ -73,18 +73,18 @@ To combat this, the authors introduced **Programmable Gradient Information (PGI)
 
 When evaluating performance, both models demonstrate strong mean Average Precision (mAP) on standard benchmarks like COCO. YOLOv9 achieves higher accuracy at comparable parameter counts and the highest absolute accuracy overall, leveraging its PGI architecture to maintain high fidelity on difficult datasets.
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| DAMO-YOLOt | 640                         | 42.0                       | -                                    | 2.32                                      | 8.5                      | 18.1                    |
-| DAMO-YOLOs | 640                         | 46.0                       | -                                    | 3.45                                      | 16.3                     | 37.8                    |
-| DAMO-YOLOm | 640                         | 49.2                       | -                                    | 5.09                                      | 28.2                     | 61.8                    |
-| DAMO-YOLOl | 640                         | 50.8                       | -                                    | 7.18                                      | 42.1                     | 97.3                    |
-|            |                             |                            |                                      |                                           |                          |                         |
-| YOLOv9t    | 640                         | 38.3                       | -                                    | **2.3**                                   | **2.0**                  | **7.7**                 |
-| YOLOv9s    | 640                         | 46.8                       | -                                    | 3.54                                      | 7.2                      | 26.7                    |
-| YOLOv9m    | 640                         | 51.4                       | -                                    | 6.43                                      | 20.1                     | 76.8                    |
-| YOLOv9c    | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
-| YOLOv9e    | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
+| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| DAMO-YOLOt | 640                         | 42.0                              | -                                    | 2.32                                      | 8.5                      | 18.1                    |
+| DAMO-YOLOs | 640                         | 46.0                              | -                                    | 3.45                                      | 16.3                     | 37.8                    |
+| DAMO-YOLOm | 640                         | 49.2                              | -                                    | 5.09                                      | 28.2                     | 61.8                    |
+| DAMO-YOLOl | 640                         | 50.8                              | -                                    | 7.18                                      | 42.1                     | 97.3                    |
+|            |                             |                                   |                                      |                                           |                          |                         |
+| YOLOv9t    | 640                         | 38.3                              | -                                    | **2.3**                                   | **2.0**                  | **7.7**                 |
+| YOLOv9s    | 640                         | 46.8                              | -                                    | 3.54                                      | 7.2                      | 26.7                    |
+| YOLOv9m    | 640                         | 51.4                              | -                                    | 6.43                                      | 20.1                     | 76.8                    |
+| YOLOv9c    | 640                         | 53.0                              | -                                    | 7.16                                      | 25.5                     | 102.8                   |
+| YOLOv9e    | 640                         | **55.6**                          | -                                    | 16.77                                     | 58.1                     | 192.5                   |
 
 As shown above, YOLOv9-E achieves the highest accuracy, while the smaller DAMO-YOLO and YOLOv9 variants maintain competitive inference speeds via [TensorRT optimizations](https://developer.nvidia.com/tensorrt).
 

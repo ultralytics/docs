@@ -61,21 +61,21 @@ EfficientDet is an older architecture that relies heavily on anchor boxes and th
 
 Understanding the exact trade-offs between these models requires analyzing their throughput and parameter efficiency. The table below outlines how the modern RTDETRv2 series compares against the scalable EfficientDet family.
 
-| Model           | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| --------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| RTDETRv2-s      | 640                         | 48.1                       | -                                    | 5.03                                      | 20                       | 60                      |
-| RTDETRv2-m      | 640                         | 51.9                       | -                                    | 7.51                                      | 36                       | 100                     |
-| RTDETRv2-l      | 640                         | 53.4                       | -                                    | 9.76                                      | 42                       | 136                     |
-| RTDETRv2-x      | 640                         | **54.3**                   | -                                    | 15.03                                     | 76                       | 259                     |
-|                 |                             |                            |                                      |                                           |                          |                         |
-| EfficientDet-d0 | 512                         | 34.6                       | -                                    | **3.92**                                  | **3.9**                  | **2.54**                |
-| EfficientDet-d1 | 640                         | 40.5                       | -                                    | 7.31                                      | 6.6                      | 6.1                     |
-| EfficientDet-d2 | 768                         | 43.0                       | -                                    | 10.92                                     | 8.1                      | 11.0                    |
-| EfficientDet-d3 | 896                         | 47.5                       | -                                    | 19.59                                     | 12.0                     | 24.9                    |
-| EfficientDet-d4 | 1024                        | 49.7                       | -                                    | 33.55                                     | 20.7                     | 55.2                    |
-| EfficientDet-d5 | 1280                        | 51.5                       | -                                    | 67.86                                     | 33.7                     | 130.0                   |
-| EfficientDet-d6 | 1280                        | 52.6                       | -                                    | 89.29                                     | 51.9                     | 226.0                   |
-| EfficientDet-d7 | 1536                        | 53.7                       | -                                    | 128.07                                    | 51.9                     | 325.0                   |
+| Model           | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| --------------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| RTDETRv2-s      | 640                         | 48.1                              | -                                    | 5.03                                      | 20                       | 60                      |
+| RTDETRv2-m      | 640                         | 51.9                              | -                                    | 7.51                                      | 36                       | 100                     |
+| RTDETRv2-l      | 640                         | 53.4                              | -                                    | 9.76                                      | 42                       | 136                     |
+| RTDETRv2-x      | 640                         | **54.3**                          | -                                    | 15.03                                     | 76                       | 259                     |
+|                 |                             |                                   |                                      |                                           |                          |                         |
+| EfficientDet-d0 | 512                         | 34.6                              | -                                    | **3.92**                                  | **3.9**                  | **2.54**                |
+| EfficientDet-d1 | 640                         | 40.5                              | -                                    | 7.31                                      | 6.6                      | 6.1                     |
+| EfficientDet-d2 | 768                         | 43.0                              | -                                    | 10.92                                     | 8.1                      | 11.0                    |
+| EfficientDet-d3 | 896                         | 47.5                              | -                                    | 19.59                                     | 12.0                     | 24.9                    |
+| EfficientDet-d4 | 1024                        | 49.7                              | -                                    | 33.55                                     | 20.7                     | 55.2                    |
+| EfficientDet-d5 | 1280                        | 51.5                              | -                                    | 67.86                                     | 33.7                     | 130.0                   |
+| EfficientDet-d6 | 1280                        | 52.6                              | -                                    | 89.29                                     | 51.9                     | 226.0                   |
+| EfficientDet-d7 | 1536                        | 53.7                              | -                                    | 128.07                                    | 51.9                     | 325.0                   |
 
 As seen above, RTDETRv2 matches or exceeds the [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) of similarly sized EfficientDet models while running far faster on GPU (for example, 53.4 mAP at 9.76 ms for RTDETRv2-l versus 52.6 mAP at 89.29 ms for EfficientDet-d6), using its transformer architecture to boost accuracy.
 

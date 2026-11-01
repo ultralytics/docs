@@ -49,20 +49,20 @@ While YOLOX was influential in its time, achieving excellent [mean average preci
 
 When comparing these models across the MS COCO benchmark, the advancements in YOLOv9 become evident. YOLOv9 consistently achieves a better trade-off between accuracy and [FLOPs](https://www.ultralytics.com/glossary/flops).
 
-| Model     | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| --------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv9t   | 640                         | 38.3                       | -                                    | **2.3**                                   | 2.0                      | 7.7                     |
-| YOLOv9s   | 640                         | 46.8                       | -                                    | 3.54                                      | 7.2                      | 26.7                    |
-| YOLOv9m   | 640                         | 51.4                       | -                                    | 6.43                                      | 20.1                     | 76.8                    |
-| YOLOv9c   | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
-| YOLOv9e   | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
-|           |                             |                            |                                      |                                           |                          |                         |
-| YOLOXnano | 416                         | 25.8                       | -                                    | -                                         | **0.91**                 | **1.08**                |
-| YOLOXtiny | 416                         | 32.8                       | -                                    | -                                         | 5.06                     | 6.45                    |
-| YOLOXs    | 640                         | 40.5                       | -                                    | 2.56                                      | 9.0                      | 26.8                    |
-| YOLOXm    | 640                         | 46.9                       | -                                    | 5.43                                      | 25.3                     | 73.8                    |
-| YOLOXl    | 640                         | 49.7                       | -                                    | 9.04                                      | 54.2                     | 155.6                   |
-| YOLOXx    | 640                         | 51.1                       | -                                    | 16.1                                      | 99.1                     | 281.9                   |
+| Model     | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| --------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOv9t   | 640                         | 38.3                              | -                                    | **2.3**                                   | 2.0                      | 7.7                     |
+| YOLOv9s   | 640                         | 46.8                              | -                                    | 3.54                                      | 7.2                      | 26.7                    |
+| YOLOv9m   | 640                         | 51.4                              | -                                    | 6.43                                      | 20.1                     | 76.8                    |
+| YOLOv9c   | 640                         | 53.0                              | -                                    | 7.16                                      | 25.5                     | 102.8                   |
+| YOLOv9e   | 640                         | **55.6**                          | -                                    | 16.77                                     | 58.1                     | 192.5                   |
+|           |                             |                                   |                                      |                                           |                          |                         |
+| YOLOXnano | 416                         | 25.8                              | -                                    | -                                         | **0.91**                 | **1.08**                |
+| YOLOXtiny | 416                         | 32.8                              | -                                    | -                                         | 5.06                     | 6.45                    |
+| YOLOXs    | 640                         | 40.5                              | -                                    | 2.56                                      | 9.0                      | 26.8                    |
+| YOLOXm    | 640                         | 46.9                              | -                                    | 5.43                                      | 25.3                     | 73.8                    |
+| YOLOXl    | 640                         | 49.7                              | -                                    | 9.04                                      | 54.2                     | 155.6                   |
+| YOLOXx    | 640                         | 51.1                              | -                                    | 16.1                                      | 99.1                     | 281.9                   |
 
 While YOLOX offers lightweight variants like YOLOX-Nano for extreme edge cases, YOLOv9 variants consistently outperform similarly sized YOLOX models in pure [accuracy](https://www.ultralytics.com/glossary/accuracy). For instance, YOLOv9m achieves a 51.4% mAP compared to YOLOXl's 49.7%, despite having fewer than half the parameters (20.1M vs 54.2M).
 

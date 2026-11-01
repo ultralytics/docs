@@ -65,18 +65,18 @@ Additionally, it features the **Efficient RepGFPN** neck for improved feature fu
 
 Evaluating real-time object detectors requires looking at mAP (mean Average Precision), inference speed, and model size together.
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv5n    | 640                         | 28.0                       | -                                    | **1.12**                                  | **1.9**                  | **4.5**                 |
-| YOLOv5s    | 640                         | 37.4                       | -                                    | 1.92                                      | 7.2                      | 16.5                    |
-| YOLOv5m    | 640                         | 45.4                       | -                                    | 4.03                                      | 21.2                     | 49.0                    |
-| YOLOv5l    | 640                         | 49.0                       | -                                    | 6.61                                      | 46.5                     | 109.1                   |
-| YOLOv5x    | 640                         | 50.7                       | -                                    | 11.89                                     | 86.7                     | 205.7                   |
-|            |                             |                            |                                      |                                           |                          |                         |
-| DAMO-YOLOt | 640                         | 42.0                       | -                                    | 2.32                                      | 8.5                      | 18.1                    |
-| DAMO-YOLOs | 640                         | 46.0                       | -                                    | 3.45                                      | 16.3                     | 37.8                    |
-| DAMO-YOLOm | 640                         | 49.2                       | -                                    | 5.09                                      | 28.2                     | 61.8                    |
-| DAMO-YOLOl | 640                         | **50.8**                   | -                                    | 7.18                                      | 42.1                     | 97.3                    |
+| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOv5n    | 640                         | 28.0                              | -                                    | **1.12**                                  | **1.9**                  | **4.5**                 |
+| YOLOv5s    | 640                         | 37.4                              | -                                    | 1.92                                      | 7.2                      | 16.5                    |
+| YOLOv5m    | 640                         | 45.4                              | -                                    | 4.03                                      | 21.2                     | 49.0                    |
+| YOLOv5l    | 640                         | 49.0                              | -                                    | 6.61                                      | 46.5                     | 109.1                   |
+| YOLOv5x    | 640                         | 50.7                              | -                                    | 11.89                                     | 86.7                     | 205.7                   |
+|            |                             |                                   |                                      |                                           |                          |                         |
+| DAMO-YOLOt | 640                         | 42.0                              | -                                    | 2.32                                      | 8.5                      | 18.1                    |
+| DAMO-YOLOs | 640                         | 46.0                              | -                                    | 3.45                                      | 16.3                     | 37.8                    |
+| DAMO-YOLOm | 640                         | 49.2                              | -                                    | 5.09                                      | 28.2                     | 61.8                    |
+| DAMO-YOLOl | 640                         | **50.8**                          | -                                    | 7.18                                      | 42.1                     | 97.3                    |
 
 DAMO-YOLO achieves higher mAP than YOLOv5 at comparable parameter counts; for example, DAMO-YOLOs reaches 46.0 mAP with 16.3M parameters, versus 45.4 mAP for the 21.2M-parameter YOLOv5m. YOLOv5 offers the fastest [TensorRT](https://docs.ultralytics.com/integrations/tensorrt) speeds and the lowest parameter counts in its nano and small configurations, which suits latency-critical edge deployments.
 

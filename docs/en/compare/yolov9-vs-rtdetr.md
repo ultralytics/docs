@@ -69,18 +69,18 @@ Building on the original [RT-DETR](https://docs.ultralytics.com/models/rtdetr), 
 
 When evaluating models for production, the trade-off between [accuracy](https://www.ultralytics.com/glossary/accuracy) and computational requirements is critical. The table below outlines the performance of various model sizes across standard benchmarks.
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv9t    | 640                         | 38.3                       | -                                    | **2.3**                                   | **2.0**                  | **7.7**                 |
-| YOLOv9s    | 640                         | 46.8                       | -                                    | 3.54                                      | 7.2                      | 26.7                    |
-| YOLOv9m    | 640                         | 51.4                       | -                                    | 6.43                                      | 20.1                     | 76.8                    |
-| YOLOv9c    | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
-| YOLOv9e    | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
-|            |                             |                            |                                      |                                           |                          |                         |
-| RTDETRv2-s | 640                         | 48.1                       | -                                    | 5.03                                      | 20                       | 60                      |
-| RTDETRv2-m | 640                         | 51.9                       | -                                    | 7.51                                      | 36                       | 100                     |
-| RTDETRv2-l | 640                         | 53.4                       | -                                    | 9.76                                      | 42                       | 136                     |
-| RTDETRv2-x | 640                         | 54.3                       | -                                    | 15.03                                     | 76                       | 259                     |
+| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOv9t    | 640                         | 38.3                              | -                                    | **2.3**                                   | **2.0**                  | **7.7**                 |
+| YOLOv9s    | 640                         | 46.8                              | -                                    | 3.54                                      | 7.2                      | 26.7                    |
+| YOLOv9m    | 640                         | 51.4                              | -                                    | 6.43                                      | 20.1                     | 76.8                    |
+| YOLOv9c    | 640                         | 53.0                              | -                                    | 7.16                                      | 25.5                     | 102.8                   |
+| YOLOv9e    | 640                         | **55.6**                          | -                                    | 16.77                                     | 58.1                     | 192.5                   |
+|            |                             |                                   |                                      |                                           |                          |                         |
+| RTDETRv2-s | 640                         | 48.1                              | -                                    | 5.03                                      | 20                       | 60                      |
+| RTDETRv2-m | 640                         | 51.9                              | -                                    | 7.51                                      | 36                       | 100                     |
+| RTDETRv2-l | 640                         | 53.4                              | -                                    | 9.76                                      | 42                       | 136                     |
+| RTDETRv2-x | 640                         | 54.3                              | -                                    | 15.03                                     | 76                       | 259                     |
 
 ### Analysis
 

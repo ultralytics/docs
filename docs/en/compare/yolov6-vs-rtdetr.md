@@ -77,17 +77,17 @@ Unlike traditional CNNs, RTDETRv2 is natively end-to-end. By leveraging transfor
 
 The following table benchmarks YOLOv6-3.0 and RTDETRv2 across key performance indicators. Note the contrast between the parameter efficiency of YOLOv6 and the raw accuracy of RTDETRv2.
 
-| Model       | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ----------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv6-3.0n | 640                         | 37.5                       | -                                    | **1.17**                                  | **4.7**                  | **11.4**                |
-| YOLOv6-3.0s | 640                         | 45.0                       | -                                    | 2.66                                      | 18.5                     | 45.3                    |
-| YOLOv6-3.0m | 640                         | 50.0                       | -                                    | 5.28                                      | 34.9                     | 85.8                    |
-| YOLOv6-3.0l | 640                         | 52.8                       | -                                    | 8.95                                      | 59.6                     | 150.7                   |
-|             |                             |                            |                                      |                                           |                          |                         |
-| RTDETRv2-s  | 640                         | 48.1                       | -                                    | 5.03                                      | 20                       | 60                      |
-| RTDETRv2-m  | 640                         | 51.9                       | -                                    | 7.51                                      | 36                       | 100                     |
-| RTDETRv2-l  | 640                         | 53.4                       | -                                    | 9.76                                      | 42                       | 136                     |
-| RTDETRv2-x  | 640                         | **54.3**                   | -                                    | 15.03                                     | 76                       | 259                     |
+| Model       | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ----------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOv6-3.0n | 640                         | 37.5                              | -                                    | **1.17**                                  | **4.7**                  | **11.4**                |
+| YOLOv6-3.0s | 640                         | 45.0                              | -                                    | 2.66                                      | 18.5                     | 45.3                    |
+| YOLOv6-3.0m | 640                         | 50.0                              | -                                    | 5.28                                      | 34.9                     | 85.8                    |
+| YOLOv6-3.0l | 640                         | 52.8                              | -                                    | 8.95                                      | 59.6                     | 150.7                   |
+|             |                             |                                   |                                      |                                           |                          |                         |
+| RTDETRv2-s  | 640                         | 48.1                              | -                                    | 5.03                                      | 20                       | 60                      |
+| RTDETRv2-m  | 640                         | 51.9                              | -                                    | 7.51                                      | 36                       | 100                     |
+| RTDETRv2-l  | 640                         | 53.4                              | -                                    | 9.76                                      | 42                       | 136                     |
+| RTDETRv2-x  | 640                         | **54.3**                          | -                                    | 15.03                                     | 76                       | 259                     |
 
 !!! tip "Deployment Tip"
 

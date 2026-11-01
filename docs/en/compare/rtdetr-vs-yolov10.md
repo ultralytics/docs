@@ -78,19 +78,19 @@ The core innovation of YOLOv10 is its consistent dual assignments for NMS-free t
 
 When evaluating models for production, accuracy has to be weighed against computational cost. The table below shows the trade-offs between the sizes of RTDETRv2 and YOLOv10 on COCO.
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| RTDETRv2-s | 640                         | 48.1                       | -                                    | 5.03                                      | 20                       | 60                      |
-| RTDETRv2-m | 640                         | 51.9                       | -                                    | 7.51                                      | 36                       | 100                     |
-| RTDETRv2-l | 640                         | 53.4                       | -                                    | 9.76                                      | 42                       | 136                     |
-| RTDETRv2-x | 640                         | 54.3                       | -                                    | 15.03                                     | 76                       | 259                     |
-|            |                             |                            |                                      |                                           |                          |                         |
-| YOLOv10n   | 640                         | 38.5                       | -                                    | **1.84**                                  | **2.3**                  | **6.7**                 |
-| YOLOv10s   | 640                         | 46.3                       | -                                    | 2.49                                      | 7.2                      | 21.6                    |
-| YOLOv10m   | 640                         | 51.1                       | -                                    | 4.74                                      | 15.4                     | 59.1                    |
-| YOLOv10b   | 640                         | 52.5                       | -                                    | 5.74                                      | 19.1                     | 92.0                    |
-| YOLOv10l   | 640                         | 53.2                       | -                                    | 7.28                                      | 24.4                     | 120.3                   |
-| YOLOv10x   | 640                         | **54.4**                   | -                                    | 10.70                                     | 29.5                     | 160.4                   |
+| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| RTDETRv2-s | 640                         | 48.1                              | -                                    | 5.03                                      | 20                       | 60                      |
+| RTDETRv2-m | 640                         | 51.9                              | -                                    | 7.51                                      | 36                       | 100                     |
+| RTDETRv2-l | 640                         | 53.4                              | -                                    | 9.76                                      | 42                       | 136                     |
+| RTDETRv2-x | 640                         | 54.3                              | -                                    | 15.03                                     | 76                       | 259                     |
+|            |                             |                                   |                                      |                                           |                          |                         |
+| YOLOv10n   | 640                         | 38.5                              | -                                    | **1.84**                                  | **2.3**                  | **6.7**                 |
+| YOLOv10s   | 640                         | 46.3                              | -                                    | 2.49                                      | 7.2                      | 21.6                    |
+| YOLOv10m   | 640                         | 51.1                              | -                                    | 4.74                                      | 15.4                     | 59.1                    |
+| YOLOv10b   | 640                         | 52.5                              | -                                    | 5.74                                      | 19.1                     | 92.0                    |
+| YOLOv10l   | 640                         | 53.2                              | -                                    | 7.28                                      | 24.4                     | 120.3                   |
+| YOLOv10x   | 640                         | **54.4**                          | -                                    | 10.70                                     | 29.5                     | 160.4                   |
 
 RTDETRv2 is slightly more accurate at the small, medium, and large scales (48.1, 51.9, and 53.4 mAP versus 46.3, 51.1, and 53.2 for YOLOv10s, m, and l), but YOLOv10 is faster and smaller at every scale. YOLOv10x matches RTDETRv2-x in accuracy (54.4 vs 54.3 mAP) with 29.5M instead of 76M parameters and 10.70 ms instead of 15.03 ms TensorRT latency. The nano and small variants make YOLOv10 attractive for [edge computing and AIoT](https://www.ultralytics.com/blog/edge-ai-and-aiot-upgrade-any-camera-with-ultralytics-yolov8-in-a-no-code-way) applications.
 

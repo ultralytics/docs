@@ -46,24 +46,24 @@ YOLOv5 is known for its **Ease of Use** and **Well-Maintained Ecosystem**. Writt
 
 Visualizing the relationship between speed and accuracy is essential for identifying the models that offer the best accuracy for a given speed constraint. Understanding these [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics) is fundamental to selecting a model that aligns with your specific hardware constraints.
 
-| Model    | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| -------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv10n | 640                         | 38.5                       | -                                    | 1.84                                      | 2.3                      | 6.7                     |
-| YOLOv10s | 640                         | 46.3                       | -                                    | 2.49                                      | 7.2                      | 21.6                    |
-| YOLOv10m | 640                         | 51.1                       | -                                    | 4.74                                      | 15.4                     | 59.1                    |
-| YOLOv10b | 640                         | 52.5                       | -                                    | 5.74                                      | 19.1                     | 92.0                    |
-| YOLOv10l | 640                         | 53.2                       | -                                    | 7.28                                      | 24.4                     | 120.3                   |
-| YOLOv10x | 640                         | **54.4**                   | -                                    | 10.70                                     | 29.5                     | 160.4                   |
-|          |                             |                            |                                      |                                           |                          |                         |
-| YOLOv5n  | 640                         | 28.0                       | -                                    | **1.12**                                  | **1.9**                  | **4.5**                 |
-| YOLOv5s  | 640                         | 37.4                       | -                                    | 1.92                                      | 7.2                      | 16.5                    |
-| YOLOv5m  | 640                         | 45.4                       | -                                    | 4.03                                      | 21.2                     | 49.0                    |
-| YOLOv5l  | 640                         | 49.0                       | -                                    | 6.61                                      | 46.5                     | 109.1                   |
-| YOLOv5x  | 640                         | 50.7                       | -                                    | 11.89                                     | 86.7                     | 205.7                   |
+| Model    | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| -------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOv10n | 640                         | 38.5                              | -                                    | 1.84                                      | 2.3                      | 6.7                     |
+| YOLOv10s | 640                         | 46.3                              | -                                    | 2.49                                      | 7.2                      | 21.6                    |
+| YOLOv10m | 640                         | 51.1                              | -                                    | 4.74                                      | 15.4                     | 59.1                    |
+| YOLOv10b | 640                         | 52.5                              | -                                    | 5.74                                      | 19.1                     | 92.0                    |
+| YOLOv10l | 640                         | 53.2                              | -                                    | 7.28                                      | 24.4                     | 120.3                   |
+| YOLOv10x | 640                         | **54.4**                          | -                                    | 10.70                                     | 29.5                     | 160.4                   |
+|          |                             |                                   |                                      |                                           |                          |                         |
+| YOLOv5n  | 640                         | 28.0                              | -                                    | **1.12**                                  | **1.9**                  | **4.5**                 |
+| YOLOv5s  | 640                         | 37.4                              | -                                    | 1.92                                      | 7.2                      | 16.5                    |
+| YOLOv5m  | 640                         | 45.4                              | -                                    | 4.03                                      | 21.2                     | 49.0                    |
+| YOLOv5l  | 640                         | 49.0                              | -                                    | 6.61                                      | 46.5                     | 109.1                   |
+| YOLOv5x  | 640                         | 50.7                              | -                                    | 11.89                                     | 86.7                     | 205.7                   |
 
 ### Technical Analysis
 
-1. **Accuracy (mAP):** YOLOv10 shows a clear generational advantage in accuracy. For instance, the YOLOv10-X model achieves 54.4% mAP<sup>val</sup>, outperforming YOLOv5x (50.7% mAP). This gain comes largely from YOLOv10's anchor-free head and accuracy-driven refinements such as large-kernel convolutions and partial self-attention.
+1. **Accuracy (mAP):** YOLOv10 shows a clear generational advantage in accuracy. For instance, the YOLOv10-X model achieves 54.4% mAP<sup>val</sup><sub>50-95</sub>, outperforming YOLOv5x (50.7% mAP). This gain comes largely from YOLOv10's anchor-free head and accuracy-driven refinements such as large-kernel convolutions and partial self-attention.
 2. **Inference Latency:** While YOLOv5 models are very fast on raw T4 TensorRT benchmarks (e.g., YOLOv5n at 1.12 ms), YOLOv10 can skip the NMS post-processing step entirely. In practical end-to-end deployments, YOLOv10's NMS-free design provides more consistent latency, which is critical for real-time applications like [autonomous vehicles](https://www.ultralytics.com/glossary/autonomous-vehicles) and robotics.
 3. **Parameter Efficiency:** YOLOv10 models offer a strong **Performance Balance**. YOLOv10-S achieves 46.3% mAP with 7.2M parameters, the same count as YOLOv5s, which reaches 37.4% mAP.
 

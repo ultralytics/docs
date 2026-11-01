@@ -55,23 +55,23 @@ YOLOv10 introduces a consistent dual-assignment strategy for NMS-free training. 
 
 When deploying models in real-world scenarios, developers must weigh [mean Average Precision (mAP)](https://www.ultralytics.com/glossary/mean-average-precision-map) against parameter counts and computational operations (FLOPs). The table below details these metrics across the scaling variants of both models.
 
-| Model           | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| --------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| EfficientDet-d0 | 512                         | 34.6                       | -                                    | 3.92                                      | 3.9                      | **2.54**                |
-| EfficientDet-d1 | 640                         | 40.5                       | -                                    | 7.31                                      | 6.6                      | 6.1                     |
-| EfficientDet-d2 | 768                         | 43.0                       | -                                    | 10.92                                     | 8.1                      | 11.0                    |
-| EfficientDet-d3 | 896                         | 47.5                       | -                                    | 19.59                                     | 12.0                     | 24.9                    |
-| EfficientDet-d4 | 1024                        | 49.7                       | -                                    | 33.55                                     | 20.7                     | 55.2                    |
-| EfficientDet-d5 | 1280                        | 51.5                       | -                                    | 67.86                                     | 33.7                     | 130.0                   |
-| EfficientDet-d6 | 1280                        | 52.6                       | -                                    | 89.29                                     | 51.9                     | 226.0                   |
-| EfficientDet-d7 | 1536                        | 53.7                       | -                                    | 128.07                                    | 51.9                     | 325.0                   |
-|                 |                             |                            |                                      |                                           |                          |                         |
-| YOLOv10n        | 640                         | 38.5                       | -                                    | **1.84**                                  | **2.3**                  | 6.7                     |
-| YOLOv10s        | 640                         | 46.3                       | -                                    | 2.49                                      | 7.2                      | 21.6                    |
-| YOLOv10m        | 640                         | 51.1                       | -                                    | 4.74                                      | 15.4                     | 59.1                    |
-| YOLOv10b        | 640                         | 52.5                       | -                                    | 5.74                                      | 19.1                     | 92.0                    |
-| YOLOv10l        | 640                         | 53.2                       | -                                    | 7.28                                      | 24.4                     | 120.3                   |
-| YOLOv10x        | 640                         | **54.4**                   | -                                    | 10.70                                     | 29.5                     | 160.4                   |
+| Model           | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| --------------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| EfficientDet-d0 | 512                         | 34.6                              | -                                    | 3.92                                      | 3.9                      | **2.54**                |
+| EfficientDet-d1 | 640                         | 40.5                              | -                                    | 7.31                                      | 6.6                      | 6.1                     |
+| EfficientDet-d2 | 768                         | 43.0                              | -                                    | 10.92                                     | 8.1                      | 11.0                    |
+| EfficientDet-d3 | 896                         | 47.5                              | -                                    | 19.59                                     | 12.0                     | 24.9                    |
+| EfficientDet-d4 | 1024                        | 49.7                              | -                                    | 33.55                                     | 20.7                     | 55.2                    |
+| EfficientDet-d5 | 1280                        | 51.5                              | -                                    | 67.86                                     | 33.7                     | 130.0                   |
+| EfficientDet-d6 | 1280                        | 52.6                              | -                                    | 89.29                                     | 51.9                     | 226.0                   |
+| EfficientDet-d7 | 1536                        | 53.7                              | -                                    | 128.07                                    | 51.9                     | 325.0                   |
+|                 |                             |                                   |                                      |                                           |                          |                         |
+| YOLOv10n        | 640                         | 38.5                              | -                                    | **1.84**                                  | **2.3**                  | 6.7                     |
+| YOLOv10s        | 640                         | 46.3                              | -                                    | 2.49                                      | 7.2                      | 21.6                    |
+| YOLOv10m        | 640                         | 51.1                              | -                                    | 4.74                                      | 15.4                     | 59.1                    |
+| YOLOv10b        | 640                         | 52.5                              | -                                    | 5.74                                      | 19.1                     | 92.0                    |
+| YOLOv10l        | 640                         | 53.2                              | -                                    | 7.28                                      | 24.4                     | 120.3                   |
+| YOLOv10x        | 640                         | **54.4**                          | -                                    | 10.70                                     | 29.5                     | 160.4                   |
 
 _Note: The YOLOv10n variant requires fewer parameters (2.3M) and achieves much faster TensorRT speeds (1.84ms) than the smallest EfficientDet variants, making it much more viable for [real-time inference](https://www.ultralytics.com/glossary/real-time-inference) in production._
 

@@ -25,7 +25,7 @@ Building on the success of the original RT-DETR, RTDETRv2 utilizes a hybrid enco
 
 ### DAMO-YOLO: Advancing CNN Efficiency
 
-DAMO-YOLO, on the other hand, remains rooted in the CNN-based YOLO lineage but introduces several notable enhancements. It uses Neural Architecture Search ([NAS](https://www.ultralytics.com/glossary/neural-architecture-search-nas)) to optimize its backbone for feature extraction efficiency. It also incorporates an efficient RepGFPN (Reparameterized Generalized Feature Pyramid Network) and a ZeroHead design, alongside AlignedOTA and [knowledge distillation](https://www.ultralytics.com/glossary/knowledge-distillation) techniques. These innovations allow DAMO-YOLO to achieve rapid inference speeds while maintaining a competitive mAP<sup>val</sup> score.
+DAMO-YOLO, on the other hand, remains rooted in the CNN-based YOLO lineage but introduces several notable enhancements. It uses Neural Architecture Search ([NAS](https://www.ultralytics.com/glossary/neural-architecture-search-nas)) to optimize its backbone for feature extraction efficiency. It also incorporates an efficient RepGFPN (Reparameterized Generalized Feature Pyramid Network) and a ZeroHead design, alongside AlignedOTA and [knowledge distillation](https://www.ultralytics.com/glossary/knowledge-distillation) techniques. These innovations allow DAMO-YOLO to achieve rapid inference speeds while maintaining a competitive mAP<sup>val</sup><sub>50-95</sub> score.
 
 [Learn more about DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO){ .md-button }
 
@@ -37,21 +37,21 @@ DAMO-YOLO, on the other hand, remains rooted in the CNN-based YOLO lineage but i
 
 When evaluating models for deployment, [performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics) such as mean Average Precision (mAP), inference speed, and parameter count are paramount. The table below compares the two model families.
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| RTDETRv2-s | 640                         | 48.1                       | -                                    | 5.03                                      | 20                       | 60                      |
-| RTDETRv2-m | 640                         | 51.9                       | -                                    | 7.51                                      | 36                       | 100                     |
-| RTDETRv2-l | 640                         | 53.4                       | -                                    | 9.76                                      | 42                       | 136                     |
-| RTDETRv2-x | 640                         | **54.3**                   | -                                    | 15.03                                     | 76                       | 259                     |
-|            |                             |                            |                                      |                                           |                          |                         |
-| DAMO-YOLOt | 640                         | 42.0                       | -                                    | **2.32**                                  | **8.5**                  | **18.1**                |
-| DAMO-YOLOs | 640                         | 46.0                       | -                                    | 3.45                                      | 16.3                     | 37.8                    |
-| DAMO-YOLOm | 640                         | 49.2                       | -                                    | 5.09                                      | 28.2                     | 61.8                    |
-| DAMO-YOLOl | 640                         | 50.8                       | -                                    | 7.18                                      | 42.1                     | 97.3                    |
+| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| RTDETRv2-s | 640                         | 48.1                              | -                                    | 5.03                                      | 20                       | 60                      |
+| RTDETRv2-m | 640                         | 51.9                              | -                                    | 7.51                                      | 36                       | 100                     |
+| RTDETRv2-l | 640                         | 53.4                              | -                                    | 9.76                                      | 42                       | 136                     |
+| RTDETRv2-x | 640                         | **54.3**                          | -                                    | 15.03                                     | 76                       | 259                     |
+|            |                             |                                   |                                      |                                           |                          |                         |
+| DAMO-YOLOt | 640                         | 42.0                              | -                                    | **2.32**                                  | **8.5**                  | **18.1**                |
+| DAMO-YOLOs | 640                         | 46.0                              | -                                    | 3.45                                      | 16.3                     | 37.8                    |
+| DAMO-YOLOm | 640                         | 49.2                              | -                                    | 5.09                                      | 28.2                     | 61.8                    |
+| DAMO-YOLOl | 640                         | 50.8                              | -                                    | 7.18                                      | 42.1                     | 97.3                    |
 
 ### Analysis of Results
 
-As seen in the table, the **RTDETRv2-x** achieves the highest accuracy with an mAP<sup>val</sup> of 54.3, showing the strength of the transformer architecture on challenging benchmarks like the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco). However, this comes at the cost of significantly higher parameters (76M) and FLOPs.
+As seen in the table, the **RTDETRv2-x** achieves the highest accuracy with an mAP<sup>val</sup><sub>50-95</sub> of 54.3, showing the strength of the transformer architecture on challenging benchmarks like the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco). However, this comes at the cost of significantly higher parameters (76M) and FLOPs.
 
 **DAMO-YOLOt** (Tiny), by contrast, is very lightweight, requiring only 8.5M parameters, making it a fast option for environments where CUDA memory is severely restricted. DAMO-YOLO generally provides a favorable trade-off between speed and accuracy for legacy edge devices.
 

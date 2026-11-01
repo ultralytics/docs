@@ -59,16 +59,16 @@ YOLOv7 took a different approach by introducing the Extended Efficient Layer Agg
 
 When balancing speed, parameters, and accuracy (mAP), each model leads in different areas depending on the specific variant and target hardware. The table below compares their metrics.
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| PP-YOLOE+t | 640                         | 39.9                       | -                                    | 2.84                                      | **4.85**                 | 19.15                   |
-| PP-YOLOE+s | 640                         | 43.7                       | -                                    | **2.62**                                  | 7.93                     | **17.36**               |
-| PP-YOLOE+m | 640                         | 49.8                       | -                                    | 5.56                                      | 23.43                    | 49.91                   |
-| PP-YOLOE+l | 640                         | 52.9                       | -                                    | 8.36                                      | 52.2                     | 110.07                  |
-| PP-YOLOE+x | 640                         | **54.7**                   | -                                    | 14.3                                      | 98.42                    | 206.59                  |
-|            |                             |                            |                                      |                                           |                          |                         |
-| YOLOv7l    | 640                         | 51.4                       | -                                    | 6.84                                      | 36.9                     | 104.7                   |
-| YOLOv7x    | 640                         | 53.1                       | -                                    | 11.57                                     | 71.3                     | 189.9                   |
+| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| PP-YOLOE+t | 640                         | 39.9                              | -                                    | 2.84                                      | **4.85**                 | 19.15                   |
+| PP-YOLOE+s | 640                         | 43.7                              | -                                    | **2.62**                                  | 7.93                     | **17.36**               |
+| PP-YOLOE+m | 640                         | 49.8                              | -                                    | 5.56                                      | 23.43                    | 49.91                   |
+| PP-YOLOE+l | 640                         | 52.9                              | -                                    | 8.36                                      | 52.2                     | 110.07                  |
+| PP-YOLOE+x | 640                         | **54.7**                          | -                                    | 14.3                                      | 98.42                    | 206.59                  |
+|            |                             |                                   |                                      |                                           |                          |                         |
+| YOLOv7l    | 640                         | 51.4                              | -                                    | 6.84                                      | 36.9                     | 104.7                   |
+| YOLOv7x    | 640                         | 53.1                              | -                                    | 11.57                                     | 71.3                     | 189.9                   |
 
 While the PP-YOLOE+x model achieves a slightly higher mAP, YOLOv7 variants offer a very strong parameter-to-accuracy ratio. The YOLOv7 architecture remains a favorite for raw [GPU](https://www.ultralytics.com/glossary/gpu-graphics-processing-unit) processing where TensorRT optimization provides very low latency.
 

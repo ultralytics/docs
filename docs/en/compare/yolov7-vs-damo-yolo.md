@@ -58,15 +58,15 @@ DAMO-YOLO diverges by heavily leveraging **Neural Architecture Search (NAS)** un
 
 When comparing these models, it is crucial to look at [mAP (Mean Average Precision)](https://www.ultralytics.com/glossary/mean-average-precision-map), inference speed, and model complexity.
 
-| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ---------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv7l    | 640                         | 51.4                       | -                                    | 6.84                                      | 36.9                     | 104.7                   |
-| YOLOv7x    | 640                         | **53.1**                   | -                                    | 11.57                                     | 71.3                     | 189.9                   |
-|            |                             |                            |                                      |                                           |                          |                         |
-| DAMO-YOLOt | 640                         | 42.0                       | -                                    | **2.32**                                  | **8.5**                  | **18.1**                |
-| DAMO-YOLOs | 640                         | 46.0                       | -                                    | 3.45                                      | 16.3                     | 37.8                    |
-| DAMO-YOLOm | 640                         | 49.2                       | -                                    | 5.09                                      | 28.2                     | 61.8                    |
-| DAMO-YOLOl | 640                         | 50.8                       | -                                    | 7.18                                      | 42.1                     | 97.3                    |
+| Model      | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ---------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOv7l    | 640                         | 51.4                              | -                                    | 6.84                                      | 36.9                     | 104.7                   |
+| YOLOv7x    | 640                         | **53.1**                          | -                                    | 11.57                                     | 71.3                     | 189.9                   |
+|            |                             |                                   |                                      |                                           |                          |                         |
+| DAMO-YOLOt | 640                         | 42.0                              | -                                    | **2.32**                                  | **8.5**                  | **18.1**                |
+| DAMO-YOLOs | 640                         | 46.0                              | -                                    | 3.45                                      | 16.3                     | 37.8                    |
+| DAMO-YOLOm | 640                         | 49.2                              | -                                    | 5.09                                      | 28.2                     | 61.8                    |
+| DAMO-YOLOl | 640                         | 50.8                              | -                                    | 7.18                                      | 42.1                     | 97.3                    |
 
 The table above demonstrates that YOLOv7 scales well into high-accuracy domains (YOLOv7x), while DAMO-YOLO provides highly optimized tiny models for constrained environments.
 

@@ -63,20 +63,20 @@ Despite its high accuracy, YOLOv9 still relies on standard NMS post-processing. 
 
 The table below illustrates the core metrics for both models. Notice how YOLOv10 typically achieves lower latency via TensorRT, while YOLOv9 pushes the upper limits of accuracy in its largest configuration.
 
-| Model    | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| -------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| YOLOv10n | 640                         | 38.5                       | -                                    | **1.84**                                  | 2.3                      | **6.7**                 |
-| YOLOv10s | 640                         | 46.3                       | -                                    | 2.49                                      | 7.2                      | 21.6                    |
-| YOLOv10m | 640                         | 51.1                       | -                                    | 4.74                                      | 15.4                     | 59.1                    |
-| YOLOv10b | 640                         | 52.5                       | -                                    | 5.74                                      | 19.1                     | 92.0                    |
-| YOLOv10l | 640                         | 53.2                       | -                                    | 7.28                                      | 24.4                     | 120.3                   |
-| YOLOv10x | 640                         | 54.4                       | -                                    | 10.70                                     | 29.5                     | 160.4                   |
-|          |                             |                            |                                      |                                           |                          |                         |
-| YOLOv9t  | 640                         | 38.3                       | -                                    | 2.3                                       | **2.0**                  | 7.7                     |
-| YOLOv9s  | 640                         | 46.8                       | -                                    | 3.54                                      | 7.2                      | 26.7                    |
-| YOLOv9m  | 640                         | 51.4                       | -                                    | 6.43                                      | 20.1                     | 76.8                    |
-| YOLOv9c  | 640                         | 53.0                       | -                                    | 7.16                                      | 25.5                     | 102.8                   |
-| YOLOv9e  | 640                         | **55.6**                   | -                                    | 16.77                                     | 58.1                     | 192.5                   |
+| Model    | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| -------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| YOLOv10n | 640                         | 38.5                              | -                                    | **1.84**                                  | 2.3                      | **6.7**                 |
+| YOLOv10s | 640                         | 46.3                              | -                                    | 2.49                                      | 7.2                      | 21.6                    |
+| YOLOv10m | 640                         | 51.1                              | -                                    | 4.74                                      | 15.4                     | 59.1                    |
+| YOLOv10b | 640                         | 52.5                              | -                                    | 5.74                                      | 19.1                     | 92.0                    |
+| YOLOv10l | 640                         | 53.2                              | -                                    | 7.28                                      | 24.4                     | 120.3                   |
+| YOLOv10x | 640                         | 54.4                              | -                                    | 10.70                                     | 29.5                     | 160.4                   |
+|          |                             |                                   |                                      |                                           |                          |                         |
+| YOLOv9t  | 640                         | 38.3                              | -                                    | 2.3                                       | **2.0**                  | 7.7                     |
+| YOLOv9s  | 640                         | 46.8                              | -                                    | 3.54                                      | 7.2                      | 26.7                    |
+| YOLOv9m  | 640                         | 51.4                              | -                                    | 6.43                                      | 20.1                     | 76.8                    |
+| YOLOv9c  | 640                         | 53.0                              | -                                    | 7.16                                      | 25.5                     | 102.8                   |
+| YOLOv9e  | 640                         | **55.6**                          | -                                    | 16.77                                     | 58.1                     | 192.5                   |
 
 ## The Next Generation: Why YOLO26 Is Recommended
 

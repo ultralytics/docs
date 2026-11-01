@@ -55,17 +55,17 @@ Another notable feature is the Anchor-Aided Training (AAT) strategy. AAT combine
 
 When evaluating these models for [real-time inference](https://www.ultralytics.com/glossary/real-time-inference), balancing parameters, FLOPs, and mAP accuracy is crucial. The table below compares their performance.
 
-| Model       | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| ----------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| DAMO-YOLOt  | 640                         | 42.0                       | -                                    | 2.32                                      | 8.5                      | 18.1                    |
-| DAMO-YOLOs  | 640                         | 46.0                       | -                                    | 3.45                                      | 16.3                     | 37.8                    |
-| DAMO-YOLOm  | 640                         | 49.2                       | -                                    | 5.09                                      | 28.2                     | 61.8                    |
-| DAMO-YOLOl  | 640                         | 50.8                       | -                                    | 7.18                                      | 42.1                     | 97.3                    |
-|             |                             |                            |                                      |                                           |                          |                         |
-| YOLOv6-3.0n | 640                         | 37.5                       | -                                    | **1.17**                                  | **4.7**                  | **11.4**                |
-| YOLOv6-3.0s | 640                         | 45.0                       | -                                    | 2.66                                      | 18.5                     | 45.3                    |
-| YOLOv6-3.0m | 640                         | 50.0                       | -                                    | 5.28                                      | 34.9                     | 85.8                    |
-| YOLOv6-3.0l | 640                         | **52.8**                   | -                                    | 8.95                                      | 59.6                     | 150.7                   |
+| Model       | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| ----------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| DAMO-YOLOt  | 640                         | 42.0                              | -                                    | 2.32                                      | 8.5                      | 18.1                    |
+| DAMO-YOLOs  | 640                         | 46.0                              | -                                    | 3.45                                      | 16.3                     | 37.8                    |
+| DAMO-YOLOm  | 640                         | 49.2                              | -                                    | 5.09                                      | 28.2                     | 61.8                    |
+| DAMO-YOLOl  | 640                         | 50.8                              | -                                    | 7.18                                      | 42.1                     | 97.3                    |
+|             |                             |                                   |                                      |                                           |                          |                         |
+| YOLOv6-3.0n | 640                         | 37.5                              | -                                    | **1.17**                                  | **4.7**                  | **11.4**                |
+| YOLOv6-3.0s | 640                         | 45.0                              | -                                    | 2.66                                      | 18.5                     | 45.3                    |
+| YOLOv6-3.0m | 640                         | 50.0                              | -                                    | 5.28                                      | 34.9                     | 85.8                    |
+| YOLOv6-3.0l | 640                         | **52.8**                          | -                                    | 8.95                                      | 59.6                     | 150.7                   |
 
 While DAMO-YOLO exhibits a slight edge in the small tier (46.0 mAP vs 45.0 mAP), YOLOv6-3.0 scales better, leading in the medium and large tiers while keeping the lowest parameter count in its nano configuration.
 

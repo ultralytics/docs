@@ -51,21 +51,21 @@ EfficientDet introduces the BiFPN (Bidirectional Feature Pyramid Network), which
 
 Side by side, the trade-off between accuracy and inference speed becomes clear. The table below outlines key performance metrics, highlighting how [DAMO-YOLO's inference capabilities](https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md) stack up against the [EfficientDet model family](https://github.com/google/automl/tree/master/efficientdet#readme).
 
-| Model           | size<br><sup>(pixels)</sup> | mAP<sup>val<br>50-95</sup> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
-| --------------- | --------------------------- | -------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
-| DAMO-YOLOt      | 640                         | 42.0                       | -                                    | **2.32**                                  | 8.5                      | 18.1                    |
-| DAMO-YOLOs      | 640                         | 46.0                       | -                                    | 3.45                                      | 16.3                     | 37.8                    |
-| DAMO-YOLOm      | 640                         | 49.2                       | -                                    | 5.09                                      | 28.2                     | 61.8                    |
-| DAMO-YOLOl      | 640                         | 50.8                       | -                                    | 7.18                                      | 42.1                     | 97.3                    |
-|                 |                             |                            |                                      |                                           |                          |                         |
-| EfficientDet-d0 | 512                         | 34.6                       | -                                    | 3.92                                      | **3.9**                  | **2.54**                |
-| EfficientDet-d1 | 640                         | 40.5                       | -                                    | 7.31                                      | 6.6                      | 6.1                     |
-| EfficientDet-d2 | 768                         | 43.0                       | -                                    | 10.92                                     | 8.1                      | 11.0                    |
-| EfficientDet-d3 | 896                         | 47.5                       | -                                    | 19.59                                     | 12.0                     | 24.9                    |
-| EfficientDet-d4 | 1024                        | 49.7                       | -                                    | 33.55                                     | 20.7                     | 55.2                    |
-| EfficientDet-d5 | 1280                        | 51.5                       | -                                    | 67.86                                     | 33.7                     | 130.0                   |
-| EfficientDet-d6 | 1280                        | 52.6                       | -                                    | 89.29                                     | 51.9                     | 226.0                   |
-| EfficientDet-d7 | 1536                        | **53.7**                   | -                                    | 128.07                                    | 51.9                     | 325.0                   |
+| Model           | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
+| --------------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
+| DAMO-YOLOt      | 640                         | 42.0                              | -                                    | **2.32**                                  | 8.5                      | 18.1                    |
+| DAMO-YOLOs      | 640                         | 46.0                              | -                                    | 3.45                                      | 16.3                     | 37.8                    |
+| DAMO-YOLOm      | 640                         | 49.2                              | -                                    | 5.09                                      | 28.2                     | 61.8                    |
+| DAMO-YOLOl      | 640                         | 50.8                              | -                                    | 7.18                                      | 42.1                     | 97.3                    |
+|                 |                             |                                   |                                      |                                           |                          |                         |
+| EfficientDet-d0 | 512                         | 34.6                              | -                                    | 3.92                                      | **3.9**                  | **2.54**                |
+| EfficientDet-d1 | 640                         | 40.5                              | -                                    | 7.31                                      | 6.6                      | 6.1                     |
+| EfficientDet-d2 | 768                         | 43.0                              | -                                    | 10.92                                     | 8.1                      | 11.0                    |
+| EfficientDet-d3 | 896                         | 47.5                              | -                                    | 19.59                                     | 12.0                     | 24.9                    |
+| EfficientDet-d4 | 1024                        | 49.7                              | -                                    | 33.55                                     | 20.7                     | 55.2                    |
+| EfficientDet-d5 | 1280                        | 51.5                              | -                                    | 67.86                                     | 33.7                     | 130.0                   |
+| EfficientDet-d6 | 1280                        | 52.6                              | -                                    | 89.29                                     | 51.9                     | 226.0                   |
+| EfficientDet-d7 | 1536                        | **53.7**                          | -                                    | 128.07                                    | 51.9                     | 325.0                   |
 
 EfficientDet-d7 achieves the highest overall accuracy, making it suitable for demanding cloud-based applications. The DAMO-YOLO series offers competitive accuracy with much lower latency on GPU hardware, making it a stronger candidate for real-time edge deployments.
 
