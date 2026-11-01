@@ -70,7 +70,7 @@ When evaluating [YOLO performance metrics](https://docs.ultralytics.com/guides/y
 | PP-YOLOE+l | 640                         | 52.9                              | -                                    | 8.36                                      | 52.2                     | 110.07                  |
 | PP-YOLOE+x | 640                         | **54.7**                          | -                                    | 14.3                                      | 98.42                    | 206.59                  |
 
-PP-YOLOE+x reaches the highest mAP<sup>val</sup> on the [COCO dataset](https://cocodataset.org/) at 54.7%, 0.4 points above RTDETRv2-x, with slightly lower TensorRT latency (14.3 ms vs 15.03 ms) but more parameters (98.42M vs 76M). At the large scale, RTDETRv2-l is more accurate than PP-YOLOE+l (53.4% vs 52.9%) with fewer parameters, while PP-YOLOE+l is faster (8.36 ms vs 9.76 ms). PP-YOLOE+ also offers tiny and small variants under 8M parameters, a size tier RTDETRv2 does not cover, which suits edge deployments.
+PP-YOLOE+x reaches the highest mAP<sup>val</sup><sub>50-95</sub> on the [COCO dataset](https://cocodataset.org/) at 54.7%, 0.4 points above RTDETRv2-x, with slightly lower TensorRT latency (14.3 ms vs 15.03 ms) but more parameters (98.42M vs 76M). At the large scale, RTDETRv2-l is more accurate than PP-YOLOE+l (53.4% vs 52.9%) with fewer parameters, while PP-YOLOE+l is faster (8.36 ms vs 9.76 ms). PP-YOLOE+ also offers tiny and small variants under 8M parameters, a size tier RTDETRv2 does not cover, which suits edge deployments.
 
 ## The Ultralytics Advantage: Enter YOLO26
 

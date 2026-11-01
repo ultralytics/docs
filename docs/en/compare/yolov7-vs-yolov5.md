@@ -47,7 +47,7 @@ YOLOv7 introduced several structural re-parameterizations and the E-ELAN archite
 
 ## Performance Analysis
 
-When comparing these models, developers must balance mAP<sup>val</sup>, inference speed, and computational complexity (FLOPs). The table below demonstrates the performance of both architectures evaluated on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco).
+When comparing these models, developers must balance mAP<sup>val</sup><sub>50-95</sub>, inference speed, and computational complexity (FLOPs). The table below demonstrates the performance of both architectures evaluated on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco).
 
 | Model   | size<br><sup>(pixels)</sup> | mAP<sup>val</sup><sub>50-95</sub> | Speed<br><sup>CPU ONNX<br>(ms)</sup> | Speed<br><sup>T4 TensorRT10<br>(ms)</sup> | params<br><sup>(M)</sup> | FLOPs<br><sup>(B)</sup> |
 | ------- | --------------------------- | --------------------------------- | ------------------------------------ | ----------------------------------------- | ------------------------ | ----------------------- |
@@ -62,7 +62,7 @@ When comparing these models, developers must balance mAP<sup>val</sup>, inferenc
 
 ### Key Takeaways
 
-- **Accuracy Ceiling:** YOLOv7x achieves the highest overall accuracy at 53.1 mAP<sup>val</sup>, making it highly competitive for scenarios where maximizing detection performance is the primary goal.
+- **Accuracy Ceiling:** YOLOv7x achieves the highest overall accuracy at 53.1 mAP<sup>val</sup><sub>50-95</sub>, making it highly competitive for scenarios where maximizing detection performance is the primary goal.
 - **Speed and Efficiency:** Ultralytics YOLOv5n is very efficient, with 1.12 ms [inference latency](https://www.ultralytics.com/glossary/inference-latency) on T4 TensorRT and just 1.9M parameters. This makes it a strong choice for highly constrained edge deployments.
 - **Performance Balance:** The YOLOv5 series provides a wide range of model sizes. YOLOv5l offers a good middle ground, trailing YOLOv7l by a small accuracy margin but offering a highly mature deployment pipeline.
 

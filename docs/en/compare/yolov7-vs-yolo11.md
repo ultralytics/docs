@@ -44,7 +44,7 @@ _Note: Missing CPU speeds for YOLOv7 indicate legacy testing environments that d
 
 ### Analyzing the Results
 
-The data illustrates a clear evolution in efficiency. The YOLO11l (Large) model achieves a higher mAP<sup>val</sup> of 53.4% compared to YOLOv7l's 51.4%, while using significantly fewer parameters (25.3M vs 36.9M) and fewer FLOPs (87.2B vs 104.7B). This reduction in computational complexity allows YOLO11 to run faster on [NVIDIA TensorRT implementations](https://developer.nvidia.com/tensorrt) and requires less VRAM, making it much more suitable for hardware-constrained environments.
+The data illustrates a clear evolution in efficiency. The YOLO11l (Large) model achieves a higher mAP<sup>val</sup><sub>50-95</sub> of 53.4% compared to YOLOv7l's 51.4%, while using significantly fewer parameters (25.3M vs 36.9M) and fewer FLOPs (87.2B vs 104.7B). This reduction in computational complexity allows YOLO11 to run faster on [NVIDIA TensorRT implementations](https://developer.nvidia.com/tensorrt) and requires less VRAM, making it much more suitable for hardware-constrained environments.
 
 ## Usability and Training Workflows
 

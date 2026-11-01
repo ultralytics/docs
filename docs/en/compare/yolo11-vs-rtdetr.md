@@ -69,7 +69,7 @@ Evaluated on the standard [COCO dataset](https://docs.ultralytics.com/datasets/d
 
 ### Unpacking the Results
 
-YOLO11 delivers more accuracy per parameter. YOLO11x reaches a higher mAP<sup>val</sup> (54.7) than RTDETRv2-x (54.3) while using fewer parameters (56.9M vs 76M) and fewer FLOPs (195.3B vs 259B).
+YOLO11 delivers more accuracy per parameter. YOLO11x reaches a higher mAP<sup>val</sup><sub>50-95</sub> (54.7) than RTDETRv2-x (54.3) while using fewer parameters (56.9M vs 76M) and fewer FLOPs (195.3B vs 259B).
 
 YOLO11 is also faster on T4 [TensorRT](https://docs.ultralytics.com/integrations/tensorrt). YOLO11s runs in 2.5 ms versus 5.03 ms for RTDETRv2-s (47.0 vs 48.1 mAP), and YOLO11m is both more accurate (51.5 mAP) and faster (4.7 ms) than RTDETRv2-s. This makes YOLO11 a strong fit for real-time video analytics where frame processing time is the main bottleneck.
 

@@ -75,7 +75,7 @@ When benchmarking these models, it helps to look at accuracy, raw inference spee
 
 !!! info "Interpreting the Benchmarks"
 
-    While RTDETRv2-x reaches the highest mAP<sup>val</sup> at 54.3%, it requires 259 billion FLOPs. Conversely, YOLOv7 architectures provide a strong baseline but add NMS overhead that is not captured in pure network latency metrics.
+    While RTDETRv2-x reaches the highest mAP<sup>val</sup><sub>50-95</sub> at 54.3%, it requires 259 billion FLOPs. Conversely, YOLOv7 architectures provide a strong baseline but add NMS overhead that is not captured in pure network latency metrics.
 
 ## The Ultralytics Advantage: Ecosystem and Evolution
 

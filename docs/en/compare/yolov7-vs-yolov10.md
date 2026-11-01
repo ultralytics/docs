@@ -53,7 +53,7 @@ When analyzing model performance, it is important to evaluate the trade-offs bet
 
 ### Analyzing the Trade-Offs
 
-The metrics above reveal a clear generational gap. While YOLOv7x delivers a strong mAP<sup>val</sup> of 53.1%, it requires 71.3M parameters and 189.9B FLOPs. In contrast, YOLOv10l exceeds that accuracy (53.2% mAP) while requiring roughly one-third of the parameters (24.4M) and significantly fewer FLOPs (120.3B). Furthermore, YOLOv10n runs at 1.84 ms on a T4 GPU with TensorRT, making it well suited to real-time video analytics and mobile applications.
+The metrics above reveal a clear generational gap. While YOLOv7x delivers a strong mAP<sup>val</sup><sub>50-95</sub> of 53.1%, it requires 71.3M parameters and 189.9B FLOPs. In contrast, YOLOv10l exceeds that accuracy (53.2% mAP) while requiring roughly one-third of the parameters (24.4M) and significantly fewer FLOPs (120.3B). Furthermore, YOLOv10n runs at 1.84 ms on a T4 GPU with TensorRT, making it well suited to real-time video analytics and mobile applications.
 
 ## Real-World Use Cases
 

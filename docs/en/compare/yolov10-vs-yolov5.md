@@ -63,7 +63,7 @@ Visualizing the relationship between speed and accuracy is essential for identif
 
 ### Technical Analysis
 
-1. **Accuracy (mAP):** YOLOv10 shows a clear generational advantage in accuracy. For instance, the YOLOv10-X model achieves 54.4% mAP<sup>val</sup>, outperforming YOLOv5x (50.7% mAP). This gain comes largely from YOLOv10's anchor-free head and accuracy-driven refinements such as large-kernel convolutions and partial self-attention.
+1. **Accuracy (mAP):** YOLOv10 shows a clear generational advantage in accuracy. For instance, the YOLOv10-X model achieves 54.4% mAP<sup>val</sup><sub>50-95</sub>, outperforming YOLOv5x (50.7% mAP). This gain comes largely from YOLOv10's anchor-free head and accuracy-driven refinements such as large-kernel convolutions and partial self-attention.
 2. **Inference Latency:** While YOLOv5 models are very fast on raw T4 TensorRT benchmarks (e.g., YOLOv5n at 1.12 ms), YOLOv10 can skip the NMS post-processing step entirely. In practical end-to-end deployments, YOLOv10's NMS-free design provides more consistent latency, which is critical for real-time applications like [autonomous vehicles](https://www.ultralytics.com/glossary/autonomous-vehicles) and robotics.
 3. **Parameter Efficiency:** YOLOv10 models offer a strong **Performance Balance**. YOLOv10-S achieves 46.3% mAP with 7.2M parameters, the same count as YOLOv5s, which reaches 37.4% mAP.
 
