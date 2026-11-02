@@ -107,6 +107,12 @@ jobs:
           --no-verbose \
           --force-directories
 
+      - name: Remove page comments
+        run: |
+          # Check authored content only, not user-written page comments
+          find "${{ matrix.website }}" -type f -name "*.html" \
+            -exec perl -0pi -e 's#<section\b[^>]*\baria-labelledby="comments"[^>]*>.*?</section>##gis' {} +
+
       - name: Check image sizes
         if: github.event_name != 'workflow_dispatch' || inputs.check_images
         id: image_sizes
