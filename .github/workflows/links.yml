@@ -108,8 +108,9 @@ jobs:
           --force-directories
 
       - name: Remove reader comments
-        # Comments hold readers' own words, links and images; the checks cover only our content
-        run: find "${{ matrix.website }}" -type f -name "*.html" -exec perl -0pi -e 's#<section\b[^>]*\baria-labelledby="comments".*?</section>##gis' {} +
+        # Comments hold readers' own words, links and images; the checks cover only our content.
+        # The match recurses into nested <section>s, such as a comment's footnotes.
+        run: find "${{ matrix.website }}" -type f -name "*.html" -exec perl -0pi -e 's#<section\b[^>]*\baria-labelledby="comments"[^>]*>(?<b>(?:[^<]++|<(?!/?section\b)|<section\b[^>]*>(?&b)</section>)*+)</section>##gis' {} +
 
       - name: Check image sizes
         if: github.event_name != 'workflow_dispatch' || inputs.check_images
