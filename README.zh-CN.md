@@ -52,7 +52,7 @@
 
 ## 🔧 仓库工具
 
-本仓库包含文档源文件以及用于检查已发布站点的维护工作流。在本地运行仓库工具前，请先安装轻量的 Python 依赖：
+本仓库包含 `docs/en/compare/` 中的[模型对比页面](https://docs.ultralytics.com/compare)（`index.md` 总览页以及每对模型的对比页），以及用于检查已发布站点的维护工作流。在本地运行仓库工具前，请先安装轻量的 Python 依赖：
 
 ```bash
 uv pip install -r requirements.txt
@@ -65,7 +65,8 @@ uv pip install -r requirements.txt
 [docs.ultralytics.com](https://docs.ultralytics.com) 上的在线文档通过 `.github/workflows/` 中的定时和手动工作流进行维护：
 
 - `links.yml` 下载 `www.ultralytics.com`、`docs.ultralytics.com`、`academy.ultralytics.com` 和 `handbook.ultralytics.com` 的渲染页面，然后检查链接、拼写和大图片。
-- `links_local.yml` 检查仓库中 Markdown 和 HTML 的链接，手动运行时可选择进行更广泛的链接扫描。
+- `publish.yml` 在每次推送到 `main` 时以及每天触发集中发布服务。
+- `links_local.yml` 在每次推送、拉取请求时以及每天检查仓库中 Markdown 和 HTML 的链接，手动运行时可选择进行更广泛的链接扫描。
 - `download_websites.yml` 可下载公开网站页面以供检查。
 
 生产环境会将本仓库的内容与其他文档来源合并，使用 `zensical build --strict` 验证完整的文档树，并通过 Ultralytics 的集中发布服务进行渲染。因此本仓库没有独立的站点构建流程；请使用上述工作流检查已发布的页面。

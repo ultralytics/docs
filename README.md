@@ -52,7 +52,7 @@ The badges above track the core `ultralytics` Python package documented by this 
 
 ## 🔧 Repository Tooling
 
-This repository contains documentation source plus maintenance workflows for published-site checks. Install the lightweight Python dependencies before running repository utilities locally:
+This repository contains the [model comparison pages](https://docs.ultralytics.com/compare) in `docs/en/compare/` (the `index.md` hub plus one page per model pair) and maintenance workflows for published-site checks. Install the lightweight Python dependencies before running repository utilities locally:
 
 ```bash
 uv pip install -r requirements.txt
@@ -65,7 +65,8 @@ For example, `utils/check_image_sizes.py` is used by the website link-check work
 The live documentation at [docs.ultralytics.com](https://docs.ultralytics.com) is maintained with scheduled and manual workflows in `.github/workflows/`:
 
 - `links.yml` downloads rendered pages for `www.ultralytics.com`, `docs.ultralytics.com`, `academy.ultralytics.com`, and `handbook.ultralytics.com`, then checks links, spelling, and large images.
-- `links_local.yml` checks repository Markdown and HTML links, with an optional broader link scan on manual runs.
+- `publish.yml` triggers the centralized publisher on every push to `main` and daily.
+- `links_local.yml` checks repository Markdown and HTML links on every push, pull request, and daily, with an optional broader link scan on manual runs.
 - `download_websites.yml` can download public website pages for inspection.
 
 Production combines this repository's content with the other documentation sources, validates the complete tree with `zensical build --strict`, and renders it through Ultralytics' centralized publishing service. This repository therefore has no standalone site build; use the workflows above to check published pages.
