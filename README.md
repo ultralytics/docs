@@ -1,5 +1,7 @@
 <a href="https://www.ultralytics.com" target="_blank"><img src="https://raw.githubusercontent.com/ultralytics/assets/main/logo/Ultralytics_Logotype_Original.svg" width="320" alt="Ultralytics logo"></a>
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
 # 📚 Ultralytics Docs
 
 Welcome to Ultralytics Docs, your comprehensive resource for understanding and utilizing our state-of-the-art [machine learning](https://www.ultralytics.com/glossary/machine-learning-ml) tools and models, including [Ultralytics YOLO](https://docs.ultralytics.com/models). These documents are actively maintained and deployed to [https://docs.ultralytics.com](https://docs.ultralytics.com) for easy access.
@@ -50,7 +52,7 @@ The badges above track the core `ultralytics` Python package documented by this 
 
 ## 🔧 Repository Tooling
 
-This repository contains documentation source plus maintenance workflows for published-site checks. Install the lightweight Python dependencies before running repository utilities locally:
+This repository contains the [model comparison pages](https://docs.ultralytics.com/compare) in `docs/en/compare/` (the `index.md` hub plus one page per model pair) and maintenance workflows for published-site checks. Install the lightweight Python dependencies before running repository utilities locally:
 
 ```bash
 uv pip install -r requirements.txt
@@ -63,7 +65,8 @@ For example, `utils/check_image_sizes.py` is used by the website link-check work
 The live documentation at [docs.ultralytics.com](https://docs.ultralytics.com) is maintained with scheduled and manual workflows in `.github/workflows/`:
 
 - `links.yml` downloads rendered pages for `www.ultralytics.com`, `docs.ultralytics.com`, `academy.ultralytics.com`, and `handbook.ultralytics.com`, then checks links, spelling, and large images.
-- `links_local.yml` checks repository Markdown and HTML links, with an optional broader link scan on manual runs.
+- `publish.yml` triggers the centralized publisher on every push to `main` and daily.
+- `links_local.yml` checks repository Markdown and HTML links on every push, pull request, and daily, with an optional broader link scan on manual runs.
 - `download_websites.yml` can download public website pages for inspection.
 
 Production combines this repository's content with the other documentation sources, validates the complete tree with `zensical build --strict`, and renders it through Ultralytics' centralized publishing service. This repository therefore has no standalone site build; use the workflows above to check published pages.
@@ -86,3 +89,20 @@ Ultralytics Docs are available under two licensing options to accommodate differ
 ## ✉️ Contact
 
 For bug reports, feature requests, and other issues related to the documentation, please use [GitHub Issues](https://github.com/ultralytics/docs/issues). For discussions, questions, and community support regarding Ultralytics software, the [Ultralytics Platform](https://docs.ultralytics.com/platform/quickstart), and more, join the conversation with peers and the Ultralytics team on our [Discord server](https://discord.com/invite/ultralytics)!
+
+<br>
+<div align="center">
+  <a href="https://github.com/ultralytics"><img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-github.png" width="3%" alt="Ultralytics GitHub"></a>
+  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%" alt="space">
+  <a href="https://www.linkedin.com/company/ultralytics/"><img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-linkedin.png" width="3%" alt="Ultralytics LinkedIn"></a>
+  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%" alt="space">
+  <a href="https://twitter.com/ultralytics"><img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-twitter.png" width="3%" alt="Ultralytics Twitter"></a>
+  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%" alt="space">
+  <a href="https://www.youtube.com/ultralytics?sub_confirmation=1"><img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-youtube.png" width="3%" alt="Ultralytics YouTube"></a>
+  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%" alt="space">
+  <a href="https://www.tiktok.com/@ultralytics"><img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-tiktok.png" width="3%" alt="Ultralytics TikTok"></a>
+  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%" alt="space">
+  <a href="https://ultralytics.com/bilibili"><img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-bilibili.png" width="3%" alt="Ultralytics BiliBili"></a>
+  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%" alt="space">
+  <a href="https://discord.com/invite/ultralytics"><img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-discord.png" width="3%" alt="Ultralytics Discord"></a>
+</div>
